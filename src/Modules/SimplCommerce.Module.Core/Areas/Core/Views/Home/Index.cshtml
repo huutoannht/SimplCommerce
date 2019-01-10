@@ -4,10 +4,737 @@
     ViewData["Title"] = "Home Page";
 }
 
-<partial name="_WidgetInstances" model="Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeFeatured)" />
+@*<partial name="_WidgetInstances" model="Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeFeatured)" />
 
-<partial name="_WidgetInstances" model="Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeMainContent)" />
+    <partial name="_WidgetInstances" model="Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeMainContent)" />
 
-<partial name="_WidgetInstances" model="Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeAfterMainContent)" />
+    <partial name="_WidgetInstances" model="Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeAfterMainContent)" />*@
+
+<section>
+
+    <aside class="homebanner">
+        <div id="sync1">
+            <div class="item">
+                <a aria-label='slide' href='dtdd/huawei-y7-pro-2019.html' onclick="jQuery.ajax({ url: '//www.thegioididong.com/bannertracking?bid=25769&r='+ (new Date).getTime(),   async: true, cache: false });"><img src='~/themes/TheGioiDiDong/images/cdn/qcao/31_12_2018_14_32_47_Phu-kien-tet-800-170.png' alt='2019 - JA - Huawei Y7 Pro 2019 Pre order' /></a>
+            </div>
+            <div class="item">
+                <a aria-label='slide' href='khuyen-mai-soc/samsung-tet-duong-lich.html' onclick="jQuery.ajax({ url: '//www.thegioididong.com/bannertracking?bid=25753&r='+ (new Date).getTime(),   async: true, cache: false });"><img class='lazyOwl owl-lazy' data-src='//cdn.tgdd.vn/qcao/31_12_2018_11_36_37_HotsaleSStet-v3-800-300.png' alt='2018 - DE - Samsung Tết Dương' /></a>
+            </div>
+            <div class="item">
+                <a aria-label='slide' href='dtdd-oppo.html' onclick="jQuery.ajax({ url: '//www.thegioididong.com/bannertracking?bid=25253&r='+ (new Date).getTime(),   async: true, cache: false });"><img class='lazyOwl owl-lazy' data-src='//cdn.tgdd.vn/qcao/03_12_2018_10_45_06_Big-Oppo-800-300.png' alt='2018 - DE - Big OPPO' /></a>
+            </div>
+            <div class="item">
+                <a aria-label='slide' href='khuyen-mai-tet.html' onclick="jQuery.ajax({ url: '//www.thegioididong.com/bannertracking?bid=25715&r='+ (new Date).getTime(),   async: true, cache: false });"><img class='lazyOwl owl-lazy' data-src='//cdn.tgdd.vn/qcao/25_12_2018_21_14_29_game-tet-800-300.png' alt='2018 - DE - Game tết' /></a>
+            </div>
+            <div class="item">
+                <a aria-label='slide' href='dtdd/samsung-galaxy-a7-2018.html' onclick="jQuery.ajax({ url: '//www.thegioididong.com/bannertracking?bid=25369&r='+ (new Date).getTime(),   async: true, cache: false });"><img class='lazyOwl owl-lazy' data-src='//cdn.tgdd.vn/qcao/16_12_2018_19_43_15_A7-T12-V2-800-300.png' alt='2018 - DE - Galaxy A7' /></a>
+            </div>
+            <div class="item">
+                <a aria-label='slide' href='phu-kien-giam-soc.html' onclick="jQuery.ajax({ url: '//www.thegioididong.com/bannertracking?bid=25750&r='+ (new Date).getTime(),   async: true, cache: false });"><img class='lazyOwl owl-lazy' data-src='//cdn.tgdd.vn/qcao/31_12_2018_14_32_20_Phu-kien-tet-800-300.png' alt='2019 - JA - Phụ Kiện' /></a>
+            </div>
+
+        </div>
+        <div id="sync2">
+            <div class="item">
+                <h3>Đặt Trước Huawei Y7 Pro<br />Giá 3.990.000đ Quà Ngon</h3>
+                <i class="arrowbar"></i>
+            </div>
+            <div class="item">
+                <i class="arrowbarleft"></i>
+                <h3>Mừng Tân Niên <br /> Samsung Giảm Sốc</h3>
+                <i class="arrowbar"></i>
+            </div>
+            <div class="item">
+                <i class="arrowbarleft"></i>
+                <h3>OPPO Trả Góp 0%<br />Tặng Phiếu Mua Hàng</h3>
+                <i class="arrowbar"></i>
+            </div>
+            <div class="item">
+                <i class="arrowbarleft"></i>
+                <h3>Đón Xe Về Quê<br />Thêm Quà Vui Tết</h3>
+                <i class="arrowbar"></i>
+            </div>
+            <div class="item">
+                <i class="arrowbarleft"></i>
+                <h3>Galaxy A7 Trả Góp 0% <br /> 3 Camera Cực Chất</h3>
+                <i class="arrowbar"></i>
+            </div>
+            <div class="item">
+                <i class="arrowbarleft"></i>
+                <h3>Tết Phụ Kiện<br />Giảm Sốc 49%</h3>
+            </div>
+        </div>
+    </aside>
+
+
+    <aside class="homenews">
+        <figure>
+            <h2><a href="tin-tuc.html">Tin công nghệ</a></h2>
+            <b></b>
+        </figure>
+        <ul>
+            <li>
+                <a href="tin-tuc/trung-heo-vang-choi-tet-khi-mua-dien-thoai-huawei-tai-tgdd-1141732.html">
+                    <img width="100" height="70" src='~/themes/TheGioiDiDong/images/cdn/Files/2018/12/31/1141732/tet-huawei_800x450-100x100.jpg' alt="Cơ hội tr&#250;ng “Heo v&#224;ng”, thoải m&#225;i chơi Tết khi mua điện thoại Huawei tại TGDĐ">
+                    <h3>Cơ hội tr&#250;ng “Heo v&#224;ng”, thoải m&#225;i chơi Tết khi mua điện thoại Huawei tại TGDĐ</h3>
+                    <span>1 giờ trước</span>
+                </a>
+            </li>
+        </ul>
+        <div class="twobanner">
+            <a aria-label='slide' href='dong-ho-thong-minh/samsung-galaxy-watch-42mm.html' onclick="jQuery.ajax({ url: '//www.thegioididong.com/bannertracking?bid=25739&r='+ (new Date).getTime(),   async: true, cache: false });"><img src='~/themes/TheGioiDiDong/images/cdn/qcao/28_12_2018_14_30_57_Galaxy-Watch-398-110.png' alt='2018 - DE - Galaxy Watch' /></a>
+            <a aria-label='slide' href='dtdd/iphone-6s-plus-32gb.html' onclick="jQuery.ajax({ url: '//www.thegioididong.com/bannertracking?bid=25717&r='+ (new Date).getTime(),   async: true, cache: false });"><img src='~/themes/TheGioiDiDong/images/cdn/qcao/25_12_2018_21_57_36_iPhone6sPlus-398-110.png' alt='2018 - DE - Big Apple' /></a>
+        </div>
+
+    </aside>
+
+    <div class="clr"></div>
+    <div class="promotebanner">
+        <a aria-label='slide' href='mua-online-gia-re-hon.html' onclick="jQuery.ajax({ url: '//www.thegioididong.com/bannertracking?bid=23962&r='+ (new Date).getTime(),   async: true, cache: false });"><img src='~/themes/TheGioiDiDong/images/cdn/qcao/28_12_2018_23_18_44_1200x75%401x(1).png' alt='Ve que' /></a>
+    </div>
+
+    ﻿
+    <div class="">
+        <div class="navigat ">
+            <h2>15 KHUYẾN MÃI HOT NHẤT</h2>
+        </div>
+        <div id="owl-promo" class="owl-carousel homepromo ">
+
+            <div class="item">
+                <!--#region Ngành hàng chính -->
+                <a href="dtdd/huawei-y7-pro-2019.html">
+                    <img width="180" height="180" src='~/themes/TheGioiDiDong/images/cdn/Products/Images/42/197205/huawei-y7-pro-2019-15-600x600.jpg' alt="Huawei Y7 Pro (2019)" />
+                    <h3>Huawei Y7 Pro (2019)</h3>
+                    <div class="price"><strong>3.990.000₫</strong></div>
+                    <div class="promo noimage">
+                        <p>Đặt trước nhận Loa bluetooth, ốp lưng, trả g&#243;p 0%</p>
+                    </div>
+
+                    <label class="preorder">Đặt trước đến 06/01</label>
+                </a>
+                <!--#endregion -->
+
+            </div>
+            <div class="item">
+                <!--#region Ngành hàng chính -->
+                <a href="dtdd/samsung-galaxy-note-9.html">
+
+
+                    <img width="180" height="180" src='~/themes/TheGioiDiDong/images/cdn/Products/Images/42/154897/samsung-galaxy-note-9-black-600x600-600x600-600x600.jpg' alt="Samsung Galaxy Note 9" />
+                    <h3>Samsung Galaxy Note 9</h3>
+                    <div class="price"><strong>22.990.000₫</strong></div>
+                    <div class="promo noimage">
+                        <p> Thu cũ đổi mới tiết kiệm đến 9 triệu và <b>4 K.mãi</b> khác</p>
+                    </div>
+
+
+                </a>
+                <!--#endregion -->
+
+            </div>
+            <div class="item">
+                <!--#region Ngành hàng chính -->
+                <a href="dtdd/iphone-xs-max.html">
+                    <img width="180" height="180" src='~/themes/TheGioiDiDong/images/cdn/Products/Images/42/190321/iphone-xs-max-gray-600x600.jpg' alt="iPhone Xs Max 64GB" />
+                    <h3>iPhone Xs Max 64GB</h3>
+                    <div class="price"><strong>31.990.000₫</strong><span>33.990.000₫</span></div>
+                    <label class="shockprice">Giá rẻ Online</label>
+                </a>
+                <!--#endregion -->
+
+            </div>
+            <div class="item">
+                <!--#region Ngành hàng chính -->
+                <a href="dtdd/samsung-galaxy-j8.html">
+                    <img width="180" height="180" src='~/themes/TheGioiDiDong/images/cdn/Products/Images/42/153830/samsung-galaxy-j8-600x600-600x600-600x600.jpg' alt="Samsung Galaxy J8" />
+                    <h3>Samsung Galaxy J8</h3>
+                    <div class="price"><strong>6.290.000₫</strong></div>
+                    <div class="promo">
+                        <img width="30" height="30" data-original="https://cdn.tgdd.vn/Products/Images/2102/118294/phieu-mua-hang-100000d-km-100x100.jpg' class="lazy" alt="Phiếu mua h&#224;ng 100.000đ" />
+                        <p>Tặng Phiếu mua h&#224;ng 100.000đ và <b>2 K.mãi</b> khác</p>
+                    </div>
+
+                    <label class="discount">GIẢM 1.500.000₫</label>
+                </a>
+                <!--#endregion -->
+
+            </div>
+            <div class="item">
+                <!--#region Ngành hàng chính -->
+                <a href="dtdd/huawei-y9-2019.html">
+                    <img width="180" height="180" src='~/themes/TheGioiDiDong/images/cdn/Products/Images/42/192313/huawei-y9-2019-blue-600x600.jpg' alt="Huawei Y9 (2019)" />
+                    <h3>Huawei Y9 (2019)</h3>
+                    <div class="price"><strong>5.490.000₫</strong></div>
+                    <div class="promo">
+                        <img width="30" height="30" data-original="https://cdn.tgdd.vn/Products/Images/2102/197482/loa-bluetooth-puridea-i6-100x100.jpg' class="lazy" alt="Loa Bluetooth Speaker (21 - 31/12)" />
+                        <p>Tặng Loa Bluetooth Speaker (21 - 31/12) và <b>1 K.mãi</b> khác</p>
+                    </div>
+
+                    <label class="discount">GIẢM 200.000₫</label>
+                </a>
+                <!--#endregion -->
+
+            </div>
+            <div class="item">
+                <!--#region Ngành hàng chính -->
+                <a href="dtdd/xiaomi-mi-a2.html">
+                    <img width="180" height="180" data-original="https://cdn.tgdd.vn/Products/Images/42/182151/xiaomi-mi-a2-blue-600x600.jpg" class="lazy" alt="Xiaomi Mi A2" />
+                    <h3>Xiaomi Mi A2</h3>
+                    <div class="price"><strong>5.490.000₫</strong><span>6.690.000₫</span></div>
+                    <label class="shockprice">Giá rẻ Online</label>
+                </a>
+                <!--#endregion -->
+
+            </div>
+            <div class="item">
+                <!--#region Ngành hàng chính -->
+                <a href="dtdd/nokia-61-plus.html">
+                    <img width="180" height="180" data-original="https://cdn.tgdd.vn/Products/Images/42/167150/nokia-61-plus-2-600x600.jpg" class="lazy" alt="Nokia 6.1 Plus" />
+                    <h3>Nokia 6.1 Plus</h3>
+                    <div class="price"><strong>5.990.000₫</strong><span>6.590.000₫</span></div>
+                    <label class="shockprice">Giá rẻ Online</label>
+                </a>
+                <!--#endregion -->
+
+            </div>
+            <div class="item">
+                <!--#region Ngành hàng chính -->
+                <a href="may-tinh-bang/ipad-wifi-cellular-32g-2018.html">
+                    <img width="180" height="180" data-original="https://cdn.tgdd.vn/Products/Images/522/163793/ipad-wifi-cellular-32g-2018-thumb-600x600.jpg" class="lazy" alt="iPad Wifi Cellular 32GB (2018)" />
+                    <h3>iPad 2018 Wifi Cellular 32GB</h3>
+                    <div class="price"><strong>11.990.000₫</strong></div>
+                    <div class="promo noimage">
+                        <p> Mua k&#232;m Apple Pencil với gi&#225; ưu đ&#227;i giảm 500.000đ (6 - 31/12) và <b>1 K.mãi</b> khác</p>
+                    </div>
+
+                    <label class="discount">GIẢM 1.000.000₫</label>
+                </a>
+                <!--#endregion -->
+
+            </div>
+            <div class="item">
+                <!--#region Ngành hàng chính -->
+                <a href="laptop/hp-envy-13-ah0025tu-4me92pa.html" class=laptop>
+                    <img width="180" height="180" data-original="https://cdn.tgdd.vn/Products/Images/44/169424/hp-envy-13-ah0025tu-4me92pa-600x600.jpg" class="lazy" alt="HP Envy 13 ah0025TU i5 8250U/8GB/128GB/Win10/(4ME92PA)" />
+                    <h3>HP Envy 13 ah0025TU i5 8250U (4ME92PA)</h3>
+                    <div class="price"><strong>19.990.000₫</strong><span>20.990.000₫</span></div>
+                    <label class="shockprice">Giá rẻ Online</label>
+                </a>
+                <!--#endregion -->
+
+            </div>
+            <div class="item">
+                <!--#region Ngành hàng chính -->
+                <a href="laptop/dell-vostro-3568-i5-7200u.html" class=laptop>
+                    <img width="180" height="180" data-original="https://cdn.tgdd.vn/Products/Images/44/103630/dell-vostro-3568-i5-7200u-400-450x300-450x300.png" class="lazy" alt="Dell Vostro 3568 i5 7200U/4GB/1TB/Win10/(XF6C611)" />
+                    <h3>Dell Vostro 3568 i5 7200U (XF6C611)</h3>
+                    <div class="price"><strong>13.990.000₫</strong></div>
+                    <div class="promo">
+                        <img width="30" height="30" data-original="https://cdn.tgdd.vn/Products/Images/2102/86098/balo-laptop-dell-km-khuyen-mai-1-100x100.png" class="lazy" alt="Balo Laptop Dell" />
+                        <p>Tặng Balo Laptop Dell và <b>1 K.mãi</b> khác</p>
+                    </div>
+
+
+                </a>
+                <!--#endregion -->
+
+            </div>
+            <div class="item">
+                <!--#region Ngành hàng chính -->
+                <a href="may-tinh-bang/lenovo-tab-4-8-tb-8504x.html">
+                    <img width="180" height="180" data-original="https://cdn.tgdd.vn/Products/Images/522/163814/lenovo-tab-4-8-tb-8504x-thumb-600x600.jpg" class="lazy" alt="Lenovo Tab 4 8 16GB (TB-8504X)" />
+                    <h3>Lenovo Tab 4 8&quot; 16GB (TB-8504X)</h3>
+                    <div class="price"><strong>3.690.000₫</strong></div>
+                    <div class="promo">
+                        <img width="30" height="30" data-original="https://cdn.tgdd.vn/Products/Images/54/75474/tai-nghe-ep-sony-mdr-e9lp-bc-e-hong-2-4-100x100.jpg" class="lazy" alt="Tai nghe EP Sony MDR-E9LP" />
+                        <p>Tặng Tai nghe EP Sony MDR-E9LP và <b>2 K.mãi</b> khác</p>
+                    </div>
+
+
+                </a>
+                <!--#endregion -->
+
+            </div>
+            <div class="item">
+                <!--#region Phụ kiện -->
+                <a href="chuot-may-tinh/chuot-khong-day-anitech-mw315.html">
+                    <img width="180" height="180" data-original="https://cdn.tgdd.vn/Products/Images/86/86801/chuot-khong-day-anitech-mw315-1-4-600x600.jpg" class="lazy" alt="Chuột kh&#244;ng d&#226;y Anitech MW315" />
+                    <h3>Chuột kh&#244;ng d&#226;y Anitech MW315</h3>
+                    <div class="price">
+                        <strong>140.000₫</strong>
+                        <span>200.000₫</span>
+                    </div>
+                    <label class="per">Giảm 30%</label>
+                </a>
+                <!--#endregion -->
+
+            </div>
+            <div class="item">
+                <!--#region Phụ kiện -->
+                <a href="tai-nghe/tai-nghe-ep-awei-q19hi.html">
+                    <img width="180" height="180" data-original="https://cdn.tgdd.vn/Products/Images/54/142235/tai-nghe-ep-awei-q19hi-add-600x600.jpg" class="lazy" alt="Tai nghe EP Awei Q19Hi" />
+                    <h3>Tai nghe EP Awei Q19Hi</h3>
+                    <div class="price">
+                        <strong>105.000₫</strong>
+                        <span>150.000₫</span>
+                    </div>
+                    <label class="per">Giảm 30%</label>
+                </a>
+                <!--#endregion -->
+
+            </div>
+            <div class="item">
+                <!--#region Phụ kiện -->
+                <a href="cap-dien-thoai/cap-micro-usb-20cm-esaver-ds026.html">
+                    <img width="180" height="180" data-original="https://cdn.tgdd.vn/Products/Images/58/82063/cap-micro-usb-20cm-esaver-ds026-avatar-1-600x600.jpg" class="lazy" alt="D&#226;y c&#225;p Micro USB 0.2 m eSaver DS026" />
+                    <h3>D&#226;y c&#225;p Micro USB 0.2 m eSaver DS026</h3>
+                    <div class="price">
+                        <strong>32.000₫</strong>
+                        <span>50.000₫</span>
+                    </div>
+                    <label class="per">Giảm 35%</label>
+                </a>
+                <!--#endregion -->
+
+            </div>
+            <div class="item">
+                <!--#region Phụ kiện -->
+                <a href="sac-dtdd/pin-sac-du-phong-polymer-10000mah-evalu-pa-l10s.html">
+                    <img width="180" height="180" data-original="https://cdn.tgdd.vn/Products/Images/57/145558/pin-sac-du-phong-polymer-10000mah-evalu-pa-l10s-anh-dai-dien-600x600.jpg" class="lazy" alt="Pin sạc dự ph&#242;ng Polymer 10000mAh eValu PA L10S" />
+                    <h3>Pin sạc dự ph&#242;ng Polymer 10000mAh eValu PA L10S</h3>
+                    <div class="price">
+                        <strong>422.000₫</strong>
+                        <span>650.000₫</span>
+                    </div>
+                    <label class="per">Giảm 35%</label>
+                </a>
+                <!--#endregion -->
+
+            </div>
+        </div>
+    </div>
+    <div class="navigat">
+        <h2>Điện thoại nổi bật nhất</h2>
+        <div class="viewallcat">
+
+            <a href="dtdd-apple-iphone.html">Apple iPhone</a>
+            <a href="dtdd-samsung.html">Samsung</a>
+            <a href="http://thegioididong.com/dtdd?f=man-hinh-tran-vien">M&#224;n h&#236;nh tr&#224;n viền</a>
+            <a href="dtddf345.html?p=tu-3-5-trieu">Gi&#225; từ 3-5 triệu</a>
+            <a href="dtddb397.html?s=tra-gop-0-phan-tram">Trả g&#243;p 0%</a>
+            <a href="dtdd.html" class="mobile">Xem tất cả điện thoại</a>
+        </div>
+    </div>
+    <!-- home products -->
+    <ul class="homeproduct ">
+        <li class="feature" data-id="192003">
+
+            <a href="dtdd/samsung-galaxy-a9-2018.html">
+                <img width="600" height="275" data-original="https://cdn.tgdd.vn/Products/Images/42/192003/Feature/samsung-galaxy-a9-2018-ft-2-1.jpg" class="lazy" alt="Samsung Galaxy A9 (2018)" />
+                <h3>Samsung Galaxy A9 (2018)</h3>
+                <div class="price"><strong>12.490.000₫</strong></div>
+                <label class="new">Mới ra mắt</label>
+            </a>
+
+        </li>
+        <li data-id="183994">
+            <!--#region Ngành hàng chính -->
+            <a href="dtdd/oppo-a3s-32gb.html">
+                <img width="180" height="180" data-original="https://cdn.tgdd.vn/Products/Images/42/183994/oppo-a3s-32gb-600x600.jpg" class="lazy" alt="OPPO A3s 32GB" />
+                <h3>OPPO A3s 32GB</h3>
+                <div class="price"><strong>4.690.000₫</strong></div>
+                <div class="promo">
+                    <img width="30" height="30" data-original="https://cdn.tgdd.vn/Products/Images/60/187122/op-lung-oppo-a3s-nhua-deo-tpu-electroplate-t-b-osm-1-100x100.jpg" class="lazy" alt="Ốp lưng (từ 14/12)" />
+                    <p>Tặng Ốp lưng (từ 14/12) và <b>1 K.mãi</b> khác</p>
+                </div>
+
+
+            </a>
+            <!--#endregion -->
+
+        </li>
+        <li data-id="160729">
+            <!--#region Ngành hàng chính -->
+            <a href="dtdd/samsung-galaxy-j6.html">
+                <img width="180" height="180" data-original="https://cdn.tgdd.vn/Products/Images/42/160729/samsung-galaxy-j6-2018-1-600x600.jpg" class="lazy" alt="Samsung Galaxy J6" />
+                <h3>Samsung Galaxy J6</h3>
+                <div class="price"><strong>3.290.000₫</strong><span>4.290.000₫</span></div>
+                <label class="shockprice">Giá rẻ Online</label>
+            </a>
+            <!--#endregion -->
+
+        </li>
+        <li data-id="179673">
+            <!--#region Ngành hàng chính -->
+            <a href="dtdd/huawei-nova-3i.html">
+                <img width="180" height="180" data-original="https://cdn.tgdd.vn/Products/Images/42/179673/huawei-nova-3i-trang-chipu-600x600.jpg" class="lazy" alt="Huawei Nova 3i" />
+                <h3>Huawei Nova 3i</h3>
+                <div class="price"><strong>6.490.000₫</strong></div>
+                <div class="promo">
+                    <img width="30" height="30" data-original="https://cdn.tgdd.vn/Products/Images/2102/195071/pin-sac-du-phong-pisen-10000-mah-100x100.jpg" class="lazy" alt="Pin sạc dự ph&#242;ng Pisen (21 - 31/12)" />
+                    <p>Tặng Pin sạc dự ph&#242;ng Pisen (21 - 31/12) và <b>1 K.mãi</b> khác</p>
+                </div>
+
+                <label class="discount">GIẢM 300.000₫</label>
+            </a>
+            <!--#endregion -->
+
+        </li>
+        <li class="feature" data-id="166247">
+
+            <a href="dtdd/samsung-galaxy-a8-star.html">
+                <img width="600" height="275" data-original="https://cdn.tgdd.vn/Products/Images/42/166247/Feature/samsung-galaxy-a8-star-ft-m.jpg" class="lazy" alt="Samsung Galaxy A8 Star" />
+                <h3>Samsung Galaxy A8 Star</h3>
+                <div class="price"><strong>12.590.000₫</strong></div>
+                <label class="discount">GIẢM 1.600.000₫</label>
+            </a>
+
+        </li>
+        <li data-id="160730">
+            <!--#region Ngành hàng chính -->
+            <a href="dtdd/samsung-galaxy-j4-plus.html">
+                <img width="180" height="180" data-original="https://cdn.tgdd.vn/Products/Images/42/160730/samsung-galaxy-j4-plus-pink-600x600.jpg" class="lazy" alt="Samsung Galaxy J4+" />
+                <h3>Samsung Galaxy J4+</h3>
+                <div class="price"><strong>3.490.000₫</strong></div>
+                <div class="promo noimage">
+                    <p> G&#243;i qu&#224; tặng Galaxy xem phim &amp; uống cafe cuối tuần và <b>1 K.mãi</b> khác</p>
+                </div>
+
+
+            </a>
+            <!--#endregion -->
+
+        </li>
+        <li data-id="186395">
+            <!--#region Ngành hàng chính -->
+            <a href="dtdd/oppo-r17-pro.html">
+                <img width="180" height="180" data-original="https://cdn.tgdd.vn/Products/Images/42/186395/oppo-r17-pro-14-600x600.jpg" class="lazy" alt="OPPO R17 Pro" />
+                <h3>OPPO R17 Pro</h3>
+                <div class="price"><strong>14.990.000₫</strong><span>16.990.000₫</span></div>
+                <label class="shockprice">Giá rẻ Online</label>
+            </a>
+            <!--#endregion -->
+
+        </li>
+        <li data-id="191483">
+            <!--#region Ngành hàng chính -->
+            <a href="dtdd/iphone-xr-128gb.html">
+                <img width="180" height="180" data-original="https://cdn.tgdd.vn/Products/Images/42/191483/iphone-xr-128gb-red-600x600.jpg" class="lazy" alt="iPhone Xr 128GB" />
+                <h3>iPhone Xr 128GB</h3>
+                <div class="price"><strong>21.990.000₫</strong><span>24.990.000₫</span></div>
+                <label class="shockprice">Giá rẻ Online</label>
+            </a>
+            <!--#endregion -->
+
+        </li>
+    </ul>
+
+    <div class="navigat">
+        <h2>Tablet - Laptop nổi bật nhất</h2>
+        <div class="viewallcat">
+
+            <a href="may-tinh-bang-samsung.html">Samsung Tab</a>
+            <a href="laptop-apple-macbook.html">Macbook</a>
+            <a href="laptop-dell.html">Laptop Dell</a>
+            <a href="https://thegioididong.com/laptop-asus">Laptop ASUS</a>
+            <a href="https://thegioididong.com/laptop-hp-compaq">Laptop HP</a>
+            <a href="may-tinh-bang.html" class="tablet">Xem tất cả máy tính bảng</a>
+            <a href="laptop.html" class="laptop">Xem tất cả laptop</a>
+        </div>
+    </div>
+    <!-- home products -->
+    <ul class="homeproduct ">
+        <li data-id="177770">
+            <!--#region Ngành hàng chính -->
+            <a href="laptop/hp-15-da0054tu-4me68pa.html" class=laptop>
+                <img width="180" height="180" data-original="https://cdn.tgdd.vn/Products/Images/44/177770/hp-15-da0054tu-4me68pa-thumb-600x600.jpg" class="lazy" alt="HP 15 da0054TU i3 7020U/4GB/500GB/Win10/(4ME68PA)" />
+                <h3>HP 15 da0054TU i3 7020U (4ME68PA)</h3>
+                <div class="price"><strong>10.990.000₫</strong></div>
+                <div class="promo">
+                    <img width="30" height="30" data-original="https://cdn.tgdd.vn/Products/Images/86/73125/chuot-khong-day-genius-nx-7010-ava-1-100x100.jpg" class="lazy" alt="Chuột kh&#244;ng d&#226;y" />
+                    <p>Tặng Chuột kh&#244;ng d&#226;y và <b>3 K.mãi</b> khác</p>
+                </div>
+
+
+            </a>
+            <!--#endregion -->
+
+        </li>
+        <li data-id="177638">
+            <!--#region Ngành hàng chính -->
+            <a href="laptop/hp-pavilion-14-ce0021tu-i-4mf00pa.html" class=laptop>
+                <img width="180" height="180" data-original="https://cdn.tgdd.vn/Products/Images/44/177638/hp-pavilion-14-ce0021tu-i-4mf00pa-33397-ava1-600x600.jpg" class="lazy" alt="HP Pavilion 14 ce0021TU i3 8130U/4GB/1TB/Win10/(4MF00PA)" />
+                <h3>HP Pavilion 14 ce0021TU i3 8130U(4MF00PA)</h3>
+                <div class="price"><strong>12.290.000₫</strong><span>12.990.000₫</span></div>
+                <label class="shockprice">Giá rẻ Online</label>
+            </a>
+            <!--#endregion -->
+
+        </li>
+        <li data-id="163645">
+            <!--#region Ngành hàng chính -->
+            <a href="may-tinh-bang/ipad-wifi-32gb-2018.html">
+                <img width="180" height="180" data-original="https://cdn.tgdd.vn/Products/Images/522/163645/ipad-wifi-32gb-2018-thumb-33397-123-123321-600x600-600x600.jpg" class="lazy" alt="iPad Wifi 32GB (2018)" />
+                <h3>iPad 2018 Wifi 32GB</h3>
+                <div class="price"><strong>8.990.000₫</strong></div>
+                <div class="promo noimage">
+                    <p> Mua k&#232;m Apple Pencil với gi&#225; ưu đ&#227;i giảm 500.000đ (6 - 31/12) và <b>1 K.mãi</b> khác</p>
+                </div>
+
+
+            </a>
+            <!--#endregion -->
+
+        </li>
+        <li data-id="166521">
+            <!--#region Ngành hàng chính -->
+            <a href="laptop/dell-inspiron-3576-p63f002n76f.html" class=laptop>
+                <img width="180" height="180" data-original="https://cdn.tgdd.vn/Products/Images/44/166521/dell-inspiron-3576-p63f002n76f-450-600x600.png" class="lazy" alt="Dell Inspiron 3576 i5 8250U/4GB/1TB/Win10/(P63F002N76F)" />
+                <h3>Dell Inspiron 3576 i5 8250U (P63F002N76F)</h3>
+                <div class="price"><strong>14.690.000₫</strong></div>
+                <div class="promo">
+                    <img width="30" height="30" data-original="https://cdn.tgdd.vn/Products/Images/2102/86098/balo-laptop-dell-km-khuyen-mai-1-100x100.png" class="lazy" alt="Balo Laptop Dell" />
+                    <p>Tặng Balo Laptop Dell và <b>1 K.mãi</b> khác</p>
+                </div>
+
+
+            </a>
+            <!--#endregion -->
+
+        </li>
+        <li data-id="192320">
+            <!--#region Ngành hàng chính -->
+            <a href="laptop/asus-s510ua-bq222t.html" class=laptop>
+                <img width="180" height="180" data-original="https://cdn.tgdd.vn/Products/Images/44/192320/asus-s510ua-bq222t-thumbava-600x600.jpg" class="lazy" alt="Asus VivoBook S15 S510UA i3 8130U/4GB/1TB/Win10/(BQ222T)" />
+                <h3>Asus VivoBook S15 S510UA i3 8130U (BQ222T)</h3>
+                <div class="price"><strong>12.490.000₫</strong><span>12.990.000₫</span></div>
+                <label class="shockprice">Giá rẻ Online</label>
+            </a>
+            <!--#endregion -->
+
+        </li>
+    </ul>
+
+
+    <div class="navigat">
+        <h2>Phụ kiện giá rẻ</h2>
+        <div class="viewallcat">
+            <a href="sac-dtdd.html">Pin sạc dự ph&#242;ng</a>
+            <a href="cap-dien-thoai.html">C&#225;p sạc</a>
+            <a href="the-nho-dien-thoai.html">Thẻ nhớ</a>
+            <a href="tai-nghe.html">Tai nghe</a>
+            <a href="loa-laptop.html">Loa</a>
+            <a href="phu-kien/chinh-hang.html">Phụ kiện ch&#237;nh h&#227;ng</a>
+            <a href="gay-tu-suong.html">Gậy tự sướng</a>
+            <a href="phu-kien.html" class="accessory">Xem tất cả phụ kiện</a>
+        </div>
+    </div>
+    <div class="owl-carousel homepromo acc">
+        <div class="item">
+            <!--#region Phụ kiện -->
+            <a href="sac-dtdd/pin-sac-du-phong-besiter-5000-mah-bst-0129.html">
+                <img width="180" height="180" src='~/themes/TheGioiDiDong/images/cdn/Products/Images/57/85006/pin-sac-du-phong-besiter-5000-mah-bst-0129-11-600x600.jpg' alt="Pin sạc dự ph&#242;ng Besiter 5.000 mAh BST-0129" />
+                <h3>Pin sạc dự ph&#242;ng Besiter 5.000 mAh BST-0129</h3>
+                <div class="price">
+                    <strong>122.000₫</strong>
+                    <span>240.000₫</span>
+                </div>
+                <label class="per">Giảm 49%</label>
+            </a>
+            <!--#endregion -->
+
+        </div>
+        <div class="item">
+            <!--#region Phụ kiện -->
+            <a href="loa-laptop/loa-bluetooth-awei-y200.html">
+                <img width="180" height="180" src='~/themes/TheGioiDiDong/images/cdn/Products/Images/382/82652/loa-bluetooth-awei-y200-avatar-2-600x600.jpg' alt="Loa Bluetooth Awei Y200" />
+                <h3>Loa Bluetooth Awei Y200</h3>
+                <div class="price">
+                    <strong>450.000₫</strong>
+                    <span>600.000₫</span>
+                </div>
+                <label class="per">Giảm 25%</label>
+            </a>
+            <!--#endregion -->
+
+        </div>
+        <div class="item">
+            <!--#region Phụ kiện -->
+            <a href="cap-dien-thoai/cap-micro-usb-20cm-x-mobile-mu03.html">
+                <img width="180" height="180" src='~/themes/TheGioiDiDong/images/cdn/Products/Images/58/80637/cap-micro-usb-20cm-x-mobile-mu03-den-avatar-1-600x600.jpg' alt="D&#226;y c&#225;p Micro USB 0.2 m Xmobile MU03" />
+                <h3>D&#226;y c&#225;p Micro USB 0.2 m Xmobile MU03</h3>
+                <div class="price">
+                    <strong>24.000₫</strong>
+                    <span>40.000₫</span>
+                </div>
+                <label class="per">Giảm 40%</label>
+            </a>
+            <!--#endregion -->
+
+        </div>
+        <div class="item">
+            <!--#region Phụ kiện -->
+            <a href="the-nho-dien-thoai/the-nho-microsd-8gb-class-4.html">
+                <img width="180" height="180" src='~/themes/TheGioiDiDong/images/cdn/Products/Images/55/69972/the-nho-microsd-8gb-class-4-ava-600x600.jpg' alt="Thẻ nhớ Micro SD 8 GB Class 4" />
+                <h3>Thẻ nhớ Micro SD 8 GB Class 4</h3>
+                <div class="price">
+                    <strong>105.000₫</strong>
+                    <span>150.000₫</span>
+                </div>
+                <label class="per">Giảm 30%</label>
+            </a>
+            <!--#endregion -->
+
+        </div>
+        <div class="item">
+            <!--#region Phụ kiện -->
+            <a href="tai-nghe/tai-nghe-bluetooth-roman-r551n-trang.html">
+                <img width="180" height="180" src='~/themes/TheGioiDiDong/images/cdn/Products/Images/54/143403/tai-nghe-bluetooth-roman-r551n-trang-600x600.jpg' alt="Tai nghe Bluetooth Roman R551N Trắng" />
+                <h3>Tai nghe Bluetooth Roman R551N Trắng</h3>
+                <div class="price">
+                    <strong>153.000₫</strong>
+                    <span>300.000₫</span>
+                </div>
+                <label class="per">Giảm 49%</label>
+            </a>
+            <!--#endregion -->
+
+        </div>
+        <div class="item">
+            <!--#region Phụ kiện -->
+            <a href="usb/usb-sandisk-sdcz43-16gb-30.html">
+                <img width="180" height="180" data-original="https://cdn.tgdd.vn/Products/Images/75/71754/usb-sandisk-sdcz43-16gb-30-ava-1-600x600.jpg" class="lazy" alt="USB 3.0 16 GB Sandisk SDCZ43" />
+                <h3>USB 3.0 16 GB Sandisk SDCZ43</h3>
+                <div class="price">
+                    <strong>230.000₫</strong>
+                </div>
+            </a>
+            <!--#endregion -->
+
+        </div>
+        <div class="item">
+            <!--#region Phụ kiện -->
+            <a href="chuot-may-tinh/chuot-gaming-cliptec-stenopo-rgs564.html">
+                <img width="180" height="180" data-original="https://cdn.tgdd.vn/Products/Images/86/151410/chuot-gaming-cliptec-stenopo-rgs564-1-2-600x600.jpg" class="lazy" alt="Chuột Gaming Cliptec Stenopo RGS564" />
+                <h3>Chuột Gaming Cliptec Stenopo RGS564</h3>
+                <div class="price">
+                    <strong>180.000₫</strong>
+                    <span>300.000₫</span>
+                </div>
+                <label class="per">Giảm 40%</label>
+            </a>
+            <!--#endregion -->
+
+        </div>
+        <div class="item">
+            <!--#region Phụ kiện -->
+            <a href="op-lung-flipcover/op-lung-iphone-xr-deo-uv-printing-os-cktg278-dau.html">
+                <img width="180" height="180" data-original="https://cdn.tgdd.vn/Products/Images/60/194201/op-lung-iphone-xr-deo-uv-printing-os-cktg278-dau-1-600x600.jpg" class="lazy" alt="Ốp lưng iPhone XR nhựa dẻo UV printing OSMIA CKTG278 Quả D&#226;u" />
+                <h3>Ốp lưng iPhone XR nhựa dẻo UV printing OSMIA CKTG278 Quả D&#226;u</h3>
+                <div class="price">
+                    <strong>35.000₫</strong>
+                    <span>50.000₫</span>
+                </div>
+                <label class="shockprice">Giá rẻ Online</label>
+            </a>
+            <!--#endregion -->
+
+        </div>
+        <div class="item">
+            <!--#region Phụ kiện -->
+            <a href="gay-tu-suong/gay-chup-anh-bluetooth-cosano-hd-p7.html">
+                <img width="180" height="180" data-original="https://cdn.tgdd.vn/Products/Images/3885/92042/gay-chup-anh-bluetooth-cosano-hd-p7-ava-600x600.jpg" class="lazy" alt="Gậy chụp ảnh Bluetooth Cosano HD-P7" />
+                <h3>Gậy chụp ảnh Bluetooth Cosano HD-P7</h3>
+                <div class="price">
+                    <strong>97.000₫</strong>
+                    <span>150.000₫</span>
+                </div>
+                <label class="per">Giảm 35%</label>
+            </a>
+            <!--#endregion -->
+
+        </div>
+        <div class="item">
+            <!--#region Ngành hàng chính -->
+            <a href="phu-kien-thong-minh/kinh-thuc-te-ao-samsung-gear-vr-sm-r325.html">
+                <img width="180" height="180" data-original="https://cdn.tgdd.vn/Products/Images/1882/137478/kinh-thuc-te-ao-samsung-gear-vr-sm-r325-2-600x600.jpg" class="lazy" alt="K&#237;nh thực tế ảo Samsung Gear VR3" />
+                <h3>K&#237;nh thực tế ảo Samsung Gear VR3</h3>
+                <div class="price"><strong>2.490.000₫</strong></div>
+
+
+            </a>
+            <!--#endregion -->
+
+        </div>
+        <div class="item">
+            <!--#region Phụ kiện -->
+            <a href="mieng-dan-man-hinh/mieng-dan-man-hinh-vsmart-joy-1.html">
+                <img width="180" height="180" data-original="https://cdn.tgdd.vn/Products/Images/1363/197521/mieng-dan-man-hinh-vsmart-joy-1-avatar-600x600.jpg" class="lazy" alt="Miếng d&#225;n m&#224;n h&#236;nh Vsmart Joy 1" />
+                <h3>Miếng d&#225;n m&#224;n h&#236;nh Vsmart Joy 1</h3>
+                <div class="price">
+                    <strong>50.000₫</strong>
+                </div>
+                <div class="promo noimage">
+                    <p><b>1</b> khuyến mãi</p>
+                </div>
+                <label class="new">Mới ra mắt</label>
+            </a>
+            <!--#endregion -->
+
+        </div>
+        <div class="item">
+            <!--#region Phụ kiện -->
+            <a href="phu-kien-khac/den-led-chup-anh-osmia-ms-001.html">
+                <img width="180" height="180" data-original="https://cdn.tgdd.vn/Products/Images/2429/89090/den-led-chup-anh-osmia-ms-001-ava-600x600.jpg" class="lazy" alt="Đ&#232;n Led chụp ảnh Osmia MS-001" />
+                <h3>Đ&#232;n Led chụp ảnh Osmia MS-001</h3>
+                <div class="price">
+                    <strong>120.000₫</strong>
+                    <span>200.000₫</span>
+                </div>
+                <label class="per">Giảm 40%</label>
+            </a>
+            <!--#endregion -->
+
+        </div>
+        <div class="item">
+            <!--#region Phụ kiện -->
+            <a href="op-lung-may-tinh-bang/op-lung-tab-a6-7-inch-t285-nap-gap-meeker-den.html">
+                <img width="180" height="180" data-original="https://cdn.tgdd.vn/Products/Images/1662/89691/op-lung-tab-a6-7-inch-t285-nap-gap-meeker-den-avatar-1-600x600.jpg" class="lazy" alt="Ốp lưng Galaxy Tab A6 7 inch Nắp gập Đen" />
+                <h3>Ốp lưng Galaxy Tab A6 7 inch Nắp gập Đen</h3>
+                <div class="price">
+                    <strong></strong>
+                </div>
+            </a>
+            <!--#endregion -->
+
+        </div>
+        <div class="item">
+            <!--#region Phụ kiện -->
+            <a href="loa-am-thanh/deamax-ds-1502d.html">
+                <img width="180" height="180" data-original="https://cdn.tgdd.vn/Products/Images/2162/193582/dan-loa-dvd-loa-keo-karaoke-daemax-ds-15-02d-600x600.jpg" class="lazy" alt="Loa k&#233;o Karaoke Daemax DS 15-02D" />
+                <h3>Loa k&#233;o karaoke Daemax DS 15-02D</h3>
+                <div class="price">
+                    <strong>5.180.000₫</strong>
+                </div>
+            </a>
+            <!--#endregion -->
+
+        </div>
+        <div class="item">
+            <!--#region Phụ kiện -->
+            <a href="mieng-lot-ban-phim/mieng-lot-ban-phim-mac-pro-2016-13-inch-meeker-den.html">
+                <img width="180" height="180" data-original="https://cdn.tgdd.vn/Products/Images/6858/185302/mieng-lot-ban-phim-mac-pro-2016-13-inch-meeker-den-600x600.jpg" class="lazy" alt="Miếng l&#243;t b&#224;n ph&#237;m Mac Pro 2016 13 inch Meeker Đen" />
+                <h3>Miếng l&#243;t b&#224;n ph&#237;m Mac Pro 2016 13 inch Meeker Đen</h3>
+                <div class="price">
+                    <strong>120.000₫</strong>
+                </div>
+            </a>
+            <!--#endregion -->
+
+        </div>
+    </div>
+
+</section>
+
 
 @await Component.InvokeAsync("SampleDataForm")
