@@ -6,33 +6,93 @@
     var random = new Random();
 }
 
-<section class="section-slide">
-    <div class="wrap-slick1">
-        <div class="slick1">
-            @foreach (var item in Model.Items)
-            {
-                <div class="item-slick1" style="background-image: url(@item.Image);">
-                    <div class="container h-full">
-                        <div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
-                            <div class="layer-slick1 animated visible-false" data-appear="@effects[random.Next(0, numEffects)]" data-delay="0">
-                                <span class="ltext-101 cl2 respon2">
-                                    @item.SubCaption
-                                </span>
-                            </div>
+@*<section class="section-slide">
+        <div class="wrap-slick1">
+            <div class="slick1">
+                @foreach (var item in Model.Items)
+                {
+                    <div class="item-slick1" style="background-image: url(@item.Image);">
+                        <div class="container h-full">
+                            <div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
+                                <div class="layer-slick1 animated visible-false" data-appear="@effects[random.Next(0, numEffects)]" data-delay="0">
+                                    <span class="ltext-101 cl2 respon2">
+                                        @item.SubCaption
+                                    </span>
+                                </div>
 
-                            <div class="layer-slick1 animated visible-false" data-appear="@effects[random.Next(0, numEffects)]" data-delay="800">
-                                <h2 class="ltext-201 cl2 p-t-19 p-b-43 respon1">@item.Caption</h2>
-                            </div>
+                                <div class="layer-slick1 animated visible-false" data-appear="@effects[random.Next(0, numEffects)]" data-delay="800">
+                                    <h2 class="ltext-201 cl2 p-t-19 p-b-43 respon1">@item.Caption</h2>
+                                </div>
 
-                            <div class="layer-slick1 animated visible-false" data-appear="@effects[random.Next(0, numEffects)]" data-delay="1600">
-                                <a href="@item.TargetUrl" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
-                                    @item.LinkText
-                                </a>
+                                <div class="layer-slick1 animated visible-false" data-appear="@effects[random.Next(0, numEffects)]" data-delay="1600">
+                                    <a href="@item.TargetUrl" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+                                        @item.LinkText
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            }
+                }
+            </div>
         </div>
+    </section>*@
+<aside class="homebanner">
+    <div id="sync1">
+        @foreach (var item in Model.Items)
+        {
+            <div class="item">
+                <a aria-label='slide' href='@item.TargetUrl' onclick="jQuery.ajax({ url: '//www.thegioididong.com/bannertracking?bid=25769&r='+ (new Date).getTime(),   async: true, cache: false });"><img src='@item.Image' alt='@item.SubCaption' /></a>
+            </div>
+        }
+
+        @*<div class="item">
+            <a aria-label='slide' href='khuyen-mai-soc/samsung-tet-duong-lich.html' onclick="jQuery.ajax({ url: '//www.thegioididong.com/bannertracking?bid=25753&r='+ (new Date).getTime(),   async: true, cache: false });"><img class='lazyOwl owl-lazy' data-src='//cdn.tgdd.vn/qcao/31_12_2018_11_36_37_HotsaleSStet-v3-800-300.png' alt='2018 - DE - Samsung Tết Dương' /></a>
+        </div>
+        <div class="item">
+            <a aria-label='slide' href='dtdd-oppo.html' onclick="jQuery.ajax({ url: '//www.thegioididong.com/bannertracking?bid=25253&r='+ (new Date).getTime(),   async: true, cache: false });"><img class='lazyOwl owl-lazy' data-src='//cdn.tgdd.vn/qcao/03_12_2018_10_45_06_Big-Oppo-800-300.png' alt='2018 - DE - Big OPPO' /></a>
+        </div>
+        <div class="item">
+            <a aria-label='slide' href='khuyen-mai-tet.html' onclick="jQuery.ajax({ url: '//www.thegioididong.com/bannertracking?bid=25715&r='+ (new Date).getTime(),   async: true, cache: false });"><img class='lazyOwl owl-lazy' data-src='//cdn.tgdd.vn/qcao/25_12_2018_21_14_29_game-tet-800-300.png' alt='2018 - DE - Game tết' /></a>
+        </div>
+        <div class="item">
+            <a aria-label='slide' href='dtdd/samsung-galaxy-a7-2018.html' onclick="jQuery.ajax({ url: '//www.thegioididong.com/bannertracking?bid=25369&r='+ (new Date).getTime(),   async: true, cache: false });"><img class='lazyOwl owl-lazy' data-src='//cdn.tgdd.vn/qcao/16_12_2018_19_43_15_A7-T12-V2-800-300.png' alt='2018 - DE - Galaxy A7' /></a>
+        </div>
+        <div class="item">
+            <a aria-label='slide' href='phu-kien-giam-soc.html' onclick="jQuery.ajax({ url: '//www.thegioididong.com/bannertracking?bid=25750&r='+ (new Date).getTime(),   async: true, cache: false });"><img class='lazyOwl owl-lazy' data-src='//cdn.tgdd.vn/qcao/31_12_2018_14_32_20_Phu-kien-tet-800-300.png' alt='2019 - JA - Phụ Kiện' /></a>
+        </div>*@
     </div>
-</section>
+    <div id="sync2">
+        @foreach (var item in Model.Items)
+        {
+            <div class="item">
+                <h3>@item.SubCaption<br /></h3>
+                <i class="arrowbar"></i>
+            </div>
+        }
+
+        @*<div class="item">
+            <i class="arrowbarleft"></i>
+            <h3>Mừng Tân Niên <br /> Samsung Giảm Sốc</h3>
+            <i class="arrowbar"></i>
+        </div>
+        <div class="item">
+            <i class="arrowbarleft"></i>
+            <h3>OPPO Trả Góp 0%<br />Tặng Phiếu Mua Hàng</h3>
+            <i class="arrowbar"></i>
+        </div>
+        <div class="item">
+            <i class="arrowbarleft"></i>
+            <h3>Đón Xe Về Quê<br />Thêm Quà Vui Tết</h3>
+            <i class="arrowbar"></i>
+        </div>
+        <div class="item">
+            <i class="arrowbarleft"></i>
+            <h3>Galaxy A7 Trả Góp 0% <br /> 3 Camera Cực Chất</h3>
+            <i class="arrowbar"></i>
+        </div>
+        <div class="item">
+            <i class="arrowbarleft"></i>
+            <h3>Tết Phụ Kiện<br />Giảm Sốc 49%</h3>
+        </div>*@
+    </div>
+</aside>

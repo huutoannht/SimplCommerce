@@ -1,13 +1,27 @@
 ﻿@model SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels.ProductThumbnail
-
-<div class="block2">
-    <div class="block2-pic hov-img0">
-        <img alt="@Model.Name" class="card-img-top" src="@Model.ThumbnailUrl">
-
-        <a href="~/@Model.Slug" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
-            View Details
-        </a>
+<!--#region Ngành hàng chính -->
+<a href="~/@Model.Slug">
+    <img width="180" height="180" src='@Model.ThumbnailUrl' alt="@Model.Name" />
+    <h3>@Model.Name</h3>
+    <div class="price"><strong>@Model.CalculatedProductPrice.Price.ToString("C")</strong><span>@Model.CalculatedProductPrice?.OldPrice?.ToString("C")</span></div>
+    <div class="promo noimage">
+        <p>Đặt trước nhận Loa bluetooth, ốp lưng, trả g&#243;p 0%</p>
     </div>
+    @if (Model.CalculatedProductPrice.PercentOfSaving != 0)
+    {
+        <label class="discount">GIẢM @(Model.CalculatedProductPrice.PercentOfSaving)%</label>
+    }
+
+</a>
+<!--#endregion -->
+@*<div class="block2">
+        <div class="block2-pic hov-img0">
+            <img alt="@Model.Name" class="card-img-top" src="@Model.ThumbnailUrl">
+
+            <a href="~/@Model.Slug" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
+                View Details123
+            </a>
+        </div>
 
         <div class="block2-txt flex-w flex-t p-t-14">
             <div class="block2-txt-child1 flex-col-l ">
@@ -45,4 +59,4 @@
                 </ul>
             </div>
         </div>
-</div>
+    </div>*@
