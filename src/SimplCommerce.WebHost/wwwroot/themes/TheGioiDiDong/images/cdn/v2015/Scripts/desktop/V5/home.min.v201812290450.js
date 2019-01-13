@@ -4640,6 +4640,6 @@ $(window).load(function() {
         scrollPerPage: !0,
         lazyLoad: !0
     });
-    LoadCategoryStatistic();
+   // LoadCategoryStatistic();
     LoadTimeCountDown()
 });

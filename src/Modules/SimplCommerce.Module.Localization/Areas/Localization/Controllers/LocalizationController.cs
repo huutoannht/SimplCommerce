@@ -19,7 +19,7 @@ namespace SimplCommerce.Module.Localization.Areas.Localization.Controllers
             _workContext = workContext;
         }
 
-        [HttpPost]
+        [HttpGet]
         public IActionResult SetLanguage(string culture, string returnUrl)
         {
             var currentUser = _userRepository.Query()

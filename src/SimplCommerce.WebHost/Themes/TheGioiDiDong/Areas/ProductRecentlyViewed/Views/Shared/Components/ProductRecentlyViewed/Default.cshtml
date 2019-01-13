@@ -2,13 +2,17 @@
 
 @if (Model.Any())
 {
-<h3 class="p-t-25 p-b-25">@Localizer["Recently viewed products"]</h3>
-<div class="row product-list">
-    @foreach (var product in Model)
-    {
-        <div class="col-xs-6 col-md-3">
-            <partial name="/Themes/CozaStore/Areas/Catalog/Views/Shared/_ProductThumbnail.cshtml" model="product" />
+    <h3 class="p-t-25 p-b-25">@Localizer["Recently viewed products"]</h3>
+    <div class="row product-list">
+        <div class="navigat ">
         </div>
-    }
-</div>
+        <div id="owl-promo" class="owl-carousel homepromo ">
+            @foreach (var product in Model)
+            {
+                <div class="item">
+                    <partial name="/Themes/TheGioiDiDong/Areas/Catalog/Views/Shared/_ProductThumbnail.cshtml" model="product" />
+                </div>
+            }
+        </div>
+    </div>
 }

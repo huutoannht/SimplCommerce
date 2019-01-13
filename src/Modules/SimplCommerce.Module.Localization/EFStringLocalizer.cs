@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using Microsoft.Extensions.Caching.Memory;
+﻿using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Localization;
 using SimplCommerce.Infrastructure.Data;
 using SimplCommerce.Infrastructure.Localization;
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+
 
 namespace SimplCommerce.Module.Localization
 {
@@ -72,7 +73,7 @@ namespace SimplCommerce.Module.Localization
                     var resourceRepository = scope.ServiceProvider.GetRequiredService<IRepository<Resource>>();
                     resources = resourceRepository.Query().Where(r => r.Culture.Id == culture).ToList();
                 }
-                
+
                 _resourcesCache.Set(culture, resources);
             }
 
