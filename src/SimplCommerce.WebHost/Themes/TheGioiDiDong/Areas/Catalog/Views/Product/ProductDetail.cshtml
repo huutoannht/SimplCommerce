@@ -20,6 +20,7 @@
     <script simpl-append-version="true" src="~/lib/smoothproducts/js/smoothproducts.js"></script>
     <script simpl-append-version="true" src="~/modules/catalog/product-detail.js"></script>
 }
+
 <style>
     .fullparameter {
         position: fixed;
@@ -7354,6 +7355,7 @@
         .collapse {
             display: none;
         }
+
         #hdgamecombo[value=true] ~ .box_content {
             border: none;
         }
@@ -7696,6 +7698,13 @@
                     </div>
                 </div>
             </div>
+
+            <div>
+                <h3>@Localizer["Customer comments"]</h3>
+                @await Component.InvokeAsync("Comment", new { entityId = Model.Id, entityTypeId = "Product" })
+            </div>
+
+
         </aside>
         <aside class="right_content">
             <div class="tableparameter">
@@ -7731,3 +7740,4 @@
 
     </div>
 </section>
+

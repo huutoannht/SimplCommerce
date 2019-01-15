@@ -3,16 +3,42 @@
 @{
     ViewData["Title"] = Model.Name;
 }
+<style>
+    article img {
+        display: block;
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    .titledetail {
+        display: block;
+        overflow: hidden;
+        line-height: 53px;
+        font-size: 45px;
+        color: #333;
+        font-family: 'Roboto Condensed',sans-serif;
+        font-weight: 600;
+        width: 800px;
+        margin: auto;
+    }
+</style>
+<section>
 
-<div class="news-detail">
-    <div class="row">
-        <h3 class="news-title">@Model.Name</h3>
+    <article>
+        <h1 class="titledetail">@Model.Name</h1>
 
-        <div class="thumbnail">
-            <img src="@Model.ThumbnailImageUrl" alt="" />
+        <div class="userdetail">
+
         </div>
+
+        <div class="imgwrap"><img alt="tet-huawei" data-original="@Model.ThumbnailImageUrl" src="@Model.ThumbnailImageUrl" title="tet-huawei"></div>
+
         <div class="news-item-full-description">
             @Html.Raw(Model.FullContent)
         </div>
-    </div>
-</div>
+
+    </article>
+
+
+</section>

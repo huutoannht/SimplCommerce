@@ -51,14 +51,14 @@ header {
     min-width: 1024px;
     background: #fed700;
     width: 100%;
-    height: 55px
+    height: 63px
 }
 
 section {
     max-width: 1200px;
     width: 100%;
     min-width: 980px;
-    margin: 55px auto 0;
+    margin: 63px auto 0;
     position: relative
 }
 
@@ -75,11 +75,12 @@ footer {
     max-width: 1200px;
     min-width: 1024px;
     width: 100%;
-    height: 55px;
+    height: 63px;
     background: #000;
     margin: auto;
     position: relative;
-    display: block
+    display: block;
+    margin-left: 150px;
 }
 
 .logo {
@@ -1987,13 +1988,15 @@ section {
 .navigat {
     display: block;
     overflow: hidden;
-    background: #fff
+    background: #d84841;
+    /*background: url(/themes/TheGioiDiDong/images/cdn/navigatbg.png) no-repeat top center;*/
+    color: #ffdd8d;
 }
 
     .navigat h2 {
         float: left;
         font-size: 16px;
-        color: #333;
+        /*color: #333;*/
         font-weight: 600;
         padding: 14px 10px;
         text-transform: uppercase
@@ -2290,4 +2293,9 @@ section {
     .homenews h2 a {
         font-size: 12ox
     }
+}
+
+
+.cart-list{
+    padding-top:140px;
 }

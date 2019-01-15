@@ -4,9 +4,6 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-
-
-
 <section>
     <partial name="_WidgetInstances" model="Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeFeatured)" />
     <aside class="homenews">
@@ -50,9 +47,6 @@
         </div>*@
     </aside>
     <div class="clr"></div>
-    <div class="promotebanner">
-        <a aria-label='slide' href='mua-online-gia-re-hon.html' onclick="jQuery.ajax({ url: '//www.thegioididong.com/bannertracking?bid=23962&r='+ (new Date).getTime(),   async: true, cache: false });"><img src='~/themes/TheGioiDiDong/images/cdn/qcao/28_12_2018_23_18_44_1200x75%401x(1).png' alt='Ve que' /></a>
-    </div>
     ﻿<partial name="_WidgetInstances" model="Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeMainContent)" />
     <div class="">
         <div class="navigat ">
