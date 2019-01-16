@@ -27,6 +27,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Themes\TheGioiDiDong\Areas\Catalog\Views\Shared\Components\NewItem\Default.cshtml" />
+    <None Remove="Themes\TheGioiDiDong\Areas\News\Views\Shared\Components\NewItem\Default.cshtml" />
     <None Remove="wwwroot\themes\TheGioiDiDong\images\cdn\navigatbg.png" />
   </ItemGroup>
 

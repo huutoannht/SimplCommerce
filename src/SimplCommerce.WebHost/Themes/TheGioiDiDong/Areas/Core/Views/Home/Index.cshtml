@@ -7,40 +7,8 @@
 <section>
     <partial name="_WidgetInstances" model="Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeFeatured)" />
     <aside class="homenews">
-        <figure>
-            <h2><a href="tin-tuc.html">Tin công nghệ</a></h2>
-            <b></b>
-        </figure>
-        <ul>
-            <li>
-                <a href="tin-tuc/trung-heo-vang-choi-tet-khi-mua-dien-thoai-huawei-tai-tgdd-1141732.html">
-                    <img width="100" height="70" src='~/themes/TheGioiDiDong/images/cdn/Files/2018/12/31/1141732/tet-huawei_800x450-100x100.jpg' alt="Cơ hội tr&#250;ng “Heo v&#224;ng”, thoải m&#225;i chơi Tết khi mua điện thoại Huawei tại TGDĐ">
-                    <h3>Cơ hội tr&#250;ng “Heo v&#224;ng”, thoải m&#225;i chơi Tết khi mua điện thoại Huawei tại TGDĐ</h3>
-                    <span>1 giờ trước</span>
-                </a>
-            </li>
-            <li>
-                <a href="tin-tuc/trung-heo-vang-choi-tet-khi-mua-dien-thoai-huawei-tai-tgdd-1141732.html">
-                    <img width="100" height="70" src='~/themes/TheGioiDiDong/images/cdn/Files/2018/12/31/1141732/tet-huawei_800x450-100x100.jpg' alt="Cơ hội tr&#250;ng “Heo v&#224;ng”, thoải m&#225;i chơi Tết khi mua điện thoại Huawei tại TGDĐ">
-                    <h3>Cơ hội tr&#250;ng “Heo v&#224;ng”, thoải m&#225;i chơi Tết khi mua điện thoại Huawei tại TGDĐ</h3>
-                    <span>1 giờ trước</span>
-                </a>
-            </li>
-            <li>
-                <a href="tin-tuc/trung-heo-vang-choi-tet-khi-mua-dien-thoai-huawei-tai-tgdd-1141732.html">
-                    <img width="100" height="70" src='~/themes/TheGioiDiDong/images/cdn/Files/2018/12/31/1141732/tet-huawei_800x450-100x100.jpg' alt="Cơ hội tr&#250;ng “Heo v&#224;ng”, thoải m&#225;i chơi Tết khi mua điện thoại Huawei tại TGDĐ">
-                    <h3>Cơ hội tr&#250;ng “Heo v&#224;ng”, thoải m&#225;i chơi Tết khi mua điện thoại Huawei tại TGDĐ</h3>
-                    <span>1 giờ trước</span>
-                </a>
-            </li>
-            <li>
-                <a href="tin-tuc/trung-heo-vang-choi-tet-khi-mua-dien-thoai-huawei-tai-tgdd-1141732.html">
-                    <img width="100" height="70" src='~/themes/TheGioiDiDong/images/cdn/Files/2018/12/31/1141732/tet-huawei_800x450-100x100.jpg' alt="Cơ hội tr&#250;ng “Heo v&#224;ng”, thoải m&#225;i chơi Tết khi mua điện thoại Huawei tại TGDĐ">
-                    <h3>Cơ hội tr&#250;ng “Heo v&#224;ng”, thoải m&#225;i chơi Tết khi mua điện thoại Huawei tại TGDĐ</h3>
-                    <span>1 giờ trước</span>
-                </a>
-            </li>
-        </ul>
+          @await Component.InvokeAsync("NewItem")
+      
         @*<div class="twobanner">
             <a aria-label='slide' href='dong-ho-thong-minh/samsung-galaxy-watch-42mm.html' onclick="jQuery.ajax({ url: '//www.thegioididong.com/bannertracking?bid=25739&r='+ (new Date).getTime(),   async: true, cache: false });"><img src='~/themes/TheGioiDiDong/images/cdn/qcao/28_12_2018_14_30_57_Galaxy-Watch-398-110.png' alt='2018 - DE - Galaxy Watch' /></a>
             <a aria-label='slide' href='dtdd/iphone-6s-plus-32gb.html' onclick="jQuery.ajax({ url: '//www.thegioididong.com/bannertracking?bid=25717&r='+ (new Date).getTime(),   async: true, cache: false });"><img src='~/themes/TheGioiDiDong/images/cdn/qcao/25_12_2018_21_57_36_iPhone6sPlus-398-110.png' alt='2018 - DE - Big Apple' /></a>

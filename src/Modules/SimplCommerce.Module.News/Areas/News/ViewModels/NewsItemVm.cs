@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace SimplCommerce.Module.News.Areas.News.ViewModels
@@ -29,5 +30,6 @@ namespace SimplCommerce.Module.News.Areas.News.ViewModels
         public string ThumbnailImageUrl { get; set; }
 
         public IList<long> NewsCategoryIds { get; set; } = new List<long>();
+        public DateTimeOffset CreatedOn { get;  set; }
     }
 }
