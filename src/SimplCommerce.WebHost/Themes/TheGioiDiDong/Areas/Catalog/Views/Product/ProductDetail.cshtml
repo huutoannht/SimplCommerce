@@ -7191,14 +7191,14 @@
     <div class="rowdetail" id="normalproduct">
         <div class="col-md-6">
             <div class="sp-wrap">
-                @foreach (var image in Model.Images)
-                {
-                    <a href="@image.Url">
-                        <img src="@image.ThumbnailUrl" alt="" />
-                    </a>
-                }
+                    @foreach (var image in Model.Images)
+                    {
+                        <a href="@image.Url">
+                            <img src="@image.ThumbnailUrl" alt="" />
+                        </a>
+                    }
+                </div>
             </div>
-        </div>
 
         <aside class="price_sale product-detail">
             @if (Model.HasVariation)

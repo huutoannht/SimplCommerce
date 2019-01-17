@@ -1,27 +1,69 @@
-@model IEnumerable<SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels.CategoryMenuItem>
+﻿@model IEnumerable<SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels.CategoryMenuItem>
 
 @inject IViewLocalizer Localizer
 
 
-@foreach (var item in Model)
-{
-    if (item.ChildItems.Any())
+    <a class="logo" title="Về trang chủ Thegioididong.com" href="index.html" aria-label="logo">
+        <i class="icontgdd-logo"></i>
+    </a>
+    <form id="search-site" action="https://www.thegioididong.com/tim-kiem" method="get" onsubmit="return submitSearchForm();" autocomplete="off">
+        <input class="topinput" id="search-keyword" name="key" type="text" aria-label="Bạn tìm gì..." placeholder="Bạn tìm gì..." autocomplete="off" onkeyup="SuggestSearch(event,this, 0);" maxlength="50" />
+        <button class="btntop" type="submit" aria-label="tìm kiếm"><i class="icontgdd-topsearch"></i></button>
+    </form>
+    <nav>
+        <a href="dtdd.html" class="mobile" title="Điện thoại di động, smartphone">
+            <i class="icontgdd-mobile"></i>Điện thoại
+        </a>
+        <a href="may-tinh-bang.html" class="tablet" title="Máy tính bảng, tablet">
+            <i class="icontgdd-tablet"></i>Tablet
+        </a>
+        <a href="laptop.html" class="laptop" title="Máy tính xách tay, Laptop">
+            <i class="icontgdd-laptop"></i>Laptop
+        </a>
+        <a href="phu-kien.html" class="phukien" title="Phụ kiện điện thoại di động, phụ kiện tablet, phụ kiện lapto">
+            <i class="icontgdd-phukien"></i>Phụ kiện
+        </a>
+        <a href="dong-ho-thong-minh.html" class="smartwatch" title="Đồng hồ thông minh">
+            <i class="icontgdd-watch"></i>Đồng hồ
+        </a>
+        <a href="may-doi-tra.html" class="maydoitra" title="Máy cũ giá rẻ, máy đổi trả thegioididong">
+            <i class="icontgdd-maydoitra"></i><span>Máy</span>Cũ giá rẻ
+        </a>
+        <a href="tin-tuc.html" class="news" title="Tin công nghệ">
+            <i class="icontgdd-news"></i><span>Tin</span>Công Nghệ
+        </a>
+        <a href="hoi-dap.html" class="ask" title="Hỏi đáp">
+            <i class="icontgdd-ask"></i>Hỏi đáp
+        </a>
+        <a href="sim-so-dep.html" class="cardsim">
+            Sim số<br />
+            Thẻ cào
+        </a>
+        <a href="tien-ich/thanh-toan-tra-gopd41d.html?" class="utility">
+            Đóng tiền điện,<br />
+            nước, trả góp
+        </a>
+    </nav>
+
+    @*@foreach (var item in Model)
     {
-        <li>
-            <a href="/@item.Slug">@item.Name</a>
-            <ul class="sub-menu sub-menu-m">
-                @foreach (var childItem in item.ChildItems)
-                {
-                    <li><a href="/@childItem.Slug">@childItem.Name</a></li>
-                }
-            </ul>
-            <span class="arrow-main-menu-m d-md-none">
-                <i class="fa fa-angle-right" aria-hidden="true"></i>
-            </span>
-        </li>
-    }
-    else
-    {
-        <li><a href="/@item.Slug">@item.Name</a></li>
-    }
-}
+        if (item.ChildItems.Any())
+        {
+            <li>
+                <a href="/@item.Slug">@item.Name</a>
+                <ul class="sub-menu sub-menu-m">
+                    @foreach (var childItem in item.ChildItems)
+                    {
+                        <li><a href="/@childItem.Slug">@childItem.Name</a></li>
+                    }
+                </ul>
+                <span class="arrow-main-menu-m d-md-none">
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </span>
+            </li>
+        }
+        else
+        {
+            <li><a href="/@item.Slug">@item.Name</a></li>
+        }
+    }*@
