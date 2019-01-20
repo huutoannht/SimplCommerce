@@ -45,14 +45,14 @@ body, input, button, option, textarea, label, legend, h1, h2, h3, h4, h5, h6, h1
     zoom: 1
 }
 
-header {
+/*header {
     position: absolute;
     top: 0;
     min-width: 1024px;
     background: #fed700;
     width: 100%;
     height: 63px
-}
+}*/
 
 section {
     max-width: 1200px;
@@ -75,7 +75,7 @@ footer {
     max-width: 1200px;
     min-width: 1024px;
     width: 100%;
-    height: 63px;
+    /*height: 63px;*/
     background: #000;
     margin: auto;
     position: relative;
@@ -98,9 +98,7 @@ footer {
 #search-site {
     float: left;
     width: 230px;
-    height: 35px;
     margin: 10px 10px 0 10px;
-    background: #fff;
     position: relative;
     border-radius: 4px;
     -webkit-border-radius: 4px;
@@ -121,31 +119,29 @@ footer {
 }
 
 .btntop {
-    float: right;
-    width: 40px;
-    height: 35px;
+    position: absolute;
     border: 0;
-    background: none
+    background: none;
+    right: 30px;
 }
 
 nav {
-    width: 780px;
-    background: #fed700;
-    margin: 0;
+    /*width: 780px;*/
+    /*background: #fed700;*/
+    /*margin: 0;
     padding: 0;
     display: table;
     *display: block;
-    *float: none
+    *float: none*/
 }
 
     nav a {
-        display: table-cell;
+        display: inline-grid;
         *float: left;
         width: 75px;
-        height: 44px;
-        padding: 3px 0 4px;
+        padding: 3px 0 0px;
         color: #000;
-        background: #fed700;
+        /*background: #fed700;*/
         font-size: 11px;
         text-align: center;
         text-transform: uppercase;
@@ -1244,16 +1240,16 @@ section {
 .homebanner .owl-prev {
     position: absolute;
     left: 10px;
-    padding: 12px 0 0;
+    /*padding: 12px 0 0;*/
     margin: 0;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     background: rgba(0,0,0,.3);
     width: 48px;
-    height: 40px;
+    /*height: 40px;*/
     text-align: center;
-    font-size: 46px;
+    font-size: 28px;
     color: #fff;
     font-family: -webkit-body
 }
@@ -1261,18 +1257,18 @@ section {
 .homebanner .owl-next {
     position: absolute;
     right: 10px;
-    padding: 12px 0 0;
+    /* padding: 12px 0 0; */
     margin: 0;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     background: rgba(0,0,0,.3);
     width: 48px;
-    height: 40px;
+    /* height: 40px; */
     text-align: center;
-    font-size: 46px;
+    font-size: 28px;
     color: #fff;
-    font-family: -webkit-body
+    font-family: -webkit-body;
 }
 
 .homenews {
@@ -1633,14 +1629,15 @@ section {
 .homepromo .owl-prev {
     position: absolute;
     left: 0;
-    padding: 20px 0 0;
+    top: 15px;
+    /*padding: 20px 0 0;*/
     margin: 0;
     border-radius: 0 5px 5px 0;
     background: #fff;
-    width: 34px;
-    height: 50px;
+    width: 26px;
+    /*height: 50px;*/
     text-align: center;
-    font-size: 46px;
+    font-size: 19px;
     color: #999;
     font-family: -webkit-body;
     box-shadow: 0 0 4px 2px rgba(0,0,0,.15)
@@ -1649,17 +1646,18 @@ section {
 .homepromo .owl-next {
     position: absolute;
     right: 0;
-    padding: 20px 0 0;
+    top: 15px;
+    /* padding: 0px 0 0px; */
     margin: 0;
     border-radius: 5px 0 0 5px;
     background: #fff;
-    width: 34px;
-    height: 50px;
+    width: 26px;
+    /* height: 50px; */
     text-align: center;
-    font-size: 46px;
+    font-size: 19px;
     color: #999;
     font-family: -webkit-body;
-    box-shadow: 0 0 4px 2px rgba(0,0,0,.15)
+    box-shadow: 0 0 4px 2px rgba(0,0,0,.15);
 }
 
 .homepromo.weekend {
@@ -1735,7 +1733,8 @@ section {
         padding: 10px 0
     }
 
-        .homeproduct li a:hover h3 {
+        .homeproduct li a:hover h3,
+        .homeproduct .item-product a:hover h3 {
             color: #288ad6
         }
 
@@ -1753,15 +1752,15 @@ section {
         transition: all .2s ease-in-out
     }
 
-    .homeproduct a:hover > img {
+    /*.homeproduct a:hover > img {
         margin: 5px auto 25px;
         -webkit-transition: all .2s ease-in-out;
         -moz-transition: all .2s ease-in-out;
         -o-transition: all .2s ease-in-out;
         transition: all .2s ease-in-out
-    }
+    }*/
 
-    .homeproduct li .laptop img {
+    .homeproduct li .laptop img, .homeproduct .item-product .laptop img {
         margin: 45px auto;
         height: auto;
         -webkit-transition: all .2s ease-in-out;
@@ -1774,7 +1773,7 @@ section {
         margin: 38px auto 52px
     }
 
-    .homeproduct li h3 {
+    .homeproduct li h3, .homeproduct .item-product h3 {
         display: block;
         line-height: 1.3em;
         font-size: 14px;
@@ -1787,13 +1786,13 @@ section {
         overflow: hidden
     }
 
-    .homeproduct li .price {
+    .homeproduct li .price, .homeproduct .item-product .price {
         display: block;
         overflow: hidden;
         padding: 5px 10px 10px 10px
     }
 
-    .homeproduct li strong {
+    .homeproduct li strong, .homeproduct .item-product strong {
         display: inline-block;
         vertical-align: middle;
         overflow: hidden;
@@ -1802,7 +1801,7 @@ section {
         line-height: 15px
     }
 
-    .homeproduct li span {
+    .homeproduct li span, .homeproduct .item-product span {
         display: inline-block;
         vertical-align: middle;
         font-size: 12px;
@@ -1811,7 +1810,7 @@ section {
         color: #222
     }
 
-    .homeproduct li label {
+    .homeproduct li label, .homeproduct .item-product label {
         display: inline-block;
         position: absolute;
         top: 187px;
@@ -1852,8 +1851,15 @@ section {
             padding-left: 0;
             padding-right: 10px
         }
-
-            .homeproduct li label.discount:before {
+        .homeproduct .item-product label.discount {
+            background-image: linear-gradient(-90deg,#ec1f1f 0%,#ff9c00 100%);
+            border-radius: 10px;
+            padding: 1px 7px;
+            padding-left: 0;
+            padding-right: 10px;
+            margin-top:-28px;
+        }
+            .homeproduct li label.discount:before, .homeproduct .item-product label.discount:before {
                 content: ' ';
                 display: inline-block;
                 background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAaCAYAAAC+aNwHAAAABGdBTUEAALGPC/xhBQAAAVpJREFUOBGVki1LBFEUhueuH0FQTAuimxVE2KZBgxj8AxaLglj8AYLJZLOYtFpFwWQ2iMUkiyBqNCloEFEQYXzuzl7mzP0Y7z3w7j0f73PuDDtZFhl5njfRI5qJREobUB+6RL9otJxEZkD7SMd1JFLagFa6aPGzW04iMpgp9CEWzEZghQVoGN0L+I28kbLgVMA6PUmBty1YlxtRCzAuIv132THx7wKIcfRik9R3IbjfDDANkp+hpumJ8535pqhN+mySDMMhSo1OdwHUWiqJ/wu19c3tXsGRFOvm9k4SVpiPzLsr6mWKlmmIc568uEU0SW/QglLqp9q2KhYfe57slZ7vsiqNqYHs70F/XEtVZ6DCOIfs2AnY3TbknkWfUyvXGehgvhULHshHAla3jbkl4E/yaddV0wHYEgtWa6z+EfBFb8GB31HTBRxC3+gKDdRY/SOgSfSExvwOt/sHwv9i4NYIgYYAAAAASUVORK5CYII=');
@@ -2293,9 +2299,4 @@ section {
     .homenews h2 a {
         font-size: 12ox
     }
-}
-
-
-.cart-list{
-    padding-top:140px;
 }

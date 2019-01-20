@@ -1,15 +1,18 @@
 ﻿@model IList<SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels.ProductThumbnail>
 
+<style>
+    .item-product{
+        margin-left:20px;
+    }
+</style>
 @if (Model.Any())
 {
     <h3 class="p-t-25 p-b-25">@Localizer["Recently viewed products"]</h3>
-    <div class="row product-list">
-        <div class="navigat ">
-        </div>
-        <div id="owl-promo" class="owl-carousel homepromo ">
+    <div class="product-list homeproduct">
+        <div class="row">
             @foreach (var product in Model)
             {
-                <div class="item">
+                <div class="item-product col-2">
                     <partial name="/Themes/TheGioiDiDong/Areas/Catalog/Views/Shared/_ProductThumbnail.cshtml" model="product" />
                 </div>
             }

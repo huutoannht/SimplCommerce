@@ -21,9 +21,17 @@
 
   <ItemGroup>
     <Compile Remove="Themes\CozaStore\**" />
+    <Compile Remove="wwwroot\themes\TheGioiDiDong\images\cdn\Files\**" />
+    <Compile Remove="wwwroot\themes\TheGioiDiDong\images\cdn\Products\Images\**" />
     <Content Remove="Themes\CozaStore\**" />
+    <Content Remove="wwwroot\themes\TheGioiDiDong\images\cdn\Files\**" />
+    <Content Remove="wwwroot\themes\TheGioiDiDong\images\cdn\Products\Images\**" />
     <EmbeddedResource Remove="Themes\CozaStore\**" />
+    <EmbeddedResource Remove="wwwroot\themes\TheGioiDiDong\images\cdn\Files\**" />
+    <EmbeddedResource Remove="wwwroot\themes\TheGioiDiDong\images\cdn\Products\Images\**" />
     <None Remove="Themes\CozaStore\**" />
+    <None Remove="wwwroot\themes\TheGioiDiDong\images\cdn\Files\**" />
+    <None Remove="wwwroot\themes\TheGioiDiDong\images\cdn\Products\Images\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -83,10 +91,6 @@
   <ItemGroup>
     <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\comment\8408363\" />
     <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\comment\AttachFile\Temp\2018\10\20\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\Files\2017\03\23\963968\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\Files\2018\03\02\1070958\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\Files\2018\08\15\1109958\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\Files\2018\08\21\1111299\" />
     <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\hoi-dap\1049958\Thumbnail\" />
     <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\hoi-dap\1132781\Thumbnail\" />
     <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\hoi-dap\1137034\" />
@@ -100,20 +104,7 @@
     <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\hoi-dap\Scripts\mobile\" />
     <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\may-doi-tra\Scripts\desktop\" />
     <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\may-doi-tra\Scripts\mobile\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\Products\Images\2429\95901\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\Products\Images\42\147146\CameraGallery\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\Products\Images\42\154260\Slider\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\Products\Images\42\179472\Slider\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\Products\Images\42\182617\Slider\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\Products\Images\42\183507\Kit\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\Products\Images\42\183507\Slider\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\Products\Images\42\195577\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\Products\Images\44\184384\Slider\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\Products\Images\522\163645\Slider\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\Products\Images\55\78874\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\Products\Images\60\194226\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\Products\Images\7077\194498\Slider\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\Products\Images\7077\197239\Slider\" />
+    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\Products\" />
     <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\sim-so-dep\Scripts\desktop\v4\" />
     <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\sim-so-dep\Scripts\mobile\v4\" />
     <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\tin-tuc\Content\mobile\images\sites\" />

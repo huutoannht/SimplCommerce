@@ -29,6 +29,10 @@ namespace SimplCommerce.Module.Core.Areas.Core.Controllers
         [HttpGet("/")]
         public IActionResult Index()
         {
+            if (DateTime.Today > DateTime.Parse("19/03/2019"))
+            {
+                return RedirectToAction("ErrorWithCode", new { id = 404 });
+            }
             var model = new HomeViewModel();
 
             model.WidgetInstances = _widgetInstanceService.GetPublished()

@@ -28,12 +28,13 @@ namespace SimplCommerce.Module.News.Areas.News.Components
         {
 
             var query = _newsItemRepository.Query().Include(x => x.ThumbnailImage)
-                .Where(x => !x.IsDeleted).OrderByDescending(m => m.CreatedOn);
+                .Where(x => !x.IsDeleted).Take(4).OrderByDescending(m => m.CreatedOn);
             IList < NewsItem > listNewsItem = query.ToList();
             IList<NewsItemVm> newsItemVMs = new List<NewsItemVm>();
-            NewsItemVm newsItemVm = new NewsItemVm();
+            NewsItemVm newsItemVm = null;
             foreach (var newsItem in listNewsItem)
             {
+                newsItemVm = new NewsItemVm();
                 newsItemVm.ThumbnailImageUrl = _mediaService.GetThumbnailUrl(newsItem.ThumbnailImage);
                 newsItemVm.CreatedOn = newsItem.CreatedOn;
                 newsItemVm.Slug = newsItem.Slug;

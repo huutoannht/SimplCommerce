@@ -16,7 +16,7 @@
     <link simpl-append-version="true" rel="stylesheet" href="~/lib/nouislider/distribute/nouislider.min.css" />
 }
 
-<div class="bread-crumb flex-w p-r-15 p-t-20 p-b-20 p-lr-0-lg">
+<div class="breadcrumb bread-crumb flex-w p-r-15 p-t-20 p-b-20 p-lr-0-lg">
     <a href="~/" class="stext-109 cl8 hov-cl1 trans-04">
         @Localizer["Home"]
         <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
@@ -106,7 +106,7 @@
                             <select asp-for="CurrentSearchOption.Sort" asp-items="Model.AvailableSortOptions" class="form-control"></select>
                         </div>
                     </li>
-                    <li class="pagination-option">
+                    @*<li class="pagination-option">
                         <label>Show :</label>
                         <div class="btn-group">
                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -118,17 +118,26 @@
                                 <li><a href="#">30</a></li>
                             </ul>
                         </div>
-                    </li>
+                    </li>*@
                 </ul>
             </div>
         </div>
-        <div class="row product-list">
-            @foreach (var product in Model.Products)
-            {
-                <div class="col-xs-6 col-md-4">
-                    <partial name="_ProductThumbnail" model="product" />
-                </div>
-            }
+        <div class="row product-list ">
+            <div class="homeproduct">
+                @foreach (var product in Model.Products)
+                {
+                    <div class="col-xs-3 col-md-3 item-product">
+                        <partial name="_ProductThumbnail" model="product" />
+                    </div>
+                }
+            </div>
+            
+            @*@foreach (var product in Model.Products)
+        {
+            <div class="col-xs-6 col-md-4">
+                <partial name="_ProductThumbnail" model="product" />
+            </div>
+        }*@
         </div>
         <div class="row">
             <div class="col-md-12 text-right">
@@ -159,129 +168,3 @@
     </script>
     <script simpl-append-version="true" src="~/modules/catalog/product-filter.js"></script>
 }
-
-<style>
-    .laptopmanu a {
-        display: inline-block;
-        vertical-align: middle;
-        position: relative;
-        color: #288ad6;
-        padding: 0 8px;
-    }
-
-    .laptopmanu {
-        padding: 8px 0;
-        border-bottom: 1px solid #eee;
-        margin-bottom: 2px;
-        margin-top: 0;
-    }
-
-    .laptopprice {
-        padding: 15px 0;
-    }
-
-        .laptopprice > div {
-            float: right;
-        }
-
-            .laptopprice > div a {
-                color: #288ad6;
-                margin-right: 10px;
-                font-weight: bold;
-            }
-
-        .laptopprice h1 {
-            font-size: 16px;
-            font-weight: bold;
-            display: inline-block;
-            text-transform: uppercase;
-        }
-</style>
-<section class="laptopcate ">
-    <ul class="breadcrumb">
-        <li>
-            <a href="../index.html" title="Trang chủ">Trang chủ</a>
-            <span>›</span>
-        </li>
-        <li>
-            <a href="../laptop.html">Laptop</a>
-            <span>›</span>
-        </li>
-        <li class="brand">
-            <a href="../laptop-hp-compaq.html">
-                HP-Compaq
-            </a>
-        </li>
-    </ul>
-    @if (Model.ParentCategorId.HasValue)
-    {
-        @await Component.InvokeAsync("CategoryBreadcrumb", new { categoryId = Model.ParentCategorId.Value })
-    }
-    @*<div class="laptoptop">
-
-            <div id="owl-laptop">
-                <a aria-label='slide' href='laptop.html' onclick="jQuery.ajax({ url: '//www.thegioididong.com/bannertracking?bid=25375&r='+ (new Date).getTime(),   async: true, cache: false });"><img src='../cdn.tgdd.vn/qcao/30_11_2018_20_58_17_LapT12-800-170.png' alt='2018 - DE - Big Laptop' /></a><a aria-label='slide' href='laptop/lenovo-ideapad-130-14ikb-81h60017vn.html' onclick="jQuery.ajax({ url: '//www.thegioididong.com/bannertracking?bid=25185&r='+ (new Date).getTime(),   async: true, cache: false });"><img src='../cdn.tgdd.vn/qcao/28_11_2018_14_42_13_laptop-lenovo-800-170.png' alt='2018 - DE - Laptop' /></a><a aria-label='slide' href='windows-ban-quyen.html' onclick="jQuery.ajax({ url: '//www.thegioididong.com/bannertracking?bid=24715&r='+ (new Date).getTime(),   async: true, cache: false });"><img class='lazyOwl owl-lazy' data-src='//cdn.tgdd.vn/qcao/13_11_2018_06_31_25_Bo-doi-bao-ve-laptop-800-170.png' alt='2018 - NO - Laptop' /></a><a aria-label='slide' href='laptop-apple-macbook.html' onclick="jQuery.ajax({ url: '//www.thegioididong.com/bannertracking?bid=25188&r='+ (new Date).getTime(),   async: true, cache: false });"><img class='lazyOwl owl-lazy' data-src='//cdn.tgdd.vn/qcao/28_11_2018_14_47_02_MacProTouch-800-170.png' alt='2018 - DE - Laptop' /></a><a aria-label='slide' href='laptop-hp-compaq.html' onclick="jQuery.ajax({ url: '//www.thegioididong.com/bannertracking?bid=25191&r='+ (new Date).getTime(),   async: true, cache: false });"><img class='lazyOwl owl-lazy' data-src='//cdn.tgdd.vn/qcao/28_11_2018_14_50_33_Laptop-HP-800-170.png' alt='2018 - DE - Laptop' /></a><a aria-label='slide' href='laptop-acer.html' onclick="jQuery.ajax({ url: '//www.thegioididong.com/bannertracking?bid=25193&r='+ (new Date).getTime(),   async: true, cache: false });"><img class='lazyOwl owl-lazy' data-src='//cdn.tgdd.vn/qcao/28_11_2018_14_55_05_LaptopAcer-800-170.png' alt='2018 - DE - Laptop' /></a><a aria-label='slide' href='laptop-asus.html' onclick="jQuery.ajax({ url: '//www.thegioididong.com/bannertracking?bid=25195&r='+ (new Date).getTime(),   async: true, cache: false });"><img class='lazyOwl owl-lazy' data-src='//cdn.tgdd.vn/qcao/28_11_2018_14_58_12_laptop-Asus-800-170.png' alt='2018 - DE - Laptop' /></a><a aria-label='slide' href='laptop564b.html?f=cpu-intel-the-he-8' onclick="jQuery.ajax({ url: '//www.thegioididong.com/bannertracking?bid=21245&r='+ (new Date).getTime(),   async: true, cache: false });"><img class='lazyOwl owl-lazy' data-src='//cdn.tgdd.vn/qcao/31_07_2018_20_47_08_chip-intel-800-170.png' alt='2018 - MA - Laptop' /></a>
-            </div>
-            <div class="right">
-                <div class="twobanner">
-                    <a aria-label='slide' href='windows-ban-quyen.html#banquyen' onclick="jQuery.ajax({ url: '//www.thegioididong.com/bannertracking?bid=24794&r='+ (new Date).getTime(),   async: true, cache: false });"><img src='../cdn.tgdd.vn/qcao/31_10_2018_14_25_57_sticky-laptop-390-80.png' alt='2018 - NO - Sticky Laptop' /></a>
-                    <a aria-label='slide' href='laptop/asus-s530ua-i5-8250u-4gb-16gb-1tb-win10-bq290t.html' onclick="jQuery.ajax({ url: '//www.thegioididong.com/bannertracking?bid=25244&r='+ (new Date).getTime(),   async: true, cache: false });"><img src='../cdn.tgdd.vn/qcao/29_11_2018_09_15_28_sticky-nh-390-80.png' alt='2018 - DE - Sticky Laptop' /></a>
-                </div>
-
-            </div>
-            <div class="clr"></div>
-        </div>*@
-
-
-    <div class="clr"></div>
-    <div class="laptopmanu">
-            @foreach (var brand in Model.FilterOption.Brands)
-            {
-            <a href="~/@brand.Slug">  @brand.Name ( @brand.Count)</a>
-                @*<li>
-                    <label class="checkbox">
-                        <input type="checkbox" value="@brand.Slug" name="brand" checked="@Model.CurrentSearchOption.GetBrands().Contains(brand.Slug)">
-                        @brand.Name
-                        <small>(@brand.Count)</small>
-                    </label>
-                </li>*@
-            }
-    </div>
-    <div class="laptopprice">
-        <h1>@Model.CategoryName</h1>
-        <small class="badge-results">@Model.TotalProduct @Localizer["results"]</small>
-        <div>
-            <ul class="list-inline clear-both product-list-display-options">
-                <li class="sort-by">
-                    <label>@Localizer["Sort by:"]</label>
-                    <div class="btn-group">
-                        <select asp-for="CurrentSearchOption.Sort" asp-items="Model.AvailableSortOptions" class="form-control"></select>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <!-- Product -->
-
-    <ul class="homeproduct">
-        @foreach (var product in Model.Products)
-        {
-            <li>
-                <partial name="_ProductThumbnail" model="product" />
-            </li>
-        }
-
-
-    </ul>
-    <div class="row">
-        <div class="col-md-12 text-right">
-            <cs-pager cs-paging-pagesize="@Model.CurrentSearchOption.PageSize"
-                      cs-paging-pagenumber="@Model.CurrentSearchOption.Page"
-                      cs-paging-totalitems="@Model.TotalProduct"
-                      cs-pagenumber-param="page"
-                      asp-basehref="~/@Model.CategorySlug"
-                      asp-all-route-data="@Model.CurrentSearchOption.ToDictionary()"></cs-pager>
-        </div>
-    </div>
-</section>
-<!-- Tag -->

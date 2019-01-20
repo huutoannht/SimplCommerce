@@ -15,6 +15,8 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels
 
         public string Slug { get; set; }
 
+        public string Description { get; set; }
+
         public CategoryMenuItem Parent { get; set; }
 
         public IList<CategoryMenuItem> ChildItems { get; set; }

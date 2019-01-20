@@ -54,7 +54,7 @@ namespace SimplCommerce.Module.Core.Extensions
             }
 
             userGuid = Guid.NewGuid();
-            var dummyEmail = string.Format("{0}@guest.simplcommerce.com", userGuid);
+            var dummyEmail = string.Format("{0}@guest.com", userGuid);
             _currentUser = new User
             {
                 FullName = "Guest",

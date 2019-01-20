@@ -134,8 +134,9 @@ namespace SimplCommerce.Module.Core.Areas.Core.Controllers
 
         //
         // POST: /Account/LogOff
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        // [HttpPost]
+        //[ValidateAntiForgeryToken]
+        [HttpGet]
         public async Task<IActionResult> LogOff()
         {
             await _signInManager.SignOutAsync();
