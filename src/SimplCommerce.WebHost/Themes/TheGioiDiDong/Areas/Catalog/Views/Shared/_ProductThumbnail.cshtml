@@ -1,7 +1,7 @@
 ﻿@model SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels.ProductThumbnail
 <!--#region Ngành hàng chính -->
 <a href="~/@Model.Slug">
-    <img width="180" height="180" src='@Model.ThumbnailUrl' alt="@Model.Name" />
+    <img width="180" height="180" src='@Model.ThumbnailUrl' alt="@Model.Name" class="mx-auto d-block" />
     <h3>@Model.Name</h3>
     <div class="price"><strong>@Model.CalculatedProductPrice.Price.ToString("C")</strong><span>@Model.CalculatedProductPrice?.OldPrice?.ToString("C")</span></div>
     <div class="promo noimage">

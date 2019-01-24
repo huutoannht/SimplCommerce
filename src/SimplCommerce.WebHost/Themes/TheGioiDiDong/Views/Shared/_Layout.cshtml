@@ -3,14 +3,14 @@
 <html lang="en">
 <head>
     @RenderSection("additionalMeta", false)
-    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>laptopcudanang.com - Laptop cũ Đà nẵng</title>
     <meta name="keywords" content="laptopcudanang, smartphone, tablet, máy tính bảng, Laptop, máy tính xách tay, phụ kiện điện thoại, tin công nghệ" />
     <meta name="description" content="Hệ thống bán lẻ điện thoại di động, smartphone, máy tính bảng, tablet, laptop, phụ kiện chính hãng mới nhất, giá tốt, dịch vụ khách hàng được yêu thích nhất VN" />
     <meta property="og:title" content="Laptopcudanang.com - Siêu thị điện thoại, Tablet, Laptop, Phụ kiện chính hãng" />
     <meta property="og:description" content="Hệ thống bán lẻ điện thoại di động, smartphone, máy tính bảng, tablet, laptop, phụ kiện chính hãng mới nhất, giá tốt, dịch vụ khách hàng được yêu thích nhất VN" />
     <meta content="INDEX,FOLLOW" name="robots" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="copyright" content="Công ty TNHH MTV Quốc tế Phúc Thành Đạt" />
     <meta name="author" content="Công ty  TNHH MTV Quốc tế Phúc Thành Đạt" />
     <meta http-equiv="audience" content="General" />
@@ -27,7 +27,7 @@
     <meta http-equiv="x-dns-prefetch-control" content="on">
     <link href="~/themes/TheGioiDiDong/css/style.css" rel="stylesheet" />
 
-    <link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/lib/bootstrap4/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link simpl-append-version="true" rel="stylesheet" href="~/lib/toastr/build/toastr.min.css" />
     <link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/CozaStore/fonts/font-awesome-4.7.0/css/font-awesome.min.css" />
     <link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/CozaStore/fonts/iconic/css/material-design-iconic-font.min.css" />
@@ -42,9 +42,6 @@
     <link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/CozaStore/css/simpl.css" />
     @RenderSection("head", required: false)
     <style>
-        .wrap-main {
-            display: inline-flex !important;
-        }
 
         .bg-navbar {
             background-color: #eae4e4;
@@ -64,20 +61,19 @@
         }
 
         .navbar {
-            padding: 0rem 1rem !important;
+            padding: 0rem 0rem !important;
         }
     </style>
 
 </head>
 <body>
-
-    <header>
-        @await Component.InvokeAsync("CategoryMenu")
-       
-    </header>
-    @RenderSection("featured", false)
-    <div class="container" style="margin-top:74px">
+    <div class="container" style="padding-top:63px ">
+        <header class="row">
+            @await Component.InvokeAsync("CategoryMenu")
+        </header>
+        @RenderSection("featured", false)
         @RenderBody()
+
     </div>
     <footer class="bg3 p-t-75 p-b-32 m-t-75">
         <div class="container">
@@ -131,8 +127,6 @@
     <p id="back-top">
         <a href="#top" title="Về Đầu Trang"><span></span></a>
     </p>
-
-
     <!--#endregion -->
     <!--#region Hotjar -->
     <!--#endregion -->

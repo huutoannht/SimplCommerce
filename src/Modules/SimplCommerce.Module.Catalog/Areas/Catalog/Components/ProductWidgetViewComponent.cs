@@ -34,7 +34,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Components
                 Setting = JsonConvert.DeserializeObject<ProductWidgetSetting>(widgetInstance.Data)
             };
 
-            var query = _productRepository.Query()
+            var query = _productRepository.Query().Include(m=>m.Brand)
               .Where(x => x.IsPublished && x.IsVisibleIndividually);
 
             if (model.Setting.CategoryId.HasValue && model.Setting.CategoryId.Value > 0)
@@ -46,7 +46,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Components
             {
                 query = query.Where(x => x.IsFeatured);
             }
-
+            model.Brands = query.Select(m => m.Brand).Distinct().ToList();
             model.Products = query
               .Include(x => x.ThumbnailImage)
               .OrderByDescending(x => x.CreatedOn)

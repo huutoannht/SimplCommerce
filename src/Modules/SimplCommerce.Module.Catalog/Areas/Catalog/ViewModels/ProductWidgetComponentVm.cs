@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using SimplCommerce.Module.Catalog.Models;
+using System.Collections.Generic;
 
 namespace SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels
 {
@@ -11,5 +12,6 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels
         public ProductWidgetSetting Setting { get; set; }
 
         public IList<ProductThumbnail> Products { get; set; }
+        public IList<Brand> Brands { get; set; } = new List<Brand>();
     }
 }

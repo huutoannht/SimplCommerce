@@ -97,10 +97,10 @@
                 </ul>
             </div>
         </div>
-        <div class="row product-list">
+        <div class="row product-list homeproduct">
             @foreach (var product in Model.Products)
             {
-                <div class="col-xs-6 col-md-4">
+                <div class="col-xs-6 col-md-4 item-product">
                     <partial name="/Themes/TheGioiDiDong/Areas/Catalog/Views/Shared/_ProductThumbnail.cshtml" model="product" />
                 </div>
             }

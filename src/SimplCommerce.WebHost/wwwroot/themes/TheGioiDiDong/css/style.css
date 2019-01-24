@@ -1,19 +1,4 @@
 ﻿/* 04:40:22 29/12/2018 */
-
-* {
-    margin: 0;
-    padding: 0
-}
-
-body {
-    min-width: 1024px;
-    overflow-x: hidden
-}
-
-img {
-    border: 0
-}
-
 a {
     text-decoration: none
 }
@@ -58,7 +43,7 @@ section {
     max-width: 1200px;
     width: 100%;
     min-width: 980px;
-    margin: 63px auto 0;
+    /*margin: 63px auto 0;*/
     position: relative
 }
 
@@ -80,7 +65,6 @@ footer {
     margin: auto;
     position: relative;
     display: block;
-    margin-left: 150px;
 }
 
 .logo {
@@ -1135,10 +1119,6 @@ nav {
     background: #f0f0f0
 }
 
-section {
-    margin: 65px auto 0
-}
-
 .lazy {
     opacity: 0;
     transition: all 300ms ease
@@ -1698,25 +1678,35 @@ section {
     flex-flow: row wrap;
     flex: 1 100%;
     border-top: 1px solid #eee;
-    margin-bottom: 15px
+    border-left: 1px solid #eee;
+    margin-bottom: 15px;
 }
 
     .homeproduct li {
         float: left;
         position: relative;
-        width: 19.917%;
         overflow: hidden;
         border-right: 1px solid #eee;
         border-bottom: 1px solid #eee
     }
 
-        .homeproduct li:nth-child(4), .homeproduct li:nth-child(8) {
-            border-right: none !important
-        }
+    .homeproduct .item-product {
+        position: relative;
+        overflow: hidden;
+        border-right: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+        text-align: center;
+        padding-top: 20px;
+        padding-left: 10px;
+    }
 
-        .homeproduct li:nth-child(2n+6) {
-            border-right: 1px solid #eee
-        }
+    .homeproduct li:nth-child(4), .homeproduct li:nth-child(8) {
+        border-right: none !important
+    }
+
+    .homeproduct li:nth-child(2n+6) {
+        border-right: 1px solid #eee
+    }
 
     .homeproduct.phukien li:nth-child(4) {
         border-right: 1px solid #eee !important
@@ -1851,14 +1841,16 @@ section {
             padding-left: 0;
             padding-right: 10px
         }
+
         .homeproduct .item-product label.discount {
             background-image: linear-gradient(-90deg,#ec1f1f 0%,#ff9c00 100%);
             border-radius: 10px;
             padding: 1px 7px;
             padding-left: 0;
             padding-right: 10px;
-            margin-top:-28px;
+            margin-top: -28px;
         }
+
             .homeproduct li label.discount:before, .homeproduct .item-product label.discount:before {
                 content: ' ';
                 display: inline-block;
@@ -1997,6 +1989,7 @@ section {
     background: #d84841;
     /*background: url(/themes/TheGioiDiDong/images/cdn/navigatbg.png) no-repeat top center;*/
     color: #ffdd8d;
+    margin-bottom: 20px;
 }
 
     .navigat h2 {
@@ -2017,20 +2010,19 @@ section {
         display: inline-block;
         vertical-align: middle;
         font-size: 14px;
-        color: #288ad6;
+        color: #fff;
         padding: 14px 15px
     }
 
-        .navigat a:hover {
-            text-decoration: underline;
-            color: #288ad6
-        }
+.viewallcat a:hover {
+    color: #ffdd8d;
+}
 
-    .navigat.weekend {
-        background: url(../images/cdn/v2015/Content/desktop/images/gsct.png) no-repeat center center;
-        background-size: 309px 50%;
-        height: 40px
-    }
+.navigat.weekend {
+    background: url(../images/cdn/v2015/Content/desktop/images/gsct.png) no-repeat center center;
+    background-size: 309px 50%;
+    height: 40px
+}
 
 .acchome {
     display: block;
