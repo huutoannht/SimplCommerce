@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using SimplCommerce.Module.Catalog.Models;
 using SimplCommerce.Module.Core.Models;
 
@@ -38,6 +39,8 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels
 
         public CalculatedProductPrice CalculatedProductPrice { get; set; }
 
+        public IList<ProductCategory> Categories { get; set; }
+
         public static ProductThumbnail FromProduct(Product product)
         {
             var productThumbnail = new ProductThumbnail
@@ -55,7 +58,8 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels
                 IsCallForPricing = product.IsCallForPricing,
                 ThumbnailImage = product.ThumbnailImage,
                 ReviewsCount = product.ReviewsCount,
-                RatingAverage = product.RatingAverage
+                RatingAverage = product.RatingAverage,
+                Categories = product.Categories
             };
 
             return productThumbnail;

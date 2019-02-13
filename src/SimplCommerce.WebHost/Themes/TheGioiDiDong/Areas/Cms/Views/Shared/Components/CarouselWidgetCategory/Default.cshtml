@@ -1,0 +1,22 @@
+﻿@model SimplCommerce.Module.Cms.Areas.Cms.ViewModels.CarouselWidgetViewComponentVm
+<div class="laptoptop">
+    <div class="row">
+        <div class="col-md-8">
+            <div id="owl-laptop">
+                @foreach (var item in Model.Items)
+                {
+                    <a aria-label='slide' href='@item.TargetUrl'>
+                        <img src='@item.Image' alt='@item.LinkText' class="img-responsive" style="height:200px;"/>
+                    </a>
+                }
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="right">
+                <aside class="homenews">
+                    @await Component.InvokeAsync("NewItem")
+                </aside>
+            </div>
+        </div>
+    </div>
+</div>

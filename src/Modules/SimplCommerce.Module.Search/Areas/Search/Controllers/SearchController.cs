@@ -150,19 +150,19 @@ namespace SimplCommerce.Module.Search.Areas.Search.Controllers
             return query;
         }
 
-        private static void AppendFilterOptionsToModel(SearchResult model, IQueryable<Product> query)
+        private  void AppendFilterOptionsToModel(SearchResult model, IQueryable<Product> query)
         {
             model.FilterOption.Price.MaxPrice = query.Max(x => x.Price);
             model.FilterOption.Price.MinPrice = query.Min(x => x.Price);
 
-            model.FilterOption.Categories = query
-                .SelectMany(x => x.Categories)
+            model.FilterOption.Categories = _categoryRepository.Query()
+                .Where(m=>m.ParentId!=null)
                 .GroupBy(x => new
                 {
-                    x.Category.Id,
-                    x.Category.Name,
-                    x.Category.Slug,
-                    x.Category.ParentId
+                    x.Id,
+                    x.Name,
+                    x.Slug,
+                    x.ParentId
                 })
                 .Select(g => new FilterCategory
                 {

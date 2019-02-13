@@ -34,7 +34,7 @@
                 {
                     <li class="nav-item">
                         <a class="mobile" asp-area="Core" asp-controller="Manage" asp-action="Index" title="@Localizer["Manage"]">
-                            <i class="fa fa-user-circle" style="font-size: 20px;" aria-hidden="true"></i>
+                            <i class="fa fa-user-circle" style="font-size: 20px;margin-bottom: -1px;" aria-hidden="true"></i>
                             @((await WorkContext.GetCurrentUser()).FullName)
                         </a>
                     </li>
@@ -42,21 +42,21 @@
                     @if (User.IsInRole("admin") || User.IsInRole("vendor"))
                     {
                         <li class="nav-item">
-                            <a class="mobile" asp-area="Core" asp-controller="HomeAdmin" asp-action="Index"><i class="fa fa-tachometer" aria-hidden="true" style="font-size: 20px;"></i>@Localizer["Dashboard"]</a>
+                            <a class="mobile" asp-area="Core" asp-controller="HomeAdmin" asp-action="Index"><i class="fa fa-tachometer" aria-hidden="true" style="font-size: 20px;margin-bottom: -1px;"></i>@Localizer["Dashboard"]</a>
                         </li>
 
                     }
                     <li class="nav-item">
-                        <a class="mobile" asp-area="Core" asp-controller="Account" asp-action="LogOff"><i class="fa fa-sign-out" aria-hidden="true" style="font-size: 20px;"></i>@Localizer["Log off"]</a>
+                        <a class="mobile" asp-area="Core" asp-controller="Account" asp-action="LogOff"><i class="fa fa-sign-out" aria-hidden="true" style="font-size: 20px;margin-bottom: -1px;"></i>@Localizer["Log off"]</a>
                     </li>
                 }
                 else
                 {
                     <li class="nav-item">
-                        <a class="mobile" asp-area="Core" asp-controller="Account" asp-action="Login"><i class="fa fa-sign-in" aria-hidden="true" style="font-size: 20px;"></i>@Localizer["Log in"]</a>
+                        <a class="mobile" asp-area="Core" asp-controller="Account" asp-action="Login"><i class="fa fa-sign-in" aria-hidden="true" style="font-size: 20px;margin-bottom: -1px;"></i>@Localizer["Log in"]</a>
                     </li>
                     <li class="nav-item">
-                        <a class="mobile" asp-area="Core" asp-controller="Account" asp-action="Register"><i class="fa fa-user-plus" aria-hidden="true" style="font-size: 20px;"></i>@Localizer["Register"]</a>
+                        <a class="mobile" asp-area="Core" asp-controller="Account" asp-action="Register"><i class="fa fa-user-plus" aria-hidden="true" style="font-size: 20px;margin-bottom: -1px;"></i>@Localizer["Register"]</a>
                     </li>
                 }
                 <li class="nav-item ">

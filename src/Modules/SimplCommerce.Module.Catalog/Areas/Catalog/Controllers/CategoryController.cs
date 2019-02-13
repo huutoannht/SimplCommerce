@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -79,6 +80,15 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
                 query = query.Where(x => x.Price <= searchOption.MaxPrice.Value);
             }
 
+            if (string.Compare(model.CurrentSearchOption.Category, "all", StringComparison.OrdinalIgnoreCase) != 0)
+            {
+                var categories = searchOption.GetCategories();
+                if (categories.Any())
+                {
+                    var categoryIds = _categoryRepository.Query().Where(x => categories.Contains(x.Slug)).Select(x => x.Id).ToList();
+                    query = query.Where(x => x.Categories.Any(c => categoryIds.Contains(c.CategoryId)));
+                }
+            }
             var brands = searchOption.GetBrands();
             if (brands.Any())
             {
@@ -97,8 +107,8 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
 
             query = query
                 .Include(x => x.Brand)
+                .Include(x => x.Categories).ThenInclude(x=>x.Category)
                 .Include(x => x.ThumbnailImage);
-
             query = ApplySort(searchOption, query);
 
             var products = query
@@ -136,11 +146,28 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
             return query;
         }
 
-        private static void AppendFilterOptionsToModel(ProductsByCategory model, IQueryable<Product> query)
+        private  void AppendFilterOptionsToModel(ProductsByCategory model, IQueryable<Product> query)
         {
             model.FilterOption.Price.MaxPrice = query.Max(x => x.Price);
             model.FilterOption.Price.MinPrice = query.Min(x => x.Price);
 
+            model.FilterOption.Categories = _categoryRepository.Query()
+             .Where(m => m.ParentId != null)
+             .GroupBy(x => new
+             {
+                 x.Id,
+                 x.Name,
+                 x.Slug,
+                 x.ParentId
+             })
+             .Select(g => new FilterCategory
+             {
+                 Id = (int)g.Key.Id,
+                 Name = g.Key.Name,
+                 Slug = g.Key.Slug,
+                 ParentId = g.Key.ParentId,
+                 Count = g.Count()
+             }).ToList();
             model.FilterOption.Brands = query
                 .Where(x => x.BrandId != null)
                 .GroupBy(x => x.Brand)

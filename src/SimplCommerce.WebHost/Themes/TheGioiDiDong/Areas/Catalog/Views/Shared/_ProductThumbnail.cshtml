@@ -2,7 +2,23 @@
 <!--#region Ngành hàng chính -->
 <a href="~/@Model.Slug">
     <img width="180" height="180" src='@Model.ThumbnailUrl' alt="@Model.Name" class="mx-auto d-block" />
+    <div class="props">
+        @foreach (var item in Model.Categories.Where(m => m.Category?.ParentId == 17))
+        {
+            <span class="dotted">@item.Category?.Name</span>
+        }
+        @foreach (var item in Model.Categories.Where(m => m.Category?.ParentId == 18))
+        {
+            <span class="dotted">RAM @item.Category?.Name</span>
+        }
+    </div>
+    <ul class="list-inline product-ratings">
+        <li><input type="hidden" readonly="readonly" class="rating-loading" step="1" data-size="xs" data-show-clear="false" data-show-caption="false" /></li>
+    </ul>
+
+
     <h3>@Model.Name</h3>
+
     <div class="price"><strong>@Model.CalculatedProductPrice.Price.ToString("C")</strong><span>@Model.CalculatedProductPrice?.OldPrice?.ToString("C")</span></div>
     <div class="promo noimage">
         <p></p>

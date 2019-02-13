@@ -8,114 +8,85 @@
 @section head {
     <link simpl-append-version="true" href="~/lib/nouislider/distribute/nouislider.min.css" rel="stylesheet" />
 }
+<div class="row row-filter">
+    <div class="laptopcate filtered">
+        <div class="laptopmanu">
+            <a href="macbook"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Macbook44-b_34.png" /></a>
+            <a href="dell"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Dell44-b_34.jpg" /></a>
+            <a href="asus"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Asus44-b_35.jpg" /></a>
+            <a href="hp"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/HP-Compaq44-b_36.jpg" /></a>
+            <a href="acer"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Acer44-b_37.jpg" /></a>
+            <a href="lenovo"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Lenovo44-b_36.jpg" /></a>
+            <a href="msi"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/MSI44-b_30.png" /></a>
+        </div>
+        <form id="" name="productFilter" method="GET" action="~/search">
+            <ul class="filter barpage">
+                <li class="fmanu" id="collapse-brand">
+                    <span class="criteria">
+                        Hãng
+                    </span>
+                    <div class="manufacture">
+                        <button type="button" class="closefilter"><i class="icontgdd-closefilter"></i></button>
+                        @foreach (var brand in Model.FilterOption.Brands)
+                        {
+                            <label class="checkbox">
+                                <input type="checkbox" value="@brand.Slug" name="brand" checked="@Model.CurrentSearchOption.GetBrands().Contains(brand.Slug)">
+                                @brand.Name
+                                <small>(@brand.Count)</small>
+                            </label>
+                        }
+                        <p class="doit"></p>
+                        <p class="cslder">
+                            <span class="cswrap">
+                                <span class="csdot"></span>
+                                <span class="csdot"></span>
+                                <span class="csdot"></span>
+                            </span>
+                        </p>
+                    </div>
+                </li>
+                @foreach (var category in Model.FilterOption.Categories.Where(x => x.ParentId == 7))
+                {
 
-<div class="row">
-    <div class="col-md-3 product-list-filters">
-        <h3>Filter by</h3>
-        <form id="productFilter" name="productFilter" method="GET" action="~/search">
-            <div id="accordion-category">
-                <div class="card">
-                    <div class="card-header" id="cardHeaderCategory">
-                        <h5 class="mb-0">
-                            <a data-toggle="collapse" href="#collapse-category" aria-expanded="true" aria-controls="collapse-category">
-                                @Localizer["Category"]
-                                <i class="fa fa-angle-down"></i>
-                            </a>
-                        </h5>
-                    </div>
-                    <div id="collapse-category" class="collapse show" aria-labelledby="cardHeaderCategory" data-parent="#accordion-category">
-                        <div class="card-body">
-                            <ul class="list-unstyled checkbox-list">
-                                @foreach (var category in Model.FilterOption.Categories.Where(x => x.ParentId == null))
+                    var children = Model.FilterOption.Categories.Where(x => x.ParentId == category.Id);
+                    @if (children.Any())
+                    {
+                        <li class="fmanu categoryFilter" >
+                            <label class="criteria">
+                                @category.Name
+                                <small>(@category.Count)</small>
+                            </label>
+                            <div class="manufacture">
+                                <button type="button" class="closefilter"><i class="icontgdd-closefilter"></i></button>
+                                @*<label class="all"><input type="checkbox" value="@category.Slug" name="category" checked="@Model.CurrentSearchOption.GetCategories().Contains(category.Slug)">Tất cả @category.Name</label>*@
+                                @foreach (var child in children)
                                 {
-                                    <li>
-                                        <label class="checkbox">
-                                            <input type="checkbox" value="@category.Slug" name="category" checked="@Model.CurrentSearchOption.GetCategories().Contains(category.Slug)">
-                                            @category.Name
-                                            <small>(@category.Count)</small>
-                                        </label>
-                                        @{
-                                            var children = Model.FilterOption.Categories.Where(x => x.ParentId == category.Id);
-                                        }
-                                        @if (children.Any())
-                                        {
-                                            <ul class="list-unstyled checkbox-list">
-                                                @foreach (var child in children)
-                                                {
-                                                    <li>
-                                                        <label class="checkbox">
-                                                            <input type="checkbox" value="@child.Slug" name="category" checked="@Model.CurrentSearchOption.GetCategories().Contains(child.Slug)">
-                                                            @child.Name
-                                                            <small>(@child.Count)</small>
-                                                        </label>
-                                                    </li>
-                                                }
-                                            </ul>
-                                        }
-                                    </li>
+                                    <label class="checkbox">
+                                        <input type="checkbox" value="@child.Slug" name="category" checked="@Model.CurrentSearchOption.GetCategories().Contains(child.Slug)">
+                                        @child.Name
+                                        <small>(@child.Count)</small>
+                                    </label>
                                 }
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="accordion-brand" class="mt-4">
-                <div class="card">
-                    <div class="card-header" id="cardBrandHeader">
-                        <h5 class="mb-0">
-                            <a data-toggle="collapse" href="#collapse-brand" aria-expanded="true" aria-controls="collapse-brand">
-                                @Localizer["Brand"]
-                                <i class="fa fa-angle-down"></i>
-                            </a>
-                        </h5>
-                    </div>
-                    <div id="collapse-brand" class="collapse show" aria-labelledby="cardBrandHeader" data-parent="#accordion-brand">
-                        <div class="card-body">
-                            <ul class="list-unstyled checkbox-list">
-                                @foreach (var brand in Model.FilterOption.Brands)
-                                {
-                                    <li>
-                                        <label class="checkbox">
-                                            <input type="checkbox" value="@brand.Slug" name="brand" checked="@Model.CurrentSearchOption.GetBrands().Contains(brand.Slug)">
-                                            @brand.Name
-                                            <small>(@brand.Count)</small>
-                                        </label>
-                                    </li>
-                                }
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @if (Model.FilterOption.Price.MaxPrice != Model.FilterOption.Price.MinPrice)
-            {
-                <div id="accordion-price" class="mt-4">
-                    <div class="card">
-                        <div class="card-header" id="cardHeaderPrice">
-                            <h5 class="mb-0">
-                                <a data-toggle="collapse" href="#collapse-price" aria-expanded="true" aria-controls="collapse-price">
-                                    @Localizer["Price"]
-                                    <i class="fa fa-angle-down"></i>
-                                </a>
-                            </h5>
-                        </div>
-                        <div id="collapse-price" class="collapse show" aria-labelledby="cardHeaderPrice" data-parent="#accordion-price">
-                            <div class="card-body">
-                                <div id="priceSlider"></div>
-                                <div>
-                                    <input type="hidden" id="originMinPrice" value="@Model.FilterOption.Price.MinPrice.ToString("F0")" />
-                                    <input type="hidden" id="originMaxPrice" value="@Model.FilterOption.Price.MaxPrice.ToString("F0")" />
-                                    <span id="minPrice"></span>
-                                    <span id="maxPrice"></span>
-                                </div>
+                                <p class="doit"></p>
+                                <p class="cslder">
+                                    <span class="cswrap">
+                                        <span class="csdot"></span>
+                                        <span class="csdot"></span>
+                                        <span class="csdot"></span>
+                                    </span>
+                                </p>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            }
+                        </li>
+                    }
+
+                }
+
+            </ul>
         </form>
     </div>
-    <div class="col-md-9">
+</div>
+<div class="row">
+    <div class="col-md-12">
         <div class="row mb-3">
             <div class="col-md-7 category-result">
                 <h2>Search result for @Model.CurrentSearchOption.Query</h2>
@@ -148,7 +119,7 @@
         <div class="row product-list">
             @foreach (var product in Model.Products)
             {
-                <div class="col-xs-6 col-md-4 item-product">
+                <div class="col-xs-6 col-md-3 item-product">
                     <partial name="/Areas/Catalog/Views/Shared/_ProductThumbnail.cshtml" model="product" />
                 </div>
             }

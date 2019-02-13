@@ -1,5 +1,4 @@
-﻿/* 04:40:22 29/12/2018 */
-a {
+﻿a {
     text-decoration: none
 }
 
@@ -38,15 +37,12 @@ body, input, button, option, textarea, label, legend, h1, h2, h3, h4, h5, h6, h1
     width: 100%;
     height: 63px
 }*/
-
-section {
+/*section {
     max-width: 1200px;
     width: 100%;
     min-width: 980px;
-    /*margin: 63px auto 0;*/
     position: relative
-}
-
+}*/
 footer {
     width: 100%;
     min-width: 1024px;
@@ -78,9 +74,12 @@ footer {
         display: block;
         overflow: hidden
     }
-
+button.navbar-toggler {
+    padding-top: 16px;
+}
 #search-site {
     float: left;
+    padding-top: 5px;
     width: 230px;
     margin: 10px 10px 0 10px;
     position: relative;
@@ -227,7 +226,7 @@ nav {
     width: 16px;
     height: 25px;
     display: block;
-    margin: 2px auto 3px
+    margin: 2px auto -2px
 }
 
 .icontgdd-tablet {
@@ -241,7 +240,7 @@ nav {
 .icontgdd-laptop {
     background-position: -245px 0;
     display: block;
-    margin: 0 auto 5px;
+    margin: 0 auto 3px;
     width: 39px;
     height: 21px
 }
@@ -1681,15 +1680,30 @@ nav {
     border-left: 1px solid #eee;
     margin-bottom: 15px;
 }
-
-    .homeproduct li {
+    .homeproduct .item-product .props {
+        padding: 0 10px;
+        margin: 0;
+        color: #777;
+    }
+    .homeproduct .item-product {
         float: left;
         position: relative;
         overflow: hidden;
         border-right: 1px solid #eee;
         border-bottom: 1px solid #eee
     }
-
+        .homeproduct .item-product .props span {
+            font-size: 11px;
+            margin: 0 5px 5px 0;
+            text-decoration: none;
+            text-transform: uppercase;
+            color: #777;
+            line-height: 22px;
+            height: 20px;
+            padding: 0 5px;
+            border-radius: 2px;
+            position: relative;
+        }
     .homeproduct .item-product {
         position: relative;
         overflow: hidden;
@@ -2291,4 +2305,505 @@ nav {
     .homenews h2 a {
         font-size: 12ox
     }
+}
+
+.laptopcate.filtered .filter li .feature {
+    width: auto;
+    left: auto;
+    min-width: 150px
+}
+
+.laptopcate.filtered .filter li .rowfeature aside {
+    width: 100%
+}
+
+.laptopcate.filtered .filter li .rowfeature {
+    border-bottom: none
+}
+
+.laptopcate.filtered .filter li div {
+    right: auto
+}
+
+    .laptopcate.filtered .filter li div:before,
+    .laptopcate.filtered .filter li div:after {
+        left: 10px
+    }
+
+.laptopcate.filtered .filter li:nth-child(5) {
+    float: none;
+    margin-right: 0;
+    text-align: left
+}
+
+.laptopcate.filtered .filter-cate li img {
+    width: 250px;
+    height: auto;
+    margin: 30px auto 25px
+}
+
+.filter {
+    display: block;
+    height: 40px;
+    width: 100%;
+    padding: 5px 0
+}
+
+    .filter li {
+        display: inline-block;
+        height: 40px;
+        width: auto;
+        vertical-align: top;
+        font-size: 14px;
+        position: relative;
+        white-space: nowrap
+    }
+
+        .filter li:nth-child(1) {
+            margin-left: 0
+        }
+
+        .filter li:nth-child(5) {
+            float: right;
+            margin-right: 10px;
+            text-align: center
+        }
+
+        .filter li a {
+            color: #288ad6;
+            display: inline-block;
+            vertical-align: top;
+            padding-right: 10px;
+            line-height: 40px
+        }
+
+            .filter li a:hover {
+                color: #333
+            }
+
+        .filter li .criteria,
+        .filter li .selected {
+            display: inline-block;
+            overflow: hidden;
+            color: #288ad6;
+            padding-left: 10px;
+            cursor: pointer;
+            line-height: 40px
+        }
+
+            .filter li .criteria:hover {
+                color: #333
+            }
+
+            .filter li .criteria:after {
+                content: '';
+                width: 0;
+                height: 0;
+                border-top: 6px solid #288ad6;
+                border-left: 6px solid transparent;
+                border-right: 6px solid transparent;
+                display: inline-block;
+                vertical-align: middle;
+                margin-left: 1px
+            }
+
+        .filter li div {
+            display: none;
+            overflow: visible;
+            background: #fff;
+            border: 1px solid #d9d9d9;
+            border-radius: 4px;
+            box-shadow: 0 10px 10px 0 rgba(0, 0, 0, .1);
+            padding: 5px 10px;
+            position: absolute;
+            right: -45%;
+            top: 40px;
+            z-index: 11
+        }
+
+            .filter li div:before,
+            .filter li div:after {
+                content: '';
+                width: 0;
+                height: 0;
+                position: absolute;
+                bottom: 100%;
+                left: 45%;
+                border-bottom: 10px solid #d9d9d9;
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent
+            }
+
+            .filter li div:after {
+                border-width: 9px;
+                border-bottom-color: #fff;
+                margin-left: 1px
+            }
+
+            .filter li div .all {
+                display: block;
+                overflow: hidden;
+                border-bottom: 1px solid #d9d9d9;
+                font-size: 14px;
+                color: #333;
+                padding: 10px 0
+            }
+
+        .filter li aside {
+            float: left;
+            overflow: hidden;
+            width: 50%;
+            padding: 10px 0
+        }
+
+        .filter li .online {
+            clear: both;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+            margin-bottom: -5px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #333
+        }
+
+        .filter li strong {
+            font-size: 14px
+        }
+
+        .filter li label {
+            display: block;
+            /*padding: 5px 0 6px;*/
+            cursor: pointer
+        }
+
+            .filter li label:hover {
+                color: #288ad6
+            }
+
+        .filter li .check .icontgdd-checkbox {
+            background-position: -165px -30px
+        }
+
+        .filter li.title a {
+            color: #333
+        }
+
+        .filter li .manufacture {
+            width: 300px
+        }
+
+        .filter li .listprice {
+            width: 190px;
+            right: -20px
+        }
+
+            .filter li .listprice:before,
+            .filter li .listprice:after {
+                left: 45%
+            }
+
+            .filter li .listprice label {
+                text-indent: 20px
+            }
+
+        .filter li h1 {
+            display: inline-block;
+            vertical-align: top;
+            line-height: 40px;
+            padding-left: 10px;
+            font-size: 13px;
+            font-weight: bold;
+            color: #666
+        }
+
+.icontgdd-checklist {
+    background-position: -185px -30px;
+    width: 16px;
+    height: 14px;
+    display: none
+}
+
+.filter li .check .icontgdd-checklist {
+    display: inline-block;
+    margin-left: -20px
+}
+
+.filter li .feature {
+    text-align: left;
+    right: 0;
+    width: 500px
+}
+
+    .filter li .feature:before,
+    .filter li .feature:after {
+        left: 90%
+    }
+
+.filter li .rowfeature {
+    float: none;
+    width: 100%;
+    border-bottom: 1px solid #d9d9d9;
+    display: block;
+    padding: 0
+}
+
+    .filter li .rowfeature aside {
+        width: 50%
+    }
+
+.filter li .feature label {
+    padding-left: 20px
+}
+
+.filter li .feature i {
+    margin-left: -20px
+}
+
+.filter li .feature .closefilter {
+    top: 5px;
+    right: -5px
+}
+
+.filter li div a {
+    color: #333;
+    display: inline;
+    padding: 0;
+    margin: 0;
+    line-height: normal
+}
+
+.filter li div .prevent {
+    pointer-events: none
+}
+
+.filter li .feature .rowfeature.hide {
+    display: none
+}
+
+.filter li .sortprice {
+    text-align: left;
+    right: -10px;
+    width: 190px
+}
+
+    .filter li .sortprice:before,
+    .filter li .sortprice:after {
+        left: auto;
+        right: 37px
+    }
+
+    .filter li .sortprice:before {
+        right: 36px
+    }
+
+    .filter li .sortprice label {
+        text-indent: 20px
+    }
+
+.filter li .closefilter {
+    border: 0;
+    background: none;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 8px;
+    top: 10px;
+    cursor: pointer
+}
+
+.icontgdd-closefilter {
+    background-position: -205px -30px;
+    width: 18px;
+    height: 18px
+}
+
+.filter li.barpage {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: top;
+    line-height: 40px
+}
+
+    .filter li.barpage label {
+        display: inline-block;
+        color: #288ad6;
+        margin-right: 10px;
+        cursor: pointer
+    }
+
+        .filter li.barpage label:hover {
+            color: #333
+        }
+
+    .filter li.barpage i {
+        margin-right: 5px
+    }
+
+    .filter li.barpage a {
+        display: inline;
+        line-height: normal;
+        padding-left: 0;
+        vertical-align: top;
+        line-height: 18px
+    }
+
+    .filter li.barpage.prevent a {
+        pointer-events: none
+    }
+
+.icontgdd-checkbox {
+    background-position: -145px -30px;
+    width: 16px;
+    height: 16px;
+    vertical-align: sub;
+    margin-right: 3px
+}
+
+.filter li.barpage label.check .icontgdd-checkbox {
+    background-position: -165px -30px
+}
+
+.viewresult {
+    display: block;
+    overflow: hidden;
+    background: #288ad6;
+    position: relative;
+    line-height: 38px;
+    font-size: 14px;
+    color: #fff;
+    border: 1px solid #288ad6;
+    border-radius: 4px;
+    margin: 10px 0 5px;
+    text-align: center;
+    font-weight: 600;
+    clear: both;
+    width: 100%;
+    cursor: pointer
+}
+
+.noresult {
+    display: block;
+    overflow: hidden;
+    background: #fafafa;
+    position: relative;
+    line-height: 38px;
+    font-size: 14px;
+    color: #999;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    margin: 10px 0 5px;
+    text-align: center;
+    clear: both;
+    width: 100%
+}
+
+.clearcriteria {
+    display: block;
+    overflow: hidden;
+    background: #fff;
+    border: 0;
+    position: relative;
+    line-height: 30px;
+    font-size: 14px;
+    color: #c10017;
+    margin: 10px 0 5px;
+    text-align: center;
+    clear: both;
+    width: 100%;
+    cursor: pointer
+}
+
+.icontgdd-clearall {
+    background-position: -230px -30px;
+    width: 16px;
+    height: 16px;
+    margin: -2px 5px 0 0
+}
+    .laptopmanu a {
+        border-left: 1px solid #eee;
+    }
+.row-filter {
+    padding: 8px 0;
+    margin-top: 0;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 2px;
+}
+
+#owl-laptop {
+    width: 800px;
+    float: left
+}
+
+    #owl-laptop .owl-controls {
+        margin-top: -30px;
+        position: relative;
+        z-index: 9
+    }
+
+    #owl-laptop > a:nth-child(n+1) {
+        display: none
+    }
+
+    #owl-laptop .owl-prev {
+        position: absolute;
+        left: 10px;
+        padding: 12px 0 0;
+        margin: 0;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        background: rgba(0,0,0,.3);
+        width: 48px;
+        height: 40px;
+        text-align: center;
+        font-size: 46px;
+        color: #fff;
+        font-family: -webkit-body;
+        top: -87px;
+        display: none
+    }
+
+    #owl-laptop .owl-next {
+        position: absolute;
+        right: 10px;
+        padding: 12px 0 0;
+        margin: 0;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        background: rgba(0,0,0,.3);
+        width: 48px;
+        height: 40px;
+        text-align: center;
+        font-size: 46px;
+        color: #fff;
+        font-family: -webkit-body;
+        top: -87px;
+        display: none
+    }
+
+    #owl-laptop:hover .owl-prev, #owl-laptop:hover .owl-next {
+        display: block
+    }
+
+.laptoptop {
+    padding-top: 10px
+}
+
+    .laptoptop .right {
+        width: 400px;
+        float: right
+    }
+
+        .laptoptop .right a {
+            display: block;
+            text-align: right
+        }
+
+            .laptoptop .right a:first-child {
+                margin-bottom: 6px
+            }
+#navbarCollapse {
+    background-color: #fdd504;
+    line-height: 2.5;
 }

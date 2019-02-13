@@ -86,7 +86,7 @@
             window.location = createUrl();
         });
 
-        $('#collapse-category input:checkbox').on('change', function () {
+        $('.categoryFilter input:checkbox').on('change', function () {
             var index,
                 checkbox = $(this),
                 category = checkbox.val(),

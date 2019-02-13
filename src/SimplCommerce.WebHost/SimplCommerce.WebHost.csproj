@@ -36,8 +36,10 @@
 
   <ItemGroup>
     <None Remove="Themes\TheGioiDiDong\Areas\Catalog\Views\Shared\Components\NewItem\Default.cshtml" />
+    <None Remove="Themes\TheGioiDiDong\Areas\Cms\Views\Shared\Components\CarouselWidgetCategory\Default.cshtml" />
     <None Remove="Themes\TheGioiDiDong\Areas\News\Views\Shared\Components\NewItem\Default.cshtml" />
     <None Remove="wwwroot\themes\TheGioiDiDong\images\cdn\navigatbg.png" />
+    <None Remove="wwwroot\themes\TheGioiDiDong\js\category.js" />
   </ItemGroup>
 
   <ItemGroup>

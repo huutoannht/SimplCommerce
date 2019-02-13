@@ -76,7 +76,6 @@ namespace SimplCommerce.WebHost
 
             services.AddScoped<ServiceFactory>(p => p.GetService);
             services.AddScoped<IMediator, SequentialMediator>();
-
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "SimplCommerce API", Version = "v1" });
