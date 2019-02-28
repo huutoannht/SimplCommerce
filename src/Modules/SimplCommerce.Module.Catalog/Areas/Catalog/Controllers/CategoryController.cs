@@ -168,15 +168,12 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
                  ParentId = g.Key.ParentId,
                  Count = g.Count()
              }).ToList();
-            model.FilterOption.Brands = query
-                .Where(x => x.BrandId != null)
-                .GroupBy(x => x.Brand)
+            model.FilterOption.Brands = _brandRepository.Query()
                 .Select(g => new FilterBrand
                 {
-                    Id = (int)g.Key.Id,
-                    Name = g.Key.Name,
-                    Slug = g.Key.Slug,
-                    Count = g.Count()
+                    Id = (int)g.Id,
+                    Name = g.Name,
+                    Slug = g.Slug
                 }).ToList();
         }
     }

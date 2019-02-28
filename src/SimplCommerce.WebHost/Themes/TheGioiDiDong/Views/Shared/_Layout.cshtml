@@ -5,7 +5,7 @@
     @RenderSection("additionalMeta", false)
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>laptopcudanang.com - Laptop cũ Đà nẵng</title>
+    <title>Laptop cũ Đà nẵng - laptopcudanang.com</title>
     <meta name="keywords" content="laptopcudanang, smartphone, tablet, máy tính bảng, Laptop, máy tính xách tay, phụ kiện điện thoại, tin công nghệ" />
     <meta name="description" content="Hệ thống bán lẻ điện thoại di động, smartphone, máy tính bảng, tablet, laptop, phụ kiện chính hãng mới nhất, giá tốt, dịch vụ khách hàng được yêu thích nhất VN" />
     <meta property="og:title" content="Laptopcudanang.com - Siêu thị điện thoại, Tablet, Laptop, Phụ kiện chính hãng" />
@@ -44,7 +44,7 @@
     <style>
 
         .bg-navbar {
-            background-color: #eae4e4;
+            background-color: #fdd504;
         }
 
         .nav-item {
@@ -73,25 +73,53 @@
         </header>
         @RenderSection("featured", false)
         @RenderBody()
-
+        <div class="catetag">
+            <div>
+                    <a href="laptop?p=tren-25-trieu">Trên 25 triệu</a>
+                    <a href="laptop?p=15-25-trieu">15 - 25 triệu</a>
+                    <a href="laptop?p=10-15-trieu">10 - 15 triệu</a>
+                    <a href="laptop?p=duoi-10-trieu">Dưới 10 triệu</a>
+            </div>
+            <div>
+                    <a href="laptop-macbook">Macbook</a>
+                    <a href="laptop-dell">Dell</a>
+                    <a href="laptop-asus">Asus</a>
+                    <a href="laptop-hp-compaq">HP-Compaq</a>
+            </div>
+            <div>
+                        <a href="laptop?f=man-hinh-gap-360-do">Màn hình gập 360 độ</a>
+                        <a href="laptop?f=cpu-intel-the-he-8">CPU Intel thế hệ 8</a>
+                        <a href="laptop?f=vien-man-hinh-mong">Viền màn hình mỏng</a>
+                        <a href="laptop?f=bo-nho-intel-optane">Bộ nhớ Intel Optane</a>
+            </div>
+        </div>
+        <div class="plc">
+            <ul>
+                <li><i class="icGh"></i><span>Giao hàng hoả tốc trong 90 phút</span></li>
+                <li><i class="icTt"></i><span>Thanh toán linh hoạt: tiền mặt, visa / master, trả góp</span></li>
+                <li><i class="icTn"></i><span>Trải nghiệm sản phẩm tại nhà</span></li>
+                <li><i class="icLd"></i><span>Lỗi đổi tại nhà trong 1 ngày</span></li>
+                <li><i class="icHt"></i><span>Hỗ trợ suốt thời gian sử dụng. Hotline: <a href="tel:18001763">1800.1763</a></span></li>
+            </ul>
+        </div>
     </div>
-    <footer class="bg3 p-t-75 p-b-32 m-t-75">
+    <footer class="bg3  m-t-75">
         <div class="container">
             <div class="row">
-                <div class="col-sm-6 col-lg-3 p-b-50">
-                    <h4 class="stext-301 cl0 p-b-30">
-                        Categories
+                <div class="col-md-3 p-b-50">
+                    <h4 class="stext-301 cl0 p-b-8">
+                        Về hệ thống
                     </h4>
                     <vc:menu menu-id="2"></vc:menu>
                 </div>
 
                 <div class="col-sm-6 col-lg-3 p-b-50">
-                    <h4 class="stext-301 cl0 p-b-30">
-                        Help
+                    <h4 class="stext-301 cl0 p-b-8">
+                        Hỗ trợ
                     </h4>
                     <vc:menu menu-id="1"></vc:menu>
                 </div>
-                <div class="col-sm-6 col-lg-3 p-b-50">
+                <div class="col-md-3 p-b-50">
                     <ul>
                         <li>
                             <p>Gọi mua hàng <a href="tel:18001060">1800.1060</a> (7:30 - 22:00)</p>
@@ -103,7 +131,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-sm-6 col-lg-3 p-b-50" style="text-align:right">
+                <div class="col-md-3 p-b-50" style="text-align:right">
                     <ul>
                         <li>
                             <a target="_blank" href="https://facebook.com/thegioididongcom" class="linkfb" rel="noopener">
@@ -160,7 +188,7 @@
     {
         <script simpl-append-version="true" src="~/lib/bootstrap-star-rating/js/locales/vi-vn.js"></script>
     }
-
+    <script src="~/themes/TheGioiDiDong/libs/OwlCarousel/dist/owl.carousel.min.js"></script>
     <script simpl-append-version="true" src="~/themes/CozaStore/vendor/animsition/js/animsition.min.js"></script>
     <script simpl-append-version="true" src="~/themes/CozaStore/vendor/slick/slick.min.js"></script>
     <script simpl-append-version="true" src="~/themes/CozaStore/js/slick-custom.js"></script>
@@ -173,6 +201,6 @@
     {
         <script simpl-append-version="true" src='~/themes/TheGioiDiDong/images/cdn/v2015/Scripts/desktop/V5/home.min.js'></script>
     }
-        <script src="~/themes/TheGioiDiDong/js/category.js"></script>
+
 </body>
 </html>

@@ -51,13 +51,13 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
 
             var query = _productRepository.Query().Where(x => x.BrandId == id && x.IsPublished && x.IsVisibleIndividually);
 
+            AppendFilterOptionsToModel(model, query);
+
             if (query.Count() == 0)
             {
                 model.TotalProduct = 0;
                 return View(model);
             }
-
-            AppendFilterOptionsToModel(model, query);
 
             if (searchOption.MinPrice.HasValue)
             {
@@ -86,6 +86,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
             }
 
             query = query
+                .Include(x => x.Categories).ThenInclude(x => x.Category)
                 .Include(x => x.ThumbnailImage);
 
             query = AppySort(searchOption, query);
@@ -125,24 +126,31 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
             return query;
         }
 
-        private static void AppendFilterOptionsToModel(ProductsByBrand model, IQueryable<Product> query)
+        private  void AppendFilterOptionsToModel(ProductsByBrand model, IQueryable<Product> query)
         {
-            model.FilterOption.Price.MaxPrice = query.Max(x => x.Price);
-            model.FilterOption.Price.MinPrice = query.Min(x => x.Price);
-
-            model.FilterOption.Categories = query
-                .SelectMany(x => x.Categories).Where(x => x.Category.Parent == null)
-                .GroupBy(x => new {
-                    x.Category.Id,
-                    x.Category.Name,
-                    x.Category.Slug
-                })
-                .Select(g => new FilterCategory
+            model.FilterOption.Categories = _categoryRepository.Query()
+             .Where(m => m.ParentId != null)
+             .GroupBy(x => new
+             {
+                 x.Id,
+                 x.Name,
+                 x.Slug,
+                 x.ParentId
+             })
+             .Select(g => new FilterCategory
+             {
+                 Id = (int)g.Key.Id,
+                 Name = g.Key.Name,
+                 Slug = g.Key.Slug,
+                 ParentId = g.Key.ParentId,
+                 Count = g.Count()
+             }).ToList();
+            model.FilterOption.Brands = _brandRepository.Query()
+                .Select(g => new FilterBrand
                 {
-                    Id = (int)g.Key.Id,
-                    Name = g.Key.Name,
-                    Slug = g.Key.Slug,
-                    Count = g.Count()
+                    Id = (int)g.Id,
+                    Name = g.Name,
+                    Slug = g.Slug
                 }).ToList();
         }
     }

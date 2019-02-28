@@ -324,7 +324,6 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
   display: flex;
   align-items: center;
   height: 65%;
-  margin-right: 55px;
 }
 
 .logo img {
@@ -483,30 +482,31 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 }
 
 .icon-header-item {
-  position: relative;
-  font-size: 26px;
-  line-height: 1;
-  cursor: pointer;
+    position: relative;
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+    margin-bottom: -6px;
 }
-
-
+.zmdi-shopping-cart {
+    margin-left: 22px;
+}
 /*---------------------------------------------*/
 .icon-header-noti::after {
-  content: attr(data-notify);
-  font-family: Poppins-Regular;
-  font-size: 12px;
-  color: #fff;
-  line-height: 15px;
-  text-align: center;
-
-  display: block;
-  position: absolute;
-  top: -7px;
-  right: 0;
-  min-width: 15px;
-  height: 15px;
-  padding: 0 3px;
-  background-color: #717fe0;
+    content: attr(data-notify);
+    font-family: Poppins-Regular;
+    font-size: 12px;
+    color: #fff;
+    line-height: 15px;
+    text-align: center;
+    display: block;
+    position: absolute;
+    top: -7px;
+    right: 0;
+    min-width: 15px;
+    height: 15px;
+    padding: 0 3px;
+    background-color: #717fe0;
 }
 
 /*---------------------------------------------*/
@@ -2124,7 +2124,10 @@ input.num-product::-webkit-inner-spin-button {
 /*==================================================================
     TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 ==================================================================*/
-.cl0 {color: #fff;}
+.cl0 {
+    color: #f49b00;
+    border-bottom: 1px solid #f49b00;
+}
 .cl1 {color: #717fe0;}
 .cl2 {color: #333;}
 .cl3 {color: #666;}
@@ -2645,7 +2648,7 @@ input.num-product::-webkit-inner-spin-button {
 .bg0 {background-color: #fff;}
 .bg1 {background-color: #717fe0;}
 .bg2 {background-color: #e6e6e6;}
-.bg3 {background-color: #222;}
+.bg3 {background-color: #fff;}
 .bg5 {background-color: rgba(0,0,0,0.5);}
 .bg6 {background-color: #f2f2f2;}
 .bg7 {background-color: #333;}

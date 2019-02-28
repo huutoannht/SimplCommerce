@@ -3,23 +3,23 @@
 <a href="~/@Model.Slug">
     <img width="180" height="180" src='@Model.ThumbnailUrl' alt="@Model.Name" class="mx-auto d-block" />
     <div class="props">
-        @foreach (var item in Model.Categories.Where(m => m.Category?.ParentId == 17))
-        {
-            <span class="dotted">@item.Category?.Name</span>
+        @{if (Model.Categories.Where(m => m.Category?.ParentId == 17).FirstOrDefault() != null)
+            {
+                <span class="dotted">@Model.Categories.Where(m => m.Category?.ParentId == 17).FirstOrDefault().Category?.Name</span>
+            }
         }
-        @foreach (var item in Model.Categories.Where(m => m.Category?.ParentId == 18))
-        {
-            <span class="dotted">RAM @item.Category?.Name</span>
+        @{if (Model.Categories.Where(m => m.Category?.ParentId == 18).FirstOrDefault() != null)
+            {
+                <span class="dotted">Ram: @Model.Categories.Where(m => m.Category?.ParentId == 18).FirstOrDefault().Category?.Name</span>
+            }
         }
     </div>
-    <ul class="list-inline product-ratings">
-        <li><input type="hidden" readonly="readonly" class="rating-loading" step="1" data-size="xs" data-show-clear="false" data-show-caption="false" /></li>
-    </ul>
+
 
 
     <h3>@Model.Name</h3>
 
-    <div class="price"><strong>@Model.CalculatedProductPrice.Price.ToString("C")</strong><span>@Model.CalculatedProductPrice?.OldPrice?.ToString("C")</span></div>
+    <div class="price"><strong>@Model.CalculatedProductPrice.Price.ToString("C")</strong><span class="line-through">@Model.CalculatedProductPrice?.OldPrice?.ToString("C")</span></div>
     <div class="promo noimage">
         <p></p>
     </div>
@@ -27,10 +27,17 @@
     {
         <label class="discount">GIẢM @(Model.CalculatedProductPrice.PercentOfSaving)%</label>
     }
-
-</a>
-<!--#endregion -->
-@*<div class="block2">
+        <div class="ratingresult rating-container">
+            <ul class="list-inline product-ratings">
+                <li><input type="hidden" value="@Model.RatingAverage" readonly="readonly" class="rating-loading" step="1" data-size="xs" data-show-clear="false" data-show-caption="false" /></li>
+                @if (Model.ReviewsCount > 0)
+                {
+                    <li class="product-review-list">
+                        <span>(@Model.ReviewsCount @Localizer["reviews"])</span>
+                    </li>
+                }
+            </ul>
+            @*<div class="block2">
         <div class="block2-pic hov-img0">
             <img alt="@Model.Name" class="card-img-top" src="@Model.ThumbnailUrl">
 
@@ -74,5 +81,6 @@
                     }
                 </ul>
             </div>
+        </div>*@
         </div>
-    </div>*@
+    </a>

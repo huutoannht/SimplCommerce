@@ -149,7 +149,7 @@
         }
 
     .product-list-display-options .sort-by {
-        float: right;
+        /*float: right;*/
     }
 
     .product-list-display-options .pagination-option {
@@ -257,6 +257,7 @@
     .list-inline li {
         height: 22px;
         line-height: 22px;
+        display: inline;
     }
 
     .list-inline a {
@@ -279,8 +280,7 @@
 
 .rating-container .filled-stars {
     -webkit-text-stroke: 0;
-    text-shadow: none;
-    color: #18ba9b;
+    color: #f39c3f;
 }
 
 .rating-xs {

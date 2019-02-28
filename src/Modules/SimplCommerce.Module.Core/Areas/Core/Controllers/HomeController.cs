@@ -33,6 +33,7 @@ namespace SimplCommerce.Module.Core.Areas.Core.Controllers
             {
                 return RedirectToAction("ErrorWithCode", new { id = 404 });
             }
+            return Redirect("~/may-tinh");
             var model = new HomeViewModel();
 
             model.WidgetInstances = _widgetInstanceService.GetPublished()
