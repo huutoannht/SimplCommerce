@@ -60,6 +60,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
 
             var query = _productRepository
                 .Query()
+                .OrderByDescending(m=>m.CreatedOn)
                 .Where(x => x.Categories.Any(c => c.CategoryId == category.Id) && x.IsPublished && x.IsVisibleIndividually);
 
             if (query.Count() == 0)

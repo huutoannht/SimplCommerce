@@ -47,13 +47,12 @@
         </div>
 
     </div>
-    <div class="row">
+    @*<div class="row">
         <form id="" name="productFilter" method="GET" action="~/search">
             <ul class="filter barpage">
                 <li class="fmanu " id="collapse-brand">
                     <label class="criteria @(Model.FilterOption.Brands.Where(m=>Model.CurrentSearchOption.GetBrands().Contains(m.Slug)).Any()?"filter-selected":"")">
                         Hãng
-                        @*<small>(@category.Count)</small>*@
                     </label>
                     <div class="manufacture">
                         <button type="button" class="closefilter"><i class="icontgdd-closefilter"></i></button>
@@ -84,18 +83,18 @@
                         <li class="fmanu categoryFilter">
                             <label class="criteria @(children.Where(m=>Model.CurrentSearchOption.GetCategories().Contains(m.Slug)).Any()?"filter-selected":"")">
                                 @category.Name
-                                @*<small>(@category.Count)</small>*@
+                                @*<small>(@category.Count)</small>
                             </label>
                             <div class="manufacture">
                                 <strong>@category.Name</strong>
                                 <button type="button" class="closefilter"><i class="icontgdd-closefilter"></i></button>
-                                @*<label class="all"><input type="checkbox" value="@category.Slug" name="category" checked="@Model.CurrentSearchOption.GetCategories().Contains(category.Slug)">Tất cả @category.Name</label>*@
+                                @*<label class="all"><input type="checkbox" value="@category.Slug" name="category" checked="@Model.CurrentSearchOption.GetCategories().Contains(category.Slug)">Tất cả @category.Name</label>
                                 @foreach (var child in children)
                                 {
                                     <label class="checkbox">
                                         <input type="checkbox" value="@child.Slug" name="category" checked="@Model.CurrentSearchOption.GetCategories().Contains(child.Slug)">
                                         @child.Name
-                                        @*<small>(@child.Count)</small>*@
+                                        <small>(@child.Count)</small>
                                     </label>
                                 }
                                 <p class="doit"></p>
@@ -114,21 +113,7 @@
 
             </ul>
         </form>
-    </div>
-    @*<div class="breadcrumb bread-crumb flex-w p-r-15 p-t-20 p-b-20 p-lr-0-lg">
-            <a href="~/" class="stext-109 cl8 hov-cl1 trans-04">
-                @Localizer["Home"]
-                <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
-            </a>
-            @if (Model.ParentCategorId.HasValue)
-            {
-                @await Component.InvokeAsync("CategoryBreadcrumb", new { categoryId = Model.ParentCategorId.Value })
-            }
-
-            <span class="stext-109 cl4">
-                @Model.CategoryName
-            </span>
-        </div>*@
+    </div>*@
     <div class="row">
         <div class="col-md-12">
             <div class="row mb-3">

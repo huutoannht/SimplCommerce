@@ -5,7 +5,7 @@
 @inject IWorkContext WorkContext
 @inject SignInManager<User> SignInManager
 
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-navbar">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top">
     <div class="wrap-main">
 
         <a class="logo" title="Về trang chủ laptopcudanang.com" href="/" aria-label="logo">
@@ -24,7 +24,7 @@
             <ul class="navbar-nav mr-auto">
                 @foreach (var item in Model)
                 {
-                    <li class="nav-item">
+                    <li class="nav-item nav-item-active">
                         <a href="/@item.Slug" class="mobile" title="@item.Name">
                             @Html.Raw(item.Description) @item.Name
                         </a>

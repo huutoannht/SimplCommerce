@@ -3,7 +3,7 @@
     ViewData["Title"] = "Address book";
 }
 
-<div class="row">
+<div class="row content-user-info">
     <div class="col-md-3">
         <partial name="_AccountMenu" />
     </div>
@@ -15,7 +15,8 @@
             <div>
                 <strong>@address.ContactName </strong><br />
                 @address.AddressLine1 <br />
-                @if(address.DisplayDistrict){
+                @if (address.DisplayDistrict)
+                {
                     <text>@address.DistrictName,</text>
                 }
                 @address.StateOrProvinceName <br />
