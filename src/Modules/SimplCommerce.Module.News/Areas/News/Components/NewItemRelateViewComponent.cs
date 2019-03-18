@@ -12,28 +12,28 @@ using System.Text;
 
 namespace SimplCommerce.Module.News.Areas.News.Components
 {
-    public class NewItemViewComponent : ViewComponent
+    public class NewItemRelateViewComponent : ViewComponent
     {
         private readonly IRepository<NewsItem> _newsItemRepository;
         private readonly IMediaService _mediaService;
 
-        public NewItemViewComponent(IRepository<NewsItem> newItemRepository,
+        public NewItemRelateViewComponent(IRepository<NewsItem> newItemRepository,
               IMediaService mediaService)
         {
             _newsItemRepository = newItemRepository;
             _mediaService = mediaService;
         }
 
-        public IViewComponentResult Invoke()
+        public IViewComponentResult Invoke(int? id)
         {
 
             var query = _newsItemRepository.Query().Include(x => x.ThumbnailImage)
-                .Where(x => !x.IsDeleted).Take(6).OrderByDescending(m => m.CreatedOn);
+                .Where(x => !x.IsDeleted && x.Id!=id).Take(6).OrderByDescending(m => m.CreatedOn);
             IList < NewsItem > listNewsItem = query.ToList();
             IList<NewsItemVm> newsItemVMs = new List<NewsItemVm>();
             NewsItemVm newsItemVm = null;
             foreach (var newsItem in listNewsItem)
-            {
+            { 
                 newsItemVm = new NewsItemVm();
                 newsItemVm.ThumbnailImageUrl = _mediaService.GetThumbnailUrl(newsItem.ThumbnailImage);
                 newsItemVm.CreatedOn = newsItem.CreatedOn;

@@ -41,6 +41,7 @@
     <None Remove="Themes\TheGioiDiDong\Areas\Catalog\Views\Category\CategoryDetailLoadMore.cshtml" />
     <None Remove="Themes\TheGioiDiDong\Areas\Catalog\Views\Shared\Components\NewItem\Default.cshtml" />
     <None Remove="Themes\TheGioiDiDong\Areas\Cms\Views\Shared\Components\CarouselWidgetCategory\Default.cshtml" />
+    <None Remove="Themes\TheGioiDiDong\Areas\News\Views\Shared\Components\NewItemRelate\Default.cshtml" />
     <None Remove="Themes\TheGioiDiDong\Areas\News\Views\Shared\Components\NewItem\Default.cshtml" />
     <None Remove="wwwroot\themes\TheGioiDiDong\images\cdn\navigatbg.png" />
     <None Remove="wwwroot\themes\TheGioiDiDong\images\cdn\v2015\Content\desktop\images\V4\logo-techcare-web.png" />
