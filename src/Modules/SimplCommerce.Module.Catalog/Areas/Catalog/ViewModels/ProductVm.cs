@@ -52,6 +52,10 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels
 
         public string Specification { get; set; }
 
+        public string PromotionName { get; set; }
+
+        public string PromotionImageUrl { get; set; }
+
         public bool IsPublished { get; set; }
 
         public bool IsFeatured { get; set; }

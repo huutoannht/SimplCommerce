@@ -442,6 +442,23 @@
                         </div>
                     </div>
                 </uib-tab>
+                <uib-tab index="7" heading="{{::vm.translate.get('Promotion')}}">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">{{::vm.translate.get('Promotion Name')}}</label>
+                        <div class="col-sm-10">
+                            <input name="promotionName" ng-model="vm.product.promotionName" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">{{::vm.translate.get('Promotion Image')}}</label>
+                        <div class="col-sm-10">
+                                <input class="form-control" type="file" ngf-select ng-model="vm.promotionImage" name="promotionImage" ngf-accept="'image/*'">
+                                <img ngf-src="vm.promotionImage" ngf-resize="{width: 100, height: 100, quality: 0.9}">
+                                <img ng-show="!vm.promotionImage&&vm.product.promotionImageUrl" ng-src="{{vm.product.promotionImageUrl}}" style="width: 100px; height: 100px" />
+                        </div>
+                    </div>
+
+                </uib-tab>
             </uib-tabset>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">

@@ -1,4 +1,4 @@
-﻿@model SimplCommerce.Module.News.Areas.News.ViewModels.NewsItemVm
+﻿@model  Enumerable<SimplCommerce.Module.News.Areas.News.ViewModels.NewsItemVm>
 
 @{
     ViewData["Title"] = Model.Name;
@@ -22,6 +22,57 @@
         width: 800px;
         margin: auto;
     }
+    .newsrelate {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    .newsrelate .tempvideo {
+        display: block;
+        position: relative;
+        height: 105px;
+        overflow: hidden;
+    }
+    .newsrelate  img {
+        display: block;
+        width: 100%;
+        max-height: 135px;
+        margin: 0 auto;
+    }
+    .newsrelate  h3 {
+        display: block;
+        overflow: hidden;
+        line-height: 1.3em;
+        font-size: 16px;
+        color: #333;
+        line-height: 22px;
+        font-weight: 300;
+        font-family: Arial,Helvetica,sans-serif;
+        width: auto;
+        margin: 5px auto;
+    }
+
+    .newsrelate .timepost {
+        margin-top: 2px;
+        display: block;
+        overflow: hidden;
+        font-size: 13px;
+        color: #999;
+    }
+    .titlerelate {
+        display: block;
+        overflow: hidden;
+        font-size: 18px;
+        font-weight: 600;
+        color: #333;
+        font-family: 'Roboto Condensed',sans-serif;
+        line-height: 26px;
+        text-transform: uppercase;
+        padding: 30px 20px 10px;
+        margin: 0 20px;
+        border-top: 1px solid #eee;
+    }
 </style>
 <section>
 
@@ -39,6 +90,41 @@
         </div>
 
     </article>
-
+    <h5 class="titlerelate">Bài viết liên quan</h5>
+    <div class="row newsrelate">
+        <div class="col-md-3">
+            <a href="/tin-tuc/nen-chon-laptop-trong-tam-gia-15-trieu-nhu-the-nao--1141472" class="linkimg">
+                <div class="tempvideo">
+                    <img width="100" src="https://cdn.tgdd.vn/Files/2018/12/30/1141472/14_800x450-300x200.png">
+                </div>
+                <h3>
+                    Nên chọn Laptop trong tầm giá 15 triệu như thế nào cho chuẩn?
+                </h3>
+                <span class="timepost">07/01</span>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a href="/tin-tuc/nen-chon-laptop-trong-tam-gia-15-trieu-nhu-the-nao--1141472" class="linkimg">
+                <div class="tempvideo">
+                    <img width="100" src="https://cdn.tgdd.vn/Files/2018/12/30/1141472/14_800x450-300x200.png">
+                </div>
+                <h3>
+                    Nên chọn Laptop trong tầm giá 15 triệu như thế nào cho chuẩn?
+                </h3>
+                <span class="timepost">07/01</span>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a href="/tin-tuc/nen-chon-laptop-trong-tam-gia-15-trieu-nhu-the-nao--1141472" class="linkimg">
+                <div class="tempvideo">
+                    <img width="100" src="https://cdn.tgdd.vn/Files/2018/12/30/1141472/14_800x450-300x200.png">
+                </div>
+                <h3>
+                    Nên chọn Laptop trong tầm giá 15 triệu như thế nào cho chuẩn?
+                </h3>
+                <span class="timepost">07/01</span>
+            </a>
+        </div>
+    </div>
 
 </section>

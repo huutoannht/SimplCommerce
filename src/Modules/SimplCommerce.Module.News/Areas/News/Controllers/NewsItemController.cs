@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -97,6 +98,31 @@ namespace SimplCommerce.Module.News.Areas.News.Controllers
             };
 
             return View(model);
+        }
+        public IActionResult NewsItemRelate(long id)
+        {
+            var listNewsItem = _newsItemRepository.Query()
+                .Include(x => x.ThumbnailImage)
+                .Where(x => x.Id != id && x.IsPublished && !x.IsDeleted).ToList();
+
+            if (listNewsItem == null)
+            {
+                return Redirect("~/Error/FindNotFound");
+            }
+            List<NewsItemVm> listNewsItemVm = new List<NewsItemVm>();
+            foreach (var newsItem in listNewsItem)
+            {
+                var model = new NewsItemVm()
+                {
+                    Name = newsItem.Name,
+                    FullContent = newsItem.FullContent,
+                    ThumbnailImageUrl = _mediaService.GetThumbnailUrl(newsItem.ThumbnailImage)
+                };
+                listNewsItemVm.Add(model);
+            }
+            
+
+            return View(listNewsItemVm);
         }
     }
 }

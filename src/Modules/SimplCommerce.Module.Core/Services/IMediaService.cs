@@ -12,6 +12,8 @@ namespace SimplCommerce.Module.Core.Services
 
         string GetThumbnailUrl(Media media);
 
+        string GetPromotionUrl(Media media);
+
         Task SaveMediaAsync(Stream mediaBinaryStream, string fileName, string mimeType = null);
 
         Task DeleteMediaAsync(Media media);

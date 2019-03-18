@@ -36,6 +36,11 @@ namespace SimplCommerce.Module.Core.Services
             return GetMediaUrl(media);
         }
 
+        public string GetPromotionUrl(Media media)
+        {
+            return GetMediaUrl(media);
+        }
+
         public Task SaveMediaAsync(Stream mediaBinaryStream, string fileName, string mimeType = null)
         {
             return _storageService.SaveMediaAsync(mediaBinaryStream, fileName, mimeType);

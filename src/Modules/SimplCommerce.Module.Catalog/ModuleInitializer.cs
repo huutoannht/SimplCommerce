@@ -20,6 +20,7 @@ namespace SimplCommerce.Module.Catalog
             services.AddTransient<ICategoryService, CategoryService>();
             services.AddTransient<IProductPricingService, ProductPricingService>();
             services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<IPromotionService, PromotionService>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

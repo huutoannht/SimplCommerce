@@ -48,78 +48,78 @@
 
     </div>
     @*<div class="row">
-        <form id="" name="productFilter" method="GET" action="~/search">
-            <ul class="filter barpage">
-                <li class="fmanu " id="collapse-brand">
-                    <label class="criteria @(Model.FilterOption.Brands.Where(m=>Model.CurrentSearchOption.GetBrands().Contains(m.Slug)).Any()?"filter-selected":"")">
-                        Hãng
-                    </label>
-                    <div class="manufacture">
-                        <button type="button" class="closefilter"><i class="icontgdd-closefilter"></i></button>
-                        <strong>Hãng</strong>
-                        @foreach (var brand in Model.FilterOption.Brands)
-                        {
-                            <label class="checkbox">
-                                <input type="checkbox" value="@brand.Slug" name="brand" checked="@Model.CurrentSearchOption.GetBrands().Contains(brand.Slug)">
-                                @brand.Name
-                            </label>
-                        }
-                        <p class="doit"></p>
-                        <p class="cslder">
-                            <span class="cswrap">
-                                <span class="csdot"></span>
-                                <span class="csdot"></span>
-                                <span class="csdot"></span>
-                            </span>
-                        </p>
-                    </div>
-                </li>
-                @foreach (var category in Model.FilterOption.Categories.Where(x => x.ParentId == 7))
-                {
-
-                    var children = Model.FilterOption.Categories.Where(x => x.ParentId == category.Id);
-                    @if (children.Any())
+            <form id="" name="productFilter" method="GET" action="~/search">
+                <ul class="filter barpage">
+                    <li class="fmanu " id="collapse-brand">
+                        <label class="criteria @(Model.FilterOption.Brands.Where(m=>Model.CurrentSearchOption.GetBrands().Contains(m.Slug)).Any()?"filter-selected":"")">
+                            Hãng
+                        </label>
+                        <div class="manufacture">
+                            <button type="button" class="closefilter"><i class="icontgdd-closefilter"></i></button>
+                            <strong>Hãng</strong>
+                            @foreach (var brand in Model.FilterOption.Brands)
+                            {
+                                <label class="checkbox">
+                                    <input type="checkbox" value="@brand.Slug" name="brand" checked="@Model.CurrentSearchOption.GetBrands().Contains(brand.Slug)">
+                                    @brand.Name
+                                </label>
+                            }
+                            <p class="doit"></p>
+                            <p class="cslder">
+                                <span class="cswrap">
+                                    <span class="csdot"></span>
+                                    <span class="csdot"></span>
+                                    <span class="csdot"></span>
+                                </span>
+                            </p>
+                        </div>
+                    </li>
+                    @foreach (var category in Model.FilterOption.Categories.Where(x => x.ParentId == 7))
                     {
-                        <li class="fmanu categoryFilter">
-                            <label class="criteria @(children.Where(m=>Model.CurrentSearchOption.GetCategories().Contains(m.Slug)).Any()?"filter-selected":"")">
-                                @category.Name
-                                @*<small>(@category.Count)</small>
-                            </label>
-                            <div class="manufacture">
-                                <strong>@category.Name</strong>
-                                <button type="button" class="closefilter"><i class="icontgdd-closefilter"></i></button>
-                                @*<label class="all"><input type="checkbox" value="@category.Slug" name="category" checked="@Model.CurrentSearchOption.GetCategories().Contains(category.Slug)">Tất cả @category.Name</label>
-                                @foreach (var child in children)
-                                {
-                                    <label class="checkbox">
-                                        <input type="checkbox" value="@child.Slug" name="category" checked="@Model.CurrentSearchOption.GetCategories().Contains(child.Slug)">
-                                        @child.Name
-                                        <small>(@child.Count)</small>
-                                    </label>
-                                }
-                                <p class="doit"></p>
-                                <p class="cslder">
-                                    <span class="cswrap">
-                                        <span class="csdot"></span>
-                                        <span class="csdot"></span>
-                                        <span class="csdot"></span>
-                                    </span>
-                                </p>
-                            </div>
-                        </li>
+
+                        var children = Model.FilterOption.Categories.Where(x => x.ParentId == category.Id);
+                        @if (children.Any())
+                        {
+                            <li class="fmanu categoryFilter">
+                                <label class="criteria @(children.Where(m=>Model.CurrentSearchOption.GetCategories().Contains(m.Slug)).Any()?"filter-selected":"")">
+                                    @category.Name
+                                    @*<small>(@category.Count)</small>
+                                </label>
+                                <div class="manufacture">
+                                    <strong>@category.Name</strong>
+                                    <button type="button" class="closefilter"><i class="icontgdd-closefilter"></i></button>
+                                    @*<label class="all"><input type="checkbox" value="@category.Slug" name="category" checked="@Model.CurrentSearchOption.GetCategories().Contains(category.Slug)">Tất cả @category.Name</label>
+                                    @foreach (var child in children)
+                                    {
+                                        <label class="checkbox">
+                                            <input type="checkbox" value="@child.Slug" name="category" checked="@Model.CurrentSearchOption.GetCategories().Contains(child.Slug)">
+                                            @child.Name
+                                            <small>(@child.Count)</small>
+                                        </label>
+                                    }
+                                    <p class="doit"></p>
+                                    <p class="cslder">
+                                        <span class="cswrap">
+                                            <span class="csdot"></span>
+                                            <span class="csdot"></span>
+                                            <span class="csdot"></span>
+                                        </span>
+                                    </p>
+                                </div>
+                            </li>
+                        }
+
                     }
 
-                }
-
-            </ul>
-        </form>
-    </div>*@
+                </ul>
+            </form>
+        </div>*@
     <div class="row">
         <div class="col-md-12">
             <div class="row mb-3">
                 <div class="col-sm-4 category-result">
-                    <h2>@Model.CategoryName</h2>
-                    <small class="badge-results">@Model.TotalProduct @Localizer["results"]</small>
+                    <h2>LAPTOP NỔI BẬT NHẤT</h2>
+                    @*<small class="badge-results">@Model.TotalProduct @Localizer["results"]</small>*@
                 </div>
                 <div class="col-sm-8">
                     <ul class="list-inline clear-both product-list-display-options">
@@ -160,7 +160,7 @@
                 <div class="homeproduct">
                     @foreach (var product in Model.Products)
                     {
-                        <div class="col-sm-6 col-md-2 item-product">
+                        <div class="col-sm-6 col-md-2 item-product " id="load-more">
                             <partial name="_ProductThumbnail" model="product" />
                         </div>
                     }
@@ -173,7 +173,7 @@
                         </div>
                     }*@
             </div>
-            <div class="row">
+            @*<div class="row">
                 <div class="col-md-12 text-right">
                     <cs-pager cs-paging-pagesize="@Model.CurrentSearchOption.PageSize"
                               cs-paging-pagenumber="@Model.CurrentSearchOption.Page"
@@ -182,7 +182,16 @@
                               asp-basehref="~/@Model.CategorySlug"
                               asp-all-route-data="@Model.CurrentSearchOption.ToDictionary()"></cs-pager>
                 </div>
-            </div>
+            </div>*@
+            @if (Model.CurrentSearchOption.Page != Model.CurrentSearchOption.PageCount)
+            {
+                <div class="row load-more">
+                    <div class="col-md-12 text-center">
+                        <button class="btn btn-outline-primary" onclick="loadMoreProduct()">Xem thêm</button>
+                    </div>
+                </div>
+            }
+
         </div>
     </div>
 
@@ -194,7 +203,9 @@
     <script simpl-append-version="true" src="~/lib/nouislider/distribute/nouislider.min.js"></script>
 
     <script>
-            var productFilter = {};
+        var productFilter = {};
+        var count=2;
+
             productFilter.currentSearchOption = @Html.Raw(Model.CurrentSearchOption.ToJson());
             productFilter.priceSetting = {
                 min: @Model.FilterOption.Price.MinPrice.ToString("F0"),
@@ -202,6 +213,25 @@
                 currentMin: @((Model.CurrentSearchOption.MinPrice ?? Model.FilterOption.Price.MinPrice).ToString("F0")),
                 currentMax: @((Model.CurrentSearchOption.MaxPrice ?? Model.FilterOption.Price.MaxPrice).ToString("F0")),
             };
+
+        function loadMoreProduct(){
+            $.ajax({
+                url:'/Catalog/Category/CategoryDetailLoadMore/@Model.CategoryId?page='+count,
+                type:'get',
+                success:function(html){
+                    if(count=='@Model.CurrentSearchOption.PageCount')
+                    {
+                        $('.load-more').css('display','none');
+                    }
+                    ++count;
+                    $('.homeproduct').append(html);
+                },
+                error:function(ex){
+                    console.log(ex);
+                }
+
+            })
+        }
     </script>
     <script simpl-append-version="true" src="~/modules/catalog/product-filter.js"></script>
     <script simpl-append-version="true" src="~/themes/TheGioiDiDong/js/category.js"></script>

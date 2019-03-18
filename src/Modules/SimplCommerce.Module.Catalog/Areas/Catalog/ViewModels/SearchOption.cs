@@ -23,6 +23,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels
         public int? MinPrice { get; set; }
 
         public int? MaxPrice { get; set; }
+        public int PageCount { get; internal set; }
 
         public Dictionary<string, string> ToDictionary()
         {

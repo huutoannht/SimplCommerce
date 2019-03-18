@@ -31,7 +31,11 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels
 
         public Media ThumbnailImage { get; set; }
 
+        public Media PromotionImage { get; set; }
+
         public string ThumbnailUrl { get; set; }
+
+        public string PromotionImageUrl { get; set; }
 
         public int ReviewsCount { get; set; }
 
@@ -57,6 +61,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels
                 IsAllowToOrder = product.IsAllowToOrder,
                 IsCallForPricing = product.IsCallForPricing,
                 ThumbnailImage = product.ThumbnailImage,
+                PromotionImage=product.PromotionImage,
                 ReviewsCount = product.ReviewsCount,
                 RatingAverage = product.RatingAverage,
                 Categories = product.Categories

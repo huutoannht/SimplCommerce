@@ -53,6 +53,8 @@ namespace SimplCommerce.Module.Catalog.Models
 
         public Media ThumbnailImage { get; set; }
 
+        public Media PromotionImage { get; set; }
+        
         public IList<ProductMedia> Medias { get; protected set; } = new List<ProductMedia>();
 
         public IList<ProductLink> ProductLinks { get; protected set; } = new List<ProductLink>();

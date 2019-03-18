@@ -1,5 +1,27 @@
 ﻿@model SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels.ProductThumbnail
 <!--#region Ngành hàng chính -->
+
+<style>
+    .promo img {
+        width: 35px;
+        height: 35px;
+        margin: 0;
+    }
+
+    .promo p {
+        font-size: 12px;
+        color: #333;
+        line-height: 1.4;
+        width: 165px;
+        float: left;
+        margin-left: 10px;
+        white-space: normal;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+</style>
 <a href="~/@Model.Slug">
     <img width="180" height="180" src='@Model.ThumbnailUrl' alt="@Model.Name" class="mx-auto d-block" />
     <div class="props">
@@ -14,14 +36,16 @@
             }
         }
     </div>
-
-
-
     <h3>@Model.Name</h3>
 
     <div class="price"><strong>@Model.CalculatedProductPrice.Price.ToString("C")</strong><span class="line-through">@Model.CalculatedProductPrice?.OldPrice?.ToString("C")</span></div>
-    <div class="promo noimage">
-        <p></p>
+    <div class="promo">
+        @if (Model.PromotionImage != null)
+        {
+            <img width="30" height="30" class=" lazyloaded" alt="@Model.PromotionImage?.Caption" src="@Model.PromotionImageUrl">
+            <p>@Model.PromotionImage?.Caption</p>
+        }
+
     </div>
     @if (Model.CalculatedProductPrice.PercentOfSaving != 0)
     {
@@ -37,50 +61,5 @@
                     </li>
                 }
             </ul>
-            @*<div class="block2">
-        <div class="block2-pic hov-img0">
-            <img alt="@Model.Name" class="card-img-top" src="@Model.ThumbnailUrl">
-
-            <a href="~/@Model.Slug" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
-                View Details123
-            </a>
-        </div>
-
-        <div class="block2-txt flex-w flex-t p-t-14">
-            <div class="block2-txt-child1 flex-col-l ">
-                <a href="~/@Model.Slug" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                    @Model.Name
-                </a>
-
-                <span class="stext-105 cl3">
-                    @if (Model.IsCallForPricing)
-                    {
-                        @Localizer["Call for pricing"]
-                    }
-                    else
-                    {
-                        @Model.CalculatedProductPrice.Price.ToString("C")
-                        if (Model.CalculatedProductPrice.PercentOfSaving > 0)
-                        {
-                            <span class="product-price-saving">-@(Model.CalculatedProductPrice.PercentOfSaving)%</span>
-                            <br />
-                            <span class="product-price-regular">@Model.CalculatedProductPrice.OldPrice.Value.ToString("C")</span>
-                        }
-                    }
-                </span>
-            </div>
-
-            <div class="block2-txt-child2 flex-r p-t-3">
-                <ul class="list-inline product-ratings">
-                    <li><input type="hidden" value="@Model.RatingAverage" readonly="readonly" class="rating-loading" step="1" data-size="xs" data-show-clear="false" data-show-caption="false" /></li>
-                    @if (Model.ReviewsCount > 0)
-                    {
-                        <li class="product-review-list">
-                            <span>(@Model.ReviewsCount @Localizer["reviews"])</span>
-                        </li>
-                    }
-                </ul>
-            </div>
-        </div>*@
         </div>
     </a>

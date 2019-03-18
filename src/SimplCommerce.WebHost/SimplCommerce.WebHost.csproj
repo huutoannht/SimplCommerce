@@ -20,21 +20,25 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="logs\**" />
     <Compile Remove="Themes\CozaStore\**" />
     <Compile Remove="wwwroot\themes\TheGioiDiDong\images\cdn\Files\**" />
     <Compile Remove="wwwroot\themes\TheGioiDiDong\images\cdn\Products\Images\**" />
     <Content Remove="Themes\CozaStore\**" />
     <Content Remove="wwwroot\themes\TheGioiDiDong\images\cdn\Files\**" />
     <Content Remove="wwwroot\themes\TheGioiDiDong\images\cdn\Products\Images\**" />
+    <EmbeddedResource Remove="logs\**" />
     <EmbeddedResource Remove="Themes\CozaStore\**" />
     <EmbeddedResource Remove="wwwroot\themes\TheGioiDiDong\images\cdn\Files\**" />
     <EmbeddedResource Remove="wwwroot\themes\TheGioiDiDong\images\cdn\Products\Images\**" />
+    <None Remove="logs\**" />
     <None Remove="Themes\CozaStore\**" />
     <None Remove="wwwroot\themes\TheGioiDiDong\images\cdn\Files\**" />
     <None Remove="wwwroot\themes\TheGioiDiDong\images\cdn\Products\Images\**" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Themes\TheGioiDiDong\Areas\Catalog\Views\Category\CategoryDetailLoadMore.cshtml" />
     <None Remove="Themes\TheGioiDiDong\Areas\Catalog\Views\Shared\Components\NewItem\Default.cshtml" />
     <None Remove="Themes\TheGioiDiDong\Areas\Cms\Views\Shared\Components\CarouselWidgetCategory\Default.cshtml" />
     <None Remove="Themes\TheGioiDiDong\Areas\News\Views\Shared\Components\NewItem\Default.cshtml" />

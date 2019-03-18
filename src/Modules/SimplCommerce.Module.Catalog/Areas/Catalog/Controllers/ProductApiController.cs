@@ -37,6 +37,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
         private readonly IProductService _productService;
         private readonly IRepository<ProductMedia> _productMediaRepository;
         private readonly IWorkContext _workContext;
+        private readonly IPromotionService _promotionService;
 
         public ProductApiController(
             IRepository<Product> productRepository,
@@ -47,7 +48,8 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
             IRepository<ProductOptionValue> productOptionValueRepository,
             IRepository<ProductAttributeValue> productAttributeValueRepository,
             IRepository<ProductMedia> productMediaRepository,
-            IWorkContext workContext)
+            IWorkContext workContext,
+            IPromotionService promotionService)
         {
             _productRepository = productRepository;
             _mediaService = mediaService;
@@ -58,6 +60,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
             _productAttributeValueRepository = productAttributeValueRepository;
             _productMediaRepository = productMediaRepository;
             _workContext = workContext;
+            _promotionService = promotionService;
         }
 
         [HttpGet("quick-search")]
@@ -85,6 +88,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
         {
             var product = _productRepository.Query()
                 .Include(x => x.ThumbnailImage)
+                .Include(x => x.PromotionImage)
                 .Include(x => x.Medias).ThenInclude(m => m.Media)
                 .Include(x => x.ProductLinks).ThenInclude(p => p.LinkedProduct)
                 .Include(x => x.OptionValues).ThenInclude(o => o.Option)
@@ -122,6 +126,8 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
                 IsAllowToOrder = product.IsAllowToOrder,
                 CategoryIds = product.Categories.Select(x => x.CategoryId).ToList(),
                 ThumbnailImageUrl = _mediaService.GetThumbnailUrl(product.ThumbnailImage),
+                PromotionImageUrl = _mediaService.GetPromotionUrl(product.PromotionImage),
+                PromotionName=product.PromotionImage?.Caption,
                 BrandId = product.BrandId,
                 TaxClassId = product.TaxClassId,
                 StockTrackingIsEnabled = product.StockTrackingIsEnabled
@@ -826,6 +832,18 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
                 }
             }
 
+            if (model.PromotionImage != null)
+            {
+                var fileName = await SaveFile(model.PromotionImage);
+                if (product.PromotionImage != null)
+                {
+                    product.PromotionImage.FileName = fileName;
+                }
+                else
+                {
+                    product.PromotionImage = new Media { FileName = fileName, Caption = model.Product.PromotionName };
+                }
+            }
             // Currently model binder cannot map the collection of file productImages[0], productImages[1]
             foreach (var file in Request.Form.Files)
             {
