@@ -21,7 +21,7 @@ namespace SimplCommerce.Module.Core.Areas.Core.Controllers
         [Route("admin")]
         public IActionResult Index()
         {
-            if (DateTime.Today > DateTime.Parse("19/03/2019"))
+            if (DateTime.Today > DateTime.Parse("19/06/2019"))
             {
                 return RedirectToAction("ErrorWithCode", "Home", new { id = 404 });
             }

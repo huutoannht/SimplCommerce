@@ -28,6 +28,59 @@
             max-width: 50%;
         }
     }
+    .laptopnews .newslist h3 {
+        display: block;
+        overflow: hidden;
+        font-size: 18px;
+        font-weight: 600;
+        text-transform: none;
+        line-height: 1.3;
+        margin: 0;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+    .laptopnews .newslist figure {
+        display: block;
+        overflow: hidden;
+        font-size: 14px;
+        color: #333;
+        line-height: 1.3;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        padding-top: 5px;
+    }
+    .laptopnews .newslist .tempvideo {
+        float: left;
+        position: relative;
+        width: 142px;
+        height: 69px;
+        margin-right: 15px;
+        margin-bottom: 0;
+        overflow: hidden;
+    }
+    .laptopnews .newslist .tempvideo img {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+        .laptopnews .newslist li {
+            padding-bottom:10px;
+            float:left;
+        }
+    img.first-new{
+        width:100%;
+        height:auto;
+    }
+    .laptopnews h3 {
+        font-size: 16px;
+        font-weight: bold;
+        display: block;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        margin-top:20px;
+    }
 </style>
 @section head {
     <link simpl-append-version="true" rel="stylesheet" href="~/lib/nouislider/distribute/nouislider.min.css" />
@@ -141,18 +194,18 @@
                             </div>
                         </li>
                         @*<li class="pagination-option">
-                                <label>Show :</label>
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                        20 <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">All</a></li>
-                                        <li><a href="#">50</a></li>
-                                        <li><a href="#">30</a></li>
-                                    </ul>
-                                </div>
-                            </li>*@
+                            <label>Show :</label>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                    20 <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">All</a></li>
+                                    <li><a href="#">50</a></li>
+                                    <li><a href="#">30</a></li>
+                                </ul>
+                            </div>
+                        </li>*@
                     </ul>
                 </div>
             </div>
@@ -167,11 +220,11 @@
                 </div>
 
                 @*@foreach (var product in Model.Products)
-                    {
-                        <div class="col-xs-6 col-md-4">
-                            <partial name="_ProductThumbnail" model="product" />
-                        </div>
-                    }*@
+                {
+                    <div class="col-xs-6 col-md-4">
+                        <partial name="_ProductThumbnail" model="product" />
+                    </div>
+                }*@
             </div>
             @*<div class="row">
                 <div class="col-md-12 text-right">
@@ -191,8 +244,8 @@
                     </div>
                 </div>
             }
-
         </div>
+        @await Component.InvokeAsync("NewItemHome")
     </div>
 
 </div>
