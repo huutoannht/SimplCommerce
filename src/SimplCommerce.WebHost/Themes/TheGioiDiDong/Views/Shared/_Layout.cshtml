@@ -2,6 +2,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+    <meta name="google-site-verification" content="G5v-BJeHAQPIyjlml-DKi2JQtZm6NIQqSZvHLEjHTik" />
     @RenderSection("additionalMeta", false)
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,7 +11,7 @@
     <meta name="description" content="Hệ thống bán lẻ điện thoại di động, smartphone, máy tính bảng, tablet, laptop, phụ kiện chính hãng mới nhất, giá tốt, dịch vụ khách hàng được yêu thích nhất VN" />
     <meta property="og:title" content="Laptopcudanang.com - Siêu thị điện thoại, Tablet, Laptop, Phụ kiện chính hãng" />
     <meta property="og:description" content="Hệ thống bán lẻ điện thoại di động, smartphone, máy tính bảng, tablet, laptop, phụ kiện chính hãng mới nhất, giá tốt, dịch vụ khách hàng được yêu thích nhất VN" />
-    <meta content="INDEX,FOLLOW" name="robots" />
+    <meta content="NOINDEX,NOFOLLOW" name="robots" />
     <meta name="copyright" content="Công ty TNHH MTV Quốc tế Phúc Thành Đạt" />
     <meta name="author" content="Công ty  TNHH MTV Quốc tế Phúc Thành Đạt" />
     <meta http-equiv="audience" content="General" />
@@ -26,7 +27,6 @@
     <meta property="fb:pages" content="214993791879039" />
     <meta http-equiv="x-dns-prefetch-control" content="on">
     <link href="~/themes/TheGioiDiDong/css/style.css" rel="stylesheet" />
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link simpl-append-version="true" rel="stylesheet" href="~/lib/toastr/build/toastr.min.css" />
     <link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/CozaStore/fonts/font-awesome-4.7.0/css/font-awesome.min.css" />
@@ -67,6 +67,17 @@
 
 </head>
 <body>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-97842202-9"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-97842202-9');
+	</script>
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.2&appId=2215291551867822&autoLogAppEvents=1"></script>
     <div class="container" style="padding-top:63px ">
         <header class="row">
             @await Component.InvokeAsync("CategoryMenu")
@@ -109,29 +120,31 @@
             <div class="row">
                 <div class="col-md-3">
                     <h4 class="stext-301 cl0">
-                        Về hệ thống
+                        Giới thiệu cửa hàng
                     </h4>
                     <vc:menu menu-id="2"></vc:menu>
                 </div>
 
                 <div class="col-md-3">
                     <h4 class="stext-301 cl0 p-b-8">
-                        Hỗ trợ
+                        Hệ thống cửa hàng
                     </h4>
-                    <vc:menu menu-id="1"></vc:menu>
+                    <p>
+						☎️ 088.8333.135 – 0236.220.5555<br>
+						🏪 133 – 135 Hàm Nghi, Đà Nẵng<br>
+						🏪 99 – 101 Hàm Nghi, Đà Nẵng<br>
+						🏪 40 – Trần Đại Nghĩa, Hà Nội<br>
+						🏪 63 – Nguyễn Thiện Thuật, HCM<br>
+						🗓Thứ 2 -> Chủ nhật / 8:00 – 20:00
+					</p>
                 </div>
-                <div class="col-md-4">
-                    <ul>
-                        <li>
-                            <p>Gọi mua hàng <a href="tel:18001060">1800.1060</a> (7:30 - 22:00)</p>
-                            <p>Gọi khiếu nại <a href="tel:18001062">1800.1062</a> (8:00 - 21:30)</p>
-                            <p>Gọi bảo hành <a href="tel:18001064">1800.1064</a> (8:00 - 21:00)</p>
-                            <p>Hỗ trợ kỹ thuật <a href="tel:18001763">1800.1763</a> (7:30 - 22:00)</p>
-                            <a target="_blank" rel="nofollow noopener" class="bct" href="http://online.gov.vn/HomePage/CustomWebsiteDisplay.aspx?DocId=24421" aria-label="bộ công thương mwg"><i class="icontgdd-bct"></i></a>
-                        </li>
-                    </ul>
+                <div class="col-md-3">
+					<h4 class="stext-301 cl0 p-b-8">
+                        FaceBook
+                    </h4>
+                    <div class="fb-page" data-href="https://www.facebook.com/TechCare133/" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/TechCare133/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/TechCare133/">TechCare 133-135 Hàm Nghi</a></blockquote></div>
                 </div>
-                <div class="col-md-2 col-right-footer">
+                <div class="col-md-3 col-right-footer">
                     <ul>
                         <li>
                             <a target="_blank" href="https://facebook.com/thegioididongcom" class="linkfb" rel="noopener">

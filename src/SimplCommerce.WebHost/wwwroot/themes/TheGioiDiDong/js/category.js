@@ -4943,7 +4943,6 @@ $(window).load(function() {
     });
     getScriptChatTgdd();
     checkCmtParam();
-    getJsRateShip()
 });
 $(window).scroll(function() {
     $(this).scrollTop() > 300 ? $("#back-top").fadeIn() : $("#back-top").fadeOut()

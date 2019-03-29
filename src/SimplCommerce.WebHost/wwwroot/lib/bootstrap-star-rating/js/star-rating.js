@@ -1,4 +1,4 @@
-/*!
+﻿/*!
  * bootstrap-star-rating v4.0.2
  * http://plugins.krajee.com/star-rating
  *
@@ -510,8 +510,8 @@
         theme: '',
         language: 'en',
         stars: 5,
-        filledStar: '<i class="glyphicon glyphicon-star"></i>',
-        emptyStar: '<i class="glyphicon glyphicon-star-empty"></i>',
+        filledStar: '<i class="icontgdd-ystar"></i>',
+        emptyStar: '<i class="icontgdd-gstar"></i>',
         containerClass: '',
         size: 'md',
         animate: true,

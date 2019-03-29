@@ -25,7 +25,7 @@
                 @foreach (var item in Model)
                 {
                     <li class="nav-item nav-item-active">
-                        <a href="/@item.Slug" class="mobile" title="@item.Name">
+                        <a href="/@item.Slug" class="mobile @item.Slug" title="@item.Name">
                             @Html.Raw(item.Description) @item.Name
                         </a>
                     </li>
