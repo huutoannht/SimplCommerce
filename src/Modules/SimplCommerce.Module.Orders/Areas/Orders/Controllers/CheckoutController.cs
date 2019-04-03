@@ -53,6 +53,7 @@ namespace SimplCommerce.Module.Orders.Areas.Orders.Controllers
         }
 
         [HttpGet("shipping")]
+        [AllowAnonymous]
         public async Task<IActionResult> Shipping()
         {
             var model = new DeliveryInformationVm();
@@ -62,7 +63,7 @@ namespace SimplCommerce.Module.Orders.Areas.Orders.Controllers
 
             return View(model);
         }
-
+        [AllowAnonymous]
         [HttpPost("shipping")]
         public async Task<IActionResult> Shipping(DeliveryInformationVm model)
         {
@@ -88,6 +89,7 @@ namespace SimplCommerce.Module.Orders.Areas.Orders.Controllers
         }
 
         [HttpPost("update-tax-and-shipping-prices")]
+        [AllowAnonymous]
         public async Task<IActionResult> UpdateTaxAndShippingPrices([FromBody] TaxAndShippingPriceRequestVm model)
         {
             var currentUser = await _workContext.GetCurrentUser();
@@ -98,6 +100,7 @@ namespace SimplCommerce.Module.Orders.Areas.Orders.Controllers
         }
 
         [HttpGet("congratulation")]
+        [AllowAnonymous]
         public IActionResult OrderConfirmation()
         {
             return View();

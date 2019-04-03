@@ -36,6 +36,7 @@ namespace SimplCommerce.Module.Payments.Areas.Payments.Controllers
         }
 
         [HttpGet("payment")]
+        [AllowAnonymous]
         public async Task<IActionResult> Payment()
         {
             var currentUser = await _workContext.GetCurrentUser();

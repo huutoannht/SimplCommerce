@@ -66,6 +66,7 @@ namespace SimplCommerce.Module.Core.Areas.Core.Controllers
         }
 
         [HttpGet("api/country-states-provinces/{countryId}")]
+        [AllowAnonymous]
         public async Task<IActionResult> Get(string countryId)
         {
             var country = await _countryRepository.Query().Include(x => x.StatesOrProvinces).FirstOrDefaultAsync(x => x.Id == countryId);
