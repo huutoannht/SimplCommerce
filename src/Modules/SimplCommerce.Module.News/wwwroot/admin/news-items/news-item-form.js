@@ -21,7 +21,7 @@
         vm.imageUpload = function (files) {
             summerNoteService.upload(files[0])
                 .then(function (response) {
-                    $(vm.body).summernote('insertImage', response.data);
+                    $(vm.descEditor).summernote('insertImage', response.data);
                 });
         };
 

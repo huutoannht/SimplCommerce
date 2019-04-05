@@ -180,13 +180,23 @@ namespace SimplCommerce.Module.News.Areas.News.Controllers
 
             AddOrDeleteCategories(model, newsItem);
 
-            if (model.ThumbnailImage != null && newsItem.ThumbnailImage != null)
-            {
-                await _mediaService.DeleteMediaAsync(newsItem.ThumbnailImage);
-            }
+            var fileName = newsItem.ThumbnailImage?.FileName;
 
             await SaveServiceMedia(model.ThumbnailImage, newsItem);
-            _newsItemService.Update(newsItem);
+            try
+            {
+                _newsItemService.Update(newsItem);
+                if (!string.IsNullOrEmpty(fileName))
+                {
+                    await _mediaService.DeleteMediaAsync(fileName);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+            
             return Accepted();
         }
 

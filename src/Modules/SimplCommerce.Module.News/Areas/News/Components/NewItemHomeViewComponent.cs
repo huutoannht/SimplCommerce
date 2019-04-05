@@ -28,7 +28,7 @@ namespace SimplCommerce.Module.News.Areas.News.Components
         {
 
             var query = _newsItemRepository.Query().Include(x => x.ThumbnailImage)
-                .Where(x => !x.IsDeleted).Take(4).OrderByDescending(m => m.CreatedOn);
+                .Where(x => !x.IsDeleted).OrderByDescending(m => m.CreatedOn).Take(5);
             IList<NewsItem> listNewsItem = query.ToList();
             IList<NewsItemVm> newsItemVMs = new List<NewsItemVm>();
             NewsItemVm newsItemVm = null;
@@ -42,7 +42,7 @@ namespace SimplCommerce.Module.News.Areas.News.Components
                 newsItemVMs.Add(newsItemVm);
             }
 
-            return View(this.GetViewPath(), newsItemVMs);
+            return View(this.GetViewPath(), newsItemVMs.OrderByDescending(m=>m.Id));
         }
     }
 }
