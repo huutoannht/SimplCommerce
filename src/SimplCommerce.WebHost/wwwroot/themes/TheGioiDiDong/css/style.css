@@ -45,7 +45,6 @@ body, input, button, option, textarea, label, legend, h1, h2, h3, h4, h5, h6, h1
 }*/
 footer {
     width: 100%;
-    min-width: 1024px;
     margin: 0 auto;
     background: #fff;
     overflow: hidden;
@@ -53,14 +52,32 @@ footer {
 }
 
 .wrap-main {
-    max-width: 1200px;
-    min-width: 1024px;
     width: 100%;
     /*height: 63px;*/
-    background: #000;
+    background: transparent;
     margin: auto;
     position: relative;
     display: block;
+}
+@media ( min-width: 768px ) {
+    .wrap-main {
+        max-width: 720px;
+    }
+}
+@media ( min-width: 992px ) {
+    .wrap-main {
+        max-width: 960px;
+    }
+}
+@media ( min-width: 1200px ) {
+    .wrap-main {
+        max-width: 1140px;
+    }
+}
+@media ( min-width: 1400px ) {
+    .wrap-main {
+        max-width: 1200px;
+    }
 }
 
 .logo {
@@ -617,37 +634,6 @@ nav {
             color: #288ad6
         }
 
-#back-top {
-    display: none;
-    z-index: 99
-}
-
-    #back-top span:before {
-        cursor: pointer;
-        background: #fdd504;
-        width: 40px;
-        position: fixed;
-        right: 20px;
-        bottom: 45px;
-        height: 40px;
-        text-align: center;
-        line-height: 40px;
-        font-size: 18px;
-        -webkit-transition: all .2s linear;
-        -moz-transition: all .2s linear;
-        -o-transition: all .2s linear;
-        -transition: all .2s linear;
-        color: #000;
-        content: "▲";
-        opacity: .7;
-        z-index: 8;
-        border-radius: 5px
-    }
-
-    #back-top span:hover:before {
-        opacity: 1
-    }
-
 #dlding, #imgtrack, .none {
     display: none
 }
@@ -953,9 +939,9 @@ nav {
 }
 
 @media screen and (max-width:1220px) {
-    .wrap-main {
+    /* .wrap-main {
         width: 1024px
-    }
+    } */
 
 
     .icontgdd-logo {
@@ -971,7 +957,7 @@ nav {
     }
 
     nav {
-        width: 764px
+        width: 100%
     }
 
         nav a {
@@ -1708,8 +1694,24 @@ nav {
         border-right: 1px solid #eee;
         border-bottom: 1px solid #eee;
         text-align: center;
-        padding-top: 20px;
-        padding-left: 10px;
+        padding: 10px;
+    }
+    .homeproduct .item-product a img {
+        margin: 15px auto;
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        transition: all 0.3s ease;
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+    }
+    @media ( max-width: 767px ) {
+        .homeproduct .item-product a img {
+            margin: 10px auto;
+        }
+    }
+    .homeproduct .item-product a:hover img {
+        transform: translateY(-9px)
     }
 
     .homeproduct li:nth-child(4), .homeproduct li:nth-child(8) {
@@ -1801,7 +1803,7 @@ nav {
         display: block;
         line-height: 1.3em;
         font-size: 14px;
-        padding: 0 10px;
+        padding: 0;
         color: #333;
         display: -webkit-box;
         -webkit-line-clamp: 2;
@@ -1813,7 +1815,30 @@ nav {
     .homeproduct li .price, .homeproduct .item-product .price {
         display: block;
         overflow: hidden;
-        padding: 5px 10px 10px 10px
+        padding: 5px 0 7px;
+    }
+
+    .homeproduct .item-product .price {
+        line-height: 1;
+        padding: 5px 0 0;
+    }
+
+    .homeproduct .item-product .promo {
+        /*display: flex;*/
+        align-items: center;   
+    }
+        .homeproduct .item-product .promo li {
+            line-height: 35px;
+            margin-bottom: 5px;
+        }
+
+    .homeproduct .item-product .promo img {
+        width: 35px;
+        height: 35px;
+        max-width: 100%;
+        margin: 0 !important;
+        transform: translateY(0) !important;
+        float:left;
     }
 
     .homeproduct li strong, .homeproduct .item-product strong {
@@ -1828,8 +1853,8 @@ nav {
     .homeproduct li span, .homeproduct .item-product span {
         display: inline-block;
         vertical-align: middle;
-        font-size: 12px;
-        margin-left: 5px;
+        font-size: 14px;
+        margin-left: 0;
     }
         .homeproduct li span.line-through, .homeproduct .item-product span.line-through {
             text-decoration: line-through;
@@ -2829,7 +2854,7 @@ nav {
     font-weight: bold;
 }
 #navbarCollapse {
-    background-color: #fdd504;
+    background-color: transparent;
     line-height: 2.5;
 }
 .collapse li.nav-item {
@@ -2841,7 +2866,7 @@ nav {
 }
 
 .homeproduct .ratingresult {
-    padding: 5px 10px;
+    padding: 0;
 }
 .icontgdd-ystar {
     background-position: -295px -30px;
@@ -2946,21 +2971,39 @@ li .btn_buynow {
 }
 
     .plc ul {
-        height: 58px;
         max-width: 1200px;
         width: 100%;
-        min-width: 980px;
+        padding: 0 10px;
         margin: 0 auto;
-        position: relative
+        position: relative;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-flow: row wrap;
+        flex-flow: row wrap;
+        flex: 1 100%;
+        align-items: center;
     }
 
     .plc li {
-        width: 205px;
-        display: inline-block;
+        max-width: calc(100% / 5);
+        flex: 0 0 calc((100% - 60px) / 5);
         box-sizing: border-box;
         padding: 0;
+        position: relative;
+        margin: 12px 15px 12px 0
+    }
+    .plc li:not(:last-child):after {
+        content: '';
+        position: absolute;
+        width: 1px;
+        height: 35px;
         border-right: solid 1px #d0dfd2;
-        margin: 12px 22px 12px 0
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
     }
 
         .plc li:nth-child(4n+2) {
@@ -2980,7 +3023,7 @@ li .btn_buynow {
         .plc li span {
             text-align: left;
             display: block;
-            padding-right: 18px
+            padding-right: 12px
         }
 
             .plc li span a {
@@ -3030,6 +3073,17 @@ li .btn_buynow {
         background-size: 30px 30px
     }
 
+    @media ( max-width: 991px ) and ( min-width: 768px ) {
+        .plc ul {
+            align-items: inherit;
+        }
+        .plc li i {
+            display: block;
+            margin: 0 auto 5px;
+            float: none;
+        }
+    }
+
 .cslder {
     display: block;
     text-align: center;
@@ -3066,8 +3120,7 @@ li .btn_buynow {
     background: #fff;
     padding: 14px 0;
     border-bottom: none;
-    text-align: left;
-    white-space: nowrap;
+    text-align: center;
     max-width: 1200px;
     margin: 10px auto
 }
@@ -3121,6 +3174,9 @@ li .btn_buynow {
         -webkit-transform: translate(-50%,-50%);
         transform: translate(-50%,-50%)
     }
+    /* .catetag a {
+        color: #f4f4f4;
+    } */
 .catetag a:hover {
     color: #333;
 }

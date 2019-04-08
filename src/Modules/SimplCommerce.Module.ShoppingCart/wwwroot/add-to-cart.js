@@ -1,7 +1,9 @@
 ﻿/*global $ */
 $(function () {
-    $('body').on('click', '.btn-add-cart', function () {
+    $('body').on('click', '.btn-add-cart', function (e) {
+        e.preventDefault();
         $('#productOverview').modal('hide');
+        $('.btn-add-cart').attr('disabled', true);
         var quantity,
             $form = $(this).closest("form"),
             productId = $(this).closest("form").find('input[name=productId]').val(),
@@ -15,9 +17,19 @@ $(function () {
             data: JSON.stringify({ productId: productId, quantity: quantity }),
             contentType: "application/json"
         }).done(function (data) {
+            $('.btn-add-cart').attr('disabled', false);
             $('#shopModal').find('.modal-content').html(data);
             $('#shopModal').modal('show');
             $('.cart-badge .badge').text($('#shopModal').find('.cart-item-count').text());
+            $.ajax({
+                type: 'GET',
+                url: '/cart/list',
+                data: JSON.stringify({ productId: productId, quantity: quantity }),
+                contentType: "application/json"
+            }).done(function (data) {
+                $('.js-show-cart').attr("data-notify", data.items.length);
+            })
+
             }).fail(function () {
 
             /*jshint multistr: true */

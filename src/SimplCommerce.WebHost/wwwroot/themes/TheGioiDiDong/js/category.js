@@ -4943,15 +4943,9 @@ $(window).load(function() {
     });
     getScriptChatTgdd();
     checkCmtParam();
+    getJsRateShip()
 });
-$(window).scroll(function() {
-    $(this).scrollTop() > 300 ? $("#back-top").fadeIn() : $("#back-top").fadeOut()
-});
-$("#back-top a").click(function() {
-    return $("body,html").animate({
-        scrollTop: 0
-    }, 800), !1
-});
+
 gl_fLoadChat = !1;
 $(window).load(function() {
     var t, i, n;

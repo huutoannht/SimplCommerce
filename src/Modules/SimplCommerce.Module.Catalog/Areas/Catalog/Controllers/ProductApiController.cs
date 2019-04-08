@@ -832,16 +832,16 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
                 }
             }
 
-            if (model.PromotionImage != null)
+            if (model.Product?.PromotionName != null)
             {
-                var fileName = await SaveFile(model.PromotionImage);
                 if (product.PromotionImage != null)
                 {
-                    product.PromotionImage.FileName = fileName;
+                    product.PromotionImage.FileName = string.Empty;
+                    product.PromotionImage.Caption = model.Product?.PromotionName;
                 }
                 else
                 {
-                    product.PromotionImage = new Media { FileName = fileName, Caption = model.Product.PromotionName };
+                    product.PromotionImage = new Media { FileName = string.Empty, Caption = model.Product.PromotionName };
                 }
             }
             // Currently model binder cannot map the collection of file productImages[0], productImages[1]

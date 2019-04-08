@@ -22,6 +22,7 @@
         overflow: hidden;
     }
 </style>
+<script simpl-append-version="true" src="~/lib/bootstrap-star-rating/js/star-rating.js"></script>
 <a href="~/@Model.Slug">
     <img width="180" height="180" src='@Model.ThumbnailUrl' alt="@Model.Name" class="mx-auto d-block" />
     <div class="props">
@@ -42,8 +43,7 @@
     <div class="promo">
         @if (Model.PromotionImage != null)
         {
-            <img width="30" height="30" class=" lazyloaded" alt="@Model.PromotionImage?.Caption" src="@Model.PromotionImageUrl">
-            <p>@Model.PromotionImage?.Caption</p>
+            <p>@Html.Raw(Model.PromotionImage?.Caption)</p>
         }
 
     </div>

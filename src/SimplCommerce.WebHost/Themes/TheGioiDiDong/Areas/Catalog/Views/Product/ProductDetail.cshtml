@@ -32,7 +32,9 @@
         {
             @await Component.InvokeAsync("CategoryBreadcrumb", new { categoryIds = Model.Categories.Select(x => x.Id) })
         }
-
+        <a href="#" class="stext-109 cl8 hov-cl1 trans-04">
+            @Model.Name
+        </a>
     </ul>
     <div class="rowtop">
         <h1>@Model.Name</h1>
@@ -263,25 +265,24 @@
         </div>
         <div class="col-md-4">
             <aside class="">
-                @*<div class="tableparameter">
-            @if (Model.Attributes.Any())
-            {
-                <div>
-                    <h3 class="p-t-25 p-b-25">@Localizer["Product specification"]</h3>
-                    <table class="table table-striped">
-                        @foreach (var attribute in Model.Attributes)
-                        {
-                            <tr>
-                                <td>@attribute.Name</td>
-                                <td>@attribute.Value</td>
-                            </tr>
-                        }
-                    </table>
-                </div>
-            }
-
-        </div>
-        <div class="clr"></div>*@
+                <div class="tableparameter">
+					@if (Model.Attributes.Any())
+					{
+						<div class="table-attribute">
+							<h3 class="p-t-25 p-b-25">@Localizer["Product specification"]</h3>
+							<table class="table table-striped">
+								@foreach (var attribute in Model.Attributes)
+								{
+									<tr>
+										<td>@attribute.Name</td>
+										<td>@attribute.Value</td>
+									</tr>
+								}
+							</table>
+						</div>
+					}
+				</div>
+				<div class="clr"></div>
                 @await Component.InvokeAsync("NewItem")
             </aside>
         </div>
@@ -296,5 +297,4 @@
     <partial name="_ValidationScriptsPartial" />
     <script simpl-append-version="true" src="~/lib/smoothproducts/js/smoothproducts.js"></script>
     <script simpl-append-version="true" src="~/modules/catalog/product-detail.js"></script>
-    <script simpl-append-version="true" src="~/modules/shoppingcart/add-to-cart.js"></script>
 }

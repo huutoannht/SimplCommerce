@@ -40,15 +40,6 @@
         $('html, body').animate({ scrollTop: 0 }, 300);
     });
 
-    $(window).scroll(function() {
-        $(this).scrollTop() > 300 ? $("#back-top").fadeIn() : $("#back-top").fadeOut()
-    });
-    $("#back-top a").click(function() {
-        return $("body,html").animate({
-            scrollTop: 0
-        }, 800), !1
-    });
-
 
     /*==================================================================
     [ Fixed Header ]*/
@@ -115,11 +106,6 @@
             });
 
         }
-    });
-
-    $('.navbar-toggler').click(function() {
-        $(this).toggleClass('menu-open');
-        $('.navbar').toggleClass('menu-down');
     });
 
 
@@ -222,15 +208,6 @@
 
     $('.js-hide-modal1').on('click', function () {
         $('.js-modal1').removeClass('show-modal1');
-    });
-
-    /*==================================================================
-    [ Add loadmore content details ] */
-    $('.box_content .boxArticle').append('<p class="showmore-content"><span>Đọc thêm</span></p>');
-
-    $('.box_content .boxArticle .showmore-content > span').click(function() {
-        $('.box_content .boxArticle .area_article').toggleClass('show-all');
-        $('.box_content .boxArticle .showmore-content').fadeOut();
     });
 
 })(jQuery);
