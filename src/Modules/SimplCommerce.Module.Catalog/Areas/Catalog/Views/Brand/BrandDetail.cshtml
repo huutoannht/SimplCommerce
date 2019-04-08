@@ -34,23 +34,27 @@
 <div class="laptopcate filtered">
     <div class="row">
         <div class="laptopmanu">
-            <a href="macbook"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Macbook44-b_34.png" /></a>
-            <a href="dell"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Dell44-b_34.jpg" /></a>
-            <a href="asus"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Asus44-b_35.jpg" /></a>
-            <a href="hp"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/HP-Compaq44-b_36.jpg" /></a>
-            <a href="acer"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Acer44-b_37.jpg" /></a>
-            <a href="lenovo"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Lenovo44-b_36.jpg" /></a>
-            <a href="msi"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/MSI44-b_30.png" /></a>
+            <a href="macbook-cu"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Macbook44-b_34.png" /></a>
+            <a href="laptop-dell-cu"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Dell44-b_34.jpg" /></a>
+            <a href="laptop-asus-cu"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Asus44-b_35.jpg" /></a>
+            <a href="laptop-hp-cu"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/HP-Compaq44-b_36.jpg" /></a>
+            @*<a href="acer"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Acer44-b_37.jpg" /></a>*@
+            <a href="laptop-lenovo-cu"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Lenovo44-b_36.jpg" /></a>
+            <a href="laptop-msi-cu"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/MSI44-b_30.png" /></a>
+            <a href="laptop-hoc-tap-van-phong">Học tập văn phòng</a>
+            <a href="laptop-do-hoa-ky-thuat">Đồ họa- Kỹ thuật</a>
+            <a href="laptop-gaming">Laptop gaming</a>
+            <a href="laptop-cao-cap-sang-trong">Cao cấp - Sang trọng</a>
         </div>
 
     </div>
-    <div class="row">
+    @*<div class="row">
         <form id="" name="productFilter" method="GET" action="~/search">
             <ul class="filter barpage">
                 <li class="fmanu " id="collapse-brand">
                     <label class="criteria @(Model.FilterOption.Brands.Where(m=>Model.CurrentSearchOption.GetBrands().Contains(m.Slug)).Any()?"filter-selected":"")">
                         Hãng
-                        @*<small>(@category.Count)</small>*@
+                        @*<small>(@category.Count)</small>
                     </label>
                     <div class="manufacture">
                         <button type="button" class="closefilter"><i class="icontgdd-closefilter"></i></button>
@@ -81,18 +85,18 @@
                         <li class="fmanu categoryFilter">
                             <label class="criteria @(children.Where(m=>Model.CurrentSearchOption.GetCategories().Contains(m.Slug)).Any()?"filter-selected":"")">
                                 @category.Name
-                                @*<small>(@category.Count)</small>*@
+                                @*<small>(@category.Count)</small>
                             </label>
                             <div class="manufacture">
                                 <strong>@category.Name</strong>
                                 <button type="button" class="closefilter"><i class="icontgdd-closefilter"></i></button>
-                                @*<label class="all"><input type="checkbox" value="@category.Slug" name="category" checked="@Model.CurrentSearchOption.GetCategories().Contains(category.Slug)">Tất cả @category.Name</label>*@
+                                @*<label class="all"><input type="checkbox" value="@category.Slug" name="category" checked="@Model.CurrentSearchOption.GetCategories().Contains(category.Slug)">Tất cả @category.Name</label>
                                 @foreach (var child in children)
                                 {
                                     <label class="checkbox">
                                         <input type="checkbox" value="@child.Slug" name="category" checked="@Model.CurrentSearchOption.GetCategories().Contains(child.Slug)">
                                         @child.Name
-                                        @*<small>(@child.Count)</small>*@
+                                        @*<small>(@child.Count)</small>
                                     </label>
                                 }
                                 <p class="doit"></p>
@@ -109,7 +113,7 @@
                 }
             </ul>
         </form>
-    </div>
+    </div>*@
     @*<div class="breadcrumb bread-crumb flex-w p-r-15 p-t-20 p-b-20 p-lr-0-lg">
             <a href="~/" class="stext-109 cl8 hov-cl1 trans-04">
                 @Localizer["Home"]
@@ -129,7 +133,7 @@
             <div class="row mb-3">
                 <div class="col-sm-4 category-result">
                     <h2>@Model.BrandName</h2>
-                    <small class="badge-results">@Model.TotalProduct @Localizer["results"]</small>
+                    @*<small class="badge-results">@Model.TotalProduct @Localizer["results"]</small>*@
                 </div>
                 <div class="col-sm-8">
                     <ul class="list-inline clear-both product-list-display-options">
