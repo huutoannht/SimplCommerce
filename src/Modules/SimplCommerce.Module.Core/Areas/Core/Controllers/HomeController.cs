@@ -26,14 +26,13 @@ namespace SimplCommerce.Module.Core.Areas.Core.Controllers
             throw new Exception("Test behavior in case of error");
         }
 
-        //[HttpGet("/")]
+        [HttpGet("/")]
         public IActionResult Index()
         {
             if (DateTime.Today > DateTime.Parse("19/06/2019"))
             {
                 return RedirectToAction("ErrorWithCode", new { id = 404 });
             }
-            return Redirect("~/may-tinh");
             var model = new HomeViewModel();
 
             model.WidgetInstances = _widgetInstanceService.GetPublished()

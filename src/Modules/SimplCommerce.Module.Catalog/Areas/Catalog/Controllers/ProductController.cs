@@ -76,6 +76,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
                 .Include(x => x.AttributeValues).ThenInclude(a => a.Attribute)
                 .Include(x => x.ProductLinks).ThenInclude(p => p.LinkedProduct).ThenInclude(m => m.ThumbnailImage)
                 .Include(x => x.ThumbnailImage)
+                .Include(x => x.PromotionImage)
                 .Include(x => x.Medias).ThenInclude(m => m.Media)
                 .FirstOrDefault(x => x.Id == id && x.IsPublished);
             if (product == null)
@@ -101,7 +102,8 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
                 ReviewsCount = product.ReviewsCount,
                 RatingAverage = product.RatingAverage,
                 Attributes = product.AttributeValues.Select(x => new ProductDetailAttribute { Name = x.Attribute.Name, Value = x.Value }).ToList(),
-                Categories = product.Categories.Select(x => new ProductDetailCategory { Id = x.CategoryId, Name = x.Category.Name, Slug = x.Category.Slug }).ToList()
+                Categories = product.Categories.Select(x => new ProductDetailCategory { Id = x.CategoryId, Name = x.Category.Name, Slug = x.Category.Slug }).ToList(),
+                Promotion=product.PromotionImage?.Caption
             };
 
             MapProductVariantToProductVm(product, model);

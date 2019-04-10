@@ -1,0 +1,23 @@
+﻿@model SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels.ProductWidgetComponentVm
+    <!-- home products -->
+<div class="row navigat ">
+    <h2>@Model.WidgetName</h2>
+    <div class="viewallcat">
+        @foreach (var brand in Model.Brands)
+        {
+            if (brand != null)
+            {
+                <a href="@brand.Slug"> @brand.Name</a>
+            }
+
+        }
+    </div>
+</div>
+<div class="row homeproduct">
+    @foreach (var product in Model.Products)
+    {
+        <div class="item-product col-md-2">
+            <partial name="/Themes/TheGioiDiDong/Areas/Catalog/Views/Shared/_ProductThumbnail.cshtml" model="product" />
+        </div>
+    }
+</div>

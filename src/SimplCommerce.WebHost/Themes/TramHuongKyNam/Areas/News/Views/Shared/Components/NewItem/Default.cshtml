@@ -1,0 +1,56 @@
+﻿@model IEnumerable<SimplCommerce.Module.News.Areas.News.ViewModels.NewsItemVm>
+<style>
+    .newslist li img {
+        float: left;
+        width: 100px;
+        height: 60px;
+        margin-right: 10px;
+    }
+
+    .newslist li {
+        display: block;
+        overflow: hidden;
+        padding: 8px 0;
+    }
+
+    .newslist h4 {
+        display: block;
+        overflow: hidden;
+        font-size: 20px;
+        color: #333;
+        line-height: 1.3em;
+        padding-top: 20px;
+        padding-bottom: 5px;
+    }
+
+    .newslist {
+        display: block;
+        overflow: hidden;
+        margin: 20px 0 0;
+    }
+
+        .newslist li h3 {
+            display: block;
+            overflow: hidden;
+            color: #333;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            font-size: 1rem !important;
+        }
+</style>
+<div class="newslist">
+    <h4>Tin tức về laptop</h4>
+    <ul>
+        @foreach (var newItem in Model)
+        {
+        <li>
+            <a href="@newItem.Slug">
+                <img src='@newItem.ThumbnailImageUrl' style="display: block;">
+                <h3>@newItem.Name</h3>
+                <span>@newItem.CreatedOn.ToString("dd/MM/yyyy")</span>
+            </a>
+        </li>
+        }
+    </ul>
+</div>

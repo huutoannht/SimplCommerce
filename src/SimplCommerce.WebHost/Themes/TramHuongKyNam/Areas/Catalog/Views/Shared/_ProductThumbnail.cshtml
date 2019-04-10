@@ -1,0 +1,65 @@
+﻿@model SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels.ProductThumbnail
+<!--#region Ngành hàng chính -->
+
+<style>
+    .promo img {
+        width: 35px;
+        height: 35px;
+        margin: 0;
+    }
+
+    .promo p {
+        font-size: 12px;
+        color: #333;
+        line-height: 1.4;
+        width: 165px;
+        float: left;
+        margin-left: 10px;
+        white-space: normal;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+</style>
+<script simpl-append-version="true" src="~/lib/bootstrap-star-rating/js/star-rating.js"></script>
+<a href="~/@Model.Slug">
+    <img width="180" height="180" src='@Model.ThumbnailUrl' alt="@Model.Name" class="mx-auto d-block" />
+    <div class="props">
+        @{if (Model.Categories.Where(m => m.Category?.ParentId == 17).FirstOrDefault() != null)
+            {
+                <span class="dotted">@Model.Categories.Where(m => m.Category?.ParentId == 17).FirstOrDefault().Category?.Name</span>
+            }
+        }
+        @{if (Model.Categories.Where(m => m.Category?.ParentId == 18).FirstOrDefault() != null)
+            {
+                <span class="dotted">Ram: @Model.Categories.Where(m => m.Category?.ParentId == 18).FirstOrDefault().Category?.Name</span>
+            }
+        }
+    </div>
+    <h3>@Model.Name</h3>
+
+    <div class="price"><strong>@Model.CalculatedProductPrice.Price.ToString("C")</strong><span class="line-through">@Model.CalculatedProductPrice?.OldPrice?.ToString("C")</span></div>
+    <div class="promo">
+        @if (Model.PromotionImage != null)
+        {
+            <p>@Html.Raw(Model.PromotionImage?.Caption)</p>
+        }
+
+    </div>
+    @if (Model.CalculatedProductPrice.PercentOfSaving != 0)
+    {
+        <label class="discount">GIẢM @(Model.CalculatedProductPrice.PercentOfSaving)%</label>
+    }
+        <div class="ratingresult rating-container">
+            <ul class="list-inline product-ratings">
+                <li><input value="@Model.RatingAverage" readonly="readonly" class="rating rating-loading" step="1" data-size="xs" data-show-clear="false" data-show-caption="false" /></li>
+                @if (Model.ReviewsCount >= 0)
+                {
+                    <li class="product-review-list">
+                        <span>(@Model.ReviewsCount @Localizer["reviews"])</span>
+                    </li>
+                }
+            </ul>
+        </div>
+    </a>
