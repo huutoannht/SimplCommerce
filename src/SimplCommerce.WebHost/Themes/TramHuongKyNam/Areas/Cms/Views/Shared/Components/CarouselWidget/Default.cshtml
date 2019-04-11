@@ -1,5 +1,5 @@
 ﻿@model SimplCommerce.Module.Cms.Areas.Cms.ViewModels.CarouselWidgetViewComponentVm
-<aside class="homebanner">
+@*<aside class="homebanner">
     <div id="sync1">
         @foreach (var item in Model.Items)
         {
@@ -17,4 +17,18 @@
             </div>
         }
     </div>
-</aside>
+</aside>*@
+
+<div class="widget_slider_area_rotate">
+    @foreach (var item in Model.Items)
+    {
+        <div class="single-slide @(item == Model.Items.First()?"displayblock":"displaynone")">
+            <figure class="slider-featured-image"><a href="@item.TargetUrl" title="@item.SubCaption"><img width="800" height="445" src="@item.Image" class="attachment-colormag-featured-image size-colormag-featured-image wp-post-image" alt="Destruction in Montania" title="Destruction in Montania" /></a></figure>
+            <div class="slide-content">
+                <div class="above-entry-meta"><span class="cat-links"><a href="category/general/index.html" style="background:#a38a6d" rel="category tag">General</a>&nbsp;<a href="category/latest/index.html" style="background:#e5e220" rel="category tag">Latest</a>&nbsp;<a href="category/news/index.html" style="background:#bfd6af" rel="category tag">News</a>&nbsp;</span></div>
+                <h3 class="entry-title"> <a href="2015/03/24/destruction-in-montania/index.html" title="@item.SubCaption">@item.SubCaption</a></h3>
+                <div class="below-entry-meta"> <span class="posted-on"><a href="2015/03/24/destruction-in-montania/index.html" title="7:57 am" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published" datetime="2015-03-24T07:57:31+00:00">March 24, 2015</time></a></span> <span class="byline"><span class="author vcard"><i class="fa fa-user"></i><a class="url fn n" href="author/demothemegrill/index.html" title="TG-Demo Team">TG-Demo Team</a></span></span> <span class="comments"><i class="fa fa-comment"></i><span>Comments Off<span class="screen-reader-text"> on Destruction in Montania</span></span></span></div>
+            </div>
+        </div>
+    }
+</div>

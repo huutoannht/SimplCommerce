@@ -4,23 +4,283 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-<section>
-    <partial name="_WidgetInstances" model="Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeFeatured)" />
-    <aside class="homenews">
-        @await Component.InvokeAsync("NewItem")
-    </aside>
-    <div class="clr"></div>
-    <div class="laptopcate filtered">
-        <div class="laptopmanu">
-            <a href="macbook-cu"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Macbook44-b_34.png" /></a>
-            <a href="laptop-dell-cu"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Dell44-b_34.jpg" /></a>
-            <a href="laptop-asus-cu"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Asus44-b_35.jpg" /></a>
-            <a href="laptop-hp-cu"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/HP-Compaq44-b_36.jpg" /></a>
-            @*<a href="acer"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Acer44-b_37.jpg" /></a>*@
-            <a href="laptop-lenovo-cu"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Lenovo44-b_36.jpg" /></a>
-            <a href="laptop-msi-cu"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/MSI44-b_30.png" /></a>
+@*<section>
+        <partial name="_WidgetInstances" model="Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeFeatured)" />
+        <aside class="homenews">
+            @await Component.InvokeAsync("NewItem")
+        </aside>
+        <div class="clr"></div>
+        <div class="laptopcate filtered">
+            <div class="laptopmanu">
+                <a href="macbook-cu"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Macbook44-b_34.png" /></a>
+                <a href="laptop-dell-cu"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Dell44-b_34.jpg" /></a>
+                <a href="laptop-asus-cu"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Asus44-b_35.jpg" /></a>
+                <a href="laptop-hp-cu"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/HP-Compaq44-b_36.jpg" /></a>
+                <a href="laptop-lenovo-cu"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Lenovo44-b_36.jpg" /></a>
+                <a href="laptop-msi-cu"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/MSI44-b_30.png" /></a>
+            </div>
+        </div>
+        ﻿<partial name="_WidgetInstances" model="Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeMainContent)" />
+
+    </section>*@
+<div class="front-page-top-section clearfix">
+    <div class="widget_slider_area">
+        <section id="colormag_featured_posts_slider_widget-4" class="widget widget_featured_slider widget_featured_meta clearfix">
+            <partial name="_WidgetInstances" model="Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeFeatured)" />
+        </section>
+    </div>
+    <div class="widget_beside_slider">
+        <section id="colormag_highlighted_posts_widget-3" class="widget widget_highlighted_posts widget_featured_meta clearfix">
+            <div class="widget_highlighted_post_area">
+                <div class="single-article">
+                    <figure class="highlights-featured-image"><a href="2015/03/24/music-is-passion/index.html" title="Music is Passion"><img width="392" height="272" src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/bride-301814_1280-392x272.jpg" class="attachment-colormag-highlighted-post size-colormag-highlighted-post wp-post-image" alt="Music is Passion" title="Music is Passion" srcset="https://demo.themegrill.com/colormag/~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/bride-301814_1280-392x272.jpg 392w, https://demo.themegrill.com/colormag/~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/bride-301814_1280-130x90.jpg 130w" sizes="(max-width: 392px) 100vw, 392px" /></a></figure>
+                    <div class="article-content">
+                        <div class="above-entry-meta"><span class="cat-links"><a href="category/entertainment/index.html" style="background:#e8357c" rel="category tag">Entertainment</a>&nbsp;<a href="category/featured/index.html" style="background:#a4c4be" rel="category tag">FEATURED</a>&nbsp;</span></div>
+                        <h3 class="entry-title"> <a href="2015/03/24/music-is-passion/index.html" title="Music is Passion">Music is Passion</a></h3>
+                        <div class="below-entry-meta"> <span class="posted-on"><a href="2015/03/24/music-is-passion/index.html" title="7:52 am" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published" datetime="2015-03-24T07:52:02+00:00">March 24, 2015</time></a></span> <span class="byline"><span class="author vcard"><i class="fa fa-user"></i><a class="url fn n" href="author/demothemegrill/index.html" title="TG-Demo Team">TG-Demo Team</a></span></span> <span class="comments"><i class="fa fa-comment"></i><span>Comments Off<span class="screen-reader-text"> on Music is Passion</span></span></span></div>
+                    </div>
+                </div>
+                <div class="single-article">
+                    <figure class="highlights-featured-image"><a href="2015/03/20/a-paradise-for-holiday/index.html" title="A Paradise for Holiday"><img width="392" height="272" src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/sea-418742_1920-392x272.jpg" class="attachment-colormag-highlighted-post size-colormag-highlighted-post wp-post-image" alt="A Paradise for Holiday" title="A Paradise for Holiday" srcset="https://demo.themegrill.com/colormag/~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/sea-418742_1920-392x272.jpg 392w, https://demo.themegrill.com/colormag/~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/sea-418742_1920-130x90.jpg 130w" sizes="(max-width: 392px) 100vw, 392px" /></a></figure>
+                    <div class="article-content">
+                        <div class="above-entry-meta"><span class="cat-links"><a href="category/entertainment/index.html" style="background:#e8357c" rel="category tag">Entertainment</a>&nbsp;<a href="category/featured/index.html" style="background:#a4c4be" rel="category tag">FEATURED</a>&nbsp;<a href="category/general/index.html" style="background:#a38a6d" rel="category tag">General</a>&nbsp;</span></div>
+                        <h3 class="entry-title"> <a href="2015/03/20/a-paradise-for-holiday/index.html" title="A Paradise for Holiday">A Paradise for Holiday</a></h3>
+                        <div class="below-entry-meta"> <span class="posted-on"><a href="2015/03/20/a-paradise-for-holiday/index.html" title="7:16 am" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published" datetime="2015-03-20T07:16:59+00:00">March 20, 2015</time></a></span> <span class="byline"><span class="author vcard"><i class="fa fa-user"></i><a class="url fn n" href="author/demothemegrill/index.html" title="TG-Demo Team">TG-Demo Team</a></span></span> <span class="comments"><i class="fa fa-comment"></i><span>Comments Off<span class="screen-reader-text"> on A Paradise for Holiday</span></span></span></div>
+                    </div>
+                </div>
+                <div class="single-article">
+                    <figure class="highlights-featured-image"><a href="2015/03/20/kayaking-adventurous-sport/index.html" title="Kayaking: Adventurous Sport"><img width="392" height="272" src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/kayaking-569282_1280-392x272.jpg" class="attachment-colormag-highlighted-post size-colormag-highlighted-post wp-post-image" alt="Kayaking: Adventurous Sport" title="Kayaking: Adventurous Sport" srcset="https://demo.themegrill.com/colormag/~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/kayaking-569282_1280-392x272.jpg 392w, https://demo.themegrill.com/colormag/~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/kayaking-569282_1280-130x90.jpg 130w" sizes="(max-width: 392px) 100vw, 392px" /></a></figure>
+                    <div class="article-content">
+                        <div class="above-entry-meta"><span class="cat-links"><a href="category/featured/index.html" style="background:#a4c4be" rel="category tag">FEATURED</a>&nbsp;<a href="category/general/index.html" style="background:#a38a6d" rel="category tag">General</a>&nbsp;<a href="category/sports/index.html" style="background:#dd5a5a" rel="category tag">Sports</a>&nbsp;</span></div>
+                        <h3 class="entry-title"> <a href="2015/03/20/kayaking-adventurous-sport/index.html" title="Kayaking: Adventurous Sport">Kayaking: Adventurous Sport</a></h3>
+                        <div class="below-entry-meta"> <span class="posted-on"><a href="2015/03/20/kayaking-adventurous-sport/index.html" title="6:41 am" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published" datetime="2015-03-20T06:41:07+00:00">March 20, 2015</time></a></span> <span class="byline"><span class="author vcard"><i class="fa fa-user"></i><a class="url fn n" href="author/demothemegrill/index.html" title="TG-Demo Team">TG-Demo Team</a></span></span> <span class="comments"><i class="fa fa-comment"></i><span>Comments Off<span class="screen-reader-text"> on Kayaking: Adventurous Sport</span></span></span></div>
+                    </div>
+                </div>
+                <div class="single-article">
+                    <figure class="highlights-featured-image"><a href="2015/03/19/tennis-match-go-federer/index.html" title="Tennis Match: Go Federer"><img width="392" height="272" src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/clouds-sky-stadium-4516-392x272.jpg" class="attachment-colormag-highlighted-post size-colormag-highlighted-post wp-post-image" alt="Tennis Match: Go Federer" title="Tennis Match: Go Federer" srcset="https://demo.themegrill.com/colormag/~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/clouds-sky-stadium-4516-392x272.jpg 392w, https://demo.themegrill.com/colormag/~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/clouds-sky-stadium-4516-130x90.jpg 130w" sizes="(max-width: 392px) 100vw, 392px" /></a></figure>
+                    <div class="article-content">
+                        <div class="above-entry-meta"><span class="cat-links"><a href="category/entertainment/index.html" style="background:#e8357c" rel="category tag">Entertainment</a>&nbsp;<a href="category/fashion/index.html" style="background:#bd4cce" rel="category tag">Fashion</a>&nbsp;<a href="category/featured/index.html" style="background:#a4c4be" rel="category tag">FEATURED</a>&nbsp;<a href="category/sports/index.html" style="background:#dd5a5a" rel="category tag">Sports</a>&nbsp;</span></div>
+                        <h3 class="entry-title"> <a href="2015/03/19/tennis-match-go-federer/index.html" title="Tennis Match: Go Federer">Tennis Match: Go Federer</a></h3>
+                        <div class="below-entry-meta"> <span class="posted-on"><a href="2015/03/19/tennis-match-go-federer/index.html" title="3:53 pm" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published" datetime="2015-03-19T15:53:24+00:00">March 19, 2015</time></a></span> <span class="byline"><span class="author vcard"><i class="fa fa-user"></i><a class="url fn n" href="author/demothemegrill/index.html" title="TG-Demo Team">TG-Demo Team</a></span></span> <span class="comments"><i class="fa fa-comment"></i><span>Comments Off<span class="screen-reader-text"> on Tennis Match: Go Federer</span></span></span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<div class="main-content-section clearfix">
+    <div id="primary">
+        <div id="content" class="clearfix">
+            ﻿<partial name="_WidgetInstances" model="Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeMainContent)" />
+            <div class="tg-one-half">
+                <section id="colormag_featured_posts_vertical_widget-3" class="widget widget_featured_posts widget_featured_posts_vertical widget_featured_meta clearfix">
+                    <h3 class="widget-title" style="border-bottom-color:#bd4cce;"><span style="background-color:#bd4cce;">FASHION</span></h3>
+                    <div class="first-post">
+                        <div class="single-article clearfix">
+                            <figure><a href="2015/03/24/looks-from-the-aowsana-2015/index.html" title="Looks from the Roswana, 2015"><img width="390" height="205" src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/model-600225_1280-390x205.jpg" class="attachment-colormag-featured-post-medium size-colormag-featured-post-medium wp-post-image" alt="Looks from the Roswana, 2015" title="Looks from the Roswana, 2015" /></a></figure>
+                            <div class="article-content">
+                                <div class="above-entry-meta"><span class="cat-links"><a href="category/fashion/index.html" style="background:#bd4cce" rel="category tag">Fashion</a>&nbsp;<a href="category/female/index.html" style="background:#d8a0c2" rel="category tag">Female</a>&nbsp;<a href="category/style/index.html" style="background:#b17fe2" rel="category tag">Style</a>&nbsp;</span></div>
+                                <h3 class="entry-title"> <a href="2015/03/24/looks-from-the-aowsana-2015/index.html" title="Looks from the Roswana, 2015">Looks from the Roswana, 2015</a></h3>
+                                <div class="below-entry-meta"> <span class="posted-on"><a href="2015/03/24/looks-from-the-aowsana-2015/index.html" title="6:31 am" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published" datetime="2015-03-24T06:31:54+00:00">March 24, 2015</time></a></span> <span class="byline"><span class="author vcard"><i class="fa fa-user"></i><a class="url fn n" href="author/demothemegrill/index.html" title="TG-Demo Team">TG-Demo Team</a></span></span> <span class="comments"><i class="fa fa-comment"></i><span>Comments Off<span class="screen-reader-text"> on Looks from the Roswana, 2015</span></span></span></div>
+                                <div class="entry-content">
+                                    <p>For Joesendra, this is only her second fashion week showing, following her presentation at a Fashion World on this January.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="following-post">
+                        <div class="single-article clearfix">
+                            <figure><a href="2015/03/24/color-your-hair-3/index.html" title="Color your Hair"><img width="130" height="90" src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/beauty-666605_1920-130x90.jpg" class="attachment-colormag-featured-post-small size-colormag-featured-post-small wp-post-image" alt="Color your Hair" title="Color your Hair" srcset="https://demo.themegrill.com/colormag/~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/beauty-666605_1920-130x90.jpg 130w, https://demo.themegrill.com/colormag/~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/beauty-666605_1920-392x272.jpg 392w" sizes="(max-width: 130px) 100vw, 130px" /></a></figure>
+                            <div class="article-content">
+                                <div class="above-entry-meta"><span class="cat-links"><a href="category/fashion/index.html" style="background:#bd4cce" rel="category tag">Fashion</a>&nbsp;<a href="category/general/index.html" style="background:#a38a6d" rel="category tag">General</a>&nbsp;</span></div>
+                                <h3 class="entry-title"> <a href="2015/03/24/color-your-hair-3/index.html" title="Color your Hair">Color your Hair</a></h3>
+                                <div class="below-entry-meta"> <span class="posted-on"><a href="2015/03/24/color-your-hair-3/index.html" title="6:27 am" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published" datetime="2015-03-24T06:27:32+00:00">March 24, 2015</time></a></span> <span class="byline"><span class="author vcard"><i class="fa fa-user"></i><a class="url fn n" href="author/demothemegrill/index.html" title="TG-Demo Team">TG-Demo Team</a></span></span> <span class="comments"><i class="fa fa-comment"></i><span>Comments Off<span class="screen-reader-text"> on Color your Hair</span></span></span></div>
+                            </div>
+                        </div>
+                        <div class="single-article clearfix">
+                            <figure><a href="2015/03/24/new-styling-collections/index.html" title="New Styling Collections"><img width="130" height="90" src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/window-213496_1280-130x90.jpg" class="attachment-colormag-featured-post-small size-colormag-featured-post-small wp-post-image" alt="New Styling Collections" title="New Styling Collections" srcset="https://demo.themegrill.com/colormag/~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/window-213496_1280-130x90.jpg 130w, https://demo.themegrill.com/colormag/~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/window-213496_1280-392x272.jpg 392w" sizes="(max-width: 130px) 100vw, 130px" /></a></figure>
+                            <div class="article-content">
+                                <div class="above-entry-meta"><span class="cat-links"><a href="category/fashion/index.html" style="background:#bd4cce" rel="category tag">Fashion</a>&nbsp;<a href="category/news/index.html" style="background:#bfd6af" rel="category tag">News</a>&nbsp;<a href="category/style/index.html" style="background:#b17fe2" rel="category tag">Style</a>&nbsp;</span></div>
+                                <h3 class="entry-title"> <a href="2015/03/24/new-styling-collections/index.html" title="New Styling Collections">New Styling Collections</a></h3>
+                                <div class="below-entry-meta"> <span class="posted-on"><a href="2015/03/24/new-styling-collections/index.html" title="6:25 am" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published" datetime="2015-03-24T06:25:39+00:00">March 24, 2015</time></a></span> <span class="byline"><span class="author vcard"><i class="fa fa-user"></i><a class="url fn n" href="author/demothemegrill/index.html" title="TG-Demo Team">TG-Demo Team</a></span></span> <span class="comments"><i class="fa fa-comment"></i><span>Comments Off<span class="screen-reader-text"> on New Styling Collections</span></span></span></div>
+                            </div>
+                        </div>
+                        <div class="single-article clearfix">
+                            <figure><a href="2015/03/24/consectetur-adipiscing/index.html" title="Consectetur adipiscing"><img width="130" height="90" src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/relaxed-498245_1280-130x90.jpg" class="attachment-colormag-featured-post-small size-colormag-featured-post-small wp-post-image" alt="Consectetur adipiscing" title="Consectetur adipiscing" srcset="https://demo.themegrill.com/colormag/~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/relaxed-498245_1280-130x90.jpg 130w, https://demo.themegrill.com/colormag/~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/relaxed-498245_1280-392x272.jpg 392w" sizes="(max-width: 130px) 100vw, 130px" /></a></figure>
+                            <div class="article-content">
+                                <div class="above-entry-meta"><span class="cat-links"><a href="category/fashion/index.html" style="background:#bd4cce" rel="category tag">Fashion</a>&nbsp;</span></div>
+                                <h3 class="entry-title"> <a href="2015/03/24/consectetur-adipiscing/index.html" title="Consectetur adipiscing">Consectetur adipiscing</a></h3>
+                                <div class="below-entry-meta"> <span class="posted-on"><a href="2015/03/24/consectetur-adipiscing/index.html" title="6:22 am" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published" datetime="2015-03-24T06:22:35+00:00">March 24, 2015</time></a></span> <span class="byline"><span class="author vcard"><i class="fa fa-user"></i><a class="url fn n" href="author/demothemegrill/index.html" title="TG-Demo Team">TG-Demo Team</a></span></span> <span class="comments"><i class="fa fa-comment"></i><span>Comments Off<span class="screen-reader-text"> on Consectetur adipiscing</span></span></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="tg-one-half tg-one-half-last">
+                <section id="colormag_featured_posts_vertical_widget-4" class="widget widget_featured_posts widget_featured_posts_vertical widget_featured_meta clearfix">
+                    <h3 class="widget-title" style="border-bottom-color:#dd5a5a;"><span style="background-color:#dd5a5a;">SPORTS</span></h3>
+                    <div class="first-post">
+                        <div class="single-article clearfix">
+                            <figure><a href="2015/03/24/womens-relay-competition/index.html" title="Women&#8217;s Relay Competition"><img width="390" height="205" src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/relay-race-655353_1280-390x205.jpg" class="attachment-colormag-featured-post-medium size-colormag-featured-post-medium wp-post-image" alt="Women&#8217;s Relay Competition" title="Women&#8217;s Relay Competition" /></a></figure>
+                            <div class="article-content">
+                                <div class="above-entry-meta"><span class="cat-links"><a href="category/entertainment/index.html" style="background:#e8357c" rel="category tag">Entertainment</a>&nbsp;<a href="category/female/index.html" style="background:#d8a0c2" rel="category tag">Female</a>&nbsp;<a href="category/health/index.html" style="background:#81d742" rel="category tag">Health</a>&nbsp;<a href="category/sports/index.html" style="background:#dd5a5a" rel="category tag">Sports</a>&nbsp;</span></div>
+                                <h3 class="entry-title"> <a href="2015/03/24/womens-relay-competition/index.html" title="Women&#8217;s Relay Competition">Women&#8217;s Relay Competition</a></h3>
+                                <div class="below-entry-meta"> <span class="posted-on"><a href="2015/03/24/womens-relay-competition/index.html" title="7:48 am" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published" datetime="2015-03-24T07:48:42+00:00">March 24, 2015</time></a></span> <span class="byline"><span class="author vcard"><i class="fa fa-user"></i><a class="url fn n" href="author/demothemegrill/index.html" title="TG-Demo Team">TG-Demo Team</a></span></span> <span class="comments"><i class="fa fa-comment"></i><span>Comments Off<span class="screen-reader-text"> on Women&#8217;s Relay Competition</span></span></span></div>
+                                <div class="entry-content">
+                                    <p>The young team of Franziska Hildebrand, Franziska Preuss, Vanessa Hinz and Dahlmeier clocked 1 hour, 11 minutes, 54.6 seconds to beat France</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="following-post">
+                        <div class="single-article clearfix">
+                            <figure><a href="2015/03/24/swimming-record/index.html" title="Swimming Record"><img width="130" height="90" src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/swimmer-583667_1280-130x90.jpg" class="attachment-colormag-featured-post-small size-colormag-featured-post-small wp-post-image" alt="Swimming Record" title="Swimming Record" srcset="https://demo.themegrill.com/colormag/~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/swimmer-583667_1280-130x90.jpg 130w, https://demo.themegrill.com/colormag/~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/swimmer-583667_1280-392x272.jpg 392w" sizes="(max-width: 130px) 100vw, 130px" /></a></figure>
+                            <div class="article-content">
+                                <div class="above-entry-meta"><span class="cat-links"><a href="category/general/index.html" style="background:#a38a6d" rel="category tag">General</a>&nbsp;<a href="category/latest/index.html" style="background:#e5e220" rel="category tag">Latest</a>&nbsp;<a href="category/sports/index.html" style="background:#dd5a5a" rel="category tag">Sports</a>&nbsp;</span></div>
+                                <h3 class="entry-title"> <a href="2015/03/24/swimming-record/index.html" title="Swimming Record">Swimming Record</a></h3>
+                                <div class="below-entry-meta"> <span class="posted-on"><a href="2015/03/24/swimming-record/index.html" title="7:44 am" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published" datetime="2015-03-24T07:44:03+00:00">March 24, 2015</time></a></span> <span class="byline"><span class="author vcard"><i class="fa fa-user"></i><a class="url fn n" href="author/demothemegrill/index.html" title="TG-Demo Team">TG-Demo Team</a></span></span> <span class="comments"><i class="fa fa-comment"></i><span>Comments Off<span class="screen-reader-text"> on Swimming Record</span></span></span></div>
+                            </div>
+                        </div>
+                        <div class="single-article clearfix">
+                            <figure><a href="2015/03/24/smith-handed-his-place-in-history/index.html" title="Smith Handed His Place in History"><img width="130" height="90" src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/football-622873_1280-130x90.jpg" class="attachment-colormag-featured-post-small size-colormag-featured-post-small wp-post-image" alt="Smith Handed His Place in History" title="Smith Handed His Place in History" srcset="https://demo.themegrill.com/colormag/~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/football-622873_1280-130x90.jpg 130w, https://demo.themegrill.com/colormag/~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/football-622873_1280-300x205.jpg 300w, https://demo.themegrill.com/colormag/~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/football-622873_1280-1024x700.jpg 1024w, https://demo.themegrill.com/colormag/~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/football-622873_1280-392x272.jpg 392w, https://demo.themegrill.com/colormag/~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/football-622873_1280.jpg 1280w" sizes="(max-width: 130px) 100vw, 130px" /></a></figure>
+                            <div class="article-content">
+                                <div class="above-entry-meta"><span class="cat-links"><a href="category/entertainment/index.html" style="background:#e8357c" rel="category tag">Entertainment</a>&nbsp;<a href="category/sports/index.html" style="background:#dd5a5a" rel="category tag">Sports</a>&nbsp;<a href="category/top-stories/index.html" style="background:#489e31" rel="category tag">TOP STORIES</a>&nbsp;</span></div>
+                                <h3 class="entry-title"> <a href="2015/03/24/smith-handed-his-place-in-history/index.html" title="Smith Handed His Place in History">Smith Handed His Place in History</a></h3>
+                                <div class="below-entry-meta"> <span class="posted-on"><a href="2015/03/24/smith-handed-his-place-in-history/index.html" title="7:07 am" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published" datetime="2015-03-24T07:07:18+00:00">March 24, 2015</time></a></span> <span class="byline"><span class="author vcard"><i class="fa fa-user"></i><a class="url fn n" href="author/demothemegrill/index.html" title="TG-Demo Team">TG-Demo Team</a></span></span> <span class="comments"><i class="fa fa-comment"></i><span>Comments Off<span class="screen-reader-text"> on Smith Handed His Place in History</span></span></span></div>
+                            </div>
+                        </div>
+                        <div class="single-article clearfix">
+                            <figure><a href="2015/03/24/sparians-on-form/index.html" title="Sparians on Form"><img width="130" height="90" src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/basketball-95607_1280-130x90.jpg" class="attachment-colormag-featured-post-small size-colormag-featured-post-small wp-post-image" alt="Sparians on Form" title="Sparians on Form" srcset="https://demo.themegrill.com/colormag/~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/basketball-95607_1280-130x90.jpg 130w, https://demo.themegrill.com/colormag/~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/basketball-95607_1280-392x272.jpg 392w" sizes="(max-width: 130px) 100vw, 130px" /></a></figure>
+                            <div class="article-content">
+                                <div class="above-entry-meta"><span class="cat-links"><a href="category/business/index.html" style="background:#6ac4c2" rel="category tag">Business</a>&nbsp;<a href="category/sports/index.html" style="background:#dd5a5a" rel="category tag">Sports</a>&nbsp;<a href="category/style/index.html" style="background:#b17fe2" rel="category tag">Style</a>&nbsp;</span></div>
+                                <h3 class="entry-title"> <a href="2015/03/24/sparians-on-form/index.html" title="Sparians on Form">Sparians on Form</a></h3>
+                                <div class="below-entry-meta"> <span class="posted-on"><a href="2015/03/24/sparians-on-form/index.html" title="7:06 am" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published" datetime="2015-03-24T07:06:47+00:00">March 24, 2015</time></a></span> <span class="byline"><span class="author vcard"><i class="fa fa-user"></i><a class="url fn n" href="author/demothemegrill/index.html" title="TG-Demo Team">TG-Demo Team</a></span></span> <span class="comments"><i class="fa fa-comment"></i><span>Comments Off<span class="screen-reader-text"> on Sparians on Form</span></span></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="clearfix"></div>
+            <section id="colormag_728x90_advertisement_widget-11" class="widget widget_728x90_advertisement clearfix">
+                <div class="advertisement_728x90">
+                    <div class="advertisement-content"><img src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/72890-ad1.jpg" width="728" height="90" alt=""></div>
+                </div>
+            </section>
+            <section id="colormag_featured_posts_widget-4" class="widget widget_featured_posts widget_featured_meta clearfix">
+                <h3 class="widget-title" style="border-bottom-color:#777fce;"><span style="background-color:#777fce;">Technology</span></h3>
+                <p> Check out technology changing the life.</p>
+                <div class="first-post">
+                    <div class="single-article clearfix">
+                        <figure><a href="2015/03/24/teens-use-apps-to-keep-secrets/index.html" title="Teens use apps to keep secrets?"><img width="390" height="205" src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/iphone-500291_1280-390x205.jpg" class="attachment-colormag-featured-post-medium size-colormag-featured-post-medium wp-post-image" alt="Teens use apps to keep secrets?" title="Teens use apps to keep secrets?" /></a></figure>
+                        <div class="article-content">
+                            <div class="above-entry-meta"><span class="cat-links"><a href="category/entertainment/index.html" style="background:#e8357c" rel="category tag">Entertainment</a>&nbsp;<a href="category/gadgets/index.html" style="background:#82ada1" rel="category tag">Gadgets</a>&nbsp;<a href="category/news/index.html" style="background:#bfd6af" rel="category tag">News</a>&nbsp;<a href="category/technology/index.html" style="background:#777fce" rel="category tag">Technology</a>&nbsp;</span></div>
+                            <h3 class="entry-title"> <a href="2015/03/24/teens-use-apps-to-keep-secrets/index.html" title="Teens use apps to keep secrets?">Teens use apps to keep secrets?</a></h3>
+                            <div class="below-entry-meta"> <span class="posted-on"><a href="2015/03/24/teens-use-apps-to-keep-secrets/index.html" title="11:24 am" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published" datetime="2015-03-24T11:24:33+00:00">March 24, 2015</time></a></span> <span class="byline"><span class="author vcard"><i class="fa fa-user"></i><a class="url fn n" href="author/demothemegrill/index.html" title="TG-Demo Team">TG-Demo Team</a></span></span> <span class="comments"><i class="fa fa-comment"></i><span>Comments Off<span class="screen-reader-text"> on Teens use apps to keep secrets?</span></span></span></div>
+                            <div class="entry-content">
+                                <p>Cras accumsan elit augue, sit amet vestibulum turpis fringilla nec. Etiam eu dictum tortor. Sed feugiat lacus non ultricies pulvinar.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="following-post">
+                    <div class="single-article clearfix">
+                        <figure><a href="2015/03/24/fastest-plane-in-the-world/index.html" title="Fastest plane in the world"><img width="130" height="90" src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/supersonic-fighter-63211_1280-130x90.jpg" class="attachment-colormag-featured-post-small size-colormag-featured-post-small wp-post-image" alt="Fastest plane in the world" title="Fastest plane in the world" srcset="https://demo.themegrill.com/colormag/~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/supersonic-fighter-63211_1280-130x90.jpg 130w, https://demo.themegrill.com/colormag/~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/supersonic-fighter-63211_1280-392x272.jpg 392w" sizes="(max-width: 130px) 100vw, 130px" /></a></figure>
+                        <div class="article-content">
+                            <div class="above-entry-meta"><span class="cat-links"><a href="category/entertainment/index.html" style="background:#e8357c" rel="category tag">Entertainment</a>&nbsp;<a href="category/news/index.html" style="background:#bfd6af" rel="category tag">News</a>&nbsp;<a href="category/technology/index.html" style="background:#777fce" rel="category tag">Technology</a>&nbsp;</span></div>
+                            <h3 class="entry-title"> <a href="2015/03/24/fastest-plane-in-the-world/index.html" title="Fastest plane in the world">Fastest plane in the world</a></h3>
+                            <div class="below-entry-meta"> <span class="posted-on"><a href="2015/03/24/fastest-plane-in-the-world/index.html" title="11:23 am" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published" datetime="2015-03-24T11:23:20+00:00">March 24, 2015</time></a></span> <span class="byline"><span class="author vcard"><i class="fa fa-user"></i><a class="url fn n" href="author/demothemegrill/index.html" title="TG-Demo Team">TG-Demo Team</a></span></span> <span class="comments"><i class="fa fa-comment"></i><span>Comments Off<span class="screen-reader-text"> on Fastest plane in the world</span></span></span></div>
+                        </div>
+                    </div>
+                    <div class="single-article clearfix">
+                        <figure><a href="2015/03/24/wireless-headphones-are-now-on-market/index.html" title="Wireless Headphones are now on Market"><img width="130" height="90" src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/headphones-15600_1280-130x90.jpg" class="attachment-colormag-featured-post-small size-colormag-featured-post-small wp-post-image" alt="Wireless Headphones are now on Market" title="Wireless Headphones are now on Market" srcset="https://demo.themegrill.com/colormag/~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/headphones-15600_1280-130x90.jpg 130w, https://demo.themegrill.com/colormag/~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/headphones-15600_1280-392x272.jpg 392w" sizes="(max-width: 130px) 100vw, 130px" /></a></figure>
+                        <div class="article-content">
+                            <div class="above-entry-meta"><span class="cat-links"><a href="category/entertainment/index.html" style="background:#e8357c" rel="category tag">Entertainment</a>&nbsp;<a href="category/gadgets/index.html" style="background:#82ada1" rel="category tag">Gadgets</a>&nbsp;<a href="category/style/index.html" style="background:#b17fe2" rel="category tag">Style</a>&nbsp;<a href="category/technology/index.html" style="background:#777fce" rel="category tag">Technology</a>&nbsp;</span></div>
+                            <h3 class="entry-title"> <a href="2015/03/24/wireless-headphones-are-now-on-market/index.html" title="Wireless Headphones are now on Market">Wireless Headphones are now on Market</a></h3>
+                            <div class="below-entry-meta"> <span class="posted-on"><a href="2015/03/24/wireless-headphones-are-now-on-market/index.html" title="11:11 am" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published" datetime="2015-03-24T11:11:40+00:00">March 24, 2015</time></a></span> <span class="byline"><span class="author vcard"><i class="fa fa-user"></i><a class="url fn n" href="author/demothemegrill/index.html" title="TG-Demo Team">TG-Demo Team</a></span></span> <span class="comments"><i class="fa fa-comment"></i><span>Comments Off<span class="screen-reader-text"> on Wireless Headphones are now on Market</span></span></span></div>
+                        </div>
+                    </div>
+                    <div class="single-article clearfix">
+                        <figure><a href="2015/03/24/drones-being-used-to-monitor-wordcup/index.html" title="Drones being used to monitor WordCup"><img width="130" height="90" src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/drone-674238_1280-130x90.jpg" class="attachment-colormag-featured-post-small size-colormag-featured-post-small wp-post-image" alt="Drones being used to monitor WordCup" title="Drones being used to monitor WordCup" srcset="https://demo.themegrill.com/colormag/~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/drone-674238_1280-130x90.jpg 130w, https://demo.themegrill.com/colormag/~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/drone-674238_1280-392x272.jpg 392w" sizes="(max-width: 130px) 100vw, 130px" /></a></figure>
+                        <div class="article-content">
+                            <div class="above-entry-meta"><span class="cat-links"><a href="category/gadgets/index.html" style="background:#82ada1" rel="category tag">Gadgets</a>&nbsp;<a href="category/news/index.html" style="background:#bfd6af" rel="category tag">News</a>&nbsp;<a href="category/style/index.html" style="background:#b17fe2" rel="category tag">Style</a>&nbsp;<a href="category/technology/index.html" style="background:#777fce" rel="category tag">Technology</a>&nbsp;</span></div>
+                            <h3 class="entry-title"> <a href="2015/03/24/drones-being-used-to-monitor-wordcup/index.html" title="Drones being used to monitor WordCup">Drones being used to monitor WordCup</a></h3>
+                            <div class="below-entry-meta"> <span class="posted-on"><a href="2015/03/24/drones-being-used-to-monitor-wordcup/index.html" title="11:00 am" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published" datetime="2015-03-24T11:00:45+00:00">March 24, 2015</time></a></span> <span class="byline"><span class="author vcard"><i class="fa fa-user"></i><a class="url fn n" href="author/demothemegrill/index.html" title="TG-Demo Team">TG-Demo Team</a></span></span> <span class="comments"><i class="fa fa-comment"></i><span>Comments Off<span class="screen-reader-text"> on Drones being used to monitor WordCup</span></span></span></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     </div>
-    ﻿<partial name="_WidgetInstances" model="Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeMainContent)" />
-
-</section>
+    <div id="secondary">
+        <aside id="colormag_300x250_advertisement_widget-5" class="widget widget_300x250_advertisement clearfix">
+            <div class="advertisement_300x250">
+                <div class="advertisement-content"><a href="https://demo.themegrill.com/colormag-pro/" class="single_ad_300x250" target="_blank" rel="nofollow"> <img src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/07/ad-color-mag-medium.jpg" width="300" height="250" alt=""> </a></div>
+            </div>
+        </aside>
+        <aside id="colormag_featured_posts_vertical_widget-5" class="widget widget_featured_posts widget_featured_posts_vertical widget_featured_meta clearfix">
+            <h3 class="widget-title" style="border-bottom-color:#a38a6d;"><span style="background-color:#a38a6d;">News</span></h3>
+            <div class="first-post">
+                <div class="single-article clearfix">
+                    <figure><a href="2015/03/24/destruction-in-montania/index.html" title="Destruction in Montania"><img width="390" height="205" src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/fireman-100722_1280-390x205.jpg" class="attachment-colormag-featured-post-medium size-colormag-featured-post-medium wp-post-image" alt="Destruction in Montania" title="Destruction in Montania" /></a></figure>
+                    <div class="article-content">
+                        <div class="above-entry-meta"><span class="cat-links"><a href="category/general/index.html" style="background:#a38a6d" rel="category tag">General</a>&nbsp;<a href="category/latest/index.html" style="background:#e5e220" rel="category tag">Latest</a>&nbsp;<a href="category/news/index.html" style="background:#bfd6af" rel="category tag">News</a>&nbsp;</span></div>
+                        <h3 class="entry-title"> <a href="2015/03/24/destruction-in-montania/index.html" title="Destruction in Montania">Destruction in Montania</a></h3>
+                        <div class="below-entry-meta"> <span class="posted-on"><a href="2015/03/24/destruction-in-montania/index.html" title="7:57 am" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published" datetime="2015-03-24T07:57:31+00:00">March 24, 2015</time></a></span> <span class="byline"><span class="author vcard"><i class="fa fa-user"></i><a class="url fn n" href="author/demothemegrill/index.html" title="TG-Demo Team">TG-Demo Team</a></span></span> <span class="comments"><i class="fa fa-comment"></i><span>Comments Off<span class="screen-reader-text"> on Destruction in Montania</span></span></span></div>
+                        <div class="entry-content">
+                            <p>Nunc consectetur ipsum nisi, ut pellentesque felis tempus vitae. Integer eget lacinia nunc. Vestibulum consectetur convallis augue id egestas. Nullam</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="following-post">
+                <div class="single-article clearfix">
+                    <figure><a href="2015/03/24/invention-of-advance-technology/index.html" title="Invention of Advance Technology"><img width="130" height="90" src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/vehicle-193213_1280-130x90.jpg" class="attachment-colormag-featured-post-small size-colormag-featured-post-small wp-post-image" alt="Invention of Advance Technology" title="Invention of Advance Technology" srcset="https://demo.themegrill.com/colormag/~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/vehicle-193213_1280-130x90.jpg 130w, https://demo.themegrill.com/colormag/~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/vehicle-193213_1280-392x272.jpg 392w" sizes="(max-width: 130px) 100vw, 130px" /></a></figure>
+                    <div class="article-content">
+                        <div class="above-entry-meta"><span class="cat-links"><a href="category/general/index.html" style="background:#a38a6d" rel="category tag">General</a>&nbsp;<a href="category/latest/index.html" style="background:#e5e220" rel="category tag">Latest</a>&nbsp;<a href="category/technology/index.html" style="background:#777fce" rel="category tag">Technology</a>&nbsp;</span></div>
+                        <h3 class="entry-title"> <a href="2015/03/24/invention-of-advance-technology/index.html" title="Invention of Advance Technology">Invention of Advance Technology</a></h3>
+                        <div class="below-entry-meta"> <span class="posted-on"><a href="2015/03/24/invention-of-advance-technology/index.html" title="7:47 am" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published" datetime="2015-03-24T07:47:05+00:00">March 24, 2015</time></a></span> <span class="byline"><span class="author vcard"><i class="fa fa-user"></i><a class="url fn n" href="author/demothemegrill/index.html" title="TG-Demo Team">TG-Demo Team</a></span></span> <span class="comments"><i class="fa fa-comment"></i><span>Comments Off<span class="screen-reader-text"> on Invention of Advance Technology</span></span></span></div>
+                    </div>
+                </div>
+                <div class="single-article clearfix">
+                    <figure><a href="2015/03/24/swimming-record/index.html" title="Swimming Record"><img width="130" height="90" src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/swimmer-583667_1280-130x90.jpg" class="attachment-colormag-featured-post-small size-colormag-featured-post-small wp-post-image" alt="Swimming Record" title="Swimming Record" srcset="https://demo.themegrill.com/colormag/~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/swimmer-583667_1280-130x90.jpg 130w, https://demo.themegrill.com/colormag/~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/swimmer-583667_1280-392x272.jpg 392w" sizes="(max-width: 130px) 100vw, 130px" /></a></figure>
+                    <div class="article-content">
+                        <div class="above-entry-meta"><span class="cat-links"><a href="category/general/index.html" style="background:#a38a6d" rel="category tag">General</a>&nbsp;<a href="category/latest/index.html" style="background:#e5e220" rel="category tag">Latest</a>&nbsp;<a href="category/sports/index.html" style="background:#dd5a5a" rel="category tag">Sports</a>&nbsp;</span></div>
+                        <h3 class="entry-title"> <a href="2015/03/24/swimming-record/index.html" title="Swimming Record">Swimming Record</a></h3>
+                        <div class="below-entry-meta"> <span class="posted-on"><a href="2015/03/24/swimming-record/index.html" title="7:44 am" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published" datetime="2015-03-24T07:44:03+00:00">March 24, 2015</time></a></span> <span class="byline"><span class="author vcard"><i class="fa fa-user"></i><a class="url fn n" href="author/demothemegrill/index.html" title="TG-Demo Team">TG-Demo Team</a></span></span> <span class="comments"><i class="fa fa-comment"></i><span>Comments Off<span class="screen-reader-text"> on Swimming Record</span></span></span></div>
+                    </div>
+                </div>
+                <div class="single-article clearfix">
+                    <figure><a href="2015/03/24/news-with-coffee/index.html" title="News with Coffee"><img width="130" height="90" src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/newspapers-444453_1280-130x90.jpg" class="attachment-colormag-featured-post-small size-colormag-featured-post-small wp-post-image" alt="News with Coffee" title="News with Coffee" srcset="https://demo.themegrill.com/colormag/~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/newspapers-444453_1280-130x90.jpg 130w, https://demo.themegrill.com/colormag/~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/newspapers-444453_1280-392x272.jpg 392w" sizes="(max-width: 130px) 100vw, 130px" /></a></figure>
+                    <div class="article-content">
+                        <div class="above-entry-meta"><span class="cat-links"><a href="category/general/index.html" style="background:#a38a6d" rel="category tag">General</a>&nbsp;<a href="category/latest/index.html" style="background:#e5e220" rel="category tag">Latest</a>&nbsp;</span></div>
+                        <h3 class="entry-title"> <a href="2015/03/24/news-with-coffee/index.html" title="News with Coffee">News with Coffee</a></h3>
+                        <div class="below-entry-meta"> <span class="posted-on"><a href="2015/03/24/news-with-coffee/index.html" title="7:42 am" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published" datetime="2015-03-24T07:42:19+00:00">March 24, 2015</time></a></span> <span class="byline"><span class="author vcard"><i class="fa fa-user"></i><a class="url fn n" href="author/demothemegrill/index.html" title="TG-Demo Team">TG-Demo Team</a></span></span> <span class="comments"><i class="fa fa-comment"></i><span>Comments Off<span class="screen-reader-text"> on News with Coffee</span></span></span></div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <aside id="nav_menu-3" class="widget widget_nav_menu clearfix">
+            <h3 class="widget-title"><span>Premium Themes</span></h3>
+            <div class="menu-premium-themes-container">
+                <ul id="menu-premium-themes" class="menu">
+                    <li id="menu-item-240" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-240"><a href="http://themegrill.com/themes/spacious-pro/">Spacious Pro</a></li>
+                    <li id="menu-item-238" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-238"><a href="http://themegrill.com/themes/foodhunt-pro/">FoodHunt Pro</a></li>
+                    <li id="menu-item-239" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-239"><a href="http://themegrill.com/themes/colornews-pro/">ColorNews Pro</a></li>
+                    <li id="menu-item-241" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-241"><a href="http://themegrill.com/themes/accelerate-pro/">Accelerate Pro</a></li>
+                    <li id="menu-item-242" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-242"><a href="http://themegrill.com/themes/esteem-pro/">Esteem Pro</a></li>
+                    <li id="menu-item-243" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-243"><a href="http://themegrill.com/themes/radiate-pro/">Radiate Pro</a></li>
+                    <li id="menu-item-244" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-244"><a href="http://themegrill.com/themes/fitclub-pro/">Fitclub Pro</a></li>
+                    <li id="menu-item-245" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-245"><a href="http://themegrill.com/themes/himalayas-pro/">Himalayas Pro</a></li>
+                </ul>
+            </div>
+        </aside>
+        <aside id="colormag_125x125_advertisement_widget-3" class="widget widget_125x125_advertisement clearfix">
+            <div class="advertisement_125x125">
+                <div class="advertisement-title">
+                    <h3 class="widget-title"><span>TG: 125x125 Ads</span></h3>
+                </div>
+                <div class="advertisement-content"><a href="http://themegrill.com/" class="single_ad_125x125" target="_blank" rel="nofollow"> <img src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/125ad1.jpg" width="125" height="125" alt=""> </a><a href="http://themegrill.com/" class="single_ad_125x125" target="_blank" rel="nofollow"> <img src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/125ad1.jpg" width="125" height="125" alt=""> </a><a href="http://demo.themegrill.com/" class="single_ad_125x125" target="_blank" rel="nofollow"> <img src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/125ad1.jpg" width="125" height="125" alt=""> </a><a href="http://demo.themegrill.com/" class="single_ad_125x125" target="_blank" rel="nofollow"> <img src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/125ad1.jpg" width="125" height="125" alt=""> </a></div>
+            </div>
+        </aside>
+    </div>
+</div>
