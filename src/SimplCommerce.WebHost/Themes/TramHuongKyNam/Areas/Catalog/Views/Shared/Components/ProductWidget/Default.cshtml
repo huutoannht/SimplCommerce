@@ -22,34 +22,72 @@
         }
     </div>*@
 
+@if (Model.Products.Count() > 0)
+{
 
-
-<section id="colormag_featured_posts_widget-3" class="widget widget_featured_posts widget_featured_meta clearfix">
-    <h3 class="widget-title" style="border-bottom-color:#81d742;"><span style="background-color:#81d742;">Health</span></h3>
-    <div class="first-post">
-        <div class="single-article clearfix">
-            <figure><a href="2015/03/24/coffee-is-health-food-myth-or-fact/index.html" title="Coffee is health food: Myth or fact?"><img width="390" height="205" src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/coffee-563797_1280-390x205.jpg" class="attachment-colormag-featured-post-medium size-colormag-featured-post-medium wp-post-image" alt="Coffee is health food: Myth or fact?" title="Coffee is health food: Myth or fact?" /></a></figure>
-            <div class="article-content">
-                <div class="above-entry-meta"><span class="cat-links"><a href="category/drinks/index.html" style="background:#dd8787" rel="category tag">Drinks</a>&nbsp;<a href="category/food/index.html" style="background:#a3d886" rel="category tag">Food</a>&nbsp;<a href="category/health/index.html" style="background:#81d742" rel="category tag">@Model.WidgetName</a>&nbsp;</span></div>
-                <h3 class="entry-title"> <a href="2015/03/24/coffee-is-health-food-myth-or-fact/index.html" title="Coffee is health food: Myth or fact?">Coffee is health food: Myth or fact?</a></h3>
-                <div class="below-entry-meta"> <span class="posted-on"><a href="2015/03/24/coffee-is-health-food-myth-or-fact/index.html" title="10:00 am" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published" datetime="2015-03-24T10:00:06+00:00">March 24, 2015</time></a></span> <span class="byline"><span class="author vcard"><i class="fa fa-user"></i><a class="url fn n" href="author/demothemegrill/index.html" title="TG-Demo Team">TG-Demo Team</a></span></span> <span class="comments"><i class="fa fa-comment"></i><span>Comments Off<span class="screen-reader-text"> on Coffee is health food: Myth or fact?</span></span></span></div>
-                <div class="entry-content">
-                    <p>Vivamus vestibulum ut magna vitae facilisis. Maecenas laoreet lobortis tristique. Aenean accumsan malesuada convallis. Suspendisse egestas luctus nisl, sit amet</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="following-post">
-        @foreach (var product in Model.Products)
-        {
+    <section id="colormag_featured_posts_widget-3" class="widget widget_featured_posts widget_featured_meta clearfix">
+        <h3 class="widget-title" style="border-bottom-color:#81d742;"><span style="background-color:#81d742;">@Model.WidgetName</span></h3>
+        <div class="first-post">
             <div class="single-article clearfix">
-                <figure><a href="@product.Slug" title="@product.Name"><img width="130" height="90" src="@product.ThumbnailUrl" class="attachment-colormag-featured-post-small size-colormag-featured-post-small wp-post-image" alt="@product.Name" title="@product.Name" srcset="https://demo.themegrill.com/colormag/~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/mosquito-542156_1280-130x90.jpg 130w, https://demo.themegrill.com/colormag/~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/mosquito-542156_1280-392x272.jpg 392w" sizes="(max-width: 130px) 100vw, 130px" /></a></figure>
+                <figure>
+                    <a href="@Model.Products.FirstOrDefault()?.Slug" title="@Model.Products.FirstOrDefault()?.Name">
+                        <img width="390" height="205" src="@Model.Products.FirstOrDefault()?.ThumbnailImage"
+                             class="attachment-colormag-featured-post-medium size-colormag-featured-post-medium wp-post-image"
+                             alt="@Model.Products.FirstOrDefault()?.Name" title="@Model.Products.FirstOrDefault()?.Name" />
+                    </a>
+                </figure>
                 <div class="article-content">
-                    <div class="above-entry-meta"><span class="cat-links"><a href="category/health/index.html" style="background:#81d742" rel="category tag">Health</a>&nbsp;<a href="category/news/index.html" style="background:#bfd6af" rel="category tag">News</a>&nbsp;</span></div>
-                    <h3 class="entry-title"> <a href="@product.Slug" title="@product.Name">@product.Name</a></h3>
-                    <div class="below-entry-meta"> <span class="posted-on"><a href="@product.Slug" title="9:57 am" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published" datetime="2015-03-24T09:57:18+00:00"></time></a></span> <span class="byline"><span class="author vcard"><i class="fa fa-user"></i><a class="url fn n" href="author/demothemegrill/index.html" title="TG-Demo Team">TG-Demo Team</a></span></span> <span class="comments"><i class="fa fa-comment"></i><span>Comments Off<span class="screen-reader-text"> on Mosquito-borne diseases has threaten World</span></span></span></div>
-                </div>
-            </div>
-        }
-    </div>
-</section>
+                    <div class="above-entry-meta">
+                        <span class="cat-links">
+                            <a href="@Model.Products.FirstOrDefault()?.Slug"
+                               style="background:#dd8787" rel="category tag">
+                                Drinks
+                            </a>&nbsp;<a href="@Model.Products.FirstOrDefault()?.Slug"
+                                         style="background:#a3d886" rel="category tag">
+                                Food
+                            </a>&nbsp;<a href="@Model.Products.FirstOrDefault()?.Slug" style="background:#81d742"
+                                         rel="category tag">@Model.WidgetName</a>&nbsp;
+                                    </span>
+                                </div>
+                                <h3 class="entry-title">
+                                    <a href="@Model.Products.FirstOrDefault()?.Slug"
+                                       title="@Model.Products.FirstOrDefault()?.Name">
+                                        @Model.Products.FirstOrDefault()?.Name
+                                    </a>
+                                </h3>
+                                <div class="below-entry-meta">
+                                    <span class="posted-on">
+                                        <a href="@Model.Products.FirstOrDefault()?.Slug"
+                                           title="10:00 am" rel="bookmark">
+                                            <i class="fa fa-calendar-o"></i>
+                                            <time class="entry-date published" datetime="@Model.Products.FirstOrDefault()?.CreatedOn.ToLocalTime()">
+                                                @Model.Products.FirstOrDefault()?.CreatedOn.ToLocalTime()
+                                            </time>
+                                        </a>
+                                    </span> <span class="byline">
+                                        @*<span class="author vcard"><i class="fa fa-eye"></i><a class="url fn n" href="author/demothemegrill/index.html" title="TG-Demo Team">@Model.Products.FirstOrDefault()?.CalculatedProductPrice</a></span>*@
+                                    </span> <span class="comments">
+                                        <i class="fa fa-comment"></i><span>@Model.Products.FirstOrDefault()?.ReviewsCount</span>
+                                    </span>
+                                </div>
+                                <div class="entry-content">
+                                    <p>@Html.Raw(Model.Products.FirstOrDefault()?.ShortDescription)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="following-post">
+                        @foreach (var product in Model.Products.Skip(1))
+                        {
+                            <div class="single-article clearfix">
+                                <figure><a href="@product.Slug" title="@product.Name"><img width="130" height="90" src="@product.ThumbnailUrl" class="attachment-colormag-featured-post-small size-colormag-featured-post-small wp-post-image" alt="@product.Name" title="@product.Name" srcset="https://demo.themegrill.com/colormag/~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/mosquito-542156_1280-130x90.jpg 130w, https://demo.themegrill.com/colormag/~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/mosquito-542156_1280-392x272.jpg 392w" sizes="(max-width: 130px) 100vw, 130px" /></a></figure>
+                                <div class="article-content">
+                                    <div class="above-entry-meta"><span class="cat-links"><a href="category/health/index.html" style="background:#81d742" rel="category tag">Health</a>&nbsp;<a href="category/news/index.html" style="background:#bfd6af" rel="category tag">News</a>&nbsp;</span></div>
+                                    <h3 class="entry-title"> <a href="@product.Slug" title="@product.Name">@product.Name</a></h3>
+                                    <div class="below-entry-meta"> <span class="posted-on"><a href="@product.Slug" title="9:57 am" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published" datetime="@product.CreatedOn.ToString("dd/MM/yyyy")">@product.CreatedOn.ToString("dd/MM/yyyy")</time></a></span> <span class="byline"><span class="author vcard"><i class="fa fa-user"></i><a class="url fn n" href="author/demothemegrill/index.html" title="TG-Demo Team">TG-Demo Team</a></span></span> <span class="comments"><i class="fa fa-comment"></i><span>@product.ReviewsCount</span></span></div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </section>
+            }

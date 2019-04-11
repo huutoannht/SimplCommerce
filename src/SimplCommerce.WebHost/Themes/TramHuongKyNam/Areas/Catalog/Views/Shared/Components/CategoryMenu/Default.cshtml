@@ -5,64 +5,38 @@
 @inject IWorkContext WorkContext
 @inject SignInManager<User> SignInManager
 
-<nav class="navbar navbar-expand-md navbar-dark fixed-top">
-    <div class="wrap-main">
 
-        <a class="logo" title="Về trang chủ laptopcudanang.com" href="/" aria-label="logo">
-            <img src="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/V4/logo-techcare-web.png" class="logo"/>
-        </a>
-        <form id="search-site" class="form-inline mt-2 mt-md-0" action="search" method="get" onsubmit="return submitSearchForm();" autocomplete="off">
-            <input class="form-control mr-sm-2" id="search-keyword" name="query" type="text" aria-label="Bạn tìm gì..." placeholder="Bạn tìm gì..." autocomplete="off" onkeyup="SuggestSearch(event,this, 0);" maxlength="50" />
-            <button class="btntop" type="submit" aria-label="tìm kiếm"><i class="icontgdd-topsearch"></i></button>
-        </form>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-
-            <ul class="navbar-nav mr-auto">
-                @foreach (var item in Model)
-                {
-                    <li class="nav-item nav-item-active">
-                        <a href="/@item.Slug" class="mobile @item.Slug" title="@item.Name">
-                            @Html.Raw(item.Description) @item.Name
-                        </a>
-                    </li>
-                }
-                @*@if (SignInManager.IsSignedIn(User))
-                {
-                    <li class="nav-item">
-                        <a class="mobile" asp-area="Core" asp-controller="Manage" asp-action="Index" title="@Localizer["Manage"]">
-                            <i class="fa fa-user-circle" style="font-size: 20px;margin-bottom: -1px;" aria-hidden="true"></i>
-                            @((await WorkContext.GetCurrentUser()).FullName)
-                        </a>
-                    </li>
-
-                    @if (User.IsInRole("admin") || User.IsInRole("vendor"))
+<div class="inner-wrap clearfix">
+    <div class="home-icon front_page_on"> <a href="/" title="COLORMAG"><i class="fa fa-home"></i></a></div>
+    <p class="menu-toggle"></p>
+    <div class="menu-primary-container">
+        <ul id="menu-primary" class="menu">
+            @foreach (var item in Model)
+            {
+                <li id="menu-item-@item.Id" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-221">
+                    <a title=" @item.Name" href="/@item.Slug"> @item.Name</a>
+                    @if (item.ChildItems.Count > 0)
                     {
-                        <li class="nav-item">
-                            <a class="mobile" asp-area="Core" asp-controller="HomeAdmin" asp-action="Index"><i class="fa fa-tachometer" aria-hidden="true" style="font-size: 20px;margin-bottom: -1px;"></i>@Localizer["Dashboard"]</a>
-                        </li>
-
+                        <ul class="sub-menu">
+                            @foreach (var childItem in item.ChildItems)
+                            {
+                                <li><a href="/@childItem.Slug" id="menu-item-@item.Id" class="menu-item menu-item-type-custom menu-item-object-custom @item.Id">@childItem.Name</a></li>
+                            }
+                        </ul>
                     }
-                    <li class="nav-item">
-                        <a class="mobile" asp-area="Core" asp-controller="Account" asp-action="LogOff"><i class="fa fa-sign-out" aria-hidden="true" style="font-size: 20px;margin-bottom: -1px;"></i>@Localizer["Log off"]</a>
-                    </li>
-                }
-                else
-                {
-                    <li class="nav-item">
-                        <a class="mobile" asp-area="Core" asp-controller="Account" asp-action="Login"><i class="fa fa-sign-in" aria-hidden="true" style="font-size: 20px;margin-bottom: -1px;"></i>@Localizer["Log in"]</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="mobile" asp-area="Core" asp-controller="Account" asp-action="Register"><i class="fa fa-user-plus" aria-hidden="true" style="font-size: 20px;margin-bottom: -1px;"></i>@Localizer["Register"]</a>
-                    </li>
-                }*@
-                <li class="nav-item ">
-                    @await Component.InvokeAsync("CartBadge")
                 </li>
-            </ul>
-        </div>
+            }
+        </ul>
     </div>
-</nav>
+    <div class="random-post">
+        <a href="2015/03/20/a-paradise-for-holiday/index.html" title="View a random post">
+            <i class="fa fa-random"></i>
+        </a>
+    </div>
+    <i class="fa fa-search search-top"></i>
+    <div class="search-form-top">
+        <form action="https://demo.themegrill.com/colormag/" class="search-form searchform clearfix" method="get">
+            <div class="search-wrap"> <input type="text" placeholder="Search" class="s field" name="s"> <button class="search-icon" type="submit"></button></div>
+        </form>
+    </div>
+</div>

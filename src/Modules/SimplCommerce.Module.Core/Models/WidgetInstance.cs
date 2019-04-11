@@ -45,5 +45,7 @@ namespace SimplCommerce.Module.Core.Models
                 return PublishStart.HasValue && PublishStart.Value < DateTimeOffset.Now && (!PublishEnd.HasValue || PublishEnd.Value > DateTimeOffset.Now);
             }
         }
+
+        public string ColorDisplay { get; set; }
     }
 }

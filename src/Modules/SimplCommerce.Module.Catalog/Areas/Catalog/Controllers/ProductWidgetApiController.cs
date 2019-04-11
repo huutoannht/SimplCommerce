@@ -33,6 +33,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
                 PublishStart = widgetInstance.PublishStart,
                 PublishEnd = widgetInstance.PublishEnd,
                 DisplayOrder = widgetInstance.DisplayOrder,
+                ColorDisplay=widgetInstance.ColorDisplay,
                 Setting = JsonConvert.DeserializeObject<ProductWidgetSetting>(widgetInstance.Data)
             };
 
@@ -53,6 +54,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
                     PublishStart = model.PublishStart,
                     PublishEnd = model.PublishEnd,
                     DisplayOrder = model.DisplayOrder,
+                    ColorDisplay = model.ColorDisplay,
                     Data = JsonConvert.SerializeObject(model.Setting)
                 };
 
@@ -75,6 +77,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
                 widgetInstance.PublishStart = model.PublishStart;
                 widgetInstance.PublishEnd = model.PublishEnd;
                 widgetInstance.DisplayOrder = model.DisplayOrder;
+                widgetInstance.ColorDisplay = model.ColorDisplay;
                 widgetInstance.Data = JsonConvert.SerializeObject(model.Setting);
 
                 _widgetInstanceRepository.SaveChanges();

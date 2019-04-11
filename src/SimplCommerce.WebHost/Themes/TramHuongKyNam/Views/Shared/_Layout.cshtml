@@ -94,7 +94,7 @@
                 <div class="inner-wrap">
                     <div id="header-text-nav-wrap" class="clearfix">
                         <div id="header-left-section">
-                            <div id="header-logo-image"> <a href="index.html" class="custom-logo-link" rel="home" itemprop="url"><img width="265" height="90" src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/logo.png" class="custom-logo" alt="COLORMAG" itemprop="logo" /></a></div>
+                            <div id="header-logo-image"> <a href="/" class="custom-logo-link" rel="home" itemprop="url"><img width="265" height="90" src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/logo.png" class="custom-logo" alt="COLORMAG" itemprop="logo" /></a></div>
                             <div id="header-text" class="screen-reader-text">
                                 <h1 id="site-title"> <a href="index.html" title="COLORMAG" rel="home">COLORMAG</a></h1>
                                 <p id="site-description">Best Magazine WordPress theme for 2018</p>
@@ -112,47 +112,7 @@
                     </div>
                 </div>
                 <nav id="site-navigation" class="main-navigation clearfix" role="navigation">
-                    <div class="inner-wrap clearfix">
-                        <div class="home-icon front_page_on"> <a href="index.html" title="COLORMAG"><i class="fa fa-home"></i></a></div>
-                        <p class="menu-toggle"></p>
-                        <div class="menu-primary-container">
-                            <ul id="menu-primary" class="menu">
-                                <li id="menu-item-221" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-221">
-                                    <a title="Download This Theme" href="https://downloads.wordpress.org/theme/colormag.zip">Download</a>
-                                    <ul class="sub-menu">
-                                        <li id="menu-item-236" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-236"><a title="More info on ColorMag theme" target="_blank" href="http://themegrill.com/themes/colormag/">Theme Info</a></li>
-                                        <li id="menu-item-200" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-200"><a href="http://themegrill.com/themes/colormag-pro/">View Pro</a></li>
-                                    </ul>
-                                </li>
-                                <li id="menu-item-175" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-175"><a href="category/sports/index.html">Sports</a></li>
-                                <li id="menu-item-32" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-32"><a href="category/politics/index.html">Politics</a></li>
-                                <li id="menu-item-176" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-176"><a href="category/technology/index.html">Technology</a></li>
-                                <li id="menu-item-177" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-177"><a href="category/fashion/index.html">Fashion</a></li>
-                                <li id="menu-item-178" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-178"><a href="category/health/index.html">Health</a></li>
-                                <li id="menu-item-192" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-192">
-                                    <a href="#">Layout</a>
-                                    <ul class="sub-menu">
-                                        <li id="menu-item-196" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-196"><a href="left-sidebar/index.html">Left Sidebar</a></li>
-                                        <li id="menu-item-195" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-195"><a href="right-sidebar/index.html">Right Sidebar</a></li>
-                                        <li id="menu-item-194" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-194"><a href="no-sidebar-full-width/index.html">No Sidebar Full Width</a></li>
-                                        <li id="menu-item-193" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-193"><a href="no-sidebar-content-centered/index.html">No Sidebar Content Centered</a></li>
-                                    </ul>
-                                </li>
-                                <li id="menu-item-298" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-298"><a href="contact-us/index.html">Contact</a></li>
-                            </ul>
-                        </div>
-                        <div class="random-post">
-                            <a href="2015/03/20/a-paradise-for-holiday/index.html" title="View a random post">
-                                <i class="fa fa-random"></i>
-                            </a>
-                        </div>
-                        <i class="fa fa-search search-top"></i>
-                        <div class="search-form-top">
-                            <form action="https://demo.themegrill.com/colormag/" class="search-form searchform clearfix" method="get">
-                                <div class="search-wrap"> <input type="text" placeholder="Search" class="s field" name="s"> <button class="search-icon" type="submit"></button></div>
-                            </form>
-                        </div>
-                    </div>
+                    @await Component.InvokeAsync("CategoryMenu")
                 </nav>
             </div>
         </header>
