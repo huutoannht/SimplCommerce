@@ -1,10 +1,10 @@
 ﻿@model SimplCommerce.Module.News.Areas.News.ViewModels.NewsVm
 
 @{
-    ViewData["Title"] = "News";
+    ViewData["Title"] = "Tin tức";
 }
 
-<div class="news row">
+@*<div class="news row">
     <div class="categories row">
         <div class="btn-group btn-group-justified" role="group" aria-label="...">
             @foreach (var item in Model.NewsCategory)
@@ -24,8 +24,55 @@
             }
         </div>
     }
-</div>
+</div>*@
+<section>
 
+
+    <ul class="menu">
+        @foreach (var item in Model.NewsCategory)
+        {
+            <li><a href="~/@item.Slug" class="actmenu">@item.Name</a></li>
+        }
+    </ul>
+
+    <div class="container">
+        @foreach (var item in Model.NewsItem)
+        {
+            <div class="new-item">
+                <div class="media">
+                    <a class="pull-left" href="@item.Slug">
+                        <img class="media-object image-new-item" src="@item.ImageUrl">
+                    </a>
+                    <div class="media-body">
+                        <a href="@item.Slug"><h4 class="media-heading">@item.Name</h4></a>
+                        <p>
+                            @Html.Raw(item.ShortContent)
+                        </p>
+                        <ul class="list-inline list-unstyled">
+                            @*<li><span><i class="glyphicon glyphicon-calendar"></i> @Model..ToString("dd/MM/yyyy") </span></li>
+                            <li>|</li>*@
+                            @*<span><i class="glyphicon glyphicon-comment"></i> 2 comments</span>
+                            <li>|</li>*@
+                            @*<li>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            </li>
+                            <li>|</li>*@
+                            @*<li>
+                                <span><i class="fa fa-facebook-square"></i></span>
+                                <span><i class="fa fa-twitter-square"></i></span>
+                                <span><i class="fa fa-google-plus-square"></i></span>
+                            </li>*@
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>
 <div class="row">
     <div class="col-md-12 text-right">
         <cs-pager cs-paging-pagesize="@Model.PageSize"

@@ -10,6 +10,8 @@ namespace SimplCommerce.Module.News.Areas.News.ViewModels
         
         public string ImageUrl { get; set; }
 
+        public string Name { get; set; }
+
         public DateTimeOffset PublishedOn { get; set; }
 
         public string Slug { get; set; }

@@ -40,7 +40,7 @@ namespace SimplCommerce.Module.News.Areas.News.Controllers
                 {
                     Id = x.Id,
                     Name = x.Name,
-                    Slug = x.Slug
+                    Slug = x.Slug,
                 })
                 .ToList();
 

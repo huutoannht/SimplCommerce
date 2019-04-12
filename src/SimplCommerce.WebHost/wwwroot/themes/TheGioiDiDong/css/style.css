@@ -3180,3 +3180,118 @@ li .btn_buynow {
 .catetag a:hover {
     color: #333;
 }
+.area_promotion {
+    display: block;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    position: relative;
+    margin: 5px 10px 12px;
+    background: #fff;
+    padding-bottom: 10px;
+}
+
+    .area_promotion strong {
+        display: block;
+        overflow: hidden;
+        font-size: 15px;
+        color: #333;
+        padding: 15px 15px 10px 15px;
+        text-transform: uppercase;
+    }
+
+.pro-img img {
+    display: block;
+    width: 50px;
+    float: left;
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0 10px 0 15px;
+    cursor: pointer;
+}
+
+.pro-img li {
+    margin-bottom: 20px;
+}
+.laptopacc h3 {
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+.laptopacc a {
+    display: inline-block;
+    text-align: center;
+    margin: 0 25px 0 0;
+    vertical-align: top;
+    width: 122px;
+}
+    .laptopacc a span {
+        display: block;
+        margin: 5px auto;
+        border-radius: 50%;
+        border: 1px solid #d6d6d6;
+        box-shadow: 0 1px 2px 0 #d6d6d6;
+        padding: 20px;
+    }
+        .laptopacc a span img {
+            width: 80px;
+            height: 80px;
+        }
+    .laptopacc a h4 {
+        color: #288ad6;
+        padding-top: 10px;
+        font-size: 15px;
+    }
+.lazyloaded {
+    opacity: 1;
+    transition: opacity 300ms;
+}
+
+.menu {
+    display: block;
+    overflow: visible;
+    height: 70px;
+    clear: both;
+    margin: auto;
+    width: 100%;
+    max-width: 1200px;
+}
+
+    .menu li {
+        display: inline-block;
+        margin: 0 10px;
+        font-family: Roboto Condensed,sans-serif;
+        height: 30px;
+        margin: 20px 0;
+        position: relative;
+    }
+
+        .menu li a {
+            display: block;
+            padding: 5px;
+            font-size: 15px;
+            color: #333;
+            text-transform: uppercase;
+            font-weight: 300;
+            background: #fff;
+            border-radius: 2px;
+        }
+
+.new-item .media-body {
+    padding-left: 10px;
+}
+
+img.image-new-item {
+    height: 200px;
+    width: 300px;
+}
+
+.media-body h2 {
+    margin-left: 0px !important;
+}
+
+.new-item {
+    padding-bottom: 20px;
+}

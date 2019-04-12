@@ -186,7 +186,7 @@ namespace SimplCommerce.Module.News.Areas.News.Controllers
             try
             {
                 _newsItemService.Update(newsItem);
-                if (!string.IsNullOrEmpty(fileName))
+                if (model.ThumbnailImage!=null)
                 {
                     await _mediaService.DeleteMediaAsync(fileName);
                 }

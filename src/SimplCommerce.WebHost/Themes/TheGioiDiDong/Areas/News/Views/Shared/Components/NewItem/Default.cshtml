@@ -44,13 +44,18 @@
     <ul>
         @foreach (var newItem in Model)
         {
+            <li>
+                <a href="@newItem.Slug">
+                    <img src='@newItem.ThumbnailImageUrl' style="display: block;">
+                    <h3>@newItem.Name</h3>
+                    <span>@newItem.CreatedOn.ToString("dd/MM/yyyy")</span>
+                </a>
+            </li>
+        }
         <li>
-            <a href="@newItem.Slug">
-                <img src='@newItem.ThumbnailImageUrl' style="display: block;">
-                <h3>@newItem.Name</h3>
-                <span>@newItem.CreatedOn.ToString("dd/MM/yyyy")</span>
+            <a href="/tin-tuc">
+               Xem thêm
             </a>
         </li>
-        }
     </ul>
 </div>

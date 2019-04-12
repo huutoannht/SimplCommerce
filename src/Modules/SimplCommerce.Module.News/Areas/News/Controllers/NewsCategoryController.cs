@@ -78,6 +78,7 @@ namespace SimplCommerce.Module.News.Areas.News.Controllers
                 ShortContent = x.ShortContent,
                 ImageUrl = _mediaService.GetMediaUrl(x.ThumbnailImage),
                 PublishedOn = x.CreatedOn,
+                Name=x.Name,
                 Slug = x.Slug
             })
             .Skip(offset)
@@ -87,6 +88,70 @@ namespace SimplCommerce.Module.News.Areas.News.Controllers
             model.PageSize = _pageSize;
             model.Page = currentPageNum;
             return View(model);
+        }
+        [HttpGet("tin-tuc")]
+        public IActionResult NewsCategoryDetailClone(int page)
+        {
+            page = 1;
+            var newsCategoryList = _newsCategoryRepository.Query()
+                .Include(x => x.NewsItems)
+                .Where(x => !x.IsDeleted)
+                .Select(x => new NewsCategoryVm()
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    Slug = x.Slug
+                })
+                .ToList();
+
+            if (newsCategoryList == null)
+            {
+                return Redirect("~/Error/FindNotFound");
+            }
+
+            var currentNewsCategory = newsCategoryList.Select(x => new NewsCategoryVm()
+            {
+                Id = x.Id,
+                Name = x.Name,
+                Slug = x.Slug
+            })
+            .FirstOrDefault();
+
+            var model = new NewsVm()
+            {
+                CurrentNewsCategory = currentNewsCategory,
+                NewsCategory = newsCategoryList
+            };
+
+            var query = _newsItemRepository.Query()
+                .Where(x => x.Categories.Any(c => c.CategoryId == currentNewsCategory.Id) && !x.IsDeleted && x.IsPublished)
+                .OrderByDescending(x => x.CreatedOn);
+
+            model.TotalItem = query.Count();
+            var currentPageNum = page <= 0 ? 1 : page;
+            var offset = (_pageSize * currentPageNum) - _pageSize;
+            while (currentPageNum > 1 && offset >= model.TotalItem)
+            {
+                currentPageNum--;
+                offset = (_pageSize * currentPageNum) - _pageSize;
+            }
+
+            model.NewsItem = query.Include(x => x.ThumbnailImage).Select(x => new NewsItemThumbnail()
+            {
+                Id = x.Id,
+                ShortContent = x.ShortContent,
+                ImageUrl = _mediaService.GetMediaUrl(x.ThumbnailImage),
+                PublishedOn = x.CreatedOn,
+                Name = x.Name,
+                Slug = x.Slug
+            })
+            .Skip(offset)
+            .Take(_pageSize)
+            .ToList();
+
+            model.PageSize = _pageSize;
+            model.Page = currentPageNum;
+            return View("NewsCategoryDetail",model);
         }
     }
 }
