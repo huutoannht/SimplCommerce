@@ -171,86 +171,131 @@
                 </ul>
             </form>
         </div>*@
-    <div class="row">
-        <div class="col-md-12">
-            <div class="row mb-3">
-                <div class="col-sm-4 category-result">
-                    <h2>LAPTOP NỔI BẬT NHẤT</h2>
-                    @*<small class="badge-results">@Model.TotalProduct @Localizer["results"]</small>*@
-                </div>
-                <div class="col-sm-8">
-                    <ul class="list-inline clear-both product-list-display-options">
-                        <li class="sort-by">
-                            Mức giá:
-                        </li>
-						<li class="sort-by"> <a href="?category=duoi-10-trieu" rel="nofolow"> Dưới 10 triệu</a> </li>
-						<li>  <a href="?category=10-15-trieu" rel="nofolow">10 - 15 triệu</a></li>
-						<li class="sort-by">
-                            <a href="?category=15-25-trieu" rel="nofolow">15 - 25 triệu</a>
-                        </li>
-                        <li class="sort-by">
-                            <a href="?category=tren-25-trieu" rel="nofolow">Trên 25 triệu</a>
-                        </li>
-                        <li class="sort-by">
-                            <label>@Localizer["Sort by:"]</label>
-                            <div class="btn-group">
-                                <select asp-for="CurrentSearchOption.Sort" asp-items="Model.AvailableSortOptions" class="form-control"></select>
-                            </div>
-                        </li>
-                        @*<li class="pagination-option">
-                            <label>Show :</label>
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                    20 <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">All</a></li>
-                                    <li><a href="#">50</a></li>
-                                    <li><a href="#">30</a></li>
-                                </ul>
-                            </div>
-                        </li>*@
-                    </ul>
-                </div>
-            </div>
-            <div class="row product-list ">
-                <div class="homeproduct">
-                    @foreach (var product in Model.Products)
-                    {
-                        <div class="col-sm-6 col-md-2 item-product " id="load-more">
-                            <partial name="_ProductThumbnail" model="product" />
-                        </div>
-                    }
-                </div>
+      <div class="row">
+          <div class="col-md-12">
+              <div class="row mb-3">
+                  <div class="col-sm-4 category-result">
+                      <h2>LAPTOP NỔI BẬT NHẤT</h2>
+                      @*<small class="badge-results">@Model.TotalProduct @Localizer["results"]</small>*@
+                  </div>
+                  <div class="col-sm-8">
+                      <ul class="list-inline clear-both product-list-display-options">
+                          <li class="sort-by">
+                              Mức giá:
+                          </li>
+                          <li class="sort-by"> <a href="?category=duoi-10-trieu" rel="nofolow"> Dưới 10 triệu</a> </li>
+                          <li>  <a href="?category=10-15-trieu" rel="nofolow">10 - 15 triệu</a></li>
+                          <li class="sort-by">
+                              <a href="?category=15-25-trieu" rel="nofolow">15 - 25 triệu</a>
+                          </li>
+                          <li class="sort-by">
+                              <a href="?category=tren-25-trieu" rel="nofolow">Trên 25 triệu</a>
+                          </li>
+                          <li class="sort-by">
+                              <label>@Localizer["Sort by:"]</label>
+                              <div class="btn-group">
+                                  <select asp-for="CurrentSearchOption.Sort" asp-items="Model.AvailableSortOptions" class="form-control"></select>
+                              </div>
+                          </li>
+                          @*<li class="pagination-option">
+                              <label>Show :</label>
+                              <div class="btn-group">
+                                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                      20 <span class="caret"></span>
+                                  </button>
+                                  <ul class="dropdown-menu" role="menu">
+                                      <li><a href="#">All</a></li>
+                                      <li><a href="#">50</a></li>
+                                      <li><a href="#">30</a></li>
+                                  </ul>
+                              </div>
+                          </li>*@
+                      </ul>
+                  </div>
+              </div>
+              <div class="row product-list ">
+                  <div class="homeproduct">
+                      @foreach (var product in Model.Products)
+                      {
+                      <div class="col-sm-6 col-md-2 item-product " id="load-more">
+                          <partial name="_ProductThumbnail" model="product" />
+                      </div>
+                      }
+                  </div>
 
-                @*@foreach (var product in Model.Products)
-                {
-                    <div class="col-xs-6 col-md-4">
-                        <partial name="_ProductThumbnail" model="product" />
-                    </div>
-                }*@
-            </div>
-            @*<div class="row">
-                <div class="col-md-12 text-right">
-                    <cs-pager cs-paging-pagesize="@Model.CurrentSearchOption.PageSize"
-                              cs-paging-pagenumber="@Model.CurrentSearchOption.Page"
-                              cs-paging-totalitems="@Model.TotalProduct"
-                              cs-pagenumber-param="page"
-                              asp-basehref="~/@Model.CategorySlug"
-                              asp-all-route-data="@Model.CurrentSearchOption.ToDictionary()"></cs-pager>
-                </div>
-            </div>*@
-            @if (Model.CurrentSearchOption.Page != Model.CurrentSearchOption.PageCount)
-            {
-                <div class="row load-more">
-                    <div class="col-md-12 text-center">
-                        <button class="btn btn-outline-primary" onclick="loadMoreProduct()">Xem thêm</button>
-                    </div>
-                </div>
-            }
-        </div>
-        @await Component.InvokeAsync("NewItemHome")
-    </div>
+                  @*@foreach (var product in Model.Products)
+                  {
+                  <div class="col-xs-6 col-md-4">
+                      <partial name="_ProductThumbnail" model="product" />
+                  </div>
+                  }*@
+              </div>
+              @*<div class="row">
+                  <div class="col-md-12 text-right">
+                      <cs-pager cs-paging-pagesize="@Model.CurrentSearchOption.PageSize"
+                                cs-paging-pagenumber="@Model.CurrentSearchOption.Page"
+                                cs-paging-totalitems="@Model.TotalProduct"
+                                cs-pagenumber-param="page"
+                                asp-basehref="~/@Model.CategorySlug"
+                                asp-all-route-data="@Model.CurrentSearchOption.ToDictionary()"></cs-pager>
+                  </div>
+              </div>*@
+              @if (Model.CurrentSearchOption.Page != Model.CurrentSearchOption.PageCount)
+              {
+              <div class="row load-more">
+                  <div class="col-md-12 text-center">
+                      <button class="btn btn-outline-primary" onclick="loadMoreProduct()">Xem thêm</button>
+                  </div>
+              </div>
+              }
+          </div>
+          <div class="laptopacc">
+              <h3>PHẦN MỀM - PHỤ KIỆN LAPTOP</h3>
+              <a href="/phu-kien?category=phan-mem-diet-virus">
+                  <span>
+                      <img class=" lazyloaded" data-original="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/diet-virus.jpg" src="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/diet-virus.jpg">
+                  </span>
+                  <h4>Phần mềm diệt virus</h4>
+              </a>
+              <a href="/phu-kien?category=windows-10">
+                  <span>
+                      <img class=" lazyloaded" data-original="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/windows.jpg" src="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/windows.jpg">
+                  </span>
+                  <h4>Windows 10 bản quyền</h4>
+              </a>
+              <a href="/phu-kien?category=chuot-may-tinh">
+                  <span>
+                      <img class=" lazyloaded" data-original="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/chuot-ban-phim.jpg" src="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/chuot-ban-phim.jpg">
+                  </span>
+                  <h4>Chuột, bàn phím</h4>
+              </a>
+              <a href="/phu-kien?category=usb-/-o-cung">
+                  <span>
+                      <img class=" lazyloaded" data-original="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/usb.jpg" src="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/usb.jpg">
+                  </span>
+                  <h4>USB / Ổ cứng</h4>
+              </a>
+              <a href="/phu-kien?category=tai-nghe">
+                  <span>
+                      <img class=" lazyloaded" data-original="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/tai-nghe.jpg" src="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/tai-nghe.jpg">
+                  </span>
+                  <h4>Tai nghe</h4>
+              </a>
+              <a href="/phu-kien?category=loa">
+                  <span>
+                      <img class=" lazyloaded" data-original="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/loa.jpg" src="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/loa.jpg">
+                  </span>
+                  <h4>Loa</h4>
+              </a>
+              <a href="/phu-kien?key=mieng-dan-laptop">
+                  <span>
+                      <img class=" lazyloaded" data-original="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/mieng-dan-laptop.jpg" src="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/mieng-dan-laptop.jpg">
+                  </span>
+                  <h4>Miếng dán laptop</h4>
+              </a>
+          </div>
+          @await Component.InvokeAsync("NewItemHome")
+      </div>
 
 </div>
 
