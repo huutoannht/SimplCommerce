@@ -65,12 +65,16 @@
                 @Html.Raw(Model.ShortDescription)
             </div>
             <aside class="price_sale product-detail">
-                <div class="area_promotion ">
-                    <strong data-count="3">Khuyến mãi</strong>
-                    <div class="pro-img">
-                        @Html.Raw(Model.Promotion)
+                @if (Model.Promotion != null)
+                {
+                    <div class="area_promotion ">
+                        <strong data-count="3">Khuyến mãi</strong>
+                        <div class="pro-img">
+                            @Html.Raw(Model.Promotion)
+                        </div>
                     </div>
-                </div>
+                }
+
                 @if (Model.HasVariation)
                 {
                     <form>
@@ -143,18 +147,19 @@
                                         <button type="button" class="quantity-button" name="add" value="+">+</button>
                                     </div>
                                     <button type="button" disabled="@(!variant.IsAllowToOrder || (variant.StockTrackingIsEnabled && variant.StockQuantity <= 0))" class="btn btn-lg btn-add-cart">@Localizer["Add to cart"]</button>
+                                 
                                     @*<div>
-                                <ul class="list-inline add-to-wishlist">
-                                    <li class="wishlist-in">
-                                        <i class="fa fa-heart"></i>
-                                        <a href="#">Add to Wishlist</a>
-                                    </li>
-                                    <li class="compare-in">
-                                        <i class="fa fa-exchange"></i>
-                                        <a href="#" class="add-to-comparison">@Localizer["Add to Compare"]</a>
-                                    </li>
-                                </ul>
-                            </div>*@
+            <ul class="list-inline add-to-wishlist">
+                <li class="wishlist-in">
+                    <i class="fa fa-heart"></i>
+                    <a href="#">Add to Wishlist</a>
+                </li>
+                <li class="compare-in">
+                    <i class="fa fa-exchange"></i>
+                    <a href="#" class="add-to-comparison">@Localizer["Add to Compare"]</a>
+                </li>
+            </ul>
+        </div>*@
                                 </form>
                             </div>
                         </div>
@@ -194,19 +199,24 @@
                                 <input type="text" class="quantity-field" readonly="readonly" name="qty" value="1">
                                 <button type="button" class="quantity-button" name="add" value="+">+</button>
                             </div>
-                            <button type="button" disabled="@(!Model.IsAllowToOrder || (Model.StockTrackingIsEnabled && Model.StockQuantity <= 0))" class="btn btn-lg btn-add-cart">@Localizer["Add to cart"]</button>
+                            <button type="button" disabled="@(!Model.IsAllowToOrder || (Model.StockTrackingIsEnabled && Model.StockQuantity <= 0))" class="btn btn-lg btn-add-cart buy_now">@Localizer["Add to cart"]</button>
+                            <div class="area_order">
+                                <a class="buy_repay " href="#"><b>Mua trả góp </b><span>Thủ tục đơn giản</span></a>
+                                <a class="buy_repay s " href="#"><b>Trả góp  qua thẻ</b><span>Visa, Master, JCB</span></a>
+
+                            </div>
                             @*<div>
-                        <ul class="list-inline add-to-wishlist">
-                            <li class="wishlist-in">
-                                <i class="fa fa-heart"></i>
-                                <a href="#">Add to Wishlist</a>
-                            </li>
-                            <li class="compare-in">
-                                <i class="fa fa-exchange"></i>
-                                <a href="#" class="add-to-comparison">@Localizer["Add to Compare"]</a>
-                            </li>
-                        </ul>
-                    </div>*@
+            <ul class="list-inline add-to-wishlist">
+                <li class="wishlist-in">
+                    <i class="fa fa-heart"></i>
+                    <a href="#">Add to Wishlist</a>
+                </li>
+                <li class="compare-in">
+                    <i class="fa fa-exchange"></i>
+                    <a href="#" class="add-to-comparison">@Localizer["Add to Compare"]</a>
+                </li>
+            </ul>
+        </div>*@
                         </form>
                     </div>
                 }

@@ -39,6 +39,8 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels
 
         public bool HasVariation => Variations.Any();
 
+        public string Promotion { get; set; }
+
         public IList<ProductDetailOption> AvailableOptions
         {
             get

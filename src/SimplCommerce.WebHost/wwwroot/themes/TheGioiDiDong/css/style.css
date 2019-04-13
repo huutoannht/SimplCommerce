@@ -3295,3 +3295,51 @@ img.image-new-item {
 .new-item {
     padding-bottom: 20px;
 }
+.area_order {
+    display: block;
+    overflow: hidden;
+    margin: 10px;
+}
+    .area_order .buy_now {
+        display: block;
+        overflow: hidden;
+        padding: 7px 0;
+        border-radius: 4px;
+        font-size: 16px;
+        line-height: normal;
+        text-transform: uppercase;
+        color: #fff;
+        text-align: center;
+        background: #fd6e1d;
+        background: -webkit-gradient(linear,0% 0%,0% 100%,from(#fd6e1d),to(#f59000));
+        background: -webkit-linear-gradient(top,#f59000,#fd6e1d);
+        background: -moz-linear-gradient(top,#f59000,#fd6e1d);
+        background: -ms-linear-gradient(top,#f59000,#fd6e1d);
+        background: -o-linear-gradient(top,#f59000,#fd6e1d);
+    }
+    .area_order span {
+        display: block;
+        font-size: 13px;
+        color: #fff;
+        text-transform: none;
+        padding-top: 3px;
+    }
+    .area_order .buy_repay {
+        line-height: normal;
+        display: block;
+        padding: 7px 0;
+        text-align: center;
+        margin: 10px 0 0;
+        background: #288ad6;
+        color: #fff;
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        border-radius: 4px;
+        font-size: 15px;
+        text-transform: uppercase;
+        width: 48.5%;
+        float: left;
+    }
+        .area_order .buy_repay.s {
+            float: right;
+        }

@@ -548,19 +548,20 @@ header + h1 {
   border-top-color: #fff;
 }
 .product-detail .btn-add-cart {
-  background: none !important;
-  border-color: #288ad6 !important;
-  background-image: linear-gradient(to right, rgba(40, 138, 214, 1), rgba(40, 138, 214, 0.6)) !important;
-  font-size: 15px !important;
-  padding: 7px 15px !important;
-  border: 1px solid #288ad6 !important;
-  border-radius: 5px !important;
-  min-width: 0;
+    background: none !important;
+    border-color: #fd6e1d !important;
+    background: #fd6e1d !important;
+    background: -o-linear-gradient(top,#f59000,#fd6e1d);
+    font-size: 15px !important;
+    padding: 7px 15px !important;
+    border: 1px solid #fd6e1d !important;
+    border-radius: 5px !important;
+    min-width: 0;
 }
-.product-detail .btn-add-cart:hover {
-  background: none !important;
-  background-image: linear-gradient(to bottom, rgba(40, 138, 214, 0.6), rgba(40, 138, 214, 1)) !important;
-}
+    .product-detail .btn-add-cart:hover {
+        border-color: #fd6e1d !important;
+        background: #fd6e1d !important;
+    }
 /*---------------------------------------------*/
 .limiter-menu-desktop {
   height: 100%;

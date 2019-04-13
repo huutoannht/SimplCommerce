@@ -48,6 +48,7 @@
     <None Remove="wwwroot\themes\TheGioiDiDong\images\cdn\navigatbg.png" />
     <None Remove="wwwroot\themes\TheGioiDiDong\images\cdn\v2015\Content\desktop\images\V4\logo-techcare-web.png" />
     <None Remove="wwwroot\themes\TheGioiDiDong\js\category.js" />
+    <None Remove="wwwroot\themes\TheGioiDiDong\js\jquery-3.4.0.min.js" />
     <None Remove="wwwroot\themes\TheGioiDiDong\js\owl.carousel.js" />
   </ItemGroup>
 
