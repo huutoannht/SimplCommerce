@@ -3343,3 +3343,65 @@ img.image-new-item {
         .area_order .buy_repay.s {
             float: right;
         }
+.policy {
+    display: block;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+}
+    .policy li:first-child {
+        padding-top: 0;
+    }
+    .policy li {
+        display: block;
+        overflow: hidden;
+        padding: 5px 0 5px 28px;
+        font-size: 14px;
+        color: #333;
+        line-height: 20px;
+        margin: 0 10px;
+        border-bottom: solid 1px #f0f0f0;
+        position: relative;
+    }
+        .policy li:first-child {
+            padding-top: 0;
+        }
+    .policy .inpr:before {
+        content: '';
+        background: url(/themes/TheGioiDiDong/images/cdn/desktop/trong-hop-co@2x.png) 0 0 no-repeat;
+        width: 19px;
+        height: 16px;
+        background-size: 19px 16px;
+        position: absolute;
+        display: block;
+        top: 4px;
+        left: 0;
+    }
+    .policy .wrpr:before {
+        content: '';
+        background: url(/themes/TheGioiDiDong/images/cdn/desktop/bao-hanh-chinh-hang@2x.png) 2px 0 no-repeat;
+        width: 19px;
+        height: 23px;
+        background-size: 16px 23px;
+        position: absolute;
+        display: block;
+        top: 8px;
+        left: 0;
+    }
+    .policy li:last-child:before {
+        content: '';
+        background: url(/themes/TheGioiDiDong/images/cdn/desktop/1-doi-1@2x.png) 0 0 no-repeat;
+        width: 18px;
+        height: 20px;
+        background-size: 18px 20px;
+        position: absolute;
+        display: block;
+        top: 8px;
+        left: 0;
+    }
+    .policy li:last-child {
+        border-bottom: none;
+    }
