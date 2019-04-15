@@ -103,7 +103,9 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
                 RatingAverage = product.RatingAverage,
                 Attributes = product.AttributeValues.Select(x => new ProductDetailAttribute { Name = x.Attribute.Name, Value = x.Value }).ToList(),
                 Categories = product.Categories.Select(x => new ProductDetailCategory { Id = x.CategoryId, Name = x.Category.Name, Slug = x.Category.Slug }).ToList(),
-                Promotion=product.PromotionImage?.Caption
+                Promotion=product.PromotionImage?.Caption,
+                Slug=product.Slug,
+                ThumbnailUrl = _mediaService.GetThumbnailUrl(product.ThumbnailImage)
             };
 
             MapProductVariantToProductVm(product, model);

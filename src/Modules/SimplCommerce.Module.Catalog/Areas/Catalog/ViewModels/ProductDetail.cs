@@ -35,6 +35,8 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels
 
         public int ReviewsCount { get; set; }
 
+        public string Slug { get; set; }
+
         public double? RatingAverage { get; set; }
 
         public bool HasVariation => Variations.Any();
@@ -75,5 +77,6 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels
 
         public IList<ProductThumbnail> CrossSellProducts { get; set; } = new List<ProductThumbnail>();
         public string Promotion { get; internal set; }
+        public string ThumbnailUrl { get; internal set; }
     }
 }
