@@ -6,18 +6,12 @@
     <div class="row">
         @if (Model.CommentsCount > 0)
         {
-            <div class="col-md-5">
-                <div class="row">
-                    <div class="col-md-5">
-                        <p>(@Model.CommentsCount @Localizer["comments"])</p>
-                    </div>
-                    <div class="col-md-7">
-                    </div>
-                </div>
+            <div class="title-comment">
+                        <p class="total-comment">(@Model.CommentsCount @Localizer["comments"])</p>
             </div>
         }
-        <div class="col-md-7">
-            <div id="addcomment">
+        <div class="col-md-12">
+            <div id="addcomment" >
                 <partial name="/Areas/Comments/Views/Comment/_CommentForm.cshtml" model="new CommentForm { EntityTypeId = Model.EntityTypeId, EntityId = Model.EntityId }" />
             </div>
         </div>
@@ -31,7 +25,7 @@
                 <div>
                     <div>
                         <p>@comment.CommentText</p>
-                        <p>By: <strong>@comment.CommenterName</strong> on <span>@comment.CreatedOn</span></p>
+                        <p>Người dùng: <strong>@comment.CommenterName</strong> vào <span>@comment.CreatedOn.ToString("dd/MM/yyyy hh:mm")</span></p>
                     </div>
 
                     @if (comment.Replies.Count > 0)

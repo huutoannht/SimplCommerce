@@ -17,6 +17,7 @@
     <meta name="GENERATOR" content="Công ty TNHH MTV Quốc tế Phúc Thành Đạt" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="canonical" href="https://laptopcudanang.com.vn" />
     <meta property="og:site_name" content="laptopcudanang.com" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="vi_VN" />
@@ -74,18 +75,19 @@
     </script>
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.2&appId=2215291551867822&autoLogAppEvents=1"></script>
+    <header class="row">
+        @await Component.InvokeAsync("CategoryMenu")
+    </header>
     <div class="container" style="padding-top:63px ">
-        <header class="row">
-            @await Component.InvokeAsync("CategoryMenu")
-        </header>
+
         @RenderSection("featured", false)
         @RenderBody()
         <div class="catetag">
             <div>
-                <a href="?category=duoi-10-trieu" rel="nofolow">Dưới 10 triệu</a>
-                <a href="?category=10-15-trieu" rel="nofolow">10 - 15 triệu</a>
-                <a href="?category=15-25-trieu" rel="nofolow">15 - 25 triệu</a>
-                <a href="?category=tren-25-trieu" rel="nofolow">Trên 25 triệu</a>
+                <a href="?category=duoi-5-trieu" rel="nofolow">Dưới 5 triệu</a>
+                <a href="?category=5-10-trieu" rel="nofolow">5 - 10 triệu</a>
+                @*<a href="?category=15-25-trieu" rel="nofolow">15 - 25 triệu</a>*@
+                <a href="?category=tren-10-trieu" rel="nofolow">Trên 10 triệu</a>
             </div>
             <div>
                 <a href="/macbook-cu" rel="nofolow">Macbook</a>
@@ -173,8 +175,8 @@
         window.simplGlobalSetting.lang = '@CultureInfo.CurrentCulture.Name';
     </script>
     @*<script src="https://code.jquery.com/jquery-3.4.0.min.js"
-            integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
-            crossorigin="anonymous"></script>*@
+        integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
+        crossorigin="anonymous"></script>*@
     <script src="~/themes/TheGioiDiDong/js/jquery-3.4.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script simpl-append-version="true" src="~/lib/bootstrap4/js/bootstrap.js"></script>

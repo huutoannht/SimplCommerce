@@ -19,6 +19,8 @@ using SimplCommerce.Module.Core.Data;
 using SimplCommerce.Module.Localization.Extensions;
 using SimplCommerce.Module.Localization.TagHelpers;
 using SimplCommerce.WebHost.Extensions;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
 
 namespace SimplCommerce.WebHost
 {
@@ -96,6 +98,12 @@ namespace SimplCommerce.WebHost
                     a => a.UseExceptionHandler("/Home/Error")
                 );
                 app.UseHsts();
+                app.UseStaticFiles(new StaticFileOptions
+                {
+                    FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @".well-known")),
+                    RequestPath = new PathString("/.well-known"),
+                    ServeUnknownFileTypes = true // serve extensionless file
+                });
             }
 
             app.UseWhen(
@@ -115,6 +123,7 @@ namespace SimplCommerce.WebHost
             app.UseCustomizedIdentity();
             app.UseCustomizedRequestLocalization();
             app.UseCustomizedMvc();
+            
 
             var moduleInitializers = app.ApplicationServices.GetServices<IModuleInitializer>();
             foreach (var moduleInitializer in moduleInitializers)
