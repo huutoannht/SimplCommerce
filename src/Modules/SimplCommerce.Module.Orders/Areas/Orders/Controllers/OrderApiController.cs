@@ -60,7 +60,7 @@ namespace SimplCommerce.Module.Orders.Areas.Orders.Controllers
                     x.Id,
                     CustomerName = x.Customer.FullName,
                     x.OrderTotal,
-                    OrderTotalString = x.OrderTotal.ToString("C"),
+                    OrderTotalString = x.OrderTotal.ToString("C0"),
                     OrderStatus = x.OrderStatus.ToString(),
                     x.CreatedOn
                 });

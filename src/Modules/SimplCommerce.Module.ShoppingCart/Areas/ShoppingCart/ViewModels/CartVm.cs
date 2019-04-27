@@ -10,11 +10,11 @@ namespace SimplCommerce.Module.ShoppingCart.Areas.ShoppingCart.ViewModels
 
         public decimal SubTotal { get; set; }
 
-        public string SubTotalString { get { return SubTotal.ToString("C"); } }
+        public string SubTotalString { get { return SubTotal.ToString("C0"); } }
 
         public decimal Discount { get; set; }
 
-        public string DiscountString { get { return Discount.ToString("C"); } }
+        public string DiscountString { get { return Discount.ToString("C0"); } }
 
         public string CouponValidationErrorMessage { get; set; }
 
@@ -28,7 +28,7 @@ namespace SimplCommerce.Module.ShoppingCart.Areas.ShoppingCart.ViewModels
         {
             get
             {
-                return TaxAmount.HasValue ? TaxAmount.Value.ToString("C") : "-";
+                return TaxAmount.HasValue ? TaxAmount.Value.ToString("C0") : "-";
             }
         }
 
@@ -36,7 +36,7 @@ namespace SimplCommerce.Module.ShoppingCart.Areas.ShoppingCart.ViewModels
 
         public string ShippingAmountString
         {
-            get { return ShippingAmount.HasValue ? ShippingAmount.Value.ToString("C") : "-"; }
+            get { return ShippingAmount.HasValue ? ShippingAmount.Value.ToString("C0") : "-"; }
         }
 
         public decimal SubTotalWithDiscount
@@ -73,7 +73,7 @@ namespace SimplCommerce.Module.ShoppingCart.Areas.ShoppingCart.ViewModels
             }
         }
 
-        public string OrderTotalString { get { return OrderTotal.ToString("C"); } }
+        public string OrderTotalString { get { return OrderTotal.ToString("C0"); } }
 
         public IList<CartItemVm> Items { get; set; } = new List<CartItemVm>();
     }

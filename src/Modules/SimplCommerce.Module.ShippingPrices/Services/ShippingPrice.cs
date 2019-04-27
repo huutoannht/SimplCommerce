@@ -12,7 +12,7 @@
         {
             get
             {
-               return Price.ToString("C");
+               return Price.ToString("C0");
             }
         }
     }

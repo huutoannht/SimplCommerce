@@ -42,19 +42,19 @@ namespace SimplCommerce.Module.Orders.Areas.Orders.ViewModels
 
         public decimal PaymentFeeAmount { get; set; }
 
-        public string SubtotalString { get { return Subtotal.ToString("C"); } }
+        public string SubtotalString { get { return Subtotal.ToString("C0"); } }
 
-        public string DiscountAmountString { get { return DiscountAmount.ToString("C"); } }
+        public string DiscountAmountString { get { return DiscountAmount.ToString("C0"); } }
 
-        public string SubtotalWithDiscountString { get { return SubTotalWithDiscount.ToString("C"); } }
+        public string SubtotalWithDiscountString { get { return SubTotalWithDiscount.ToString("C0"); } }
 
-        public string TaxAmountString { get { return TaxAmount.ToString("C"); } }
+        public string TaxAmountString { get { return TaxAmount.ToString("C0"); } }
 
-        public string ShippingAmountString { get { return ShippingAmount.ToString("C"); } }
+        public string ShippingAmountString { get { return ShippingAmount.ToString("C0"); } }
 
-        public string PaymentFeeAmountString { get { return PaymentFeeAmount.ToString("C"); } }
+        public string PaymentFeeAmountString { get { return PaymentFeeAmount.ToString("C0"); } }
 
-        public string OrderTotalString { get { return OrderTotal.ToString("C"); } }
+        public string OrderTotalString { get { return OrderTotal.ToString("C0"); } }
 
         public bool IsMasterOrder { get; set; }
 

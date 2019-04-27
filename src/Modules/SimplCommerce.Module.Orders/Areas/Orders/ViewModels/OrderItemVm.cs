@@ -31,15 +31,15 @@ namespace SimplCommerce.Module.Orders.Areas.Orders.ViewModels
 
         public decimal RowTotal => Total + TaxAmount - DiscountAmount;
 
-        public string TaxAmountString => TaxAmount.ToString("C");
+        public string TaxAmountString => TaxAmount.ToString("C0");
 
-        public string ProductPriceString => ProductPrice.ToString("C");
+        public string ProductPriceString => ProductPrice.ToString("C0");
 
-        public string DiscountAmountString => DiscountAmount.ToString("C");
+        public string DiscountAmountString => DiscountAmount.ToString("C0");
 
-        public string TotalString => Total.ToString("C");
+        public string TotalString => Total.ToString("C0");
 
-        public string RowTotalString => RowTotal.ToString("C");
+        public string RowTotalString => RowTotal.ToString("C0");
 
         public IEnumerable<ProductVariationOptionVm> VariationOptions { get; set; } =
             new List<ProductVariationOptionVm>();

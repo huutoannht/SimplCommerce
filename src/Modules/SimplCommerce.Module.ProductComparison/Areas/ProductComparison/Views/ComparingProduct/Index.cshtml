@@ -34,7 +34,7 @@
             <td><strong>Price</strong></td>
             @foreach (var product in Model.Products)
             {
-                <td>@product.CalculatedProductPrice.Price.ToString("C")</td>
+                <td>@product.CalculatedProductPrice.Price.ToString("C0")</td>
             }
         </tr>
         @foreach(var attribute in Model.Attributes)
