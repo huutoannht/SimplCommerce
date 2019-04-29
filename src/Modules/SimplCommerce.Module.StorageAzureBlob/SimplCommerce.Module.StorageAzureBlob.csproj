@@ -1,5 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
 
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="WindowsAzure.Storage" version="9.2.0" />
     <ProjectReference Include="..\..\SimplCommerce.Infrastructure\SimplCommerce.Infrastructure.csproj" />
