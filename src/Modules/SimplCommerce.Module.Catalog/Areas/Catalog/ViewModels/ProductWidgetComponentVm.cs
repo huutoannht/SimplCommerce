@@ -13,5 +13,6 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels
 
         public IList<ProductThumbnail> Products { get; set; }
         public IList<Brand> Brands { get; set; } = new List<Brand>();
+        public string ColorDisplay { get; set; }
     }
 }

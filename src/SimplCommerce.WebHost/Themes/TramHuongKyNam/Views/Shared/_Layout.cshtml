@@ -49,73 +49,7 @@
 </head>
 <body data-rsssl=1 class="home blog wp-custom-logo everest-forms-no-js ">
     <div id="page" class="hfeed site">
-        <header id="masthead" class="site-header clearfix ">
-            <div id="header-text-nav-container" class="clearfix">
-                <div class="news-bar">
-                    <div class="inner-wrap clearfix">
-                        <div class="date-in-header"> Saturday, April 6, 2019</div>
-                        <div class="breaking-news">
-                            <strong class="breaking-news-latest">Latest:</strong>
-                            <ul class="newsticker">
-                                <li>
-                                    <a href="2015/03/24/teens-use-apps-to-keep-secrets/index.html"
-                                       title="Teens use apps to keep secrets?">Teens use apps to keep secrets?</a>
-                                </li>
-                                <li>
-                                    <a href="2015/03/24/fastest-plane-in-the-world/index.html"
-                                       title="Fastest plane in the world">Fastest plane in the world</a>
-                                </li>
-                                <li>
-                                    <a href="2015/03/24/wireless-headphones-are-now-on-market/index.html"
-                                       title="Wireless Headphones are now on Market">Wireless Headphones are now on Market</a>
-                                </li>
-                                <li>
-                                    <a href="2015/03/24/drones-being-used-to-monitor-wordcup/index.html"
-                                       title="Drones being used to monitor WordCup">Drones being used to monitor WordCup</a>
-                                </li>
-                                <li>
-                                    <a href="2015/03/24/coffee-is-health-food-myth-or-fact/index.html"
-                                       title="Coffee is health food: Myth or fact?">Coffee is health food: Myth or fact?</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="social-links clearfix">
-                            <ul>
-                                <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-pinterest"></i></a></li>
-                                <li><a href="#" target="_blank"><i class="fa fa-youtube"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="inner-wrap">
-                    <div id="header-text-nav-wrap" class="clearfix">
-                        <div id="header-left-section">
-                            <div id="header-logo-image"> <a href="/" class="custom-logo-link" rel="home" itemprop="url"><img width="265" height="90" src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/logo.png" class="custom-logo" alt="COLORMAG" itemprop="logo" /></a></div>
-                            <div id="header-text" class="screen-reader-text">
-                                <h1 id="site-title"> <a href="index.html" title="COLORMAG" rel="home">COLORMAG</a></h1>
-                                <p id="site-description">Best Magazine WordPress theme for 2018</p>
-                            </div>
-                        </div>
-                        <div id="header-right-section">
-                            <div id="header-right-sidebar" class="clearfix">
-                                <aside id="colormag_728x90_advertisement_widget-9" class="widget widget_728x90_advertisement clearfix">
-                                    <div class="advertisement_728x90">
-                                        <div class="advertisement-content"><a href="https://demo.themegrill.com/colormag-pro/" class="single_ad_728x90" target="_blank" rel="nofollow"> <img src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/07/ad-color-mag-large.jpg" width="728" height="90" alt=""> </a></div>
-                                    </div>
-                                </aside>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <nav id="site-navigation" class="main-navigation clearfix" role="navigation">
-                    @await Component.InvokeAsync("CategoryMenu")
-                </nav>
-            </div>
-        </header>
+        @await Component.InvokeAsync("HeaderLayout")
         <div id="main" class="clearfix">
             <div class="inner-wrap clearfix">
                 @RenderBody()
@@ -128,7 +62,7 @@
                         <div class="tg-footer-main-widget">
                             <div class="tg-first-footer-widget">
                                 <aside id="text-3" class="widget widget_text clearfix">
-                                    <h3 class="widget-title"><span>About Us</span></h3>
+                                    <h3 class="widget-title"><span>Về chúng tôi</span></h3>
                                     <div class="textwidget"><a title="COLORMAG" href="index.html"><img alt="COLORMAG" src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/logo.png"></a><br />We love WordPress and we are here to provide you with professional looking WordPress themes so that you can take your website one step ahead. We focus on simplicity, elegant design and clean code.</div>
                                 </aside>
                             </div>
@@ -136,49 +70,21 @@
                         <div class="tg-footer-other-widgets">
                             <div class="tg-second-footer-widget">
                                 <aside id="text-5" class="widget widget_text clearfix">
-                                    <h3 class="widget-title"><span>Premium Themes</span></h3>
+                                    <h3 class="widget-title"><span>Chuyên mục</span></h3>
                                     <div class="textwidget">
-                                        <ul>
-                                            <li><a title="Spacious Pro" target="_blank" href="https://themegrill.com/themes/spacious/">Spacious Pro</a></li>
-                                            <li><a title="Flash Pro" target="_blank" href="https://themegrill.com/themes/flash/">Flash Pro</a></li>
-                                            <li><a title="Accelerate Pro" target="_blank" href="https://themegrill.com/themes/accelerate/">Accelerate Pro</a></li>
-                                            <li><a title="Suffice Pro" target="_blank" href="https://themegrill.com/themes/suffice/">Suffice Pro</a></li>
-                                            <li><a title="Esteem Pro" target="_blank" href="https://themegrill.com/themes/esteem/">Esteem Pro</a></li>
-                                            <li><a title="eStore Pro" target="_blank" href="https://themegrill.com/themes/estore/">eStore Pro</a></li>
-                                            <li><a title="Himalayas Pro" target="_blank" href="https://themegrill.com/themes/himalayas/">Himalayas Pro</a></li>
-                                            <li><a title="Radiate Pro" target="_blank" href="https://themegrill.com/themes/radiate/">Radiate Pro</a></li>
-                                            <li><a title="ColorNews Pro" target="_blank" href="https://themegrill.com/themes/colornews/">ColorNews Pro</a></li>
-                                        </ul>
+                                        <vc:menu menu-id="2"></vc:menu>
                                     </div>
                                 </aside>
                             </div>
                             <div class="tg-third-footer-widget">
                                 <aside id="text-4" class="widget widget_text clearfix">
-                                    <h3 class="widget-title"><span>More Free Themes</span></h3>
+                                    <h3 class="widget-title"><span>Hỗ trợ</span></h3>
                                     <div class="textwidget">
-                                        <ul>
-                                            <li><a title="Cenote" target="_blank" href="https://themegrill.com/themes/cenote/">Cenote</a></li>
-                                            <li><a title="Spacious" target="_blank" href="https://themegrill.com/themes/spacious/">Spacious</a></li>
-                                            <li><a title="Flash" target="_blank" href="https://themegrill.com/themes/flash/">Flash</a></li>
-                                            <li><a title="Accelerate" target="_blank" href="https://themegrill.com/themes/accelerate/">Accelerate</a></li>
-                                            <li><a title="Suffice" target="_blank" href="https://themegrill.com/themes/suffice/">Suffice</a></li>
-                                            <li><a title="eStore" target="_blank" href="https://themegrill.com/themes/estore/">eStore</a></li>
-                                            <li><a title="FitClub" target="_blank" href="https://themegrill.com/themes/fitclub/">FitClub</a></li>
-                                            <li><a title="Ample" target="_blank" href="https://themegrill.com/themes/ample/">Ample</a></li>
-                                            <li><a title="Esteem" target="_blank" href="https://themegrill.com/themes/esteem/">Esteem</a></li>
-                                        </ul>
+                                        <vc:menu menu-id="1"></vc:menu>
                                     </div>
                                 </aside>
                             </div>
                             <div class="tg-fourth-footer-widget">
-                                <aside id="colormag_300x250_advertisement_widget-6" class="widget widget_300x250_advertisement clearfix">
-                                    <div class="advertisement_300x250">
-                                        <div class="advertisement-title">
-                                            <h3 class="widget-title"><span>ColorMag Pro</span></h3>
-                                        </div>
-                                        <div class="advertisement-content"><a href="https://demo.themegrill.com/colormag-pro/" class="single_ad_300x250" target="_blank" rel="nofollow"> <img src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/07/ad-color-mag-medium.jpg" width="300" height="250" alt=""> </a></div>
-                                    </div>
-                                </aside>
                                 <aside id="text-6" class="widget widget_text clearfix">
                                     <div class="textwidget">Contains all features of free version and many new additional features.</div>
                                 </aside>

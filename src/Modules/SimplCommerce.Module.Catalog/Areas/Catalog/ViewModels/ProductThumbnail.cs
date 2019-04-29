@@ -69,7 +69,6 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels
                 Categories = product.Categories,
                 ShortDescription = product.ShortDescription,
                 CreatedOn = product.CreatedOn
-                
             };
 
             return productThumbnail;

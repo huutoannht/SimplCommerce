@@ -1,35 +1,17 @@
 ﻿@model IList<SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels.ProductThumbnail>
-
-<style>
-    @@media (min-width: 768px) {
-        .col-md-2 {
-            -webkit-box-flex: 0;
-            -ms-flex: 0 0 19.999999%;
-            flex: 0 0 18%;
-            max-width: 29.666667%;
-        }
-    }
-
-    @@media (max-width: 768px) {
-        .col-sm-6 {
-            -webkit-box-flex: 0;
-            -ms-flex: 0 0 50%;
-            flex: 0 0 50%;
-            max-width: 50%;
-        }
-    }
-</style>
-@if (Model.Any())
-{
-    <h3 class="p-t-25 p-b-25">@Localizer["Recently viewed products"]</h3>
-    <div class="product-list homeproduct">
-        <div class="row">
-            @foreach (var product in Model)
-            {
-                <div class="item-product col-sm-6 col-md-2">
-                    <partial name="/Themes/TheGioiDiDong/Areas/Catalog/Views/Shared/_ProductThumbnail.cshtml" model="product" />
-                </div>
-            }
+<h4 class="related-posts-main-title"><i class="fa fa-thumbs-up"></i><span>Bạn cũng có thể thích</span></h4>
+<div class="related-posts clearfix">
+    @foreach (var product in Model)
+    {
+        <div class="single-related-posts">
+            <div class="related-posts-thumbnail"> <a href="@product.Slug" title="Solar eclipse: Eye health warning"> <img width="390" height="205" src="@product.ThumbnailUrl" class="attachment-colormag-featured-post-medium size-colormag-featured-post-medium wp-post-image" alt=""> </a></div>
+            <div class="article-content">
+                <h3 class="entry-title"> <a href="@product.Slug" rel="bookmark" title="@product.Name">@product.Name</a></h3>
+                <div class="below-entry-meta"> <span class="posted-on"><a href="@product.Slug" title="9:43 am" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published" datetime="2015-03-24T09:43:30+00:00">@product.CreatedOn.ToString("dd/MM/yyyy hh:mm")</time></a></span> <span class="byline">
+                    <span class="author vcard">
+                    <i class="fa fa-user"></i>
+                    </span></span> </div>
+            </div>
         </div>
-    </div>
-}
+    }
+</div>

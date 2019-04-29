@@ -12,47 +12,33 @@ using SimplCommerce.Module.Core.Services;
 
 namespace SimplCommerce.Module.Catalog.Areas.Catalog.Components
 {
-    public class ProductWidgetViewComponent : ViewComponent
+    public class HeaderLayoutViewComponent : ViewComponent
     {
         private readonly IRepository<Product> _productRepository;
         private readonly IMediaService _mediaService;
         private readonly IProductPricingService _productPricingService;
 
-        public ProductWidgetViewComponent(IRepository<Product> productRepository, IMediaService mediaService, IProductPricingService productPricingService)
+        public HeaderLayoutViewComponent(IRepository<Product> productRepository, IMediaService mediaService, IProductPricingService productPricingService)
         {
             _productRepository = productRepository;
             _mediaService = mediaService;
             _productPricingService = productPricingService;
         }
 
-        public IViewComponentResult Invoke(WidgetInstanceViewModel widgetInstance)
+        public IViewComponentResult Invoke()
         {
             var model = new ProductWidgetComponentVm
             {
-                Id = widgetInstance.Id,
-                WidgetName = widgetInstance.Name,
-                ColorDisplay=widgetInstance.ColorDisplay,
-                Setting = JsonConvert.DeserializeObject<ProductWidgetSetting>(widgetInstance.Data)
             };
 
-            var query = _productRepository.Query().Include(m=>m.Brand)
-                .Include(m=>m.Categories).ThenInclude(c => c.Category)
-              .Where(x => x.IsPublished && x.IsVisibleIndividually);
+            var query = _productRepository.Query()
+              .Where(x => x.IsPublished && x.IsVisibleIndividually)
+              .OrderByDescending(x=>x.CreatedOn);
 
-            if (model.Setting.CategoryId.HasValue && model.Setting.CategoryId.Value > 0)
-            {
-                query = query.Where(x => x.Categories.Any(c => c.CategoryId == model.Setting.CategoryId.Value));
-            }
-
-            if (model.Setting.FeaturedOnly)
-            {
-                query = query.Where(x => x.IsFeatured);
-            }
-            model.Brands = query.Select(m => m.Brand).Distinct().ToList();
             model.Products = query
               .Include(x => x.ThumbnailImage)
               .OrderByDescending(x => x.CreatedOn)
-              .Take(model.Setting.NumberOfProducts)
+              .Take(5)
               .Select(x => ProductThumbnail.FromProduct(x)).ToList();
 
             foreach (var product in model.Products)

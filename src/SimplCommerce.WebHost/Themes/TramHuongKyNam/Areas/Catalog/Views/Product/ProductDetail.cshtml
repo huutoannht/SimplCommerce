@@ -21,13 +21,20 @@
                 <article id="post-135" class="post-135 post type-post status-publish format-standard has-post-thumbnail hentry category-drinks category-food category-health">
                     <div class="featured-image"> <a href="@Model.Slug" class="image-popup"><img width="800" height="445" src="@Model.ThumbnailUrl" class="attachment-colormag-featured-image size-colormag-featured-image wp-post-image" alt=""></a></div>
                     <div class="article-content clearfix">
-                        <div class="above-entry-meta"><span class="cat-links"><a href="../../../../category/drinks/index.html" style="background:#dd8787" rel="category tag">Drinks</a>&nbsp;<a href="../../../../category/food/index.html" style="background:#a3d886" rel="category tag">Food</a>&nbsp;<a href="../../../../category/health/index.html" style="background:#81d742" rel="category tag">Health</a>&nbsp;</span></div>
+                        <div class="above-entry-meta">
+                            <span class="cat-links">
+                                @foreach (var category in Model.Categories)
+                                {
+                                    <a href="@category.Slug" style="background:#289dcc" rel="category tag">@category.Name</a>
+                                }
+                            </span>
+                        </div>
                         <header class="entry-header">
                             <h1 class="entry-title"> @Model.Name</h1>
                         </header>
                         <div class="below-entry-meta"> <span class="posted-on"><a href="index.html" title="10:00 am" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published" datetime="2015-03-24T10:00:06+00:00">March 24, 2015</time><time class="updated" datetime="2015-06-22T09:32:41+00:00">June 22, 2015</time></a></span> <span class="byline"> <span class="author vcard"> <i class="fa fa-user"></i> <a class="url fn n" href="../../../../author/demothemegrill/index.html" title="TG-Demo Team">TG-Demo Team </a> </span> </span></div>
                         <div class="entry-content clearfix">
-                           @Html.Raw(Model.Description)
+                            @Html.Raw(Model.Description)
                         </div>
                     </div>
                 </article>
@@ -36,106 +43,8 @@
                 <li class="previous"><a href="../mosquito-borne-diseases-has-threaten-world/index.html" rel="prev"><span class="meta-nav">←</span> Mosquito-borne diseases has threaten World</a></li>
                 <li class="next"><a href="../drones-being-used-to-monitor-wordcup/index.html" rel="next">Drones being used to monitor WordCup <span class="meta-nav">→</span></a></li>
             </ul>
-            <div class="author-box">
-                <div class="author-img"><img alt="" src="https://secure.gravatar.com/avatar/fa3cda768036cc3983458ed23394a43d?s=100&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/fa3cda768036cc3983458ed23394a43d?s=200&amp;d=mm&amp;r=g 2x" class="avatar avatar-100 photo grav-hashed grav-hijack" height="100" width="100" id="grav-fa3cda768036cc3983458ed23394a43d-0"></div>
-                <h4 class="author-name">TG-Demo Team</h4>
-                <p class="author-description">Hey! there. I am a huge WordPress fan and a blogger. I love to hear and write about open source projects.</p>
-            </div>
-            <h4 class="related-posts-main-title"><i class="fa fa-thumbs-up"></i><span>You May Also Like</span></h4>
-            <div class="related-posts clearfix">
-                <div class="single-related-posts">
-                    <div class="related-posts-thumbnail"> <a href="../solar-eclipse-eye-health-warning/index.html" title="Solar eclipse: Eye health warning"> <img width="390" height="205" src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/solar-eclipse-152834_1280-390x205.png" class="attachment-colormag-featured-post-medium size-colormag-featured-post-medium wp-post-image" alt=""> </a></div>
-                    <div class="article-content">
-                        <h3 class="entry-title"> <a href="../solar-eclipse-eye-health-warning/index.html" rel="bookmark" title="Solar eclipse: Eye health warning">Solar eclipse: Eye health warning</a></h3>
-                        <div class="below-entry-meta"> <span class="posted-on"><a href="../solar-eclipse-eye-health-warning/index.html" title="9:43 am" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published" datetime="2015-03-24T09:43:30+00:00">March 24, 2015</time></a></span> <span class="byline"><span class="author vcard"><i class="fa fa-user"></i><a class="url fn n" href="../../../../author/demothemegrill/index.html" title="TG-Demo Team">TG-Demo Team</a></span></span> <span class="comments"><i class="fa fa-comment"></i><span>Comments Off<span class="screen-reader-text"> on Solar eclipse: Eye health warning</span></span></span></div>
-                    </div>
-                </div>
-                <div class="single-related-posts">
-                    <div class="related-posts-thumbnail"> <a href="../mosquito-borne-diseases-has-threaten-world/index.html" title="Mosquito-borne diseases has threaten World"> <img width="390" height="205" src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/mosquito-542156_1280-390x205.jpg" class="attachment-colormag-featured-post-medium size-colormag-featured-post-medium wp-post-image" alt=""> </a></div>
-                    <div class="article-content">
-                        <h3 class="entry-title"> <a href="../mosquito-borne-diseases-has-threaten-world/index.html" rel="bookmark" title="Mosquito-borne diseases has threaten World">Mosquito-borne diseases has threaten World</a></h3>
-                        <div class="below-entry-meta"> <span class="posted-on"><a href="../mosquito-borne-diseases-has-threaten-world/index.html" title="9:57 am" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published" datetime="2015-03-24T09:57:18+00:00">March 24, 2015</time></a></span> <span class="byline"><span class="author vcard"><i class="fa fa-user"></i><a class="url fn n" href="../../../../author/demothemegrill/index.html" title="TG-Demo Team">TG-Demo Team</a></span></span> <span class="comments"><i class="fa fa-comment"></i><span>Comments Off<span class="screen-reader-text"> on Mosquito-borne diseases has threaten World</span></span></span></div>
-                    </div>
-                </div>
-                <div class="single-related-posts">
-                    <div class="related-posts-thumbnail"> <a href="../../20/thai-fried-noodle/index.html" title="Thai Fried Noodle"> <img width="390" height="205" src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/thai-food-518035_1920-390x205.jpg" class="attachment-colormag-featured-post-medium size-colormag-featured-post-medium wp-post-image" alt=""> </a></div>
-                    <div class="article-content">
-                        <h3 class="entry-title"> <a href="../../20/thai-fried-noodle/index.html" rel="bookmark" title="Thai Fried Noodle">Thai Fried Noodle</a></h3>
-                        <div class="below-entry-meta"> <span class="posted-on"><a href="../../20/thai-fried-noodle/index.html" title="7:09 am" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published" datetime="2015-03-20T07:09:41+00:00">March 20, 2015</time></a></span> <span class="byline"><span class="author vcard"><i class="fa fa-user"></i><a class="url fn n" href="../../../../author/demothemegrill/index.html" title="TG-Demo Team">TG-Demo Team</a></span></span> <span class="comments"><i class="fa fa-comment"></i><span>Comments Off<span class="screen-reader-text"> on Thai Fried Noodle</span></span></span></div>
-                    </div>
-                </div>
-            </div>
+            @await Component.InvokeAsync("ProductRecentlyViewed", new { productId = Model.Id })
+
         </div>
-        <div id="secondary">
-            <aside id="colormag_300x250_advertisement_widget-5" class="widget widget_300x250_advertisement clearfix">
-                <div class="advertisement_300x250">
-                    <div class="advertisement-content"><a href="https://demo.themegrill.com/colormag-pro/" class="single_ad_300x250" target="_blank" rel="nofollow"> <img src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/07/ad-color-mag-medium.jpg" width="300" height="250" alt=""> </a></div>
-                </div>
-            </aside>
-            <aside id="colormag_featured_posts_vertical_widget-5" class="widget widget_featured_posts widget_featured_posts_vertical widget_featured_meta clearfix">
-                <h3 class="widget-title" style="border-bottom-color:#a38a6d;"><span style="background-color:#a38a6d;">News</span></h3>
-                <div class="first-post">
-                    <div class="single-article clearfix">
-                        <figure><a href="../destruction-in-montania/index.html" title="Destruction in Montania"><img width="390" height="205" src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/fireman-100722_1280-390x205.jpg" class="attachment-colormag-featured-post-medium size-colormag-featured-post-medium wp-post-image" alt="Destruction in Montania" title="Destruction in Montania"></a></figure>
-                        <div class="article-content">
-                            <div class="above-entry-meta"><span class="cat-links"><a href="../../../../category/general/index.html" style="background:#a38a6d" rel="category tag">General</a>&nbsp;<a href="../../../../category/latest/index.html" style="background:#e5e220" rel="category tag">Latest</a>&nbsp;<a href="../../../../category/news/index.html" style="background:#bfd6af" rel="category tag">News</a>&nbsp;</span></div>
-                            <h3 class="entry-title"> <a href="../destruction-in-montania/index.html" title="Destruction in Montania">Destruction in Montania</a></h3>
-                            <div class="below-entry-meta"> <span class="posted-on"><a href="../destruction-in-montania/index.html" title="7:57 am" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published" datetime="2015-03-24T07:57:31+00:00">March 24, 2015</time></a></span> <span class="byline"><span class="author vcard"><i class="fa fa-user"></i><a class="url fn n" href="../../../../author/demothemegrill/index.html" title="TG-Demo Team">TG-Demo Team</a></span></span> <span class="comments"><i class="fa fa-comment"></i><span>Comments Off<span class="screen-reader-text"> on Destruction in Montania</span></span></span></div>
-                            <div class="entry-content">
-                                <p>Nunc consectetur ipsum nisi, ut pellentesque felis tempus vitae. Integer eget lacinia nunc. Vestibulum consectetur convallis augue id egestas. Nullam</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="following-post">
-                    <div class="single-article clearfix">
-                        <figure><a href="../invention-of-advance-technology/index.html" title="Invention of Advance Technology"><img width="130" height="90" src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/vehicle-193213_1280-130x90.jpg" class="attachment-colormag-featured-post-small size-colormag-featured-post-small wp-post-image" alt="Invention of Advance Technology" title="Invention of Advance Technology" srcset="https://demo.themegrill.com/colormag/wp-content/uploads/sites/20/2015/03/vehicle-193213_1280-130x90.jpg 130w, https://demo.themegrill.com/colormag/wp-content/uploads/sites/20/2015/03/vehicle-193213_1280-392x272.jpg 392w" sizes="(max-width: 130px) 100vw, 130px"></a></figure>
-                        <div class="article-content">
-                            <div class="above-entry-meta"><span class="cat-links"><a href="../../../../category/general/index.html" style="background:#a38a6d" rel="category tag">General</a>&nbsp;<a href="../../../../category/latest/index.html" style="background:#e5e220" rel="category tag">Latest</a>&nbsp;<a href="../../../../category/technology/index.html" style="background:#777fce" rel="category tag">Technology</a>&nbsp;</span></div>
-                            <h3 class="entry-title"> <a href="../invention-of-advance-technology/index.html" title="Invention of Advance Technology">Invention of Advance Technology</a></h3>
-                            <div class="below-entry-meta"> <span class="posted-on"><a href="../invention-of-advance-technology/index.html" title="7:47 am" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published" datetime="2015-03-24T07:47:05+00:00">March 24, 2015</time></a></span> <span class="byline"><span class="author vcard"><i class="fa fa-user"></i><a class="url fn n" href="../../../../author/demothemegrill/index.html" title="TG-Demo Team">TG-Demo Team</a></span></span> <span class="comments"><i class="fa fa-comment"></i><span>Comments Off<span class="screen-reader-text"> on Invention of Advance Technology</span></span></span></div>
-                        </div>
-                    </div>
-                    <div class="single-article clearfix">
-                        <figure><a href="../swimming-record/index.html" title="Swimming Record"><img width="130" height="90" src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/swimmer-583667_1280-130x90.jpg" class="attachment-colormag-featured-post-small size-colormag-featured-post-small wp-post-image" alt="Swimming Record" title="Swimming Record" srcset="https://demo.themegrill.com/colormag/wp-content/uploads/sites/20/2015/03/swimmer-583667_1280-130x90.jpg 130w, https://demo.themegrill.com/colormag/wp-content/uploads/sites/20/2015/03/swimmer-583667_1280-392x272.jpg 392w" sizes="(max-width: 130px) 100vw, 130px"></a></figure>
-                        <div class="article-content">
-                            <div class="above-entry-meta"><span class="cat-links"><a href="../../../../category/general/index.html" style="background:#a38a6d" rel="category tag">General</a>&nbsp;<a href="../../../../category/latest/index.html" style="background:#e5e220" rel="category tag">Latest</a>&nbsp;<a href="../../../../category/sports/index.html" style="background:#dd5a5a" rel="category tag">Sports</a>&nbsp;</span></div>
-                            <h3 class="entry-title"> <a href="../swimming-record/index.html" title="Swimming Record">Swimming Record</a></h3>
-                            <div class="below-entry-meta"> <span class="posted-on"><a href="../swimming-record/index.html" title="7:44 am" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published" datetime="2015-03-24T07:44:03+00:00">March 24, 2015</time></a></span> <span class="byline"><span class="author vcard"><i class="fa fa-user"></i><a class="url fn n" href="../../../../author/demothemegrill/index.html" title="TG-Demo Team">TG-Demo Team</a></span></span> <span class="comments"><i class="fa fa-comment"></i><span>Comments Off<span class="screen-reader-text"> on Swimming Record</span></span></span></div>
-                        </div>
-                    </div>
-                    <div class="single-article clearfix">
-                        <figure><a href="../news-with-coffee/index.html" title="News with Coffee"><img width="130" height="90" src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/newspapers-444453_1280-130x90.jpg" class="attachment-colormag-featured-post-small size-colormag-featured-post-small wp-post-image" alt="News with Coffee" title="News with Coffee" srcset="https://demo.themegrill.com/colormag/wp-content/uploads/sites/20/2015/03/newspapers-444453_1280-130x90.jpg 130w, https://demo.themegrill.com/colormag/wp-content/uploads/sites/20/2015/03/newspapers-444453_1280-392x272.jpg 392w" sizes="(max-width: 130px) 100vw, 130px"></a></figure>
-                        <div class="article-content">
-                            <div class="above-entry-meta"><span class="cat-links"><a href="../../../../category/general/index.html" style="background:#a38a6d" rel="category tag">General</a>&nbsp;<a href="../../../../category/latest/index.html" style="background:#e5e220" rel="category tag">Latest</a>&nbsp;</span></div>
-                            <h3 class="entry-title"> <a href="../news-with-coffee/index.html" title="News with Coffee">News with Coffee</a></h3>
-                            <div class="below-entry-meta"> <span class="posted-on"><a href="../news-with-coffee/index.html" title="7:42 am" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published" datetime="2015-03-24T07:42:19+00:00">March 24, 2015</time></a></span> <span class="byline"><span class="author vcard"><i class="fa fa-user"></i><a class="url fn n" href="../../../../author/demothemegrill/index.html" title="TG-Demo Team">TG-Demo Team</a></span></span> <span class="comments"><i class="fa fa-comment"></i><span>Comments Off<span class="screen-reader-text"> on News with Coffee</span></span></span></div>
-                        </div>
-                    </div>
-                </div>
-            </aside>
-            <aside id="nav_menu-3" class="widget widget_nav_menu clearfix">
-                <h3 class="widget-title"><span>Premium Themes</span></h3>
-                <div class="menu-premium-themes-container">
-                    <ul id="menu-premium-themes" class="menu">
-                        <li id="menu-item-240" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-240"><a href="http://themegrill.com/themes/spacious-pro/">Spacious Pro</a></li>
-                        <li id="menu-item-238" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-238"><a href="http://themegrill.com/themes/foodhunt-pro/">FoodHunt Pro</a></li>
-                        <li id="menu-item-239" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-239"><a href="http://themegrill.com/themes/colornews-pro/">ColorNews Pro</a></li>
-                        <li id="menu-item-241" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-241"><a href="http://themegrill.com/themes/accelerate-pro/">Accelerate Pro</a></li>
-                        <li id="menu-item-242" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-242"><a href="http://themegrill.com/themes/esteem-pro/">Esteem Pro</a></li>
-                        <li id="menu-item-243" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-243"><a href="http://themegrill.com/themes/radiate-pro/">Radiate Pro</a></li>
-                        <li id="menu-item-244" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-244"><a href="http://themegrill.com/themes/fitclub-pro/">Fitclub Pro</a></li>
-                        <li id="menu-item-245" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-245"><a href="http://themegrill.com/themes/himalayas-pro/">Himalayas Pro</a></li>
-                    </ul>
-                </div>
-            </aside>
-            <aside id="colormag_125x125_advertisement_widget-3" class="widget widget_125x125_advertisement clearfix">
-                <div class="advertisement_125x125">
-                    <div class="advertisement-title">
-                        <h3 class="widget-title"><span>TG: 125x125 Ads</span></h3>
-                    </div>
-                    <div class="advertisement-content"><a href="http://themegrill.com/" class="single_ad_125x125" target="_blank" rel="nofollow"> <img src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/125ad1.jpg" width="125" height="125" alt=""> </a><a href="http://themegrill.com/" class="single_ad_125x125" target="_blank" rel="nofollow"> <img src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/125ad1.jpg" width="125" height="125" alt=""> </a><a href="http://demo.themegrill.com/" class="single_ad_125x125" target="_blank" rel="nofollow"> <img src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/125ad1.jpg" width="125" height="125" alt=""> </a><a href="http://demo.themegrill.com/" class="single_ad_125x125" target="_blank" rel="nofollow"> <img src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/125ad1.jpg" width="125" height="125" alt=""> </a></div>
-                </div>
-            </aside>
-        </div>
+        @await Component.InvokeAsync("NewProduct")
     </div>

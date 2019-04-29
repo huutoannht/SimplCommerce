@@ -1,37 +1,14 @@
 ﻿@model SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels.ProductWidgetComponentVm
-    <!-- home products -->
-@*<div class="row navigat ">
-        <h2>@Model.WidgetName</h2>
-        <div class="viewallcat">
-            @foreach (var brand in Model.Brands)
-            {
-                if (brand != null)
-                {
-                    <a href="@brand.Slug"> @brand.Name</a>
-                }
-
-            }
-        </div>
-    </div>
-    <div class="row homeproduct">
-        @foreach (var product in Model.Products)
-        {
-            <div class="item-product col-md-2">
-                <partial name="/Themes/TheGioiDiDong/Areas/Catalog/Views/Shared/_ProductThumbnail.cshtml" model="product" />
-            </div>
-        }
-    </div>*@
-
 @if (Model.Products.Count() > 0)
 {
 
     <section id="colormag_featured_posts_widget-3" class="widget widget_featured_posts widget_featured_meta clearfix">
-        <h3 class="widget-title" style="border-bottom-color:#81d742;"><span style="background-color:#81d742;">@Model.WidgetName</span></h3>
+        <h3 class="widget-title" style="border-bottom-color:@Model.ColorDisplay;"><span style="background-color:@Model.ColorDisplay;">@Model.WidgetName</span></h3>
         <div class="first-post">
             <div class="single-article clearfix">
                 <figure>
                     <a href="@Model.Products.FirstOrDefault()?.Slug" title="@Model.Products.FirstOrDefault()?.Name">
-                        <img width="390" height="205" src="@Model.Products.FirstOrDefault()?.ThumbnailImage"
+                        <img width="390" height="205" src="@Model.Products.FirstOrDefault()?.ThumbnailUrl"
                              class="attachment-colormag-featured-post-medium size-colormag-featured-post-medium wp-post-image"
                              alt="@Model.Products.FirstOrDefault()?.Name" title="@Model.Products.FirstOrDefault()?.Name" />
                     </a>
@@ -39,55 +16,64 @@
                 <div class="article-content">
                     <div class="above-entry-meta">
                         <span class="cat-links">
+                            @foreach (var category in @Model.Products.FirstOrDefault()?.Categories)
+                            {
+                                <a href="@category.Category.Slug"
+                                   style="background:@Model.ColorDisplay" rel="category tag">
+                                    @category.Category.Name
+                                </a>
+                            }
+                        </span>
+                    </div>
+                    <h3 class="entry-title">
+                        <a href="@Model.Products.FirstOrDefault()?.Slug"
+                           title="@Model.Products.FirstOrDefault()?.Name">
+                            @Model.Products.FirstOrDefault()?.Name
+                        </a>
+                    </h3>
+                    <div class="below-entry-meta">
+                        <span class="posted-on">
                             <a href="@Model.Products.FirstOrDefault()?.Slug"
-                               style="background:#dd8787" rel="category tag">
-                                Drinks
-                            </a>&nbsp;<a href="@Model.Products.FirstOrDefault()?.Slug"
-                                         style="background:#a3d886" rel="category tag">
-                                Food
-                            </a>&nbsp;<a href="@Model.Products.FirstOrDefault()?.Slug" style="background:#81d742"
-                                         rel="category tag">@Model.WidgetName</a>&nbsp;
-                                    </span>
-                                </div>
-                                <h3 class="entry-title">
-                                    <a href="@Model.Products.FirstOrDefault()?.Slug"
-                                       title="@Model.Products.FirstOrDefault()?.Name">
-                                        @Model.Products.FirstOrDefault()?.Name
+                               title="10:00 am" rel="bookmark">
+                                <i class="fa fa-calendar-o"></i>
+                                <time class="entry-date published" datetime="@Model.Products.FirstOrDefault()?.CreatedOn.ToLocalTime()">
+                                    @Model.Products.FirstOrDefault()?.CreatedOn.ToString("dd/MM/yyyy hh:mm")
+                                </time>
+                            </a>
+                        </span> <span class="byline">
+                            @*<span class="author vcard"><i class="fa fa-eye"></i><a class="url fn n" href="author/demothemegrill/index.html" title="TG-Demo Team">@Model.Products.FirstOrDefault()?.CalculatedProductPrice</a></span>*@
+                        </span> <span class="comments">
+                            <i class="fa fa-comment"></i><span>@Model.Products.FirstOrDefault()?.ReviewsCount</span>
+                        </span>
+                    </div>
+                    <div class="entry-content">
+                        <p>@Html.Raw(Model.Products.FirstOrDefault()?.ShortDescription)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="following-post">
+            @foreach (var product in Model.Products.Skip(1).Take(5))
+            {
+                <div class="single-article clearfix">
+                    <figure><a href="@product.Slug" title="@product.Name"><img width="130" height="90" src="@product.ThumbnailUrl" class="attachment-colormag-featured-post-small size-colormag-featured-post-small wp-post-image" alt="@product.Name" title="@product.Name" srcset="@product.ThumbnailUrl 392w" sizes="(max-width: 130px) 100vw, 130px" /></a></figure>
+                    <div class="article-content">
+                        <div class="above-entry-meta">
+                            <span class="cat-links">
+                                @foreach (var category in product.Categories)
+                                {
+                                    <a href="@category.Category.Slug"
+                                       style="background:@Model.ColorDisplay" rel="category tag">
+                                        @category.Category.Name
                                     </a>
-                                </h3>
-                                <div class="below-entry-meta">
-                                    <span class="posted-on">
-                                        <a href="@Model.Products.FirstOrDefault()?.Slug"
-                                           title="10:00 am" rel="bookmark">
-                                            <i class="fa fa-calendar-o"></i>
-                                            <time class="entry-date published" datetime="@Model.Products.FirstOrDefault()?.CreatedOn.ToLocalTime()">
-                                                @Model.Products.FirstOrDefault()?.CreatedOn.ToLocalTime()
-                                            </time>
-                                        </a>
-                                    </span> <span class="byline">
-                                        @*<span class="author vcard"><i class="fa fa-eye"></i><a class="url fn n" href="author/demothemegrill/index.html" title="TG-Demo Team">@Model.Products.FirstOrDefault()?.CalculatedProductPrice</a></span>*@
-                                    </span> <span class="comments">
-                                        <i class="fa fa-comment"></i><span>@Model.Products.FirstOrDefault()?.ReviewsCount</span>
-                                    </span>
-                                </div>
-                                <div class="entry-content">
-                                    <p>@Html.Raw(Model.Products.FirstOrDefault()?.ShortDescription)</p>
-                                </div>
-                            </div>
+                                }
+                            </span>
                         </div>
+                        <h3 class="entry-title"> <a href="@product.Slug" title="@product.Name">@product.Name</a></h3>
+                        <div class="below-entry-meta"> <span class="posted-on"><a href="@product.Slug" title="9:57 am" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published" datetime="@product.CreatedOn.ToString("dd/MM/yyyy")">@product.CreatedOn.ToString("dd/MM/yyyy")</time></a></span> <span class="byline"><span class="author vcard"><i class="fa fa-user"></i><a class="url fn n" href="author/demothemegrill/index.html" title="TG-Demo Team">TG-Demo Team</a></span></span> <span class="comments"><i class="fa fa-comment"></i><span>@product.ReviewsCount</span></span></div>
                     </div>
-                    <div class="following-post">
-                        @foreach (var product in Model.Products.Skip(1))
-                        {
-                            <div class="single-article clearfix">
-                                <figure><a href="@product.Slug" title="@product.Name"><img width="130" height="90" src="@product.ThumbnailUrl" class="attachment-colormag-featured-post-small size-colormag-featured-post-small wp-post-image" alt="@product.Name" title="@product.Name" srcset="https://demo.themegrill.com/colormag/~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/mosquito-542156_1280-130x90.jpg 130w, https://demo.themegrill.com/colormag/~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/mosquito-542156_1280-392x272.jpg 392w" sizes="(max-width: 130px) 100vw, 130px" /></a></figure>
-                                <div class="article-content">
-                                    <div class="above-entry-meta"><span class="cat-links"><a href="category/health/index.html" style="background:#81d742" rel="category tag">Health</a>&nbsp;<a href="category/news/index.html" style="background:#bfd6af" rel="category tag">News</a>&nbsp;</span></div>
-                                    <h3 class="entry-title"> <a href="@product.Slug" title="@product.Name">@product.Name</a></h3>
-                                    <div class="below-entry-meta"> <span class="posted-on"><a href="@product.Slug" title="9:57 am" rel="bookmark"><i class="fa fa-calendar-o"></i> <time class="entry-date published" datetime="@product.CreatedOn.ToString("dd/MM/yyyy")">@product.CreatedOn.ToString("dd/MM/yyyy")</time></a></span> <span class="byline"><span class="author vcard"><i class="fa fa-user"></i><a class="url fn n" href="author/demothemegrill/index.html" title="TG-Demo Team">TG-Demo Team</a></span></span> <span class="comments"><i class="fa fa-comment"></i><span>@product.ReviewsCount</span></span></div>
-                                </div>
-                            </div>
-                        }
-                    </div>
-                </section>
+                </div>
             }
+        </div>
+    </section>
+}
