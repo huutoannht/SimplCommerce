@@ -12,8 +12,8 @@ namespace SimplCommerce.Infrastructure.Web.ModelBinders
 
             if (!context.Metadata.IsComplexType && (context.Metadata.ModelType == typeof(decimal) || context.Metadata.ModelType == typeof(decimal?)))
             {
-                var loggerFactory = (ILoggerFactory)context.Services.GetService(typeof(ILoggerFactory));
-                return new InvariantDecimalModelBinder(context.Metadata.ModelType, loggerFactory);
+                //var loggerFactory = (ILoggerFactory)context.Services.GetService(typeof(ILoggerFactory));
+                //return new InvariantDecimalModelBinder(context.Metadata.ModelType, loggerFactory);
             }
 
             return null;

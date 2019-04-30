@@ -21,7 +21,7 @@ namespace SimplCommerce.Module.Tax.Areas.Tax.Controllers
         public TaxClassApiController(IRepository<TaxClass> taxClassRepository, IConfiguration config)
         {
             _taxClassRepository = taxClassRepository;
-            _defaultTaxClassId =config.GetValue<int>("Tax.DefaultTaxClassId");
+            _defaultTaxClassId = int.Parse( config.GetSection("Tax.DefaultTaxClassId").ToString());
         }
 
         [HttpGet]

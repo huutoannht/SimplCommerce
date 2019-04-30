@@ -9,17 +9,17 @@ namespace SimplCommerce.Module.ProductRecentlyViewed.Data
     {
         public void Build(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Widget>().HasData(
-                new Widget("RecentlyViewedWidget")
-                {
-                    Name = "Recently Viewed Widget",
-                    ViewComponentName = "RecentlyViewedWidget",
-                    CreateUrl = "widget-recently-viewed-create",
-                    EditUrl = "widget-recently-viewed-edit",
-                    CreatedOn = new DateTimeOffset(new DateTime(2018, 5, 29, 4, 33, 39, 164, DateTimeKind.Unspecified),
-                        new TimeSpan(0, 7, 0, 0, 0))
-                }
-            );
+            //modelBuilder.Entity<Widget>().HasData(
+            //    new Widget("RecentlyViewedWidget")
+            //    {
+            //        Name = "Recently Viewed Widget",
+            //        ViewComponentName = "RecentlyViewedWidget",
+            //        CreateUrl = "widget-recently-viewed-create",
+            //        EditUrl = "widget-recently-viewed-edit",
+            //        CreatedOn = new DateTimeOffset(new DateTime(2018, 5, 29, 4, 33, 39, 164, DateTimeKind.Unspecified),
+            //            new TimeSpan(0, 7, 0, 0, 0))
+            //    }
+            //);
         }
     }
 }

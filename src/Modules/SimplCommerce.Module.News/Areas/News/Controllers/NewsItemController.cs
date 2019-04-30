@@ -27,7 +27,7 @@ namespace SimplCommerce.Module.News.Areas.News.Controllers
             _newsItemRepository = newsItemRepository;
             _newsCategoryRepository = newsCategoryRepository;
             _mediaService = mediaService;
-            _pageSize = config.GetValue<int>("News.PageSize");
+            _pageSize = int.Parse(config.GetSection("News.PageSize").Value);
         }
 
         [HttpGet("news")]

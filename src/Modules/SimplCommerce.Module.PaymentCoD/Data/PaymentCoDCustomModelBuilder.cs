@@ -8,9 +8,9 @@ namespace SimplCommerce.Module.PaymentCoD.Data
     {
         public void Build(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<PaymentProvider>().HasData(
-                new PaymentProvider("CoD") { Name = "Cash On Delivery", LandingViewComponentName = "CoDLanding", ConfigureUrl = "payments-cod-config", IsEnabled = true, AdditionalSettings = null }
-            );
+            //modelBuilder.Entity<PaymentProvider>().HasData(
+            //    new PaymentProvider("CoD") { Name = "Cash On Delivery", LandingViewComponentName = "CoDLanding", ConfigureUrl = "payments-cod-config", IsEnabled = true, AdditionalSettings = null }
+            //);
         }
     }
 }

@@ -99,7 +99,7 @@ namespace SimplCommerce.Module.Core.Data
                 b.ToTable("Core_CustomerGroupUser");
             });
 
-            CoreSeedData.SeedData(modelBuilder);
+           // CoreSeedData.SeedData(modelBuilder);
         }
     }
 }

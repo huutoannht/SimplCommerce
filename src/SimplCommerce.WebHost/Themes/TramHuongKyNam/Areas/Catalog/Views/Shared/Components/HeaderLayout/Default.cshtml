@@ -1,0 +1,59 @@
+﻿@model SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels.ProductWidgetComponentVm
+@using System.Globalization
+@{
+    var dateTimeCurrent = CultureInfo.CurrentCulture.DateTimeFormat.GetDayName(DateTime.Today.DayOfWeek);
+}
+<header id="masthead" class="site-header clearfix ">
+    <div id="header-text-nav-container" class="clearfix">
+        <div class="news-bar">
+            <div class="inner-wrap clearfix">
+                <div class="date-in-header"> @dateTimeCurrent, @DateTime.Today.ToString("dd/MM/yyyy")</div>
+                <div class="breaking-news">
+                    <strong class="breaking-news-latest">Mới nhất:</strong>
+                    <ul class="newsticker">
+                        @foreach (var product in Model.Products)
+                        {
+                            <li>
+                                <a href="@product.Slug"
+                                   title="@product.Name">@product.Name</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+                <div class="social-links clearfix">
+                    <ul>
+                        <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fa fa-pinterest"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fa fa-youtube"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="inner-wrap">
+            <div id="header-text-nav-wrap" class="clearfix">
+                <div id="header-left-section">
+                    <div id="header-logo-image"> <a href="/" class="custom-logo-link" rel="home" itemprop="url"><img width="265" height="90" src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/03/logo.png" class="custom-logo" alt="COLORMAG" itemprop="logo" /></a></div>
+                    <div id="header-text" class="screen-reader-text">
+                        <h1 id="site-title"> <a href="index.html" title="COLORMAG" rel="home">COLORMAG</a></h1>
+                        <p id="site-description">Best Magazine WordPress theme for 2018</p>
+                    </div>
+                </div>
+                <div id="header-right-section">
+                    <div id="header-right-sidebar" class="clearfix">
+                        <aside id="colormag_728x90_advertisement_widget-9" class="widget widget_728x90_advertisement clearfix">
+                            <div class="advertisement_728x90">
+                                <div class="advertisement-content"><a href="https://demo.themegrill.com/colormag-pro/" class="single_ad_728x90" target="_blank" rel="nofollow"> <img src="~/themes/TramHuongKyNam/images/wp-content/uploads/sites/20/2015/07/ad-color-mag-large.jpg" width="728" height="90" alt=""> </a></div>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav id="site-navigation" class="main-navigation clearfix" role="navigation">
+            @await Component.InvokeAsync("CategoryMenu")
+        </nav>
+    </div>
+</header>

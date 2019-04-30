@@ -103,20 +103,20 @@ namespace SimplCommerce.WebHost.Extensions
 
         public static IApplicationBuilder UseCustomizedRequestLocalization(this IApplicationBuilder app)
         {
-            using (var scope = app.ApplicationServices.CreateScope())
-            {
-                var cultureRepository = scope.ServiceProvider.GetRequiredService<IRepositoryWithTypedId<Culture, string>>();
-                GlobalConfiguration.Cultures = cultureRepository.Query().ToList();
-            }
+            //using (var scope = app.ApplicationServices.CreateScope())
+            //{
+            //    var cultureRepository = scope.ServiceProvider.GetRequiredService<IRepositoryWithTypedId<Culture, string>>();
+            //    GlobalConfiguration.Cultures = cultureRepository.Query().ToList();
+            //}
 
-            var supportedCultures = GlobalConfiguration.Cultures.Select(c => c.Id).ToArray();
-            app.UseRequestLocalization(options =>
-            options
-                .AddSupportedCultures(supportedCultures)
-                .AddSupportedUICultures(supportedCultures)
-                .SetDefaultCulture(GlobalConfiguration.DefaultCulture)
-                .RequestCultureProviders.Insert(0, new EfRequestCultureProvider())
-            );
+            //var supportedCultures = GlobalConfiguration.Cultures.Select(c => c.Id).ToArray();
+            //app.UseRequestLocalization(options =>
+            //options
+            //    .AddSupportedCultures(supportedCultures)
+            //    .AddSupportedUICultures(supportedCultures)
+            //    .SetDefaultCulture(GlobalConfiguration.DefaultCulture)
+            //    .RequestCultureProviders.Insert(0, new EfRequestCultureProvider())
+            //);
 
             return app;
         }

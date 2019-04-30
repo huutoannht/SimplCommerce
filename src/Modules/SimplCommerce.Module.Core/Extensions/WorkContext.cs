@@ -84,8 +84,7 @@ namespace SimplCommerce.Module.Core.Extensions
             _httpContext.Response.Cookies.Append(UserGuidCookiesName, _currentUser.UserGuid.ToString(), new CookieOptions
             {
                 Expires = DateTime.UtcNow.AddYears(5),
-                HttpOnly = true,
-                IsEssential = true
+                HttpOnly = true
             });
         }
     }

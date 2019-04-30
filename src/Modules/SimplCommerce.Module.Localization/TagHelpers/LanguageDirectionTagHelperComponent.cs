@@ -23,9 +23,10 @@ namespace SimplCommerce.Module.Localization.TagHelpers
         {
             if (string.Equals(context.TagName, "body", StringComparison.Ordinal))
             {
-                var languageDirection = _httpContext.Features.Get<IRequestCultureFeature>()
-                    .RequestCulture.UICulture.GetLanguageDirection()
-                    .ToString().ToLower();
+                //var languageDirection = _httpContext.Features.Get<IRequestCultureFeature>()
+                //    .RequestCulture.UICulture.GetLanguageDirection()
+                //    .ToString().ToLower();
+                var languageDirection = "VI-VN";
                 if (!output.Attributes.ContainsName(LanguageDirectionAttribute))
                 {
                     output.Attributes.Add(LanguageDirectionAttribute, languageDirection);

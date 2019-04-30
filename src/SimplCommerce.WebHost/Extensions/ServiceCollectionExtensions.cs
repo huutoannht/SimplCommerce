@@ -92,35 +92,34 @@ namespace SimplCommerce.WebHost.Extensions
                     }
                 })
                 .AddViewLocalization()
-                .AddDataAnnotationsLocalization()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1); ;
+                .AddDataAnnotationsLocalization();
 
             foreach (var module in modules.Where(x => !x.IsBundledWithHost))
             {
-                AddApplicationPart(mvcBuilder, module.Assembly);
+                //AddApplicationPart(mvcBuilder, module.Assembly);
             }
 
             return services;
         }
 
-        private static void AddApplicationPart(IMvcBuilder mvcBuilder, Assembly assembly)
-        {
-            var partFactory = ApplicationPartFactory.GetApplicationPartFactory(assembly);
-            foreach (var part in partFactory.GetApplicationParts(assembly))
-            {
-                mvcBuilder.PartManager.ApplicationParts.Add(part);
-            }
+        //private static void AddApplicationPart(IMvcBuilder mvcBuilder, Assembly assembly)
+        //{
+        //    var partFactory = ApplicationPartFactory.GetApplicationPartFactory(assembly);
+        //    foreach (var part in partFactory.GetApplicationParts(assembly))
+        //    {
+        //        mvcBuilder.PartManager.ApplicationParts.Add(part);
+        //    }
 
-            var relatedAssemblies = RelatedAssemblyAttribute.GetRelatedAssemblies(assembly, throwOnError: false);
-            foreach (var relatedAssembly in relatedAssemblies)
-            {
-                partFactory = ApplicationPartFactory.GetApplicationPartFactory(relatedAssembly);
-                foreach (var part in partFactory.GetApplicationParts(relatedAssembly))
-                {
-                    mvcBuilder.PartManager.ApplicationParts.Add(part);
-                }
-            }
-        }
+        //    var relatedAssemblies = RelatedAssemblyAttribute.GetRelatedAssemblies(assembly, throwOnError: false);
+        //    foreach (var relatedAssembly in relatedAssemblies)
+        //    {
+        //        partFactory = ApplicationPartFactory.GetApplicationPartFactory(relatedAssembly);
+        //        foreach (var part in partFactory.GetApplicationParts(relatedAssembly))
+        //        {
+        //            mvcBuilder.PartManager.ApplicationParts.Add(part);
+        //        }
+        //    }
+        //}
 
         public static IServiceCollection AddCustomizedIdentity(this IServiceCollection services, IConfiguration configuration)
         {

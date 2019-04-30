@@ -17,14 +17,14 @@ namespace SimplCommerce.Module.News.Data
                 b.ToTable("News_NewsItemCategory");
             });
 
-            modelBuilder.Entity<AppSetting>().HasData(
-                new AppSetting("News.PageSize") { Module = "News", IsVisibleInCommonSettingPage = true, Value = "10" }
-            );
+            //modelBuilder.Entity<AppSetting>().HasData(
+            //    new AppSetting("News.PageSize") { Module = "News", IsVisibleInCommonSettingPage = true, Value = "10" }
+            //);
 
-            modelBuilder.Entity<EntityType>().HasData(
-                new EntityType("NewsCategory") { AreaName = "News", RoutingController = "NewsCategory", RoutingAction = "NewsCategoryDetail", IsMenuable = true },
-                new EntityType("NewsItem") { AreaName = "News", RoutingController = "NewsItem", RoutingAction = "NewsItemDetail", IsMenuable = false }
-            );
+            //modelBuilder.Entity<EntityType>().HasData(
+            //    new EntityType("NewsCategory") { AreaName = "News", RoutingController = "NewsCategory", RoutingAction = "NewsCategoryDetail", IsMenuable = true },
+            //    new EntityType("NewsItem") { AreaName = "News", RoutingController = "NewsItem", RoutingAction = "NewsItemDetail", IsMenuable = false }
+            //);
         }
     }
 }

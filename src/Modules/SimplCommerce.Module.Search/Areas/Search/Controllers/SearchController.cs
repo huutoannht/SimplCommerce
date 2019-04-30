@@ -39,7 +39,7 @@ namespace SimplCommerce.Module.Search.Areas.Search.Controllers
             _mediaService = mediaService;
             _queryRepository = queryRepository;
             _productPricingService = productPricingService;
-            _pageSize = config.GetValue<int>("Catalog.ProductPageSize");
+            _pageSize = int.Parse(config.GetSection("Catalog.ProductPageSize").Value);
         }
 
         [HttpGet("search")]

@@ -5,6 +5,7 @@ using SimplCommerce.Infrastructure;
 using SimplCommerce.Module.SampleData.Data;
 using SimplCommerce.Module.Core.Services;
 using SimplCommerce.Module.SampleData.Areas.SampleData.ViewModels;
+using System.Linq;
 
 namespace SimplCommerce.Module.SampleData.Services
 {
@@ -23,7 +24,7 @@ namespace SimplCommerce.Module.SampleData.Services
         {
             var usePostgres = _sqlRepository.GetDbConnectionType() == "Npgsql.NpgsqlConnection";
             var useSQLite = _sqlRepository.GetDbConnectionType() == "Microsoft.Data.Sqlite.SqliteConnection";
-            var useMySql = _sqlRepository.GetDbConnectionType().Contains("MySql", System.StringComparison.InvariantCultureIgnoreCase);
+            var useMySql = _sqlRepository.GetDbConnectionType().Contains("MySql");
             var sampleContentFolder = Path.Combine(GlobalConfiguration.ContentRootPath, "Modules", "SimplCommerce.Module.SampleData", "SampleContent", model.Industry);
 
             var filePath = 

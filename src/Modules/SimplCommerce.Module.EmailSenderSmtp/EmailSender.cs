@@ -13,10 +13,10 @@ namespace SimplCommerce.Module.EmailSenderSmtp
 
         public EmailSender(IConfiguration config)
         {
-            _emailConfig.SmtpServer = config.GetValue<string>("SmtpServer");
-            _emailConfig.SmtpUsername = config.GetValue<string>("SmtpUsername");
-            _emailConfig.SmtpPassword = config.GetValue<string>("SmtpPassword");
-            _emailConfig.SmtpPort = config.GetValue<int>("SmtpPort");
+            _emailConfig.SmtpServer = config.GetSection("SmtpServer").Value;
+            _emailConfig.SmtpUsername = config.GetSection("SmtpUsername").Value;
+            _emailConfig.SmtpPassword = config.GetSection("SmtpPassword").Value;
+            _emailConfig.SmtpPort = int.Parse(config.GetSection("SmtpPort").Value);
         }
 
         public async Task SendEmailAsync(string email, string subject, string body, bool isHtml = false)

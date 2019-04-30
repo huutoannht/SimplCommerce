@@ -21,13 +21,9 @@ namespace SimplCommerce.Module.Core.Areas.Core.Controllers
         [Route("admin")]
         public IActionResult Index()
         {
-            if (DateTime.Today > DateTime.Parse("19/06/2019"))
-            {
-                return RedirectToAction("ErrorWithCode", "Home", new { id = 404 });
-            }
             var tokens = _antiforgery.GetAndStoreTokens(HttpContext);
             HttpContext.Response.Cookies.Append("XSRF-TOKEN",
-                tokens.RequestToken, new CookieOptions { HttpOnly = false, IsEssential = true }
+                tokens.RequestToken, new CookieOptions { HttpOnly = false }
             );
 
             return View();

@@ -42,13 +42,13 @@ namespace SimplCommerce.WebHost
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-                options.CheckConsentNeeded = context => true;
+                //options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
             services.AddCustomizedDataStore(_configuration);
             services.AddCustomizedIdentity(_configuration);
-            services.AddHttpClient();
+            //services.AddHttpClient();
             services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
             services.AddTransient(typeof(IRepositoryWithTypedId<,>), typeof(RepositoryWithTypedId<,>));
 
@@ -95,7 +95,6 @@ namespace SimplCommerce.WebHost
                     context => !context.Request.Path.StartsWithSegments("/api"),
                     a => a.UseExceptionHandler("/Home/Error")
                 );
-                app.UseHsts();
             }
 
             app.UseWhen(
@@ -103,7 +102,6 @@ namespace SimplCommerce.WebHost
                 a => a.UseStatusCodePagesWithReExecute("/Home/ErrorWithCode/{0}")
             );
 
-            app.UseHttpsRedirection();
             app.UseCustomizedStaticFiles(env);
             app.UseSwagger();
             app.UseSwaggerUI(c =>

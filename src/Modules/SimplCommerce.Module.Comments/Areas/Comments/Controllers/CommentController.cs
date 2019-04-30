@@ -25,7 +25,7 @@ namespace SimplCommerce.Module.Comments.Areas.Comments.Controllers
         {
             _commentRepository = commentRepository;
             _workContext = workContext;
-            _isCommentsRequireApproval = config.GetValue<bool>("Product.IsCommentsRequireApproval");
+            _isCommentsRequireApproval =bool.Parse(config.GetSection("Product.IsCommentsRequireApproval").Value);
         }
 
         [HttpPost]

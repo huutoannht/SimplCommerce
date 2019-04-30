@@ -33,7 +33,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
             _categoryRepository = categoryRepository;
             _brandRepository = brandRepository;
             _productPricingService = productPricingService;
-            _pageSize = config.GetValue<int>("Catalog.ProductPageSize");
+            _pageSize = int.Parse(config.GetSection("Catalog.ProductPageSize").Value);
         }
 
         public IActionResult BrandDetail(long id, SearchOption searchOption)

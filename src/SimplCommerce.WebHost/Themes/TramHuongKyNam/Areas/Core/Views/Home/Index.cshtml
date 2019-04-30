@@ -26,7 +26,7 @@
 <div class="front-page-top-section clearfix">
     <div class="widget_slider_area">
         <section id="colormag_featured_posts_slider_widget-4" class="widget widget_featured_slider widget_featured_meta clearfix">
-            <partial name="_WidgetInstances" model="Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeFeatured)" />
+            @await Html.PartialAsync("_WidgetInstances", @Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeFeatured))
         </section>
     </div>
     <div class="widget_beside_slider">
@@ -71,7 +71,7 @@
 <div class="main-content-section clearfix">
     <div id="primary">
         <div id="content" class="clearfix">
-            ﻿<partial name="_WidgetInstances" model="Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeMainContent)" />
+            @await Html.PartialAsync("_WidgetInstances", Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeMainContent))
         </div>
     </div>
     @await Component.InvokeAsync("NewProduct")

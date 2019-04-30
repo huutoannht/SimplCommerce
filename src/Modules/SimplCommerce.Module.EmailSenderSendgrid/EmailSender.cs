@@ -14,8 +14,8 @@ namespace SimplCommerce.Module.EmailSenderSendgrid
         private readonly string _from;
         public EmailSender(IConfiguration configuration)
         {
-            _apiKey = configuration.GetValue<string>("SendGrid:Email:ApiKey");
-            _from = configuration.GetValue<string>("SendGrid:Email:From");
+            _apiKey = configuration.GetSection("SendGrid:Email:ApiKey").Value;
+            _from = configuration.GetSection("SendGrid:Email:From").Value;
 
             Contract.Requires(string.IsNullOrWhiteSpace(_apiKey));
             Contract.Requires(string.IsNullOrWhiteSpace(_from));

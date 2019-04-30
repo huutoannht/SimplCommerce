@@ -29,15 +29,14 @@ namespace SimplCommerce.Module.PaymentPaypalExpress.Areas.PaymentPaypalExpress.C
         private readonly IRepositoryWithTypedId<PaymentProvider, string> _paymentProviderRepository;
         private readonly IRepository<Payment> _paymentRepository;
         private Lazy<PaypalExpressConfigForm> _setting;
-        private readonly IHttpClientFactory _httpClientFactory;
+        private readonly HttpClient _httpClientFactory;
 
         public PaypalExpressController(
             ICartService cartService,
             IOrderService orderService,
             IWorkContext workContext,
             IRepositoryWithTypedId<PaymentProvider, string> paymentProviderRepository,
-            IRepository<Payment> paymentRepository,
-            IHttpClientFactory httpClientFactory)
+            IRepository<Payment> paymentRepository)
         {
             _cartService = cartService;
             _orderService = orderService;
@@ -45,7 +44,7 @@ namespace SimplCommerce.Module.PaymentPaypalExpress.Areas.PaymentPaypalExpress.C
             _paymentProviderRepository = paymentProviderRepository;
             _paymentRepository = paymentRepository;
             _setting = new Lazy<PaypalExpressConfigForm>(GetSetting());
-            _httpClientFactory = httpClientFactory;
+            _httpClientFactory = new HttpClient();
         }
 
         [HttpPost("PaypalExpress/CreatePayment")]
@@ -58,8 +57,7 @@ namespace SimplCommerce.Module.PaymentPaypalExpress.Areas.PaymentPaypalExpress.C
             var regionInfo = new RegionInfo(CultureInfo.CurrentCulture.LCID);
             var experienceProfileId = await CreateExperienceProfile(accessToken);
 
-            var httpClient = _httpClientFactory.CreateClient();
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+            _httpClientFactory.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
             var paypalAcceptedNumericFormatCulture = CultureInfo.CreateSpecificCulture("en-US");
             var paymentCreateRequest = new PaymentCreateRequest
             {
@@ -93,7 +91,7 @@ namespace SimplCommerce.Module.PaymentPaypalExpress.Areas.PaymentPaypalExpress.C
                 }
             };
 
-            var response = await httpClient.PostJsonAsync($"https://api{_setting.Value.EnvironmentUrlPart}.paypal.com/v1/payments/payment", paymentCreateRequest);
+            var response = await _httpClientFactory.PostJsonAsync($"https://api{_setting.Value.EnvironmentUrlPart}.paypal.com/v1/payments/payment", paymentCreateRequest);
             var responseBody = await response.Content.ReadAsStringAsync();
             dynamic payment = JObject.Parse(responseBody);
             if (response.IsSuccessStatusCode)
@@ -127,14 +125,13 @@ namespace SimplCommerce.Module.PaymentPaypalExpress.Areas.PaymentPaypalExpress.C
                 CreatedOn = DateTimeOffset.UtcNow,
             };
 
-            var httpClient = _httpClientFactory.CreateClient();
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+            _httpClientFactory.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
             var paymentExecuteRequest = new PaymentExecuteRequest
             {
                 payer_id = model.payerID
             };
 
-            var response = await httpClient.PostJsonAsync($"https://api{_setting.Value.EnvironmentUrlPart}.paypal.com/v1/payments/payment/{model.paymentID}/execute", paymentExecuteRequest);
+            var response = await _httpClientFactory.PostJsonAsync($"https://api{_setting.Value.EnvironmentUrlPart}.paypal.com/v1/payments/payment/{model.paymentID}/execute", paymentExecuteRequest);
             var responseBody = await response.Content.ReadAsStringAsync();
             dynamic responseObject = JObject.Parse(responseBody);
             if (response.IsSuccessStatusCode)
@@ -162,13 +159,12 @@ namespace SimplCommerce.Module.PaymentPaypalExpress.Areas.PaymentPaypalExpress.C
 
         private async Task<string> GetAccessToken()
         {
-            var httpClient = _httpClientFactory.CreateClient();
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
+            _httpClientFactory.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
                 "Basic",
                 Convert.ToBase64String(System.Text.Encoding.ASCII.GetBytes($"{_setting.Value.ClientId}:{_setting.Value.ClientSecret}")));
             var requestBody = new StringContent("grant_type=client_credentials");
             requestBody.Headers.ContentType = new MediaTypeHeaderValue("application/x-www-form-urlencoded");
-            var response = await httpClient.PostAsync($"https://api{_setting.Value.EnvironmentUrlPart}.paypal.com/v1/oauth2/token", requestBody);
+            var response = await _httpClientFactory.PostAsync($"https://api{_setting.Value.EnvironmentUrlPart}.paypal.com/v1/oauth2/token", requestBody);
             response.EnsureSuccessStatusCode();
             var responseBody = await response.Content.ReadAsStringAsync();
             dynamic token = JObject.Parse(responseBody);
@@ -178,8 +174,7 @@ namespace SimplCommerce.Module.PaymentPaypalExpress.Areas.PaymentPaypalExpress.C
 
         private async Task<string> CreateExperienceProfile(string accessToken)
         {
-            var httpClient = _httpClientFactory.CreateClient();
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+            _httpClientFactory.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
             var experienceRequest = new ExperienceProfile
             {
                 name = $"simpl_{Guid.NewGuid()}",
@@ -189,7 +184,7 @@ namespace SimplCommerce.Module.PaymentPaypalExpress.Areas.PaymentPaypalExpress.C
                 },
                 temporary = true
             };
-            var response = await httpClient.PostJsonAsync($"https://api{_setting.Value.EnvironmentUrlPart}.paypal.com/v1/payment-experience/web-profiles", experienceRequest);
+            var response = await _httpClientFactory.PostJsonAsync($"https://api{_setting.Value.EnvironmentUrlPart}.paypal.com/v1/payment-experience/web-profiles", experienceRequest);
             var responseBody = await response.Content.ReadAsStringAsync();
             dynamic experience = JObject.Parse(responseBody);
             // Has to explicitly declare the type to be able to get the propery

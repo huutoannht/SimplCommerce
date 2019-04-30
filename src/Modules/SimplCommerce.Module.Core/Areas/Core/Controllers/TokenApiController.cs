@@ -12,7 +12,7 @@ using SimplCommerce.Module.Core.Services;
 namespace SimplCommerce.Module.Core.Areas.Core.Controllers
 {
     [Area("Core")]
-    [ApiController]
+    [Route("api/[controller]")]
     public class TokenApiController : Controller
     {
         private readonly UserManager<User> _userManager;

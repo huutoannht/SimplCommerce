@@ -16,12 +16,10 @@ namespace SimplCommerce.Module.Core.Areas.Core.Controllers
     public class ThemeApiController : Controller
     {
         private readonly IThemeService _themeService;
-        private readonly IHttpClientFactory _httpClientFactory;
 
-        public ThemeApiController(IThemeService themeService, IHttpClientFactory httpClientFactory)
+        public ThemeApiController(IThemeService themeService)
         {
             _themeService = themeService;
-            _httpClientFactory = httpClientFactory;
         }
 
         [HttpGet]
@@ -31,50 +29,51 @@ namespace SimplCommerce.Module.Core.Areas.Core.Controllers
             return Json(themes);
         }
 
-        [HttpGet("/api/online-themes")]
-        public async Task<IActionResult> GetOnlineThemes()
-        {
-            var client = _httpClientFactory.CreateClient();
-            var response = await client.GetAsync("http://marketplace.simplcommerce.com/api/projects/themes");
-            response.EnsureSuccessStatusCode();
+        //[HttpGet("/api/online-themes")]
+        //public async Task<IActionResult> GetOnlineThemes()
+        //{
 
-            var onlineThemes = await response.Content.ReadAsAsync<List<ProjectItemVm>>();
-            return Ok(onlineThemes);
-        }
+        //    //var client = (new HttpClient()).CreateClient();
+        //    //var response = await client.GetAsync("http://marketplace.simplcommerce.com/api/projects/themes");
+        //    //response.EnsureSuccessStatusCode();
 
-        [HttpGet("/api/online-themes/{name}")]
-        public async Task<IActionResult> Details(string name)
-        {
-            var client = _httpClientFactory.CreateClient();
-            var response = await client.GetAsync($"http://marketplace.simplcommerce.com/api/projects/{name}");
-            response.EnsureSuccessStatusCode();
+        //    //var onlineThemes = await response.Content.ReadAsAsync<List<ProjectItemVm>>();
+        //    //return Ok(onlineThemes);
+        //}
 
-            var projectDetailsVm = await response.Content.ReadAsAsync<ProjectDetailsVm>();
+        //[HttpGet("/api/online-themes/{name}")]
+        //public async Task<IActionResult> Details(string name)
+        //{
+        //    var client = _httpClientFactory.CreateClient();
+        //    var response = await client.GetAsync($"http://marketplace.simplcommerce.com/api/projects/{name}");
+        //    response.EnsureSuccessStatusCode();
 
-            var installedThemes = await _themeService.GetInstalledThemes();
-            projectDetailsVm.IsInstalled = installedThemes.Any(x => x.Name == name);
+        //    var projectDetailsVm = await response.Content.ReadAsAsync<ProjectDetailsVm>();
 
-            return Ok(projectDetailsVm);
-        }
+        //    var installedThemes = await _themeService.GetInstalledThemes();
+        //    projectDetailsVm.IsInstalled = installedThemes.Any(x => x.Name == name);
 
-        [HttpPut("/api/online-themes/{name}/install")]
-        public async Task<IActionResult> Install(string name)
-        {
-            var installedThemes = await _themeService.GetInstalledThemes();
-            if(installedThemes.Any(x => x.Name == name))
-            {
-                return NoContent();
-            }
+        //    return Ok(projectDetailsVm);
+        //}
 
-            var client = _httpClientFactory.CreateClient();
-            var response = await client.GetAsync($"http://marketplace.simplcommerce.com/api/projects/{name}/download");
-            response.EnsureSuccessStatusCode();
+        //[HttpPut("/api/online-themes/{name}/install")]
+        //public async Task<IActionResult> Install(string name)
+        //{
+        //    var installedThemes = await _themeService.GetInstalledThemes();
+        //    if(installedThemes.Any(x => x.Name == name))
+        //    {
+        //        return NoContent();
+        //    }
 
-            var responsStream = await response.Content.ReadAsStreamAsync();
-            await _themeService.Install(responsStream, name);
+        //    var client = _httpClientFactory.CreateClient();
+        //    var response = await client.GetAsync($"http://marketplace.simplcommerce.com/api/projects/{name}/download");
+        //    response.EnsureSuccessStatusCode();
 
-            return Accepted();
-        }
+        //    var responsStream = await response.Content.ReadAsStreamAsync();
+        //    await _themeService.Install(responsStream, name);
+
+        //    return Accepted();
+        //}
 
         [HttpDelete("{themeName}")]
         public IActionResult Delete(string themeName)
