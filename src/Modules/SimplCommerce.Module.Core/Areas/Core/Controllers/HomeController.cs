@@ -58,6 +58,11 @@ namespace SimplCommerce.Module.Core.Areas.Core.Controllers
 
             return View("Error");
         }
+        [HttpGet("/Home/HealBeat")]
+        public IActionResult HealBeat()
+        {
+            return Ok();
+        }
 
         public IActionResult Error()
         {
