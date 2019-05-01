@@ -21,6 +21,9 @@ using SimplCommerce.Module.Localization.TagHelpers;
 using SimplCommerce.WebHost.Extensions;
 using Microsoft.Extensions.FileProviders;
 using System.IO;
+using Hangfire;
+using System;
+using SimplCommerce.WebHost.Extensions.Jobs;
 
 namespace SimplCommerce.WebHost
 {
@@ -37,8 +40,8 @@ namespace SimplCommerce.WebHost
 
         public void ConfigureServices(IServiceCollection services)
         {
-            GlobalConfiguration.WebRootPath = _hostingEnvironment.WebRootPath;
-            GlobalConfiguration.ContentRootPath = _hostingEnvironment.ContentRootPath;
+            Infrastructure.GlobalConfiguration.WebRootPath = _hostingEnvironment.WebRootPath;
+            Infrastructure.GlobalConfiguration.ContentRootPath = _hostingEnvironment.ContentRootPath;
             services.AddModules(_hostingEnvironment.ContentRootPath);
 
             services.Configure<CookiePolicyOptions>(options =>
@@ -56,7 +59,7 @@ namespace SimplCommerce.WebHost
 
             services.AddCustomizedLocalization();
 
-            services.AddCustomizedMvc(GlobalConfiguration.Modules);
+            services.AddCustomizedMvc(Infrastructure.GlobalConfiguration.Modules);
             services.Configure<RazorViewEngineOptions>(
                 options => { options.ViewLocationExpanders.Add(new ThemeableViewLocationExpander()); });
             services.Configure<WebEncoderOptions>(options =>
@@ -82,9 +85,12 @@ namespace SimplCommerce.WebHost
             {
                 c.SwaggerDoc("v1", new Info { Title = "SimplCommerce API", Version = "v1" });
             });
+            services.AddHangfire(x => x.UseSqlServerStorage(_configuration.GetConnectionString("DefaultConnection")));
+            services.AddHangfireServer();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env,
+            IBackgroundJobClient backgroundJobs)
         {
             if (env.IsDevelopment())
             {
@@ -105,7 +111,8 @@ namespace SimplCommerce.WebHost
                     ServeUnknownFileTypes = true // serve extensionless file
                 });
             }
-
+            app.UseHangfireDashboard();
+            RecurringJob.AddOrUpdate( () => HealCheckJob.HealBeatAsync(),Cron.Minutely);
             app.UseWhen(
                 context => !context.Request.Path.StartsWithSegments("/api"),
                 a => a.UseStatusCodePagesWithReExecute("/Home/ErrorWithCode/{0}")
