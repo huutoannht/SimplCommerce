@@ -14,7 +14,7 @@ namespace SimplCommerce.Module.Core.Areas.Core.Controllers
     {
         private readonly ILogger _logger;
         private readonly IWidgetInstanceService _widgetInstanceService;
-
+        private static int count = 1;
         public HomeController(ILoggerFactory factory, IWidgetInstanceService widgetInstanceService)
         {
             _logger = factory.CreateLogger("Unhandled Error");
@@ -60,7 +60,8 @@ namespace SimplCommerce.Module.Core.Areas.Core.Controllers
         [HttpGet("/Home/HealBeat")]
         public IActionResult HealBeat()
         {
-            return Ok();
+            count++;
+            return Ok(count);
         }
 
         public IActionResult Error()

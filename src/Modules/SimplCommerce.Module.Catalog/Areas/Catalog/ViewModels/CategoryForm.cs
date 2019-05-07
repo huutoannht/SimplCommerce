@@ -37,5 +37,6 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels
         public IFormFile ThumbnailImage { get; set; }
 
         public string ThumbnailImageUrl { get; set; }
+        public string Icon { get;  set; }
     }
 }

@@ -212,7 +212,25 @@
                 max: @Model.FilterOption.Price.MaxPrice.ToString("F0"),
                 currentMin: @((Model.CurrentSearchOption.MinPrice ?? Model.FilterOption.Price.MinPrice).ToString("F0")),
                 currentMax: @((Model.CurrentSearchOption.MaxPrice ?? Model.FilterOption.Price.MaxPrice).ToString("F0")),
-            };
+        };
+        function loadMoreProductByBranch(){
+            $.ajax({
+                url:'/Catalog/Category/CategoryDetailLoadMore/@Model.BrandId?page='+count,
+                type:'get',
+                success:function(html){
+                    if(count=='@Model.CurrentSearchOption.PageCount')
+                    {
+                        $('.load-more').css('display','none');
+                    }
+                    ++count;
+                    $('.homeproduct').append(html);
+                },
+                error:function(ex){
+                    console.log(ex);
+                }
+
+            })
+        }
     </script>
     <script simpl-append-version="true" src="~/modules/catalog/product-filter.js"></script>
     <script simpl-append-version="true" src="~/themes/TheGioiDiDong/js/category.js"></script>

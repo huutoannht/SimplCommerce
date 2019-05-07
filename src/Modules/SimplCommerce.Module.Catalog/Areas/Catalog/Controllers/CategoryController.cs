@@ -53,6 +53,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
                 CategoryMetaTitle = category.MetaTitle,
                 CategoryMetaKeywords = category.MetaKeywords,
                 CategoryMetaDescription = category.MetaDescription,
+                Description = category.Description,
                 CurrentSearchOption = searchOption,
                 FilterOption = new FilterOption()
             };

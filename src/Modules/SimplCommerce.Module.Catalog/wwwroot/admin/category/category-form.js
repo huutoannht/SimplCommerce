@@ -27,6 +27,7 @@
             vm.category.metaTitle = vm.category.metaTitle === null ? '' : vm.category.metaTitle;
             vm.category.metaKeywords = vm.category.metaKeywords === null ? '' : vm.category.metaKeywords;
             vm.category.metaDescription = vm.category.metaDescription === null ? '' : vm.category.metaDescription;
+            vm.category.icon = vm.category.icon === null ? '' : vm.category.icon;
 
             if (vm.isEditMode) {
                 promise = categoryService.editCategory(vm.category);

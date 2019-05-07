@@ -23,6 +23,8 @@ namespace SimplCommerce.Module.Catalog.Models
 
         public string Description { get; set; }
 
+        public string Icon { get; set; }
+
         public int DisplayOrder { get; set; }
 
         public bool IsPublished { get; set; }

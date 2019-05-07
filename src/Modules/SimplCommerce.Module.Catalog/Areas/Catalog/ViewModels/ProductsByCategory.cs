@@ -32,5 +32,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels
             new SelectListItem { Text = "Price: Low to High", Value = "price-asc" },
             new SelectListItem { Text = "Price: High to Low", Value = "price-desc" }
         };
+
+        public string Description { get;  set; }
     }
 }
