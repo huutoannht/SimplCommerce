@@ -5,7 +5,8 @@
         .controller('CategoryFormCtrl', CategoryFormCtrl);
 
     /* @ngInject */
-    function CategoryFormCtrl($q, $state, $stateParams, categoryService, translateService) {
+    function CategoryFormCtrl($q, $state, $stateParams, categoryService, translateService
+        , summerNoteService) {
         var vm = this,
             tableStateRef;
         vm.translate = translateService;
@@ -17,6 +18,14 @@
 
         vm.updateSlug = function () {
             vm.category.slug = slugify(vm.category.name);
+        };
+
+
+        vm.descUpload = function (files) {
+            summerNoteService.upload(files[0])
+                .then(function (response) {
+                    $(vm.description).summernote('insertImage', response.data);
+                });
         };
 
         vm.save = function save() {

@@ -140,10 +140,10 @@
                         <li class="sort-by">
                             Mức giá:
                         </li>
-                        <li class="sort-by"> <a href="?category=duoi-5-trieu" rel="nofolow"> Dưới 5 triệu</a> </li>
-                        <li>  <a href="?category=5-10-trieu" rel="nofolow">5 - 10 triệu</a></li>
+                        <li class="sort-by"> <a href="/laptop-cu-duoi-5-trieu" rel="nofolow"> Dưới 5 triệu</a> </li>
+                        <li>  <a href="/laptop-cu-5-10-trieu" rel="nofolow">5 - 10 triệu</a></li>
                         <li class="sort-by">
-                            <a href="?category=tren-10-trieu" rel="nofolow">Trên 10 triệu</a>
+                            <a href="/laptop-cu-tren-10-trieu" rel="nofolow">Trên 10 triệu</a>
                         </li>
                         <li class="sort-by">
                             <label>@Localizer["Sort by:"]</label>
@@ -152,18 +152,18 @@
                             </div>
                         </li>
                         @*<li class="pagination-option">
-            <label>Show :</label>
-            <div class="btn-group">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    20 <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">All</a></li>
-                    <li><a href="#">50</a></li>
-                    <li><a href="#">30</a></li>
-                </ul>
-            </div>
-        </li>*@
+                        <label>Show :</label>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                20 <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">All</a></li>
+                                <li><a href="#">50</a></li>
+                                <li><a href="#">30</a></li>
+                            </ul>
+                        </div>
+                    </li>*@
                     </ul>
                 </div>
             </div>
@@ -178,22 +178,30 @@
                 </div>
 
                 @*@foreach (var product in Model.Products)
-                    {
-                        <div class="col-xs-6 col-md-4">
-                            <partial name="_ProductThumbnail" model="product" />
-                        </div>
-                    }*@
-            </div>
-            <div class="row">
-                <div class="col-md-12 text-right">
-                    <cs-pager cs-paging-pagesize="@Model.CurrentSearchOption.PageSize"
-                              cs-paging-pagenumber="@Model.CurrentSearchOption.Page"
-                              cs-paging-totalitems="@Model.TotalProduct"
-                              cs-pagenumber-param="page"
-                              asp-basehref="~/@Model.BrandName"
-                              asp-all-route-data="@Model.CurrentSearchOption.ToDictionary()"></cs-pager>
+            {
+                <div class="col-xs-6 col-md-4">
+                    <partial name="_ProductThumbnail" model="product" />
                 </div>
+            }*@
             </div>
+            @*<div class="row">
+            <div class="col-md-12 text-right">
+                <cs-pager cs-paging-pagesize="@Model.CurrentSearchOption.PageSize"
+                          cs-paging-pagenumber="@Model.CurrentSearchOption.Page"
+                          cs-paging-totalitems="@Model.TotalProduct"
+                          cs-pagenumber-param="page"
+                          asp-basehref="~/@Model.BrandName"
+                          asp-all-route-data="@Model.CurrentSearchOption.ToDictionary()"></cs-pager>
+            </div>
+        </div>*@
+            @if (Model.CurrentSearchOption.Page != Model.CurrentSearchOption.PageCount)
+            {
+                <div class="row load-more">
+                    <div class="col-md-12 text-center">
+                        <button class="btn btn-outline-primary" onclick="loadMoreProductByBranch()">Xem thêm</button>
+                    </div>
+                </div>
+            }
         </div>
     </div>
 
@@ -205,7 +213,8 @@
     <script simpl-append-version="true" src="~/lib/nouislider/distribute/nouislider.min.js"></script>
 
     <script>
-            var productFilter = {};
+    var productFilter = {};
+      var count=2;      
             productFilter.currentSearchOption = @Html.Raw(Model.CurrentSearchOption.ToJson());
             productFilter.priceSetting = {
                 min: @Model.FilterOption.Price.MinPrice.ToString("F0"),
@@ -215,7 +224,7 @@
         };
         function loadMoreProductByBranch(){
             $.ajax({
-                url:'/Catalog/Category/CategoryDetailLoadMore/@Model.BrandId?page='+count,
+                url:'/Catalog/Brand/BrandDetailLoadMore/@Model.BrandId?page='+count,
                 type:'get',
                 success:function(html){
                     if(count=='@Model.CurrentSearchOption.PageCount')

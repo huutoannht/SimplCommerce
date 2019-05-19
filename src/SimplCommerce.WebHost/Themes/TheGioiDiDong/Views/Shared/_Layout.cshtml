@@ -60,21 +60,61 @@
         .navbar {
             padding: 0rem 0rem !important;
         }
+         #fb-root > div.fb_dialog.fb_dialog_advanced.fb_shrink_active {
+     left: initial !important;
+     left: 18pt;
+     z-index: 9999999 !important;
+  }
+         .fb_dialog  {
+             left: 18px!important;
+         }
+  .fb-customerchat.fb_invisible_flow.fb_iframe_widget iframe {
+     right: initial !important;
+     left: 18pt !important;
+  }
     </style>
 
 </head>
 <body>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-97842202-9"></script>
-    <script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
+    <div class="zalo-chat-widget" data-oaid="579745863508352884" data-welcome-message="Rất vui khi được hỗ trợ bạn!" data-autopopup="0" data-width="350" data-height="420"></div>
 
-	  gtag('config', 'UA-97842202-9');
-    </script>
+    <script src="https://sp.zalo.me/plugins/sdk.js"></script>
+    <!-- Load Facebook SDK for JavaScript -->
     <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.2&appId=2215291551867822&autoLogAppEvents=1"></script>
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                xfbml: true,
+                version: 'v3.3'
+            });
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+    <!-- Your customer chat code -->
+    <div class="fb-customerchat"
+         attribution=setup_tool
+         page_id="117102342122260"
+         theme_color="#f49b00"
+         minimized="false"
+         logged_in_greeting="Xin chào ! Rất vui khi được hỗ trợ bạn!?"
+         logged_out_greeting="Xin chào ! Rất vui khi được hỗ trợ bạn!?">
+    </div>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-97842202-9');
+    </script>
+    @*<div id="fb-root"></div>*@
+    @*<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.2&appId=2215291551867822&autoLogAppEvents=1"></script>*@
     <header class="row">
         @await Component.InvokeAsync("CategoryMenu")
     </header>
@@ -84,10 +124,9 @@
         @RenderBody()
         <div class="catetag">
             <div>
-                <a href="?category=duoi-5-trieu" rel="nofolow">Dưới 5 triệu</a>
-                <a href="?category=5-10-trieu" rel="nofolow">5 - 10 triệu</a>
-                @*<a href="?category=15-25-trieu" rel="nofolow">15 - 25 triệu</a>*@
-                <a href="?category=tren-10-trieu" rel="nofolow">Trên 10 triệu</a>
+                <a href="/laptop-cu-duoi-5-trieu" rel="nofolow">Dưới 5 triệu</a>
+                <a href="/laptop-cu-5-10-trieu" rel="nofolow">5 - 10 triệu</a>
+                <a href="/laptop-cu-tren-10-trieu" rel="nofolow">Trên 10 triệu</a>
             </div>
             <div>
                 <a href="/macbook-cu" rel="nofolow">Macbook</a>

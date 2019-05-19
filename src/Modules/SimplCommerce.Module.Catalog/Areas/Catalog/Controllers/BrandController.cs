@@ -105,6 +105,81 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
 
             model.Products = products;
             model.CurrentSearchOption.PageSize = _pageSize;
+            model.CurrentSearchOption.PageCount = System.Convert.ToInt32(System.Math.Ceiling(model.TotalProduct / System.Convert.ToDouble(_pageSize)));
+            model.CurrentSearchOption.Page = currentPageNum;
+
+            return View(model);
+        }
+        public IActionResult BrandDetailLoadMore(long id, SearchOption searchOption)
+        {
+            var brand = _brandRepository.Query().FirstOrDefault(x => x.Id == id);
+
+            var model = new ProductsByBrand
+            {
+                BrandId = id,
+                BrandName = brand.Name,
+                BrandSlug = brand.Slug,
+                CurrentSearchOption = searchOption,
+                FilterOption = new FilterOption()
+            };
+
+            var query = _productRepository.Query().Where(x => x.BrandId == id && x.IsPublished && x.IsVisibleIndividually);
+
+            AppendFilterOptionsToModel(model, query);
+
+            if (query.Count() == 0)
+            {
+                model.TotalProduct = 0;
+                return View(model);
+            }
+
+            if (searchOption.MinPrice.HasValue)
+            {
+                query = query.Where(x => x.Price >= searchOption.MinPrice.Value);
+            }
+
+            if (searchOption.MaxPrice.HasValue)
+            {
+                query = query.Where(x => x.Price <= searchOption.MaxPrice.Value);
+            }
+
+            var categories = searchOption.GetCategories();
+            if (categories.Any())
+            {
+                var categoryIds = _categoryRepository.Query().Where(x => categories.Contains(x.Slug)).Select(x => x.Id).ToList();
+                query = query.Where(x => x.Categories.Any(c => categoryIds.Contains(c.CategoryId)));
+            }
+
+            model.TotalProduct = query.Count();
+            var currentPageNum = searchOption.Page <= 0 ? 1 : searchOption.Page;
+            var offset = (_pageSize * currentPageNum) - _pageSize;
+            while (currentPageNum > 1 && offset >= model.TotalProduct)
+            {
+                currentPageNum--;
+                offset = (_pageSize * currentPageNum) - _pageSize;
+            }
+
+            query = query
+                .Include(x => x.Categories).ThenInclude(x => x.Category)
+                .Include(x => x.ThumbnailImage);
+
+            query = AppySort(searchOption, query);
+
+            var products = query
+                .Select(x => ProductThumbnail.FromProduct(x))
+                .Skip(offset)
+                .Take(_pageSize)
+                .ToList();
+
+            foreach (var product in products)
+            {
+                product.ThumbnailUrl = _mediaService.GetThumbnailUrl(product.ThumbnailImage);
+                product.CalculatedProductPrice = _productPricingService.CalculateProductPrice(product);
+            }
+
+            model.Products = products;
+            model.CurrentSearchOption.PageSize = _pageSize;
+            model.CurrentSearchOption.PageCount = System.Convert.ToInt32(System.Math.Ceiling(model.TotalProduct / System.Convert.ToDouble(_pageSize)));
             model.CurrentSearchOption.Page = currentPageNum;
 
             return View(model);
