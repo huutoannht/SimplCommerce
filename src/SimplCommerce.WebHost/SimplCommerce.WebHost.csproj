@@ -20,24 +20,51 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="%2a%2a\**" />
     <Compile Remove="logs\**" />
     <Compile Remove="Themes\CozaStore\**" />
-    <Compile Remove="wwwroot\themes\TheGioiDiDong\images\cdn\Files\**" />
-    <Compile Remove="wwwroot\themes\TheGioiDiDong\images\cdn\Products\Images\**" />
     <Content Remove="Themes\CozaStore\**" />
-    <Content Remove="wwwroot\themes\TheGioiDiDong\images\cdn\Files\**" />
-    <Content Remove="wwwroot\themes\TheGioiDiDong\images\cdn\Products\Images\**" />
+    <EmbeddedResource Remove="%2a%2a\**" />
     <EmbeddedResource Remove="logs\**" />
     <EmbeddedResource Remove="Themes\CozaStore\**" />
-    <EmbeddedResource Remove="wwwroot\themes\TheGioiDiDong\images\cdn\Files\**" />
-    <EmbeddedResource Remove="wwwroot\themes\TheGioiDiDong\images\cdn\Products\Images\**" />
+    <None Remove="%2a%2a\**" />
     <None Remove="logs\**" />
     <None Remove="Themes\CozaStore\**" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\images\cdn\Files\**" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\images\cdn\Products\Images\**" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Themes\TuanNguyenStudio\Areas\Catalog\Views\Category\CategoryDetail.cshtml" />
+    <None Remove="Themes\TuanNguyenStudio\Areas\Catalog\Views\Category\CategoryDetailLoadMore.cshtml" />
+    <None Remove="Themes\TuanNguyenStudio\Areas\Catalog\Views\Product\ProductDetail.cshtml" />
+    <None Remove="Themes\TuanNguyenStudio\Areas\Catalog\Views\Shared\Components\CategoryBreadcrumb\Default.cshtml" />
+    <None Remove="Themes\TuanNguyenStudio\Areas\Catalog\Views\Shared\Components\CategoryMenu\Default.cshtml" />
+    <None Remove="Themes\TuanNguyenStudio\Areas\Catalog\Views\Shared\Components\CategoryWidget\Default.cshtml" />
+    <None Remove="Themes\TuanNguyenStudio\Areas\Catalog\Views\Shared\Components\NewItem\Default.cshtml" />
+    <None Remove="Themes\TuanNguyenStudio\Areas\Catalog\Views\Shared\Components\ProductWidget\Default.cshtml" />
+    <None Remove="Themes\TuanNguyenStudio\Areas\Catalog\Views\Shared\Components\SimpleProductWidget\Default.cshtml" />
+    <None Remove="Themes\TuanNguyenStudio\Areas\Catalog\Views\Shared\_ProductThumbnail.cshtml" />
+    <None Remove="Themes\TuanNguyenStudio\Areas\Catalog\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\TuanNguyenStudio\Areas\Catalog\Views\_ViewStart.cshtml" />
+    <None Remove="Themes\TuanNguyenStudio\Areas\Cms\Views\Shared\Components\CarouselWidgetCategory\Default.cshtml" />
+    <None Remove="Themes\TuanNguyenStudio\Areas\Cms\Views\Shared\Components\CarouselWidget\Default.cshtml" />
+    <None Remove="Themes\TuanNguyenStudio\Areas\Cms\Views\Shared\Components\Menu\Default.cshtml" />
+    <None Remove="Themes\TuanNguyenStudio\Areas\Cms\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\TuanNguyenStudio\Areas\Core\Views\Home\Index.cshtml" />
+    <None Remove="Themes\TuanNguyenStudio\Areas\Core\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\TuanNguyenStudio\Areas\Core\Views\_ViewStart.cshtml" />
+    <None Remove="Themes\TuanNguyenStudio\Areas\News\Views\Shared\Components\NewItemHome\Default.cshtml" />
+    <None Remove="Themes\TuanNguyenStudio\Areas\News\Views\Shared\Components\NewItemRelate\Default.cshtml" />
+    <None Remove="Themes\TuanNguyenStudio\Areas\News\Views\Shared\Components\NewItem\Default.cshtml" />
+    <None Remove="Themes\TuanNguyenStudio\Areas\ProductRecentlyViewed\Views\Shared\Components\ProductRecentlyViewed\Default.cshtml" />
+    <None Remove="Themes\TuanNguyenStudio\Areas\ProductRecentlyViewed\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\TuanNguyenStudio\Areas\Search\Views\Shared\Components\SearchForm\Default.cshtml" />
+    <None Remove="Themes\TuanNguyenStudio\Areas\Search\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\TuanNguyenStudio\Areas\ShoppingCart\Views\Shared\Components\CartBadge\Default.cshtml" />
+    <None Remove="Themes\TuanNguyenStudio\Areas\ShoppingCart\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\TuanNguyenStudio\theme.json" />
+    <None Remove="Themes\TuanNguyenStudio\Views\Shared\_Layout.cshtml" />
+    <None Remove="Themes\TuanNguyenStudio\Views\Shared\_LoginPartial.cshtml" />
+    <None Remove="Themes\TuanNguyenStudio\Views\_ViewImports.cshtml" />
     <None Remove="Themes\TheGioiDiDong\Areas\Catalog\Views\Category\CategoryDetailLoadMore.cshtml" />
     <None Remove="Themes\TheGioiDiDong\Areas\Catalog\Views\Shared\Components\NewItem\Default.cshtml" />
     <None Remove="Themes\TheGioiDiDong\Areas\Cms\Views\Shared\Components\CarouselWidgetCategory\Default.cshtml" />
@@ -45,11 +72,13 @@
     <None Remove="Themes\TheGioiDiDong\Areas\News\Views\Shared\Components\NewItemRelate\Default.cshtml" />
     <None Remove="Themes\TheGioiDiDong\Areas\News\Views\Shared\Components\NewItem\Default.cshtml" />
     <None Remove="wwwroot\googlefbc689ad90567857.html" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\images\cdn\navigatbg.png" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\images\cdn\v2015\Content\desktop\images\V4\logo-techcare-web.png" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\js\category.js" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\js\jquery-3.4.0.min.js" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\js\owl.carousel.js" />
+    <None Remove="wwwroot\themes\TuanNguyenStudio\assets\fonts\Montserrat-SemiBoldItalic.woff" />
+    <None Remove="wwwroot\themes\TuanNguyenStudio\assets\fonts\MyriadPro-Regular.woff" />
+    <None Remove="wwwroot\themes\TuanNguyenStudio\assets\fonts\SuperiorTitle-Light.woff2" />
+    <None Remove="wwwroot\themes\TuanNguyenStudio\assets\fonts\SuperiorTitle-Regular.woff" />
+    <None Remove="wwwroot\themes\TuanNguyenStudio\css\autoptimize_48670027c13d16e54675116b5e5ca639.css" />
+    <None Remove="wwwroot\themes\TuanNguyenStudio\css\autoptimize_d864f31abb71553d9bc7dfe3d5212ec3.css" />
+    <None Remove="wwwroot\themes\TuanNguyenStudio\fonts\c7035.js" />
   </ItemGroup>
 
   <ItemGroup>
@@ -102,37 +131,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\comment\8408363\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\comment\AttachFile\Temp\2018\10\20\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\hoi-dap\1049958\Thumbnail\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\hoi-dap\1132781\Thumbnail\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\hoi-dap\1137034\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\hoi-dap\1140209\Thumbnail\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\hoi-dap\584509\Thumbnail\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\hoi-dap\723760\Thumbnail\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\hoi-dap\744285\Thumbnail\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\hoi-dap\918283\Thumbnail\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\hoi-dap\955118\Thumbnail\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\hoi-dap\Scripts\desktop\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\hoi-dap\Scripts\mobile\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\may-doi-tra\Scripts\desktop\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\may-doi-tra\Scripts\mobile\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\Products\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\sim-so-dep\Scripts\desktop\v4\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\sim-so-dep\Scripts\mobile\v4\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\tin-tuc\Content\mobile\images\sites\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\tin-tuc\Scripts\mobile\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\tra-gop\Scripts\desktop\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\tra-gop\Scripts\mobile\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\v2015\Content\desktop\images\sites\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\v2015\Content\desktop\images\site\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\v2015\Content\desktop\images\voucher\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\v2015\Scripts\desktop\V2\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\v2015\Scripts\desktop\V4\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\v2015\Scripts\mobile\V4\order\" />
-    <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\v2015\Scripts\mobile\V5\" />
+    <Folder Include="wwwroot\themes\TuanNguyenStudio\images\" />
   </ItemGroup>
-
   <Target Name="CopyModule" AfterTargets="Build">
     <CopyModuleTask ProjectDir="$(ProjectDir)" BuildConfiguration="$(ConfigurationName)" />
   </Target>

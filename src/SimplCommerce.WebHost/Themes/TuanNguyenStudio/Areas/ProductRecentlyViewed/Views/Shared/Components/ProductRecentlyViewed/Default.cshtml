@@ -1,0 +1,35 @@
+﻿@model IList<SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels.ProductThumbnail>
+
+<style>
+    @@media (min-width: 768px) {
+        .col-md-2 {
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 19.999999%;
+            flex: 0 0 18%;
+            max-width: 29.666667%;
+        }
+    }
+
+    @@media (max-width: 768px) {
+        .col-sm-6 {
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+    }
+</style>
+@if (Model.Any())
+{
+    <h3 class="p-t-25 p-b-25">@Localizer["Recently viewed products"]</h3>
+    <div class="product-list homeproduct">
+        <div class="row">
+            @foreach (var product in Model)
+            {
+                <div class="item-product col-sm-6 col-md-2">
+                    <partial name="/Themes/TheGioiDiDong/Areas/Catalog/Views/Shared/_ProductThumbnail.cshtml" model="product" />
+                </div>
+            }
+        </div>
+    </div>
+}

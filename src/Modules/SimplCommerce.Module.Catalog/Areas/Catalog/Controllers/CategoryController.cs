@@ -139,7 +139,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
 
             return View(model);
         }
-        [HttpGet("/")]
+      
         public IActionResult CategoryHome(long id, SearchOption searchOption)
         {
             if (id == 0)

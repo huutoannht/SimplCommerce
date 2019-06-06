@@ -104,12 +104,12 @@ namespace SimplCommerce.WebHost
                     a => a.UseExceptionHandler("/Home/Error")
                 );
                 app.UseHsts();
-                app.UseStaticFiles(new StaticFileOptions
-                {
-                    FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @".well-known")),
-                    RequestPath = new PathString("/.well-known"),
-                    ServeUnknownFileTypes = true // serve extensionless file
-                });
+                //app.UseStaticFiles(new StaticFileOptions
+                //{
+                //    FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @".well-known")),
+                //    RequestPath = new PathString("/.well-known"),
+                //    ServeUnknownFileTypes = true // serve extensionless file
+                //});
             }
             app.UseHangfireDashboard();
             RecurringJob.AddOrUpdate( () => HealCheckJob.HealBeatAsync(),Cron.Minutely);

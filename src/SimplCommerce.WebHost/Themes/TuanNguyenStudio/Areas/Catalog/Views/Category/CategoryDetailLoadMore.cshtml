@@ -1,0 +1,13 @@
+﻿@using System.Threading.Tasks
+@addTagHelper *, SimplCommerce.Infrastructure
+
+@model SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels.ProductsByCategory
+@{
+    Layout = null;
+}
+@foreach (var product in Model.Products)
+{
+    <div class="col-sm-6 col-md-2 item-product">
+        <partial name="_ProductThumbnail" model="product" />
+    </div>
+}

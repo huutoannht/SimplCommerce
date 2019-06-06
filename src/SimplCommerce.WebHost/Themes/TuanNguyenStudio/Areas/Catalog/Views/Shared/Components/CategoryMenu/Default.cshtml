@@ -1,0 +1,29 @@
+﻿@model IEnumerable<SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels.CategoryMenuItem>
+
+@inject IViewLocalizer Localizer
+
+
+@foreach (var item in Model)
+{
+    if (item.ChildItems.Any())
+    {
+
+        <li id=menu-item-196 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-196">
+            <a href="/@item.Slug">@item.Name</a>
+            <ul class=sub-menu>
+                @foreach (var childItem in item.ChildItems)
+                {
+                    <li id=menu-item-1009 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1009">
+                        <a href="/@childItem.Slug">@childItem.Name</a>
+                    </li>
+                }
+            </ul>
+        </li>
+    }
+    else
+    {
+        <li id=menu-item-196 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-196">
+            <a href="/@item.Slug">@item.Name</a>
+        </li>
+    }
+}

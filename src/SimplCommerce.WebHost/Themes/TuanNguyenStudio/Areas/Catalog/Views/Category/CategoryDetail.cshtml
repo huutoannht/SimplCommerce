@@ -1,0 +1,172 @@
+﻿@using System.Threading.Tasks
+@addTagHelper *, SimplCommerce.Infrastructure
+
+@model SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels.ProductsByCategory
+@{
+    ViewBag.Title = Model.CategoryMetaTitle ?? Model.CategoryName;
+}
+@section additionalMeta {
+    <meta name="title" content="@ViewBag.Title" />
+    <meta name="keywords" content="@Model.CategoryMetaKeywords" />
+    <meta name="description" content="@Model.CategoryMetaDescription" />
+}
+
+<div class="rst-banner-ecommercer" style="background-image: url('../wp-content/themes/rephoto/images/bg_banner_ecom.jpg');">
+    <div class="container">
+        <div class="rst-title-banner-ecommercer" itemscope="" itemtype="http://schema.org/Ecommercer">
+            <h1 itemprop="name">
+                E-COMMERCE SERVICES STARTS FROM $ 0.39
+            </h1><p itemprop="description">At Ephotovn, we bring you the most state-of-the-art e-commerce photo editing services to boost your online businesses’ profits. Book with us now!</p>
+            <a class="rst-scroll-trial" href="#">free trial now</a>
+        </div><div class="rst-thumb-banner-ecommercer">
+            <img src="~/themes/TuanNguyenStudio/images/uploads/2019/02/e-commerce.png" alt="e-commerce photo editing services">
+        </div><div class="rst-clearfix"></div>
+    </div>
+</div><div class="rst-main-content-ecommercer">
+    <div class="container">
+        <div class="rst-heading text-center"><h3 class="rst-title-box">OUR SERVICES</h3></div><div class="bi-box-contaner bi-box-products clear">
+            @foreach (var item in Model.Products)
+            {
+                <div class="bi-col-4 bi-col-product rst-col-product">
+                    <a href="@item.Slug">
+                        <span class="rst-thumb-product2">
+                            <img src="@item.ThumbnailUrl" alt="jewelry photo editing services">
+                        </span>
+                        <span class="rst-title-product">@item.Name</span>
+                    </a>
+                </div>
+            }
+
+            <div class="rst-clearfix"></div>
+        </div>
+        <div class="rst-inner-content-ecommercer">
+            @Html.Raw(Model.Description)
+        </div>
+    </div>
+</div><div class="rst-list-demo-example">
+    <div class="rst-row-demo rst_clearfix">
+        <div class="rst-demo-banner">
+            <a class="rst-popup-example" href="~/themes/TuanNguyenStudio/images/uploads/2019/02/2g.jpg" rel="example_group"><img src="~/themes/TuanNguyenStudio/images/uploads/2019/02/2g.jpg" alt="e-commerce photo editing services"></a>
+        </div><div class="rst-demo-banner">
+            <a class="rst-popup-example" href="~/themes/TuanNguyenStudio/images/uploads/2019/02/2c-1.jpg" rel="example_group"><img src="~/themes/TuanNguyenStudio/images/uploads/2019/02/2c-1.jpg" alt="e-commerce photo editing services"></a>
+        </div><div class="rst-demo-banner">
+            <a class="rst-popup-example" href="~/themes/TuanNguyenStudio/images/uploads/2019/02/1g.jpg" rel="example_group"><img src="~/themes/TuanNguyenStudio/images/uploads/2019/02/1g.jpg" alt="background removal services"></a>
+        </div><div class="rst-demo-banner">
+            <a class="rst-popup-example" href="~/themes/TuanNguyenStudio/images/uploads/2019/02/4g.jpg" rel="example_group"><img src="~/themes/TuanNguyenStudio/images/uploads/2019/02/4g.jpg" alt="background removal services"></a>
+        </div><div class="rst-demo-banner">
+            <a class="rst-popup-example" href="~/themes/TuanNguyenStudio/images/uploads/2019/02/3g.jpg" rel="example_group"><img src="~/themes/TuanNguyenStudio/images/uploads/2019/02/3g.jpg" alt="clipping path services"></a>
+        </div><div class="rst-demo-banner">
+            <a class="rst-popup-example" href="~/themes/TuanNguyenStudio/images/uploads/2019/02/5g-1.jpg" rel="example_group"><img src="~/themes/TuanNguyenStudio/images/uploads/2019/02/5g-1.jpg" alt="clipping path services"></a>
+        </div>
+    </div>
+</div><div class="rst-we-work rst-we-work3">
+    <div class="container">
+        <div class="rst-heading text-center"><h3 class="rst-title-box">How we work</h3></div><div class="rst-working-process">
+            <div class="rst-box-process text-center">
+                <img src="~/themes/TuanNguyenStudio/images/uploads/2019/02/work1.png" alt=""><p>1. Submit your test images and get in touch with us for the price quotation. We will get back to you without delay.</p>
+            </div><div class="rst-box-process text-center">
+                <img src="~/themes/TuanNguyenStudio/images/uploads/2019/02/work2.png" alt=""><p>2. Send us confirmation once you have the test images and price quote of the photo editing services you need from our team.</p>
+            </div><div class="rst-box-process text-center">
+                <img src="~/themes/TuanNguyenStudio/images/uploads/2019/02/work3.png" alt=""><p>3. Upload your photos for editing and continue on growing your business as we work on your images.</p>
+            </div><div class="rst-box-process text-center">
+                <img src="~/themes/TuanNguyenStudio/images/uploads/2019/02/work4.png" alt=""><p>4. Get the photo orders back within 24 hours and begin using them right away to start gaining profits.</p>
+            </div><div class="clear"></div>
+        </div>
+    </div>
+</div>
+<section id="free-trail" class="rst-section1">
+    <div class="rst-wrapper-content">
+        <div class="container">
+            <div class="rst-left"><p>Get 01 photo of online courses for free</p><h2>Free Trial NOW</h2><h4>Have your image back within <span>24</span> hours</h4></div><div class="rst-right">
+                <div id="rst-no-popup-trail">
+                    <div id="data-3">
+                        <div class="info-data">
+                            <form id="trail-upload" action="https://ephotovn.com/upload.php" method="post" name="contact-form" novalidate="">
+                                <div class="rst-content-data">
+                                    <div class="rst-upload">
+                                        <input type="hidden" name="token" value="trail-e237458fa896ca4aff9f27758270d511">		<button class="trail-upload-btn" type="button"><img src="../wp-content/themes/rephoto/site-assets/assets/images/icon_upload.png" alt="Upload Your Images">Upload Your Images</button>
+                                        <input type="file" name="images" style="display: none" required=""><ul class="trail-list-upload"></ul><div class="clearfix"></div>
+                                    </div><h5>Formats</h5><div class="type-images"><p><input type="radio" name="type-img" value="jpg" id="radio-3" checked="" data-parsley-multiple="type-img"><label for="radio-3">JPG</label></p><p><input type="radio" name="type-img" value="png" id="radio-4" data-parsley-multiple="type-img"><label for="radio-4">PNG</label></p><p><input type="radio" name="type-img" value="psd" id="radio-5" data-parsley-multiple="type-img"><label for="radio-5">PSD</label></p><p><input type="radio" name="type-img" value="tiff" id="radio-6" data-parsley-multiple="type-img"><label for="radio-6">TIFF</label></p></div><h5>Services</h5><p>
+                                        <select class="rst-select-service" name="background" required="">
+                                            <option value="">Choose a service*</option>
+                                            <option value="Portrait Retouching">Portrait Retouching</option>
+                                            <option value="Model Retouching">Model Retouching</option>
+                                            <option value="High-end Retouching">High-end Retouching</option>
+                                            <option value="Jewelry Retouching">Jewelry Retouching</option>
+                                            <option value="Newborn Retouching">Newborn Retouching</option>
+                                            <option value="Background Removal">Background Removal</option>
+                                            <option value="Ecommerce Retouchin">Ecommerce Retouching</option>
+                                        </select>
+                                    </p><div class="contact-form">
+                                        <p><textarea name="decreptiont" id="" cols="30" rows="4" placeholder="Please Enter Notes / Project Brief"></textarea></p><p>
+                                            <input required="" type="text" name="user-name" placeholder="Your Name*">
+                                        </p><p>
+                                            <input required="" type="email" name="user-email" placeholder="Email Address*">
+                                        </p><p class="btn-send">
+                                            <input type="submit" value="Send">
+                                            <img class="img-tay" src="../wp-content/themes/rephoto/images/tay.png" alt="Control">
+                                            <img class="img-loading" src="../wp-content/themes/rephoto/images/loader.gif" alt="Loading">
+                                        </p>
+                                    </div>
+                                </div><div class="clear"></div>
+                            </form><div class="text-thanks">
+                                <h3>Upload Successful</h3>
+                                Your images are sent successfully, you'll receive them within 24 hours.<br>
+                                Please contact us for any question<br>
+                                Thank for your order!<div class="text-thanks-before"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><div class="clearfix"></div>
+        </div>
+    </div>
+</section><div class="rst-client-said">
+    <div class="container">
+        <div class="rst-heading text-center"><h3 class="rst-title-box">OUR CLIENTS SAID</h3></div><div class="rst-list-said">
+            <div class="rst-column-said">
+                <div class="rst-box-said">
+                    <div class="rst-inner-box-said text-center">
+                        <img class="rst-avata-said" src="~/themes/TuanNguyenStudio/images/uploads/2019/02/Elio-Carchidi-Fotografo-154-studio.jpg" alt=""><p>I am so happy that we discovered Ephotovn. They have been a big help. Whenever we have need for editing services, they are always there to assist</p><h5>Elio Carchidi Fotografo - Studio154</h5>
+                    </div>
+                </div><div class="rst-box-said">
+                    <div class="rst-inner-box-said text-center">
+                        <img class="rst-avata-said" src="~/themes/TuanNguyenStudio/images/uploads/2019/02/Gemma-Bringloe-Cult-Beauty.jpg" alt=""><p>We were approached by Angie who is a post-production specialist at Ephotovn.  She offered to do a test for us and the result came out amazing. We have become their loyal customer since then</p><h5>Gemma Bringloe - Cult Beauty</h5>
+                    </div>
+                </div><div class="rst-box-said">
+                    <div class="rst-inner-box-said text-center">
+                        <img class="rst-avata-said" src="~/themes/TuanNguyenStudio/images/uploads/2019/02/Lauren-Nieves-A-Little-Photo-Studio.jpg" alt=""><p>Ephotovn helps us with our post-production so we have more time behind the cameras instead of the computer screens.  We are able to provide our clients’ photos faster and grow our business</p><h5>Lauren Nieves - A Little Photo Studio</h5>
+                    </div>
+                </div>
+            </div><div class="rst-column-said">
+                <div class="rst-box-said">
+                    <div class="rst-inner-box-said text-center">
+                        <img class="rst-avata-said" src="~/themes/TuanNguyenStudio/images/uploads/2019/02/Laurentia-Dagomez-Ckmorgan.jpg" alt=""><p>The process was surprisingly quick and more importantly the results are always high-quality. I am very pleased with the services of Ephotovn. I believe they can satisfy the most difficult customers.</p><h5>Pragya Birani - Nyka</h5>
+                    </div>
+                </div><div class="rst-box-said">
+                    <div class="rst-inner-box-said text-center">
+                        <img class="rst-avata-said" src="~/themes/TuanNguyenStudio/images/uploads/2019/02/9_56gzod.jpg" alt=""><p>The Team was quick. I had a rush order for background removal and needed around 1000 images back to me within 24 hours.  Even the with a large number of images with a short period of time but the end results came out very nice. Thank you so much for keep my clients happy.</p><h5>Justin Gray - Graphic Designer</h5>
+                    </div>
+                </div><div class="rst-box-said">
+                    <div class="rst-inner-box-said text-center">
+                        <img class="rst-avata-said" src="~/themes/TuanNguyenStudio/images/uploads/2019/02/81.jpg" alt=""><p>I highly recommend Ephotovn, they did amazing jobs on my photos.  They always come back fast and high quality results. I have worked with a lot of other editing companies and I always had issues with turnaround time, rates or quality. With Ephotovn, everything has been really good.</p><h5>Leon  -  FAD Studio</h5>
+                    </div>
+                </div>
+            </div><div class="rst-column-said">
+                <div class="rst-box-said">
+                    <div class="rst-inner-box-said text-center">
+                        <img class="rst-avata-said" src="~/themes/TuanNguyenStudio/images/uploads/2019/02/44.jpg" alt=""><p>“This is a helpful guide which gave thorough guidance to me about Comments Section Optimization.”</p><h5>Paz Gonzalez - Loveafrica</h5>
+                    </div>
+                </div><div class="rst-box-said">
+                    <div class="rst-inner-box-said text-center">
+                        <img class="rst-avata-said" src="~/themes/TuanNguyenStudio/images/uploads/2019/02/RqF12A8R.jpg" alt=""><p>I was very impressed with Ephotovn’s quality and fast service. They are quick to respond and deliver perfect quality of work. I will use them from now on.</p><h5>Mat Coe, Photographer at R&amp;W</h5>
+                    </div>
+                </div><div class="rst-box-said">
+                    <div class="rst-inner-box-said text-center">
+                        <img class="rst-avata-said" src="~/themes/TuanNguyenStudio/images/uploads/2019/02/Sunny-Saperstein-FAB-studio.jpg" alt=""><p>Working with Ephotovn is fantastic. They have consistently delivered high quality work within time frames. They have often proactively made suggestions above and beyond what was initially requested to make sure the end results exactly what I am looking for. To be honest, we couldn’t ask for a better partner when it comes to our ecommerce photo editing needs.</p><h5>Nia Lee - Photographer</h5>
+                    </div>
+                </div>
+            </div><div class="clear"></div>
+        </div>
+    </div>
+</div>
