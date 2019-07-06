@@ -70,6 +70,8 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
 
         public async Task<IActionResult> ProductDetail(long id)
         {
+            var host = "https://" + Request.Host + Request.Path;
+            ViewBag.Host = host;
             var product = _productRepository.Query()
                 .Include(x => x.OptionValues)
                 .Include(x => x.Categories).ThenInclude(c => c.Category)

@@ -49,21 +49,34 @@
         vm.shortDescUpload = function (files) {
             summerNoteService.upload(files[0])
                 .then(function (response) {
-                    $(vm.shortDescEditor).summernote('insertImage', response.data);
+                    $(vm.shortDescEditor).summernote('insertImage', response.data, $('.note-image-alt').val());
+                    $('.note-image-alt').val('');
                 });
         };
 
         vm.descUpload = function (files) {
+            var altImage = '';
+            $(".note-image-alt").each(function () {
+                if ($(this).val()) {
+                    altImage = $(this).val();
+                }
+            });
+
             summerNoteService.upload(files[0])
                 .then(function (response) {
-                    $(vm.descEditor).summernote('insertImage', response.data);
+                    $(vm.descEditor).summernote('insertImage', response.data, altImage);
+                    $(".note-image-alt").each(function () {
+                        $(".note-image-alt").val('');
+                    });
                 });
         };
 
         vm.specUpload = function (files) {
+           
             summerNoteService.upload(files[0])
                 .then(function (response) {
-                    $(vm.specEditor).summernote('insertImage', response.data);
+                    $(vm.specEditor).summernote('insertImage', response.data, $('.note-image-alt').val());
+                    $('.note-image-alt').val('');
                 });
         };
 

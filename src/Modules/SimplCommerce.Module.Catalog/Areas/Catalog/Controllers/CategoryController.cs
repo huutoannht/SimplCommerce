@@ -38,6 +38,8 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
         }
         public IActionResult CategoryDetail(long id, SearchOption searchOption)
         {
+            var host = "https://" + Request.Host + Request.Path;
+            ViewBag.Host = host;
             var category = _categoryRepository.Query().FirstOrDefault(x => x.Id == id);
             if (category == null)
             {
@@ -142,6 +144,8 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
         [HttpGet("/")]
         public IActionResult CategoryHome(long id, SearchOption searchOption)
         {
+            var host = "https://" + Request.Host + Request.Path;
+            ViewBag.Host = host;
             if (id == 0)
             {
                 id = 7;

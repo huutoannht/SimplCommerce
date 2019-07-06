@@ -7,7 +7,7 @@
     @RenderSection("additionalMeta", false)
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta content="NOINDEX,NOFOLLOW" name="robots" />
+    <meta content="INDEX,FOLLOW" name="robots" />
     <meta name="copyright" content="Công ty TNHH MTV Quốc tế Phúc Thành Đạt" />
     <meta name="author" content="Công ty  TNHH MTV Quốc tế Phúc Thành Đạt" />
     <meta http-equiv="audience" content="General" />
@@ -17,7 +17,7 @@
     <meta name="GENERATOR" content="Công ty TNHH MTV Quốc tế Phúc Thành Đạt" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <link rel="canonical" href="https://laptopcudanang.com.vn" />
+    <link rel="canonical" href="@ViewBag.Host" />
     <meta property="og:site_name" content="laptopcudanang.com" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="vi_VN" />
@@ -37,6 +37,19 @@
     <link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/TheGioiDiDong/css/util.css" />
     <link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/TheGioiDiDong/css/main.css" />
     <link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/TheGioiDiDong/css/simpl.css" />
+    <!-- Google Tag Manager -->
+    <script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || []; w[l].push({
+            'gtm.start':
+                new Date().getTime(), event: 'gtm.js'
+        }); var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5XT43BN');</script>
+    <!-- End Google Tag Manager -->
+
+
     @RenderSection("head", required: false)
     <style>
 
@@ -60,52 +73,31 @@
         .navbar {
             padding: 0rem 0rem !important;
         }
-         #fb-root > div.fb_dialog.fb_dialog_advanced.fb_shrink_active {
-     left: initial !important;
-     left: 18pt;
-     z-index: 9999999 !important;
-  }
-         .fb_dialog  {
-             left: 18px!important;
-         }
-  .fb-customerchat.fb_invisible_flow.fb_iframe_widget iframe {
-     right: initial !important;
-     left: 18pt !important;
-  }
+
+        #fb-root > div.fb_dialog.fb_dialog_advanced.fb_shrink_active {
+            left: initial !important;
+            left: 18pt;
+            z-index: 9999999 !important;
+        }
+
+        .fb_dialog {
+            left: 18px !important;
+        }
+
+        .fb-customerchat.fb_invisible_flow.fb_iframe_widget iframe {
+            right: initial !important;
+            left: 18pt !important;
+        }
     </style>
 
 </head>
 <body>
-    <div class="zalo-chat-widget" data-oaid="579745863508352884" data-welcome-message="Rất vui khi được hỗ trợ bạn!" data-autopopup="0" data-width="350" data-height="420"></div>
-
-    <script src="https://sp.zalo.me/plugins/sdk.js"></script>
-    <!-- Load Facebook SDK for JavaScript -->
-    <div id="fb-root"></div>
-    <script>
-        window.fbAsyncInit = function () {
-            FB.init({
-                xfbml: true,
-                version: 'v3.3'
-            });
-        };
-
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script>
-
-    <!-- Your customer chat code -->
-    <div class="fb-customerchat"
-         attribution=setup_tool
-         page_id="117102342122260"
-         theme_color="#f49b00"
-         minimized="false"
-         logged_in_greeting="Xin chào ! Rất vui khi được hỗ trợ bạn!?"
-         logged_out_greeting="Xin chào ! Rất vui khi được hỗ trợ bạn!?">
-    </div>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5XT43BN"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
@@ -113,12 +105,12 @@
 
         gtag('config', 'UA-97842202-9');
     </script>
-    @*<div id="fb-root"></div>*@
-    @*<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.2&appId=2215291551867822&autoLogAppEvents=1"></script>*@
-    <header class="row">
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.2&appId=2215291551867822&autoLogAppEvents=1"></script>
+    <header>
         @await Component.InvokeAsync("CategoryMenu")
     </header>
-    <div class="container" style="padding-top:63px ">
+    <div class="container">
 
         @RenderSection("featured", false)
         @RenderBody()
@@ -135,10 +127,10 @@
                 <a href="/laptop-hp-cu" rel="nofolow">HP-Compaq</a>
             </div>
             <div>
-                <a href="?category=man-hinh-gap-360-do" rel="nofolow">Màn hình gập 360 độ</a>
-                <a href="?category=core-i7" rel="nofolow">CPU Core i7</a>
-                <a href="?category=tren-15" rel="nofolow">Màn hình trên 15"</a>
-                <a href="?category=bo-nho-intel-optane-2" rel="nofolow">Bộ nhớ Intel Optane</a>
+                <a href="/man-hinh-gap-360-do" rel="nofolow">Màn hình gập 360 độ</a>
+                <a href="/core-i7" rel="nofolow">CPU Core i7</a>
+                <a href="/tren-15" rel="nofolow">Màn hình trên 15"</a>
+                <a href="/bo-nho-intel-optane-2" rel="nofolow">Bộ nhớ Intel Optane</a>
             </div>
         </div>
 
@@ -149,7 +141,7 @@
             <li><i class="icTt"></i><span>Thanh toán linh hoạt: tiền mặt, visa / master, trả góp</span></li>
             <li><i class="icTn"></i><span>Trải nghiệm sản phẩm tại nhà</span></li>
             <li><i class="icLd"></i><span>Lỗi đổi tại nhà trong 14 ngày</span></li>
-            <li><i class="icHt"></i><span>Hỗ trợ suốt thời gian sử dụng. Hotline: <a href="tel:0888333135" rel="nofolow">0888.333.135</a></span></li>
+            <li><i class="icHt"></i><span>Hỗ trợ khách hàng 24/7. Hotline: <a href="tel:02363663333" rel="nofolow">0236.366.3333</a></span></li>
         </ul>
     </div>
     <footer class="bg3">
@@ -161,9 +153,9 @@
                         Hệ thống cửa hàng
                     </h4>
                     <p>
-                        ☎️ 088.8333.135 – 0236.220.5555<br>
-                        🏪 133 – 135 Hàm Nghi, Đà Nẵng<br>
-                        🏪 99 – 101 Hàm Nghi, Đà Nẵng<br>
+                        ☎️ <strong>0236.366.3333</strong><br>
+                        🏪 <strong>133 – 135 Hàm Nghi, Đà Nẵng</strong><br>
+                        🏪 <strong>99 – 101 Hàm Nghi, Đà Nẵng</strong><br>
                         🏪 40 – Trần Đại Nghĩa, Hà Nội<br>
                         🏪 63 – Nguyễn Thiện Thuật, HCM<br>
                         🗓Thứ 2 -> Chủ nhật / 8:00 – 20:00
@@ -209,6 +201,23 @@
             </div>
         </div>
     </div>
+    <ul class="mobile-icon">
+        <li class="call">
+            <a class="icon-call" href="tel:02363663333" title="Gọi điện thoại cho chúng tôi">
+                <i class="fa fa-phone"></i>
+            </a>
+        </li>
+        <li class="facebook">
+            <a class="icon-fb" href="http://m.me/techcare133" target="_blank" title="Chat với chúng tôi">
+                <img src="~/themes/TheGioiDiDong/images/cdn/messenger.png" alt="FaceBook">
+            </a>
+        </li>
+        <li class="zalo">
+            <a class="icon-fb" href="https://zalo.me/0888333135" target="_blank" title="Chat với chúng tôi">
+                <img src="~/themes/TheGioiDiDong/images/cdn/zalo-icon.png" alt="Zalo">
+            </a>
+        </li>
+    </ul>
     <script>
         window.simplGlobalSetting = {};
         window.simplGlobalSetting.lang = '@CultureInfo.CurrentCulture.Name';

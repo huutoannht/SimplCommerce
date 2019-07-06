@@ -38,6 +38,8 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
 
         public IActionResult BrandDetail(long id, SearchOption searchOption)
         {
+            var host = "https://" + Request.Host + Request.Path;
+            ViewBag.Host = host;
             var brand = _brandRepository.Query().FirstOrDefault(x => x.Id == id);
 
             var model = new ProductsByBrand

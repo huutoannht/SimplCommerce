@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -9,9 +10,13 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Net.Http.Headers;
+using System.Net.Http.Headers;
 using Newtonsoft.Json;
+using Microsoft.Net.Http.Headers;
+using NPOI.SS.UserModel;
+using NPOI.XSSF.UserModel;
 using SimplCommerce.Infrastructure.Data;
+using SimplCommerce.Infrastructure.Extensions;
 using SimplCommerce.Infrastructure.Helpers;
 using SimplCommerce.Infrastructure.Web.SmartTable;
 using SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels;
@@ -20,6 +25,12 @@ using SimplCommerce.Module.Catalog.Services;
 using SimplCommerce.Module.Core.Extensions;
 using SimplCommerce.Module.Core.Models;
 using SimplCommerce.Module.Core.Services;
+using System.Net.Http;
+using System.Text.RegularExpressions;
+using System.Net;
+using Microsoft.AspNetCore.Hosting;
+using System.Threading;
+using OfficeOpenXml;
 
 namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
 {
@@ -38,6 +49,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
         private readonly IRepository<ProductMedia> _productMediaRepository;
         private readonly IWorkContext _workContext;
         private readonly IPromotionService _promotionService;
+        private IHostingEnvironment _hostingEnvironment;
 
         public ProductApiController(
             IRepository<Product> productRepository,
@@ -49,7 +61,8 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
             IRepository<ProductAttributeValue> productAttributeValueRepository,
             IRepository<ProductMedia> productMediaRepository,
             IWorkContext workContext,
-            IPromotionService promotionService)
+            IPromotionService promotionService,
+            IHostingEnvironment hostingEnvironment)
         {
             _productRepository = productRepository;
             _mediaService = mediaService;
@@ -61,7 +74,12 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
             _productMediaRepository = productMediaRepository;
             _workContext = workContext;
             _promotionService = promotionService;
+            _hostingEnvironment = hostingEnvironment;
         }
+
+
+
+        //Generic Definition to handle all types of List
 
         [HttpGet("quick-search")]
         public async Task<IActionResult> QuickSearch(string name)
@@ -83,6 +101,166 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
             return Ok(products);
         }
 
+        [HttpGet("export")]
+        public async Task<IActionResult> Export(CancellationToken cancellationToken)
+        {
+            // query data from database  
+            await Task.Yield();
+            var listProduct = _productRepository.Query()
+                .Where(m => !m.IsDeleted)
+                .Include(x => x.ThumbnailImage)
+                .Include(x => x.PromotionImage)
+                .Include(x => x.Medias).ThenInclude(m => m.Media)
+                .Include(x => x.ProductLinks).ThenInclude(p => p.LinkedProduct)
+                .Include(x => x.OptionValues).ThenInclude(o => o.Option)
+                .Include(x => x.AttributeValues).ThenInclude(a => a.Attribute).ThenInclude(g => g.Group)
+                .Include(x => x.Categories)
+                .ToList();
+            var listProductVm = new List<ProductVm>();
+            foreach (var product in listProduct)
+            {
+                var currentUser = Task.Run(() => _workContext.GetCurrentUser()).Result;
+                var productVm = new ProductVm
+                {
+                    Id = product.Id,
+                    Name = product.Name,
+                    Slug = product.Slug,
+                    MetaTitle = product.MetaTitle,
+                    MetaKeywords = product.MetaKeywords,
+                    MetaDescription = product.MetaDescription,
+                    Sku = product.Sku,
+                    Gtin = product.Gtin,
+                    ShortDescription = product.ShortDescription,
+                    Description = product.Description,
+                    Specification = product.Specification,
+                    OldPrice = product.OldPrice,
+                    Price = product.Price,
+                    SpecialPrice = product.SpecialPrice,
+                    SpecialPriceStart = product.SpecialPriceStart,
+                    SpecialPriceEnd = product.SpecialPriceEnd,
+                    IsFeatured = product.IsFeatured,
+                    IsPublished = product.IsPublished,
+                    IsCallForPricing = product.IsCallForPricing,
+                    IsAllowToOrder = product.IsAllowToOrder,
+                    CategoryIds = product.Categories.Select(x => x.CategoryId).ToList(),
+                    ThumbnailImageUrl = _mediaService.GetThumbnailUrl(product.ThumbnailImage),
+                    PromotionImageUrl = _mediaService.GetPromotionUrl(product.PromotionImage),
+                    PromotionName = product.PromotionImage?.Caption,
+                    BrandId = product.BrandId,
+                    TaxClassId = product.TaxClassId,
+                    StockTrackingIsEnabled = product.StockTrackingIsEnabled
+                };
+
+                foreach (var productMedia in product.Medias.Where(x => x.Media.MediaType == MediaType.Image))
+                {
+                    productVm.ProductImages.Add(new ProductMediaVm
+                    {
+                        Id = productMedia.Id,
+                        MediaUrl = _mediaService.GetThumbnailUrl(productMedia.Media)
+                    });
+                }
+
+                foreach (var productMedia in product.Medias.Where(x => x.Media.MediaType == MediaType.File))
+                {
+                    productVm.ProductDocuments.Add(new ProductMediaVm
+                    {
+                        Id = productMedia.Id,
+                        Caption = productMedia.Media.Caption,
+                        MediaUrl = _mediaService.GetMediaUrl(productMedia.Media)
+                    });
+                }
+
+
+                productVm.Options = product.OptionValues.OrderBy(x => x.SortIndex).Select(x =>
+                    new ProductOptionVm
+                    {
+                        Id = x.OptionId,
+                        Name = x.Option.Name,
+                        DisplayType = x.DisplayType,
+                        Values = JsonConvert.DeserializeObject<IList<ProductOptionValueVm>>(x.Value)
+                    }).ToList();
+
+                foreach (var variation in product.ProductLinks.Where(x => x.LinkType == ProductLinkType.Super).Select(x => x.LinkedProduct).Where(x => !x.IsDeleted).OrderBy(x => x.Id))
+                {
+                    productVm.Variations.Add(new ProductVariationVm
+                    {
+                        Id = variation.Id,
+                        Name = variation.Name,
+                        Sku = variation.Sku,
+                        Gtin = variation.Gtin,
+                        Price = variation.Price,
+                        OldPrice = variation.OldPrice,
+                        NormalizedName = variation.NormalizedName,
+                        OptionCombinations = variation.OptionCombinations.Select(x => new ProductOptionCombinationVm
+                        {
+                            OptionId = x.OptionId,
+                            OptionName = x.Option.Name,
+                            Value = x.Value,
+                            SortIndex = x.SortIndex
+                        }).OrderBy(x => x.SortIndex).ToList()
+                    });
+                }
+
+                foreach (var relatedProduct in product.ProductLinks.Where(x => x.LinkType == ProductLinkType.Related).Select(x => x.LinkedProduct).Where(x => !x.IsDeleted).OrderBy(x => x.Id))
+                {
+                    productVm.RelatedProducts.Add(new ProductLinkVm
+                    {
+                        Id = relatedProduct.Id,
+                        Name = relatedProduct.Name,
+                        IsPublished = relatedProduct.IsPublished
+                    });
+                }
+
+                foreach (var crossSellProduct in product.ProductLinks.Where(x => x.LinkType == ProductLinkType.CrossSell).Select(x => x.LinkedProduct).Where(x => !x.IsDeleted).OrderBy(x => x.Id))
+                {
+                    productVm.CrossSellProducts.Add(new ProductLinkVm
+                    {
+                        Id = crossSellProduct.Id,
+                        Name = crossSellProduct.Name,
+                        IsPublished = crossSellProduct.IsPublished
+                    });
+                }
+
+                productVm.Attributes = product.AttributeValues.Select(x => new ProductAttributeVm
+                {
+                    AttributeValueId = x.Id,
+                    Id = x.AttributeId,
+                    Name = x.Attribute.Name,
+                    GroupName = x.Attribute.Group.Name,
+                    Value = x.Value
+                }).ToList();
+                listProductVm.Add(productVm);
+            }
+
+            var listProductExport = new List<ProductExport>();
+            foreach (var product in listProductVm)
+            {
+                ProductExport productExport = new ProductExport();
+                productExport.Attributes = string.Join(';', product.Attributes.Select(m => m.Name));
+                productExport.Options = string.Join(';', product.Options.Select(m => m.Name));
+                productExport.ProductImages = string.Join(';', product.ProductImages.Select(m => "https://laptopcudanang.com.vn" + m.MediaUrl));
+                productExport.Id = product.Id;
+                productExport.Name = product.Name;
+                productExport.MetaDescription = product.MetaDescription;
+                productExport.MetaTitle = product.MetaTitle;
+                productExport.Price = product.Price;
+                productExport.Slug = product.Slug;
+                listProductExport.Add(productExport);
+            }
+            var stream = new MemoryStream();
+
+            using (var package = new ExcelPackage(stream))
+            {
+                var workSheet = package.Workbook.Worksheets.Add("Sheet1");
+                workSheet.Cells.LoadFromCollection(listProductExport, true);
+                package.Save();
+            }
+            stream.Position = 0;
+            string excelName = $"SanPham-{DateTime.Now.ToString("yyyyMMddHHmmssfff")}.xlsx";
+
+            //return File(stream, "application/octet-stream", excelName);  
+            return File(stream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", excelName);
+        }
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(long id)
         {
@@ -466,7 +644,14 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
 
             return Accepted();
         }
-
+        private string StripHTML(string input)
+        {
+            if (string.IsNullOrEmpty(input))
+            {
+                return string.Empty;
+            }
+            return Regex.Replace(input, "<.*?>", String.Empty);
+        }
         [HttpPost("change-status/{id}")]
         public async Task<IActionResult> ChangeStatus(long id)
         {
@@ -889,7 +1074,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
 
         private async Task<string> SaveFile(IFormFile file)
         {
-            var originalFileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Value.Trim('"');
+            var originalFileName = Microsoft.Net.Http.Headers.ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Value.Trim('"');
             var fileName = $"{Path.GetFileNameWithoutExtension(originalFileName) + "-" + GetUniqueKey(5)}{Path.GetExtension(originalFileName)}";
             await _mediaService.SaveMediaAsync(file.OpenReadStream(), fileName, file.ContentType);
             return fileName;

@@ -33,6 +33,8 @@ namespace SimplCommerce.Module.News.Areas.News.Controllers
         [HttpGet("news")]
         public IActionResult NewsHome(int page)
         {
+            var host = "https://" + Request.Host + Request.Path;
+            ViewBag.Host = host;
             var newsCategoryList = _newsCategoryRepository.Query()
                 .Include(x => x.NewsItems)
                 .Where(x => !x.IsDeleted)
@@ -81,6 +83,8 @@ namespace SimplCommerce.Module.News.Areas.News.Controllers
 
         public IActionResult NewsItemDetail(long id)
         {
+            var host = "https://" + Request.Host + Request.Path;
+            ViewBag.Host = host;
             var newsItem = _newsItemRepository.Query()
                 .Include(x => x.ThumbnailImage)
                 .FirstOrDefault(x => x.Id == id && x.IsPublished && !x.IsDeleted);

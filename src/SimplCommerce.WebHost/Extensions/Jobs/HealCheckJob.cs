@@ -18,7 +18,8 @@ namespace SimplCommerce.WebHost.Extensions.Jobs
                 new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
             client.DefaultRequestHeaders.Add("User-Agent", ".NET Foundation Repository Reporter");
 
-            var stringTask = client.GetStringAsync("https://laptopcudanang.com.vn/home/healbeat");
+          //  var stringTask = client.GetStringAsync("https://laptopcudanang.com.vn/home/healbeat");
+              var stringTask = client.GetStringAsync("https://localhost:44364/home/healbeat");
 
             var msg = await stringTask;
             Console.Write(msg);

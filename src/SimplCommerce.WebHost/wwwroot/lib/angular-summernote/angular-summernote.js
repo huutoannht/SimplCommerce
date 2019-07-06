@@ -1,10 +1,9 @@
-/*  angular-summernote v0.8.1 | (c) 2016 JeongHoon Byun | MIT license */
+﻿/*  angular-summernote v0.8.1 | (c) 2016 JeongHoon Byun | MIT license */
 /* global angular */
 angular.module('summernote', [])
 
   .controller('SummernoteController', ['$scope', '$attrs', '$timeout', function($scope, $attrs, $timeout) {
-    'use strict';
-
+      'use strict';
     var currentElement,
         summernoteConfig = angular.copy($scope.summernoteConfig) || {};
 

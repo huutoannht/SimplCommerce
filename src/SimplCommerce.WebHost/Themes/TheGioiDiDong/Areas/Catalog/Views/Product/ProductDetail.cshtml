@@ -54,7 +54,7 @@
                     @foreach (var image in Model.Images)
                     {
                         <a href="@image.Url">
-                            <img src="@image.ThumbnailUrl" alt="" />
+                            <img src="@image.ThumbnailUrl" alt="@Model.Name" />
                         </a>
                     }
                 </div>

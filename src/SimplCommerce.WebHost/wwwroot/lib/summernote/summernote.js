@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Super simple wysiwyg editor v0.8.2
  * http://summernote.org/
  *
@@ -4082,7 +4082,7 @@
      * @param {String|Function} param
      * @return {Promise}
      */
-    this.insertImage = function (src, param) {
+    this.insertImage = function (src, param, altImage) {
       return async.createImage(src, param).then(function ($image) {
         beforeCommand();
 
@@ -4090,7 +4090,8 @@
           param($image);
         } else {
           if (typeof param === 'string') {
-            $image.attr('data-filename', param);
+              $image.attr('data-filename', param);
+              $image.attr('alt', param);
           }
           $image.css('width', Math.min($editable.width(), $image.width()));
         }
@@ -6121,7 +6122,12 @@
                    '<label>' + lang.image.selectFromFiles + '</label>' +
                    '<input class="note-image-input form-control" type="file" name="files" accept="image/*" multiple="multiple" />' +
                    imageLimitation +
-                 '</div>' +
+          '</div>'
+          +
+          '<div class="form-group note-group-image-alt" style="overflow:auto;">' +
+          '<label>Alt Image</label>' +
+          '<input class="note-image-alt form-control col-md-12" type="text" />' +
+          '</div>'+
                  '<div class="form-group note-group-image-url" style="overflow:auto;">' +
                    '<label>' + lang.image.url + '</label>' +
                    '<input class="note-image-url form-control col-md-12" type="text" />' +

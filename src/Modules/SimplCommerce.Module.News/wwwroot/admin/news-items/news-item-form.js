@@ -19,12 +19,36 @@
         };
 
         vm.imageUpload = function (files) {
+            var altImage = '';
+            $(".note-image-alt").each(function () {
+                if ($(this).val()) {
+                    altImage = $(this).val();
+                }
+            });
             summerNoteService.upload(files[0])
                 .then(function (response) {
-                    $(vm.descEditor).summernote('insertImage', response.data);
+                    $(vm.descEditor).summernote('insertImage', response.data, altImage);
+                    $(".note-image-alt").each(function () {
+                        $(".note-image-alt").val('');
+                    });
                 });
         };
 
+        vm.imageUploadShort = function (files) {
+            var altImageShort = '';
+            $(".note-image-alt").each(function () {
+                if ($(this).val()) {
+                    altImageShort = $(this).val();
+                }
+            });
+            summerNoteService.upload(files[0])
+                .then(function (response) {
+                    $(vm.shortDescEditor).summernote('insertImage', response.data, altImageShort);
+                    $(".note-image-alt").each(function () {
+                        $(".note-image-alt").val('');
+                    });
+                });
+        };
         vm.save = function save() {
             var promise;
             // ng-upload will post null as text

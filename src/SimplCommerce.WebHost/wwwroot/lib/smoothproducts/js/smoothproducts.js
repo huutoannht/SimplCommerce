@@ -20,7 +20,7 @@
 
 				// If more than one image
 				if (thumbQty > 1) {
-					var firstLarge,firstThumb,
+					var firstLarge,firstThumb,altImage,
 						defaultImage = $('a.sp-default', this)[0]?true:false;
 					$(this).append('<div class="sp-large"></div><div class="sp-thumbs sp-tb-active"></div>');
 					$('a', this).each(function(index) {
@@ -31,12 +31,13 @@
 						if((index === 0 && !defaultImage) || $(this).hasClass('sp-default')){
 							classes = ' class="sp-current"';
 							firstLarge = large;
-							firstThumb = $('img', this)[0].src;
-						}
-						$(this).parents('.sp-wrap').find('.sp-thumbs').append('<a href="' + large + '" style="background-image:url(' + thumb + ')"'+classes+'></a>');
+                            firstThumb = $('img', this)[0].src;
+                            altImage = $('img', this)[0].alt;
+                        }
+                        $(this).parents('.sp-wrap').find('.sp-thumbs').append('<a href="' + large + '" style="background-image:url(' + thumb + ')"' + classes + ' title="' + altImage + '"></a>');
 						$(this).remove();
 					});
-					$('.sp-large', this).append('<a href="' + firstLarge + '" class="sp-current-big"><img src="' + firstThumb + '" alt="" /></a>');
+                    $('.sp-large', this).append('<a href="' + firstLarge + '" class="sp-current-big"><img src="' + firstThumb + '" alt="' + altImage+'" /></a>');
 					$('.sp-wrap').css('display', 'inline-block');
 				// If only one image
 				} else {
@@ -82,10 +83,11 @@
 
 				$(this).addClass('sp-current').parents('.sp-wrap').find('.sp-large a').remove();
 
-				var nextLarge = $(this).parent().find('.sp-current').attr('href'),
+                var nextLarge = $(this).parent().find('.sp-current').attr('href'),
+                    titleImage = $(this).parent().find('.sp-current').attr('title')
 					nextThumb = get_url_from_background($(this).parent().find('.sp-current').css('backgroundImage'));
 
-				$(this).parents('.sp-wrap').find('.sp-large').html('<a href="' + nextLarge + '" class="sp-current-big"><img src="' + nextThumb + '"/></a>');
+                $(this).parents('.sp-wrap').find('.sp-large').html('<a href="' + nextLarge + '" class="sp-current-big"><img src="' + nextThumb + '" alt="' + titleImage+'"/></a>');
 				$(this).parents('.sp-wrap').find('.sp-large').hide().fadeIn(250, function() {
 
 					var autoHeight = $(this).parents('.sp-wrap').find('.sp-large img').height();

@@ -350,7 +350,7 @@ namespace SimplCommerce.Module.Orders.Areas.Orders.Controllers
             var csvBytes = Encoding.UTF8.GetBytes(csvString);
             // MS Excel need the BOM to display UTF8 Correctly
             var csvBytesWithUTF8BOM = Encoding.UTF8.GetPreamble().Concat(csvBytes).ToArray();
-            return File(csvBytesWithUTF8BOM, "text/csv", "orders-export.csv");
+              return File(csvBytesWithUTF8BOM, "application/ms-excel", $"Employee.xlsx");
         }
 
         [HttpPost("lines-export")]
