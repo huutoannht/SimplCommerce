@@ -1,4 +1,9 @@
-﻿@model  SimplCommerce.Module.News.Areas.News.ViewModels.NewsItemVm
+﻿@model SimplCommerce.Module.News.Areas.News.ViewModels.NewsItemVm
+@section additionalMeta {
+    <meta name="title" content="@ViewBag.Title" />
+    <meta name="keywords" content="@Model.MetaKeywords" />
+    <meta name="description" content="@Model.MetaDescription" />
+}
 
 @{
     ViewData["Title"] = Model.Name;
@@ -11,6 +16,7 @@
         max-width: 100%;
         margin: 0 auto;
     }
+
     .titledetail {
         display: block;
         overflow: hidden;
@@ -39,5 +45,5 @@
         </div>
         @await Component.InvokeAsync("NewItemRelate", Model.Id)
     </article>
-   
+
 </section>

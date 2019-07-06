@@ -28,6 +28,12 @@ namespace SimplCommerce.Module.News.Areas.News.ViewModels
         public bool IsPublished { get; set; }
 
         public string ThumbnailImageUrl { get; set; }
+        public string MetaTitle { get; set; }
+
+        public string MetaKeywords { get; set; }
+
+        public string MetaDescription { get; set; }
+
 
         public IList<long> NewsCategoryIds { get; set; } = new List<long>();
         public DateTimeOffset CreatedOn { get;  set; }
