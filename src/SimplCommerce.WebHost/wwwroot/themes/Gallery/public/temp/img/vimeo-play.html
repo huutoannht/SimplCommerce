@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html>
+
+
+<!-- Mirrored from balticbrows.com/public/temp/img/vimeo-play.png, Mon, 29 Jul 2019 09:34:01 GMT by HTTrack Website Copier/3.x [XR/YP'2000] -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <link rel="stylesheet" href="../../css/app.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
+    <title>Balticbrows</title><meta name="description" content="Permanent make up, international trainings, microblading">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/styles/jquery.modal.min.css">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../../assets/styles/calendar.css">
+    <link rel="stylesheet" href="../../assets/styles/als.css">
+    <link rel="stylesheet" href="../../assets/styles/slick.css">
+    <link rel="stylesheet" href="../../assets/styles/custom.css">
+    <link rel="stylesheet" href="../../assets/styles/_about.css">
+    <link rel="stylesheet" href="../styles/video.css">
+    <link rel="stylesheet" href="../styles/lightgallery.css">
+   <!-- <link rel="stylesheet" href="https://balticbrows.com/css/custom.css"> -->
+    <script src="../../../../code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+    <script src="../../assets/js/bootstrap.min.js"></script>
+        <meta name="csrf-token" content="LPDotKUGvXSIszbGv23jqh8VPx0irbQQckanfDZg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="google-site-verification" content="M7jzHRLtBlAvliVZkNoLUCyhKE0WN1XZrjzeui2npuI" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109983717-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-109983717-1');
+    </script>
+    <script>
+        window.language = 'en';
+    </script>
+    <style>
+    .img_item{
+        min-height: auto;
+        max-height: 100%;
+        min-width: 240px;
+        object-fit: contain;
+    }
+    .box_img{
+
+    }
+    </style>
+</head>
+
+<body>
+    <div id="foo" style="position: fixed; width: 100%; height: 100%; z-index: 99999; display: none"></div>
+    <!-- start of modal login/passwords-->
+<div class="bg_modal"></div>
+
+<!--modal_user-->
+<div class="box_modal modal_user" id="modal_user">
+
+    <!--box_tabs-->
+    <div class="box_tabs">
+
+        <a href="javascript:" class="close_modal"><span class="icon icon-times"></span></a>
+
+        <div class="tabs">
+            <a href="javascript:tab(1)" class="tab">Log in</a><!--active-->
+            <a href="javascript:tab(2)" class="tab">Sign up</a>
+        </div>
+
+        <div class="item_tab">
+            <!--box_form_login-->
+            <div class="box_form_login">
+                <form method="POST" action="https://balticbrows.com/en/customer/login" accept-charset="UTF-8" id="login_form_modal"><input name="_token" type="hidden" value="LPDotKUGvXSIszbGv23jqh8VPx0irbQQckanfDZg">
+                <input type="email" name="email" required placeholder="Email" class="field email">
+                <input type="password" name="password" required minlength="6" placeholder="Password" class="field password">
+                <div class="box_password">
+                    <label for="remember">
+                        <input type="checkbox" name="remember_me" id="remember" value="1" >
+                        <span class="checkbox"> <span class="icon icon-check checked"></span> </span>
+                        Remember me
+                    </label>
+
+                    <a href="javascript:" onclick="reset_password(1)" class="forgot">Forgot password</a>
+                </div>
+
+                <div class="box_button">
+                    <input type="submit" value="Login" class="btn_send">
+                </div>
+                </form>
+            </div>
+            <!--box_form_login-->
+
+            <!--box_reset_password-->
+            <div class="box_reset_password">
+                <form method="POST" action="https://balticbrows.com/en/customer/reset-password" accept-charset="UTF-8" id="password-reset-form"><input name="_token" type="hidden" value="LPDotKUGvXSIszbGv23jqh8VPx0irbQQckanfDZg">
+                    <div class="title">Reset Password</div>
+                    <div class="text reset-password-text">
+                         Enter the email you registered with and<br>we will email you instructions to reset<br>your password.
+                    </div>
+                    <input type="text" name="email" value="" placeholder="Email" class="field">
+                    <input type="submit" value="Reset password" class="btn_send">
+                </form>
+            </div>
+            <!--box_reset_password-->
+
+            <!--box_reset_successs-->
+            <div class="box_reset_successs">
+                <div class="title"></div>
+                <div class="text"></div>
+            </div>
+            <!--box_reset_successs-->
+        </div>
+
+        <div class="item_tab">
+
+            <!--box_form_register-->
+            <div class="box_form_register">
+                <form method="POST" action="https://balticbrows.com/en/customer/quick-reqister" accept-charset="UTF-8" id="quick-reqister-form"><input name="_token" type="hidden" value="LPDotKUGvXSIszbGv23jqh8VPx0irbQQckanfDZg">
+                    <div class="error-container"></div>
+                    <input type="email" required name="email" value="" placeholder="Email" class="field email">
+                    <input type="text" required name="name" value="" placeholder="First name" class="field">
+                    <input type="text" required name="second_name" value="" placeholder="Second name" class="field">
+                    <input type="text" required name="phone" value="" placeholder="Phone" class="field">
+                    <input type="password" required name="password" id="first-password" value="" placeholder="Password" class="field password">
+                    <input type="password" required name="password2" value="" placeholder="Repeat password" class="field password">
+                    
+                    <div class='checkbox-label-container'>
+                        <label class='label-container'>
+                            <input type="checkbox" name='GDPR' />
+                            <span>Agreement to save data and order history. <a target='_blank' href='../../uploads/documents/Terms_and_conditions_en.pdf'>More details</a></span>
+                        </label>
+
+                        <p id='GDPR-error' style="color:red"></p>
+                    </div>
+
+                    <div class="box_button">
+                        <input type="submit" value="Sign Up" class="btn_send">
+                    </div>
+
+                </form>
+            </div>
+            <!--box_form_register-->
+
+        </div>
+
+    </div>
+    <!--box_tabs-->
+
+</div>
+<!--modal_user-->
+
+<!--modal_reset-->
+<div class="box_modal modal_reset" id="modal_reset">
+
+    <!--box_form_register-->
+    <div class="box_form_register">
+        <a href="javascript:" class="close_modal"><span class="icon icon-times"></span></a>
+        <form method="POST" action="https://balticbrows.com/en/customer/reset-password-confirm" accept-charset="UTF-8" id="reset-password-confirm-form"><input name="_token" type="hidden" value="LPDotKUGvXSIszbGv23jqh8VPx0irbQQckanfDZg">
+                        <div class="title">Reset Password</div>
+            <input type="password" required name="password" value="" placeholder="New Password" id="first-password2" class="field password">
+            <input type="password" required name="password2" value="" placeholder="Repeat new password" class="field password">
+
+            <div class="box_button">
+                <input type="submit" value="Reset Password" class="btn_send">
+            </div>
+        </form>
+
+    </div>
+    <!--box_form_register-->
+
+</div>
+<!--modal_reset-->
+
+<!-- end of modal login/passwords-->
+    <!--modal_success-->
+<div class="box_modal modal_success" id="modal_success">
+
+    <a href="javascript:" class="close_modal"><span class="icon icon-times"></span></a>
+
+    <div class="title"><span class="icon icon_checked" data-icon="1"></span>Payment Successful!</div>
+
+    <div class="text">
+        Your payment was completed . Thank you.<br>We will contact you with further information about the training you’ve just purchased.<br>If you have any questions, you can contact us anytime!
+        <a href="javascript:" onclick="close_modal();" class="button">Close</a>
+    </div>
+
+</div>
+<!--modal_success-->    <div class="box_modal modal_success" id="modal_canceled">
+
+    <a href="javascript:" class="close_modal"><span class="icon icon-times"></span></a>
+
+    <div class="title"><span class="icon icon-canceled" data-icon="B"></span>Payment canceled!</div>
+
+    <div class="text">
+        Your payment was canceled. <br>If you have problems with payment process, please contact our administrator.
+        <a href="javascript:" onclick="close_modal();" class="button">Close</a>
+    </div>
+
+</div>    <div class="box_modal modal_success" id="modal_success">
+
+    <a href="javascript:" class="close_modal"><span class="icon icon-times"></span></a>
+
+    <div class="title"><span class="icon icon_checked" data-icon="1"></span>Success! Your payment accepted!</div>
+
+    <div class="text">
+        Your payment was completed . Thank you.<br>We will contact you with further information about the training you’ve just purchased.<br>If you have any questions, you can contact us anytime!
+        <a href="javascript:" onclick="close_modal();" class="button">Close</a>
+    </div>
+
+</div>    <header>
+        <nav>
+            <div class="brand">
+                <a href="../../../en.html">
+                    <img src="../../assets/images/icons/logo_BalticBrows%2bold.svg" alt="Baltic Brows"
+                        title="Baltic Brows">
+                </a>
+            </div>
+            <!--mySidenav-->
+            <div id="mySidenav" class="sidenav">
+                <div class="brand">
+                    <a href="#">
+                        <img src="../../assets/images/icons/logo_BalticBrows.svg" alt="Baltic Brows"
+                            title="Baltic Brows">
+                    </a>
+                </div>
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <div class="box_top">
+                                        <ul class="widget-nav">
+                        <li>
+                            <span class="lang">
+                                en
+                                <span class="icon" data-icon="o"></span>
+                                <div class="list_languages">
+                                                                                                                                                                                                                        <div class="option"><a href="../../../es/public/temp/img/vimeo-play.html">es</a></div>
+                                                                                                                                                <div class="option"><a href="../../../it/public/temp/img/vimeo-play.html">it</a></div>
+                                                                                                                                                <div class="option"><a href="../../../pt/public/temp/img/vimeo-play.html">pt</a></div>
+                                                                                                                                            </div>
+                            </span>
+                        </li>
+                    </ul>
+                                        <ul class="user-btns-mobile">
+                                                <li>
+                            <a class="logIN" href="javascript:" onclick="show_modal('modal_user', 1);">
+                                <span class="icon" data-icon="g"></span>
+                                <span class="text">Sign in</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="singUp" href="javascript:" onclick="show_modal('modal_user', 2);">
+                                <span class="icon" data-icon="h"></span>
+                                <span class="text">Sign up</span>
+                            </a>
+                        </li>
+                                            </ul>
+                </div>
+                                <ul class="main-nav" style="display: block !important; float:left; width: 100%;">
+                                        <li class=" " style="">
+                        <a class="" style=""
+                             href="../../../index.html"><span class="coln">Home</span></a>
+
+                                                                    </li>
+                                        <li class=" " style="">
+                        <a class="" style=""
+                             href="../../../certification.html"><span class="coln">Certification</span></a>
+
+                                                                    </li>
+                                        <li class="  site_submenu_outer " style="">
+                        <a class=" parent_link " style=""
+                             href="../../../team/baltic-brows.html"><span class="coln">About</span> <span class="icon_c"><i
+                                    class="icon-right-open-mini"></i></span><span class="icon_c1"><i class="icon-btn-left"></i>Back</span>
+                            </a>
+
+                                                <div class="site_submenu"></div>
+                                                                        <div class="list_li_menu">
+                                                        <div class="option"><a  href="../../../team/baltic-brows.html">Baltic Brows</a></div>
+                                                        <div class="option"><a  href="../../../team.html">Team</a></div>
+                                                        <div class="option"><a  href="refund-policy.html">Refund policy</a></div>
+                                                        <div class="option"><a  href="privacy-policy.html">Privacy policy</a></div>
+                                                        <div class="option"><a  href="delivery-information.html">Delivery information</a></div>
+                                                        <div class="option back_to_main_menu"><a href="javascript:void(0)"><i class="icon-btn-left"></i>Back
+                                    to main menu</a></div>
+                        </div>
+                                            </li>
+                                        <li class=" " style="">
+                        <a class="" style=""
+                             href="../../../en/international-trainings.html"><span class="coln">International Trainings</span></a>
+
+                                                                    </li>
+                                        <li class=" " style="">
+                        <a class="" style=""
+                             href="../../../en/register.html"><span class="coln">Register</span></a>
+
+                                                                    </li>
+                                        <li class="online " style="">
+                        <a class="" style=""
+                             href="../../../en/trainings.html"><span class="coln">Online Trainings</span></a>
+
+                                                                    </li>
+                                        <li class="treatments-top  site_submenu_outer " style="">
+                        <a class=" parent_link " style=""
+                             href="../../../treatments.html"><span class="coln">Treatments</span> <span class="icon_c"><i
+                                    class="icon-right-open-mini"></i></span><span class="icon_c1"><i class="icon-btn-left"></i>Back</span>
+                            </a>
+
+                                                <div class="site_submenu"></div>
+                                                                        <div class="list_li_menu">
+                                                        <div class="option"><a  href="../../../microblading-6d-brows.html">Microblading 6D eyebrows</a></div>
+                                                        <div class="option"><a  href="../../../ombre-brows-yoa9jttn2fsztkij.html">Ombre brows</a></div>
+                                                        <div class="option"><a  href="../../../microblading-shading-gh4gii9y8fvntdv5.html">Microblading + shading</a></div>
+                                                        <div class="option"><a  href="../../../eyeliner-w7t8ema69hwq1749.html">Eyeliner</a></div>
+                                                        <div class="option"><a  href="../../../eyeshadow.html">Eyeshadow</a></div>
+                                                        <div class="option"><a  href="../../../lips-dykzf8tg9vgxh7yh.html">Lips</a></div>
+                                                        <div class="option"><a  href="../../../removal-pitg0rd4n5ukbmyd.html">Removal</a></div>
+                                                        <div class="option"><a  href="../../../scalp-tricopigmentation-j0mngqqnm2itli2p.html">Scalp tricopigmentation</a></div>
+                                                        <div class="option back_to_main_menu"><a href="javascript:void(0)"><i class="icon-btn-left"></i>Back
+                                    to main menu</a></div>
+                        </div>
+                                            </li>
+                                        <li class=" " style="">
+                        <a class="" style=""
+                             href="../../../en/galleries.html"><span class="coln">Gallery</span></a>
+
+                                                                    </li>
+                                        <li class=" " style="">
+                        <a class="" style=""
+                             target="_blank"  href="http://shopbalticbrows.com/"><span class="coln">Shop</span></a>
+
+                                                                    </li>
+                                        <li class=" " style="">
+                        <a class="" style=""
+                             href="../../../en/reviews.html"><span class="coln">Reviews</span></a>
+
+                                                                    </li>
+                                        <li class=" " style="">
+                        <a class="" style=""
+                             href="../../../en/contacts.html"><span class="coln">Contact</span></a>
+
+                                                                    </li>
+                                    </ul>
+                
+                <div class="mobile_search">
+                    <form>
+                        <input type="text" name="" placeholder="Search">
+                        <button class="btn_send"><span class="icon icon-search"></span></button>
+                    </form>
+                </div>
+            </div>
+            <!--mySidenav-->
+
+            <div id="mySidenav" class="mob-nav" onclick="openNav()">
+                <div class="icon icon-bars"></div>
+            </div>
+
+                        <ul class="main-nav">
+                                                <li class="" style="">
+                    <a style=""  href="../../../index.html">Home</a>
+                                    </li>
+                                                                <li class="" style="">
+                    <a style=""  href="../../../certification.html">Certification</a>
+                                    </li>
+                                                                <li class="" style="">
+                    <a style=""  href="../../../team/baltic-brows.html">About</a>
+                                        <div class="list_li_menu">
+                                                <div class="option"><a  href="../../../team/baltic-brows.html">Baltic Brows</a></div>
+                                                <div class="option"><a  href="../../../team.html">Team</a></div>
+                                                <div class="option"><a  href="../../../refund-policy.html">Refund policy</a></div>
+                                                <div class="option"><a  href="../../../privacy-policy.html">Privacy policy</a></div>
+                                                <div class="option"><a  href="../../../delivery-information.html">Delivery information</a></div>
+                                            </div>
+                                    </li>
+                                                                <li class="" style="">
+                    <a style=""  href="../../../en/international-trainings.html">International Trainings</a>
+                                    </li>
+                                                                <li class="" style="">
+                    <a style=""  href="../../../en/register.html">Register</a>
+                                    </li>
+                                                                <li class="online" style="">
+                    <a style=""  href="../../../en/trainings.html">
+                        <div data-icon="a" class="icon"></div>
+                        <span class="online-text"> Online Trainings</span>
+                    </a>
+                                    </li>
+                                                                <li class="treatments-top" style="">
+                    <a style=""  href="treatments.html">
+                        <div data-icon="" class="icon"></div>
+                        <span class="online-text"> Treatments</span>
+                    </a>
+                                        <div class="list_li_menu">
+                                                <div class="option"><a  href="../../../microblading-6d-brows.html">Microblading 6D eyebrows</a></div>
+                                                <div class="option"><a  href="../../../ombre-brows-yoa9jttn2fsztkij.html">Ombre brows</a></div>
+                                                <div class="option"><a  href="../../../microblading-shading-gh4gii9y8fvntdv5.html">Microblading + shading</a></div>
+                                                <div class="option"><a  href="../../../eyeliner-w7t8ema69hwq1749.html">Eyeliner</a></div>
+                                                <div class="option"><a  href="../../../eyeshadow.html">Eyeshadow</a></div>
+                                                <div class="option"><a  href="../../../lips-dykzf8tg9vgxh7yh.html">Lips</a></div>
+                                                <div class="option"><a  href="../../../removal-pitg0rd4n5ukbmyd.html">Removal</a></div>
+                                                <div class="option"><a  href="../../../scalp-tricopigmentation-j0mngqqnm2itli2p.html">Scalp tricopigmentation</a></div>
+                                            </div>
+                                    </li>
+                                                                <li class="" style="">
+                    <a style=""  href="../../../en/galleries.html">Gallery</a>
+                                    </li>
+                                                                <li class="" style="">
+                    <a style=""                         target="_blank"  href="http://shopbalticbrows.com/">Shop</a>
+                                    </li>
+                                                                <li class="" style="">
+                    <a style=""  href="../../../en/reviews.html">Reviews</a>
+                                    </li>
+                                                                <li class="" style="">
+                    <a style=""  href="../../../en/contacts.html">Contact</a>
+                                    </li>
+                                                <!--<li><a href="#Search"><span class="icon icon-search"></span></a></li>-->
+            </ul>
+            
+            <ul class="user-btns">
+                <li style="border-left:none;">
+
+                </li>
+                <li>
+                    <div class="search_desktop" id="search_desktop">
+                        <form method="GET" action="https://balticbrows.com/en/search" accept-charset="UTF-8">
+                        <input type="text" name="keyword" placeholder="Search">
+                        <button class="btn_send"><span class="icon icon-search"></span></button>
+                        </form>
+                    </div>
+
+                    <a href="javascript:" id="open_search_desktop"><span class="icon icon-search"></span></a>
+                </li>
+                <li>
+                <a href="javascript:" onclick="show_modal('modal_user', 1);">
+            <span class="icon" data-icon="g"></span>
+            <span class="text">Sign in</span>
+        </a>
+    </li>
+
+    <li>
+        <a class="singUp" href="javascript:" onclick="show_modal('modal_user', 2);">
+            <span class="icon" data-icon="h"></span>
+            <span class="text">Sign up</span>
+        </a>
+    </li>
+            </ul>
+
+            <ul class="widget-nav">
+                <li>
+                                        <a target="_blank" href="https://www.facebook.com/balticbrows/?fref=ts" class="socal"><span class="icon icon-facebook"></span></a>
+                                                            <a target="_blank" href="https://www.instagram.com/baltic_brows/" class="socal"><span
+                            class="icon icon-instagram"></span></a>
+                                                            <span class="lang">
+                        en
+                        <span class="icon" data-icon="o"></span>
+                                                <div class="list_languages">
+                                                                                                                                            <div class="option"><a href="../../../es/public/temp/img/vimeo-play.html">es</a></div>
+                                                                                                                <div class="option"><a href="../../../it/public/temp/img/vimeo-play.html">it</a></div>
+                                                                                                                <div class="option"><a href="../../../pt/public/temp/img/vimeo-play.html">pt</a></div>
+                                                                                </div>
+                                                                    </span>
+                </li>
+                            </ul>
+        </nav>
+
+
+    </header>
+
+        
+	<section id="training-header-wrap">
+
+        <section id="breadcrumbs">
+
+            <section id="breadcrumbs" style="min-height: 500px;">
+
+		        <div class="container">
+
+		            <div class="breadcrubs-wrap">		                
+
+	                    <div class="bread-item">
+
+	                        <a class="" href="../../../index.html">Home</a>
+
+	                        <span data-icon="z" class="icon"></span>
+
+	                        <a class="active" href="#">Page not found</a>
+
+	                    </div>		                
+
+		            </div>
+
+		            <div class="box_404">
+		            	<div class="icon" data-icon='"'></div>
+		            	<div class="text1"><span>404</span> That’s an error...</div>
+		            	<div class="text2">
+		            		Looks like the page you're trying to visit doesn't exist or an error  occurred.
+		            	</div>
+		            	<a href="../../../index.html" class="back">Take me home</a>
+		            </div>
+
+		        </div>
+
+		    </section>
+
+        </section>
+
+    </section>
+
+
+    <section id="footer-widget">
+
+        <div class="container">
+            <div class="footer-item-wrap">
+                <div class="footer-item">
+                    <div class="footer-logo">
+                        <img src="../../assets/images/icons/logo_BalticBrows.svg" alt="Footer logo">
+                    </div>
+                    <div class="footer-socal">
+                                                <a target="_blank" href="https://www.facebook.com/balticbrows/?fref=ts" class="socal"><span
+                                class="icon icon-facebook"></span></a>
+                                                                        <a target="_blank" href="https://www.instagram.com/baltic_brows/" class="socal"><span
+                                class="icon icon-instagram"></span></a>
+                                            </div>
+                </div>
+                <div class="footer-item">
+                    <div class="contact-info">
+                                                <div class="contact-item">
+                            <span data-icon="C" class="icon"></span>
+                            <div class="contact-text"> S. Daukanto 26-3, Kaunas, Lithuania LT-44246</div>
+                        </div>
+                        
+                                                <div class="contact-item">
+                            <span data-icon="F" class="icon"></span>
+                            <div class="contact-text">+370 623 86527</div>
+                        </div>
+                        
+                                                <div class="contact-item">
+                            <span data-icon="G" class="icon"></span>
+                            <div class="contact-text"> balticbrows@gmail.com</div>
+                        </div>
+                        
+                                                <div class="contact-item">
+                            <span data-icon="G" class="icon"></span>
+                            <div class="contact-text"> info@balticbrows.com</div>
+                        </div>
+                                            </div>
+                </div>
+
+                <div class="footer-item">
+                    <div class="shop-container">
+                        <div class="shop-title">
+                            <div class="shop-main-title">Visit our e-store at</div>
+                            <div class="shop-main-url">
+
+                                <a href="#shop">www.shopbalticbrows.com </a>
+                            </div>
+                        </div>
+                        <div class="shop-btn">
+                            <a href="http://www.shopbalticbrows.com/" target="_blank">
+                                <span data-icon="E" class="icon"></span>
+                                <div class="shop-btn-text">Shop Now!</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-item">
+                    <div class="news-letter-wrap">
+                        <div class="news-letter-text">
+                            <div class="news-letter-title-big">
+                                Newsletter subscription
+                            </div>
+                            <div class="news-letter-title-small">
+                                Get the best deals first!
+                            </div>
+                        </div>
+                        <div class="news-letter-input">
+                            <form method="POST" action="https://balticbrows.com/en/newsletter/subscribe" accept-charset="UTF-8" id="newsletter_form"><input name="_token" type="hidden" value="LPDotKUGvXSIszbGv23jqh8VPx0irbQQckanfDZg">
+                            <input type="email" placeholder="Enter Your email address" name="email"
+                                id="email" class="field_news_letter">
+                            <input type="submit" value="Subscribe" class="button_news_letter">
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class='cookie-consent-container'>
+  <p>
+    We use cookies to understand how you use our site and to improve your experience. To learn more,<a target='blank' href='../../uploads/documents/Cookie_policy.pdf'>click here</a> 
+    By continuing to use our site, you accept our use of cookies, revised<a target='blank' href='../../uploads/documents/Terms_and_conditions_en.pdf'>Privacy Policy and Terms of Use.</a>
+  </p>
+  <div>
+    <input type='button' value='I accept' class='btn-agree' />
+    <i class='icon icon-times'></i>
+  </div>
+</div>
+
+    <a href="javascript:" onclick="scroll_top_top();" class="back_top">
+        <span class="icon icon-chevron-up"></span>
+    </a>
+
+    <footer>
+        <div class="container footer-cont">
+            <span class="copy">&copy; 2019 Baltic Brows. All Rights Reserved.</span>
+        </div>
+    </footer>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#lightgallery').lightGallery();
+        });
+    </script>
+    <script src="../../../../cdn.jsdelivr.net/picturefill/2.3.1/picturefill.min.js"></script>
+    <script src="../../assets/js/lightgallery-all.min.js"></script>
+    <script src="../../assets/js/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/html5lightbox/html5lightbox.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7OXaLAt6V0NPpazinJ_OnAxbNFfBHmAE"></script>
+    <script src="../../assets/js/map.js"></script>
+    <script src="../../assets/js/calendar.js"></script>
+    <script src="../../assets/js/jquery.als-1.7.min.js"></script>
+    <script src="../../assets/js/jQuery.scrollSpeed.js"></script>
+    <script src="../../assets/js/jquery-ui.min.js"></script>
+    <script src="../../assets/js/jquery.modal.min.js"></script>
+    <script src="../../assets/js/slick.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/file.js"></script>
+    <script type="text/javascript" src="../../assets/js/main.js"></script>
+    <script type="text/javascript" src="../../../../cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.1/jquery.validate.js"></script>
+    <script type="text/javascript" src="../../../../cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.1/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/custom.js"></script>
+    <script src="../../assets/js/masonry.pkgd.min.js"></script>
+    <script src="../../assets/js/pdfobject.js"></script>
+    <script src="../../assets/js/app.js"></script>
+    <link href="../../assets/js/owlcarousel/owl.carousel.css" rel="stylesheet">
+    <link href="../../assets/js/owlcarousel/owl.theme.css" rel="stylesheet">
+    <script src="../../assets/js/owlcarousel/owl.carousel.js"></script>
+    <script src="../../assets/js/validation.js"></script>
+    <script src="../../../../cdn.jsdelivr.net/jquery.validation/1.15.0/additional-methods.min.js"></script>
+    <script src="../../assets/js/spin/spin.min.js"></script>
+    <script src="../../assets/js/spin/spin.js"></script>
+    <script src="../../../../malsup.github.io/jquery.blockUI.js"></script>
+    <script src="../../assets/js/jquery-scrollto.js"></script>
+
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {},
+            Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"),
+                s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/58788d231855346ccc760a69/default';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
+    <!--colorbox-->
+    <script type="text/javascript" src="../../assets/js/colorbox/jquery.colorbox.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../assets/js/colorbox/colorbox.css" media="screen" />
+    <!--colorbox-->
+    
+
+    <script>
+        function showPreloader(title) {
+            if (!title) {
+                var title = 'global.please_wait '
+            }
+            $.blockUI({
+                css: {
+                    border: 'none',
+                    padding: '15px',
+                    backgroundColor: '#000',
+                    '-webkit-border-radius': '10px',
+                    '-moz-border-radius': '10px',
+                    opacity: .5,
+                    color: '#fff'
+                },
+                message: title
+            });
+        }
+        $("#newsletter_form").validate({
+            rules: {
+                email: {
+                    required: true,
+                    email: true
+                }
+            },
+            messages: {
+                email: {
+                    required: 'Email address is required',
+                    email: 'Email address is not valid'
+                }
+            },
+            submitHandler: function (form) {
+                var $form = $("#newsletter_form");
+                var post_url = $form.attr("action"); //get form action url
+                var request_method = $form.attr("method"); //get form GET/POST method
+                var form_data = $form.serialize(); //Enco
+                $.ajax({
+                    type: request_method,
+                    url: post_url,
+                    data: form_data,
+                    cache: false,
+                    beforeSend: function () {
+                        $form.find('input[type=submit]').attr('disabled', true).val('Working...');
+                        $form.find('#success-newsletter-email').remove();
+                    },
+                    success: function (data) {
+                        data = jQuery.parseJSON(data);
+                        if (!data.error || data.error === false) {
+                            $form.find('input[type=submit]').attr('disabled', false);
+                            $form.find('input[type=submit]').val('Subscribe');
+                            $form.find('input[type=email]').addClass('success');
+                            $form.find('input[type=submit]').after(
+                                '<label id="success-newsletter-email" for="email">' + data['message'] + '</label>');
+                            if (data.refresh) {
+                                window.location.reload();
+                            }
+                        } else {
+                            $form.find('input[type=submit]').attr('disabled', false);
+                            $form.find('input[type=email]').addClass('error');
+                            $form.find('input[type=submit]').val('Subscribe');
+                            $form.find('input[type=submit]').after(
+                                '<label id="email-error" class="error" for="email">' + data['message'] + '</label>');
+                        }
+                    },
+                    error: function () {
+                        $form.find('input[type=submit]').attr('disabled', false);
+                    }
+                });
+                return false;
+            }
+        });
+        $("#login_form_modal").validate({
+            rules: {
+                email: {
+                    required: true,
+                    email: true
+                },
+                password: {
+                    required: true,
+                    minlength: 6
+                }
+            },
+            messages: {
+                email: {
+                    required: 'Email address is required',
+                    email: 'Email address is not valid'
+                },
+                password: {
+                    required: 'Enter your password',
+                    minlength: 'Min 6symbols'
+                }
+            },
+            submitHandler: function (form) {
+                var $form = $("#login_form_modal");
+                var post_url = $form.attr("action"); //get form action url
+                var request_method = $form.attr("method"); //get form GET/POST method
+                var form_data = $form.serialize(); //Enco
+                $.ajax({
+                    type: request_method,
+                    url: post_url,
+                    data: form_data,
+                    cache: false,
+                    beforeSend: function () {
+                        $form.find('input[type=submit]').attr('disabled', true).val('Working...');
+                    },
+                    success: function (data) {
+                        data = jQuery.parseJSON(data);
+                        if (!data.error || data.error === false) {
+                            $form.find('input[type=submit]').val('Loged in');
+                            if (data.refresh) {
+                                window.location.reload();
+                            }
+                        } else {
+                            $form.find('input[type=submit]').attr('disabled', false);
+                            $form.find('input[type=email]').addClass('error');
+                            $form.find('input[type=submit]').val('Log in');
+                        }
+                    },
+                    error: function () {
+                        $form.find('input[type=submit]').attr('disabled', false);
+                        $form.find('input[type=text], input[type=password]').addClass('error');
+                    }
+                });
+                return false;
+            }
+        });
+        $("#reset-password-confirm-form").validate({
+            rules: {
+                password: {
+                    required: true,
+                    minlength: 6
+                },
+                password2: {
+                    required: true,
+                    equalTo: "#first-password2"
+                }
+            },
+            messages: {
+                password: {
+                    required: 'Enter your password',
+                    minlength: 'Min :number symbols'
+                },
+                password2: {
+                    required: 'Enter your password',
+                    equalTo: 'Passwords do not match'
+                }
+            },
+            submitHandler: function (form) {
+                var $form = $("#reset-password-confirm-form");
+                var post_url = $form.attr("action"); //get form action url
+                var request_method = $form.attr("method"); //get form GET/POST method
+                var form_data = $form.serialize(); //Enco
+                $.ajax({
+                    type: request_method,
+                    url: post_url,
+                    data: form_data,
+                    cache: false,
+                    beforeSend: function () {
+                        $form.find('input[type=submit]').attr('disabled', true).val('Please wait...');
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        data = jQuery.parseJSON(data);
+                        if (!data.error || data.error === false) {
+                            $form.find('input[type=submit]').val('user.success ');
+                            if (data.redirect) {
+                                window.location.href = '' + data.redirect + '';
+                            }
+                        } else {
+                            if (data.message) {
+                                $form.find('.error-container').html(data.message);
+                            }
+                            $form.find('input[type=submit]').attr('disabled', false);
+                            $form.find('input[type=submit]').val('Sign up');
+                        }
+                    },
+                    error: function () {
+                        $form.find('input[type=submit]').attr('disabled', false);
+                        $form.find('input[type=text], input[type=password]').addClass('error');
+                    }
+                });
+            }
+        });
+        $("#quick-reqister-form").validate({
+            rules: {
+                email: {
+                    required: true,
+                    email: true
+                },
+                password: {
+                    required: true,
+                    minlength: 6
+                },
+                password2: {
+                    required: true,
+                    equalTo: "#first-password"
+                },
+                GDPR: {
+                    required: true,
+                    errorPlacement: function ($elem) {
+                        $("#GDPR-error").text(
+                            'Please check that You agree to data and order history collecting.');
+                    }
+                }
+            },
+            messages: {
+                email: {
+                    required: 'Email address is required',
+                    email: 'user.email_not_valid '
+                },
+                password: {
+                    required: 'Enter your password',
+                    minlength: 'Min :number symbols'
+                },
+                password2: {
+                    required: 'Enter your password',
+                    equalTo: 'Passwords do not match'
+                },
+                GDPR: {
+                    required: ''
+                }
+            },
+            submitHandler: function (form) {
+                var $form = $("#quick-reqister-form");
+                var post_url = $form.attr("action"); //get form action url
+                var request_method = $form.attr("method"); //get form GET/POST method
+                var form_data = $form.serialize(); //Enco
+                $.ajax({
+                    type: request_method,
+                    url: post_url,
+                    data: form_data,
+                    cache: false,
+                    beforeSend: function () {
+                        $form.find('input[type=submit]').attr('disabled', true).val('Please wait...');
+                    },
+                    success: function (data) {
+                        data = jQuery.parseJSON(data);
+                        if (!data.error || data.error === false) {
+                            $form.find('input[type=submit]').val('Success, redirecting...!');
+                            if (data.redirect) {
+                                window.location.href = '' + data.redirect + '';
+                            }
+                        } else {
+                            if (data.message) {
+                                $form.find('.error-container').html(data.message);
+                            }
+                            $form.find('input[type=submit]').attr('disabled', false);
+                            $form.find('input[type=submit]').val('Sign up');
+                        }
+                    },
+                    error: function () {
+                        $form.find('input[type=submit]').attr('disabled', false);
+                        $form.find('input[type=text], input[type=password]').addClass('error');
+                    }
+                });
+            }
+        });
+        $("#password-reset-form").validate({
+            rules: {
+                email: {
+                    required: true,
+                    email: true
+                }
+            },
+            messages: {
+                email: {
+                    required: 'Email address is required',
+                    email: 'Email address is not valid'
+                }
+            },
+            submitHandler: function (form) {
+                var $form = $("#password-reset-form");
+                var post_url = $form.attr("action"); //get form action url
+                var request_method = $form.attr("method"); //get form GET/POST method
+                var form_data = $form.serialize(); //Enco
+                var success_message = $(".box_reset_successs");
+                var reset_form = $(".box_reset_password");
+                $.ajax({
+                    type: request_method,
+                    url: post_url,
+                    data: form_data,
+                    cache: false,
+                    beforeSend: function () {
+                        $form.find('input[type=submit]').attr('disabled', true).val('Working...');
+                    },
+                    success: function (data) {
+                        data = jQuery.parseJSON(data);
+                        if (!data.error || data.error === false) {
+                            $form.find('input[type=submit]').val('Sent!');
+                            $form.find('input[type=email]').attr('disabled', true);
+                            reset_form.slideUp();
+                            if (data.message || data.title) {
+                                success_message.slideDown();
+                                if (data.title) {
+                                    success_message.find('.title').html(data.title);
+                                }
+                                if (data.message) {
+                                    success_message.find('.text').html(data.message);
+                                }
+                            }
+                        } else {
+                            $form.find('input[type=submit]').attr('disabled', false);
+                            $form.find('input[type=email]').addClass('error');
+                            $form.find('input[type=submit]').val('user.login ');
+                        }
+                    },
+                    error: function () {
+                        $form.find('input[type=submit]').attr('disabled', false);
+                        $form.find('input[type=text], input[type=password]').addClass('error');
+                    }
+                });
+                return false;
+            }
+        });
+
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "100%";
+
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+    <script>
+        $(document).ready(function () {
+            $(document).on('click', '.toggle-info', function () {
+                var parent = $(this).parents('.parent_city');
+                parent.find('.city_class_under_ul').removeClass('active');
+              //  parent.find('ul li a:first').addClass('active');
+                $('.sub-content').hide();
+                $('.sub-content').removeClass('showed');
+                $('i.toggle-info').removeClass('icon-minus');
+                $('i.toggle-info').addClass('icon-plus');
+                $('.toggle-info').removeClass('active');
+                if (parent.find('.sub-content').hasClass('showed')) {
+
+                    parent.find('.sub-content').removeClass('showed').hide();
+                    parent.find('.sub-content').hide();
+                    parent.find('i.toggle-info').removeClass('icon-minus');
+                    parent.find('i.toggle-info').addClass('icon-plus');
+                    parent.find('.toggle-info').removeClass('active');
+                } else {
+                    parent.find('.sub-content').addClass('showed');
+                    parent.find('.sub-content').show();
+                    parent.find('i.toggle-info').addClass('icon-minus');
+                    parent.find('.toggle-info').addClass('active');
+                    parent.find('i.toggle-info').removeClass('icon-plus');
+                }
+            });
+            $(document).on('click', '.city_class_under_ul', function () {
+                $('.city_class_under_ul').removeClass('active');
+                $(this).addClass('active');
+            });
+
+        });
+    </script>
+    <script>
+        /*$('#js-gallery')
+   .photoSwipe('.slide', {bgOpacity: 0.8, shareEl: false}, {
+        close: function () {
+        console.log('closed');
+        }
+   });*/
+    </script>
+    <script>
+        $(".site_submenu").click(function () {
+            $("#mySidenav .main-nav").toggleClass("navbarNav");
+            $(this).parent().toggleClass('active');
+        });
+        $(".back_to_main_menu").click(function () {
+            $("#mySidenav .main-nav").toggleClass("navbarNav");
+            $('.site_submenu_outer').removeClass('active');
+        });
+    </script>
+    <script src="../../js/app.js" type="text/javascript"></script>
+</body>
+
+
+<!-- Mirrored from balticbrows.com/public/temp/img/vimeo-play.png, Mon, 29 Jul 2019 09:34:05 GMT by HTTrack Website Copier/3.x [XR/YP'2000] -->
+</html>

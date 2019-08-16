@@ -105,7 +105,8 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
                 RatingAverage = product.RatingAverage,
                 Attributes = product.AttributeValues.Select(x => new ProductDetailAttribute { Name = x.Attribute.Name, Value = x.Value }).ToList(),
                 Categories = product.Categories.Select(x => new ProductDetailCategory { Id = x.CategoryId, Name = x.Category.Name, Slug = x.Category.Slug }).ToList(),
-                Promotion=product.PromotionImage?.Caption
+                Promotion=product.PromotionImage?.Caption,
+                CreatedOn=product.CreatedOn
             };
 
             MapProductVariantToProductVm(product, model);
@@ -113,6 +114,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
             MapProductOptionToProductVm(product, model);
             MapProductImagesToProductVm(product, model);
 
+            model.ThumbnailImage = _mediaService.GetThumbnailUrl(product.ThumbnailImage);
             await _mediator.Publish(new EntityViewed { EntityId = product.Id, EntityTypeId = "Product" });
             _productRepository.SaveChanges();
 

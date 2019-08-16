@@ -37,7 +37,7 @@ namespace SimplCommerce.Module.Core.Areas.Core.Controllers
             throw new Exception("Test behavior in case of error");
         }
 
-        //[HttpGet("/")]
+       [HttpGet("/")]
         public IActionResult Index()
         {
             var model = new HomeViewModel();
@@ -55,7 +55,23 @@ namespace SimplCommerce.Module.Core.Areas.Core.Controllers
                     HtmlData = x.HtmlData
                 }).ToList();
 
+
             return View(model);
+        }
+        [HttpGet("/Home/About")]
+        public IActionResult About()
+        {
+            return View();
+        }
+        [HttpGet("/Home/Treatment")]
+        public IActionResult Treatment()
+        {
+            return View();
+        }
+        [HttpGet("/Home/Contact")]
+        public IActionResult Contact()
+        {
+            return View();
         }
         [Route("/sitemap.xml")]
         public void SitemapXml()

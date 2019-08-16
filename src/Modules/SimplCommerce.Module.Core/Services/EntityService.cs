@@ -24,7 +24,7 @@ namespace SimplCommerce.Module.Core.Services
             while (true)
             {
                 var entity = _entityRepository.Query().FirstOrDefault(x => x.Slug == slug);
-                if (entity != null && !(entity.EntityId == entityId && entity.EntityTypeId == entityTypeId))
+                if (entity != null && !(entity.EntityId == entityId && entity.EntityTypeId == entityTypeId || (entity.EntityTypeId== "Category" && entityTypeId == "Page") || (entity.EntityTypeId == "Page" && entityTypeId == "Category")))
                 {
                     slug = string.Format("{0}-{1}", slug, i);
                     i++;

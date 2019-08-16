@@ -1,0 +1,28 @@
+﻿@model IEnumerable<SimplCommerce.Module.News.Areas.News.ViewModels.NewsItemVm>
+
+<div class="news-item-cont">
+    <div class="als-viewport">
+        <div class="als-wrapper">
+            @foreach (var newItem in Model)
+            {
+                <div class="news-item als-item">
+                    <div class="news-thumbnail">
+                        <img src="@newItem.ThumbnailImageUrl" alt="">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-title">
+                            <a href="@newItem.Slug">@newItem.Name</a>
+                        </div>
+                        <div class="news-meta">
+                            <div class="news-date">@newItem.CreatedOn.ToString("dd/MM/yyyy")</div>
+
+                            <div class="news-redmore">
+                                <a href="/tin-tuc"> Xem thêm <span data-icon="v" class="icon"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

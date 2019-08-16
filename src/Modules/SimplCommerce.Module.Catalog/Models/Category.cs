@@ -37,7 +37,7 @@ namespace SimplCommerce.Module.Catalog.Models
 
         public Category Parent { get; set; }
 
-        public IList<Category> Children { get; protected set; } = new List<Category>();
+        public IList<Category> Children { get;  set; } = new List<Category>();
 
         public Media ThumbnailImage { get; set; }
     }

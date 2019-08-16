@@ -1,0 +1,15 @@
+﻿@model IEnumerable<SimplCommerce.Module.Core.Areas.Core.ViewModels.BreadcrumbViewModel>
+
+@foreach (var item in Model)
+{
+    if (item == Model.LastOrDefault())
+    {
+        <div class="bread-item">
+            <a href="~/@item.Url" class="">
+                @item.Text
+            </a>
+            <span data-icon="z" class="icon"></span>
+        </div>
+    }
+
+}

@@ -1,11 +1,71 @@
 ﻿@model SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels.ProductWidgetComponentVm
 
-<h2>@Model.WidgetName</h2>
-<div class="row product-list">
-    @foreach (var product in Model.Products)
-    {
-        <div class="col-xs-6 col-md-3">
-            <partial name="/Areas/Catalog/Views/Shared/_ProductThumbnail.cshtml" model="product" />
+<div class="news-row wrap-help">
+
+    <div id="events">
+        <div class="als-viewport">
+            <div class="event-container als-wrapper">
+                @foreach (var product in Model.Products)
+                {
+                    <div class="event als-item">
+                        <div class="event-title">
+                            <a href="@product.Slug">@product.Name</a>
+                        </div>
+                        <div class="event-date">@product.CreatedOn.ToString("dd/MM/yyyy")</div>
+
+                        <div class="event-author"> </div>
+                    </div>
+                }
+                </div>
         </div>
-    }
+
+        <div class="event-navigation">
+
+            <div class="contorll">
+                <div class="als-prev" data-icon="J" class="icon"></div>
+                <div class="als-next" data-icon="U" class="icon"></div>
+            </div>
+
+            <div class="events-all">
+                <a href="/tin-tuc">
+                    <span class="text">Xem thêm</span>
+                    <span data-icon="I" class="icon"></span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="calender-wrap">
+
+        <div id="calendar"></div>
+
+    </div>
+
 </div>
+
+<div id="alist-list" class="news-row als-container wrap-help">
+
+    <div class="LatestNews">
+
+        <div class="LatestNews-navigation-cont">
+            <div class="LatestNews-heders">
+                <div class="LatestNews-nav-title">
+                    Latest news
+                </div>
+                <div class="LatestNews-archive">
+                    News <br>archive
+                </div>
+            </div>
+
+            <div class="LatestNews-nav">
+                <div class="als-prev" data-icon="J" class="icon"></div>
+                <div class="als-next" data-icon="U" class="icon"></div>
+            </div>
+        </div>
+        @await Component.InvokeAsync("NewItem")
+       
+
+    </div>
+</div>
+

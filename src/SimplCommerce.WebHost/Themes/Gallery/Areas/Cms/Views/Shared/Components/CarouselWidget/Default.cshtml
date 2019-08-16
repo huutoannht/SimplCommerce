@@ -1,0 +1,81 @@
+﻿@model SimplCommerce.Module.Cms.Areas.Cms.ViewModels.CarouselWidgetViewComponentVm
+@*<aside class="homebanner">
+        <div id="sync1">
+            @foreach (var item in Model.Items)
+            {
+                <div class="item">
+                    <a aria-label='slide' href='@item.TargetUrl'><img src='@item.Image' alt='@item.SubCaption' /></a>
+                </div>
+            }
+        </div>
+        <div id="sync2">
+            @foreach (var item in Model.Items)
+            {
+                <div class="item">
+                    <h3>@item.SubCaption<br /></h3>
+                    <i class="arrowbar"></i>
+                </div>
+            }
+        </div>
+    </aside>*@
+
+
+    <div id="banner-slides">
+
+        <div class="main-banner-wrap">
+
+            <div id="fade-slideshow">
+                @foreach (var item in Model.Items)
+                {
+                <div class="slide">
+                    <a href="@item.TargetUrl">
+                        <img src="@item.Image" alt="@item.SubCaption" title="@item.SubCaption">
+                    </a>
+
+                    <a href="#" class="btn_register" alt="" title="">Đăng ký</a>
+
+                </div>
+                }
+
+                </div>
+
+
+
+        </div>
+
+        <div class="banner-slide-nav">
+
+
+
+            <div class="banner-slide-nav-cont">
+
+
+
+                <div class="navigation">
+
+
+
+                    <div class="btn-fade">
+
+                        <div class="icon icon-btn-left"></div>
+
+                    </div>
+                    <div class="btn-fade">
+
+                        <div class="icon icon-btn-right"></div>
+
+                    </div>
+                </div>
+                <!--<div class="reg-btn">
+
+                    <a href="#Register">Register</a>
+
+                </div>-->
+
+            </div>
+
+        </div><!-- banner-slide-nav end-->
+
+
+
+    </div><!-- banner-slides end-->

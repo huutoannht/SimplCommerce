@@ -1,0 +1,1170 @@
+﻿<!DOCTYPE html>
+<html>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+    <link rel="stylesheet" href="~/themes/Gallery/public/css/app.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
+    <title>@ViewData["Title"]</title>
+    @RenderSection("additionalMeta", false)
+    <meta name="description" content="Microblading, micropigmentation, permanent makeup, eyebrows, trainings, micropigmentacao">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+    <link rel="stylesheet" href="~/themes/Gallery/public/assets/styles/jquery.modal.min.css">
+    <link rel="stylesheet" href="~/themes/Gallery/public/temp/styles/styles.css">
+    <link rel="stylesheet" href="~/themes/Gallery/public/assets/styles/calendar.css">
+    <link rel="stylesheet" href="~/themes/Gallery/public/assets/styles/als.css">
+    <link rel="stylesheet" href="~/themes/Gallery/public/assets/styles/slick.css">
+    <link rel="stylesheet" href="~/themes/Gallery/public/assets/styles/custom.css">
+    <link rel="stylesheet" href="~/themes/Gallery/public/assets/styles/_about.css">
+    <link rel="stylesheet" href="~/themes/Gallery/public/temp/styles/video.css">
+    <link rel="stylesheet" href="~/themes/Gallery/public/temp/styles/lightgallery.css">
+    <!-- <link rel="stylesheet" href="https://balticbrows.com/css/custom.css"> -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+            crossorigin="anonymous"></script>
+    <script src="~/themes/Gallery/public/assets/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="google-site-verification" content="M7jzHRLtBlAvliVZkNoLUCyhKE0WN1XZrjzeui2npuI" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109983717-1"></script>
+    <style>
+
+        .img_item {
+            min-height: auto;
+            max-height: 100%;
+            min-width: 240px;
+            object-fit: contain;
+        }
+
+        .box_img {
+        }
+    </style>
+    @RenderSection("head", required: false)
+</head>
+<body>
+    <div id="foo" style="position: fixed; width: 100%; height: 100%; z-index: 99999; display: none"></div>
+    <!-- start of modal login/passwords-->
+    <div class="bg_modal"></div>
+
+    <!--modal_user-->
+    <div class="box_modal modal_user" id="modal_user">
+
+        <!--box_tabs-->
+        <div class="box_tabs">
+
+            <a href="javascript:" class="close_modal"><span class="icon icon-times"></span></a>
+
+            <div class="tabs">
+                <a href="javascript:tab(1)" class="tab">Đăng nhập</a><!--active-->
+                <a href="javascript:tab(2)" class="tab">Đăng ký</a>
+            </div>
+
+            <div class="item_tab">
+                <!--box_form_login-->
+                <div class="box_form_login">
+                    <form asp-area="Core" asp-controller="Account" asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]" id="login_form_modal" method="post">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <input type="email" name="Email" required placeholder="Email" class="field email">
+                        <input type="password" name="Password" required minlength="6" placeholder="Password" class="field password">
+                        <div class="box_password">
+                            <label for="remember">
+                                <input type="checkbox" name="remember_me" id="remember" value="1">
+                                <span class="checkbox"> <span class="icon icon-check checked"></span> </span>
+                                Remember me
+                            </label>
+
+                            <a href="javascript:" onclick="reset_password(1)" class="forgot">Forgot password</a>
+                        </div>
+
+                        <div class="box_button">
+                            <input type="submit" value="Đăng nhập" class="btn_send">
+                        </div>
+                    </form>
+                </div>
+                <!--box_form_login-->
+                <!--box_reset_password-->
+                <div class="box_reset_password">
+                    <form method="POST" action="https://balticbrows.com/en/customer/reset-password" accept-charset="UTF-8" id="password-reset-form">
+                        <input name="_token" type="hidden" value="LPDotKUGvXSIszbGv23jqh8VPx0irbQQckanfDZg">
+                        <div class="title">Reset Password</div>
+                        <div class="text reset-password-text">
+                            Enter the email you registered with and<br>we will email you instructions to reset<br>your password.
+                        </div>
+                        <input type="text" name="email" value="" placeholder="Email" class="field">
+                        <input type="submit" value="Reset password" class="btn_send">
+                    </form>
+                </div>
+                <!--box_reset_password-->
+                <!--box_reset_successs-->
+                <div class="box_reset_successs">
+                    <div class="title"></div>
+                    <div class="text"></div>
+                </div>
+                <!--box_reset_successs-->
+            </div>
+
+            <div class="item_tab">
+
+                <!--box_form_register-->
+                <div class="box_form_register">
+                    <form method="POST" action="https://balticbrows.com/en/customer/quick-reqister" accept-charset="UTF-8" id="quick-reqister-form">
+                        <input name="_token" type="hidden" value="LPDotKUGvXSIszbGv23jqh8VPx0irbQQckanfDZg">
+                        <div class="error-container"></div>
+                        <input type="email" required name="email" value="" placeholder="Email" class="field email">
+                        <input type="text" required name="name" value="" placeholder="First name" class="field">
+                        <input type="text" required name="second_name" value="" placeholder="Second name" class="field">
+                        <input type="text" required name="phone" value="" placeholder="Phone" class="field">
+                        <input type="password" required name="password" id="first-password" value="" placeholder="Password" class="field password">
+                        <input type="password" required name="password2" value="" placeholder="Repeat password" class="field password">
+
+                        <div class='checkbox-label-container'>
+                            <label class='label-container'>
+                                <input type="checkbox" name='GDPR' />
+                                <span>Agreement to save data and order history. <a target='_blank' href='~/themes/Gallery/public/uploads/documents/Terms_and_conditions_en.pdf'>More details</a></span>
+                            </label>
+
+                            <p id='GDPR-error' style="color:red"></p>
+                        </div>
+
+                        <div class="box_button">
+                            <input type="submit" value="Sign Up" class="btn_send">
+                        </div>
+
+                    </form>
+                </div>
+                <!--box_form_register-->
+
+            </div>
+
+        </div>
+        <!--box_tabs-->
+
+    </div>
+    <!--modal_user-->
+    <!--modal_reset-->
+    <div class="box_modal modal_reset" id="modal_reset">
+
+        <!--box_form_register-->
+        <div class="box_form_register">
+            <a href="javascript:" class="close_modal"><span class="icon icon-times"></span></a>
+            <form method="POST" action="https://balticbrows.com/en/customer/reset-password-confirm" accept-charset="UTF-8" id="reset-password-confirm-form">
+                <input name="_token" type="hidden" value="LPDotKUGvXSIszbGv23jqh8VPx0irbQQckanfDZg">
+                <div class="title">Reset Password</div>
+                <input type="password" required name="password" value="" placeholder="New Password" id="first-password2" class="field password">
+                <input type="password" required name="password2" value="" placeholder="Repeat new password" class="field password">
+
+                <div class="box_button">
+                    <input type="submit" value="Reset Password" class="btn_send">
+                </div>
+            </form>
+
+        </div>
+        <!--box_form_register-->
+
+    </div>
+    <!--modal_reset-->
+    <!-- end of modal login/passwords-->
+    <!--modal_success-->
+    <div class="box_modal modal_success" id="modal_success">
+
+        <a href="javascript:" class="close_modal"><span class="icon icon-times"></span></a>
+
+        <div class="title"><span class="icon icon_checked" data-icon="1"></span>Payment Successful!</div>
+
+        <div class="text">
+            Your payment was completed . Thank you.<br>We will contact you with further information about the training you’ve just purchased.<br>If you have any questions, you can contact us anytime!
+            <a href="javascript:" onclick="close_modal();" class="button">Close</a>
+        </div>
+
+    </div>
+    <!--modal_success-->    <div class="box_modal modal_success" id="modal_canceled">
+
+        <a href="javascript:" class="close_modal"><span class="icon icon-times"></span></a>
+
+        <div class="title"><span class="icon icon-canceled" data-icon="B"></span>Payment canceled!</div>
+
+        <div class="text">
+            Your payment was canceled. <br>If you have problems with payment process, please contact our administrator.
+            <a href="javascript:" onclick="close_modal();" class="button">Close</a>
+        </div>
+
+    </div>    <div class="box_modal modal_success" id="modal_success">
+
+        <a href="javascript:" class="close_modal"><span class="icon icon-times"></span></a>
+
+        <div class="title"><span class="icon icon_checked" data-icon="1"></span>Success! Your payment accepted!</div>
+
+        <div class="text">
+            Your payment was completed . Thank you.<br>We will contact you with further information about the training you’ve just purchased.<br>If you have any questions, you can contact us anytime!
+            <a href="javascript:" onclick="close_modal();" class="button">Close</a>
+        </div>
+
+    </div>    <header>
+    @await Component.InvokeAsync("CategoryMenu")
+
+</header>
+
+    <!--
+    <div class="bg_modal_load"></div>
+    <img src="https://balticbrows.com/~/themes/Gallery/public/assets/images/ajaxloader.gif" class="img_loader_home">-->
+
+    @RenderBody()
+    <a href="javascript:" onclick="scroll_top_top();" class="back_top">
+        <span class="icon icon-chevron-up"></span>
+    </a>
+
+    <footer>
+        <div class="container footer-cont">
+            <span class="copy">&copy; 2019 Baltic Brows. All Rights Reserved.</span>
+        </div>
+    </footer>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#lightgallery').lightGallery();
+        });</script>
+    <script src="~/themes/Gallery/public/assets/js/picturefill.min.js"></script>
+    <script src="~/themes/Gallery/public/assets/js/lightgallery-all.min.js"></script>
+    <script src="~/themes/Gallery/public/assets/js/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="~/themes/Gallery/public/assets/js/html5lightbox/html5lightbox.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7OXaLAt6V0NPpazinJ_OnAxbNFfBHmAE"></script>
+    <script src="~/themes/Gallery/public/assets/js/map.js"></script>
+    <script src="~/themes/Gallery/public/assets/js/calendar.js"></script>
+    <script src="~/themes/Gallery/public/assets/js/jquery.als-1.7.min.js"></script>
+    <script src="~/themes/Gallery/public/assets/js/jQuery.scrollSpeed.js"></script>
+    <script src="~/themes/Gallery/public/assets/js/jquery-ui.min.js"></script>
+    <script src="~/themes/Gallery/public/assets/js/jquery.modal.min.js"></script>
+    <script src="~/themes/Gallery/public/assets/js/slick.min.js"></script>
+    <script type="text/javascript" src="~/themes/Gallery/public/assets/js/file.js"></script>
+    <script type="text/javascript" src="~/themes/Gallery/public/assets/js/main.js"></script>
+    <script src="~/themes/Gallery/public/assets/js/jquery.validate.js"></script>
+    <script src="~/themes/Gallery/public/assets/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="~/themes/Gallery/public/assets/js/custom.js"></script>
+    <script src="~/themes/Gallery/public/assets/js/masonry.pkgd.min.js"></script>
+    <script src="~/themes/Gallery/public/assets/js/pdfobject.js"></script>
+    <script src="~/themes/Gallery/public/assets/js/app.js"></script>
+    <link href="~/themes/Gallery/public/assets/js/owlcarousel/owl.carousel.css" rel="stylesheet">
+    <link href="~/themes/Gallery/public/assets/js/owlcarousel/owl.theme.css" rel="stylesheet">
+    <script src="~/themes/Gallery/public/assets/js/owlcarousel/owl.carousel.js"></script>
+    <script src="~/themes/Gallery/public/assets/js/validation.js"></script>
+    <script src="~/themes/Gallery/public/assets/js/additional-methods.min.js"></script>
+    <script src="~/themes/Gallery/public/assets/js/spin/spin.min.js"></script>
+    <script src="~/themes/Gallery/public/assets/js/spin/spin.js"></script>
+    <script src="~/themes/Gallery/public/assets/js/jquery.blockUI.js"></script>
+    <script src="~/themes/Gallery/public/assets/js/jquery-scrollto.js"></script>
+
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {},
+            Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"),
+                s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/58788d231855346ccc760a69/default';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();</script>
+    <!--End of Tawk.to Script-->
+    <!--colorbox-->
+    <script type="text/javascript" src="~/themes/Gallery/public/assets/js/colorbox/jquery.colorbox.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/themes/Gallery/public/assets/js/colorbox/colorbox.css" media="screen" />
+    <!--colorbox-->
+
+    <script type="text/javascript">
+        //location.reload(true);
+
+        reposition_button();
+
+        google.maps.event.addDomListener(window, "load", initialize);
+
+        var $btn_processing = $(".btn-btn-proccesing");
+        $("#form-interested-in-course").validate({
+            ignore: [],
+            rules: {
+                course: {
+                    required: true
+                },
+                course_types: {
+                    required: true
+                },
+                full_name: {
+                    required: true
+                },
+                address: {
+                    required: true
+                },
+                email: {
+                    required: true,
+                    email: true
+                },
+                phone: {
+                    required: true
+                },
+                location: {
+                    required: true
+                },
+                venue: {
+                    required: true
+                },
+                students: {
+                    required: true
+                },
+                rules: {
+                    required: true
+                }
+            },
+            messages: {
+                course: {
+                    required: 'Please select one or more'
+                },
+                course_types: {
+                    required: 'Please select one or more'
+                },
+                full_name: {
+                    required: 'Please provide your full name'
+                },
+                address: {
+                    required: 'Please provide your full address'
+                },
+                email: {
+                    required: 'Please provide your email address',
+                    email: 'pop_home.email_invalid'
+                },
+                phone: {
+                    required: 'Phone number required'
+                },
+                location: {
+                    required: 'Please provide location'
+                },
+                venue: {
+                    required: 'Please select one'
+                },
+                students: {
+                    required: 'Please select one'
+                },
+                rules: {
+                    required: 'Please check this field'
+                }
+            },
+            submitHandler: function () {
+                var $form = $("#form-interested-in-course");
+                var form = document.forms.namedItem("interested-course-form");
+                var formdata = new FormData(form);
+                $.ajax({
+                    type: "POST",
+                    url: $form.attr('action'),
+                    contentType: false,
+                    data: formdata,
+                    processData: false,
+                    beforeSend: function () {
+                        showProccesingBtn();
+                    },
+
+                    success: function (data) {
+                        hideProccesingBtn();
+                        var $data = jQuery.parseJSON(data);
+                        if (!$data.error) {
+                            $form[0].reset();
+                            $(".close-modal").trigger('click');
+                            show_modal('modal_success_model');
+                        } else {
+                            alert($data.message);
+                            hideProccesingBtn();
+                        }
+                    },
+
+                    error: function () {
+                        hideProccesingBtn();
+                    }
+
+                });
+                return false;
+            }
+        });
+
+        var $form = $("#form-interested-in-beigng-a-model");
+        var $submit_btn = $(".btn_confirm_send");
+        $($form).validate({
+            ignore: [],
+            rules: {
+                full_name: {
+                    required: true
+                },
+                age: {
+                    required: true
+                },
+                email: {
+                    required: true,
+                    email: true
+                },
+                phone: {
+                    required: true
+                },
+                old_permanent: {
+                    required: true
+                },
+                skin_type: {
+                    required: true
+                },
+                treatment: {
+                    required: true
+                },
+                permanent: {
+                    required: true
+                },
+                i_am_18: {
+                    required: true
+                }
+            },
+            messages: {
+                full_name: {
+                    required: 'Please provide your full name'
+                },
+                age: {
+                    required: 'Provide your age'
+                },
+                email: {
+                    required: 'Please provide your email address',
+                    email: 'Email address is invalid'
+                },
+                phone: {
+                    required: 'Phone number required'
+                },
+                old_permanent: {
+                    required: 'Please choose one'
+                },
+                skin_type: {
+                    required: 'Please select your skin type'
+                },
+                treatment: {
+                    required: 'Please select one or more'
+                },
+                permanent: {
+                    required: 'Please select one or more'
+                },
+                i_am_18: {
+                    required: 'Plase confirm that you are at least 18 years.'
+                }
+            },
+            submitHandler: function () {
+                var form = document.forms.namedItem("model-form");
+                var formdata = new FormData(form);
+                $.ajax({
+                    type: "POST",
+                    url: $form.attr('action'),
+                    contentType: false,
+                    data: formdata,
+                    processData: false,
+                    beforeSend: function () {
+                        showProccesingBtn();
+                    },
+
+                    success: function (data) {
+                        hideProccesingBtn();
+                        var $data = jQuery.parseJSON(data);
+                        if (!$data.error) {
+                            $form[0].reset();
+                            $(".close-modal").trigger('click');
+                            show_modal('modal_success_model');
+                        }
+                        else {
+                            alert($data.message);
+                            hideProccesingBtn();
+                        }
+                    },
+
+                    error: function () {
+                        hideProccesingBtn();
+                    }
+
+                });
+                return false;
+            }
+        });
+
+        function showProccesingBtn() {
+            $btn_processing.show();
+            $submit_btn.hide();
+        }
+
+        function hideProccesingBtn() {
+            $btn_processing.hide();
+            $submit_btn.show();
+        }
+
+        //calendar
+
+        function set_url() {
+
+            var url = [];
+
+            var i = 0;
+
+            {//prepare the array
+
+                url[i] = 'en/register/training/260/microblading-6d-eyebrows.html';   //here you need put the url not the date
+
+                i++;
+            }
+
+            {//prepare the array
+
+                url[i] = 'en/register/training/269/classic-eyelashes-extension-basic.html';   //here you need put the url not the date
+
+                i++;
+            }
+
+            {//prepare the array
+
+                url[i] = 'en/register/training/270/russian-volume-eyelash-extension-masterclass.html';   //here you need put the url not the date
+
+                i++;
+            }
+
+            {//prepare the array
+
+                url[i] = 'en/register/training/276/ombre-brows-machine-basic.html';   //here you need put the url not the date
+
+                i++;
+            }
+
+            {//prepare the array
+
+                url[i] = 'en/register/training/277/microblading-6d-eyebrows.html';   //here you need put the url not the date
+
+                i++;
+            }
+
+            {//prepare the array
+
+                url[i] = 'en/register/training/278/classic-eyelashes-extension-seminar.html';   //here you need put the url not the date
+
+                i++;
+            }
+
+            {//prepare the array
+
+                url[i] = 'en/register/training/236/baltic-hair-strokes-masterclass.html';   //here you need put the url not the date
+
+                i++;
+            }
+
+            {//prepare the array
+
+                url[i] = 'en/register/training/245/ombre-brows-ombre-eyeliner-ombre-lips-masterclass.html';   //here you need put the url not the date
+
+                i++;
+            }
+
+            {//prepare the array
+
+                url[i] = 'en/register/training/246/ombre-machine-masterclass.html';   //here you need put the url not the date
+
+                i++;
+            }
+
+            {//prepare the array
+
+                url[i] = 'en/register/training/249/microblading-6d-eyebrows.html';   //here you need put the url not the date
+
+                i++;
+            }
+
+            {//prepare the array
+
+                url[i] = 'en/register/training/250/ombre-machine-masterclass.html';   //here you need put the url not the date
+
+                i++;
+            }
+
+            {//prepare the array
+
+                url[i] = 'en/register/training/251/lips-masterclass.html';   //here you need put the url not the date
+
+                i++;
+            }
+
+            {//prepare the array
+
+                url[i] = 'en/register/training/252/ombre-machine-masterclass.html';   //here you need put the url not the date
+
+                i++;
+            }
+
+            {//prepare the array
+
+                url[i] = 'en/register/training/253/ombre-eyeliner-masterclass.html';   //here you need put the url not the date
+
+                i++;
+            }
+
+
+            $('.calendar .calendar-views .dot').each(function (index) {
+
+                $(this).closest('li').attr('data_url', url[index]); //this url[index] contain the url and is seted on data_url
+
+            });
+        }
+
+
+        setTimeout(function () {
+
+            set_url();
+
+        }, 1000);
+
+        var calendarEvents = [{
+            date: '2019-08-10',
+            value: 'Clonmel, Ireland</br>Microblading 6D eyebrows'
+        },
+        {
+            date: '2019-08-01',
+            value: 'Mexico city, Mexico</br>Classic eyelashes extension basic'
+        },
+        {
+            date: '2019-08-03',
+            value: 'Mexico city, Mexico</br>Russian volume eyelash extension masterclass'
+        },
+        {
+            date: '2019-08-21',
+            value: 'Boca Raton, USA</br>Ombre brows machine basic '
+        },
+        {
+            date: '2019-08-28',
+            value: 'Boca Raton, USA</br>Microblading 6D eyebrows'
+        },
+        {
+            date: '2019-08-12',
+            value: 'San Juan, Puerto Rico</br>Classic eyelashes extension seminar'
+        },
+        {
+            date: '2019-08-14',
+            value: 'Seattle, USA</br>Baltic hair strokes masterclass'
+        },
+        {
+            date: '2019-08-18',
+            value: 'Boca Raton, USA</br>Ombre brows, Ombre eyeliner, Ombre lips masterclass'
+        },
+        {
+            date: '2019-11-07',
+            value: 'Tijuana, Mexico</br>Ombre machine masterclass'
+        },
+        {
+            date: '2019-11-10',
+            value: 'Mexico city, Mexico</br>Microblading 6D eyebrows'
+        },
+        {
+            date: '2019-11-12',
+            value: 'Mexico city, Mexico</br>Ombre machine masterclass'
+        },
+        {
+            date: '2019-11-14',
+            value: 'Mexico city, Mexico</br>Lips masterclass'
+        },
+        {
+            date: '2019-11-16',
+            value: 'Cancun, Mexico</br>Ombre machine masterclass'
+        },
+        {
+            date: '2019-11-13',
+            value: 'Mexico city, Mexico</br>Ombre eyeliner masterclass'
+        },
+        ];
+
+        $('#calendar').calendar({
+
+            width: 260,
+
+            height: 260,
+
+            // day of the week
+
+            weekArray: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+
+            // date or month
+
+            view: 'date',
+
+            // current date
+
+            date: new Date(),
+
+            // next / prev signs
+
+            prev: '<span class="icon icon-btn-left"></span>',
+
+            next: '<span class="icon icon-btn-right"></span>',
+
+            data: calendarEvents
+
+        });
+
+        $(".calender-wrap").on('click', '.dot', function () {
+            var $event_date = $(this).closest('li').attr('data-calendar-day');
+            if (!$event_date) {
+                return false;
+            }
+
+            $.ajax({
+                type: "POST",
+                url: "https://balticbrows.com/en/trainings/get-by-date",
+                data: { date: $event_date },
+                success: function (data) {
+                    var $data = jQuery.parseJSON(data);
+                    if ($data.error) {
+                        console.log($data.message);
+                        return;
+                    }
+                    if ($data.register_link.length) {
+                        window.location.href = $data.register_link;
+                    }
+                },
+                error: function (request, status, error) {
+                    console.log(request.responseText);
+                }
+            });
+        });
+
+
+        function callMarker(coordinate1, coordinate2, infoWindowContent) {
+
+            CentralPark = new google.maps.LatLng(coordinate1, coordinate2);
+            addMarker(CentralPark, infoWindowContent);
+        }
+
+        /*setTimeout(function(){
+
+            var infoWindowContent = '<div class="marker-info">' + '<div class="infoHeader">' + '<div class="data">' + '<div class="menesis">' + 'December' + '</div>' + '<div class="diena">' + '19-20' + '</div>' + '<div class="metai">' + '2017' + '</div>' + '</div>' + '<div class="antrastes">' + '<div class="pagrindineAtraste">' + 'Microblading Training' + '</div>' + '<div class="adresas">' + '<img src="assets/images/pin.png" alt="">' + 'Seattle, Washington, USA' + '</div>' + '</div>' + '</div>' + '<div class="aprasymas">' + 'Trumpas kurso aprašymas, Lorem ipsum dolor sit amet, coge adipcing, pellentesque bibendum a sed purus. Mauris volutat facilisis gmsf. Pellue tincidunt elit. Etiam ventis lectjkauctor, elementum lectus sit amet, Nullam in elementum nulla. Fusce pharefdgtra.' + '<div class="mapMygtukas">' + '<a href="#">Training info / Register</a>' + '</div>' + '</div>' + '</div>';
+
+            var coordinate1 =  35.8617;
+            var coordinate2 =  104.1954;
+
+            callMarker(coordinate1, coordinate2, infoWindowContent);
+
+        }, 2000);*/
+
+
+        $(window).load(function () {
+
+            setTimeout(function () {
+
+                /* var infoWindowContent = '<div class="marker-info">' + '<div class="infoHeader">' + '<div class="data">' + '<div class="menesis">' + 'December' + '</div>' + '<div class="diena">' + '19-20' + '</div>' + '<div class="metai">' + '2017' + '</div>' + '</div>' + '<div class="antrastes">' + '<div class="pagrindineAtraste">' + 'Microblading Training' + '</div>' + '<div class="adresas">' + '<img src="assets/images/pin.png" alt="">' + 'Seattle, Washington, USA' + '</div>' + '</div>' + '</div>' + '<div class="aprasymas">' + 'Trumpas kurso aprašymas, Lorem ipsum dolor sit amet, coge adipcing, pellentesque bibendum a sed purus. Mauris volutat facilisis gmsf. Pellue tincidunt elit. Etiam ventis lectjkauctor, elementum lectus sit amet, Nullam in elementum nulla. Fusce pharefdgtra.' + '<div class="mapMygtukas">' + '<a href="#">Training info / Register</a>' + '</div>' + '</div>' + '</div>';
+
+                 var coordinate1 =  35.8617;
+                 var coordinate2 =  104.1954;
+
+                 callMarker(coordinate1, coordinate2, infoWindowContent);
+
+
+
+
+
+                 var infoWindowContent = '<div class="marker-info">' + '<div class="infoHeader">' + '<div class="data">' + '<div class="menesis">' + 'December' + '</div>' + '<div class="diena">' + '19-20' + '</div>' + '<div class="metai">' + '2017' + '</div>' + '</div>' + '<div class="antrastes">' + '<div class="pagrindineAtraste">' + 'Microblading Training' + '</div>' + '<div class="adresas">' + '<img src="assets/images/pin.png" alt="">' + 'Seattle, Washington, USA' + '</div>' + '</div>' + '</div>' + '<div class="aprasymas">' + 'Trumpas kurso aprašymas, Lorem ipsum dolor sit amet, coge adipcing, pellentesque bibendum a sed purus. Mauris volutat facilisis gmsf. Pellue tincidunt elit. Etiam ventis lectjkauctor, elementum lectus sit amet, Nullam in elementum nulla. Fusce pharefdgtra.' + '<div class="mapMygtukas">' + '<a href="#">Training info / Register</a>' + '</div>' + '</div>' + '</div>';
+
+                 var coordinate1 =  54.909495;
+                 var coordinate2 =  23.864879;
+
+                 callMarker(coordinate1, coordinate2, infoWindowContent);
+
+
+                 var infoWindowContent = '<div class="marker-info">' + '<div class="infoHeader">' + '<div class="data">' + '<div class="menesis">' + 'December' + '</div>' + '<div class="diena">' + '19-20' + '</div>' + '<div class="metai">' + '2017' + '</div>' + '</div>' + '<div class="antrastes">' + '<div class="pagrindineAtraste">' + 'Microblading Training' + '</div>' + '<div class="adresas">' + '<img src="assets/images/pin.png" alt="">' + 'Seattle, Washington, USA' + '</div>' + '</div>' + '</div>' + '<div class="aprasymas">' + 'Trumpas kurso aprašymas, Lorem ipsum dolor sit amet, coge adipcing, pellentesque bibendum a sed purus. Mauris volutat facilisis gmsf. Pellue tincidunt elit. Etiam ventis lectjkauctor, elementum lectus sit amet, Nullam in elementum nulla. Fusce pharefdgtra.' + '<div class="mapMygtukas">' + '<a href="#">Training info / Register</a>' + '</div>' + '</div>' + '</div>';
+
+                 var coordinate1 =  33.912917;
+                 var coordinate2 =  -84.261869;
+
+                 callMarker(coordinate1, coordinate2, infoWindowContent);
+
+                 */
+
+                var markers = [['Baltic hair strokes masterclass', 47.608013, -122.335167], ['Ombre brows, Ombre eyeliner, Ombre lips masterclass', 26.35869, -80.0831], ['Ombre machine masterclass', 32.522499, -117.046623], ['Microblading 6D eyebrows', 19.432608, -99.133209], ['Ombre machine masterclass', 21.1742897, -86.8465576], ['Microblading 6D eyebrows', 52.355817, -7.690255], ['Classic eyelashes extension seminar', 18.466333, -66.105721]];
+                var contentString = [['<div class="marker-info">' + '<a href="javascript:" onclick="closeInfo();" class="closeInfo"><img src="https://balticbrows.com/~/themes/Gallery/public/assets/images/img_close_map.png" width="" height="" /></a>' + '<div class="infoHeader">' + '<div class="data">' + '<div class="menesis">' + 'August' + '</div>' + '<div class="diena">' + '14-15th' + '</div>' + '<div class="metai">' + '2019' + '</div>' + '</div>' + '<div class="antrastes">' + '<div class="pagrindineAtraste"><a href="https://balticbrows.com/en/register/training/236/baltic-hair-strokes-masterclass">' + 'Baltic hair strokes masterclass</a>' + '</div>' + '<div class="adresas">' + '<img src="https://balticbrows.com/~/themes/Gallery/public/assets/images/pin.png" alt="Baltic hair strokes masterclass">' + 'Seattle, USA' + '</div>' + '</div>' + '</div>' + '<div class="aprasymas">' + '<p style="text-align: justify;">Permanent make-up is a cosmetic technique where using permanent make-up device the special pigment is inserted into the upper layer of dermis. We can create the desired color, fullness and shape of the eyebrows or lips...' + '<div class="mapMygtukas">' + '<a href="https://balticbrows.com/register/training/236/baltic-hair-strokes-masterclass">Training info / Register</a>' + '</div>' + '</div>' + '</div>'], ['<div class="marker-info">' + '<a href="javascript:" onclick="closeInfo();" class="closeInfo"><img src="https://balticbrows.com/~/themes/Gallery/public/assets/images/img_close_map.png" width="" height="" /></a>' + '<div class="infoHeader">' + '<div class="data">' + '<div class="menesis">' + 'August' + '</div>' + '<div class="diena">' + '18-19th' + '</div>' + '<div class="metai">' + '2019' + '</div>' + '</div>' + '<div class="antrastes">' + '<div class="pagrindineAtraste"><a href="https://balticbrows.com/en/register/training/245/ombre-brows-ombre-eyeliner-ombre-lips-masterclass">' + 'Ombre brows, Ombre eyeliner, Ombre lips masterclass</a>' + '</div>' + '<div class="adresas">' + '<img src="https://balticbrows.com/~/themes/Gallery/public/assets/images/pin.png" alt="Ombre brows, Ombre eyeliner, Ombre lips masterclass">' + 'Boca Raton, USA' + '</div>' + '</div>' + '</div>' + '<div class="aprasymas">' + '<p style="text-align: justify;">During our experience we noticed that our clients starts from microblading which looks super naturally but finally even after touchup majority always prefer stronger result. So there are several options: microblading (...' + '<div class="mapMygtukas">' + '<a href="https://balticbrows.com/register/training/245/ombre-brows-ombre-eyeliner-ombre-lips-masterclass">Training info / Register</a>' + '</div>' + '</div>' + '</div>'], ['<div class="marker-info">' + '<a href="javascript:" onclick="closeInfo();" class="closeInfo"><img src="https://balticbrows.com/~/themes/Gallery/public/assets/images/img_close_map.png" width="" height="" /></a>' + '<div class="infoHeader">' + '<div class="data">' + '<div class="menesis">' + 'November' + '</div>' + '<div class="diena">' + '7-8th' + '</div>' + '<div class="metai">' + '2019' + '</div>' + '</div>' + '<div class="antrastes">' + '<div class="pagrindineAtraste"><a href="https://balticbrows.com/en/register/training/246/ombre-machine-masterclass">' + 'Ombre machine masterclass</a>' + '</div>' + '<div class="adresas">' + '<img src="https://balticbrows.com/~/themes/Gallery/public/assets/images/pin.png" alt="Ombre machine masterclass">' + 'Tijuana, Mexico' + '</div>' + '</div>' + '</div>' + '<div class="aprasymas">' + '<p style="text-align: justify;">OMBRE masterclass is a shading technique done in <strong><u>using machine.</u></strong> This class is for people who already finished machine techniques. This is masterclass. No matter how much time is after...' + '<div class="mapMygtukas">' + '<a href="https://balticbrows.com/register/training/246/ombre-machine-masterclass">Training info / Register</a>' + '</div>' + '</div>' + '</div>'], ['<div class="marker-info">' + '<a href="javascript:" onclick="closeInfo();" class="closeInfo"><img src="https://balticbrows.com/~/themes/Gallery/public/assets/images/img_close_map.png" width="" height="" /></a>' + '<div class="infoHeader">' + '<div class="data">' + '<div class="menesis">' + 'November' + '</div>' + '<div class="diena">' + '10-11st' + '</div>' + '<div class="metai">' + '2019' + '</div>' + '</div>' + '<div class="antrastes">' + '<div class="pagrindineAtraste"><a href="https://balticbrows.com/en/register/training/249/microblading-6d-eyebrows">' + 'Microblading 6D eyebrows</a>' + '</div>' + '<div class="adresas">' + '<img src="https://balticbrows.com/~/themes/Gallery/public/assets/images/pin.png" alt="Microblading 6D eyebrows">' + 'Mexico city, Mexico' + '</div>' + '</div>' + '</div>' + '<div class="aprasymas">' + '<p style="text-align: justify;">Microblading also known as 6D eyebrows, Eyebrow Embroidery, Eyebrow Feathering, Softap technique or Japanese method is a way of permanent makeup, where through manual process of inserting pigment into the upper layers...' + '<div class="mapMygtukas">' + '<a href="https://balticbrows.com/register/training/249/microblading-6d-eyebrows">Training info / Register</a>' + '</div>' + '</div>' + '</div>'], ['<div class="marker-info">' + '<a href="javascript:" onclick="closeInfo();" class="closeInfo"><img src="https://balticbrows.com/~/themes/Gallery/public/assets/images/img_close_map.png" width="" height="" /></a>' + '<div class="infoHeader">' + '<div class="data">' + '<div class="menesis">' + 'November' + '</div>' + '<div class="diena">' + '16th' + '</div>' + '<div class="metai">' + '2019' + '</div>' + '</div>' + '<div class="antrastes">' + '<div class="pagrindineAtraste"><a href="https://balticbrows.com/en/register/training/252/ombre-machine-masterclass">' + 'Ombre machine masterclass</a>' + '</div>' + '<div class="adresas">' + '<img src="https://balticbrows.com/~/themes/Gallery/public/assets/images/pin.png" alt="Ombre machine masterclass">' + 'Cancun, Mexico' + '</div>' + '</div>' + '</div>' + '<div class="aprasymas">' + '<p style="text-align: justify;">OMBRE masterclass is a shading technique done in <strong><u>using machine.</u></strong> This class is for people who already finished machine techniques. This is masterclass. No matter how much time is after...' + '<div class="mapMygtukas">' + '<a href="https://balticbrows.com/register/training/252/ombre-machine-masterclass">Training info / Register</a>' + '</div>' + '</div>' + '</div>'], ['<div class="marker-info">' + '<a href="javascript:" onclick="closeInfo();" class="closeInfo"><img src="https://balticbrows.com/~/themes/Gallery/public/assets/images/img_close_map.png" width="" height="" /></a>' + '<div class="infoHeader">' + '<div class="data">' + '<div class="menesis">' + 'August' + '</div>' + '<div class="diena">' + '10-12nd' + '</div>' + '<div class="metai">' + '2019' + '</div>' + '</div>' + '<div class="antrastes">' + '<div class="pagrindineAtraste"><a href="https://balticbrows.com/en/register/training/260/microblading-6d-eyebrows">' + 'Microblading 6D eyebrows</a>' + '</div>' + '<div class="adresas">' + '<img src="https://balticbrows.com/~/themes/Gallery/public/assets/images/pin.png" alt="Microblading 6D eyebrows">' + 'Clonmel, Ireland' + '</div>' + '</div>' + '</div>' + '<div class="aprasymas">' + '<p style="text-align: justify;">Microblading also known as 6D eyebrows, Eyebrow Embroidery, Eyebrow Feathering, Softap technique or Japanese method is a way of permanent makeup, where through manual process of inserting pigment into the upper layers...' + '<div class="mapMygtukas">' + '<a href="https://balticbrows.com/register/training/260/microblading-6d-eyebrows">Training info / Register</a>' + '</div>' + '</div>' + '</div>'], ['<div class="marker-info">' + '<a href="javascript:" onclick="closeInfo();" class="closeInfo"><img src="https://balticbrows.com/~/themes/Gallery/public/assets/images/img_close_map.png" width="" height="" /></a>' + '<div class="infoHeader">' + '<div class="data">' + '<div class="menesis">' + 'August' + '</div>' + '<div class="diena">' + '12th' + '</div>' + '<div class="metai">' + '2019' + '</div>' + '</div>' + '<div class="antrastes">' + '<div class="pagrindineAtraste"><a href="https://balticbrows.com/en/register/training/278/classic-eyelashes-extension-seminar">' + 'Classic eyelashes extension seminar</a>' + '</div>' + '<div class="adresas">' + '<img src="https://balticbrows.com/~/themes/Gallery/public/assets/images/pin.png" alt="Classic eyelashes extension seminar">' + 'San Juan, Puerto Rico' + '</div>' + '</div>' + '</div>' + '<div class="aprasymas">' + '<p>Classic lashes are individually applied in one to one ratio on the natural lash. This technique is perfect for your clients who are looking for a subtle and natural eyelash enhancement.</p>' + '<div class="mapMygtukas">' + '<a href="https://balticbrows.com/register/training/278/classic-eyelashes-extension-seminar">Training info / Register</a>' + '</div>' + '</div>' + '</div>']];
+
+                $.each(markers, function (i, v) {
+                    callMarker(v[1], v[2], contentString[i][0]);
+                });
+            }, 1000);
+
+        });</script>
+
+
+
+    <script>
+        function showPreloader(title) {
+            if (!title) {
+                var title = 'global.please_wait '
+            }
+            $.blockUI({
+                css: {
+                    border: 'none',
+                    padding: '15px',
+                    backgroundColor: '#000',
+                    '-webkit-border-radius': '10px',
+                    '-moz-border-radius': '10px',
+                    opacity: .5,
+                    color: '#fff'
+                },
+                message: title
+            });
+        }
+        $("#newsletter_form").validate({
+            rules: {
+                email: {
+                    required: true,
+                    email: true
+                }
+            },
+            messages: {
+                email: {
+                    required: 'Email address is required',
+                    email: 'Email address is not valid'
+                }
+            },
+            submitHandler: function (form) {
+                var $form = $("#newsletter_form");
+                var post_url = $form.attr("action"); //get form action url
+                var request_method = $form.attr("method"); //get form GET/POST method
+                var form_data = $form.serialize(); //Enco
+                debugger
+                $.ajax({
+                    type: request_method,
+                    url: post_url,
+                    data: form_data,
+                    cache: false,
+                    beforeSend: function () {
+                        $form.find('input[type=submit]').attr('disabled', true).val('Working...');
+                        $form.find('#success-newsletter-email').remove();
+                    },
+                    success: function (data) {
+                        data = jQuery.parseJSON(data);
+                        if (!data.error || data.error === false) {
+                            $form.find('input[type=submit]').attr('disabled', false);
+                            $form.find('input[type=submit]').val('Subscribe');
+                            $form.find('input[type=email]').addClass('success');
+                            $form.find('input[type=submit]').after(
+                                '<label id="success-newsletter-email" for="email">' + data['message'] + '</label>');
+                            if (data.refresh) {
+                                window.location.reload();
+                            }
+                        } else {
+                            $form.find('input[type=submit]').attr('disabled', false);
+                            $form.find('input[type=email]').addClass('error');
+                            $form.find('input[type=submit]').val('Subscribe');
+                            $form.find('input[type=submit]').after(
+                                '<label id="email-error" class="error" for="email">' + data['message'] + '</label>');
+                        }
+                    },
+                    error: function () {
+                        $form.find('input[type=submit]').attr('disabled', false);
+                    }
+                });
+                return false;
+            }
+        });
+        $("#login_form_modal").validate({
+            rules: {
+                email: {
+                    required: true,
+                    email: true
+                },
+                password: {
+                    required: true,
+                    minlength: 6
+                }
+            },
+            messages: {
+                email: {
+                    required: 'Email address is required',
+                    email: 'Email address is not valid'
+                },
+                password: {
+                    required: 'Enter your password',
+                    minlength: 'Min 6symbols'
+                }
+            },
+            submitHandler: function (form) {
+                var $form = $("#login_form_modal");
+                var post_url = $form.attr("action"); //get form action url
+                var request_method = $form.attr("method"); //get form GET/POST method
+                var form_data = $form.serialize(); //Enco
+                $.ajax({
+                    type: request_method,
+                    url: post_url,
+                    data: form_data,
+                    cache: false,
+                    beforeSend: function () {
+                        $form.find('input[type=submit]').attr('disabled', true).val('Working...');
+                    },
+                    success: function (data) {
+                        debugger
+                        if (data) {
+                            $form.find('input[type=submit]').val('Đã đăng nhập');
+                            window.location.href = '/admin';
+                        }
+                        else {
+                            $form.find('input[type=submit]').attr('disabled', false);
+                            $form.find('input[type=email]').addClass('error');
+                            $form.find('input[type=submit]').val('Đăng nhập');
+                        }
+                    },
+                    error: function () {
+                        $form.find('input[type=submit]').attr('disabled', false);
+                        $form.find('input[type=text], input[type=password]').addClass('error');
+                    }
+                });
+                return false;
+            }
+        });
+        $("#reset-password-confirm-form").validate({
+            rules: {
+                password: {
+                    required: true,
+                    minlength: 6
+                },
+                password2: {
+                    required: true,
+                    equalTo: "#first-password2"
+                }
+            },
+            messages: {
+                password: {
+                    required: 'Enter your password',
+                    minlength: 'Min :number symbols'
+                },
+                password2: {
+                    required: 'Enter your password',
+                    equalTo: 'Passwords do not match'
+                }
+            },
+            submitHandler: function (form) {
+                var $form = $("#reset-password-confirm-form");
+                var post_url = $form.attr("action"); //get form action url
+                var request_method = $form.attr("method"); //get form GET/POST method
+                var form_data = $form.serialize(); //Enco
+                $.ajax({
+                    type: request_method,
+                    url: post_url,
+                    data: form_data,
+                    cache: false,
+                    beforeSend: function () {
+                        $form.find('input[type=submit]').attr('disabled', true).val('Please wait...');
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        data = jQuery.parseJSON(data);
+                        if (!data.error || data.error === false) {
+                            $form.find('input[type=submit]').val('user.success ');
+                            if (data.redirect) {
+                                window.location.href = '' + data.redirect + '';
+                            }
+                        } else {
+                            if (data.message) {
+                                $form.find('.error-container').html(data.message);
+                            }
+                            $form.find('input[type=submit]').attr('disabled', false);
+                            $form.find('input[type=submit]').val('Sign up');
+                        }
+                    },
+                    error: function () {
+                        $form.find('input[type=submit]').attr('disabled', false);
+                        $form.find('input[type=text], input[type=password]').addClass('error');
+                    }
+                });
+            }
+        });
+        $("#quick-reqister-form").validate({
+            rules: {
+                email: {
+                    required: true,
+                    email: true
+                },
+                password: {
+                    required: true,
+                    minlength: 6
+                },
+                password2: {
+                    required: true,
+                    equalTo: "#first-password"
+                },
+                GDPR: {
+                    required: true,
+                    errorPlacement: function ($elem) {
+                        $("#GDPR-error").text(
+                            'Please check that You agree to data and order history collecting.');
+                    }
+                }
+            },
+            messages: {
+                email: {
+                    required: 'Email address is required',
+                    email: 'user.email_not_valid '
+                },
+                password: {
+                    required: 'Enter your password',
+                    minlength: 'Min :number symbols'
+                },
+                password2: {
+                    required: 'Enter your password',
+                    equalTo: 'Passwords do not match'
+                },
+                GDPR: {
+                    required: ''
+                }
+            },
+            submitHandler: function (form) {
+                var $form = $("#quick-reqister-form");
+                var post_url = $form.attr("action"); //get form action url
+                var request_method = $form.attr("method"); //get form GET/POST method
+                var form_data = $form.serialize(); //Enco
+                $.ajax({
+                    type: request_method,
+                    url: post_url,
+                    data: form_data,
+                    cache: false,
+                    beforeSend: function () {
+                        $form.find('input[type=submit]').attr('disabled', true).val('Please wait...');
+                    },
+                    success: function (data) {
+                        data = jQuery.parseJSON(data);
+                        if (!data.error || data.error === false) {
+                            $form.find('input[type=submit]').val('Success, redirecting...!');
+                            if (data.redirect) {
+                                window.location.href = '' + data.redirect + '';
+                            }
+                        } else {
+                            if (data.message) {
+                                $form.find('.error-container').html(data.message);
+                            }
+                            $form.find('input[type=submit]').attr('disabled', false);
+                            $form.find('input[type=submit]').val('Sign up');
+                        }
+                    },
+                    error: function () {
+                        $form.find('input[type=submit]').attr('disabled', false);
+                        $form.find('input[type=text], input[type=password]').addClass('error');
+                    }
+                });
+            }
+        });
+        $("#password-reset-form").validate({
+            rules: {
+                email: {
+                    required: true,
+                    email: true
+                }
+            },
+            messages: {
+                email: {
+                    required: 'Email address is required',
+                    email: 'Email address is not valid'
+                }
+            },
+            submitHandler: function (form) {
+                var $form = $("#password-reset-form");
+                var post_url = $form.attr("action"); //get form action url
+                var request_method = $form.attr("method"); //get form GET/POST method
+                var form_data = $form.serialize(); //Enco
+                var success_message = $(".box_reset_successs");
+                var reset_form = $(".box_reset_password");
+                $.ajax({
+                    type: request_method,
+                    url: post_url,
+                    data: form_data,
+                    cache: false,
+                    beforeSend: function () {
+                        $form.find('input[type=submit]').attr('disabled', true).val('Working...');
+                    },
+                    success: function (data) {
+                        data = jQuery.parseJSON(data);
+                        if (!data.error || data.error === false) {
+                            $form.find('input[type=submit]').val('Sent!');
+                            $form.find('input[type=email]').attr('disabled', true);
+                            reset_form.slideUp();
+                            if (data.message || data.title) {
+                                success_message.slideDown();
+                                if (data.title) {
+                                    success_message.find('.title').html(data.title);
+                                }
+                                if (data.message) {
+                                    success_message.find('.text').html(data.message);
+                                }
+                            }
+                        } else {
+                            $form.find('input[type=submit]').attr('disabled', false);
+                            $form.find('input[type=email]').addClass('error');
+                            $form.find('input[type=submit]').val('user.login ');
+                        }
+                    },
+                    error: function () {
+                        $form.find('input[type=submit]').attr('disabled', false);
+                        $form.find('input[type=text], input[type=password]').addClass('error');
+                    }
+                });
+                return false;
+            }
+        });
+
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "100%";
+
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }</script>
+    <script>
+        $(document).ready(function () {
+            $(document).on('click', '.toggle-info', function () {
+                var parent = $(this).parents('.parent_city');
+                parent.find('.city_class_under_ul').removeClass('active');
+                //  parent.find('ul li a:first').addClass('active');
+                $('.sub-content').hide();
+                $('.sub-content').removeClass('showed');
+                $('i.toggle-info').removeClass('icon-minus');
+                $('i.toggle-info').addClass('icon-plus');
+                $('.toggle-info').removeClass('active');
+                if (parent.find('.sub-content').hasClass('showed')) {
+
+                    parent.find('.sub-content').removeClass('showed').hide();
+                    parent.find('.sub-content').hide();
+                    parent.find('i.toggle-info').removeClass('icon-minus');
+                    parent.find('i.toggle-info').addClass('icon-plus');
+                    parent.find('.toggle-info').removeClass('active');
+                } else {
+                    parent.find('.sub-content').addClass('showed');
+                    parent.find('.sub-content').show();
+                    parent.find('i.toggle-info').addClass('icon-minus');
+                    parent.find('.toggle-info').addClass('active');
+                    parent.find('i.toggle-info').removeClass('icon-plus');
+                }
+            });
+            $(document).on('click', '.city_class_under_ul', function () {
+                $('.city_class_under_ul').removeClass('active');
+                $(this).addClass('active');
+            });
+
+        });</script>
+    <script>
+        /*$('#js-gallery')
+           .photoSwipe('.slide', {bgOpacity: 0.8, shareEl: false}, {
+                close: function () {
+                console.log('closed');
+                }
+           });*/</script>
+    <script>
+        $(".site_submenu").click(function () {
+            $("#mySidenav .main-nav").toggleClass("navbarNav");
+            $(this).parent().toggleClass('active');
+        });
+        $(".back_to_main_menu").click(function () {
+            $("#mySidenav .main-nav").toggleClass("navbarNav");
+            $('.site_submenu_outer').removeClass('active');
+        });</script>
+    <script src="~/themes/Gallery/public/js/app.js" type="text/javascript"></script>
+    @RenderSection("scripts", required: false)
+</body>
+
+
+<!-- Mirrored from balticbrows.com/, Mon, 29 Jul 2019 09:20:40 GMT by HTTrack Website Copier/3.x [XR/YP'2000] -->
+</html>

@@ -1,0 +1,67 @@
+/*banner_main*/
+.banner_main{
+	padding: 0;
+	margin: 0 0 0 0;
+}
+
+.banner_main .item_carousel{
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: auto;
+	float: left;
+}
+
+.banner_main .img_banner{
+	width: 100%;
+	height: auto;
+	border: none;
+	margin: 0;
+	float: left;
+}
+
+.banner_main .owl-controls{
+	text-align: center;
+    width: 100%;
+    height: 0;
+    display: inline-block;
+    position: relative;
+
+}
+
+.banner_main .owl-controls .owl-pagination{
+	display: inline-block;
+	width: auto;
+	height: auto;
+    position: relative;
+    top: -25px;
+    bottom: auto;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.banner_main .owl-controls .owl-page{
+	display: inline-block;
+	width: 35px;
+	height: 13px;
+	padding: 0;
+	position: relative;
+	z-index: 3;
+}
+
+.banner_main .owl-controls .owl-page span{
+	width: 13px;
+	height: 13px;
+	margin: 2px 0 0 0;
+    display: inline-block;
+	border: 1px solid #FFFFFF;
+	background-color: transparent;
+	border-radius: 100%;
+}
+
+.banner_main .owl-controls .owl-page.active span,
+.banner_main .owl-controls.clickable .owl-page:hover span{
+    background-color: #FFFFFF;
+}
+/*banner_main*/

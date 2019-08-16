@@ -22,22 +22,62 @@
   <ItemGroup>
     <Compile Remove="logs\**" />
     <Compile Remove="Themes\CozaStore\**" />
+    <Compile Remove="wwwroot\themes\Gallery\public\uploads\**" />
     <Compile Remove="wwwroot\themes\TheGioiDiDong\images\cdn\Files\**" />
     <Compile Remove="wwwroot\themes\TheGioiDiDong\images\cdn\Products\Images\**" />
     <Content Remove="Themes\CozaStore\**" />
+    <Content Remove="wwwroot\themes\Gallery\public\uploads\**" />
     <Content Remove="wwwroot\themes\TheGioiDiDong\images\cdn\Files\**" />
     <Content Remove="wwwroot\themes\TheGioiDiDong\images\cdn\Products\Images\**" />
     <EmbeddedResource Remove="logs\**" />
     <EmbeddedResource Remove="Themes\CozaStore\**" />
+    <EmbeddedResource Remove="wwwroot\themes\Gallery\public\uploads\**" />
     <EmbeddedResource Remove="wwwroot\themes\TheGioiDiDong\images\cdn\Files\**" />
     <EmbeddedResource Remove="wwwroot\themes\TheGioiDiDong\images\cdn\Products\Images\**" />
     <None Remove="logs\**" />
     <None Remove="Themes\CozaStore\**" />
+    <None Remove="wwwroot\themes\Gallery\public\uploads\**" />
     <None Remove="wwwroot\themes\TheGioiDiDong\images\cdn\Files\**" />
     <None Remove="wwwroot\themes\TheGioiDiDong\images\cdn\Products\Images\**" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Themes\Gallery\Areas\Catalog\Views\Category\CategoryDetail.cshtml" />
+    <None Remove="Themes\Gallery\Areas\Catalog\Views\Category\CategoryDetailLoadMore.cshtml" />
+    <None Remove="Themes\Gallery\Areas\Catalog\Views\Product\ProductDetail.cshtml" />
+    <None Remove="Themes\Gallery\Areas\Catalog\Views\Shared\Components\CategoryBreadcrumb\Default.cshtml" />
+    <None Remove="Themes\Gallery\Areas\Catalog\Views\Shared\Components\CategoryMenu\Default.cshtml" />
+    <None Remove="Themes\Gallery\Areas\Catalog\Views\Shared\Components\CategoryWidget\Default.cshtml" />
+    <None Remove="Themes\Gallery\Areas\Catalog\Views\Shared\Components\NewItem\Default.cshtml" />
+    <None Remove="Themes\Gallery\Areas\Catalog\Views\Shared\Components\ProductHome\Default.cshtml" />
+    <None Remove="Themes\Gallery\Areas\Catalog\Views\Shared\Components\ProductWidget\Default.cshtml" />
+    <None Remove="Themes\Gallery\Areas\Catalog\Views\Shared\Components\SimpleProductWidget\Default.cshtml" />
+    <None Remove="Themes\Gallery\Areas\Catalog\Views\Shared\_ProductThumbnail.cshtml" />
+    <None Remove="Themes\Gallery\Areas\Catalog\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\Gallery\Areas\Catalog\Views\_ViewStart.cshtml" />
+    <None Remove="Themes\Gallery\Areas\Cms\Views\Shared\Components\CarouselWidgetCategory\Default.cshtml" />
+    <None Remove="Themes\Gallery\Areas\Cms\Views\Shared\Components\CarouselWidget\Default.cshtml" />
+    <None Remove="Themes\Gallery\Areas\Cms\Views\Shared\Components\Menu\Default.cshtml" />
+    <None Remove="Themes\Gallery\Areas\Cms\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\Gallery\Areas\Core\Views\Home\About.cshtml" />
+    <None Remove="Themes\Gallery\Areas\Core\Views\Home\Contact.cshtml" />
+    <None Remove="Themes\Gallery\Areas\Core\Views\Home\Index.cshtml" />
+    <None Remove="Themes\Gallery\Areas\Core\Views\Home\Treatment.cshtml" />
+    <None Remove="Themes\Gallery\Areas\Core\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\Gallery\Areas\Core\Views\_ViewStart.cshtml" />
+    <None Remove="Themes\Gallery\Areas\News\Views\Shared\Components\NewItemHome\Default.cshtml" />
+    <None Remove="Themes\Gallery\Areas\News\Views\Shared\Components\NewItemRelate\Default.cshtml" />
+    <None Remove="Themes\Gallery\Areas\News\Views\Shared\Components\NewItem\Default.cshtml" />
+    <None Remove="Themes\Gallery\Areas\ProductRecentlyViewed\Views\Shared\Components\ProductRecentlyViewed\Default.cshtml" />
+    <None Remove="Themes\Gallery\Areas\ProductRecentlyViewed\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\Gallery\Areas\Search\Views\Shared\Components\SearchForm\Default.cshtml" />
+    <None Remove="Themes\Gallery\Areas\Search\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\Gallery\Areas\ShoppingCart\Views\Shared\Components\CartBadge\Default.cshtml" />
+    <None Remove="Themes\Gallery\Areas\ShoppingCart\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\Gallery\theme.json" />
+    <None Remove="Themes\Gallery\Views\Shared\_Layout.cshtml" />
+    <None Remove="Themes\Gallery\Views\Shared\_LoginPartial.cshtml" />
+    <None Remove="Themes\Gallery\Views\_ViewImports.cshtml" />
     <None Remove="Themes\TheGioiDiDong\Areas\Catalog\Views\Category\CategoryDetailLoadMore.cshtml" />
     <None Remove="Themes\TheGioiDiDong\Areas\Catalog\Views\Shared\Components\NewItem\Default.cshtml" />
     <None Remove="Themes\TheGioiDiDong\Areas\Cms\Views\Shared\Components\CarouselWidgetCategory\Default.cshtml" />
@@ -45,6 +85,12 @@
     <None Remove="Themes\TheGioiDiDong\Areas\News\Views\Shared\Components\NewItemRelate\Default.cshtml" />
     <None Remove="Themes\TheGioiDiDong\Areas\News\Views\Shared\Components\NewItem\Default.cshtml" />
     <None Remove="wwwroot\googlefbc689ad90567857.html" />
+    <None Remove="wwwroot\themes\Gallery\public\additional-methods.min.js" />
+    <None Remove="wwwroot\themes\Gallery\public\assets\js\additional-methods.min.js" />
+    <None Remove="wwwroot\themes\Gallery\public\assets\js\jquery.blockUI.js" />
+    <None Remove="wwwroot\themes\Gallery\public\assets\js\jquery.validate.js" />
+    <None Remove="wwwroot\themes\Gallery\public\assets\js\jquery.validate.min.js" />
+    <None Remove="wwwroot\themes\Gallery\public\assets\js\picturefill.min.js" />
     <None Remove="wwwroot\themes\TheGioiDiDong\images\cdn\navigatbg.png" />
     <None Remove="wwwroot\themes\TheGioiDiDong\images\cdn\v2015\Content\desktop\images\V4\logo-techcare-web.png" />
     <None Remove="wwwroot\themes\TheGioiDiDong\js\category.js" />
@@ -104,6 +150,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\themes\Gallery\css\" />
+    <Folder Include="wwwroot\themes\Gallery\fonts\" />
+    <Folder Include="wwwroot\themes\Gallery\images\" />
+    <Folder Include="wwwroot\themes\Gallery\js\" />
+    <Folder Include="wwwroot\themes\Gallery\libs\" />
+    <Folder Include="wwwroot\themes\Gallery\vendor\" />
     <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\comment\8408363\" />
     <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\comment\AttachFile\Temp\2018\10\20\" />
     <Folder Include="wwwroot\themes\TheGioiDiDong\images\cdn\hoi-dap\1049958\Thumbnail\" />

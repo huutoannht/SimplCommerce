@@ -65,7 +65,7 @@ namespace SimplCommerce.Module.Core.Areas.Core.Controllers
                 if (result.Succeeded)
                 {
                     _logger.LogInformation(1, "User logged in.");
-                    return RedirectToLocal(returnUrl);
+                    return Json(true);
                 }
                 if (result.RequiresTwoFactor)
                 {
@@ -79,7 +79,7 @@ namespace SimplCommerce.Module.Core.Areas.Core.Controllers
                 else
                 {
                     ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-                    return View(model);
+                    return Json(false);
                 }
             }
 

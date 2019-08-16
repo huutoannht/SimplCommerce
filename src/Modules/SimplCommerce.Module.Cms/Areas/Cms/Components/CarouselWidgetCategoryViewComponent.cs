@@ -41,7 +41,7 @@ namespace SimplCommerce.Module.Cms.Areas.Cms.Components
             var model = new CarouselWidgetViewComponentVm
             {
                 Id = widgetInstance.Id,
-                Items = JsonConvert.DeserializeObject<IList<CarouselWidgetViewComponentItemVm>>(widgetInstance.Data)
+                Items = JsonConvert.DeserializeObject<IList<CarouselWidgetViewComponentItemVm>>(widgetInstance?.Data)
             };
 
             foreach (var item in model.Items)

@@ -1,0 +1,1221 @@
+﻿@model SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels.ProductDetail
+@using System.Text.RegularExpressions;
+@{
+    ViewBag.Title = Model.MetaTitle ?? Model.Name;
+}
+
+@section additionalMeta {
+    <meta name="title" content="@ViewBag.Title" />
+    <meta name="keywords" content="@Model.MetaKeywords" />
+    <meta name="description" content="@Model.MetaDescription" />
+}
+
+@*@section head
+        {
+        <link simpl-append-version="true" rel="stylesheet" href="~/lib/smoothproducts/css/smoothproducts.css" />
+        <link simpl-append-version="true" rel="stylesheet" href="~/modules/catalog/product-detail.css" />
+    }
+    <style>
+        .collapse {
+            display: none;
+        }
+    </style>
+
+    <section class="type0">
+        <ul class="breadcrumb">
+            <a href="~/" class="stext-109 cl8 hov-cl1 trans-04">
+                @Localizer["Home"]
+                <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+            </a>
+            @if (Model.Categories.Any())
+            {
+                @await Component.InvokeAsync("CategoryBreadcrumb", new { categoryIds = Model.Categories.Select(x => x.Id) })
+            }
+            <a href="#" class="stext-109 cl8 hov-cl1 trans-04">
+                @Model.Name
+            </a>
+        </ul>
+        <div class="rowtop">
+            <h1>@Model.Name</h1>
+
+            <div class="ratingresult">
+                <ul class="list-inline product-ratings">
+                    <li><input type="hidden" value="@Model.RatingAverage" readonly="readonly" class="rating-loading" step="1" data-size="xs" data-show-clear="false" data-show-caption="false" /></li>
+                    <li class="product-review-list">
+                        <span>(@Model.ReviewsCount) <a href="#reviews">@Localizer["reviews"]</a> | <a href="#addreview"> @Localizer["Add Review"]</a></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="clr"></div>
+        <div class="rowdetail row" id="normalproduct">
+            <div class="col-md-5">
+                <div class="sp-wrap">
+                    @foreach (var image in Model.Images)
+                    {
+                        <a href="@image.Url">
+                            <img src="@image.ThumbnailUrl" alt="@Model.Name" />
+                        </a>
+                    }
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="product-short-desc">
+                    @Html.Raw(Model.ShortDescription)
+                </div>
+                <aside class="price_sale product-detail">
+                    @if (Model.Promotion != null && Model.Promotion.Length > 10 && Regex.Replace(Model.Promotion, "<.*?>", String.Empty).Length > 0)
+                    {
+                        <div class="area_promotion ">
+                            <strong data-count="3">Khuyến mãi</strong>
+                            <div class="pro-img">
+                                @Html.Raw(Model.Promotion)
+                            </div>
+                        </div>
+                    }
+
+                    @if (Model.HasVariation)
+                    {
+                        <form>
+                            <div class="product-attrs">
+                                @foreach (var option in Model.AvailableOptions)
+                                {
+                                    <div>
+                                        <h5 class="p-t-25">@option.OptionName </h5>
+                                        <ul class="list-inline product-attr-options">
+                                            @foreach (var value in option.Values)
+                                            {
+                                                var shouldChecked = Model.Variations.First().Options.Any(x => x.Value == value);
+                                                <li class="list-inline-item">
+                                                    <input type="radio" value="@value" checked="@shouldChecked" name="@option.OptionName" />
+                                                    @if (Model.OptionDisplayValues.ContainsKey(value) && !String.IsNullOrWhiteSpace(Model.OptionDisplayValues[value].Value))
+                                                    {
+                                                        if (Model.OptionDisplayValues[value].DisplayType == "color")
+                                                        {
+                                                            <label title="@value" class="color" style="background-color:@Model.OptionDisplayValues[value].Value"></label>
+                                                        }
+                                                        else
+                                                        {
+                                                            <label>@Model.OptionDisplayValues[value].Value</label>
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        <label>@value</label>
+                                                    }
+                                                </li>
+                                            }
+                                        </ul>
+                                    </div>
+                                }
+                            </div>
+                        </form>
+
+                        foreach (var variant in Model.Variations)
+                        {
+                            var hidden = variant != Model.Variations.First() ? "collapse" : "";
+                            <div class="product-variation @hidden" data-variation-name="@variant.NormalizedName">
+                                <div class="product-price">
+                                    @if (variant.IsCallForPricing)
+                                    {
+                                        <span class="label label-info">@Localizer["Call for pricing"]</span>
+                                    }
+                                    else
+                                    {
+                                        <h3>@variant.CalculatedProductPrice.Price.ToString("C0")</h3>
+                                        if (variant.CalculatedProductPrice.PercentOfSaving > 0)
+                                        {
+                                            <p class="product-price-regular">@variant.CalculatedProductPrice.OldPrice.Value.ToString("C0")</p>
+                                            <p class="product-price-saving">@Localizer["You save"] (@(variant.CalculatedProductPrice.PercentOfSaving)%)</p>
+                                        }
+                                    }
+                                </div>
+                                @if (variant.StockTrackingIsEnabled && variant.StockQuantity <= 0)
+                                {
+                                    <div class="out-of-stock">
+                                        <span class="label label-danger">@Localizer["Out of stock"]</span>
+                                    </div>
+                                }
+
+                                <div class="add-to-cart">
+                                    <form class="inline">
+                                        <input type="hidden" name="productId" value="@variant.Id" />
+                                        <div class="product-quantity">
+                                            <button type="button" class="quantity-button" name="subtract" value="-">-</button>
+                                            <input type="text" class="quantity-field" readonly="readonly" name="qty" value="1">
+                                            <button type="button" class="quantity-button" name="add" value="+">+</button>
+                                        </div>
+                                        <button type="button" disabled="@(!variant.IsAllowToOrder || (variant.StockTrackingIsEnabled && variant.StockQuantity <= 0))" class="btn btn-lg btn-add-cart">@Localizer["Add to cart"]</button>
+
+                                        @*<div>
+                                <ul class="list-inline add-to-wishlist">
+                                    <li class="wishlist-in">
+                                        <i class="fa fa-heart"></i>
+                                        <a href="#">Add to Wishlist</a>
+                                    </li>
+                                    <li class="compare-in">
+                                        <i class="fa fa-exchange"></i>
+                                        <a href="#" class="add-to-comparison">@Localizer["Add to Compare"]</a>
+                                    </li>
+                                </ul>
+                            </div>
+                                    </form>
+                                </div>
+                            </div>
+                        }
+                        <div class="product-variation-notavailable collapse">
+                            <span class="label label-danger">@Localizer["Not available"]</span>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="product-price">
+                            @if (Model.IsCallForPricing)
+                            {
+                                <span class="label label-info">@Localizer["Call for pricing"]</span>
+                            }
+                            else
+                            {
+                                <h3>@Model.CalculatedProductPrice.Price.ToString("C0")</h3>
+                                if (Model.CalculatedProductPrice.PercentOfSaving > 0)
+                                {
+                                    <p class="product-price-regular">@Model.CalculatedProductPrice.OldPrice.Value.ToString("C0")</p>
+                                    <p class="product-price-saving">@Localizer["You save"] (@(Model.CalculatedProductPrice.PercentOfSaving)%)</p>
+                                }
+                            }
+                        </div>
+                        if (Model.StockTrackingIsEnabled && Model.StockQuantity <= 0)
+                        {
+                            <div class="out-of-stock">
+                                <span class="label label-danger">@Localizer["Out of stock"]</span>
+                            </div>
+                        }
+                        <div class="add-to-cart">
+                            <form class="inline">
+                                <input type="hidden" name="productId" value="@Model.Id" />
+                                <div class="product-quantity">
+                                    <button type="button" class="quantity-button" name="subtract" value="-">-</button>
+                                    <input type="text" class="quantity-field" readonly="readonly" name="qty" value="1">
+                                    <button type="button" class="quantity-button" name="add" value="+">+</button>
+                                </div>
+                                <button type="button" disabled="@(!Model.IsAllowToOrder || (Model.StockTrackingIsEnabled && Model.StockQuantity <= 0))" class="btn btn-lg btn-add-cart buy_now">@Localizer["Add to cart"]</button>
+                                <div class="area_order">
+                                    <a class="buy_repay " href="/mua-tra-gop"><b>Mua trả góp </b><span>Thủ tục đơn giản</span></a>
+                                </div>
+                                @*<div>
+                        <ul class="list-inline add-to-wishlist">
+                            <li class="wishlist-in">
+                                <i class="fa fa-heart"></i>
+                                <a href="#">Add to Wishlist</a>
+                            </li>
+                            <li class="compare-in">
+                                <i class="fa fa-exchange"></i>
+                                <a href="#" class="add-to-comparison">@Localizer["Add to Compare"]</a>
+                            </li>
+                        </ul>
+                    </div>
+                            </form>
+                        </div>
+                    }
+
+
+                </aside>
+            </div>
+            <div class="col-md-3">
+                <ul class="policy ">
+                    <li class="inpr">
+                        <span>Trong hộp có: <a class="stdImg" href="javascript:void(0)" onclick="showGalleryPS(100,0);">Sách hướng dẫn,Hộp,Adapter sạc,Chuột <i class="icondetail-camera standkit" href="//cdn.tgdd.vn/Products/Images/44/193516/Kit/asus-x507uf-i5-8250u-4gb-1tb-2gb-mx130-ej121t-bo-ban-hang-org.jpg"></i></a></span>
+                    </li>
+                    <li class="wrpr">
+                        <span>
+                            Bảo hành chính hãng 24 tháng.
+                            <a href="/chinh-sach-bao-hanh">Xem chi tiết</a>
+                        </span>
+                    </li>
+                    <li>
+                        1 đổi 1 trong 1 tháng nếu lỗi, đổi sản phẩm tại nhà trong 1 ngày.
+
+                        <a href="#" target="_blank">Xem chi tiết</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="clr"></div>
+        <div class="box_content row">
+            <div class="col-md-8">
+                <aside class="">
+                    <div class="boxArticle">
+                        <article class="area_article">
+                            @if (!string.IsNullOrWhiteSpace(Model.Description))
+                            {
+                                <div>
+                                    <h3 class="p-t-25 p-b-25">@Localizer["Product detail"]</h3>
+                                    @Html.Raw(Model.Description)
+                                </div>
+                            }
+                        </article>
+                    </div>
+                    <div class="clr"></div>
+                    @if (Model.RelatedProducts.Count > 0)
+                    {
+                        <div class="compare">
+                            <div class="tcpr">
+                                <h4>@Localizer["Compare with similar products"]</h4>
+                            </div>
+                            <div class="row product-list">
+                                <div id="owl-promo" class="owl-carousel homepromo ">
+                                    @foreach (var product in Model.RelatedProducts)
+                                    {
+                                        <div class="item">
+                                            <partial name="/Themes/TheGioiDiDong/Areas/Catalog/Views/Shared/_ProductThumbnail.cshtml" model="product" />
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    <div class="comdetail">
+                        <div class="wrap_comment" title="Bình luận sản phẩm" id="comment" cmtcategoryid="2" siteid="1" detailid="154897" cateid="15" urlpage="" pagesize="5">
+                            <div>
+                                <h3 class="p-t-25 p-b-25">@Localizer["Customer reviews"]</h3>
+                                @await Component.InvokeAsync("Review", new { entityId = Model.Id, entityTypeId = "Product" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        @*<h3>@Localizer["Customer comments"]</h3>
+                        <h3>Bình luận</h3>
+                        @await Component.InvokeAsync("Comment", new { entityId = Model.Id, entityTypeId = "Product" })
+                    </div>
+
+
+                </aside>
+            </div>
+            <div class="col-md-4">
+                <aside class="">
+                    <div class="tableparameter">
+                        @if (Model.Attributes.Any())
+                        {
+                            <div class="table-attribute">
+                                <h3 class="p-t-25 p-b-25">@Localizer["Product specification"]</h3>
+                                <table class="table table-striped">
+                                    @foreach (var attribute in Model.Attributes)
+                                    {
+                                        <tr>
+                                            <td>@attribute.Name</td>
+                                            <td>@attribute.Value</td>
+                                        </tr>
+                                    }
+                                </table>
+                            </div>
+                        }
+                    </div>
+                    <div class="clr"></div>
+                    @await Component.InvokeAsync("NewItem")
+                </aside>
+            </div>
+            <div class="compare">
+                @await Component.InvokeAsync("ProductRecentlyViewed", new { productId = Model.Id })
+            </div>
+
+        </div>
+    </section>
+
+    @section scripts {
+        <partial name="_ValidationScriptsPartial" />
+        <script simpl-append-version="true" src="~/lib/smoothproducts/js/smoothproducts.js"></script>
+        <script simpl-append-version="true" src="~/modules/catalog/product-detail.js"></script>
+    }*@
+
+
+<section id="training-header-wrap">
+    <section id="breadcrumbs">
+        <div class="container">
+            <div class="breadcrubs-wrap">
+                <div class="bread-item">
+                    <a class="" href="~/"> @Localizer["Home"]</a>
+                    <span data-icon="z" class="icon"></span>
+                </div>
+                <div class="bread-item">
+                    @await Component.InvokeAsync("CategoryBreadcrumb", new { categoryIds = Model.Categories.Select(x => x.Id) })
+                </div>
+                <div class="bread-item">
+                    <a class=" active " href="#"> @Model.Name</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <section id="main-training-header-block">
+            <div class="page-header-wrap">
+                <div class="page-title">  @Model.Name</div>
+                <div class="page-header-socal">
+                    @*<div class="socal-text">Share this course</div>*@
+                    <div class="socal-item-wrap">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</section>
+
+
+<section id="inner-product-info">
+    <div class="container">
+        <div class="inner-info-wrap">
+            <div class="main-reg-banner-wrap">
+                <img src="@Model.ThumbnailImage" title="@Model.Name" alt="@Model.Name">
+
+                <div class="training-price-info mobile">
+                    <!--This block only appears on mobiles-->
+                    <div class="training-price-header">
+                        <div class="title">Training price</div>
+                        <form action="#">
+                            <select name="payment_type" id="price-option" onchange="changePrice($(this))"></select>
+                        </form>
+                    </div>
+
+                    <div class="training-price-content">
+                        <div class="main-price">
+
+                        </div>
+
+                        <div class="btn-wrap">
+                            <div class="btn-row">
+                                <a href="#reg-form" class="submit-btn" rel="modal:open">Take this course</a>
+                                <div class="link-btns">
+                                    <a href="#" class="cancelationbtn">Cancelation Policy</a>
+                                    <a href="#" class="view">Click to view</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="training-price-footer">
+                        <div class="text">
+                            Got any questions regarding the training, location, pricing, payment? Just get in touch with us and we will help you out.
+                        </div>
+
+                        <div class="contact-btn">
+                            <a href="ritaromo%40balticbrows.html">Liên hệ</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="event-info">
+                <div class="event-details">
+
+                    <div class="detail-meta">
+                        <div class="detail-title">Thông tin sản phẩm</div>
+                        <div class="meta-item">
+                            <div class="icon">
+                                <div class="icon icon-calendar"></div>
+                            </div>
+                            <div class="text">@Model.CreatedOn.ToString("dd/MM/yyyy")</div>
+                        </div>
+
+                        @*<div class="meta-item">
+                            <div class="icon">
+                                <div class="icon icon-clock-o"></div>
+                            </div>
+                            <div class="text">10:00 am - 5:00 pm</div>
+                        </div>
+
+                        <div class="meta-item">
+                            <div class="icon">
+                                <div data-icon="C" class="icon"></div>
+                            </div>
+                            <div class="text">Seattle, USA</div>
+                        </div>*@
+                    </div>
+
+                    <div class="event-info-detail">
+                        <div class="detail-title">Tổng quan</div>
+                        <div class="info-detail-item">
+                            <div class="title">Giá:</div>
+                            <div class="value">
+                                @Model.CalculatedProductPrice.Price.ToString("C0")
+                                @if (Model.CalculatedProductPrice.PercentOfSaving > 0)
+                                {
+                                    <p class="product-price-regular">@Model.CalculatedProductPrice.OldPrice.Value.ToString("C0")</p>
+                                    <p class="product-price-saving">@Localizer["You save"] (@(Model.CalculatedProductPrice.PercentOfSaving)%)</p>
+                                }
+                            </div>
+                        </div>
+                        <div class="info-detail-item">
+                            <div class="title">Mã sản phẩm:</div>
+                            <div class="value"> @Model.Id.ToString("SP000000")
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="training-price-info desktop">
+                <div class="training-price-header">
+                    <div class="title">Giá sản phẩm</div>
+                </div>
+
+                <div class="training-price-content">
+                    <div class="main-price">
+                        <span class="">@Model.CalculatedProductPrice.Price.ToString("C0")</span>
+                    </div>
+
+                    <div class="btn-wrap">
+                        <div class="btn-row">
+                            <a href="mailto:kim@londonbrows.com" class="submit-btn">Liên hệ</a>
+                            <div class="link-btns">
+                                <a href="#modal_cancelation" rel="modal:open" class="cancelationbtn">Mô tả ngắn</a>
+                            </div>
+
+                            <div class="box_cancelation_policy">
+                                <div class="modal_cancelation" id="modal_cancelation">
+                                    <div class="box_text">
+                                        <div class="title">Mô tả ngắn</div>
+                                        <div class="text">
+                                          @Html.Raw(Model.ShortDescription)
+                                        </div>
+                                        <a href="#close-modal" class="button_close" rel="modal:close">Đóng</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="training-price-footer">
+                    <div class="text">
+                        Nếu bạn có câu hỏi nào hãy liên hệ với chúng tôi
+                    </div>
+                    <div class="contact-btn">
+                        <a href=" mailto:ritaromo@balticbrows.com ">Liên hệ</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<script type="text/javascript">
+    function showMoreSamples() {
+        $('.item-hide').slideDown('fast');
+        $(".show-more-btn").hide();
+    }
+</script>
+<section id="course-info-block">
+    <div class="container">
+        <div class="course-info-navigation">
+
+            <div class="course-navigation-item current_course_item coures_item-1">
+                <div class="course-navigation-icon">
+                    <div class="icon icon-info"></div>
+                </div>
+                <div class="course-navigation-text">Giới thiệu</div>
+            </div>
+
+            <div class="course-navigation-item coures_item-2">
+                <div class="course-navigation-icon">
+                    <div class="icon icon-student-hat"></div>
+                </div>
+                <div class="course-navigation-text">Ảnh sản phẩm</div>
+            </div>
+
+            @*<div class="course-navigation-item coures_item-3">
+            <div class="course-navigation-icon">
+                <div class="icon icon-book-topics"></div>
+            </div>
+            <div class="course-navigation-text">Training program</div>
+        </div>
+
+        <div class="course-navigation-item coures_item-4">
+            <div class="course-navigation-icon">
+                <div class="icon icon-checklist"></div>
+            </div>
+            <div class="course-navigation-text">Training include</div>
+        </div>
+
+        <div class="course-navigation-item coures_item-5">
+            <div class="course-navigation-icon">
+                <div class="icon icon-warning"></div>
+            </div>
+            <div class="course-navigation-text">Important</div>
+        </div>
+
+        <div class="course-navigation-item coures_item-6">
+            <div class="course-navigation-icon">
+                <div class="icon icon-price-dollar"></div>
+            </div>
+            <div class="course-navigation-text">Why Baltic Brows&reg;</div>
+        </div>
+
+        <div class="course-navigation-item coures_item-7">
+            <div class="course-navigation-icon">
+                <div class="icon icon-faq-question"></div>
+            </div>
+            <div class="course-navigation-text">FAQ</div>
+        </div>
+
+        <div class="course-navigation-item coures_item-8">
+            <div class="course-navigation-icon">
+                <div class="icon icon-handshake"></div>
+            </div>
+            <div class="course-navigation-text">Prices &amp; Registration</div>
+        </div>*@
+
+        </div>
+
+    </div>
+</section>
+
+<section id="course-info">
+    <div class="container">
+
+        <div class="course-info-wrap">
+
+            <div id="myaccordion" class="course-info-content">
+                <div class="course-lesson-item">
+
+                    <div class="course-lesson-header coures_item-1">
+                        <div class="course-lesson-header-title">
+                            <span class="icon icon-info"></span>
+                            <span class="course-lesson-text">Chi tiết sản phẩm</span>
+                        </div>
+
+                    </div>
+
+                    <div class="course-lesson-level-1-wrap about">
+                        <div class="step-text">
+                            @Html.Raw(Model.Description)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-lesson-item">
+
+                    <div class="course-lesson-header">
+                        <div class="course-lesson-header-title coures_item-2">
+                            <span class="icon icon-student-hat"></span>
+                            <span class="course-lesson-text">Ảnh sản phẩm</span>
+                        </div>
+
+
+                    </div>
+
+                    <div class="course-lesson-level-1-wrap who-can-learn">
+                        <div class="step-text">
+                            <div class="owl-carousel" id="carousel_certificates">
+
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-175409gyxnkgqpbrwiwr5j/11205145_454249271406382_4876949706281779478_n.jpg" data-webm="public/uploads/image-uploads/2017-07-27-175409gyxnkgqpbrwiwr5j/11205145_454249271406382_4876949706281779478_n.jpg" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-175409gyxnkgqpbrwiwr5j/11205145_454249271406382_4876949706281779478_n-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-175409kd2rz9rc6eopircy/11141362_473907916107184_5527154506910480115_n.jpg" data-webm="public/uploads/image-uploads/2017-07-27-175409kd2rz9rc6eopircy/11141362_473907916107184_5527154506910480115_n.jpg" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-175409kd2rz9rc6eopircy/11141362_473907916107184_5527154506910480115_n-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-175832vqqsem75mof9vqdi/14183862_10205473446070213_4549308069550437103_n.jpg" data-webm="public/uploads/image-uploads/2017-07-27-175832vqqsem75mof9vqdi/14183862_10205473446070213_4549308069550437103_n.jpg" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-175832vqqsem75mof9vqdi/14183862_10205473446070213_4549308069550437103_n-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-1758366qm4bukenow1soqj/20160213_185555-1.jpg" data-webm="public/uploads/image-uploads/2017-07-27-1758366qm4bukenow1soqj/20160213_185555-1.jpg" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-1758366qm4bukenow1soqj/20160213_185555-1-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-175851jlonerdqmbafbkmk/20160218_205727.jpg" data-webm="public/uploads/image-uploads/2017-07-27-175851jlonerdqmbafbkmk/20160218_205727.jpg" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-175851jlonerdqmbafbkmk/20160218_205727-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-175855nbika0nhwvr0bbvu/20160304_173653.jpg" data-webm="public/uploads/image-uploads/2017-07-27-175855nbika0nhwvr0bbvu/20160304_173653.jpg" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-175855nbika0nhwvr0bbvu/20160304_173653-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-1758593frv75oexfv7xhkb/20160304_233116.jpg" data-webm="public/uploads/image-uploads/2017-07-27-1758593frv75oexfv7xhkb/20160304_233116.jpg" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-1758593frv75oexfv7xhkb/20160304_233116-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-175904lbmlyo7bxtayyynu/20160503_140726.jpg" data-webm="public/uploads/image-uploads/2017-07-27-175904lbmlyo7bxtayyynu/20160503_140726.jpg" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-175904lbmlyo7bxtayyynu/20160503_140726-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-175909oxxbgyseziz6fupa/20160503_140816.jpg" data-webm="public/uploads/image-uploads/2017-07-27-175909oxxbgyseziz6fupa/20160503_140816.jpg" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-175909oxxbgyseziz6fupa/20160503_140816-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-175914jvuaawffe5n53z5c/20160503_140831.jpg" data-webm="public/uploads/image-uploads/2017-07-27-175914jvuaawffe5n53z5c/20160503_140831.jpg" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-175914jvuaawffe5n53z5c/20160503_140831-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-175918wiomb1fbxx9hzlew/20160503_140845.jpg" data-webm="public/uploads/image-uploads/2017-07-27-175918wiomb1fbxx9hzlew/20160503_140845.jpg" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-175918wiomb1fbxx9hzlew/20160503_140845-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-1759221r06gu9dilhb4feu/20160829_000738.jpg" data-webm="public/uploads/image-uploads/2017-07-27-1759221r06gu9dilhb4feu/20160829_000738.jpg" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-1759221r06gu9dilhb4feu/20160829_000738-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-175925c0b63xxisgtnsbaj/20161231_170213.jpg" data-webm="public/uploads/image-uploads/2017-07-27-175925c0b63xxisgtnsbaj/20161231_170213.jpg" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-175925c0b63xxisgtnsbaj/20161231_170213-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-1759306undy7u2anymblts/20170117_231420.jpg" data-webm="public/uploads/image-uploads/2017-07-27-1759306undy7u2anymblts/20170117_231420.jpg" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-1759306undy7u2anymblts/20170117_231420-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-175936vupbpf4sitpoergo/20170205_175523.png" data-webm="public/uploads/image-uploads/2017-07-27-175936vupbpf4sitpoergo/20170205_175523.png" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-175936vupbpf4sitpoergo/20170205_175523-image(100x100-crop()).png" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-175938jhxtpgad7yc7tsmb/20170205_180621.jpg" data-webm="public/uploads/image-uploads/2017-07-27-175938jhxtpgad7yc7tsmb/20170205_180621.jpg" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-175938jhxtpgad7yc7tsmb/20170205_180621-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-175940ezwslqvhhpw1oeuf/20170205_180644.jpg" data-webm="public/uploads/image-uploads/2017-07-27-175940ezwslqvhhpw1oeuf/20170205_180644.jpg" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-175940ezwslqvhhpw1oeuf/20170205_180644-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-175941arycf2whcbke5k7w/20170403_155838.jpg" data-webm="public/uploads/image-uploads/2017-07-27-175941arycf2whcbke5k7w/20170403_155838.jpg" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-175941arycf2whcbke5k7w/20170403_155838-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-175943qc0snrn1r3h0finq/20170403_163021.jpg" data-webm="public/uploads/image-uploads/2017-07-27-175943qc0snrn1r3h0finq/20170403_163021.jpg" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-175943qc0snrn1r3h0finq/20170403_163021-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-1759443o2punc4bz5y74b7/20170406_124403.jpg" data-webm="public/uploads/image-uploads/2017-07-27-1759443o2punc4bz5y74b7/20170406_124403.jpg" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-1759443o2punc4bz5y74b7/20170406_124403-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-175950rxrq37ea09pwjf4s/20170427_215122.png" data-webm="public/uploads/image-uploads/2017-07-27-175950rxrq37ea09pwjf4s/20170427_215122.png" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-175950rxrq37ea09pwjf4s/20170427_215122-image(100x100-crop()).png" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-175951wbtcqidjjpzelhmb/20170501_105356.jpg" data-webm="public/uploads/image-uploads/2017-07-27-175951wbtcqidjjpzelhmb/20170501_105356.jpg" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-175951wbtcqidjjpzelhmb/20170501_105356-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-175953zrb4nrfekb8ppl4b/20170501_111444.jpg" data-webm="public/uploads/image-uploads/2017-07-27-175953zrb4nrfekb8ppl4b/20170501_111444.jpg" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-175953zrb4nrfekb8ppl4b/20170501_111444-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-175955h3juvm7puztrhnu1/20170501_131507.jpg" data-webm="public/uploads/image-uploads/2017-07-27-175955h3juvm7puztrhnu1/20170501_131507.jpg" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-175955h3juvm7puztrhnu1/20170501_131507-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180001mfxgimz6xtokhw01/20170501_131635.jpg" data-webm="public/uploads/image-uploads/2017-07-27-180001mfxgimz6xtokhw01/20170501_131635.jpg" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180001mfxgimz6xtokhw01/20170501_131635-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180135ixtni5tboydskcqx/DSCI0035.jpg" data-webm="public/uploads/image-uploads/2017-07-27-180135ixtni5tboydskcqx/DSCI0035.JPG" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180135ixtni5tboydskcqx/DSCI0035-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180230e1gxgaw9lsl8hqk1/DSCI0242.jpg" data-webm="public/uploads/image-uploads/2017-07-27-180230e1gxgaw9lsl8hqk1/DSCI0242.JPG" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180230e1gxgaw9lsl8hqk1/DSCI0242-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180232ozn0gdiscfsspfim/DSCI0243.jpg" data-webm="public/uploads/image-uploads/2017-07-27-180232ozn0gdiscfsspfim/DSCI0243.JPG" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180232ozn0gdiscfsspfim/DSCI0243-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-1802352gafdozdcd9z1zvr/DSCI0245.jpg" data-webm="public/uploads/image-uploads/2017-07-27-1802352gafdozdcd9z1zvr/DSCI0245.JPG" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-1802352gafdozdcd9z1zvr/DSCI0245-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180238a0oxxzkhyv0chxc1/DSCI0246.jpg" data-webm="public/uploads/image-uploads/2017-07-27-180238a0oxxzkhyv0chxc1/DSCI0246.JPG" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180238a0oxxzkhyv0chxc1/DSCI0246-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180240rhd2a8gu7resnf8w/DSCI0248.jpg" data-webm="public/uploads/image-uploads/2017-07-27-180240rhd2a8gu7resnf8w/DSCI0248.JPG" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180240rhd2a8gu7resnf8w/DSCI0248-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180242qnoqjo0ddhzjfke9/DSCI0257.jpg" data-webm="public/uploads/image-uploads/2017-07-27-180242qnoqjo0ddhzjfke9/DSCI0257.JPG" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180242qnoqjo0ddhzjfke9/DSCI0257-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-1802442wooukmycg8gem4k/DSCI0258.jpg" data-webm="public/uploads/image-uploads/2017-07-27-1802442wooukmycg8gem4k/DSCI0258.JPG" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-1802442wooukmycg8gem4k/DSCI0258-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180245q3efnkbobaaefutq/DSCI0259.jpg" data-webm="public/uploads/image-uploads/2017-07-27-180245q3efnkbobaaefutq/DSCI0259.JPG" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180245q3efnkbobaaefutq/DSCI0259-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180246f0re94ze3crzetf7/DSCI0260.jpg" data-webm="public/uploads/image-uploads/2017-07-27-180246f0re94ze3crzetf7/DSCI0260.JPG" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180246f0re94ze3crzetf7/DSCI0260-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180246wwlqc9cpmyd2awbo/IMG_9875.jpg" data-webm="public/uploads/image-uploads/2017-07-27-180246wwlqc9cpmyd2awbo/IMG_9875.jpg" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180246wwlqc9cpmyd2awbo/IMG_9875-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180250ljybndvhxctkrlrt/IMG_20161025_184346.jpg" data-webm="public/uploads/image-uploads/2017-07-27-180250ljybndvhxctkrlrt/IMG_20161025_184346.jpg" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180250ljybndvhxctkrlrt/IMG_20161025_184346-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180254zeuulqlnwpadfimd/IMG_20161028_144226.jpg" data-webm="public/uploads/image-uploads/2017-07-27-180254zeuulqlnwpadfimd/IMG_20161028_144226.jpg" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180254zeuulqlnwpadfimd/IMG_20161028_144226-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180255cyoubkkykxgyokzk/IMG_20161111_132853.jpg" data-webm="public/uploads/image-uploads/2017-07-27-180255cyoubkkykxgyokzk/IMG_20161111_132853.jpg" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180255cyoubkkykxgyokzk/IMG_20161111_132853-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180256fkhkccb6pyuvsy5y/IMG_20170403_153724_259.jpg" data-webm="public/uploads/image-uploads/2017-07-27-180256fkhkccb6pyuvsy5y/IMG_20170403_153724_259.jpg" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180256fkhkccb6pyuvsy5y/IMG_20170403_153724_259-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180257vrmlvwzloja15d5b/IMG_20170403_163544_046.jpg" data-webm="public/uploads/image-uploads/2017-07-27-180257vrmlvwzloja15d5b/IMG_20170403_163544_046.jpg" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180257vrmlvwzloja15d5b/IMG_20170403_163544_046-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-1802595zcbuf47qyhnhxkk/IMG_20170406_131053_111.jpg" data-webm="public/uploads/image-uploads/2017-07-27-1802595zcbuf47qyhnhxkk/IMG_20170406_131053_111.jpg" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-1802595zcbuf47qyhnhxkk/IMG_20170406_131053_111-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180259kkpj78squjpqnjdp/Nuotrauka-0072.jpg" data-webm="public/uploads/image-uploads/2017-07-27-180259kkpj78squjpqnjdp/Nuotrauka-0072.jpg" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180259kkpj78squjpqnjdp/Nuotrauka-0072-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180259kthm0uu9jel2oqg3/Nuotrauka-0074.jpg" data-webm="public/uploads/image-uploads/2017-07-27-180259kthm0uu9jel2oqg3/Nuotrauka-0074.jpg" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180259kthm0uu9jel2oqg3/Nuotrauka-0074-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180259i6kg7eqm8nfehc3k/Nuotrauka-0195.jpg" data-webm="public/uploads/image-uploads/2017-07-27-180259i6kg7eqm8nfehc3k/Nuotrauka-0195.jpg" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180259i6kg7eqm8nfehc3k/Nuotrauka-0195-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180259qjbayrwmgb8ajsux/Nuotrauka-0198.jpg" data-webm="public/uploads/image-uploads/2017-07-27-180259qjbayrwmgb8ajsux/Nuotrauka-0198.jpg" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180259qjbayrwmgb8ajsux/Nuotrauka-0198-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180301ds5xfbjxinmbduss/PhotoGrid_1459721716179.jpg" data-webm="public/uploads/image-uploads/2017-07-27-180301ds5xfbjxinmbduss/PhotoGrid_1459721716179.jpg" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180301ds5xfbjxinmbduss/PhotoGrid_1459721716179-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180304mqnzrmwba5prqned/PhotoGrid_1460610073254.jpg" data-webm="public/uploads/image-uploads/2017-07-27-180304mqnzrmwba5prqned/PhotoGrid_1460610073254.jpg" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180304mqnzrmwba5prqned/PhotoGrid_1460610073254-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180308exmwadjcok264apf/PhotoGrid_1462273949619.jpg" data-webm="public/uploads/image-uploads/2017-07-27-180308exmwadjcok264apf/PhotoGrid_1462273949619.jpg" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180308exmwadjcok264apf/PhotoGrid_1462273949619-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180312yhq6w90ezrxngghv/PhotoGrid_1473894822118.jpg" data-webm="public/uploads/image-uploads/2017-07-27-180312yhq6w90ezrxngghv/PhotoGrid_1473894822118.jpg" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180312yhq6w90ezrxngghv/PhotoGrid_1473894822118-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <a href="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180313rat002ftzbtcwp9p/PicsArt_02-05-06.16.30.jpg" data-webm="public/uploads/image-uploads/2017-07-27-180313rat002ftzbtcwp9p/PicsArt_02-05-06.16.30.jpg" class="html5lightbox" data-group="group_certificate">
+                                        <img src="~/themes/Gallery/public/uploads/image-uploads/2017-07-27-180313rat002ftzbtcwp9p/PicsArt_02-05-06.16.30-image(100x100-crop()).jpg" alt="" title="">
+                                    </a>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                @*<div class="course-lesson-item">
+
+                    <div class="course-lesson-header">
+                        <div class="course-lesson-header-title coures_item-3">
+                            <span class="icon icon-book-topics"></span>
+                            <span class="course-lesson-text">Training program</span>
+                        </div>
+                    </div>
+                    <div class="course-lesson-level-1-wrap steps">
+                        <div class="program-step-wrap">
+                            <div class="program-step-item">
+                                <div class="program-step-header">
+                                    <span class="progream-header-nr">1</span>
+                                    <span class="program-bold-step"></span>
+                                    <span class="program-nomral-step">REGISTRATION</span>
+                                </div>
+                                <div class="step-text">
+                                    <p>All registration goes through&nbsp;<a href="../../../../index.html">www.balticbrows.com</a>&nbsp;platform. Choose the certain class and pay the deposit.&nbsp;<strong>The deposit is non-refundable.</strong></p>
+                                </div>
+                                <div class="day-wrap">
+                                </div>
+                            </div>                                                                    <div class="program-step-item">
+                                <div class="program-step-header">
+                                    <span class="progream-header-nr">2</span>
+                                    <span class="program-bold-step"></span>
+                                    <span class="program-nomral-step">PREPARATION</span>
+                                </div>
+                                <div class="step-text">
+                                    <ul>
+                                        <li style="text-align: justify;">Finish Blood Borne Pathogen test and register in Health department if you haven&rsquo;t done this before. Bring both licenses to hands-on course. This will let you to practice on live model.</li>
+                                        <li style="text-align: justify;">Start searching for a model for course hands-on part. Student is responsible to bring a model. Make sure your model is appropriate for Hair strokes treatment:</li>
+                                    </ul>
+                                    <p style="text-align: justify;"><em>Old permanent makeup in the are you plan to practice; sensitive skin (contains blemishes, big open pores, couperosis, redness on cheeks); Pregnancy; Nursing; Drugs/ Alcohol; Allergies (nickel, anesthetics, latex, iron oxide); Retain A within last 2 weeks; Anaemia; Heart / blood problems; Prolonged bleeding; Low/ high blood pressure; Diabetes; Haemophilia; Liver disease; Epilepsy; HIV; Hepatitis; Cancer in the past 6 months;&nbsp; Chemical or laser peel within&nbsp; 6 weeks - AHA preparations in the past 2 weeks; All types injections (1 month before and after treatment); Hypertrophic scars; Keloid scars; moles; birthmarks; Healing problems; Eczema, Psoriasis, severe acne, minor skin conditions in brow area; Serious heart disorders, blood infections; Straight after waxing in that are you plan to practice; Autoimmune disease; Hyper-pigmentation; Using Accutane or other retinoids past 6 months; Sunburn; The area is already damaged or the irritations are visible; Skin conditions in the area of application (local dermatitis, bruising, skin ulcers etc); Infections bacterial, fungal or viral; Chemical or laser peel within&nbsp; 6 weeks.</em></p>
+                                    <ul>
+                                        <li style="text-align: justify;">Bring everything you use for the treatment (machine, needles each type at least 5 pcs (1 point, nano), rulers, pigments, numbing, tools). During the course your workplace will be prepared also (all disposable things will be given).</li>
+                                    </ul>
+                                </div>
+                                <div class="day-wrap">
+                                </div>
+                            </div>                                                                    <div class="program-step-item">
+                                <div class="program-step-header">
+                                    <span class="progream-header-nr">3</span>
+                                    <span class="program-bold-step"></span>
+                                    <span class="program-nomral-step">2 DAYS TRAINING IN CLASS</span>
+                                </div>
+                                <div class="day-wrap">
+
+                                    <div class="day-item">
+                                        <div class="day-header">
+                                            <span class="day-icon"><div class="icon icon-calendar"></div></span>
+                                            <div class="day-bolded"></div>
+                                            <div class="day-normal">DAY 1</div>
+                                            <div class="step-header-text">
+                                                <div class="bolded-text">
+                                                    <p><strong>Practice in classroom. Theory part, practical part on latex, trainer demo show work.</strong></p>
+                                                    <p><strong>If the training is only one day with no hands-on models.</strong></p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="day-content">
+                                            <div class="time-item">
+                                                <div class="time">10:00 am - 10:30 am</div>
+                                                <div class="time-text">
+                                                    Checking payments
+                                                </div>
+                                            </div>
+                                            <div class="time-item">
+                                                <div class="time">10:30 am - 12:30 pm</div>
+                                                <div class="time-text">
+                                                    Theory part - answering all key questions:
+                                                    <div class="hour-text">
+                                                        <ul>
+                                                            <li><strong>how to get long lasting results?</strong></li>
+                                                            <li><strong>how numbing affects the result?</strong></li>
+                                                            <li><strong>how to choose the right color and how to mix them?</strong></li>
+                                                            <li><strong>what are the types of various catridges?</strong></li>
+                                                            <li><strong>what aftercare is the best?</strong></li>
+                                                            <li><strong>how to create artistic strokes pattern?</strong></li>
+                                                            <li><strong>why some results are cool / ashy and how to correct that?</strong></li>
+                                                            <li><strong>why some results are blurred?</strong></li>
+                                                            <li><strong>is there any possibility to correct old permanent makeup technique using machine hair strokes technique?</strong></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="time-item">
+                                                <div class="time">12:30 pm - 1:30 pm</div>
+                                                <div class="time-text">
+                                                    Lunch (Not included)
+                                                </div>
+                                            </div>
+                                            <div class="time-item">
+                                                <div class="time">1:30 pm - 3:30 pm</div>
+                                                <div class="time-text">
+                                                    Demo show work of trainer. Trainer shows live treatments step by step
+                                                </div>
+                                            </div>
+                                            <div class="time-item">
+                                                <div class="time">3:30 pm - 5:00 pm</div>
+                                                <div class="time-text">
+                                                    Practical part on latex
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="day-item">
+                                        <div class="day-header">
+                                            <span class="day-icon"><div class="icon icon-calendar"></div></span>
+                                            <div class="day-bolded"></div>
+                                            <div class="day-normal">DAY 2</div>
+                                            <div class="step-header-text"><div class="bolded-text"><p><strong>Students practice hands-on with the help of a teacher on model, each student should find his own model.</strong></p></div> </div>
+                                        </div>
+
+                                        <div class="day-content">
+                                            <div class="time-item">
+                                                <div class="time">10:00 am - 1:00 pm</div>
+                                                <div class="time-text">
+                                                    Live procedure (half of group does a procedure, half watch)
+                                                </div>
+                                            </div>
+                                            <div class="time-item">
+                                                <div class="time">1:00 pm - 2:00 pm</div>
+                                                <div class="time-text">
+                                                    Lunch (Not included)
+                                                </div>
+                                            </div>
+                                            <div class="time-item">
+                                                <div class="time">2:00 pm - 5:00 pm</div>
+                                                <div class="time-text">
+                                                    Live procedure (half of group does a procedure, half watch)
+                                                </div>
+                                            </div>
+                                            <div class="time-item">
+                                                <div class="time">5:00 pm - 5:30 pm</div>
+                                                <div class="time-text">
+                                                    Discussion of training, answers to questions, issuing of certificates, awards of best students. Adding students to Baltic Brows private group
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                                                                    <div class="program-step-item">
+                                <div class="program-step-header">
+                                    <span class="progream-header-nr">4</span>
+                                    <span class="program-bold-step"></span>
+                                    <span class="program-nomral-step">CERTIFICATION</span>
+                                </div>
+                                <div class="step-text">
+                                    <ul>
+                                        <li>Students gets certificate of masterclass attendance.</li>
+                                        <li>After the course best students can get Baltic Brows Artist certification and logo.</li>
+                                        <li>Moreover, you will be able to continue on further certification awards &ndash; Specialist, Perfectionist, even to become Master or Virtuoso ! Read about this in&nbsp;<a href="../../../../certification.html">Certification</a>.</li>
+                                    </ul>
+                                </div>
+                                <div class="day-wrap">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="course-lesson-item ">
+                    <div class="course-lesson-header coures_item-4">
+                        <div class="course-lesson-header-title">
+                            <span class="icon icon-checklist"></span>
+                            <span class="course-lesson-text">Training include</span>
+                        </div>
+                    </div>
+                    <div class="course-lesson-level-1-wrap trainings ">
+                        <div class="training-include-content">
+                            <ul>
+                                <li style="text-align: justify;">LIVE CLASS</li>
+                                <li style="text-align: justify;">LIVE DEMONSTRATION ON MODEL</li>
+                                <li style="text-align: justify;">HANDS-ON MODEL(Instructor has a right to decide whether the student is able to practice on live model or no)</li>
+                                <li style="text-align: justify;">HIGH QUALITY VIDEO DEMONSTRATIONS DURING THE CLASS</li>
+                                <li style="text-align: justify;">CERTIFICATE OF ATTENDANCE</li>
+                                <li style="text-align: justify;">FULL SUPPORT ON FACEBOOK GROUP. Upon completion of training, our communication does not break. You are connected to our closed group where we respond to emerging issues, also we are sharing photos of works, different situations and giving advises.</li>
+                                <li style="text-align: justify;">SMALL KIT.</li>
+                                <li style="text-align: justify;">THEORY MANUAL</li>
+                                <li style="text-align: justify;">STUDENT CERTIFICATION IN LEVELS</li>
+                            </ul>
+                            <p style="text-align: justify;"><u>Small kit:</u></p>
+                            <ul>
+                                <li style="text-align: justify;">Baltic Brows eyebrows pigments (3)</li>
+                                <li style="text-align: justify;">Pigment transparent (1)</li>
+                                <li style="text-align: justify;">Waterproof Pencils (1)</li>
+                                <li style="text-align: justify;">Aftercare (2)</li>
+                                <li style="text-align: justify;">Fake skin (1)</li>
+                                <li style="text-align: justify;">Color chart of Baltic Brows pigments with full explanation of each color how to use (1)</li>
+                                <li style="text-align: justify;">Fitzpatrick scale with full explanation and examples (1)</li>
+                                <li style="text-align: justify;">Printed theory (1)</li>
+                                <li style="text-align: justify;">Case (1)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-lesson-item">
+
+                    <div class="course-lesson-header coures_item-5">
+                        <div class="course-lesson-header-title">
+                            <span class="icon icon-warning"></span>
+                            <span class="course-lesson-text">Important</span>
+                        </div>
+
+
+                    </div>
+
+                    <div class="course-lesson-level-1-wrap important">
+                        <ul>
+                            <li style="text-align: justify;">Bring everything you use for the treatment (machine, needles (1 point, nano needles each at least 5 pcs), rulers, pigments, numbing, other tools). During the course your workplace will be prepared (all disposable things will be given).</li>
+                            <li style="text-align: justify;">Start searching for a model for course hands-on part. Student is responsible to bring a model. Make sure your model is appropriate for machine hair strokes&nbsp; treatment:</li>
+                        </ul>
+                        <p style="text-align: justify;"><em>Old permanent makeup in the are you plan to practice; oily skin (for microblading only); sensitive skin (contains blemishes, big open pores, couperosis, redness on cheeks); Pregnancy; Nursing; Drugs/ Alcohol; Allergies (nickel, anesthetics, latex, iron oxide); Retain A within last 2 weeks; Anaemia; Heart / blood problems; Prolonged bleeding; Low/ high blood pressure; Diabetes; Haemophilia; Liver disease; Epilepsy; HIV; Hepatitis; Cancer in the past 6 months; Pacemaker &ndash; we can perform only manual techniques (no device used);&nbsp; Chemical or laser peel within&nbsp; 6 weeks - AHA preparations in the past 2 weeks; All types injections (1 month before and after treatment); Hypertrophic scars; Keloid scars; moles; birthmarks; Healing problems; Eczema, Psoriasis, severe acne, minor skin conditions in brow area; Serious heart disorders, blood infections; Straight after waxing in that are you plan to practice; Autoimmune disease; Hyper-pigmentation; Using Accutane or other retinoids past 6 months; Sunburn; The area is already damaged or the irritations are visible.</em></p>
+                        <p style="text-align: justify;"><em><img src="../../../../public/images/Los_Angeles_160814-3.jpg" width="429" height="241" /></em></p>
+                    </div>
+
+                </div>
+
+                <div class="course-lesson-item">
+
+                    <div class="course-lesson-header coures_item-5">
+                        <div class="course-lesson-header-title">
+                            <span class="icon icon-price-dollar"></span>
+                            <span class="course-lesson-text">Why Baltic Brows&reg;?</span>
+                        </div>
+
+
+                    </div>
+
+                    <div class="course-lesson-level-1-wrap important">
+                        <ul>
+                            <li style="text-align: justify;"><strong>Unique hands on training system </strong>&ndash; art and permanent makeup combination. As Baltic Brows&reg; Academy founder finished architecture, she decided to create trainings system combined with it. Our students start from learning arts, sketching, drawing, searching their own style, improving artistic skills, achieving perfect proportions by using architectural methods;</li>
+                            <li style="text-align: justify;"><strong>Unique Baltic Brows</strong>&reg; <strong>pigments formula &ndash; </strong>organic and inorganic mixture; sterile and safe. The healed results have no color changes when fading, and create crispy eyebrow strokes for microblading when healed.</li>
+                            <li style="text-align: justify;"><strong>Super soft Ombre brows technique </strong>&ndash; the natural look of daily makeup;</li>
+                            <li style="text-align: justify;"><strong>Unique eyebrows shaping </strong>- based on each person face anatomy</li>
+                            <li style="text-align: justify;"><strong>Special workbooks which are included into trainings system and which helps to improve student&lsquo;s skills </strong></li>
+                            <li style="text-align: justify;"><strong>Baltic Brows</strong>&reg; <strong>pigments color theory and color guide</strong></li>
+                            <li style="text-align: justify;"><strong>Improving permanent makeup products variety - customized golden ratio ruler</strong></li>
+                            <li style="text-align: justify;"><strong>More than 500 students during 2016 year all over the world</strong></li>
+                            <li style="text-align: justify;"><strong>More than 700 students during 2017 year all over the world</strong></li>
+                            <li style="text-align: justify;"><strong>Certification levels and even opportunity to become Master!</strong></li>
+                            <li style="text-align: justify;"><strong>Unique Ombre brows technique represented in Permanent make-up magazine. </strong>Cover of the magazine and Baltic Brows&reg; Academy representation</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="course-lesson-item">
+
+                    <div class="course-lesson-header coures_item-5">
+                        <div class="course-lesson-header-title">
+                            <span class="icon icon-faq-question"></span>
+                            <span class="course-lesson-text">FAQ</span>
+                        </div>
+
+
+                    </div>
+
+                    <div class="course-lesson-level-1-wrap important">
+                        <ul>
+                            <li style="text-align: justify;">Do I need to buy a device for this technique?</li>
+                        </ul>
+                        <p style="text-align: justify;">- Yes, each student need to bring his / her own permanent makeup machine.</p>
+                        <ul style="text-align: justify;">
+                            <li>Does the training include kit?</li>
+                        </ul>
+                        <p style="text-align: justify;">- Yes, it is include small kit.</p>
+                        <ul style="text-align: justify;">
+                            <li>Is it painful?</li>
+                        </ul>
+                        <p style="text-align: justify;">- Yes the client can feel discomfort but we numb. Everything depends on the deepness the technician works, pain tolerance, numbing strength. There are two types of numbing &ndash; primary and secondary. We always recommend not to use primary anesthesia for eyebrows as the retention of color is better and the skin is not so tough, slippery so it is much easier to do the first pass of treatment without numbing. The first pass duration is about 4-5 minutes, after that we always use secondary anesthesia. So the clients can decided if he/she can handle the pain during the first pass (usually the scale of pain is 5-6). If yes, then we use only secondary numbing. If not, then we use both and client almost doesn&rsquo;t feel anything.</p>
+                        <ul style="text-align: justify;">
+                            <li>What tools and products are used for treatment?</li>
+                        </ul>
+                        <p style="text-align: justify;">- Disposable needles, permanent makeup device, certified permanent makeup pigments, soothing solution, sterile cotton pads, sterile disposable pigments ring, special pencils for permanent makeup, sterile marker, sterile water and some other equipment to make sure the treatment is done hygienically, rulers for measuring.</p>
+                        <ul style="text-align: justify;">
+                            <li>What is the duration of the treatment?</li>
+                        </ul>
+                        <p style="text-align: justify;">- Duration of the treatment is about 2 hours.</p>
+                        <ul style="text-align: justify;">
+                            <li>What are the treatment steps?</li>
+                        </ul>
+                        <p style="text-align: justify;">- Consultation</p>
+                        <p style="text-align: justify;">- Medical health form and agreement</p>
+                        <p style="text-align: justify;">- Eyebrows shaping</p>
+                        <p style="text-align: justify;">- First pass of treatment</p>
+                        <p style="text-align: justify;">- Numbing</p>
+                        <p style="text-align: justify;">- Several passes of treatment. Between passes it is possible to be numbed again if necessary;</p>
+                        <p style="text-align: justify;">- Final result discussion and explanation of aftercare</p>
+                        <ul style="text-align: justify;">
+                            <li>Will I be able to buy products during the course?</li>
+                        </ul>
+                        <p style="text-align: justify;">- Mostly we try to bring our products to the courses that students could buy some additional equipment they need.</p>
+                    </div>
+                </div>
+
+                <div class="course-lesson-item">
+                    <div class="course-lesson-header coures_item-5">
+                        <div class="course-lesson-header-title">
+                            <span class="icon icon-handshake"></span>
+                            <span class="course-lesson-text">Prices &amp; Registration</span>
+                        </div>
+                    </div>
+
+                    <div class="course-lesson-level-1-wrap important">
+                        <ul>
+                            <li style="text-align: justify;">All registration goes through&nbsp;<a href="../../../../index.html">balticbrows.com&nbsp;</a>platform. Choose the certain class and pay the deposit.&nbsp;<strong>Deposit is NON REFUNDABLE.</strong></li>
+                            <li style="text-align: justify;">Once you booked training please contact us by email <a href="mailto: kim@londonbrows.com">kim@londonbrows.com</a> , <a href="mailto:info@balticbrows.com">info@balticbrows.com</a>&nbsp;and assigned trainer personal email to confirm you place in class.</li>
+                        </ul>
+                    </div>
+                </div>*@
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script type="text/javascript">
+    $(".course-lesson-level-1-wrap").find('ul li').prepend('<span class="icon icon-check"></span>');
+</script>
+
+<style>
+
+    .course-lesson-level-1-wrap ul {
+        list-style: none;
+    }
+
+    .course-lesson-level-1-wrap span.icon {
+        color: #c7aa48;
+        padding: 0px 5px 0px 0px;
+        float: left;
+    }
+
+    .course-lesson-level-1-wrap li {
+        font-weight: normal !important;
+        line-height: 180%;
+        list-style: none;
+    }
+</style>
