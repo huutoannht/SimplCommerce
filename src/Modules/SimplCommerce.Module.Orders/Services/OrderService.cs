@@ -98,7 +98,16 @@ namespace SimplCommerce.Module.Orders.Services
             }
             else
             {
-                shippingAddress = _userAddressRepository.Query().Where(x => x.Id == shippingData.ShippingAddressId).Select(x => x.Address).First();
+                try
+                {
+                    shippingAddress = _userAddressRepository.Query().Where(x => x.Id == shippingData.ShippingAddressId).Select(x => x.Address).FirstOrDefault();
+                }
+                catch (Exception ex)
+                {
+
+                    throw;
+                }
+              
             }
 
             if (shippingData.UseShippingAddressAsBillingAddress)
@@ -245,8 +254,11 @@ namespace SimplCommerce.Module.Orders.Services
             order.CouponCode = checkingDiscountResult.CouponCode;
             order.CouponRuleName = cart.CouponRuleName;
             order.DiscountAmount = checkingDiscountResult.DiscountAmount;
-            order.ShippingFeeAmount = shippingMethod.Price;
-            order.ShippingMethod = shippingMethod.Name;
+            if (shippingMethod!=null)
+            {
+                order.ShippingFeeAmount = shippingMethod.Price;
+                order.ShippingMethod = shippingMethod.Name;
+            }
             order.TaxAmount = order.OrderItems.Sum(x => x.TaxAmount);
             order.SubTotal = order.OrderItems.Sum(x => x.ProductPrice * x.Quantity);
             order.SubTotalWithDiscount = order.SubTotal - checkingDiscountResult.DiscountAmount;
@@ -312,7 +324,16 @@ namespace SimplCommerce.Module.Orders.Services
 
             using (var transaction = _orderRepository.BeginTransaction())
             {
-                _orderRepository.SaveChanges();
+                try
+                {
+                    _orderRepository.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+
+                    throw;
+                }
+              
                 await PublishOrderCreatedEvent(order);
                 foreach (var subOrder in subOrders)
                 {
@@ -461,10 +482,10 @@ namespace SimplCommerce.Module.Orders.Services
             });
 
             var shippingMethod = applicableShippingPrices.FirstOrDefault(x => x.Name == shippingMethodName);
-            if (shippingMethod == null)
-            {
-                return Result.Fail<ShippingPrice>($"Invalid shipping method {shippingMethod}");
-            }
+            //if (shippingMethod == null)
+            //{
+            //    return Result.Fail<ShippingPrice>($"Invalid shipping method {shippingMethod}");
+            //}
 
             return Result.Ok(shippingMethod);
         }

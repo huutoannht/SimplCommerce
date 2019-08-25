@@ -2895,7 +2895,7 @@ nav ul li:hover {
 #treatments .treatments-cont .treatments-row .treatments-img-block {
     float: left;
     margin: 0;
-    /*width: 50%;*/
+    width: 100%;
 
     /*
   -webkit-box-flex: 1;
@@ -4945,7 +4945,6 @@ nav ul li:hover {
     width: 50%;
 }
 .reg-form-container .submit-btn{
-    width: 100%;
     text-align: right;
     padding-right: 15px;
 }
@@ -18521,4 +18520,17 @@ div#html5-elem-box {
 }
 .online-text {
     line-height: 30px;
+}
+img.media-object {
+    height: 155px;
+    margin-right: 30px;
+    max-width: 134px;
+}
+.news-item-full-description {
+    padding: 33px 202px;
+}
+.news-thumbnail img {
+    height: 83px;
+    float: left;
+    width: 130px;
 }

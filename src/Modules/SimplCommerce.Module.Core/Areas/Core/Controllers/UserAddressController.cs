@@ -102,12 +102,14 @@ namespace SimplCommerce.Module.Core.Areas.Core.Controllers
 
         [Route("user/address/create")]
         [HttpPost]
-        public async Task<IActionResult> Create(UserAddressFormViewModel model)
+        [AllowAnonymous]
+        public async Task<IActionResult> Create([FromBody] UserAddressFormViewModel model)
         {
             if (ModelState.IsValid)
             {
                 var currentUser = await _workContext.GetCurrentUser();
-
+                model.CountryId = "VN";
+                model.StateOrProvinceId = 1;
                 var address = new Address
                 {
                     AddressLine1 = model.AddressLine1,
@@ -127,9 +129,22 @@ namespace SimplCommerce.Module.Core.Areas.Core.Controllers
                     AddressType = AddressType.Shipping,
                     UserId = currentUser.Id
                 };
+                try
+                {
+                    _userAddressRepository.Add(userAddress);
+                    _userAddressRepository.SaveChanges();
 
-                _userAddressRepository.Add(userAddress);
-                _userAddressRepository.SaveChanges();
+                    //ToDo
+                    currentUser.DefaultShippingAddressId = userAddress.Id;
+                    _userRepository.SaveChanges();
+                }
+                catch (System.Exception ex)
+                {
+
+                    throw;
+                }
+
+              
                 return RedirectToAction("List");
             }
 

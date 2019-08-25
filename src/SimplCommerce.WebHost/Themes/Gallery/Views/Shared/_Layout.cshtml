@@ -169,11 +169,11 @@
 
         <a href="javascript:" class="close_modal"><span class="icon icon-times"></span></a>
 
-        <div class="title"><span class="icon icon_checked" data-icon="1"></span>Payment Successful!</div>
+        <div class="title"><span class="icon icon_checked" data-icon="1"></span>Chúc mừng bạn!</div>
 
         <div class="text">
-            Your payment was completed . Thank you.<br>We will contact you with further information about the training you’ve just purchased.<br>If you have any questions, you can contact us anytime!
-            <a href="javascript:" onclick="close_modal();" class="button">Close</a>
+            Bạn đã đăng ký khóa học này thành công
+            <a href="javascript:" onclick="close_modal();" class="button">Đóng</a>
         </div>
 
     </div>
@@ -200,9 +200,9 @@
         </div>
 
     </div>    <header>
-    @await Component.InvokeAsync("CategoryMenu")
+        @await Component.InvokeAsync("CategoryMenu")
 
-</header>
+    </header>
 
     <!--
     <div class="bg_modal_load"></div>
@@ -212,12 +212,8 @@
     <a href="javascript:" onclick="scroll_top_top();" class="back_top">
         <span class="icon icon-chevron-up"></span>
     </a>
-
-    <footer>
-        <div class="container footer-cont">
-            <span class="copy">&copy; 2019 Baltic Brows. All Rights Reserved.</span>
-        </div>
-    </footer>
+   
+    @await Component.InvokeAsync("FooterPage")
     <script type="text/javascript">
         $(document).ready(function () {
             $('#lightgallery').lightGallery();
@@ -516,82 +512,6 @@
                 i++;
             }
 
-            {//prepare the array
-
-                url[i] = 'en/register/training/270/russian-volume-eyelash-extension-masterclass.html';   //here you need put the url not the date
-
-                i++;
-            }
-
-            {//prepare the array
-
-                url[i] = 'en/register/training/276/ombre-brows-machine-basic.html';   //here you need put the url not the date
-
-                i++;
-            }
-
-            {//prepare the array
-
-                url[i] = 'en/register/training/277/microblading-6d-eyebrows.html';   //here you need put the url not the date
-
-                i++;
-            }
-
-            {//prepare the array
-
-                url[i] = 'en/register/training/278/classic-eyelashes-extension-seminar.html';   //here you need put the url not the date
-
-                i++;
-            }
-
-            {//prepare the array
-
-                url[i] = 'en/register/training/236/baltic-hair-strokes-masterclass.html';   //here you need put the url not the date
-
-                i++;
-            }
-
-            {//prepare the array
-
-                url[i] = 'en/register/training/245/ombre-brows-ombre-eyeliner-ombre-lips-masterclass.html';   //here you need put the url not the date
-
-                i++;
-            }
-
-            {//prepare the array
-
-                url[i] = 'en/register/training/246/ombre-machine-masterclass.html';   //here you need put the url not the date
-
-                i++;
-            }
-
-            {//prepare the array
-
-                url[i] = 'en/register/training/249/microblading-6d-eyebrows.html';   //here you need put the url not the date
-
-                i++;
-            }
-
-            {//prepare the array
-
-                url[i] = 'en/register/training/250/ombre-machine-masterclass.html';   //here you need put the url not the date
-
-                i++;
-            }
-
-            {//prepare the array
-
-                url[i] = 'en/register/training/251/lips-masterclass.html';   //here you need put the url not the date
-
-                i++;
-            }
-
-            {//prepare the array
-
-                url[i] = 'en/register/training/252/ombre-machine-masterclass.html';   //here you need put the url not the date
-
-                i++;
-            }
 
             {//prepare the array
 
@@ -616,61 +536,9 @@
         }, 1000);
 
         var calendarEvents = [{
-            date: '2019-08-10',
+            date: '2020-08-10',
             value: 'Clonmel, Ireland</br>Microblading 6D eyebrows'
-        },
-        {
-            date: '2019-08-01',
-            value: 'Mexico city, Mexico</br>Classic eyelashes extension basic'
-        },
-        {
-            date: '2019-08-03',
-            value: 'Mexico city, Mexico</br>Russian volume eyelash extension masterclass'
-        },
-        {
-            date: '2019-08-21',
-            value: 'Boca Raton, USA</br>Ombre brows machine basic '
-        },
-        {
-            date: '2019-08-28',
-            value: 'Boca Raton, USA</br>Microblading 6D eyebrows'
-        },
-        {
-            date: '2019-08-12',
-            value: 'San Juan, Puerto Rico</br>Classic eyelashes extension seminar'
-        },
-        {
-            date: '2019-08-14',
-            value: 'Seattle, USA</br>Baltic hair strokes masterclass'
-        },
-        {
-            date: '2019-08-18',
-            value: 'Boca Raton, USA</br>Ombre brows, Ombre eyeliner, Ombre lips masterclass'
-        },
-        {
-            date: '2019-11-07',
-            value: 'Tijuana, Mexico</br>Ombre machine masterclass'
-        },
-        {
-            date: '2019-11-10',
-            value: 'Mexico city, Mexico</br>Microblading 6D eyebrows'
-        },
-        {
-            date: '2019-11-12',
-            value: 'Mexico city, Mexico</br>Ombre machine masterclass'
-        },
-        {
-            date: '2019-11-14',
-            value: 'Mexico city, Mexico</br>Lips masterclass'
-        },
-        {
-            date: '2019-11-16',
-            value: 'Cancun, Mexico</br>Ombre machine masterclass'
-        },
-        {
-            date: '2019-11-13',
-            value: 'Mexico city, Mexico</br>Ombre eyeliner masterclass'
-        },
+        }
         ];
 
         $('#calendar').calendar({
@@ -1162,9 +1030,7 @@
             $('.site_submenu_outer').removeClass('active');
         });</script>
     <script src="~/themes/Gallery/public/js/app.js" type="text/javascript"></script>
+    <script simpl-append-version="true" src="~/modules/shoppingcart/add-to-cart.js"></script>
     @RenderSection("scripts", required: false)
 </body>
-
-
-<!-- Mirrored from balticbrows.com/, Mon, 29 Jul 2019 09:20:40 GMT by HTTrack Website Copier/3.x [XR/YP'2000] -->
 </html>

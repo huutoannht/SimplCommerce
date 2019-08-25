@@ -37,7 +37,7 @@ namespace SimplCommerce.Module.PaymentCoD.Areas.PaymentCoD.Controllers
             _setting = new Lazy<CoDSetting>(GetSetting());
         }
 
-        [HttpPost]
+        [HttpGet]
         [AllowAnonymous]
         public async Task<IActionResult> CoDCheckout()
         {

@@ -28,9 +28,13 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Components
             else
             {
                 var breadcrumbList = categoryIds.Select(Create).ToList();
-                breadcrumbs = breadcrumbList.OrderByDescending(x => x.Count).First();
+                breadcrumbs = breadcrumbList.OrderByDescending(x => x.Count).FirstOrDefault();
             }
 
+            if (breadcrumbs==null)
+            {
+                breadcrumbs = new List<BreadcrumbViewModel>();
+            }
             return View(this.GetViewPath(), breadcrumbs);
         }
 

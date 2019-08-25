@@ -5,7 +5,7 @@
         </div>
         <div class="col-md-4 text-right">
             <a ui-sref="product-create" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {{::vm.translate.get('Create Product')}}</a>
-            <a href="/api/products/export" target="_blank" class="btn btn-info"><span class="glyphicon glyphicon-download-alt"></span>Download Sản phẩm</a>
+            <a href="/api/products/export" target="_blank" class="btn btn-info"><span class="glyphicon glyphicon-download-alt"></span>Tải khóa học</a>
         </div>
     </div>
 </div>
@@ -14,12 +14,12 @@
     <thead>
         <tr>
             <th st-sort="Name" class="sortable">{{::vm.translate.get('Name')}}</th>
-            <th class="text-center">{{::vm.translate.get('Has Options')}}</th>
-            <th class="text-center">{{::vm.translate.get('Is Visible Individually')}}</th>
+            <!--<th class="text-center">{{::vm.translate.get('Has Options')}}</th>
+            <th class="text-center">{{::vm.translate.get('Is Visible Individually')}}</th>-->
             <th class="text-center">{{::vm.translate.get('Is Featured')}}</th>
-            <th class="text-center">{{::vm.translate.get('Is Allowed To Order')}}</th>
+            <!--<th class="text-center">{{::vm.translate.get('Is Allowed To Order')}}</th>
             <th class="text-center">{{::vm.translate.get('Is Called For Pricing')}}</th>
-            <th class="text-right">{{::vm.translate.get('Stock Quantity')}}</th>
+            <th class="text-right">{{::vm.translate.get('Stock Quantity')}}</th>-->
             <th st-sort="IsPublished" class="text-center sortable">{{::vm.translate.get('Is Published')}}</th>
             <th st-sort="CreatedOn" class="text-center sortable">{{::vm.translate.get('Created On')}}</th>
             <th class="text-center">{{::vm.translate.get('Actions')}}</th>
@@ -30,7 +30,7 @@
                     <input class="form-control" st-search="Name" />
                 </div>
             </th>
-            <th>
+            <!--<th>
                 <div class="form-group">
                     <select class="form-control" st-search="HasOptions">
                         <option value="">{{::vm.translate.get('All')}}</option>
@@ -38,8 +38,8 @@
                         <option value="false">{{::vm.translate.get('No')}}</option>
                     </select>
                 </div>
-            </th>
-            <th>
+            </th>-->
+            <!--<th>
                 <div class="form-group">
                     <select class="form-control" st-search="IsVisibleIndividually">
                         <option value="">{{::vm.translate.get('All')}}</option>
@@ -47,11 +47,11 @@
                         <option value="false">{{::vm.translate.get('No')}}</option>
                     </select>
                 </div>
-            </th>
+            </th>-->
             <th></th>
+            <!--<th></th>
             <th></th>
-            <th></th>
-            <th></th>
+            <th></th>-->
             <th>
                 <div class="form-group">
                     <select class="form-control" st-search="IsPublished">
@@ -71,12 +71,12 @@
     <tbody ng-show="!vm.isLoading">
         <tr ng-repeat="product in vm.products">
             <td>{{product.name}}</td>
-            <td class="text-center"><i ng-attr-class="{{product.hasOptions && 'fa fa-circle' || 'fa fa-circle-o'}}"></i></td>
-            <td class="text-center"><i ng-attr-class="{{product.isVisibleIndividually && 'fa fa-circle' || 'fa fa-circle-o'}}"></i></td>
+            <!--<td class="text-center"><i ng-attr-class="{{product.hasOptions && 'fa fa-circle' || 'fa fa-circle-o'}}"></i></td>
+            <td class="text-center"><i ng-attr-class="{{product.isVisibleIndividually && 'fa fa-circle' || 'fa fa-circle-o'}}"></i></td>-->
             <td class="text-center"><i ng-attr-class="{{product.isFeatured && 'fa fa-circle' || 'fa fa-circle-o'}}"></i></td>
-            <td class="text-center"><i ng-attr-class="{{product.isAllowToOrder && 'fa fa-circle' || 'fa fa-circle-o'}}"></i></td>
+            <!--<td class="text-center"><i ng-attr-class="{{product.isAllowToOrder && 'fa fa-circle' || 'fa fa-circle-o'}}"></i></td>
             <td class="text-center"><i ng-attr-class="{{product.isCallForPricing && 'fa fa-circle' || 'fa fa-circle-o'}}"></i></td>
-            <td class="text-right">{{product.stockQuantity}}</td>
+            <td class="text-right">{{product.stockQuantity}}</td>-->
             <td class="text-center"><i ng-attr-class="{{product.isPublished && 'fa fa-circle' || 'fa fa-circle-o'}}"></i></td>
             <td class="text-center">{{product.createdOn | date:'medium'}}</td>
             <td class="text-center">

@@ -7,6 +7,9 @@ $(function () {
         var quantity,
             $form = $(this).closest("form"),
             productId = $(this).closest("form").find('input[name=productId]').val(),
+            contactName = $(this).closest("form").find('input[name=contactName]').val(),
+            phone = $(this).closest("form").find('input[name=phone]').val(),
+            email = $(this).closest("form").find('input[name=email]').val(),
             $quantityInput = $form.find('.quantity-field');
 
         quantity = $quantityInput.length === 1 ? $quantityInput.val() : 1;
@@ -18,17 +21,31 @@ $(function () {
             contentType: "application/json"
         }).done(function (data) {
             $('.btn-add-cart').attr('disabled', false);
-            $('#shopModal').find('.modal-content').html(data);
-            $('#shopModal').modal('show');
             $('.cart-badge .badge').text($('#shopModal').find('.cart-item-count').text());
             $.ajax({
-                type: 'GET',
-                url: '/cart/list',
-                data: JSON.stringify({ productId: productId, quantity: quantity }),
+                type: 'POST',
+                url: '/user/address/create',
+                data: JSON.stringify({ contactName: contactName, phone: phone, addressLine1:email }),
                 contentType: "application/json"
             }).done(function (data) {
-                $('.js-show-cart').attr("data-notify", data.items.length);
-            })
+                $.ajax({
+                    type: 'GET',
+                    url: '/Checkout/shipping',
+                    data: null,
+                    contentType: "application/json"
+                }).done(function (data) {
+                    $.ajax({
+                        type: 'GET',
+                        url: '/Cod/CoDCheckout',
+                        data: null,
+                        contentType: "application/json"
+                    }).done(function (data) {
+                        alert('Đăng ký khóa học thành công!');
+                        window.location.replace("/");
+                    });
+                });
+               
+            });
 
             }).fail(function () {
 

@@ -35,9 +35,9 @@ namespace SimplCommerce.Module.ShoppingCart.Areas.ShoppingCart.Controllers
         public async Task<IActionResult> AddToCart([FromBody] AddToCartModel model)
         {
             var currentUser = await _workContext.GetCurrentUser();
-            await _cartService.AddToCart(currentUser.Id, model.ProductId, model.Quantity);
-
-            return RedirectToAction("AddToCartResult", new { productId = model.ProductId });
+            await _cartService.AddToCart(currentUser.Id, model.ProductId, 1);
+            return Json(true);
+           // return RedirectToAction("AddToCartResult", new { productId = model.ProductId });
         }
 
         [HttpGet]

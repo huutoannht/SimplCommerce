@@ -60,6 +60,15 @@ namespace SimplCommerce.Module.Orders.Areas.Orders.Controllers
 
             var currentUser = await _workContext.GetCurrentUser();
             PopulateShippingForm(model, currentUser);
+            var cart = await _cartService.GetActiveCart(currentUser.Id).FirstOrDefaultAsync();
+
+            if (cart == null)
+            {
+                throw new ApplicationException($"Cart of user {currentUser.Id} cannot be found");
+            }
+
+            cart.ShippingData = JsonConvert.SerializeObject(model);
+            await _cartRepository.SaveChangesAsync();
 
             return View(model);
         }
@@ -122,6 +131,7 @@ namespace SimplCommerce.Module.Orders.Areas.Orders.Controllers
                     DistrictName = x.Address.District.Name,
                     StateOrProvinceName = x.Address.StateOrProvince.Name,
                     CountryName = x.Address.Country.Name,
+                    CountryId=x.Address.Country.Id,
                     IsCityEnabled = x.Address.Country.IsCityEnabled,
                     IsZipCodeEnabled = x.Address.Country.IsZipCodeEnabled,
                     IsDistrictEnabled = x.Address.Country.IsDistrictEnabled
@@ -139,6 +149,7 @@ namespace SimplCommerce.Module.Orders.Areas.Orders.Controllers
                     Text = x.Name,
                     Value = x.Id.ToString()
                 }).ToList();
+            model.ShippingMethod = "Free";
 
             if (model.NewAddressForm.ShipableContries.Count == 1)
             {

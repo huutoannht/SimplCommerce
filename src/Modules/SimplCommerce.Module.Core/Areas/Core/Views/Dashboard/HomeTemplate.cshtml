@@ -5,7 +5,7 @@
 <h1>@Localizer["Dashboard"]</h1>
 
 <div class="row">
-    <div class="col-md-6">
+    @*<div class="col-md-6">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">@Localizer["Latest orders"]</h3>
@@ -14,8 +14,8 @@
                 <order-widget status="0" num-records="5"></order-widget>
             </div>
         </div>
-    </div>
-    @if (User.IsInRole("admin"))
+    </div>*@
+    @*@if (User.IsInRole("admin"))
     {
     <div class="col-md-6">
         <div class="panel panel-default">
@@ -27,9 +27,9 @@
             </div>
         </div>
     </div>
-    }
+    }*@
 </div>
-@if (User.IsInRole("admin"))
+@*@if (User.IsInRole("admin"))
 {
 <div class="row">
     <div class="col-md-6">
@@ -43,7 +43,7 @@
         </div>
     </div>
 </div>
-}
+}*@
 @if (User.IsInRole("admin"))
 {
 <div class="row">

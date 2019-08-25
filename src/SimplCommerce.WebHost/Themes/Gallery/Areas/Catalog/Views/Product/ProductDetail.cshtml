@@ -385,7 +385,7 @@
 
                         <div class="btn-wrap">
                             <div class="btn-row">
-                                <a href="#reg-form" class="submit-btn" rel="modal:open">Take this course</a>
+                                <a href="#reg-form" class="submit-btn" rel="modal:open">Đăng ký khóa học này</a>
                                 <div class="link-btns">
                                     <a href="#" class="cancelationbtn">Cancelation Policy</a>
                                     <a href="#" class="view">Click to view</a>
@@ -420,18 +420,18 @@
                         </div>
 
                         @*<div class="meta-item">
-                            <div class="icon">
-                                <div class="icon icon-clock-o"></div>
+                                <div class="icon">
+                                    <div class="icon icon-clock-o"></div>
+                                </div>
+                                <div class="text">10:00 am - 5:00 pm</div>
                             </div>
-                            <div class="text">10:00 am - 5:00 pm</div>
-                        </div>
 
-                        <div class="meta-item">
-                            <div class="icon">
-                                <div data-icon="C" class="icon"></div>
-                            </div>
-                            <div class="text">Seattle, USA</div>
-                        </div>*@
+                            <div class="meta-item">
+                                <div class="icon">
+                                    <div data-icon="C" class="icon"></div>
+                                </div>
+                                <div class="text">Seattle, USA</div>
+                            </div>*@
                     </div>
 
                     <div class="event-info-detail">
@@ -448,8 +448,9 @@
                             </div>
                         </div>
                         <div class="info-detail-item">
-                            <div class="title">Mã sản phẩm:</div>
-                            <div class="value"> @Model.Id.ToString("SP000000")
+                            <div class="title">Mã khóa học:</div>
+                            <div class="value">
+                                @Model.Id.ToString("KH-000000")
                             </div>
                         </div>
                     </div>
@@ -469,7 +470,7 @@
 
                     <div class="btn-wrap">
                         <div class="btn-row">
-                            <a href="mailto:kim@londonbrows.com" class="submit-btn">Liên hệ</a>
+                            <a href="#reg-form" class="submit-btn" rel="modal:open">Đăng ký khóa học này</a>
                             <div class="link-btns">
                                 <a href="#modal_cancelation" rel="modal:open" class="cancelationbtn">Mô tả ngắn</a>
                             </div>
@@ -479,7 +480,7 @@
                                     <div class="box_text">
                                         <div class="title">Mô tả ngắn</div>
                                         <div class="text">
-                                          @Html.Raw(Model.ShortDescription)
+                                            @Html.Raw(Model.ShortDescription)
                                         </div>
                                         <a href="#close-modal" class="button_close" rel="modal:close">Đóng</a>
                                     </div>
@@ -525,50 +526,50 @@
                 <div class="course-navigation-icon">
                     <div class="icon icon-student-hat"></div>
                 </div>
-                <div class="course-navigation-text">Ảnh sản phẩm</div>
+                <div class="course-navigation-text">Ảnh về khóa học</div>
             </div>
 
             @*<div class="course-navigation-item coures_item-3">
-            <div class="course-navigation-icon">
-                <div class="icon icon-book-topics"></div>
-            </div>
-            <div class="course-navigation-text">Training program</div>
-        </div>
+                    <div class="course-navigation-icon">
+                        <div class="icon icon-book-topics"></div>
+                    </div>
+                    <div class="course-navigation-text">Training program</div>
+                </div>
 
-        <div class="course-navigation-item coures_item-4">
-            <div class="course-navigation-icon">
-                <div class="icon icon-checklist"></div>
-            </div>
-            <div class="course-navigation-text">Training include</div>
-        </div>
+                <div class="course-navigation-item coures_item-4">
+                    <div class="course-navigation-icon">
+                        <div class="icon icon-checklist"></div>
+                    </div>
+                    <div class="course-navigation-text">Training include</div>
+                </div>
 
-        <div class="course-navigation-item coures_item-5">
-            <div class="course-navigation-icon">
-                <div class="icon icon-warning"></div>
-            </div>
-            <div class="course-navigation-text">Important</div>
-        </div>
+                <div class="course-navigation-item coures_item-5">
+                    <div class="course-navigation-icon">
+                        <div class="icon icon-warning"></div>
+                    </div>
+                    <div class="course-navigation-text">Important</div>
+                </div>
 
-        <div class="course-navigation-item coures_item-6">
-            <div class="course-navigation-icon">
-                <div class="icon icon-price-dollar"></div>
-            </div>
-            <div class="course-navigation-text">Why Baltic Brows&reg;</div>
-        </div>
+                <div class="course-navigation-item coures_item-6">
+                    <div class="course-navigation-icon">
+                        <div class="icon icon-price-dollar"></div>
+                    </div>
+                    <div class="course-navigation-text">Why Baltic Brows&reg;</div>
+                </div>
 
-        <div class="course-navigation-item coures_item-7">
-            <div class="course-navigation-icon">
-                <div class="icon icon-faq-question"></div>
-            </div>
-            <div class="course-navigation-text">FAQ</div>
-        </div>
+                <div class="course-navigation-item coures_item-7">
+                    <div class="course-navigation-icon">
+                        <div class="icon icon-faq-question"></div>
+                    </div>
+                    <div class="course-navigation-text">FAQ</div>
+                </div>
 
-        <div class="course-navigation-item coures_item-8">
-            <div class="course-navigation-icon">
-                <div class="icon icon-handshake"></div>
-            </div>
-            <div class="course-navigation-text">Prices &amp; Registration</div>
-        </div>*@
+                <div class="course-navigation-item coures_item-8">
+                    <div class="course-navigation-icon">
+                        <div class="icon icon-handshake"></div>
+                    </div>
+                    <div class="course-navigation-text">Prices &amp; Registration</div>
+                </div>*@
 
         </div>
 
@@ -586,7 +587,7 @@
                     <div class="course-lesson-header coures_item-1">
                         <div class="course-lesson-header-title">
                             <span class="icon icon-info"></span>
-                            <span class="course-lesson-text">Chi tiết sản phẩm</span>
+                            <span class="course-lesson-text">Chi tiết khóa học</span>
                         </div>
 
                     </div>
@@ -603,7 +604,7 @@
                     <div class="course-lesson-header">
                         <div class="course-lesson-header-title coures_item-2">
                             <span class="icon icon-student-hat"></span>
-                            <span class="course-lesson-text">Ảnh sản phẩm</span>
+                            <span class="course-lesson-text">Ảnh khóa học</span>
                         </div>
 
 
@@ -877,323 +878,367 @@
 
                 @*<div class="course-lesson-item">
 
-                    <div class="course-lesson-header">
-                        <div class="course-lesson-header-title coures_item-3">
-                            <span class="icon icon-book-topics"></span>
-                            <span class="course-lesson-text">Training program</span>
+                        <div class="course-lesson-header">
+                            <div class="course-lesson-header-title coures_item-3">
+                                <span class="icon icon-book-topics"></span>
+                                <span class="course-lesson-text">Training program</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="course-lesson-level-1-wrap steps">
-                        <div class="program-step-wrap">
-                            <div class="program-step-item">
-                                <div class="program-step-header">
-                                    <span class="progream-header-nr">1</span>
-                                    <span class="program-bold-step"></span>
-                                    <span class="program-nomral-step">REGISTRATION</span>
-                                </div>
-                                <div class="step-text">
-                                    <p>All registration goes through&nbsp;<a href="../../../../index.html">www.balticbrows.com</a>&nbsp;platform. Choose the certain class and pay the deposit.&nbsp;<strong>The deposit is non-refundable.</strong></p>
-                                </div>
-                                <div class="day-wrap">
-                                </div>
-                            </div>                                                                    <div class="program-step-item">
-                                <div class="program-step-header">
-                                    <span class="progream-header-nr">2</span>
-                                    <span class="program-bold-step"></span>
-                                    <span class="program-nomral-step">PREPARATION</span>
-                                </div>
-                                <div class="step-text">
-                                    <ul>
-                                        <li style="text-align: justify;">Finish Blood Borne Pathogen test and register in Health department if you haven&rsquo;t done this before. Bring both licenses to hands-on course. This will let you to practice on live model.</li>
-                                        <li style="text-align: justify;">Start searching for a model for course hands-on part. Student is responsible to bring a model. Make sure your model is appropriate for Hair strokes treatment:</li>
-                                    </ul>
-                                    <p style="text-align: justify;"><em>Old permanent makeup in the are you plan to practice; sensitive skin (contains blemishes, big open pores, couperosis, redness on cheeks); Pregnancy; Nursing; Drugs/ Alcohol; Allergies (nickel, anesthetics, latex, iron oxide); Retain A within last 2 weeks; Anaemia; Heart / blood problems; Prolonged bleeding; Low/ high blood pressure; Diabetes; Haemophilia; Liver disease; Epilepsy; HIV; Hepatitis; Cancer in the past 6 months;&nbsp; Chemical or laser peel within&nbsp; 6 weeks - AHA preparations in the past 2 weeks; All types injections (1 month before and after treatment); Hypertrophic scars; Keloid scars; moles; birthmarks; Healing problems; Eczema, Psoriasis, severe acne, minor skin conditions in brow area; Serious heart disorders, blood infections; Straight after waxing in that are you plan to practice; Autoimmune disease; Hyper-pigmentation; Using Accutane or other retinoids past 6 months; Sunburn; The area is already damaged or the irritations are visible; Skin conditions in the area of application (local dermatitis, bruising, skin ulcers etc); Infections bacterial, fungal or viral; Chemical or laser peel within&nbsp; 6 weeks.</em></p>
-                                    <ul>
-                                        <li style="text-align: justify;">Bring everything you use for the treatment (machine, needles each type at least 5 pcs (1 point, nano), rulers, pigments, numbing, tools). During the course your workplace will be prepared also (all disposable things will be given).</li>
-                                    </ul>
-                                </div>
-                                <div class="day-wrap">
-                                </div>
-                            </div>                                                                    <div class="program-step-item">
-                                <div class="program-step-header">
-                                    <span class="progream-header-nr">3</span>
-                                    <span class="program-bold-step"></span>
-                                    <span class="program-nomral-step">2 DAYS TRAINING IN CLASS</span>
-                                </div>
-                                <div class="day-wrap">
+                        <div class="course-lesson-level-1-wrap steps">
+                            <div class="program-step-wrap">
+                                <div class="program-step-item">
+                                    <div class="program-step-header">
+                                        <span class="progream-header-nr">1</span>
+                                        <span class="program-bold-step"></span>
+                                        <span class="program-nomral-step">REGISTRATION</span>
+                                    </div>
+                                    <div class="step-text">
+                                        <p>All registration goes through&nbsp;<a href="../../../../index.html">www.balticbrows.com</a>&nbsp;platform. Choose the certain class and pay the deposit.&nbsp;<strong>The deposit is non-refundable.</strong></p>
+                                    </div>
+                                    <div class="day-wrap">
+                                    </div>
+                                </div>                                                                    <div class="program-step-item">
+                                    <div class="program-step-header">
+                                        <span class="progream-header-nr">2</span>
+                                        <span class="program-bold-step"></span>
+                                        <span class="program-nomral-step">PREPARATION</span>
+                                    </div>
+                                    <div class="step-text">
+                                        <ul>
+                                            <li style="text-align: justify;">Finish Blood Borne Pathogen test and register in Health department if you haven&rsquo;t done this before. Bring both licenses to hands-on course. This will let you to practice on live model.</li>
+                                            <li style="text-align: justify;">Start searching for a model for course hands-on part. Student is responsible to bring a model. Make sure your model is appropriate for Hair strokes treatment:</li>
+                                        </ul>
+                                        <p style="text-align: justify;"><em>Old permanent makeup in the are you plan to practice; sensitive skin (contains blemishes, big open pores, couperosis, redness on cheeks); Pregnancy; Nursing; Drugs/ Alcohol; Allergies (nickel, anesthetics, latex, iron oxide); Retain A within last 2 weeks; Anaemia; Heart / blood problems; Prolonged bleeding; Low/ high blood pressure; Diabetes; Haemophilia; Liver disease; Epilepsy; HIV; Hepatitis; Cancer in the past 6 months;&nbsp; Chemical or laser peel within&nbsp; 6 weeks - AHA preparations in the past 2 weeks; All types injections (1 month before and after treatment); Hypertrophic scars; Keloid scars; moles; birthmarks; Healing problems; Eczema, Psoriasis, severe acne, minor skin conditions in brow area; Serious heart disorders, blood infections; Straight after waxing in that are you plan to practice; Autoimmune disease; Hyper-pigmentation; Using Accutane or other retinoids past 6 months; Sunburn; The area is already damaged or the irritations are visible; Skin conditions in the area of application (local dermatitis, bruising, skin ulcers etc); Infections bacterial, fungal or viral; Chemical or laser peel within&nbsp; 6 weeks.</em></p>
+                                        <ul>
+                                            <li style="text-align: justify;">Bring everything you use for the treatment (machine, needles each type at least 5 pcs (1 point, nano), rulers, pigments, numbing, tools). During the course your workplace will be prepared also (all disposable things will be given).</li>
+                                        </ul>
+                                    </div>
+                                    <div class="day-wrap">
+                                    </div>
+                                </div>                                                                    <div class="program-step-item">
+                                    <div class="program-step-header">
+                                        <span class="progream-header-nr">3</span>
+                                        <span class="program-bold-step"></span>
+                                        <span class="program-nomral-step">2 DAYS TRAINING IN CLASS</span>
+                                    </div>
+                                    <div class="day-wrap">
 
-                                    <div class="day-item">
-                                        <div class="day-header">
-                                            <span class="day-icon"><div class="icon icon-calendar"></div></span>
-                                            <div class="day-bolded"></div>
-                                            <div class="day-normal">DAY 1</div>
-                                            <div class="step-header-text">
-                                                <div class="bolded-text">
-                                                    <p><strong>Practice in classroom. Theory part, practical part on latex, trainer demo show work.</strong></p>
-                                                    <p><strong>If the training is only one day with no hands-on models.</strong></p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="day-content">
-                                            <div class="time-item">
-                                                <div class="time">10:00 am - 10:30 am</div>
-                                                <div class="time-text">
-                                                    Checking payments
-                                                </div>
-                                            </div>
-                                            <div class="time-item">
-                                                <div class="time">10:30 am - 12:30 pm</div>
-                                                <div class="time-text">
-                                                    Theory part - answering all key questions:
-                                                    <div class="hour-text">
-                                                        <ul>
-                                                            <li><strong>how to get long lasting results?</strong></li>
-                                                            <li><strong>how numbing affects the result?</strong></li>
-                                                            <li><strong>how to choose the right color and how to mix them?</strong></li>
-                                                            <li><strong>what are the types of various catridges?</strong></li>
-                                                            <li><strong>what aftercare is the best?</strong></li>
-                                                            <li><strong>how to create artistic strokes pattern?</strong></li>
-                                                            <li><strong>why some results are cool / ashy and how to correct that?</strong></li>
-                                                            <li><strong>why some results are blurred?</strong></li>
-                                                            <li><strong>is there any possibility to correct old permanent makeup technique using machine hair strokes technique?</strong></li>
-                                                        </ul>
+                                        <div class="day-item">
+                                            <div class="day-header">
+                                                <span class="day-icon"><div class="icon icon-calendar"></div></span>
+                                                <div class="day-bolded"></div>
+                                                <div class="day-normal">DAY 1</div>
+                                                <div class="step-header-text">
+                                                    <div class="bolded-text">
+                                                        <p><strong>Practice in classroom. Theory part, practical part on latex, trainer demo show work.</strong></p>
+                                                        <p><strong>If the training is only one day with no hands-on models.</strong></p>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="time-item">
-                                                <div class="time">12:30 pm - 1:30 pm</div>
-                                                <div class="time-text">
-                                                    Lunch (Not included)
+
+                                            <div class="day-content">
+                                                <div class="time-item">
+                                                    <div class="time">10:00 am - 10:30 am</div>
+                                                    <div class="time-text">
+                                                        Checking payments
+                                                    </div>
+                                                </div>
+                                                <div class="time-item">
+                                                    <div class="time">10:30 am - 12:30 pm</div>
+                                                    <div class="time-text">
+                                                        Theory part - answering all key questions:
+                                                        <div class="hour-text">
+                                                            <ul>
+                                                                <li><strong>how to get long lasting results?</strong></li>
+                                                                <li><strong>how numbing affects the result?</strong></li>
+                                                                <li><strong>how to choose the right color and how to mix them?</strong></li>
+                                                                <li><strong>what are the types of various catridges?</strong></li>
+                                                                <li><strong>what aftercare is the best?</strong></li>
+                                                                <li><strong>how to create artistic strokes pattern?</strong></li>
+                                                                <li><strong>why some results are cool / ashy and how to correct that?</strong></li>
+                                                                <li><strong>why some results are blurred?</strong></li>
+                                                                <li><strong>is there any possibility to correct old permanent makeup technique using machine hair strokes technique?</strong></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="time-item">
+                                                    <div class="time">12:30 pm - 1:30 pm</div>
+                                                    <div class="time-text">
+                                                        Lunch (Not included)
+                                                    </div>
+                                                </div>
+                                                <div class="time-item">
+                                                    <div class="time">1:30 pm - 3:30 pm</div>
+                                                    <div class="time-text">
+                                                        Demo show work of trainer. Trainer shows live treatments step by step
+                                                    </div>
+                                                </div>
+                                                <div class="time-item">
+                                                    <div class="time">3:30 pm - 5:00 pm</div>
+                                                    <div class="time-text">
+                                                        Practical part on latex
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="time-item">
-                                                <div class="time">1:30 pm - 3:30 pm</div>
-                                                <div class="time-text">
-                                                    Demo show work of trainer. Trainer shows live treatments step by step
-                                                </div>
+                                        </div>
+
+                                        <div class="day-item">
+                                            <div class="day-header">
+                                                <span class="day-icon"><div class="icon icon-calendar"></div></span>
+                                                <div class="day-bolded"></div>
+                                                <div class="day-normal">DAY 2</div>
+                                                <div class="step-header-text"><div class="bolded-text"><p><strong>Students practice hands-on with the help of a teacher on model, each student should find his own model.</strong></p></div> </div>
                                             </div>
-                                            <div class="time-item">
-                                                <div class="time">3:30 pm - 5:00 pm</div>
-                                                <div class="time-text">
-                                                    Practical part on latex
+
+                                            <div class="day-content">
+                                                <div class="time-item">
+                                                    <div class="time">10:00 am - 1:00 pm</div>
+                                                    <div class="time-text">
+                                                        Live procedure (half of group does a procedure, half watch)
+                                                    </div>
+                                                </div>
+                                                <div class="time-item">
+                                                    <div class="time">1:00 pm - 2:00 pm</div>
+                                                    <div class="time-text">
+                                                        Lunch (Not included)
+                                                    </div>
+                                                </div>
+                                                <div class="time-item">
+                                                    <div class="time">2:00 pm - 5:00 pm</div>
+                                                    <div class="time-text">
+                                                        Live procedure (half of group does a procedure, half watch)
+                                                    </div>
+                                                </div>
+                                                <div class="time-item">
+                                                    <div class="time">5:00 pm - 5:30 pm</div>
+                                                    <div class="time-text">
+                                                        Discussion of training, answers to questions, issuing of certificates, awards of best students. Adding students to Baltic Brows private group
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="day-item">
-                                        <div class="day-header">
-                                            <span class="day-icon"><div class="icon icon-calendar"></div></span>
-                                            <div class="day-bolded"></div>
-                                            <div class="day-normal">DAY 2</div>
-                                            <div class="step-header-text"><div class="bolded-text"><p><strong>Students practice hands-on with the help of a teacher on model, each student should find his own model.</strong></p></div> </div>
-                                        </div>
-
-                                        <div class="day-content">
-                                            <div class="time-item">
-                                                <div class="time">10:00 am - 1:00 pm</div>
-                                                <div class="time-text">
-                                                    Live procedure (half of group does a procedure, half watch)
-                                                </div>
-                                            </div>
-                                            <div class="time-item">
-                                                <div class="time">1:00 pm - 2:00 pm</div>
-                                                <div class="time-text">
-                                                    Lunch (Not included)
-                                                </div>
-                                            </div>
-                                            <div class="time-item">
-                                                <div class="time">2:00 pm - 5:00 pm</div>
-                                                <div class="time-text">
-                                                    Live procedure (half of group does a procedure, half watch)
-                                                </div>
-                                            </div>
-                                            <div class="time-item">
-                                                <div class="time">5:00 pm - 5:30 pm</div>
-                                                <div class="time-text">
-                                                    Discussion of training, answers to questions, issuing of certificates, awards of best students. Adding students to Baltic Brows private group
-                                                </div>
-                                            </div>
-                                        </div>
+                                </div>                                                                    <div class="program-step-item">
+                                    <div class="program-step-header">
+                                        <span class="progream-header-nr">4</span>
+                                        <span class="program-bold-step"></span>
+                                        <span class="program-nomral-step">CERTIFICATION</span>
+                                    </div>
+                                    <div class="step-text">
+                                        <ul>
+                                            <li>Students gets certificate of masterclass attendance.</li>
+                                            <li>After the course best students can get Baltic Brows Artist certification and logo.</li>
+                                            <li>Moreover, you will be able to continue on further certification awards &ndash; Specialist, Perfectionist, even to become Master or Virtuoso ! Read about this in&nbsp;<a href="../../../../certification.html">Certification</a>.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="day-wrap">
                                     </div>
                                 </div>
-                            </div>                                                                    <div class="program-step-item">
-                                <div class="program-step-header">
-                                    <span class="progream-header-nr">4</span>
-                                    <span class="program-bold-step"></span>
-                                    <span class="program-nomral-step">CERTIFICATION</span>
-                                </div>
-                                <div class="step-text">
-                                    <ul>
-                                        <li>Students gets certificate of masterclass attendance.</li>
-                                        <li>After the course best students can get Baltic Brows Artist certification and logo.</li>
-                                        <li>Moreover, you will be able to continue on further certification awards &ndash; Specialist, Perfectionist, even to become Master or Virtuoso ! Read about this in&nbsp;<a href="../../../../certification.html">Certification</a>.</li>
-                                    </ul>
-                                </div>
-                                <div class="day-wrap">
-                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="course-lesson-item ">
+                        <div class="course-lesson-header coures_item-4">
+                            <div class="course-lesson-header-title">
+                                <span class="icon icon-checklist"></span>
+                                <span class="course-lesson-text">Training include</span>
+                            </div>
+                        </div>
+                        <div class="course-lesson-level-1-wrap trainings ">
+                            <div class="training-include-content">
+                                <ul>
+                                    <li style="text-align: justify;">LIVE CLASS</li>
+                                    <li style="text-align: justify;">LIVE DEMONSTRATION ON MODEL</li>
+                                    <li style="text-align: justify;">HANDS-ON MODEL(Instructor has a right to decide whether the student is able to practice on live model or no)</li>
+                                    <li style="text-align: justify;">HIGH QUALITY VIDEO DEMONSTRATIONS DURING THE CLASS</li>
+                                    <li style="text-align: justify;">CERTIFICATE OF ATTENDANCE</li>
+                                    <li style="text-align: justify;">FULL SUPPORT ON FACEBOOK GROUP. Upon completion of training, our communication does not break. You are connected to our closed group where we respond to emerging issues, also we are sharing photos of works, different situations and giving advises.</li>
+                                    <li style="text-align: justify;">SMALL KIT.</li>
+                                    <li style="text-align: justify;">THEORY MANUAL</li>
+                                    <li style="text-align: justify;">STUDENT CERTIFICATION IN LEVELS</li>
+                                </ul>
+                                <p style="text-align: justify;"><u>Small kit:</u></p>
+                                <ul>
+                                    <li style="text-align: justify;">Baltic Brows eyebrows pigments (3)</li>
+                                    <li style="text-align: justify;">Pigment transparent (1)</li>
+                                    <li style="text-align: justify;">Waterproof Pencils (1)</li>
+                                    <li style="text-align: justify;">Aftercare (2)</li>
+                                    <li style="text-align: justify;">Fake skin (1)</li>
+                                    <li style="text-align: justify;">Color chart of Baltic Brows pigments with full explanation of each color how to use (1)</li>
+                                    <li style="text-align: justify;">Fitzpatrick scale with full explanation and examples (1)</li>
+                                    <li style="text-align: justify;">Printed theory (1)</li>
+                                    <li style="text-align: justify;">Case (1)</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
 
-                </div>
+                    <div class="course-lesson-item">
+
+                        <div class="course-lesson-header coures_item-5">
+                            <div class="course-lesson-header-title">
+                                <span class="icon icon-warning"></span>
+                                <span class="course-lesson-text">Important</span>
+                            </div>
 
 
-                <div class="course-lesson-item ">
-                    <div class="course-lesson-header coures_item-4">
-                        <div class="course-lesson-header-title">
-                            <span class="icon icon-checklist"></span>
-                            <span class="course-lesson-text">Training include</span>
                         </div>
-                    </div>
-                    <div class="course-lesson-level-1-wrap trainings ">
-                        <div class="training-include-content">
+
+                        <div class="course-lesson-level-1-wrap important">
                             <ul>
-                                <li style="text-align: justify;">LIVE CLASS</li>
-                                <li style="text-align: justify;">LIVE DEMONSTRATION ON MODEL</li>
-                                <li style="text-align: justify;">HANDS-ON MODEL(Instructor has a right to decide whether the student is able to practice on live model or no)</li>
-                                <li style="text-align: justify;">HIGH QUALITY VIDEO DEMONSTRATIONS DURING THE CLASS</li>
-                                <li style="text-align: justify;">CERTIFICATE OF ATTENDANCE</li>
-                                <li style="text-align: justify;">FULL SUPPORT ON FACEBOOK GROUP. Upon completion of training, our communication does not break. You are connected to our closed group where we respond to emerging issues, also we are sharing photos of works, different situations and giving advises.</li>
-                                <li style="text-align: justify;">SMALL KIT.</li>
-                                <li style="text-align: justify;">THEORY MANUAL</li>
-                                <li style="text-align: justify;">STUDENT CERTIFICATION IN LEVELS</li>
+                                <li style="text-align: justify;">Bring everything you use for the treatment (machine, needles (1 point, nano needles each at least 5 pcs), rulers, pigments, numbing, other tools). During the course your workplace will be prepared (all disposable things will be given).</li>
+                                <li style="text-align: justify;">Start searching for a model for course hands-on part. Student is responsible to bring a model. Make sure your model is appropriate for machine hair strokes&nbsp; treatment:</li>
                             </ul>
-                            <p style="text-align: justify;"><u>Small kit:</u></p>
+                            <p style="text-align: justify;"><em>Old permanent makeup in the are you plan to practice; oily skin (for microblading only); sensitive skin (contains blemishes, big open pores, couperosis, redness on cheeks); Pregnancy; Nursing; Drugs/ Alcohol; Allergies (nickel, anesthetics, latex, iron oxide); Retain A within last 2 weeks; Anaemia; Heart / blood problems; Prolonged bleeding; Low/ high blood pressure; Diabetes; Haemophilia; Liver disease; Epilepsy; HIV; Hepatitis; Cancer in the past 6 months; Pacemaker &ndash; we can perform only manual techniques (no device used);&nbsp; Chemical or laser peel within&nbsp; 6 weeks - AHA preparations in the past 2 weeks; All types injections (1 month before and after treatment); Hypertrophic scars; Keloid scars; moles; birthmarks; Healing problems; Eczema, Psoriasis, severe acne, minor skin conditions in brow area; Serious heart disorders, blood infections; Straight after waxing in that are you plan to practice; Autoimmune disease; Hyper-pigmentation; Using Accutane or other retinoids past 6 months; Sunburn; The area is already damaged or the irritations are visible.</em></p>
+                            <p style="text-align: justify;"><em><img src="../../../../public/images/Los_Angeles_160814-3.jpg" width="429" height="241" /></em></p>
+                        </div>
+
+                    </div>
+
+                    <div class="course-lesson-item">
+
+                        <div class="course-lesson-header coures_item-5">
+                            <div class="course-lesson-header-title">
+                                <span class="icon icon-price-dollar"></span>
+                                <span class="course-lesson-text">Why Baltic Brows&reg;?</span>
+                            </div>
+
+
+                        </div>
+
+                        <div class="course-lesson-level-1-wrap important">
                             <ul>
-                                <li style="text-align: justify;">Baltic Brows eyebrows pigments (3)</li>
-                                <li style="text-align: justify;">Pigment transparent (1)</li>
-                                <li style="text-align: justify;">Waterproof Pencils (1)</li>
-                                <li style="text-align: justify;">Aftercare (2)</li>
-                                <li style="text-align: justify;">Fake skin (1)</li>
-                                <li style="text-align: justify;">Color chart of Baltic Brows pigments with full explanation of each color how to use (1)</li>
-                                <li style="text-align: justify;">Fitzpatrick scale with full explanation and examples (1)</li>
-                                <li style="text-align: justify;">Printed theory (1)</li>
-                                <li style="text-align: justify;">Case (1)</li>
+                                <li style="text-align: justify;"><strong>Unique hands on training system </strong>&ndash; art and permanent makeup combination. As Baltic Brows&reg; Academy founder finished architecture, she decided to create trainings system combined with it. Our students start from learning arts, sketching, drawing, searching their own style, improving artistic skills, achieving perfect proportions by using architectural methods;</li>
+                                <li style="text-align: justify;"><strong>Unique Baltic Brows</strong>&reg; <strong>pigments formula &ndash; </strong>organic and inorganic mixture; sterile and safe. The healed results have no color changes when fading, and create crispy eyebrow strokes for microblading when healed.</li>
+                                <li style="text-align: justify;"><strong>Super soft Ombre brows technique </strong>&ndash; the natural look of daily makeup;</li>
+                                <li style="text-align: justify;"><strong>Unique eyebrows shaping </strong>- based on each person face anatomy</li>
+                                <li style="text-align: justify;"><strong>Special workbooks which are included into trainings system and which helps to improve student&lsquo;s skills </strong></li>
+                                <li style="text-align: justify;"><strong>Baltic Brows</strong>&reg; <strong>pigments color theory and color guide</strong></li>
+                                <li style="text-align: justify;"><strong>Improving permanent makeup products variety - customized golden ratio ruler</strong></li>
+                                <li style="text-align: justify;"><strong>More than 500 students during 2016 year all over the world</strong></li>
+                                <li style="text-align: justify;"><strong>More than 700 students during 2017 year all over the world</strong></li>
+                                <li style="text-align: justify;"><strong>Certification levels and even opportunity to become Master!</strong></li>
+                                <li style="text-align: justify;"><strong>Unique Ombre brows technique represented in Permanent make-up magazine. </strong>Cover of the magazine and Baltic Brows&reg; Academy representation</li>
                             </ul>
                         </div>
+
                     </div>
-                </div>
 
-                <div class="course-lesson-item">
+                    <div class="course-lesson-item">
 
-                    <div class="course-lesson-header coures_item-5">
-                        <div class="course-lesson-header-title">
-                            <span class="icon icon-warning"></span>
-                            <span class="course-lesson-text">Important</span>
+                        <div class="course-lesson-header coures_item-5">
+                            <div class="course-lesson-header-title">
+                                <span class="icon icon-faq-question"></span>
+                                <span class="course-lesson-text">FAQ</span>
+                            </div>
+
+
                         </div>
 
-
-                    </div>
-
-                    <div class="course-lesson-level-1-wrap important">
-                        <ul>
-                            <li style="text-align: justify;">Bring everything you use for the treatment (machine, needles (1 point, nano needles each at least 5 pcs), rulers, pigments, numbing, other tools). During the course your workplace will be prepared (all disposable things will be given).</li>
-                            <li style="text-align: justify;">Start searching for a model for course hands-on part. Student is responsible to bring a model. Make sure your model is appropriate for machine hair strokes&nbsp; treatment:</li>
-                        </ul>
-                        <p style="text-align: justify;"><em>Old permanent makeup in the are you plan to practice; oily skin (for microblading only); sensitive skin (contains blemishes, big open pores, couperosis, redness on cheeks); Pregnancy; Nursing; Drugs/ Alcohol; Allergies (nickel, anesthetics, latex, iron oxide); Retain A within last 2 weeks; Anaemia; Heart / blood problems; Prolonged bleeding; Low/ high blood pressure; Diabetes; Haemophilia; Liver disease; Epilepsy; HIV; Hepatitis; Cancer in the past 6 months; Pacemaker &ndash; we can perform only manual techniques (no device used);&nbsp; Chemical or laser peel within&nbsp; 6 weeks - AHA preparations in the past 2 weeks; All types injections (1 month before and after treatment); Hypertrophic scars; Keloid scars; moles; birthmarks; Healing problems; Eczema, Psoriasis, severe acne, minor skin conditions in brow area; Serious heart disorders, blood infections; Straight after waxing in that are you plan to practice; Autoimmune disease; Hyper-pigmentation; Using Accutane or other retinoids past 6 months; Sunburn; The area is already damaged or the irritations are visible.</em></p>
-                        <p style="text-align: justify;"><em><img src="../../../../public/images/Los_Angeles_160814-3.jpg" width="429" height="241" /></em></p>
-                    </div>
-
-                </div>
-
-                <div class="course-lesson-item">
-
-                    <div class="course-lesson-header coures_item-5">
-                        <div class="course-lesson-header-title">
-                            <span class="icon icon-price-dollar"></span>
-                            <span class="course-lesson-text">Why Baltic Brows&reg;?</span>
-                        </div>
-
-
-                    </div>
-
-                    <div class="course-lesson-level-1-wrap important">
-                        <ul>
-                            <li style="text-align: justify;"><strong>Unique hands on training system </strong>&ndash; art and permanent makeup combination. As Baltic Brows&reg; Academy founder finished architecture, she decided to create trainings system combined with it. Our students start from learning arts, sketching, drawing, searching their own style, improving artistic skills, achieving perfect proportions by using architectural methods;</li>
-                            <li style="text-align: justify;"><strong>Unique Baltic Brows</strong>&reg; <strong>pigments formula &ndash; </strong>organic and inorganic mixture; sterile and safe. The healed results have no color changes when fading, and create crispy eyebrow strokes for microblading when healed.</li>
-                            <li style="text-align: justify;"><strong>Super soft Ombre brows technique </strong>&ndash; the natural look of daily makeup;</li>
-                            <li style="text-align: justify;"><strong>Unique eyebrows shaping </strong>- based on each person face anatomy</li>
-                            <li style="text-align: justify;"><strong>Special workbooks which are included into trainings system and which helps to improve student&lsquo;s skills </strong></li>
-                            <li style="text-align: justify;"><strong>Baltic Brows</strong>&reg; <strong>pigments color theory and color guide</strong></li>
-                            <li style="text-align: justify;"><strong>Improving permanent makeup products variety - customized golden ratio ruler</strong></li>
-                            <li style="text-align: justify;"><strong>More than 500 students during 2016 year all over the world</strong></li>
-                            <li style="text-align: justify;"><strong>More than 700 students during 2017 year all over the world</strong></li>
-                            <li style="text-align: justify;"><strong>Certification levels and even opportunity to become Master!</strong></li>
-                            <li style="text-align: justify;"><strong>Unique Ombre brows technique represented in Permanent make-up magazine. </strong>Cover of the magazine and Baltic Brows&reg; Academy representation</li>
-                        </ul>
-                    </div>
-
-                </div>
-
-                <div class="course-lesson-item">
-
-                    <div class="course-lesson-header coures_item-5">
-                        <div class="course-lesson-header-title">
-                            <span class="icon icon-faq-question"></span>
-                            <span class="course-lesson-text">FAQ</span>
-                        </div>
-
-
-                    </div>
-
-                    <div class="course-lesson-level-1-wrap important">
-                        <ul>
-                            <li style="text-align: justify;">Do I need to buy a device for this technique?</li>
-                        </ul>
-                        <p style="text-align: justify;">- Yes, each student need to bring his / her own permanent makeup machine.</p>
-                        <ul style="text-align: justify;">
-                            <li>Does the training include kit?</li>
-                        </ul>
-                        <p style="text-align: justify;">- Yes, it is include small kit.</p>
-                        <ul style="text-align: justify;">
-                            <li>Is it painful?</li>
-                        </ul>
-                        <p style="text-align: justify;">- Yes the client can feel discomfort but we numb. Everything depends on the deepness the technician works, pain tolerance, numbing strength. There are two types of numbing &ndash; primary and secondary. We always recommend not to use primary anesthesia for eyebrows as the retention of color is better and the skin is not so tough, slippery so it is much easier to do the first pass of treatment without numbing. The first pass duration is about 4-5 minutes, after that we always use secondary anesthesia. So the clients can decided if he/she can handle the pain during the first pass (usually the scale of pain is 5-6). If yes, then we use only secondary numbing. If not, then we use both and client almost doesn&rsquo;t feel anything.</p>
-                        <ul style="text-align: justify;">
-                            <li>What tools and products are used for treatment?</li>
-                        </ul>
-                        <p style="text-align: justify;">- Disposable needles, permanent makeup device, certified permanent makeup pigments, soothing solution, sterile cotton pads, sterile disposable pigments ring, special pencils for permanent makeup, sterile marker, sterile water and some other equipment to make sure the treatment is done hygienically, rulers for measuring.</p>
-                        <ul style="text-align: justify;">
-                            <li>What is the duration of the treatment?</li>
-                        </ul>
-                        <p style="text-align: justify;">- Duration of the treatment is about 2 hours.</p>
-                        <ul style="text-align: justify;">
-                            <li>What are the treatment steps?</li>
-                        </ul>
-                        <p style="text-align: justify;">- Consultation</p>
-                        <p style="text-align: justify;">- Medical health form and agreement</p>
-                        <p style="text-align: justify;">- Eyebrows shaping</p>
-                        <p style="text-align: justify;">- First pass of treatment</p>
-                        <p style="text-align: justify;">- Numbing</p>
-                        <p style="text-align: justify;">- Several passes of treatment. Between passes it is possible to be numbed again if necessary;</p>
-                        <p style="text-align: justify;">- Final result discussion and explanation of aftercare</p>
-                        <ul style="text-align: justify;">
-                            <li>Will I be able to buy products during the course?</li>
-                        </ul>
-                        <p style="text-align: justify;">- Mostly we try to bring our products to the courses that students could buy some additional equipment they need.</p>
-                    </div>
-                </div>
-
-                <div class="course-lesson-item">
-                    <div class="course-lesson-header coures_item-5">
-                        <div class="course-lesson-header-title">
-                            <span class="icon icon-handshake"></span>
-                            <span class="course-lesson-text">Prices &amp; Registration</span>
+                        <div class="course-lesson-level-1-wrap important">
+                            <ul>
+                                <li style="text-align: justify;">Do I need to buy a device for this technique?</li>
+                            </ul>
+                            <p style="text-align: justify;">- Yes, each student need to bring his / her own permanent makeup machine.</p>
+                            <ul style="text-align: justify;">
+                                <li>Does the training include kit?</li>
+                            </ul>
+                            <p style="text-align: justify;">- Yes, it is include small kit.</p>
+                            <ul style="text-align: justify;">
+                                <li>Is it painful?</li>
+                            </ul>
+                            <p style="text-align: justify;">- Yes the client can feel discomfort but we numb. Everything depends on the deepness the technician works, pain tolerance, numbing strength. There are two types of numbing &ndash; primary and secondary. We always recommend not to use primary anesthesia for eyebrows as the retention of color is better and the skin is not so tough, slippery so it is much easier to do the first pass of treatment without numbing. The first pass duration is about 4-5 minutes, after that we always use secondary anesthesia. So the clients can decided if he/she can handle the pain during the first pass (usually the scale of pain is 5-6). If yes, then we use only secondary numbing. If not, then we use both and client almost doesn&rsquo;t feel anything.</p>
+                            <ul style="text-align: justify;">
+                                <li>What tools and products are used for treatment?</li>
+                            </ul>
+                            <p style="text-align: justify;">- Disposable needles, permanent makeup device, certified permanent makeup pigments, soothing solution, sterile cotton pads, sterile disposable pigments ring, special pencils for permanent makeup, sterile marker, sterile water and some other equipment to make sure the treatment is done hygienically, rulers for measuring.</p>
+                            <ul style="text-align: justify;">
+                                <li>What is the duration of the treatment?</li>
+                            </ul>
+                            <p style="text-align: justify;">- Duration of the treatment is about 2 hours.</p>
+                            <ul style="text-align: justify;">
+                                <li>What are the treatment steps?</li>
+                            </ul>
+                            <p style="text-align: justify;">- Consultation</p>
+                            <p style="text-align: justify;">- Medical health form and agreement</p>
+                            <p style="text-align: justify;">- Eyebrows shaping</p>
+                            <p style="text-align: justify;">- First pass of treatment</p>
+                            <p style="text-align: justify;">- Numbing</p>
+                            <p style="text-align: justify;">- Several passes of treatment. Between passes it is possible to be numbed again if necessary;</p>
+                            <p style="text-align: justify;">- Final result discussion and explanation of aftercare</p>
+                            <ul style="text-align: justify;">
+                                <li>Will I be able to buy products during the course?</li>
+                            </ul>
+                            <p style="text-align: justify;">- Mostly we try to bring our products to the courses that students could buy some additional equipment they need.</p>
                         </div>
                     </div>
 
-                    <div class="course-lesson-level-1-wrap important">
-                        <ul>
-                            <li style="text-align: justify;">All registration goes through&nbsp;<a href="../../../../index.html">balticbrows.com&nbsp;</a>platform. Choose the certain class and pay the deposit.&nbsp;<strong>Deposit is NON REFUNDABLE.</strong></li>
-                            <li style="text-align: justify;">Once you booked training please contact us by email <a href="mailto: kim@londonbrows.com">kim@londonbrows.com</a> , <a href="mailto:info@balticbrows.com">info@balticbrows.com</a>&nbsp;and assigned trainer personal email to confirm you place in class.</li>
-                        </ul>
-                    </div>
-                </div>*@
+                    <div class="course-lesson-item">
+                        <div class="course-lesson-header coures_item-5">
+                            <div class="course-lesson-header-title">
+                                <span class="icon icon-handshake"></span>
+                                <span class="course-lesson-text">Prices &amp; Registration</span>
+                            </div>
+                        </div>
+
+                        <div class="course-lesson-level-1-wrap important">
+                            <ul>
+                                <li style="text-align: justify;">All registration goes through&nbsp;<a href="../../../../index.html">balticbrows.com&nbsp;</a>platform. Choose the certain class and pay the deposit.&nbsp;<strong>Deposit is NON REFUNDABLE.</strong></li>
+                                <li style="text-align: justify;">Once you booked training please contact us by email <a href="mailto: kim@londonbrows.com">kim@londonbrows.com</a> , <a href="mailto:info@balticbrows.com">info@balticbrows.com</a>&nbsp;and assigned trainer personal email to confirm you place in class.</li>
+                            </ul>
+                        </div>
+                    </div>*@
             </div>
         </div>
     </div>
+</section>
+<section id="reg-form" style="display: none;">
+    <div class="reg-steps-wrap">
+        <form method="POST" action="/cart/add-item" accept-charset="UTF-8" id="userRegisterForm" class="reg-form-container">
+            <input type="hidden" name="productId" value="@Model.Id" />
+            <div class="reg-form-container">
+                <div class="col-2">
+                    <div class="form-text-group">
+                        <label for="contactName">Họ tên</label>
+                        <input id="contactName" name="contactName" type="text">
+                    </div>
+
+
+                    <div class="form-text-group">
+                        <label for="phone">Số điện thoại</label>
+                        <input id="phone" name="phone" type="text">
+                    </div>
+
+                </div>
+
+                <div class="col-2">
+                    <div class="form-text-group">
+                        <label for="email">Email</label>
+                        <input id="email" name="email" type="text">
+                    </div>
+
+                </div>
+
+                <div class='terms-gdpr'>
+                    <div class="btn-row">
+                        <button type="submit" class="submit-btn btn-add-cart" value="Register">Đăng ký</button>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </form>
+
+    </div>
+
+
+    
+
 </section>
 
 

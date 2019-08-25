@@ -28,7 +28,7 @@ namespace SimplCommerce.Module.News.Areas.News.Components
         {
 
             var query = _newsItemRepository.Query().Include(x => x.ThumbnailImage)
-                .Where(x => !x.IsDeleted).OrderByDescending(m => m.CreatedOn).Take(6);
+                .Where(x => !x.IsDeleted).OrderByDescending(m => m.CreatedOn).Take(3);
             IList < NewsItem > listNewsItem = query.ToList();
             IList<NewsItemVm> newsItemVMs = new List<NewsItemVm>();
             NewsItemVm newsItemVm = null;
