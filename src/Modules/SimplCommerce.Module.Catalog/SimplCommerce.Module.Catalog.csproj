@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+  
+  <ItemGroup>
+    <ProjectReference Include="..\..\SimplCommerce.Infrastructure\SimplCommerce.Infrastructure.csproj" />
+    <ProjectReference Include="..\SimplCommerce.Module.Core\SimplCommerce.Module.Core.csproj" />
+    <ProjectReference Include="..\SimplCommerce.Module.Tax\SimplCommerce.Module.Tax.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Folder Include="Areas\News\Views\Shared\Components\NewItem\" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="DotNetCore.NPOI" Version="1.2.1" />
+    <PackageReference Include="EPPlus" Version="4.5.2.1" />
+  </ItemGroup>
+
+</Project>

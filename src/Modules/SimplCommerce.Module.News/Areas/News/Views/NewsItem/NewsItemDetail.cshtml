@@ -1,0 +1,49 @@
+﻿@model SimplCommerce.Module.News.Areas.News.ViewModels.NewsItemVm
+@section additionalMeta {
+    <meta name="title" content="@Model.MetaTitle" />
+    <meta name="keywords" content="@Model.MetaKeywords" />
+    <meta name="description" content="@Model.MetaDescription" />
+}
+
+@{
+    ViewData["Title"] = Model.Name;
+}
+<style>
+    article img {
+        display: block;
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .titledetail {
+        display: block;
+        overflow: hidden;
+        line-height: 53px;
+        font-size: 45px;
+        color: #333;
+        font-family: 'Roboto Condensed',sans-serif;
+        font-weight: 600;
+        width: 800px;
+        margin: auto;
+    }
+</style>
+<section>
+
+    <article>
+        <h1 class="titledetail">@Model.Name</h1>
+
+        <div class="userdetail">
+
+        </div>
+
+        <div class="imgwrap"><img alt="@Model.Name" data-original="@Model.ThumbnailImageUrl" src="@Model.ThumbnailImageUrl" title="@Model.Name"></div>
+
+        <div class="news-item-full-description">
+            @Html.Raw(Model.FullContent)
+        </div>
+        @await Component.InvokeAsync("NewItemRelate", Model.Id)
+    </article>
+
+</section>

@@ -1,0 +1,62 @@
+[
+  {
+    "outputFileName": "wwwroot/themes/TheGioiDiDong/js/thegioididong.min.js",
+    "inputFiles": [
+      "wwwroot/themes/TheGioiDiDong/js/thegioididong.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/modules/shoppingcart/add-to-cart.min.js",
+    "inputFiles": [
+      "wwwroot/modules/shoppingcart/add-to-cart.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/themes/TheGioiDiDong/css/style.min.css",
+    "inputFiles": [
+      "wwwroot/themes/TheGioiDiDong/css/style.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/themes/TheGioiDiDong/css/main.min.css",
+    "inputFiles": [
+      "wwwroot/themes/TheGioiDiDong/css/main.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/themes/TheGioiDiDong/css/util.min.css",
+    "inputFiles": [
+      "wwwroot/themes/TheGioiDiDong/css/util.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/themes/TheGioiDiDong/css/simpl.min.css",
+    "inputFiles": [
+      "wwwroot/themes/TheGioiDiDong/css/simpl.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/themes/TheGioiDiDong/js/category.min.js",
+    "inputFiles": [
+      "wwwroot/themes/TheGioiDiDong/js/category.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/themes/TheGioiDiDong/js/cozastore.min.js",
+    "inputFiles": [
+      "wwwroot/themes/TheGioiDiDong/js/cozastore.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/modules/core/main.min.js",
+    "inputFiles": [
+      "wwwroot/modules/core/main.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/themes/TheGioiDiDong/js/slick-custom.min.js",
+    "inputFiles": [
+      "wwwroot/themes/TheGioiDiDong/js/slick-custom.js"
+    ]
+  }
+]

@@ -1,0 +1,251 @@
+﻿@model SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels.ProductsByBrand
+@using System.Threading.Tasks
+@addTagHelper *, SimplCommerce.Infrastructure
+@{
+    ViewBag.Title = Model.BrandName;
+}
+@section additionalMeta {
+    <meta name="title" content="@ViewBag.BrandMetaTitle" />
+    <meta name="keywords" content="@Model.BrandMetaKeywords" />
+    <meta name="description" content="@Model.BrandMetaDescription" />
+}
+<style>
+    @@media (min-width: 768px) {
+        .col-md-2 {
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 19.999999%;
+            flex: 0 0 19.999999%;
+            max-width: 29.666667%;
+        }
+    }
+
+    @@media (max-width: 768px) {
+        .col-sm-6 {
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+    }
+</style>
+@section head {
+    <link simpl-append-version="true" rel="stylesheet" href="~/lib/nouislider/distribute/nouislider.min.css" />
+}
+@await Component.InvokeAsync("CarouselWidgetCategory")
+
+<div class="laptopcate filtered">
+    <div class="row">
+        <div class="laptopmanu">
+            <a href="macbook-cu"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Macbook44-b_34.png" /></a>
+            <a href="laptop-dell-cu"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Dell44-b_34.jpg" /></a>
+            <a href="laptop-asus-cu"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Asus44-b_35.jpg" /></a>
+            <a href="laptop-hp-cu"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/HP-Compaq44-b_36.jpg" /></a>
+            @*<a href="acer"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Acer44-b_37.jpg" /></a>*@
+            <a href="laptop-lenovo-cu"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Lenovo44-b_36.jpg" /></a>
+            <a href="laptop-msi-cu"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/MSI44-b_30.png" /></a>
+            <a href="laptop-hoc-tap-van-phong">Học tập văn phòng</a>
+            <a href="laptop-do-hoa-ky-thuat">Đồ họa- Kỹ thuật</a>
+            <a href="laptop-gaming">Laptop gaming</a>
+            <a href="laptop-cao-cap-sang-trong">Cao cấp - Sang trọng</a>
+        </div>
+
+    </div>
+    @*<div class="row">
+            <form id="" name="productFilter" method="GET" action="~/search">
+                <ul class="filter barpage">
+                    <li class="fmanu " id="collapse-brand">
+                        <label class="criteria @(Model.FilterOption.Brands.Where(m=>Model.CurrentSearchOption.GetBrands().Contains(m.Slug)).Any()?"filter-selected":"")">
+                            Hãng
+                            @*<small>(@category.Count)</small>
+                        </label>
+                        <div class="manufacture">
+                            <button type="button" class="closefilter"><i class="icontgdd-closefilter"></i></button>
+                            <strong>Hãng</strong>
+                            @foreach (var brand in Model.FilterOption.Brands)
+                            {
+                                <label class="checkbox">
+                                    <input type="checkbox" value="@brand.Slug" name="brand" checked="@Model.CurrentSearchOption.GetBrands().Contains(brand.Slug)">
+                                    @brand.Name
+                                </label>
+                            }
+                            <p class="doit"></p>
+                            <p class="cslder">
+                                <span class="cswrap">
+                                    <span class="csdot"></span>
+                                    <span class="csdot"></span>
+                                    <span class="csdot"></span>
+                                </span>
+                            </p>
+                        </div>
+                    </li>
+                    @foreach (var category in Model.FilterOption.Categories.Where(x => x.ParentId == 7))
+                    {
+
+                        var children = Model.FilterOption.Categories.Where(x => x.ParentId == category.Id);
+                        @if (children.Any())
+                        {
+                            <li class="fmanu categoryFilter">
+                                <label class="criteria @(children.Where(m=>Model.CurrentSearchOption.GetCategories().Contains(m.Slug)).Any()?"filter-selected":"")">
+                                    @category.Name
+                                    @*<small>(@category.Count)</small>
+                                </label>
+                                <div class="manufacture">
+                                    <strong>@category.Name</strong>
+                                    <button type="button" class="closefilter"><i class="icontgdd-closefilter"></i></button>
+                                    @*<label class="all"><input type="checkbox" value="@category.Slug" name="category" checked="@Model.CurrentSearchOption.GetCategories().Contains(category.Slug)">Tất cả @category.Name</label>
+                                    @foreach (var child in children)
+                                    {
+                                        <label class="checkbox">
+                                            <input type="checkbox" value="@child.Slug" name="category" checked="@Model.CurrentSearchOption.GetCategories().Contains(child.Slug)">
+                                            @child.Name
+                                            @*<small>(@child.Count)</small>
+                                        </label>
+                                    }
+                                    <p class="doit"></p>
+                                    <p class="cslder">
+                                        <span class="cswrap">
+                                            <span class="csdot"></span>
+                                            <span class="csdot"></span>
+                                            <span class="csdot"></span>
+                                        </span>
+                                    </p>
+                                </div>
+                            </li>
+                        }
+                    }
+                </ul>
+            </form>
+        </div>*@
+    @*<div class="breadcrumb bread-crumb flex-w p-r-15 p-t-20 p-b-20 p-lr-0-lg">
+            <a href="~/" class="stext-109 cl8 hov-cl1 trans-04">
+                @Localizer["Home"]
+                <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+            </a>
+            @if (Model.ParentCategorId.HasValue)
+            {
+                @await Component.InvokeAsync("CategoryBreadcrumb", new { categoryId = Model.ParentCategorId.Value })
+            }
+
+            <span class="stext-109 cl4">
+                @Model.CategoryName
+            </span>
+        </div>*@
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row mb-3">
+                <div class="col-sm-4 category-result">
+                    <h2>@Model.BrandName</h2>
+                    @*<small class="badge-results">@Model.TotalProduct @Localizer["results"]</small>*@
+                </div>
+                <div class="col-sm-8">
+                    <ul class="list-inline clear-both product-list-display-options">
+                        <li class="sort-by">
+                            Mức giá:
+                        </li>
+                        <li class="sort-by"> <a href="/laptop-cu-duoi-5-trieu" rel="nofolow"> Dưới 5 triệu</a> </li>
+                        <li>  <a href="/laptop-cu-5-10-trieu" rel="nofolow">5 - 10 triệu</a></li>
+                        <li class="sort-by">
+                            <a href="/laptop-cu-tren-10-trieu" rel="nofolow">Trên 10 triệu</a>
+                        </li>
+                        <li class="sort-by">
+                            <label>@Localizer["Sort by:"]</label>
+                            <div class="btn-group">
+                                <select asp-for="CurrentSearchOption.Sort" asp-items="Model.AvailableSortOptions" class="form-control"></select>
+                            </div>
+                        </li>
+                        @*<li class="pagination-option">
+                        <label>Show :</label>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                20 <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">All</a></li>
+                                <li><a href="#">50</a></li>
+                                <li><a href="#">30</a></li>
+                            </ul>
+                        </div>
+                    </li>*@
+                    </ul>
+                </div>
+            </div>
+            <div class="row product-list ">
+                <div class="homeproduct">
+                    @foreach (var product in Model.Products)
+                    {
+                        <div class="col-sm-6 col-md-2 item-product">
+                            <partial name="_ProductThumbnail" model="product" />
+                        </div>
+                    }
+                </div>
+
+                @*@foreach (var product in Model.Products)
+            {
+                <div class="col-xs-6 col-md-4">
+                    <partial name="_ProductThumbnail" model="product" />
+                </div>
+            }*@
+            </div>
+            @*<div class="row">
+            <div class="col-md-12 text-right">
+                <cs-pager cs-paging-pagesize="@Model.CurrentSearchOption.PageSize"
+                          cs-paging-pagenumber="@Model.CurrentSearchOption.Page"
+                          cs-paging-totalitems="@Model.TotalProduct"
+                          cs-pagenumber-param="page"
+                          asp-basehref="~/@Model.BrandName"
+                          asp-all-route-data="@Model.CurrentSearchOption.ToDictionary()"></cs-pager>
+            </div>
+        </div>*@
+            @if (Model.CurrentSearchOption.Page != Model.CurrentSearchOption.PageCount)
+            {
+                <div class="row load-more">
+                    <div class="col-md-12 text-center">
+                        <button class="btn btn-outline-primary" onclick="loadMoreProductByBranch()">Xem thêm</button>
+                    </div>
+                </div>
+            }
+            <div class="category-description">
+                @Html.Raw(Model.BrandDescription)
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+@section scripts {
+    <script simpl-append-version="true" src="~/lib/wnumb/wNumb.js"></script>
+    <script simpl-append-version="true" src="~/lib/nouislider/distribute/nouislider.min.js"></script>
+
+    <script>
+    var productFilter = {};
+      var count=2;
+            productFilter.currentSearchOption = @Html.Raw(Model.CurrentSearchOption.ToJson());
+            productFilter.priceSetting = {
+                min: @Model.FilterOption.Price.MinPrice.ToString("F0"),
+                max: @Model.FilterOption.Price.MaxPrice.ToString("F0"),
+                currentMin: @((Model.CurrentSearchOption.MinPrice ?? Model.FilterOption.Price.MinPrice).ToString("F0")),
+                currentMax: @((Model.CurrentSearchOption.MaxPrice ?? Model.FilterOption.Price.MaxPrice).ToString("F0")),
+        };
+        function loadMoreProductByBranch(){
+            $.ajax({
+                url:'/Catalog/Brand/BrandDetailLoadMore/@Model.BrandId?page='+count,
+                type:'get',
+                success:function(html){
+                    if(count=='@Model.CurrentSearchOption.PageCount')
+                    {
+                        $('.load-more').css('display','none');
+                    }
+                    ++count;
+                    $('.homeproduct').append(html);
+                },
+                error:function(ex){
+                    console.log(ex);
+                }
+
+            })
+        }
+    </script>
+    <script simpl-append-version="true" src="~/modules/catalog/product-filter.js"></script>
+    <script simpl-append-version="true" src="~/themes/TheGioiDiDong/js/category.js"></script>
+}

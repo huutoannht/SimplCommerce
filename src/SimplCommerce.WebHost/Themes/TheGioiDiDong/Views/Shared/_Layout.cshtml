@@ -1,0 +1,254 @@
+﻿@using System.Globalization
+<!doctype html>
+<html lang="en">
+<head>
+    <meta name="google-site-verification" content="G5v-BJeHAQPIyjlml-DKi2JQtZm6NIQqSZvHLEjHTik" />
+    <title>@ViewData["Title"]</title>
+    @RenderSection("additionalMeta", false)
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="INDEX,FOLLOW" name="robots" />
+    <meta name="copyright" content="Công ty TNHH MTV Quốc tế Phúc Thành Đạt" />
+    <meta name="author" content="Công ty  TNHH MTV Quốc tế Phúc Thành Đạt" />
+    <meta http-equiv="audience" content="General" />
+    <meta name="resource-type" content="Document" />
+    <meta name="distribution" content="Global" />
+    <meta name="revisit-after" content="1 days" />
+    <meta name="GENERATOR" content="Công ty TNHH MTV Quốc tế Phúc Thành Đạt" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="canonical" href="@ViewBag.Host" />
+    <meta property="og:site_name" content="laptopcudanang.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="vi_VN" />
+    <meta property="fb:pages" content="214993791879039" />
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <link href="~/themes/TheGioiDiDong/css/style.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link simpl-append-version="true" rel="stylesheet" href="~/lib/toastr/build/toastr.min.css" />
+    <link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/CozaStore/fonts/font-awesome-4.7.0/css/font-awesome.min.css" />
+    <link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/CozaStore/fonts/iconic/css/material-design-iconic-font.min.css" />
+    <link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/CozaStore/fonts/linearicons-v1.0.0/icon-font.min.css" />
+    <link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/lib/bootstrap-star-rating/css/star-rating.css" />
+    <link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/TheGioiDiDong/vendor/animate/animate.css" />
+    <link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/TheGioiDiDong/vendor/css-hamburgers/hamburgers.min.css" />
+    <link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/TheGioiDiDong/vendor/animsition/css/animsition.min.css" />
+    <link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/TheGioiDiDong/vendor/slick/slick.css" />
+    <link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/TheGioiDiDong/css/util.min.css" />
+    <link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/TheGioiDiDong/css/main.min.css" />
+    <link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/TheGioiDiDong/css/simpl.min.css" />
+    <!-- Google Tag Manager -->
+    <script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || []; w[l].push({
+            'gtm.start':
+                new Date().getTime(), event: 'gtm.js'
+        }); var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5XT43BN');</script>
+    <!-- End Google Tag Manager -->
+
+
+    @RenderSection("head", required: false)
+    <style>
+
+        .bg-navbar {
+            background-color: #fdd504;
+        }
+
+        .nav-item {
+            background-color: #fdd504;
+        }
+
+        @@media all and (max-width: 600px) and (orientation:landscape) {
+        }
+
+        @@media all and (min-width:0px) and (max-width: 1024px) {
+            .wrap-main {
+                margin-left: 0px !important;
+            }
+        }
+
+        .navbar {
+            padding: 0rem 0rem !important;
+        }
+
+        #fb-root > div.fb_dialog.fb_dialog_advanced.fb_shrink_active {
+            left: initial !important;
+            left: 18pt;
+            z-index: 9999999 !important;
+        }
+
+        .fb_dialog {
+            left: 18px !important;
+        }
+
+        .fb-customerchat.fb_invisible_flow.fb_iframe_widget iframe {
+            right: initial !important;
+            left: 18pt !important;
+        }
+    </style>
+
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5XT43BN"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-97842202-9');
+    </script>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.2&appId=2215291551867822&autoLogAppEvents=1"></script>
+    <header>
+        @await Component.InvokeAsync("CategoryMenu")
+    </header>
+    <div class="container">
+
+        @RenderSection("featured", false)
+        @RenderBody()
+        <div class="catetag">
+            <div>
+                <a href="/laptop-cu-duoi-5-trieu" rel="nofolow">Dưới 5 triệu</a>
+                <a href="/laptop-cu-5-10-trieu" rel="nofolow">5 - 10 triệu</a>
+                <a href="/laptop-cu-tren-10-trieu" rel="nofolow">Trên 10 triệu</a>
+            </div>
+            <div>
+                <a href="/macbook-cu" rel="nofolow">Macbook</a>
+                <a href="/laptop-dell-cu" rel="nofolow">Dell</a>
+                <a href="/laptop-asus-cu" rel="nofolow">Asus</a>
+                <a href="/laptop-hp-cu" rel="nofolow">HP-Compaq</a>
+            </div>
+            <div>
+                <a href="/man-hinh-gap-360-do" rel="nofolow">Màn hình gập 360 độ</a>
+                <a href="/core-i7" rel="nofolow">CPU Core i7</a>
+                <a href="/tren-15" rel="nofolow">Màn hình trên 15"</a>
+                <a href="/bo-nho-intel-optane-2" rel="nofolow">Bộ nhớ Intel Optane</a>
+            </div>
+        </div>
+
+    </div>
+    <div class="plc">
+        <ul>
+            <li><i class="icGh"></i><span>Giao hàng hoả tốc trong 90 phút</span></li>
+            <li><i class="icTt"></i><span>Thanh toán linh hoạt: tiền mặt, visa / master, trả góp</span></li>
+            <li><i class="icTn"></i><span>Trải nghiệm sản phẩm tại nhà</span></li>
+            <li><i class="icLd"></i><span>Lỗi đổi tại nhà trong 14 ngày</span></li>
+            <li><i class="icHt"></i><span>Hỗ trợ khách hàng 24/7. Hotline: <a href="tel:02363663333" rel="nofolow">0236.366.3333</a></span></li>
+        </ul>
+    </div>
+    <footer class="bg3">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-4 col-12 box-htch">
+                    <h4 class="stext-301 cl0 p-b-8">
+                        Hệ thống cửa hàng
+                    </h4>
+                    <p>
+                        ☎️ <strong>0236.366.3333</strong><br>
+                        🏪 <strong>133 – 135 Hàm Nghi, Đà Nẵng</strong><br>
+                        🏪 <strong>99 – 101 Hàm Nghi, Đà Nẵng</strong><br>
+                        🏪 40 – Trần Đại Nghĩa, Hà Nội<br>
+                        🏪 63 – Nguyễn Thiện Thuật, HCM<br>
+                        🗓Thứ 2 -> Chủ nhật / 8:00 – 20:00
+                    </p>
+                </div>
+                <div class="col-md-4 col-12 box-face">
+                    <h4 class="stext-301 cl0 p-b-8">
+                        FaceBook
+                    </h4>
+                    <div class="fb-page" data-href="https://www.facebook.com/TechCare133/" data-width="500" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/TechCare133/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/TechCare133/">TechCare 133-135 Hàm Nghi</a></blockquote></div>
+                </div>
+                <div class="col-md-4 col-right-footer">
+                    <h4 class="stext-301 cl0 p-b-8">
+                        Phương thức thanh toán
+                    </h4>
+                    <ul class="list-pay">
+                        <li><img src="~/themes/TheGioiDiDong/images/cdn/icon_bank/icon-tienmat.png" alt="Thanh Toán" width="36" height="36">Tiền mặt</li>
+                        <li><img src="~/themes/TheGioiDiDong/images/cdn/icon_bank/icon-chuyenkhoan.png" alt="Chuyển Khoản" width="36" height="36">Chuyển Khoảng</li>
+                        <li><img src="~/themes/TheGioiDiDong/images/cdn/icon_bank/icon-internetbanking.png" alt="Internet Banking" width="36" height="36">Internet Banking</li>
+                        <li><img src="~/themes/TheGioiDiDong/images/cdn/icon_bank/icon-theatm.png" alt="Atm" width="36" height="36" />Thẻ ATM</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <p id="back-top">
+        <a href="#top" title="Về Đầu Trang"><span></span></a>
+    </p>
+    <!--#endregion -->
+    <!--#region Hotjar -->
+    <!--#endregion -->
+    <div id="dlding">Đang xử lý, vui lòng đợi trong giây lát...</div>
+    <div id="shopModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            </div>
+        </div>
+    </div>
+    <div id="productOverview" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content modal-padding">
+            </div>
+        </div>
+    </div>
+    <ul class="mobile-icon">
+        <li class="call">
+            <a class="icon-call" href="tel:02363663333" title="Gọi điện thoại cho chúng tôi">
+                <i class="fa fa-phone"></i>
+            </a>
+        </li>
+        <li class="facebook">
+            <a class="icon-fb" href="http://m.me/techcare133" target="_blank" title="Chat với chúng tôi">
+                <img src="~/themes/TheGioiDiDong/images/cdn/messenger.png" alt="FaceBook">
+            </a>
+        </li>
+        <li class="zalo">
+            <a class="icon-fb" href="https://zalo.me/0888333135" target="_blank" title="Chat với chúng tôi">
+                <img src="~/themes/TheGioiDiDong/images/cdn/zalo-icon.png" alt="Zalo">
+            </a>
+        </li>
+    </ul>
+    <script>
+        window.simplGlobalSetting = {};
+        window.simplGlobalSetting.lang = '@CultureInfo.CurrentCulture.Name';
+    </script>
+    @*<script src="https://code.jquery.com/jquery-3.4.0.min.js"
+        integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
+        crossorigin="anonymous"></script>*@
+    <script src="~/themes/TheGioiDiDong/js/jquery-3.4.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script simpl-append-version="true" src="~/lib/bootstrap4/js/bootstrap.js"></script>
+    <script simpl-append-version="true" src="~/lib/multi-dropdown-menu/js/bootstrap-4-navbar.js"></script>
+    @*<script simpl-append-version="true" src="~/lib/matchheight/jquery.matchHeight.js"></script>*@
+    <script simpl-append-version="true" src="~/lib/toastr/build/toastr.min.js"></script>
+    <script simpl-append-version="true" src="~/lib/bootstrap-star-rating/js/star-rating.js"></script>
+    @if (CultureInfo.CurrentCulture.Name == "vi-VN")
+    {
+        <script simpl-append-version="true" src="~/lib/bootstrap-star-rating/js/locales/vi-vn.js"></script>
+    }
+    <script src="~/themes/TheGioiDiDong/libs/OwlCarousel/dist/owl.carousel.min.js"></script>
+    <script simpl-append-version="true" src="~/themes/CozaStore/vendor/animsition/js/animsition.min.js"></script>
+    <script simpl-append-version="true" src="~/themes/CozaStore/vendor/slick/slick.min.js"></script>
+    <script simpl-append-version="true" src="~/themes/TheGioiDiDong/js/slick-custom.min.js"></script>
+    <script simpl-append-version="true" src="~/themes/TheGioiDiDong/js/thegioididong.min.js"></script>
+    <script simpl-append-version="true" src="~/modules/core/main.min.js"></script>
+    <script simpl-append-version="true" src="~/modules/shoppingcart/add-to-cart.min.js"></script>
+    <script simpl-append-version="true" src="~/modules/productcomparison/product-comparison.js"></script>
+    @RenderSection("scripts", required: false)
+    @if (Context.Request.Path == "/")
+    {
+        <script simpl-append-version="true" src='~/themes/TheGioiDiDong/images/cdn/v2015/Scripts/desktop/V5/home.min.js'></script>
+    }
+
+</body>
+</html>

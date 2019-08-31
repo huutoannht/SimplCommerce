@@ -1,0 +1,51 @@
+﻿@model IEnumerable<SimplCommerce.Module.News.Areas.News.ViewModels.NewsItemVm>
+
+@if (Model.Count() > 0)
+{
+    <div class="laptopnews">
+        <h3>Góc tư vấn chọn mua laptop</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <a href="@Model.FirstOrDefault().Slug">
+                    <div class="tempvideo">
+                        <img width="100" height="70" data-original="@Model.FirstOrDefault().ThumbnailImageUrl" class="first-new" src="@Model.FirstOrDefault().ThumbnailImageUrl">
+                    </div>
+                    <h3>
+                        @Model.FirstOrDefault().Name
+                    </h3>
+                    <figure>
+                        @Model.FirstOrDefault().ShortContent
+                    </figure>
+                    <div class="timepost">
+                        <span>@Model.FirstOrDefault().CreatedOn.ToString("dd/MM/yyyy")</span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-6">
+                <ul class="newslist" id="mainlist">
+                    @foreach (var item in Model.Skip(1))
+                    {
+                        <li>
+                            <a href="@item.Slug">
+                                <div class="tempvideo">
+                                    <img width="100" height="70" data-original="@item.ThumbnailImageUrl" class=" lazyloaded" src="@item.ThumbnailImageUrl">
+                                </div>
+                                <h3>
+                                    @item.Name
+                                </h3>
+                                <figure>
+                                   @item.ShortContent
+                                </figure>
+                                <div class="timepost">
+                                    <span>@item.CreatedOn.ToString("dd/MM/yyyy")</span>
+                                </div>
+                            </a>
+                        </li>
+                    }
+                    <li><a href="/tin-tuc">Xem thêm</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+}
