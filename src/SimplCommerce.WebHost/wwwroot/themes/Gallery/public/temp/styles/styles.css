@@ -7325,13 +7325,20 @@ a.curent-nav-item:focus {
     color: #363636;
     text-align: center;
 }
-.form-footer .submit-wrap{
+.required {
+    font-size: 14px;
+    color: #d12222;
+    text-align: center;
+}
+.cart-required{
+    display:none;
+}
+.form-footer .submit-wrap {
     float: right;
     margin: 0;
     width: 200px;
     height: auto;
     text-align: center;
-
     /*
   display: -webkit-box;
   display: -ms-flexbox;

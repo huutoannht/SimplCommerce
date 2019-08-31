@@ -411,7 +411,7 @@
                 <div class="event-details">
 
                     <div class="detail-meta">
-                        <div class="detail-title">Thông tin sản phẩm</div>
+                        <div class="detail-title">Thông tin khóa học</div>
                         <div class="meta-item">
                             <div class="icon">
                                 <div class="icon icon-calendar"></div>
@@ -460,7 +460,7 @@
 
             <div class="training-price-info desktop">
                 <div class="training-price-header">
-                    <div class="title">Giá sản phẩm</div>
+                    <div class="title">Giá khóa học</div>
                 </div>
 
                 <div class="training-price-content">
@@ -1203,22 +1203,25 @@
             <div class="reg-form-container">
                 <div class="col-2">
                     <div class="form-text-group">
-                        <label for="contactName">Họ tên</label>
+                        <label for="contactName">Họ tên<span class="required">*</span></label>
                         <input id="contactName" name="contactName" type="text">
+                        <label id="contactName-error" class="error cart-required" for="email">Mời nhập họ tên</label>
                     </div>
 
 
                     <div class="form-text-group">
-                        <label for="phone">Số điện thoại</label>
+                        <label for="phone">Số điện thoại<span class="required">*</span></label>
                         <input id="phone" name="phone" type="text">
+                        <label id="phone-error" class="error cart-required" for="email">Mời nhập số điện thoại</label>
                     </div>
 
                 </div>
 
                 <div class="col-2">
                     <div class="form-text-group">
-                        <label for="email">Email</label>
+                        <label for="email">Email<span class="required">*</span></label>
                         <input id="email" name="email" type="text">
+                        <label id="email-error" class="error cart-required" for="email">Mời nhập email</label>
                     </div>
 
                 </div>
@@ -1226,11 +1229,8 @@
                 <div class='terms-gdpr'>
                     <div class="btn-row">
                         <button type="submit" class="submit-btn btn-add-cart" value="Register">Đăng ký</button>
-
                     </div>
                 </div>
-
-
             </div>
         </form>
 

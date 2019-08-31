@@ -1,9 +1,11 @@
 ﻿/*global $ */
 $(function () {
+    $('.cart-required').css('display', 'none');
     $('body').on('click', '.btn-add-cart', function (e) {
         e.preventDefault();
         $('#productOverview').modal('hide');
-        $('.btn-add-cart').attr('disabled', true);
+       
+        $('.cart-required').css('display', 'none');
         var quantity,
             $form = $(this).closest("form"),
             productId = $(this).closest("form").find('input[name=productId]').val(),
@@ -11,7 +13,19 @@ $(function () {
             phone = $(this).closest("form").find('input[name=phone]').val(),
             email = $(this).closest("form").find('input[name=email]').val(),
             $quantityInput = $form.find('.quantity-field');
-
+        if (!contactName) {
+            $('#contactName-error').css('display', 'block');
+            return;
+        }
+        if (!phone) {
+            $('#phone-error').css('display', 'block');
+            return;
+        }
+        if (!email) {
+            $('#email-error').css('display', 'block');
+            return;
+        }
+        $('.btn-add-cart').attr('disabled', true);
         quantity = $quantityInput.length === 1 ? $quantityInput.val() : 1;
 
         $.ajax({
@@ -40,8 +54,8 @@ $(function () {
                         data: null,
                         contentType: "application/json"
                     }).done(function (data) {
-                        alert('Đăng ký khóa học thành công!');
-                        window.location.replace("/");
+                        show_modal('modal_success');
+                        //window.location.replace("/");
                     });
                 });
                
@@ -60,5 +74,8 @@ $(function () {
                 </div>');
             $('#shopModal').modal('show');
         });
+    });
+    $('body').on('click', '.btn-close-message-cart', function (e) {
+        window.location.replace("/");
     });
 });
