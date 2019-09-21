@@ -95,17 +95,6 @@ function empty(n) {
     return !1
 }
 
-function getScriptChatTgdd() {
-    setTimeout(function() {
-        var n, t;
-        gl_fLoadChat || (gl_fLoadChat = !0, n = getCookie("chat.username"), (empty(n) || !empty(n) && n.indexOf("@") < 0) && ("undefined" != typeof g_version ? (t = "https://cdn.thegioididong.com/dmxchat/chatclienttgddmobile.v" + g_version + ".js", $.getScript(t).done(function() {
-            console.log("GET SCRIPT CHAT: DONE")
-        })) : (t = "../cdn.thegioididong.com/dmxchat/chatclienttgddmobile.js", $.getScript(t).done(function() {
-            console.log("GET SCRIPT CHAT: DONE")
-        }))))
-    }, 1e4)
-}
-
 function CreateCookie(n, t, i) {
     var r = new Date,
         u;
@@ -126,45 +115,9 @@ function Delete_Cookie(n, t, i) {
     getCookie(n) && (document.cookie = n + "=" + (t ? ";path=" + t : "") + (i ? ";domain=" + i : "") + ";expires=Thu, 01 Jan 1970 00:00:01 GMT")
 }
 
-function checkCmtParam() {
-    setTimeout(function() {
-        var n = getUrlParameter("cmtdt");
-        n > 0 && $("#comment").length > 0 ? ($("html, body").animate({
-            scrollTop: $("#comment").offset().top
-        }, 500), setTimeout(function() {
-            $(".wrap_seasort").addClass("hide");
-            $(".cmtKey").val(n);
-            var t = $.Event("keyup");
-            t.keyCode = 13;
-            $(".cmtKey").trigger(t);
-            $(".cmtKey").val(n);
-            setTimeout(function() {
-                $(".s_comment").click();
-                $(".cmtKey").val("");
-                var n = window.location.origin + window.location.pathname,
-                    t = "<a class='seeAllCmt' href='" + n + "'>Xem tất cả bình luận<\/a>";
-                $(".wrap_comment .listcomment").after(t);
-                $("#txtEditorExt").remove();
-                $(".wrap_seasort").hide();
-                $(".wrap_seasort").removeClass("hide")
-            }, 1e3)
-        }, 1e3)) : n == 0 && $("html, body").animate({
-            scrollTop: $("#comment").offset().top
-        }, 500)
-    }, 2e3)
-}
-
 function getUrlParameter(n) {
     for (var u = decodeURIComponent(window.location.search.substring(1)), r = u.split("&"), t, i = 0; i < r.length; i++)
         if (t = r[i].split("="), t[0] === n) return t[1] === undefined ? !0 : t[1]
-}
-
-function getJsRateShip() {
-    setTimeout(function() {
-        $.getScript("Scripts/mobile/V4/ratingship.min.js").done(function() {
-            console.log("getJsRateShip_js")
-        })
-    }, 11e3)
 }
 
 function InitEvent() {
@@ -4941,9 +4894,6 @@ $(window).load(function() {
         $(this).remove();
         $(".colfoot li.hidden").removeClass("hidden")
     });
-    getScriptChatTgdd();
-    checkCmtParam();
-    getJsRateShip()
 });
 
 gl_fLoadChat = !1;

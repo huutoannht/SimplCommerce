@@ -7,7 +7,7 @@ namespace SimplCommerce.Module.Core.Services
     {
         string GetMediaUrl(string fileName);
 
-        Task SaveMediaAsync(Stream mediaBinaryStream, string fileName, string mimeType = null);
+        Task SaveMediaAsync(Stream mediaBinaryStream, string fileName, string mimeType = null,string typeCrop=null);
 
         Task DeleteMediaAsync(string fileName);
     }

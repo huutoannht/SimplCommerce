@@ -12,6 +12,7 @@ namespace SimplCommerce.Module.ShoppingCart.Areas.ShoppingCart.Controllers
 {
     [Area("ShoppingCart")]
     [ApiExplorerSettings(IgnoreApi = true)]
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public class CartController : Controller
     {
         private readonly IRepository<CartItem> _cartItemRepository;

@@ -1081,7 +1081,8 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
         {
             var originalFileName = Microsoft.Net.Http.Headers.ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Value.Trim('"');
             var fileName = $"{Path.GetFileNameWithoutExtension(originalFileName) + "-" + GetUniqueKey(5)}{Path.GetExtension(originalFileName)}";
-            await _mediaService.SaveMediaAsync(file.OpenReadStream(), fileName, file.ContentType);
+            fileName = fileName.Replace(".PNG", ".jpg", StringComparison.OrdinalIgnoreCase);
+            await _mediaService.SaveMediaAsync(file.OpenReadStream(), fileName, file.ContentType,"product");
             return fileName;
         }
         public string GetUniqueKey(int maxSize)

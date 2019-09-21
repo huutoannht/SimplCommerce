@@ -22,9 +22,11 @@
         overflow: hidden;
     }
 </style>
-<script simpl-append-version="true" src="~/lib/bootstrap-star-rating/js/star-rating.js"></script>
 <a href="~/@Model.Slug">
-    <img width="180" height="180" src='@Model.ThumbnailUrl' alt="@Model.Name" class="mx-auto d-block" />
+    <img width="180" height="180" src='@Model.ThumbnailUrl' alt="@Model.Name" class="mx-auto d-block lazyload" data-src="image2.jpg"
+    data-srcset="@Model.ThumbnailUrl 300w,
+    @Model.ThumbnailUrl 600w,
+    @Model.ThumbnailUrl 900w" />
     <div class="props">
         @{if (Model.Categories.Where(m => m.Category?.ParentId == 17).FirstOrDefault() != null)
             {

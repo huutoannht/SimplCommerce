@@ -53,7 +53,7 @@ namespace SimplCommerce.Module.StorageAmazonS3
             return string.Concat(_publicEndpoint, fileName);
         }
 
-        public async Task SaveMediaAsync(Stream mediaBinaryStream, string fileName, string mimeType = null)
+        public async Task SaveMediaAsync(Stream mediaBinaryStream, string fileName, string mimeType = null, string typeCrop=null)
         {
             var uploadRequest = new TransferUtilityUploadRequest
             {
@@ -66,5 +66,6 @@ namespace SimplCommerce.Module.StorageAmazonS3
             var transferUtility = new TransferUtility(_amazonS3Client);
             await transferUtility.UploadAsync(uploadRequest);
         }
+
     }
 }

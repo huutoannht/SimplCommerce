@@ -31,29 +31,10 @@ namespace SimplCommerce.Module.Core.Areas.Core.Controllers
         public async Task<IActionResult> UploadFile(IFormFile file)
         {
             var originalFileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Value.Trim('"');
-            var fileName = $"{Path.GetFileNameWithoutExtension(originalFileName) + "-" + GetUniqueKey(3)}{"jpg"}";
-            file = await CropImage(file);
+            var fileName = $"{Path.GetFileNameWithoutExtension(originalFileName) + "-" + GetUniqueKey(3)}{".jpg"}";
             await _mediaService.SaveMediaAsync(file.OpenReadStream(), fileName, file.ContentType);
 
             return Ok(_mediaService.GetMediaUrl(fileName));
-        }
-        private async  Task<IFormFile> CropImage(IFormFile file)
-        {
-            using (var httpClient = new HttpClient())
-            {
-                var response = await httpClient.GetAsync("https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png")
-                    .ConfigureAwait(false);
-
-                using (var inputStream = file.OpenReadStream())
-                {
-                    using (var image = Image.Load(inputStream))
-                    {
-                        image.Mutate(
-                            ctx => ctx.Crop(560, 300));
-                    }
-                }
-            }
-            return file;
         }
         public string GetUniqueKey(int maxSize)
         {

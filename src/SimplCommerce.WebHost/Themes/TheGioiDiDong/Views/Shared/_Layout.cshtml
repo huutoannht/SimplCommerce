@@ -1,4 +1,4 @@
-﻿@using System.Globalization
+@using System.Globalization
 <!doctype html>
 <html lang="en">
 <head>
@@ -148,7 +148,8 @@
         <div class="container">
             <div class="row">
 
-                <div class="col-md-4 col-12 box-htch">
+             
+                <div class="col-md-3 col-12 box-htch">
                     <h4 class="stext-301 cl0 p-b-8">
                         Hệ thống cửa hàng
                     </h4>
@@ -161,13 +162,35 @@
                         🗓Thứ 2 -> Chủ nhật / 8:00 – 20:00
                     </p>
                 </div>
-                <div class="col-md-4 col-12 box-face">
+                <div class="col-md-3 col-12 box-htch">
+                    <h4 class="stext-301 cl0 p-b-8">
+                        Chính Sách
+                    </h4>
+                    <p class="policy-list">
+                        <a href="~/chinh-sach-bao-mat">Chính sách bảo mật</a><br>
+                        <a href="~/chinh-sach-bao-hanh">Chính sách bảo hành</a><br>
+                        <a href="~/chinh-sach-doi-tra">Chính sách đổi trả</a><br>
+                        <a href="~/dieu-khoan-su-dung">Điều khoản sử dụng</a><br>
+                        <a href="~/huong-dan-thanh-toan">Hướng dẫn thanh toán</a><br>
+                        <a href="~/mua-tra-gop">Chính sách mua trả góp</a><br>
+                        <a href="~/phuong-thuc-giao-hang-cod">Phương thức giao hàng</a><br>
+                        <a href="~/ve-chung-toi">Tìm hiểu về chúng tôi</a>
+                    </p>
+                </div>
+                <div class="col-md-3 col-12 box-face">
                     <h4 class="stext-301 cl0 p-b-8">
                         FaceBook
                     </h4>
-                    <div class="fb-page" data-href="https://www.facebook.com/TechCare133/" data-width="500" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/TechCare133/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/TechCare133/">TechCare 133-135 Hàm Nghi</a></blockquote></div>
+					<a class="d-md-none" href="https://www.facebook.com/TechCare133/"><img src="~/themes/TheGioiDiDong/images/cdn/sp-facebook.png" class="first-new lazyload" alt="Techcare 133 Hàm Nghi"></a>
+					<script> 
+						if (window.matchMedia("(min-width: 768px)").matches)  
+						{ 
+							document.write('<div class="fb-page" data-href="https://www.facebook.com/TechCare133/" data-width="500" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/TechCare133/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/TechCare133/">TechCare 133-135 Hàm Nghi</a></blockquote></div>'); 
+						}
+					</script> 
+                    
                 </div>
-                <div class="col-md-4 col-right-footer">
+                <div class="col-md-3 col-right-footer">
                     <h4 class="stext-301 cl0 p-b-8">
                         Phương thức thanh toán
                     </h4>
@@ -178,6 +201,9 @@
                         <li><img src="~/themes/TheGioiDiDong/images/cdn/icon_bank/icon-theatm.png" alt="Atm" width="36" height="36" />Thẻ ATM</li>
                     </ul>
                 </div>
+            </div>
+        </div>
+
             </div>
         </div>
 
@@ -241,7 +267,7 @@
     <script simpl-append-version="true" src="~/themes/CozaStore/vendor/slick/slick.min.js"></script>
     <script simpl-append-version="true" src="~/themes/TheGioiDiDong/js/slick-custom.min.js"></script>
     <script simpl-append-version="true" src="~/themes/TheGioiDiDong/js/thegioididong.min.js"></script>
-    <script simpl-append-version="true" src="~/modules/core/main.min.js"></script>
+    @*<script simpl-append-version="true" src="~/modules/core/main.min.js"></script>*@
     <script simpl-append-version="true" src="~/modules/shoppingcart/add-to-cart.min.js"></script>
     <script simpl-append-version="true" src="~/modules/productcomparison/product-comparison.js"></script>
     @RenderSection("scripts", required: false)

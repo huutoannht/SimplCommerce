@@ -25,6 +25,9 @@ using Hangfire;
 using System;
 using SimplCommerce.WebHost.Extensions.Jobs;
 using Microsoft.AspNetCore.Rewrite;
+using Microsoft.AspNetCore.ResponseCompression;
+using System.IO.Compression;
+using System.Collections.Generic;
 
 namespace SimplCommerce.WebHost
 {
@@ -68,8 +71,9 @@ namespace SimplCommerce.WebHost
                 options.TextEncoderSettings = new TextEncoderSettings(UnicodeRanges.All);
             });
             services.AddScoped<ITagHelperComponent, LanguageDirectionTagHelperComponent>();
+            // services.AddScoped<ITagHelper, InlineStyleTagHelper>();
             services.AddTransient<IRazorViewRenderer, RazorViewRenderer>();
-            services.AddAntiforgery(options => options.HeaderName = "X-XSRF-Token");
+             services.AddAntiforgery(options => options.HeaderName = "X-XSRF-Token");
             services.AddSingleton<AutoValidateAntiforgeryTokenAuthorizationFilter, CookieOnlyAutoValidateAntiforgeryTokenAuthorizationFilter>();
             services.AddCloudscribePagination();
 
@@ -88,6 +92,28 @@ namespace SimplCommerce.WebHost
             });
             services.AddHangfire(x => x.UseSqlServerStorage(_configuration.GetConnectionString("DefaultConnection")));
             services.AddHangfireServer();
+            services.AddResponseCompression(options =>
+            {
+                IEnumerable<string> MimeTypes = new[]
+               {
+                     // General
+                     "text/plain",
+                     "text/html",
+                     "text/css",
+                     "font/woff2",
+                     "application/javascript",
+                     "image/x-icon",
+                     "image/png"
+                 };
+                options.EnableForHttps = true;
+                options.MimeTypes = MimeTypes;
+                options.Providers.Add<GzipCompressionProvider>();
+            });
+            services.Configure<GzipCompressionProviderOptions>(options =>
+            {
+                options.Level = CompressionLevel.Fastest;
+            });
+            services.AddResponseCaching();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env,
@@ -105,16 +131,30 @@ namespace SimplCommerce.WebHost
                     a => a.UseExceptionHandler("/Home/Error")
                 );
                 app.UseHsts();
-                app.UseStaticFiles(new StaticFileOptions
-                {
-                    FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @".well-known")),
-                    RequestPath = new PathString("/.well-known"),
-                    ServeUnknownFileTypes = true // serve extensionless file
-                });
-                app.UseRewriter(new RewriteOptions().AddRedirectToHttps(StatusCodes.Status301MovedPermanently, 443));
+                //app.UseStaticFiles(new StaticFileOptions
+                //{
+                //    FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @".well-known")),
+                //    RequestPath = new PathString("/.well-known"),
+                //    ServeUnknownFileTypes = true // serve extensionless file
+                //});
+                //app.UseRewriter(new RewriteOptions().AddRedirectToHttps(StatusCodes.Status301MovedPermanently, 443));
             }
+            app.UseResponseCaching();
+            //app.Use(async (context, next) =>
+            //{
+            //    context.Response.GetTypedHeaders().CacheControl =
+            //        new Microsoft.Net.Http.Headers.CacheControlHeaderValue()
+            //        {
+            //            Public = true,
+            //            MaxAge = TimeSpan.FromSeconds(31557600)
+            //        };
+            //    context.Response.Headers[Microsoft.Net.Http.Headers.HeaderNames.Vary] =
+            //        new string[] { "Accept-Encoding" };
+
+            //    await next();
+            //});
             app.UseHangfireDashboard();
-            RecurringJob.AddOrUpdate( () => HealCheckJob.HealBeatAsync(),Cron.Minutely);
+            RecurringJob.AddOrUpdate(() => HealCheckJob.HealBeatAsync(), Cron.Minutely);
             app.UseWhen(
                 context => !context.Request.Path.StartsWithSegments("/api"),
                 a => a.UseStatusCodePagesWithReExecute("/Home/ErrorWithCode/{0}")
@@ -132,7 +172,7 @@ namespace SimplCommerce.WebHost
             app.UseCustomizedIdentity();
             app.UseCustomizedRequestLocalization();
             app.UseCustomizedMvc();
-            
+            app.UseResponseCompression();
 
             var moduleInitializers = app.ApplicationServices.GetServices<IModuleInitializer>();
             foreach (var moduleInitializer in moduleInitializers)

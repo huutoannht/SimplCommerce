@@ -1742,7 +1742,46 @@
                 };
             }
         });
+        // Extends plugins for adding readmore.
+        //  - plugin is external module for customizing.
+        $.extend($.summernote.plugins, {
+            /**
+              * @param {Object} context - context object has status of editor.
+              */
+            'elfinder': function (context) {
+                var self = this;
 
+                // ui has renders to build ui elements.
+                //  - you can create a button with `ui.button`
+                var ui = $.summernote.ui;
+
+                // add elfinder button
+                context.memo('button.elfinder', function () {
+                    // create button
+                    var button = ui.button({
+                        contents: '<i class="fa fa-list-alt"/> File Manager',
+                        tooltip: 'elfinder',
+                        click: function () {
+                            elfinderDialog($(this).closest('.note-editor').parent().children('.summernote'));
+                        }
+                    });
+
+                    // create jQuery object from button instance.
+                    var $elfinder = button.render();
+                    return $elfinder;
+                });
+
+
+
+                // This methods will be called when editor is destroyed by $('..').summernote('destroy');
+                // You should remove elements on `initialize`.
+                this.destroy = function () {
+                    this.$panel.remove();
+                    this.$panel = null;
+                };
+            }
+
+        });
       var modules = $.extend({}, this.options.modules, $.summernote.plugins || {});
 
      
@@ -7055,6 +7094,25 @@
     };
   };
 
+    function elfinderDialog() {
+        var fm = $('<div/>').dialogelfinder({
+            url: 'https://path.to/your/connector.php', // change with the url of your connector
+            lang: 'en',
+            width: 840,
+            height: 450,
+            destroyOnClose: true,
+            getFileCallback: function (files, fm) {
+                console.log(files);
+                $('.editor').summernote('editor.insertImage', files.url);
+            },
+            commandsOptions: {
+                getfile: {
+                    oncomplete: 'close',
+                    folders: false
+                }
+            }
+        }).dialogelfinder('instance');
+    }
 
   $.summernote = $.extend($.summernote, {
     version: '0.8.2',
@@ -7101,8 +7159,8 @@
         ['color', ['color']],
         ['para', ['ul', 'ol', 'paragraph']],
         ['table', ['table']],
-        ['insert', ['link', 'picture', 'video']],
-        ['view', ['fullscreen', 'codeview', 'help']]
+          ['insert', ['link', 'picture', 'video', 'elfinder']],
+          ['view', ['fullscreen', 'codeview', 'help']]
       ],
 
       // popover
@@ -7111,7 +7169,8 @@
           ['imagesize', ['imageSize100', 'imageSize50', 'imageSize25']],
           ['float', ['floatLeft', 'floatRight', 'floatNone']],
               ['remove', ['removeMedia']],
-              ['custom', ['imageTitle']]
+              ['custom', ['imageTitle']],
+            
         ],
         link: [
           ['link', ['linkDialogShow', 'unlink']]

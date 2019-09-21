@@ -35,68 +35,6 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 -------------------------------------------------------------------*/
 
 
-
-/*//////////////////////////////////////////////////////////////////
-[ FONT ]*/
-
-@font-face {
-  font-family: Poppins-Regular;
-  src: url('../fonts/Poppins/Poppins-Regular.ttf'); 
-}
-
-@font-face {
-  font-family: Poppins-Light;
-  src: url('../fonts/Poppins/Poppins-Light.ttf'); 
-}
-
-@font-face {
-  font-family: Poppins-ExtraLight;
-  src: url('../fonts/Poppins/Poppins-ExtraLight.ttf'); 
-}
-
-@font-face {
-  font-family: Poppins-Medium;
-  src: url('../fonts/Poppins/Poppins-Medium.ttf'); 
-}
-
-@font-face {
-  font-family: Poppins-Italic;
-  src: url('../fonts/Poppins/Poppins-Italic.ttf'); 
-}
-
-@font-face {
-  font-family: Poppins-Bold;
-  src: url('../fonts/Poppins/Poppins-Bold.ttf'); 
-}
-
-@font-face {
-  font-family: Poppins-SemiBold;
-  src: url('../fonts/Poppins/Poppins-SemiBold.ttf'); 
-}
-
-
-/*---------------------------------------------*/
-@font-face {
-  font-family: PlayfairDisplay-Regular;
-  src: url('../fonts/PlayfairDisplay/PlayfairDisplay-Regular.ttf'); 
-}
-
-@font-face {
-  font-family: PlayfairDisplay-Bold;
-  src: url('../fonts/PlayfairDisplay/PlayfairDisplay-Bold.ttf'); 
-}
-
-/*---------------------------------------------*/
-@font-face {
-  font-family: Montserrat-Regular;
-  src: url('../fonts/Montserrat/Montserrat-Regular.ttf'); 
-}
-
-@font-face {
-  font-family: Montserrat-Bold;
-  src: url('../fonts/Montserrat/Montserrat-Bold.ttf'); 
-}
-
 body, h1, h2, h3, h4, h5, h6 {
   font-family: Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif !important;
   line-height: 1.8;
@@ -4773,3 +4711,53 @@ footer ul li .group {
     animation: burst2 3s infinite linear;
   }
 }
+footer .policy-list a {
+    position: relative;
+    padding-left: 15px;
+    color: #666 !important;
+}
+
+    footer .policy-list a:before {
+        content: '';
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        border-top: 1px solid #666;
+        border-right: 1px solid #666;
+        top: 5px;
+        left: 0;
+        transform: rotate(45deg);
+    }
+img.lazy-img {
+    display: block;
+    border: 0;
+    opacity: 0;
+}
+
+    img.lazy-img:not(.initial) {
+        transition: opacity 1s cubic-bezier(0.7, 0, 0.3, 1) 0.45s;
+    }
+
+    img.lazy-img.initial, img.lazy-img.loaded, img.lazy-img.error {
+        opacity: 1;
+    }
+
+    img.lazy-img:not([src]) {
+        visibility: hidden;
+    }
+footer .policy-list a:hover {
+    color: #0056b3;
+}
+
+    footer .policy-list a:hover:before {
+        border-color: #0056b3;
+    }
+.lazy-img:not(img) {
+    opacity: 0;
+    transition: opacity 1s cubic-bezier(0.7, 0, 0.3, 1) 0.45s;
+}
+
+    .lazy-img:not(img)[data-was-processed="true"] {
+        opacity: 1;
+    }
+
