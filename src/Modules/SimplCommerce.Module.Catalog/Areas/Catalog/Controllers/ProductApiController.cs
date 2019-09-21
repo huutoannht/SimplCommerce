@@ -294,7 +294,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
                 Description = product.Description,
                 Specification = product.Specification,
                 OldPrice = product.OldPrice,
-                DisplayOrder=product.DisplayOrder,
+                DisplayOrder = product.DisplayOrder,
                 Price = product.Price,
                 SpecialPrice = product.SpecialPrice,
                 SpecialPriceStart = product.SpecialPriceStart,
@@ -397,7 +397,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
         [HttpPost("grid")]
         public async Task<IActionResult> List([FromBody] SmartTableParam param)
         {
-            var query = _productRepository.Query().OrderByDescending(m=>m.DisplayOrder).Where(x => !x.IsDeleted);
+            var query = _productRepository.Query().OrderByDescending(m => m.DisplayOrder).Where(x => !x.IsDeleted);
             var currentUser = await _workContext.GetCurrentUser();
             if (!User.IsInRole("admin"))
             {
@@ -1011,7 +1011,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
         {
             if (model.ThumbnailImage != null)
             {
-                var fileName = await SaveFile(model.ThumbnailImage);
+                var fileName = await SaveFile(model.ThumbnailImage, "product");
                 if (product.ThumbnailImage != null)
                 {
                     product.ThumbnailImage.FileName = fileName;
@@ -1077,12 +1077,12 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
             }
         }
 
-        private async Task<string> SaveFile(IFormFile file)
+        private async Task<string> SaveFile(IFormFile file, string typeCrop = null)
         {
             var originalFileName = Microsoft.Net.Http.Headers.ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Value.Trim('"');
             var fileName = $"{Path.GetFileNameWithoutExtension(originalFileName) + "-" + GetUniqueKey(5)}{Path.GetExtension(originalFileName)}";
             fileName = fileName.Replace(".PNG", ".jpg", StringComparison.OrdinalIgnoreCase);
-            await _mediaService.SaveMediaAsync(file.OpenReadStream(), fileName, file.ContentType,"product");
+            await _mediaService.SaveMediaAsync(file.OpenReadStream(), fileName, file.ContentType, typeCrop);
             return fileName;
         }
         public string GetUniqueKey(int maxSize)
