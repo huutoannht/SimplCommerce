@@ -64,6 +64,10 @@
                     url: '/widget-spacebar/edit/:id',
                     templateUrl: 'modules/cms/admin/spacebar-widget/spacebar-widget-form.html',
                     controller: 'SpaceBarWidgetFormCtrl as vm'
+                }).state('file', {
+                    url: '/file',
+                    templateUrl: 'modules/cms/admin/file/file-list.html',
+                    controller: 'FileListCtrl as vm'
                 });
         }]);
 })();

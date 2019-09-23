@@ -44,7 +44,6 @@
             }
         };
         vm.changeData = function () {
-            alert('test');
         }
 
         vm.openCalendar = function (e, picker) {

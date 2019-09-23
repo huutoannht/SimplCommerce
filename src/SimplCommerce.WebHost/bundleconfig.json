@@ -64,5 +64,11 @@
     "inputFiles": [
       "wwwroot/themes/TheGioiDiDong/images/cdn/v2015/Scripts/desktop/V5/home.js"
     ]
+  },
+  {
+    "outputFileName": "wwwroot/themes/TuanNguyenStudio/js/thegioididong.min.js",
+    "inputFiles": [
+      "wwwroot/themes/TuanNguyenStudio/js/thegioididong.js"
+    ]
   }
 ]
