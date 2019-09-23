@@ -41,6 +41,8 @@
         vm.updateSlug = function () {
             vm.product.slug = slugify(vm.product.name);
         };
+        vm.changeData = function () {
+        }
 
         vm.openCalendar = function (e, picker) {
             vm[picker].open = true;

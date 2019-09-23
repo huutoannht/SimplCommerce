@@ -23,20 +23,19 @@
     <meta property="og:locale" content="vi_VN" />
     <meta property="fb:pages" content="214993791879039" />
     <meta http-equiv="x-dns-prefetch-control" content="on">
-    <link href="~/themes/TheGioiDiDong/css/style.css" rel="stylesheet" />
+    <link href="~/themes/TheGioiDiDong/css/style.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link simpl-append-version="true" rel="stylesheet" href="~/lib/toastr/build/toastr.min.css" />
-    <link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/CozaStore/fonts/font-awesome-4.7.0/css/font-awesome.min.css" />
-    <link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/CozaStore/fonts/iconic/css/material-design-iconic-font.min.css" />
-    <link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/CozaStore/fonts/linearicons-v1.0.0/icon-font.min.css" />
-    <link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/lib/bootstrap-star-rating/css/star-rating.css" />
-    <link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/TheGioiDiDong/vendor/animate/animate.css" />
-    <link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/TheGioiDiDong/vendor/css-hamburgers/hamburgers.min.css" />
-    <link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/TheGioiDiDong/vendor/animsition/css/animsition.min.css" />
-    <link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/TheGioiDiDong/vendor/slick/slick.css" />
-    <link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/TheGioiDiDong/css/util.css" />
-    <link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/TheGioiDiDong/css/main.css" />
-    <link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/TheGioiDiDong/css/simpl.css" />
+    @*<link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/CozaStore/fonts/font-awesome-4.7.0/css/font-awesome.min.css" />*@
+    <inline-style  rel="stylesheet" type="text/css" href="~/themes/CozaStore/fonts/iconic/css/material-design-iconic-font.min.css" />
+    @*<link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/CozaStore/fonts/linearicons-v1.0.0/icon-font.min.css" />*@
+    <inline-style rel="stylesheet" type="text/css" href="/lib/bootstrap-star-rating/css/star-rating.css" />
+  @*  <link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/TheGioiDiDong/vendor/animate/animate.css" />*@
+    @*<link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/TheGioiDiDong/vendor/css-hamburgers/hamburgers.min.css" />
+    <link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/TheGioiDiDong/vendor/animsition/css/animsition.min.css" />*@
+    @*<link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/TheGioiDiDong/vendor/slick/slick.css" />*@
+    <inline-style rel="stylesheet" type="text/css" href="/themes/TheGioiDiDong/css/util.min.css" />
+    <inline-style rel="stylesheet" type="text/css" href="/themes/TheGioiDiDong/css/main.min.css" />
+    <inline-style rel="stylesheet" type="text/css" href="/themes/TheGioiDiDong/css/simpl.min.css" />
     <!-- Google Tag Manager -->
     <script>
     (function (w, d, s, l, i) {
@@ -148,7 +147,8 @@
         <div class="container">
             <div class="row">
 
-                <div class="col-md-4 col-12 box-htch">
+
+                <div class="col-md-3 col-12 box-htch">
                     <h4 class="stext-301 cl0 p-b-8">
                         Hệ thống cửa hàng
                     </h4>
@@ -161,13 +161,34 @@
                         🗓Thứ 2 -> Chủ nhật / 8:00 – 20:00
                     </p>
                 </div>
-                <div class="col-md-4 col-12 box-face">
+                <div class="col-md-3 col-12 box-htch">
+                    <h4 class="stext-301 cl0 p-b-8">
+                        Chính Sách
+                    </h4>
+                    <p class="policy-list">
+                        <a href="~/chinh-sach-bao-mat">Chính sách bảo mật</a><br>
+                        <a href="~/chinh-sach-bao-hanh">Chính sách bảo hành</a><br>
+                        <a href="~/chinh-sach-doi-tra">Chính sách đổi trả</a><br>
+                        <a href="~/dieu-khoan-su-dung">Điều khoản sử dụng</a><br>
+                        <a href="~/huong-dan-thanh-toan">Hướng dẫn thanh toán</a><br>
+                        <a href="~/mua-tra-gop">Chính sách mua trả góp</a><br>
+                        <a href="~/phuong-thuc-giao-hang-cod">Phương thức giao hàng</a><br>
+                        <a href="~/ve-chung-toi">Tìm hiểu về chúng tôi</a>
+                    </p>
+                </div>
+                <div class="col-md-3 col-12 box-face">
                     <h4 class="stext-301 cl0 p-b-8">
                         FaceBook
                     </h4>
-                    <div class="fb-page" data-href="https://www.facebook.com/TechCare133/" data-width="500" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/TechCare133/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/TechCare133/">TechCare 133-135 Hàm Nghi</a></blockquote></div>
+                    <a class="d-md-none" href="https://www.facebook.com/TechCare133/"><img src="~/themes/TheGioiDiDong/images/cdn/sp-facebook.png" class="first-new lazyload" alt="Techcare 133 Hàm Nghi"></a>
+                    <script>
+                        if (window.matchMedia("(min-width: 768px)").matches) {
+                            document.write('<div class="fb-page" data-href="https://www.facebook.com/TechCare133/" data-width="500" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/TechCare133/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/TechCare133/">TechCare 133-135 Hàm Nghi</a></blockquote></div>');
+                        }
+                    </script>
+
                 </div>
-                <div class="col-md-4 col-right-footer">
+                <div class="col-md-3 col-right-footer">
                     <h4 class="stext-301 cl0 p-b-8">
                         Phương thức thanh toán
                     </h4>
@@ -179,6 +200,9 @@
                     </ul>
                 </div>
             </div>
+        </div>
+
+        </div>
         </div>
 
     </footer>
@@ -225,30 +249,27 @@
     @*<script src="https://code.jquery.com/jquery-3.4.0.min.js"
         integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
         crossorigin="anonymous"></script>*@
-    <script src="~/themes/TheGioiDiDong/js/jquery-3.4.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script simpl-append-version="true" src="~/lib/bootstrap4/js/bootstrap.js"></script>
-    <script simpl-append-version="true" src="~/lib/multi-dropdown-menu/js/bootstrap-4-navbar.js"></script>
+    <inline-script src="/themes/TheGioiDiDong/js/jquery-3.4.0.min.js"></inline-script>
+    <inline-script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></inline-script>
+    <inline-script src="/lib/bootstrap4/js/bootstrap.min.js"></inline-script>
+    @*<inline-script src="/lib/multi-dropdown-menu/js/bootstrap-4-navbar.js"></inline-script>*@
     @*<script simpl-append-version="true" src="~/lib/matchheight/jquery.matchHeight.js"></script>*@
-    <script simpl-append-version="true" src="~/lib/toastr/build/toastr.min.js"></script>
+    @*<script simpl-append-version="true" src="~/lib/toastr/build/toastr.min.js"></script>*@
     <script simpl-append-version="true" src="~/lib/bootstrap-star-rating/js/star-rating.js"></script>
     @if (CultureInfo.CurrentCulture.Name == "vi-VN")
     {
         <script simpl-append-version="true" src="~/lib/bootstrap-star-rating/js/locales/vi-vn.js"></script>
     }
-    <script src="~/themes/TheGioiDiDong/libs/OwlCarousel/dist/owl.carousel.min.js"></script>
-    <script simpl-append-version="true" src="~/themes/CozaStore/vendor/animsition/js/animsition.min.js"></script>
-    <script simpl-append-version="true" src="~/themes/CozaStore/vendor/slick/slick.min.js"></script>
-    <script simpl-append-version="true" src="~/themes/CozaStore/js/slick-custom.js"></script>
-    <script simpl-append-version="true" src="~/themes/TheGioiDiDong/js/thegioididong.js"></script>
-    <script simpl-append-version="true" src="~/modules/core/main.js"></script>
-    <script simpl-append-version="true" src="~/modules/shoppingcart/add-to-cart.js"></script>
-    <script simpl-append-version="true" src="~/modules/productcomparison/product-comparison.js"></script>
+    <inline-script src="/themes/TheGioiDiDong/libs/OwlCarousel/dist/owl.carousel.min.js"></inline-script>
+    @*<script simpl-append-version="true" src="~/themes/CozaStore/vendor/animsition/js/animsition.min.js"></script>
+        <script simpl-append-version="true" src="~/themes/CozaStore/vendor/slick/slick.min.js"></script>
+        <script simpl-append-version="true" src="~/themes/TheGioiDiDong/js/slick-custom.min.js"></script>*@
+    <inline-script simpl-append-version="true" src="/themes/TheGioiDiDong/js/thegioididong.min.js"></inline-script>
+    @*<script simpl-append-version="true" src="~/modules/core/main.min.js"></script>*@
+    <inline-script simpl-append-version="true" src="/modules/shoppingcart/add-to-cart.min.js"></inline-script>
+    @*<script simpl-append-version="true" src="~/modules/productcomparison/product-comparison.js"></script>*@
     @RenderSection("scripts", required: false)
-    @if (Context.Request.Path == "/")
-    {
-        <script simpl-append-version="true" src='~/themes/TheGioiDiDong/images/cdn/v2015/Scripts/desktop/V5/home.min.js'></script>
-    }
+
 
 </body>
 </html>
