@@ -39,8 +39,8 @@ namespace SimplCommerce.Module.Cms.Areas.Cms.Controllers
             var path = _hostingEnvironment.WebRootPath + "\\user-content";
             var root = new RootVolume(path
               ,
-                $"https://{uri.Authority}/user-content/",
-                $"https://{uri.Authority}/el-finder/file-system/thumb/")
+                $"{Request.Scheme}://{uri.Authority}/user-content/",
+                $"{Request.Scheme}://{uri.Authority}/el-finder/file-system/thumb/")
             {
                 //IsReadOnly = !User.IsInRole("Administrators")
                 IsReadOnly = false, // Can be readonly according to user's membership permission
