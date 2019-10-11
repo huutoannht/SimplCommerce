@@ -18541,3 +18541,6 @@ img.media-object {
     float: left;
     width: 130px;
 }
+.als-viewport {
+    min-height: 95px!important;
+}
