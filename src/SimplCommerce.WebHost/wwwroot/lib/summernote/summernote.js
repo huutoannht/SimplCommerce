@@ -1746,66 +1746,66 @@
             });
             // Extends plugins for adding readmore.
             //  - plugin is external module for customizing.
-            $.extend($.summernote.plugins, {
-                /**
-                  * @param {Object} context - context object has status of editor.
-                  */
-                'elfinder': function (context) {
-                    var self = this;
+            //$.extend($.summernote.plugins, {
+            //    /**
+            //      * @param {Object} context - context object has status of editor.
+            //      */
+            //    'elfinder': function (context) {
+            //        var self = this;
 
-                    // ui has renders to build ui elements.
-                    //  - you can create a button with `ui.button`
-                    var ui = $.summernote.ui;
+            //        // ui has renders to build ui elements.
+            //        //  - you can create a button with `ui.button`
+            //        var ui = $.summernote.ui;
 
-                    // add elfinder button
-                    context.memo('button.elfinder', function () {
-                        // create button
-                        var button = ui.button({
-                            contents: '<i class="fa fa-list-alt"/> File Manager',
-                            tooltip: 'elfinder',
-                            click: function () {
-                              //  $(this).closest('.note-editor').parent().children('.summernote');
-                                elfinderDialog();
-                            }
-                        });
+            //        // add elfinder button
+            //        context.memo('button.elfinder', function () {
+            //            // create button
+            //            var button = ui.button({
+            //                contents: '<i class="fa fa-list-alt"/> File Manager',
+            //                tooltip: 'elfinder',
+            //                click: function () {
+            //                  //  $(this).closest('.note-editor').parent().children('.summernote');
+            //                    elfinderDialog();
+            //                }
+            //            });
 
-                        // create jQuery object from button instance.
-                        var $elfinder = button.render();
-                        return $elfinder;
-                    });
+            //            // create jQuery object from button instance.
+            //            var $elfinder = button.render();
+            //            return $elfinder;
+            //        });
 
-                    function elfinderDialog() {
-                        context.invoke('editor.saveRange');
-                        var fm = $('<div/>').dialogelfinder({
-                            url: '/el-finder/file-system/connector', // change with the url of your connector
-                            lang: 'vi',
-                            width: 840,
-                            height: 450,
-                            destroyOnClose: false,
-                            getFileCallback: function (files, fm) {
-                                debugger
-                                context.invoke('editor.insertImage', files.url);
-                                context.invoke('editor.restoreRange');
-                                //fm.remove();
-                            },
-                            commandsOptions: {
-                                getfile: {
-                                    oncomplete: 'close',
-                                    folders: false
-                                }
-                            }
-                        }).dialogelfinder('instance');
-                    }
+            //        function elfinderDialog() {
+            //            context.invoke('editor.saveRange');
+            //            var fm = $('<div/>').dialogelfinder({
+            //                url: '/el-finder/file-system/connector', // change with the url of your connector
+            //                lang: 'vi',
+            //                width: 840,
+            //                height: 450,
+            //                destroyOnClose: false,
+            //                getFileCallback: function (files, fm) {
+            //                    debugger
+            //                    context.invoke('editor.insertImage', files.url);
+            //                    context.invoke('editor.restoreRange');
+            //                    //fm.remove();
+            //                },
+            //                commandsOptions: {
+            //                    getfile: {
+            //                        oncomplete: 'close',
+            //                        folders: false
+            //                    }
+            //                }
+            //            }).dialogelfinder('instance');
+            //        }
 
-                    // This methods will be called when editor is destroyed by $('..').summernote('destroy');
-                    // You should remove elements on `initialize`.
-                    //this.destroy = function () {
-                    //    this.$panel.remove();
-                    //    this.$panel = null;
-                    //};
-                }
+            //        // This methods will be called when editor is destroyed by $('..').summernote('destroy');
+            //        // You should remove elements on `initialize`.
+            //        //this.destroy = function () {
+            //        //    this.$panel.remove();
+            //        //    this.$panel = null;
+            //        //};
+            //    }
 
-            });
+            //});
             var modules = $.extend({}, this.options.modules, $.summernote.plugins || {});
 
 

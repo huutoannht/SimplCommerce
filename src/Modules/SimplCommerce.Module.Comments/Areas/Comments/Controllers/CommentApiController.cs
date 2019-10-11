@@ -27,7 +27,7 @@ namespace SimplCommerce.Module.Comments.Areas.Comments.Controllers
         [HttpGet]
         public ActionResult Get(int status, int numRecords)
         {
-            var reviewStatus = (CommentStatus) status;
+            var reviewStatus = (CommentStatus)status;
             if ((numRecords <= 0) || (numRecords > 100))
             {
                 numRecords = 5;
@@ -56,7 +56,7 @@ namespace SimplCommerce.Module.Comments.Areas.Comments.Controllers
         [HttpPost("grid")]
         public ActionResult List([FromBody] SmartTableParam param)
         {
-            var query = _commentRepository.List();
+            var query = _commentRepository.List().Where(m=>m.Status != (CommentStatus)(-1));
 
             if (param.Search.PredicateObject != null)
             {
@@ -75,7 +75,7 @@ namespace SimplCommerce.Module.Comments.Areas.Comments.Controllers
 
                 if (search.Status != null)
                 {
-                    var status = (CommentStatus) search.Status;
+                    var status = (CommentStatus)search.Status;
                     query = query.Where(x => x.Status == status);
                 }
 
@@ -124,14 +124,30 @@ namespace SimplCommerce.Module.Comments.Areas.Comments.Controllers
 
             if (Enum.IsDefined(typeof(CommentStatus), statusId))
             {
-                comment.Status = (CommentStatus) statusId;
+                comment.Status = (CommentStatus)statusId;
                 _commentRepository.SaveChanges();
 
                 await _commentRepository.SaveChangesAsync();
                 return Accepted();
             }
 
-            return BadRequest(new {Error = "unsupported order status"});
+            return BadRequest(new { Error = "unsupported order status" });
+        }
+        [HttpPost("delete/{id}")]
+        public async Task<IActionResult> Delete(long id)
+        {
+            var comment = _commentRepository.Query().FirstOrDefault(x => x.Id == id);
+            if (comment == null)
+            {
+                return NotFound();
+            }
+
+            comment.Status = (CommentStatus)(-1);
+            _commentRepository.SaveChanges();
+
+            await _commentRepository.SaveChangesAsync();
+            return Accepted();
+
         }
     }
 }

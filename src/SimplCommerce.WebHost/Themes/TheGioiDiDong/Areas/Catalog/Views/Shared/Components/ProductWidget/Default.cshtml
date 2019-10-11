@@ -1,6 +1,7 @@
 ﻿@model SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels.ProductWidgetComponentVm
+
     <!-- home products -->
-<div class="row navigat ">
+@*<div class="row navigat ">
     <h2>@Model.WidgetName</h2>
     <div class="viewallcat">
         @foreach (var brand in Model.Brands)
@@ -20,4 +21,160 @@
             <partial name="/Themes/TheGioiDiDong/Areas/Catalog/Views/Shared/_ProductThumbnail.cshtml" model="product" />
         </div>
     }
-</div>
+</div>*@
+
+<section class="product-home">
+    <div class="container">
+        <div class="pro-head d-flex justify-content-between">
+            <div class="title">
+                <h3><a href="laptop-cu/c2b8dc.html?filter=%2C539%2C">@Model.WidgetName</a></h3>
+            </div>
+            <div class="filter-price d-flex align-items-center">
+                <span>Mức giá:</span>
+                <ul class="d-flex m-0">
+                    <li><a href="laptop-cu/c2c888.html?filter=%2C539%2C&amp;max=15000000&amp;min=10000000">10 Triệu - 15 Triệu</a></li>
+                    <li><a href="laptop-cu/c25fd2.html?filter=%2C539%2C&amp;min=15000000">Trên 15 Triệu</a></li>
+                </ul>
+            </div>
+        </div>
+   
+            <div class="row homeproduct">
+                @foreach (var product in Model.Products)
+                {
+                    <div class="col-sm-6 col-md-2 item-product">
+                        <partial name="/Themes/TheGioiDiDong/Areas/Catalog/Views/Shared/_ProductThumbnail.cshtml" model="product" />
+                    </div>
+                }
+            </div>
+
+            @*<div class="p-item p-item-1 d-flex flex-wrap">
+            <div class="p-img">
+                <a href="moi-100-full-box-lenovo-ideapad-l340-15irh-81lk007hvn-intel-core-i5/p4516.html"><img src="media/product/pro_poster_4516.jpg" alt="[Mới 100% Full box] Lenovo Ideapad L340 15IRH 81LK007HVN  - Intel Core i5" style="height: auto; width: auto;"></a>
+            </div>
+        </div>
+
+
+
+        <div class="p-item js-p-item">
+            <div class="p-img">
+                <a href="moi-100-fullbox-laptop-acer-aspire-a715-72g-50na-intel-core-i5/p4786.html" class="p-img">
+                    <img src="media/product/pro_poster_4786.jpg" alt="[Mới 100% Fullbox] Laptop Acer Aspire A715-72G-50NA - Intel Core i5" style="height: auto; width: auto;">
+                </a>
+            </div>
+
+            <div class="p-emtry">
+                <a href="moi-100-fullbox-laptop-acer-aspire-a715-72g-50na-intel-core-i5/p4786.html" class="p-name">[Mới 100% Fullbox] Laptop Acer Aspire A715-72G-50NA - Intel Core i5</a>
+                <span class="p-summary">
+
+
+                    Laptop Gaming giá cực tốt<br>
+                </span>
+                <span class="p-price">Liên Hệ</span>
+            </div>
+            <div class="p-hover">
+                <a href="%7b%7bproductUrl%7d%7d.html" class="p-name">[Mới 100% Fullbox] Laptop Acer Aspire A715-72G-50NA - Intel Core i5</a>
+                <span class="p-price">Liên Hệ</span>
+                <p class="mb-0"><strong>Bảo hành: </strong> <span></span></p><p>✅Bảo hành&nbsp; chính hãng Acer Việt Nam 12 tháng -&nbsp;<a href="page/chinh-sach-bao-hanh.html" target="_blank">Xem chính sách</a></p>
+                <p>✅Giá ở trên đã bao gồm 10% VAT</p>
+                <p>✅Miễn phí vận chuyển trong bán kính 3km từ cửa hàng Laptop88 gần nhất</p><p></p>
+                <p><strong>Kho hàng: </strong> <span>Hết Hàng</span></p>
+                <hr>
+                <div class="p-summary">
+                    <strong>Mô tả tóm tắt</strong>
+
+
+                    Laptop Gaming giá cực tốt<br>
+
+                </div>
+                <hr>
+            </div>
+        </div>
+
+
+
+        <div class="p-item js-p-item">
+            <div class="p-img">
+                <a href="moi-100-full-box-lenovo-legion-y540-15irh-81sy0037vn-intel-core-i5/p4518.html" class="p-img">
+                    <img src="media/product/pro_poster_4518.jpg" alt="[Mới 100% Full box] Lenovo Legion Y540 15IRH 81SY0037VN - Intel Core i5" style="height: auto; width: auto;">
+                </a>
+            </div>
+
+            <div class="p-emtry">
+                <a href="moi-100-full-box-lenovo-legion-y540-15irh-81sy0037vn-intel-core-i5/p4518.html" class="p-name">[Mới 100% Full box] Lenovo Legion Y540 15IRH 81SY0037VN - Intel Core i5</a>
+                <span class="p-summary">
+
+
+                    Laptop gaming chính hãng Lenovo Việt Nam. Cấu hình khủng: Intel Core i5 9300H, RAM 8GB DDR4, Card đồ họa NVidia GTX 1650 4GB<br>
+                </span>
+                <span class="p-price">Liên Hệ</span>
+            </div>
+            <div class="p-hover">
+                <a href="%7b%7bproductUrl%7d%7d.html" class="p-name">[Mới 100% Full box] Lenovo Legion Y540 15IRH 81SY0037VN - Intel Core i5</a>
+                <span class="p-price">Liên Hệ</span>
+                <p class="mb-0"><strong>Bảo hành: </strong> <span></span></p><p>✅Bảo hành chính hãng Lenovo Việt Nam 12 tháng -&nbsp;<a href="page/chinh-sach-bao-hanh.html" target="_blank">Xem chính sách</a></p>
+                <p>✅Giá ở trên đã bao gồm 10% VAT</p>
+                <p>✅Miễn phí vận chuyển trong bán kính 3km từ cửa hàng Laptop88 gần nhất</p>
+                <p>&nbsp;</p><p></p>
+                <p><strong>Kho hàng: </strong> <span>Hết Hàng</span></p>
+                <hr>
+                <div class="p-summary">
+                    <strong>Mô tả tóm tắt</strong>
+
+
+                    Laptop gaming chính hãng Lenovo Việt Nam. Cấu hình khủng: Intel Core i5 9300H, RAM 8GB DDR4, Card đồ họa NVidia GTX 1650 4GB<br>
+
+                </div>
+                <hr>
+            </div>
+        </div>
+
+
+
+        <div class="p-item js-p-item item_end">
+            <div class="p-img">
+                <a href="moi-100-full-box-laptop-gaming-msi-gf63-9rcx-646vn-intel-core-i5/p4616.html" class="p-img">
+                    <img src="media/product/pro_poster_4616.jpg" alt="[Mới 100% Full-Box] Laptop Gaming MSI GF63 9RCX - 646VN - Intel Core i5" style="height: auto; width: auto;">
+                </a>
+            </div>
+
+            <div class="p-emtry">
+                <a href="moi-100-full-box-laptop-gaming-msi-gf63-9rcx-646vn-intel-core-i5/p4616.html" class="p-name">[Mới 100% Full-Box] Laptop Gaming MSI GF63 9RCX - 646VN - Intel Core i5</a>
+                <span class="p-summary">
+
+
+                    Laptop Gaming cực mạnh mẽ MSI với viền màn hình siêu mỏng
+                    <br>
+
+                    ✔Tặng RAM 8GB (đã cập nhật vào cấu hình)
+                    <br>
+
+                    ✔Tặng thẻ Gold Member trị giá 3.000.000đ<br>
+                </span>
+                <span class="p-price">Liên Hệ</span>
+            </div>
+            <div class="p-hover">
+                <a href="%7b%7bproductUrl%7d%7d.html" class="p-name">[Mới 100% Full-Box] Laptop Gaming MSI GF63 9RCX - 646VN - Intel Core i5</a>
+                <span class="p-price">Liên Hệ</span>
+                <p class="mb-0"><strong>Bảo hành: </strong> <span></span></p><p>✅Bảo hành 24 tháng chính hãng-&nbsp;<a href="page/chinh-sach-bao-hanh.html" target="_blank">Xem chính sách</a></p>
+                <p>✅Giá ở trên đã bao gồm 10% VAT</p>
+                <p>✅Miễn phí vận chuyển trong bán kính 3km từ cửa hàng Laptop88 gần nhất</p><p></p>
+                <p><strong>Kho hàng: </strong> <span>Hết Hàng</span></p>
+                <hr>
+                <div class="p-summary">
+                    <strong>Mô tả tóm tắt</strong>
+
+
+                    Laptop Gaming cực mạnh mẽ MSI với viền màn hình siêu mỏng
+                    <br>
+
+                    ✔Tặng RAM 8GB (đã cập nhật vào cấu hình)
+                    <br>
+
+                    ✔Tặng thẻ Gold Member trị giá 3.000.000đ<br>
+
+                </div>
+                <hr>
+            </div>
+        </div>*@
+    </div>
+</section>

@@ -6,6 +6,7 @@
 
         Approved = 5,
 
-        NotApproved = 8
+        NotApproved = 8,
+        Deleted = -1
     }
 }

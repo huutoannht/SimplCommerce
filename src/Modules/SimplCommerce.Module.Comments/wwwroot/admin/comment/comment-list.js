@@ -28,5 +28,12 @@
                     comment.status = 'Approved';
                 });
         };
+        vm.delete = function approve(comment) {
+            commentService.deleteComment(comment.id)
+                .then(function (result) {
+                    comment.status = 'Deleted';
+                    vm.getComments(vm.tableStateRef);
+                });
+        };
     }
 })();

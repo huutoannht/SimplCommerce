@@ -1,16 +1,94 @@
-﻿
-
-@model SimplCommerce.Module.Core.Areas.Core.ViewModels.HomeViewModel
+﻿@model SimplCommerce.Module.Core.Areas.Core.ViewModels.HomeViewModel
 @{
     ViewData["Title"] = "Home Page";
 }
-<section>
-    <partial name="_WidgetInstances" model="Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeFeatured)" />
-    <aside class="homenews">
-        @await Component.InvokeAsync("NewItem")
-    </aside>
-    <div class="clr"></div>
-    <div class="laptopcate filtered">
+<link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/TheGioiDiDong/css/style-home.css" />
+<style>
+    @@media (min-width: 768px) {
+        .col-md-2 {
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 19.999999%;
+            flex: 0 0 19.999999%;
+            max-width: 29.666667%;
+        }
+    }
+
+    @@media (max-width: 768px) {
+        .col-sm-6 {
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+    }
+
+    .laptopnews .newslist h3 {
+        display: block;
+        overflow: hidden;
+        font-size: 18px;
+        font-weight: 600;
+        text-transform: none;
+        line-height: 1.3;
+        margin: 0;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    .laptopnews .newslist figure {
+        display: block;
+        overflow: hidden;
+        font-size: 14px;
+        color: #333;
+        line-height: 1.3;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        padding-top: 5px;
+    }
+
+    .laptopnews .newslist .tempvideo {
+        float: left;
+        position: relative;
+        width: 142px;
+        height: 69px;
+        margin-right: 15px;
+        margin-bottom: 0;
+        overflow: hidden;
+    }
+
+        .laptopnews .newslist .tempvideo img {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+    .laptopnews .newslist li {
+        padding-bottom: 10px;
+        float: left;
+    }
+
+    img.first-new {
+        width: 100%;
+        height: auto;
+    }
+
+    .laptopnews h3 {
+        font-size: 16px;
+        font-weight: bold;
+        display: block;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        margin-top: 20px;
+    }
+</style>
+@section head {
+    <link simpl-append-version="true" rel="stylesheet" href="~/lib/nouislider/distribute/nouislider.min.css" />
+}
+@await Component.InvokeAsync("CarouselWidgetCategory")
+
+<div class="laptopcate filtered">
+    <div class="row">
         <div class="laptopmanu">
             <a href="macbook-cu"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Macbook44-b_34.png" /></a>
             <a href="laptop-dell-cu"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Dell44-b_34.jpg" /></a>
@@ -19,8 +97,95 @@
             @*<a href="acer"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Acer44-b_37.jpg" /></a>*@
             <a href="laptop-lenovo-cu"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Lenovo44-b_36.jpg" /></a>
             <a href="laptop-msi-cu"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/MSI44-b_30.png" /></a>
+            <a href="laptop-hoc-tap-van-phong">Học tập văn phòng</a>
+            <a href="laptop-do-hoa-ky-thuat">Đồ họa- Kỹ thuật</a>
+            <a href="laptop-gaming">Laptop gaming</a>
+            <a href="laptop-cao-cap-sang-trong">Cao cấp - Sang trọng</a>
         </div>
-    </div>
-    ﻿<partial name="_WidgetInstances" model="Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeMainContent)" />
 
-</section>
+    </div>
+    <div class="row">
+        @*<div class="col-md-12">
+                <div class="row mb-3">
+                    <div class="col-sm-4 category-result">
+                        <h2>LAPTOP NỔI BẬT NHẤT</h2>
+                    </div>
+                    <div class="col-sm-8">
+                        <ul class="list-inline clear-both product-list-display-options">
+                            <li class="sort-by">
+                                Mức giá:
+                            </li>
+                            <li class="sort-by"> <a href="/laptop-cu-duoi-5-trieu" rel="nofolow"> Dưới 5 triệu</a> </li>
+                            <li>  <a href="/laptop-cu-5-10-trieu" rel="nofolow">5 - 10 triệu</a></li>
+                            <li class="sort-by">
+                                <a href="/laptop-cu-tren-10-trieu" rel="nofolow">Trên 10 triệu</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="row product-list ">
+                    <div class="homeproduct">
+
+                    </div>
+
+                </div>
+
+
+            </div>  ﻿*@
+        <partial name="_WidgetInstances" model="Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeMainContent)" />
+        <div class="laptopacc">
+            <h3>PHẦN MỀM - PHỤ KIỆN LAPTOP</h3>
+            <div class="accessories-content">
+                <a href="/phu-kien?category=chuot-may-tinh">
+                    <span>
+                        <img class=" lazyloaded" data-original="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/chuot-ban-phim.jpg" src="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/chuot-ban-phim.jpg">
+                    </span>
+                    <h4>Chuột, bàn phím</h4>
+                </a>
+                <a href="/phu-kien?category=usb-/-o-cung">
+                    <span>
+                        <img class=" lazyloaded" data-original="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/usb.jpg" src="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/usb.jpg">
+                    </span>
+                    <h4>USB / Ổ cứng</h4>
+                </a>
+                <a href="/phu-kien?category=tai-nghe">
+                    <span>
+                        <img class=" lazyloaded" data-original="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/tai-nghe.jpg" src="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/tai-nghe.jpg">
+                    </span>
+                    <h4>Tai nghe</h4>
+                </a>
+                <a href="/phu-kien?category=loa">
+                    <span>
+                        <img class=" lazyloaded" data-original="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/loa.jpg" src="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/loa.jpg">
+                    </span>
+                    <h4>Loa</h4>
+                </a>
+                <a href="/phu-kien?key=mieng-dan-laptop">
+                    <span>
+                        <img class=" lazyloaded" data-original="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/mieng-dan-laptop.jpg" src="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/mieng-dan-laptop.jpg">
+                    </span>
+                    <h4>Miếng dán laptop</h4>
+                </a>
+            </div>
+
+        </div>
+        @await Component.InvokeAsync("NewItemHome")
+    </div>
+
+</div>
+
+
+@section scripts {
+    <inline-script src="/lib/wnumb/wNumb.js"></inline-script>
+    <inline-script src="/lib/nouislider/distribute/nouislider.min.js"></inline-script>
+
+    <script>
+        var productFilter = {};
+        var count = 2;
+
+
+    </script>
+    <inline-script src="/themes/TheGioiDiDong/js/category.min.js"></inline-script>
+    <inline-script src='/themes/TheGioiDiDong/images/cdn/v2015/Scripts/desktop/V5/home.min.js'></inline-script>
+}

@@ -51,7 +51,8 @@
             <td>{{comment.createdOn | date:'medium'}}</td>
             <td>{{comment.type}}</td>
             <td>{{comment.status }}</td>
-            <td><button ng-if="comment.status ==='Pending'" title="Approve" ng-click="vm.approve(comment)" class="btn btn-primary btn-xs">{{::vm.translate.get('Approve')}}</button></td>
+            <td><button ng-if="comment.status ==='Pending'" title="Approve" ng-click="vm.approve(comment)" class="btn btn-primary btn-xs">{{::vm.translate.get('Approve')}}</button>
+                <button  ng-if="comment.status !='Deleted'"  title="Xóa" ng-click="vm.delete(comment)" class="btn btn-warning btn-xs">{{::vm.translate.get('Xóa')}}</button></td>
         </tr>
     </tbody>
     <tbody ng-show="vm.isLoading">

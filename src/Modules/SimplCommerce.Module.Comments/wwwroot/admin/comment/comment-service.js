@@ -9,7 +9,8 @@
         var service = {
             getComments: getComments,
             getCommentsForGrid: getCommentsForGrid,
-            changeCommentStatus: changeCommentStatus
+            changeCommentStatus: changeCommentStatus,
+            deleteComment: deleteComment
         };
 
         return service;
@@ -24,6 +25,9 @@
 
         function changeCommentStatus(commentId, statusId) {
             return $http.post('api/comments/change-status/' + commentId, statusId);
+        }
+        function deleteComment(commentId) {
+            return $http.post('api/comments/delete/' + commentId);
         }
     }
 })();

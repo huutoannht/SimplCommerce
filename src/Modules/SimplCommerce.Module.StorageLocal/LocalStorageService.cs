@@ -23,11 +23,11 @@ namespace SimplCommerce.Module.StorageLocal
 
             using (var image = Image.Load(mediaBinaryStream))
             {
-                if (typeCrop == "product")
-                {
-                    image.Mutate(x => x
-                .Resize(180, 180));
-                }
+                //if (typeCrop == "product")
+                //{
+                //    image.Mutate(x => x
+                //.Resize(180, 180));
+                //}
 
                 image.Save(filePath);
 
