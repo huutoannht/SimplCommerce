@@ -7,7 +7,15 @@
     @RenderSection("additionalMeta", false)
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta content="INDEX,FOLLOW" name="robots" />
+    @if (string.IsNullOrEmpty(ViewBag.Host))
+    {
+        <meta content="NOINDEX,NOFOLLOW" name="robots" />
+    }
+    else
+    {
+        <meta content="INDEX,FOLLOW" name="robots" />
+    }
+
     <meta name="copyright" content="Công ty TNHH MTV Quốc tế Phúc Thành Đạt" />
     <meta name="author" content="Công ty  TNHH MTV Quốc tế Phúc Thành Đạt" />
     <meta http-equiv="audience" content="General" />
@@ -26,25 +34,25 @@
     <link href="~/themes/TheGioiDiDong/css/style.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     @*<link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/CozaStore/fonts/font-awesome-4.7.0/css/font-awesome.min.css" />*@
-    <inline-style  rel="stylesheet" type="text/css" href="~/themes/CozaStore/fonts/iconic/css/material-design-iconic-font.min.css" />
+    <inline-style rel="stylesheet" type="text/css" href="~/themes/CozaStore/fonts/iconic/css/material-design-iconic-font.min.css" />
     @*<link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/CozaStore/fonts/linearicons-v1.0.0/icon-font.min.css" />*@
     <inline-style rel="stylesheet" type="text/css" href="/lib/bootstrap-star-rating/css/star-rating.css" />
-  @*  <link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/TheGioiDiDong/vendor/animate/animate.css" />*@
+    @*  <link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/TheGioiDiDong/vendor/animate/animate.css" />*@
     @*<link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/TheGioiDiDong/vendor/css-hamburgers/hamburgers.min.css" />
-    <link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/TheGioiDiDong/vendor/animsition/css/animsition.min.css" />*@
+        <link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/TheGioiDiDong/vendor/animsition/css/animsition.min.css" />*@
     @*<link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/TheGioiDiDong/vendor/slick/slick.css" />*@
     <inline-style rel="stylesheet" type="text/css" href="/themes/TheGioiDiDong/css/util.min.css" />
     <inline-style rel="stylesheet" type="text/css" href="/themes/TheGioiDiDong/css/main.min.css" />
     <inline-style rel="stylesheet" type="text/css" href="/themes/TheGioiDiDong/css/simpl.min.css" />
     <!-- Google Tag Manager -->
     <script>
-    (function (w, d, s, l, i) {
-        w[l] = w[l] || []; w[l].push({
-            'gtm.start':
-                new Date().getTime(), event: 'gtm.js'
-        }); var f = d.getElementsByTagName(s)[0],
-            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-5XT43BN');</script>
     <!-- End Google Tag Manager -->
 

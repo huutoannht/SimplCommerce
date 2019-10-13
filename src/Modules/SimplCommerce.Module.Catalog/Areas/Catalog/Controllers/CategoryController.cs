@@ -43,6 +43,10 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
         public IActionResult CategoryDetail(long id, SearchOption searchOption)
         {
             var host = "https://" + Request.Host + Request.Path;
+            if (id == 7)
+            {
+                host = "https://" + Request.Host+"/";
+            }
             ViewBag.Host = host;
             var category = _categoryRepository.Query().FirstOrDefault(x => x.Id == id);
             if (category == null)
@@ -150,10 +154,16 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
         public IActionResult CategoryHome(long id, SearchOption searchOption)
         {
             var host = "https://" + Request.Host + Request.Path;
+            
+           
             ViewBag.Host = host;
             if (id == 0)
             {
                 id = 7;
+            }
+            if (id == 7)
+            {
+                host = "https://" + Request.Host;
             }
             var model = new ProductsByCategory();
             string cacheKey = "Product" + id;

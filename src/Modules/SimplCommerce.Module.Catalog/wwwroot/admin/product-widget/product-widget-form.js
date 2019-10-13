@@ -24,6 +24,8 @@
 
         vm.save = function save() {
             var promise;
+            debugger
+            vm.widgetInstance.UploadImage = vm.UploadImage;
             if (vm.isEditMode) {
                 promise = productWidgetService.editProductWidget(vm.widgetInstance);
             } else {

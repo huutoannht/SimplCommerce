@@ -13,5 +13,9 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels
         public ProductWidgetOrderBy OrderBy { get; set; }
 
         public bool FeaturedOnly { get; set; }
+
+        public string Image { get; set; }
+
+        public string ImageUrl { get; set; }
     }
 }
