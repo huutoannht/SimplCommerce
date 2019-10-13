@@ -86,6 +86,7 @@
     <None Remove="Themes\TheGioiDiDong\Areas\News\Views\Shared\Components\NewItem\Default.cshtml" />
     <None Remove="wwwroot\googlefbc689ad90567857.html" />
     <None Remove="wwwroot\themes\Gallery\public\additional-methods.min.js" />
+    <None Remove="wwwroot\themes\Gallery\public\assets\images\icons\ja-brow.jpg" />
     <None Remove="wwwroot\themes\Gallery\public\assets\js\additional-methods.min.js" />
     <None Remove="wwwroot\themes\Gallery\public\assets\js\jquery.blockUI.js" />
     <None Remove="wwwroot\themes\Gallery\public\assets\js\jquery.validate.js" />

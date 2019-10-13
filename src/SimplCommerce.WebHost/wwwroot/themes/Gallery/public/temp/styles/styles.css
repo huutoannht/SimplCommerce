@@ -1459,8 +1459,9 @@ nav a:visited {
     text-decoration: none;
 }
 nav .brand {
-    background: #252525;
-    padding: 1rem 0.875rem 0.655rem !important;
+    /*background: #252525;*/
+    /*padding: 1rem 0.875rem 0.655rem !important;*/
+    padding-left:30px;
     display: inline-block;
     max-width: 14.38rem;
     -webkit-transition: padding, 0.3s;
