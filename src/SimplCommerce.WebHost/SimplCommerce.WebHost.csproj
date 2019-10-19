@@ -46,6 +46,7 @@
     <None Remove="Themes\TheGioiDiDong\Areas\News\Views\Shared\Components\NewItem\Default.cshtml" />
     <None Remove="wwwroot\googlefbc689ad90567857.html" />
     <None Remove="wwwroot\themes\TheGioiDiDong\css\style-home.css" />
+    <None Remove="wwwroot\themes\TheGioiDiDong\images\banner.png" />
     <None Remove="wwwroot\themes\TheGioiDiDong\images\bg_title.jpg" />
     <None Remove="wwwroot\themes\TheGioiDiDong\js\category.js" />
     <None Remove="wwwroot\themes\TheGioiDiDong\js\jquery-3.4.0.min.js" />

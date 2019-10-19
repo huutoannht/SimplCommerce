@@ -45,7 +45,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
                 DisplayOrder = widgetInstance.DisplayOrder,
                 Setting = JsonConvert.DeserializeObject<ProductWidgetSetting>(widgetInstance.Data)
             };
-            model.Setting.ImageUrl = _mediaService.GetMediaUrl(model.Setting.Image);
+           // model.Setting.ImageUrl = _mediaService.GetMediaUrl(model.Setting.Image);
             var enumMetaData = MetadataProvider.GetMetadataForType(typeof(ProductWidgetOrderBy));
             return Json(model);
         }
@@ -55,14 +55,6 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (model.UploadImage != null)
-                {
-                    if (!string.IsNullOrWhiteSpace(model.Setting.Image))
-                    {
-                        await _mediaService.DeleteMediaAsync(model.Setting.Image);
-                    }
-                    model.Setting.Image = await SaveFile(model.UploadImage);
-                }
 
                 var widgetInstance = new WidgetInstance
                 {
@@ -94,14 +86,6 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
                 widgetInstance.PublishStart = model.PublishStart;
                 widgetInstance.PublishEnd = model.PublishEnd;
                 widgetInstance.DisplayOrder = model.DisplayOrder;
-                if (model.UploadImage != null)
-                {
-                    if (!string.IsNullOrWhiteSpace(model.Setting.Image))
-                    {
-                        await _mediaService.DeleteMediaAsync(model.Setting.Image);
-                    }
-                    model.Setting.Image = await SaveFile(model.UploadImage);
-                }
 
                 widgetInstance.Data = JsonConvert.SerializeObject(model.Setting);
 

@@ -5,7 +5,7 @@
         .controller('ProductWidgetFormCtrl', ProductWidgetFormCtrl);
 
     /* @ngInject */
-    function ProductWidgetFormCtrl($state, $stateParams, productWidgetService, categoryService, translateService) {
+    function ProductWidgetFormCtrl($state, $stateParams, productWidgetService, categoryService, translateService, summerNoteService) {
         var vm = this;
         vm.translate = translateService;
         vm.widgetZones = [];
@@ -21,37 +21,48 @@
         vm.openCalendar = function (e, picker) {
             vm[picker].open = true;
         };
-
+        function uploadImageProduct() {
+            if (vm.UploadImage) {
+                summerNoteService.upload(vm.UploadImage)
+                    .then(function (response) {
+                        vm.widgetInstance.setting.imageUrl = response.data;
+                    });
+            } else {
+                Promise.resolve();
+            }
+        }
         vm.save = function save() {
             var promise;
-            debugger
-            vm.widgetInstance.UploadImage = vm.UploadImage;
-            if (vm.isEditMode) {
-                promise = productWidgetService.editProductWidget(vm.widgetInstance);
-            } else {
-                promise = productWidgetService.createProductWidget(vm.widgetInstance);
-            }
-
-            promise
-                .then(function (result) {
-                    $state.go('widget');
-                })
-                .catch(function (response) {
-                    var error = response.data;
-                    vm.validationErrors = [];
-                    if (error && angular.isObject(error)) {
-                        for (var key in error) {
-                            vm.validationErrors.push(error[key][0]);
-                        }
+            uploadImageProduct()
+                .then(function (response) {
+                    if (vm.isEditMode) {
+                        promise = productWidgetService.editProductWidget(vm.widgetInstance);
                     } else {
-                        vm.validationErrors.push('Could not product display widget.');
+                        promise = productWidgetService.createProductWidget(vm.widgetInstance);
                     }
+                }).then(function (result) {
+                    promise
+                        .then(function (result) {
+                            $state.go('widget');
+                        })
+                        .catch(function (response) {
+                            var error = response.data;
+                            vm.validationErrors = [];
+                            if (error && angular.isObject(error)) {
+                                for (var key in error) {
+                                    vm.validationErrors.push(error[key][0]);
+                                }
+                            } else {
+                                vm.validationErrors.push('Could not product display widget.');
+                            }
+                        });
                 });
         };
 
         function init() {
             productWidgetService.getWidgetZones().then(function (result) {
                 vm.widgetZones = result.data;
+                debugger
             });
 
             categoryService.getCategories().then(function (result) {

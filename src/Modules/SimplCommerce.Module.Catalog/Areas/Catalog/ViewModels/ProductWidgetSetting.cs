@@ -17,5 +17,12 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels
         public string Image { get; set; }
 
         public string ImageUrl { get; set; }
+
+        public string AltImage { get; set; }
+
+        public string HrefImage { get; set; }
+
+        public string LinkWidget { get; set; }
+
     }
 }
