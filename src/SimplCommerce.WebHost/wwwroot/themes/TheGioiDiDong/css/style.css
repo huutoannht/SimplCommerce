@@ -3238,6 +3238,10 @@ li .btn_buynow {
 }
 
 @media ( max-width: 1199px ) and ( min-width: 992px ) {
+    .laptoptop #owl-laptop img {height: auto !important; width: 100%;}
+    .laptoptop .col-md-8 {flex: 0 0 69.666667%;max-width: 69.666667%;}
+    .laptoptop .col-md-4 {flex: 0 0 30.333333%;max-width: 30.333333%;}
+    .twobanner a img{height: auto;}
     .laptopacc a {
         margin-right: 11px;
     }

@@ -49,6 +49,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Components
             model.Brands = query.Select(m => m.Brand).Distinct().ToList();
             model.Products = query
               .Include(x => x.ThumbnailImage)
+               .Include(x => x.AttributeValues)
               .OrderByDescending(x => x.CreatedOn)
               .Take(model.Setting.NumberOfProducts)
               .Select(x => ProductThumbnail.FromProduct(x)).ToList();

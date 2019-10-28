@@ -48,6 +48,17 @@
     <None Remove="wwwroot\themes\TheGioiDiDong\css\style-home.css" />
     <None Remove="wwwroot\themes\TheGioiDiDong\images\banner.png" />
     <None Remove="wwwroot\themes\TheGioiDiDong\images\bg_title.jpg" />
+    <None Remove="wwwroot\themes\TheGioiDiDong\images\home-acer.png" />
+    <None Remove="wwwroot\themes\TheGioiDiDong\images\home-asus.png" />
+    <None Remove="wwwroot\themes\TheGioiDiDong\images\home-dell.png" />
+    <None Remove="wwwroot\themes\TheGioiDiDong\images\home-hp.png" />
+    <None Remove="wwwroot\themes\TheGioiDiDong\images\home-lenono.png" />
+    <None Remove="wwwroot\themes\TheGioiDiDong\images\home-lg.png" />
+    <None Remove="wwwroot\themes\TheGioiDiDong\images\home-macbook.png" />
+    <None Remove="wwwroot\themes\TheGioiDiDong\images\home-thinkpad.png" />
+    <None Remove="wwwroot\themes\TheGioiDiDong\images\logo.html" />
+    <None Remove="wwwroot\themes\TheGioiDiDong\images\logoe26a.html" />
+    <None Remove="wwwroot\themes\TheGioiDiDong\images\logo_favicon.1.jpg" />
     <None Remove="wwwroot\themes\TheGioiDiDong\js\category.js" />
     <None Remove="wwwroot\themes\TheGioiDiDong\js\jquery-3.4.0.min.js" />
     <None Remove="wwwroot\themes\TheGioiDiDong\js\lazysizes.min.js" />
