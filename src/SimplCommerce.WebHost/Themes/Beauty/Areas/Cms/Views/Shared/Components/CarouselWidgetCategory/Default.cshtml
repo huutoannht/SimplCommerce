@@ -1,0 +1,23 @@
+﻿@model SimplCommerce.Module.Cms.Areas.Cms.ViewModels.CarouselWidgetViewComponentVm
+<div class="laptoptop no-margin-left  no-margin-right">
+    <div class="row">
+        <div class="col-md-8">
+            <div id="owl-laptop">
+                @foreach (var item in Model.Items)
+                {
+                    <a aria-label='slide' href='@item.TargetUrl'>
+                        <img src='@item.Image' alt='@item.LinkText' class="img-responsive" style="height:170px;"/>
+                    </a>
+                }
+            </div>
+        </div>
+        <div class="col-md-4 no-padding">
+            <div class="right">
+                <div class="twobanner">
+                    <a aria-label="slide" href="windows-ban-quyen.html#banquyen" onclick=""  class="img-responsive"><img src="~/Themes/TheGioiDiDong/images/cdn/qcao/13_12_2018_14_31_02_May-tinh-bang-800-170.png" alt="2018 - NO - Sticky Laptop"></a>
+                    <a aria-label="slide" href="" onclick=""><img src="~/Themes/TheGioiDiDong/images/cdn/qcao/29_11_2018_09_15_28_sticky-nh-390-80.png" alt="2018 - DE - Sticky Laptop" class="img-responsive"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

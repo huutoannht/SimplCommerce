@@ -1,0 +1,40 @@
+﻿@model SimplCommerce.Module.Cms.Areas.Cms.ViewModels.PageForm
+
+<section id="footer-widget">
+
+    <div class="container">
+        <div class="footer-item-wrap">
+            <div class="footer-item">
+                <div class="footer-logo">
+                    <img src="~/themes/Gallery/public/assets/images/icons/logo_JABrows.jpg" alt="Footer logo">
+                </div>
+                <div class="footer-socal">
+                    <a target="_blank" href="#" class="socal">
+                        <span class="icon icon-facebook"></span>
+                    </a>
+                    <a target="_blank" href="#" class="socal">
+                        <span class="icon icon-instagram"></span>
+                    </a>
+                </div>
+            </div>
+            @Html.Raw(Model?.Body)
+        </div>
+    </div>
+</section>
+
+<div class='cookie-consent-container'>
+    <p>
+        We use cookies to understand how you use our site and to improve your experience. To learn more,<a target='blank' href='~/themes/Gallery/public/uploads/documents/Cookie_policy.pdf'>click here</a>
+        By continuing to use our site, you accept our use of cookies, revised<a target='blank' href='~/themes/Gallery/public/uploads/documents/Terms_and_conditions_en.pdf'>Privacy Policy and Terms of Use.</a>
+    </p>
+    <div>
+        <input type='button' value='I accept' class='btn-agree' />
+        <i class='icon icon-times'></i>
+    </div>
+</div>
+
+<footer>
+    <div class="container footer-cont">
+        <span class="copy">&copy; 2019 JA Brows. All Rights Reserved.</span>
+    </div>
+</footer>

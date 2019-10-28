@@ -1,0 +1,31 @@
+﻿@model IEnumerable<SimplCommerce.Module.News.Areas.News.ViewModels.NewsItemVm>
+@if (Model.Count() > 0)
+{
+    <section id="vedio">
+        <div class="container">
+            <div class="vedio-wrap">
+                <div class="vedio-header">
+                    Tin tức
+                </div>
+                <div class="vedio-item-wrap">
+                    @foreach (var item in Model)
+                    {
+                        <div class="vedio-item">
+                            <a href="@item.Slug" data-webm="" class="html5lightbox">
+                                <img src="@item.ThumbnailImageUrl" alt="@item.Name" title="@item.Name">
+                                <div class="vedio-inner-content">
+                                    <div class="play-btn">
+                                        <div data-icon="D" class="icon"></div>
+                                    </div>
+                                    <div class="vedio-title">
+                                        @item.Name
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+}

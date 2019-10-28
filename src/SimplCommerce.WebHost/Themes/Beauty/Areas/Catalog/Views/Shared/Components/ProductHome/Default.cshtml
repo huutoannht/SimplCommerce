@@ -1,0 +1,35 @@
+﻿@model SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels.ProductWidgetComponentVm
+
+
+                
+<section id="treatments">
+    <div class="container treatments-cont">
+        <div class="treatments-row">
+
+
+            <div class="treatments-img-block first">
+                @foreach (var product in Model.Products)
+                {
+                    <div class="treatments-img">
+                        <a href="@product.Slug">
+                            <img src="@product.ThumbnailUrl" alt=" @product.Name" title=" @product.Name">
+                        </a>
+                        <div class="treatments-img-content">
+                            <div class="treatments-img-title">
+                                <a href="@product.Slug">
+                                    @product.Name
+                                </a>
+                            </div>
+
+                            <div class="treatment-img-text">
+                                Giá: @product.Price.ToString("C0")
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+
+        </div>
+    </div>
+</section>

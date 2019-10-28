@@ -1,0 +1,83 @@
+﻿@using System.Threading.Tasks
+@addTagHelper *, SimplCommerce.Infrastructure
+
+@model SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels.ProductsByCategory
+@{
+    ViewBag.Title = Model.CategoryMetaTitle ?? Model.CategoryName;
+}
+@section additionalMeta {
+    <meta name="title" content="@ViewBag.Title" />
+    <meta name="keywords" content="@Model.CategoryMetaKeywords" />
+    <meta name="description" content="@Model.CategoryMetaDescription" />
+}
+<section id="online-training" class="online-training titulinis">
+    <div class="border-bottom-header">Sản phẩm</div>
+
+    <div class="small-header">
+        Learn about a range of international trainings we offer.
+    </div>
+</section>
+
+<div id="online-training-item-wrap" class="turinys">
+    <div class="container">
+        <div class="turinio-online-item-row">
+
+            <div class="gallery-wrap">
+                @foreach (var product in Model.Products)
+                {
+                    <div class="online-training-item">
+                        <div class="item-header">
+                            <div class="vedio-item">
+
+                                <a href="@product.Slug" class="">
+                                    <img src="@product.ThumbnailUrl" alt="@product.Name" title="@product.Name">
+                                </a>
+
+                            </div>
+                        </div>
+
+                        <div class="item-content">
+                            @product.Name
+                        </div>
+
+                        <div class="item-footer">
+
+                            <a href="@product.Slug" class="learn-more turinys">
+                                <span class="btn-text">Xem thêm</span>
+                                <span class="icon icon-btn-right"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                }
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<section id="privet-training">
+    <div class="container">
+        <div class="privet-training-wrap">
+            <div class="privet-training-img">
+                <div class="icon icon-user-female"></div>
+            </div>
+
+            <div class="privet-trainign-content">
+                <div class="private-training-header">Private trainings</div>
+
+                <div class="private-training-list-header">
+                    We also offer private trainings:
+                </div>
+
+                <ol>                        <li>You can come to our place – Lithuania, Kaunas. The date we decide together when is possible.</li>                        <li>If we are doing group classes in other countries and you want to set a private class in one of them, then                            please contact us email <a href="#">info@balticbrows.com</a> . We will accept of course if we will have enough time.</li>                    </ol>
+
+                <div class="contact-btn">
+                    <a href="mailto:info@balticbrows.com">Contact us</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

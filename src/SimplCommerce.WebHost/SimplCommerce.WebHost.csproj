@@ -42,6 +42,44 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Themes\Beauty\Areas\Catalog\Views\Category\CategoryDetail.cshtml" />
+    <None Remove="Themes\Beauty\Areas\Catalog\Views\Category\CategoryDetailLoadMore.cshtml" />
+    <None Remove="Themes\Beauty\Areas\Catalog\Views\Product\ProductDetail.cshtml" />
+    <None Remove="Themes\Beauty\Areas\Catalog\Views\Shared\Components\CategoryBreadcrumb\Default.cshtml" />
+    <None Remove="Themes\Beauty\Areas\Catalog\Views\Shared\Components\CategoryMenu\Default.cshtml" />
+    <None Remove="Themes\Beauty\Areas\Catalog\Views\Shared\Components\CategoryWidget\Default.cshtml" />
+    <None Remove="Themes\Beauty\Areas\Catalog\Views\Shared\Components\FooterPage\Default.cshtml" />
+    <None Remove="Themes\Beauty\Areas\Catalog\Views\Shared\Components\NewItem\Default.cshtml" />
+    <None Remove="Themes\Beauty\Areas\Catalog\Views\Shared\Components\ProductHome\Default.cshtml" />
+    <None Remove="Themes\Beauty\Areas\Catalog\Views\Shared\Components\ProductWidget\Default.cshtml" />
+    <None Remove="Themes\Beauty\Areas\Catalog\Views\Shared\Components\SimpleProductWidget\Default.cshtml" />
+    <None Remove="Themes\Beauty\Areas\Catalog\Views\Shared\_ProductThumbnail.cshtml" />
+    <None Remove="Themes\Beauty\Areas\Catalog\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\Beauty\Areas\Catalog\Views\_ViewStart.cshtml" />
+    <None Remove="Themes\Beauty\Areas\Cms\Views\Shared\Components\CarouselWidgetCategory\Default.cshtml" />
+    <None Remove="Themes\Beauty\Areas\Cms\Views\Shared\Components\CarouselWidget\Default.cshtml" />
+    <None Remove="Themes\Beauty\Areas\Cms\Views\Shared\Components\FooterPage\Default.cshtml" />
+    <None Remove="Themes\Beauty\Areas\Cms\Views\Shared\Components\Menu\Default.cshtml" />
+    <None Remove="Themes\Beauty\Areas\Cms\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\Beauty\Areas\Core\Views\Home\About.cshtml" />
+    <None Remove="Themes\Beauty\Areas\Core\Views\Home\Contact.cshtml" />
+    <None Remove="Themes\Beauty\Areas\Core\Views\Home\Index.cshtml" />
+    <None Remove="Themes\Beauty\Areas\Core\Views\Home\Treatment.cshtml" />
+    <None Remove="Themes\Beauty\Areas\Core\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\Beauty\Areas\Core\Views\_ViewStart.cshtml" />
+    <None Remove="Themes\Beauty\Areas\News\Views\Shared\Components\NewItemHome\Default.cshtml" />
+    <None Remove="Themes\Beauty\Areas\News\Views\Shared\Components\NewItemRelate\Default.cshtml" />
+    <None Remove="Themes\Beauty\Areas\News\Views\Shared\Components\NewItem\Default.cshtml" />
+    <None Remove="Themes\Beauty\Areas\ProductRecentlyViewed\Views\Shared\Components\ProductRecentlyViewed\Default.cshtml" />
+    <None Remove="Themes\Beauty\Areas\ProductRecentlyViewed\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\Beauty\Areas\Search\Views\Shared\Components\SearchForm\Default.cshtml" />
+    <None Remove="Themes\Beauty\Areas\Search\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\Beauty\Areas\ShoppingCart\Views\Shared\Components\CartBadge\Default.cshtml" />
+    <None Remove="Themes\Beauty\Areas\ShoppingCart\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\Beauty\theme.json" />
+    <None Remove="Themes\Beauty\Views\Shared\_Layout.cshtml" />
+    <None Remove="Themes\Beauty\Views\Shared\_LoginPartial.cshtml" />
+    <None Remove="Themes\Beauty\Views\_ViewImports.cshtml" />
     <None Remove="Themes\Gallery\Areas\Catalog\Views\Category\CategoryDetail.cshtml" />
     <None Remove="Themes\Gallery\Areas\Catalog\Views\Category\CategoryDetailLoadMore.cshtml" />
     <None Remove="Themes\Gallery\Areas\Catalog\Views\Product\ProductDetail.cshtml" />
@@ -151,6 +189,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\themes\Beauty\css\" />
+    <Folder Include="wwwroot\themes\Beauty\fonts\" />
+    <Folder Include="wwwroot\themes\Beauty\images\" />
+    <Folder Include="wwwroot\themes\Beauty\js\" />
     <Folder Include="wwwroot\themes\Gallery\css\" />
     <Folder Include="wwwroot\themes\Gallery\fonts\" />
     <Folder Include="wwwroot\themes\Gallery\images\" />
