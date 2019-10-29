@@ -10,7 +10,7 @@
         vm.translate = translateService;
         vm.widgetZones = [];
         vm.sorts = [];
-        vm.widgetInstance = { widgetZoneId: 1, displayOrder: 0, setting: { numberOfProducts: 4 }, publishStart: new Date() };
+        vm.widgetInstance = { widgetZoneId: 1, displayOrder: 0, setting: { numberOfProducts: 8 }, publishStart: new Date() };
         vm.widgetInstanceId = $stateParams.id;
         vm.isEditMode = vm.widgetInstanceId > 0;
         vm.categories = [];
@@ -26,9 +26,10 @@
                 summerNoteService.upload(vm.UploadImage)
                     .then(function (response) {
                         vm.widgetInstance.setting.imageUrl = response.data;
+                        return Promise.resolve();
                     });
             } else {
-                Promise.resolve();
+               return Promise.resolve();
             }
         }
         vm.save = function save() {
