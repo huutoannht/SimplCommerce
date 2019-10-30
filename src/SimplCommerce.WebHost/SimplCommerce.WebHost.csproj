@@ -123,6 +123,13 @@
     <None Remove="Themes\TheGioiDiDong\Areas\News\Views\Shared\Components\NewItemRelate\Default.cshtml" />
     <None Remove="Themes\TheGioiDiDong\Areas\News\Views\Shared\Components\NewItem\Default.cshtml" />
     <None Remove="wwwroot\googlefbc689ad90567857.html" />
+    <None Remove="wwwroot\themes\Beauty\img\banner\banner-khoa-hoc.jpg" />
+    <None Remove="wwwroot\themes\Beauty\img\banner\banner-khoa-hoc2.jpg" />
+    <None Remove="wwwroot\themes\Beauty\img\banner\banner-khoa-hoc3.jpg" />
+    <None Remove="wwwroot\themes\Beauty\img\banner\banner-khoa-hoc4.jpg" />
+    <None Remove="wwwroot\themes\Beauty\img\banner\banner-khoa-hoc5.jpg" />
+    <None Remove="wwwroot\themes\Beauty\img\banner\banner-khoa-hoc6.jpg" />
+    <None Remove="wwwroot\themes\Beauty\img\banner\banner.jpg" />
     <None Remove="wwwroot\themes\Gallery\public\additional-methods.min.js" />
     <None Remove="wwwroot\themes\Gallery\public\assets\images\icons\ja-brow.jpg" />
     <None Remove="wwwroot\themes\Gallery\public\assets\js\additional-methods.min.js" />

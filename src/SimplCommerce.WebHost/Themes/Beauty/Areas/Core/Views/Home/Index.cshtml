@@ -1,1013 +1,293 @@
 ﻿@model SimplCommerce.Module.Core.Areas.Core.ViewModels.HomeViewModel
 
-<section id="first-block">
+@{
+    ViewData["Title"] = "Trang chủ";
+}
 
-    <div class="container map-position-help">
-        <div id="banner-block">
-            <partial name="_WidgetInstances" model="Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeFeatured)" />
-            ﻿<partial name="_WidgetInstances" model="Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeMainContent)" />
-        </div>
+@section featured {
+    <partial name="_WidgetInstances" model="Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeFeatured)" />
+}
 
-    </div><!-- Container end-->
+<partial name="_WidgetInstances" model="Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeMainContent)" />
 
-</section><!-- First block end-->
-
-<section id="map-block">
-
-    <div class="mapTitle">
-
-        <div class="large-title">
-
-            <div data-icon="L" class="icon globe-icon"></div>
-
-            <h1>Upcoming international training locations</h1>
-
-        </div>
-
-        <div class="small-title">
-
-            <h2>Browse map, Click on pins for more info.</h2>
-
-        </div>
-
-    </div>
-
-    <div id="map"></div>
-
-</section>
-
-<section id="features" style="background-image: url('~/themes/Gallery/public/assets/images/Backgrounds-Banners/Girl_BG.jpg');">
+<partial name="_WidgetInstances" model="Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeAfterMainContent)" />
+<!-- Start Services
+   ============================================= -->
+<div class="services-area inc-icon bg-gray carousel-shadow default-padding">
     <div class="container">
-
-        <div class="logo-features">
-            <img src="~/themes/Gallery/public/assets/images/icons/logo_BalticBrows%2btagline.svg" alt="">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="site-heading text-center">
+                    <h2>Centres of <span>Excellence</span></h2>
+                </div>
+            </div>
         </div>
-
-        @*<div class="feature-wrap">
-            <div class="feature-item" onclick="window.location.href='https://balticbrowsevent.com/en'">
-                <div class="feature-icon">
-                    <div data-icon="]" class="icon"></div>
-                </div>
-
-                <a href="https://balticbrowsevent.com/en" target="_blank">
-                    <div class="feature-title">
-                        PMU Conference
+        <div class="row">
+            <div class="col-md-12">
+                <div class="services-items text-center services-carousel owl-carousel owl-theme">
+                    <!-- Single Item -->
+                    <div class="item">
+                        <div class="info">
+                            <h4>
+                                <a href="#">Body Surgery</a>
+                            </h4>
+                            <div class="overlay">
+                                <i class="flaticon-medical"></i>
+                            </div>
+                            <p>
+                                Attachment astonished to on appearance imprudence so collecting in excellence. Tiled way blind lived whose new. The for fully had she there leave merit enjoy forth.
+                            </p>
+                            <a class="btn btn-theme border circle btn-md" href="#">Read More</a>
+                        </div>
                     </div>
-                </a>
-
-                <div class="feature-des">
-                    Expand your knowledge, strengthen your talent, expand your business!
+                    <!-- End Single Item -->
+                    <!-- Single Item -->
+                    <div class="item">
+                        <div class="info">
+                            <h4>
+                                <a href="#">Dental Care</a>
+                            </h4>
+                            <div class="overlay">
+                                <i class="flaticon-anesthesia"></i>
+                            </div>
+                            <p>
+                                Attachment astonished to on appearance imprudence so collecting in excellence. Tiled way blind lived whose new. The for fully had she there leave merit enjoy forth.
+                            </p>
+                            <a class="btn btn-theme border circle btn-md" href="#">Read More</a>
+                        </div>
+                    </div>
+                    <!-- End Single Item -->
+                    <!-- Single Item -->
+                    <div class="item">
+                        <div class="info">
+                            <h4>
+                                <a href="#">Eye Care</a>
+                            </h4>
+                            <div class="overlay">
+                                <i class="flaticon-anatomy"></i>
+                            </div>
+                            <p>
+                                Attachment astonished to on appearance imprudence so collecting in excellence. Tiled way blind lived whose new. The for fully had she there leave merit enjoy forth.
+                            </p>
+                            <a class="btn btn-theme border circle btn-md" href="#">Read More</a>
+                        </div>
+                    </div>
+                    <!-- End Single Item -->
+                    <!-- Single Item -->
+                    <div class="item">
+                        <div class="info">
+                            <h4>
+                                <a href="#">Blood Cancer</a>
+                            </h4>
+                            <div class="overlay">
+                                <i class="flaticon-lung-cancer"></i>
+                            </div>
+                            <p>
+                                Attachment astonished to on appearance imprudence so collecting in excellence. Tiled way blind lived whose new. The for fully had she there leave merit enjoy forth.
+                            </p>
+                            <a class="btn btn-theme border circle btn-md" href="#">Read More</a>
+                        </div>
+                    </div>
+                    <!-- End Single Item -->
+                    <!-- Single Item -->
+                    <div class="item">
+                        <div class="info">
+                            <h4>
+                                <a href="#">Neurology Sargery</a>
+                            </h4>
+                            <div class="overlay">
+                                <i class="flaticon-thinking"></i>
+                            </div>
+                            <p>
+                                Attachment astonished to on appearance imprudence so collecting in excellence. Tiled way blind lived whose new. The for fully had she there leave merit enjoy forth.
+                            </p>
+                            <a class="btn btn-theme border circle btn-md" href="#">Read More</a>
+                        </div>
+                    </div>
+                    <!-- End Single Item -->
                 </div>
-
             </div>
-            <div class="feature-item" onclick="window.location.href='certification.html'">
-                <div class="feature-icon">
-                    <div data-icon="*" class="icon"></div>
-                </div>
-
-                <a href="certification.html">
-                    <div class="feature-title">
-                        Certification
-                    </div>
-                </a>
-
-                <div class="feature-des">
-                    Achieve your mastership with our certification program
-                </div>
-
-            </div>
-            <div class="feature-item" onclick="window.location.href='galleries.html'">
-                <div class="feature-icon">
-                    <div data-icon="^" class="icon"></div>
-                </div>
-
-                <a href="galleries.html">
-                    <div class="feature-title">
-                        Gallery
-                    </div>
-                </a>
-
-                <div class="feature-des">
-                    Look at our happy clients pictures before and after!
-                </div>
-
-            </div>
-            <div class="feature-item" onclick="window.location.href='international-trainings.html'">
-                <div class="feature-icon">
-                    <div data-icon="M" class="icon"></div>
-                </div>
-
-                <a href="international-trainings.html">
-                    <div class="feature-title">
-                        International Trainings
-                    </div>
-                </a>
-
-                <div class="feature-des">
-                    Manual or machine techniques &ndash; basics &amp; masterclasses
-                </div>
-
-            </div>
-            <div class="feature-item" onclick="window.location.href='trainings.html'">
-                <div class="feature-icon">
-                    <div data-icon="a" class="icon"></div>
-                </div>
-
-                <a href="trainings.html">
-                    <div class="feature-title">
-                        Online Trainings
-                    </div>
-                </a>
-
-                <div class="feature-des">
-                    Manual or machine techniques &ndash; basics &amp; masterclasses
-                </div>
-
-            </div>
-            <div class="feature-item" onclick="window.location.href='trainings.html'">
-                <div class="feature-icon">
-                    <div data-icon="K" class="icon"></div>
-                </div>
-
-                <a href="trainings.html">
-                    <div class="feature-title">
-                        Private Trainings
-                    </div>
-                </a>
-
-                <div class="feature-des">
-                    All trainings possible
-                </div>
-
-            </div>
-            <div class="feature-item" onclick="window.location.href='treatments.html'">
-                <div class="feature-icon">
-                    <div data-icon="O" class="icon"></div>
-                </div>
-
-                <a href="treatments.html">
-                    <div class="feature-title">
-                        Treatments
-                    </div>
-                </a>
-
-                <div class="feature-des">
-                    Set your appointment
-                </div>
-
-            </div>
-            <div class="feature-item" onclick="window.location.href='http://shopbalticbrows.com/'">
-                <div class="feature-icon">
-                    <div data-icon="S" class="icon"></div>
-                </div>
-
-                <a href="http://shopbalticbrows.com/" target="_blank">
-                    <div class="feature-title">
-                        Products
-                    </div>
-                </a>
-
-                <div class="feature-des">
-                    Shop at our products in www.shopbalticbrows.com
-                </div>
-
-            </div>
-        </div>*@
-    </div>
-</section>
-@*<section id="two-col">
-    <div class="container">
-
-        <div class="item-wrap">
-
-            <div class="item" style="border-right: 1px solid #ccc;">
-
-                <div class="item-icon-wrap">
-                    <div data-icon="K" class="icon"></div>
-                </div>
-
-                <div class="item-content">
-
-                    <div class="item-title">Interested in being a model during course? </div>
-
-                    <div class="item-des">
-                        <p>Would you like to participate in our trainings as a treatment model for student? In exchange, the treatment will be absolutely free to you!</p>
-                    </div>
-
-                    <div class="item-btn">
-                        <a href="#modal_interested_model" rel="modal:open" target="_blank">
-                            <!--modal_interested_model-->
-                            Contact us
-                        </a>
-                    </div>
-
-                </div>
-
-            </div>
-            <div class="item">
-
-                <div class="item-icon-wrap">
-                    <div data-icon="N" class="icon"></div>
-                </div>
-
-                <div class="item-content">
-
-                    <div class="item-title">Interested in hosting a course? Interested in partnership details?</div>
-
-                    <div class="item-des">
-                        <p>Fill in contact form here.</p>
-                    </div>
-
-                    <div class="item-btn">
-                        <a href="#modal_hosting_course" rel="modal:open">
-                            <!--modal_interested_model-->
-                            Contact us
-                        </a>
-                    </div>
-
-                </div>
-
-            </div>
-
         </div>
-
     </div>
-</section>*@
-
-
-<div class="box_modal modal_success" id="modal_success_model" style="margin-top: 150px; display: none;">
-
-    <a href="javascript:" class="close_modal"><span class="icon icon-times"></span></a>
-
-    <div class="title"><span class="icon icon_checked" data-icon="1"></span>Request sent successfully!</div>
-
-    <div class="text">
-        Your request was sent successfully .<br>We will contact you with further information.<br>If you have any questions, you can contact us anytime!<br />Thank you!
-        <a href="javascript:" onclick="close_modal();" class="button">Close</a>
-    </div>
-
 </div>
-
-<section id="modal_interested_model">
-    <form method="POST" action="https://balticbrows.com/en/interested-in-beigng-a-model/submit" accept-charset="UTF-8" id="form-interested-in-beigng-a-model" name="model-form" enctype="multipart/form-data">
-        <input name="_token" type="hidden" value="LPDotKUGvXSIszbGv23jqh8VPx0irbQQckanfDZg">
-        <div class="title">Interested in beign a model?</div>
-
-        <label for="name">
-            I want to be a model in a course for student<span class="required">*</span>
-            <select name="" id="select_location">
-                <!--there is a jquery code that use this id "select_location"-->
-                <option value="260">Microblading 6D eyebrows (10 August, 2019)</option>
-                <option value="269">Classic eyelashes extension basic (1 August, 2019)</option>
-                <option value="270">Russian volume eyelash extension masterclass (3 August, 2019)</option>
-                <option value="276">Ombre brows machine basic  (21 August, 2019)</option>
-                <option value="277">Microblading 6D eyebrows (28 August, 2019)</option>
-                <option value="278">Classic eyelashes extension seminar (12 August, 2019)</option>
-                <option value="236">Baltic hair strokes masterclass (14 August, 2019)</option>
-                <option value="245">Ombre brows, Ombre eyeliner, Ombre lips masterclass (18 August, 2019)</option>
-                <option value="246">Ombre machine masterclass (7 November, 2019)</option>
-                <option value="249">Microblading 6D eyebrows (10 November, 2019)</option>
-                <option value="250">Ombre machine masterclass (12 November, 2019)</option>
-                <option value="251">Lips masterclass (14 November, 2019)</option>
-                <option value="252">Ombre machine masterclass (16 November, 2019)</option>
-                <option value="253">Ombre eyeliner masterclass (13 November, 2019)</option>
-                <option value="other_location">Other location</option>
-            </select>
-        </label>
-
-        <label for="name" id="other_location">
-            Other location<span class="required">*</span>
-            <input type="text" name="other_location" id="other_location" value="">
-        </label>
-
-        <label for="full_name" class="half_label padding_right label_field">
-            Full name<span class="required">*</span>
-            <input type="text" name="full_name" id="full_name" value="">
-        </label>
-
-        <label for="age" class="half_label padding_left label_field">
-            Age<span class="required">*</span>
-            <input type="text" name="age" id="age" value="">
-        </label>
-
-        <label for="email" class="half_label padding_right label_field">
-            Email<span class="required">*</span>
-            <input type="text" name="email" id="email" value="">
-        </label>
-
-        <label for="phone" class="half_label padding_left label_field">
-            Phone<span class="required">*</span>
-            <input type="text" name="phone" id="phone" value="">
-        </label>
-
-        <label for="">
-
-            Do you have old permanent makeup?<span class="required">*</span>
-
-            <div class="box_items">
-
-                <div class="item">
-                    <label for="old_yes">
-                        <input type="radio" name="old_permanent" id="old_yes" value="1" checked>
-                        <span></span>
-                        Yes
-                    </label>
+<!-- End Services -->
+<!-- Start Testimonials
+============================================= -->
+<div class="testimonials-area carousel-shadow bg-gray default-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="site-heading text-center">
+                    <h2>Nhận xét <span>đối tác</span></h2>
                 </div>
-
-                <div class="item">
-                    <label for="old_no">
-                        <input type="radio" name="old_permanent" id="old_no" value="0">
-                        <span></span>
-                        No
-                    </label>
-                </div>
-
-            </div>
-
-        </label>
-
-
-        <div class="box_upload">
-            <div class="item_upload">
-                <input type="file" name="files[]" id="files" multiple data-max="5" accept='image/*'>
-
-                <div id="load_names" style="display: none"></div>
-
-                <button type="button" class="btn_file"><span class="icon icon-paperclip"></span>Attach photos</button>
-                <span class="text">(5 photos max)</span>
-
             </div>
         </div>
-
-        <label for="">
-            My skin type<span class="required">*</span>
-
-            <div class="box_items">
-
-                <div class="item">
-                    <label for="normal">
-                        <input type="radio" name="skin_type" id="normal" value="Normal" checked>
-                        <span></span>
-                        Normal
-                    </label>
-                </div>
-
-                <div class="item">
-                    <label for="oily">
-                        <input type="radio" name="skin_type" id="oily" value="Oily">
-                        <span></span>
-                        Oily
-                    </label>
-                </div>
-
-                <div class="item">
-                    <label for="dry">
-                        <input type="radio" name="skin_type" id="dry" value="Dry">
-                        <span></span>
-                        Dry
-                    </label>
-                </div>
-
-                <div class="item">
-                    <label for="problematic">
-                        <input type="radio" name="skin_type" id="problematic" value="Problematic">
-                        <span></span>
-                        Problematic
-                    </label>
-                </div>
-
-            </div>
-
-        </label>
-
-        <label for="" class="margin-top">
-            Interested in treatment<span class="required">*</span>
-
-            <div class="box_items">
-                <div class="item_checkbox half">
-                    <label for="eyebrows_ombreEyebrows Ombre">
-                        <input type="checkbox" name="treatment[]" id="eyebrows_ombreEyebrows Ombre" value="eyebrows_ombre" checked>
-                        <span><i class="icon icon-check checked"></i></span>
-                        Eyebrows Ombre
-                    </label>
-                </div>
-                <div class="item_checkbox half">
-                    <label for="eyebrows_strokesEyebrows Strokes">
-                        <input type="checkbox" name="treatment[]" id="eyebrows_strokesEyebrows Strokes" value="eyebrows_strokes">
-                        <span><i class="icon icon-check checked"></i></span>
-                        Eyebrows Strokes
-                    </label>
-                </div>
-                <div class="item_checkbox half">
-                    <label for="lipsLips">
-                        <input type="checkbox" name="treatment[]" id="lipsLips" value="lips">
-                        <span><i class="icon icon-check checked"></i></span>
-                        Lips
-                    </label>
-                </div>
-                <div class="item_checkbox half">
-                    <label for="eyelinerEyeliner">
-                        <input type="checkbox" name="treatment[]" id="eyelinerEyeliner" value="eyeliner">
-                        <span><i class="icon icon-check checked"></i></span>
-                        Eyeliner
-                    </label>
-                </div>
-                <div class="item_checkbox half">
-                    <label for="breast_aureolaBreast aureola">
-                        <input type="checkbox" name="treatment[]" id="breast_aureolaBreast aureola" value="breast_aureola">
-                        <span><i class="icon icon-check checked"></i></span>
-                        Breast aureola
-                    </label>
-                </div>
-                <div class="item_checkbox half">
-                    <label for="scalp_pigmentationScalp pigmentation">
-                        <input type="checkbox" name="treatment[]" id="scalp_pigmentationScalp pigmentation" value="scalp_pigmentation">
-                        <span><i class="icon icon-check checked"></i></span>
-                        Scalp pigmentation
-                    </label>
-                </div>
-
-            </div>
-
-        </label>
-
-        <label for="notes" class="margin-top">
-            Notes
-            <textarea name="notes" id="notes"></textarea>
-        </label>
-
-        <label for="">
-            Contraindications<span class="required">*</span>
-
-            <div class="box_items">
-                <div class="item_checkbox">
-                    <label for="no_contraindication">
-                        <input type="checkbox" name="permanent[]" id="no_contraindication" value="no_contraindication" checked>
-                        <span><i class="icon icon-check checked"></i></span>
-                        No contraindication
-                    </label>
-                </div>
-                <div class="item_checkbox">
-                    <label for="pregnancy">
-                        <input type="checkbox" name="permanent[]" id="pregnancy" value="pregnancy">
-                        <span><i class="icon icon-check checked"></i></span>
-                        Pregnancy
-                    </label>
-                </div>
-                <div class="item_checkbox">
-                    <label for="nursing">
-                        <input type="checkbox" name="permanent[]" id="nursing" value="nursing">
-                        <span><i class="icon icon-check checked"></i></span>
-                        Nursing
-                    </label>
-                </div>
-                <div class="item_checkbox">
-                    <label for="drugs_alcohol">
-                        <input type="checkbox" name="permanent[]" id="drugs_alcohol" value="drugs_alcohol">
-                        <span><i class="icon icon-check checked"></i></span>
-                        Drugs/Alcohol
-                    </label>
-                </div>
-
-                <div class="item_checkbox">
-
-                    <div class="all_items">
-
-                        <div class="item_checkbox">
-                            <label for="oily_skin">
-                                <input type="checkbox" name="permanent[]" id="oily_skin" value="oily_skin">
-                                <span><i class="icon icon-check checked"></i></span>
-                                Oily skin (for microblanding or other strokes techniques only)
-                            </label>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="testimonial-items testimonial-carousel owl-carousel owl-theme">
+                    <!-- Single Item -->
+                    <div class="item">
+                        <div class="content">
+                            <p>
+                                Departure so attention pronounce satisfied daughters am. But shy tedious pressed studied opinion entered windows off. Advantage dependent suspicion convinced provision him yet. Mr immediate remaining conveying allowance do or.
+                            </p>
                         </div>
-                        <div class="item_checkbox">
-                            <label for="cuperosis">
-                                <input type="checkbox" name="permanent[]" id="cuperosis" value="cuperosis">
-                                <span><i class="icon icon-check checked"></i></span>
-                                Cuperosis (except breast aureola and tricopigementation)
-                            </label>
+                        <div class="provider">
+                            <div class="thumb">
+                                <img src="~/themes/Beauty/img/team/6.jpg" alt="Thumb">
+                            </div>
+                            <div class="info">
+                                <h4>Angle Natasha</h4>
+                                <h5>patient of <span>surgery</span></h5>
+                            </div>
                         </div>
-                        <div class="item_checkbox">
-                            <label for="redness">
-                                <input type="checkbox" name="permanent[]" id="redness" value="redness">
-                                <span><i class="icon icon-check checked"></i></span>
-                                Redness on the face (except breast aureola and tricopigementation)
-                            </label>
-                        </div>
-                        <div class="item_checkbox">
-                            <label for="retain">
-                                <input type="checkbox" name="permanent[]" id="retain" value="retain">
-                                <span><i class="icon icon-check checked"></i></span>
-                                Retain A within last 2 weeks
-                            </label>
-                        </div>
-                        <div class="item_checkbox">
-                            <label for="anaemia">
-                                <input type="checkbox" name="permanent[]" id="anaemia" value="anaemia">
-                                <span><i class="icon icon-check checked"></i></span>
-                                Anaemia
-                            </label>
-                        </div>
-                        <div class="item_checkbox">
-                            <label for="prologend">
-                                <input type="checkbox" name="permanent[]" id="prologend" value="prologend">
-                                <span><i class="icon icon-check checked"></i></span>
-                                Prolonged bleeding
-                            </label>
-                        </div>
-                        <div class="item_checkbox">
-                            <label for="low_height_blood">
-                                <input type="checkbox" name="permanent[]" id="low_height_blood" value="low_height_blood">
-                                <span><i class="icon icon-check checked"></i></span>
-                                Low/ high blood pressure
-                            </label>
-                        </div>
-                        <div class="item_checkbox">
-                            <label for="heart_bood_problems">
-                                <input type="checkbox" name="permanent[]" id="heart_bood_problems" value="heart_bood_problems">
-                                <span><i class="icon icon-check checked"></i></span>
-                                Heart / blood problems
-                            </label>
-                        </div>
-                        <div class="item_checkbox">
-                            <label for="diabetes">
-                                <input type="checkbox" name="permanent[]" id="diabetes" value="diabetes">
-                                <span><i class="icon icon-check checked"></i></span>
-                                Diabetes
-                            </label>
-                        </div>
-                        <div class="item_checkbox">
-                            <label for="haemophilia">
-                                <input type="checkbox" name="permanent[]" id="haemophilia" value="haemophilia">
-                                <span><i class="icon icon-check checked"></i></span>
-                                Haemophilia
-                            </label>
-                        </div>
-                        <div class="item_checkbox">
-                            <label for="liver_disease">
-                                <input type="checkbox" name="permanent[]" id="liver_disease" value="liver_disease">
-                                <span><i class="icon icon-check checked"></i></span>
-                                Liver disease
-                            </label>
-                        </div>
-                        <div class="item_checkbox">
-                            <label for="epilepsy">
-                                <input type="checkbox" name="permanent[]" id="epilepsy" value="epilepsy">
-                                <span><i class="icon icon-check checked"></i></span>
-                                Epilepsy
-                            </label>
-                        </div>
-                        <div class="item_checkbox">
-                            <label for="hiv">
-                                <input type="checkbox" name="permanent[]" id="hiv" value="hiv">
-                                <span><i class="icon icon-check checked"></i></span>
-                                HIV
-                            </label>
-                        </div>
-                        <div class="item_checkbox">
-                            <label for="hepatitis">
-                                <input type="checkbox" name="permanent[]" id="hepatitis" value="hepatitis">
-                                <span><i class="icon icon-check checked"></i></span>
-                                Hepatitis
-                            </label>
-                        </div>
-                        <div class="item_checkbox">
-                            <label for="cancer_in_the_past">
-                                <input type="checkbox" name="permanent[]" id="cancer_in_the_past" value="cancer_in_the_past">
-                                <span><i class="icon icon-check checked"></i></span>
-                                Cancer in the past 6 months
-                            </label>
-                        </div>
-                        <div class="item_checkbox">
-                            <label for="if_you_have_a_pacemaker">
-                                <input type="checkbox" name="permanent[]" id="if_you_have_a_pacemaker" value="if_you_have_a_pacemaker">
-                                <span><i class="icon icon-check checked"></i></span>
-                                If you have a pacemaker &ndash; we can perform only manual techniques (no device used)
-                            </label>
-                        </div>
-                        <div class="item_checkbox">
-                            <label for="chemical_or_laser">
-                                <input type="checkbox" name="permanent[]" id="chemical_or_laser" value="chemical_or_laser">
-                                <span><i class="icon icon-check checked"></i></span>
-                                Chemical or laser peel within&nbsp; 6 weeks (except breast aureola and tricopigmentation)
-                            </label>
-                        </div>
-                        <div class="item_checkbox">
-                            <label for="aha_preparations">
-                                <input type="checkbox" name="permanent[]" id="aha_preparations" value="aha_preparations">
-                                <span><i class="icon icon-check checked"></i></span>
-                                AHA preparations in the past 2 weeks (except breast aureola and tricopigmentation)
-                            </label>
-                        </div>
-                        <div class="item_checkbox">
-                            <label for="all_types_injections">
-                                <input type="checkbox" name="permanent[]" id="all_types_injections" value="all_types_injections">
-                                <span><i class="icon icon-check checked"></i></span>
-                                All types injections (1 month before and after treatment) (except breast aureola and tricopigmentation)
-                            </label>
-                        </div>
-                        <div class="item_checkbox">
-                            <label for="hypertrophic_scars">
-                                <input type="checkbox" name="permanent[]" id="hypertrophic_scars" value="hypertrophic_scars">
-                                <span><i class="icon icon-check checked"></i></span>
-                                Hypertrophic scars; Keloid scars; moles; birthmarks;
-                            </label>
-                        </div>
-                        <div class="item_checkbox">
-                            <label for="healing_problems">
-                                <input type="checkbox" name="permanent[]" id="healing_problems" value="healing_problems">
-                                <span><i class="icon icon-check checked"></i></span>
-                                Healing problems
-                            </label>
-                        </div>
-                        <div class="item_checkbox">
-                            <label for="eczema_psoriasis">
-                                <input type="checkbox" name="permanent[]" id="eczema_psoriasis" value="eczema_psoriasis">
-                                <span><i class="icon icon-check checked"></i></span>
-                                Eczema, Psoriasis, severe acne, minor skin conditions in brow area
-                            </label>
-                        </div>
-                        <div class="item_checkbox">
-                            <label for="serious_heart">
-                                <input type="checkbox" name="permanent[]" id="serious_heart" value="serious_heart">
-                                <span><i class="icon icon-check checked"></i></span>
-                                Serious heart disorders, blood infections
-                            </label>
-                        </div>
-                        <div class="item_checkbox">
-                            <label for="straight_after_waxing">
-                                <input type="checkbox" name="permanent[]" id="straight_after_waxing" value="straight_after_waxing">
-                                <span><i class="icon icon-check checked"></i></span>
-                                Straight after waxing
-                            </label>
-                        </div>
-                        <div class="item_checkbox">
-                            <label for="autoimmune_disease">
-                                <input type="checkbox" name="permanent[]" id="autoimmune_disease" value="autoimmune_disease">
-                                <span><i class="icon icon-check checked"></i></span>
-                                Autoimmune disease
-                            </label>
-                        </div>
-                        <div class="item_checkbox">
-                            <label for="hyper-pigmentation">
-                                <input type="checkbox" name="permanent[]" id="hyper-pigmentation" value="hyper-pigmentation">
-                                <span><i class="icon icon-check checked"></i></span>
-                                Hyper-pigmentation
-                            </label>
-                        </div>
-                        <div class="item_checkbox">
-                            <label for="using_accutance">
-                                <input type="checkbox" name="permanent[]" id="using_accutance" value="using_accutance">
-                                <span><i class="icon icon-check checked"></i></span>
-                                Using Accutane or other retinoids past 6 months
-                            </label>
-                        </div>
-                        <div class="item_checkbox">
-                            <label for="sunburn">
-                                <input type="checkbox" name="permanent[]" id="sunburn" value="sunburn">
-                                <span><i class="icon icon-check checked"></i></span>
-                                Sunburn
-                            </label>
-                        </div>
-
                     </div>
-                    <a href="javascript:" class="show_more" id="29">Show 28 more</a>
-                </div>
-
-            </div>
-
-        </label>
-
-        <div class="line"></div>
-
-        <label for="">
-
-            <div class="box_items">
-
-                <div class="item_checkbox">
-                    <label for="i_am_18">
-                        <input required type="checkbox" name="i_am_18" id="i_am_18" value="1">
-                        <span><i class="icon icon-check checked"></i></span>
-                        By checking this box I confirm my age is at least 18 years*
-                    </label>
-                </div>
-
-            </div>
-
-        </label>
-        <div class="caption">
-            <script type="text/javascript">var RecaptchaOptions = { "curl_timeout": 1 };</script>
-            <script src='../www.google.com/recaptcha/api6469.js?render=onload'></script>
-            <div class="g-recaptcha" data-sitekey="6LcKmBIUAAAAAPMqzy8Zhne_-AV6_1gT5TNDed9L"></div>
-            <noscript>
-                <div style="width: 302px; height: 352px;">
-                    <div style="width: 302px; height: 352px; position: relative;">
-                        <div style="width: 302px; height: 352px; position: absolute;">
-                            <iframe src="https://www.google.com/recaptcha/api/fallback?k=6LcKmBIUAAAAAPMqzy8Zhne_-AV6_1gT5TNDed9L"
-                                    frameborder="0" scrolling="no"
-                                    style="width: 302px; height:352px; border-style: none;"></iframe>
+                    <!-- End Single Item -->
+                    <!-- Single Item -->
+                    <div class="item">
+                        <div class="content">
+                            <p>
+                                Departure so attention pronounce satisfied daughters am. But shy tedious pressed studied opinion entered windows off. Advantage dependent suspicion convinced provision him yet. Mr immediate remaining conveying allowance do or.
+                            </p>
                         </div>
-                        <div style="width: 250px; height: 80px; position: absolute; border-style: none;
-                  bottom: 21px; left: 25px; margin: 0; padding: 0; right: 25px;">
-                            <textarea id="g-recaptcha-response" name="g-recaptcha-response"
-                                      class="g-recaptcha-response"
-                                      style="width: 250px; height: 80px; border: 1px solid #c1c1c1;
-                         margin: 0; padding: 0; resize: none;"></textarea>
+                        <div class="provider">
+                            <div class="thumb">
+                                <img src="~/themes/Beauty/img/team/7.jpg" alt="Thumb">
+                            </div>
+                            <div class="info">
+                                <h4>John Abraham</h4>
+                                <h5>Dental <span>patients</span></h5>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Item -->
+                    <!-- Single Item -->
+                    <div class="item">
+                        <div class="content">
+                            <p>
+                                Departure so attention pronounce satisfied daughters am. But shy tedious pressed studied opinion entered windows off. Advantage dependent suspicion convinced provision him yet. Mr immediate remaining conveying allowance do or.
+                            </p>
+                        </div>
+                        <div class="provider">
+                            <div class="thumb">
+                                <img src="~/themes/Beauty/img/team/8.jpg" alt="Thumb">
+                            </div>
+                            <div class="info">
+                                <h4>Kriti Sairi</h4>
+                                <h5>patient of <span>surgery</span></h5>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Item -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Testimonials -->
+<!-- Start Blog
+============================================= -->
+<div class="blog-area default-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="site-heading text-center">
+                    <h2>Tin tức <span>mới</span></h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="blog-items">
+                <!-- Single Item -->
+                <div class="col-md-4 single-item">
+                    <div class="item">
+                        <div class="thumb">
+                            <a href="blog-single-right-sidebar.html">
+                                <img src="~/themes/Beauty/img/blog/1.jpg" alt="Thumb">
+                                <div class="post-type">
+                                    <i class="fas fa-images"></i>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="info">
+                            <div class="meta">
+                                <ul>
+                                    <li><a href="#">Admin</a></li>
+                                    <li>15 June, 2019</li>
+                                </ul>
+                            </div>
+                            <h4>
+                                <a href="blog-single-right-sidebar.html">increasing in especially inquietude companions acceptance</a>
+                            </h4>
+                            <p>
+                                General enquire picture letters garrets on offices of no on. Say one hearing between excited evening all inhabit thought you.
+                            </p>
+                            <a class="btn btn-theme circle border btn-sm" href="blog-single-right-sidebar.html">Read More <i class="fas fa-angle-right"></i></a>
                         </div>
                     </div>
                 </div>
-            </noscript>
-
-        </div>
-        <div class="box_send_form">
-            <span class="text_required"><span class="required">*</span> Required fields</span>
-            <input type="submit" id="btn-submit-model" value="Submit" class="btn_send btn_confirm_send">
-            <input type="button" style="display: none;" value="Processing" class="btn_send btn-btn-proccesing">
-        </div>
-
-    </form>
-</section>
-
-<section id="modal_hosting_course">
-    <form method="POST" action="https://balticbrows.com/en/interested-in-course/submit" accept-charset="UTF-8" id="form-interested-in-course" name="interested-course-form">
-        <input name="_token" type="hidden" value="LPDotKUGvXSIszbGv23jqh8VPx0irbQQckanfDZg">
-        <div class="title">Interested in hosting a course?</div>
-
-        <label for="" class="margin-top">
-            Course<span class="required">*</span>
-
-            <div class="box_items">
-                <div class="item_checkbox half">
-                    <label for="ombre_brows_manual">
-                        <input type="checkbox" name="course[]" id="ombre_brows_manual" value="ombre_brows_manual" checked>
-                        <span><i class="icon icon-check checked"></i></span>
-                        Ombre brows (manual)
-                    </label>
+                <!-- End Single Item -->
+                <!-- Single Item -->
+                <div class="col-md-4 single-item">
+                    <div class="item">
+                        <div class="thumb">
+                            <a href="blog-single-right-sidebar.html">
+                                <img src="~/themes/Beauty/img/blog/2.jpg" alt="Thumb">
+                                <div class="post-type">
+                                    <i class="fas fa-video"></i>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="info">
+                            <div class="meta">
+                                <ul>
+                                    <li><a href="#">Admin</a></li>
+                                    <li>17 Auguest, 2019</li>
+                                </ul>
+                            </div>
+                            <h4>
+                                <a href="blog-single-right-sidebar.html">Middleton as pretended listening he smallness perceived.</a>
+                            </h4>
+                            <p>
+                                General enquire picture letters garrets on offices of no on. Say one hearing between excited evening all inhabit thought you.
+                            </p>
+                            <a class="btn btn-theme circle border btn-sm" href="blog-single-right-sidebar.html">Read More <i class="fas fa-angle-right"></i></a>
+                        </div>
+                    </div>
                 </div>
-                <div class="item_checkbox half">
-                    <label for="ombre_brows_machine">
-                        <input type="checkbox" name="course[]" id="ombre_brows_machine" value="ombre_brows_machine">
-                        <span><i class="icon icon-check checked"></i></span>
-                        Ombre brows (machine)
-                    </label>
+                <!-- End Single Item -->
+                <!-- Single Item -->
+                <div class="col-md-4 single-item">
+                    <div class="item">
+                        <div class="thumb">
+                            <a href="blog-single-right-sidebar.html">
+                                <img src="~/themes/Beauty/img/blog/3.jpg" alt="Thumb">
+                                <div class="post-type">
+                                    <i class="fas fa-image"></i>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="info">
+                            <div class="meta">
+                                <ul>
+                                    <li><a href="#">Admin</a></li>
+                                    <li>25 September, 2019</li>
+                                </ul>
+                            </div>
+                            <h4>
+                                <a href="blog-single-right-sidebar.html">Offended packages pleasant remainder recommend engrossed</a>
+                            </h4>
+                            <p>
+                                General enquire picture letters garrets on offices of no on. Say one hearing between excited evening all inhabit thought you.
+                            </p>
+                            <a class="btn btn-theme circle border btn-sm" href="blog-single-right-sidebar.html">Read More <i class="fas fa-angle-right"></i></a>
+                        </div>
+                    </div>
                 </div>
-                <div class="item_checkbox half">
-                    <label for="microblanding">
-                        <input type="checkbox" name="course[]" id="microblanding" value="microblanding">
-                        <span><i class="icon icon-check checked"></i></span>
-                        Microblading
-                    </label>
-                </div>
-                <div class="item_checkbox half">
-                    <label for="microblanding_shading">
-                        <input type="checkbox" name="course[]" id="microblanding_shading" value="microblanding_shading">
-                        <span><i class="icon icon-check checked"></i></span>
-                        Microblading + shading
-                    </label>
-                </div>
-                <div class="item_checkbox half">
-                    <label for="removal_manual">
-                        <input type="checkbox" name="course[]" id="removal_manual" value="removal_manual">
-                        <span><i class="icon icon-check checked"></i></span>
-                        Removal (manual)
-                    </label>
-                </div>
-                <div class="item_checkbox half">
-                    <label for="removal_machine">
-                        <input type="checkbox" name="course[]" id="removal_machine" value="removal_machine">
-                        <span><i class="icon icon-check checked"></i></span>
-                        Removal (machine)
-                    </label>
-                </div>
-                <div class="item_checkbox half">
-                    <label for="lips">
-                        <input type="checkbox" name="course[]" id="lips" value="lips">
-                        <span><i class="icon icon-check checked"></i></span>
-                        Lips
-                    </label>
-                </div>
-                <div class="item_checkbox half">
-                    <label for="eyeliner">
-                        <input type="checkbox" name="course[]" id="eyeliner" value="eyeliner">
-                        <span><i class="icon icon-check checked"></i></span>
-                        Eyeliner
-                    </label>
-                </div>
-                <div class="item_checkbox half">
-                    <label for="scalp_pigmentation">
-                        <input type="checkbox" name="course[]" id="scalp_pigmentation" value="scalp_pigmentation">
-                        <span><i class="icon icon-check checked"></i></span>
-                        Scalp pigmentation
-                    </label>
-                </div>
-                <div class="item_checkbox half">
-                    <label for="breast_aureola">
-                        <input type="checkbox" name="course[]" id="breast_aureola" value="breast_aureola">
-                        <span><i class="icon icon-check checked"></i></span>
-                        Breast aureola
-                    </label>
-                </div>
-            </div>
-        </label>
-
-        <label for="" class="margin-top half_label">
-            Course type<span class="required">*</span>
-
-            <div class="box_items">
-                <div class="item_checkbox">
-                    <label for="basic">
-                        <input type="checkbox" name="course_types[]" id="basic" value="basic" checked>
-                        <span><i class="icon icon-check checked"></i></span>
-                        Basic
-                    </label>
-                </div>
-                <div class="item_checkbox">
-                    <label for="masterclass">
-                        <input type="checkbox" name="course_types[]" id="masterclass" value="masterclass">
-                        <span><i class="icon icon-check checked"></i></span>
-                        Masterclass
-                    </label>
-                </div>
-            </div>
-
-        </label>
-
-        <label for=number_of_courses"" class="margin-top half_label box_courses">
-            How many courses would you like to organize?
-            <div class="box_input">
-                <input type="text" name="number_of_courses" id="number_of_courses" value="1">
-            </div>
-
-        </label>
-
-        <label for="full_name" class="margin-top">
-            Full name<span class="required">*</span>
-            <input type="text" name="full_name" id="full_name" value="" required>
-        </label>
-
-        <label for="address">
-            Address<span class="required">*</span>
-            <textarea name="address" id="address" required></textarea>
-        </label>
-
-        <label for="email" class="half_label padding_right">
-            Email<span class="required">*</span>
-            <input type="text" name="email" id="email" value="">
-        </label>
-
-        <label for="phone" class="half_label padding_left">
-            Phone<span class="required">*</span>
-            <input type="text" name="phone" id="phone" value="">
-        </label>
-
-        <label for="location_interested_to_host">
-            Location interested to host<span class="required">*</span>
-            <textarea name="location" id="location_interested_to_host"></textarea>
-        </label>
-
-        <label for="">
-            Do you have a venue?<span class="required">*</span>
-
-            <div class="box_items">
-
-                <div class="item">
-                    <label for="yes_venue">
-                        <input type="radio" name="venue" id="yes_venue" value="1" checked>
-                        <span></span>
-                        Yes
-                    </label>
-                </div>
-
-                <div class="item">
-                    <label for="no_venue">
-                        <input type="radio" name="venue" id="no_venue" value="0">
-                        <span></span>
-                        No
-                    </label>
-                </div>
-
-            </div>
-
-        </label>
-
-
-
-        <div class="box_upload">
-            <div class="item_upload">
-                <input type="file" name="files[]" id="files" multiple data-max="5">
-
-                <div id="load_names" style="display: none"></div>
-
-                <button type="button" class="btn_file"><span class="icon icon-paperclip"></span>Attach photos</button>
-                <span class="text">(5 photos max)</span>
-
+                <!-- End Single Item -->
             </div>
         </div>
-
-        <label for="">
-            Is your venue licensed?<span class="required">*</span>
-
-            <div class="box_items">
-                <div class="item item_total">
-                    <label for="venue_licensed">
-                        <input type="radio" name="license" id="venue_licensed" value="venue_licensed" checked>
-                        <span></span>
-                        Yes, my venue is registered in Health Department
-                    </label>
-                </div>
-                <div class="item item_total">
-                    <label for="no_licensed">
-                        <input type="radio" name="license" id="no_licensed" value="no_licensed">
-                        <span></span>
-                        No, my venue is not registered in Health department
-                    </label>
-                </div>
-                <div class="item item_total">
-                    <label for="i_dont_have_license">
-                        <input type="radio" name="license" id="i_dont_have_license" value="i_dont_have_license">
-                        <span></span>
-                        I don&#039;t have venue
-                    </label>
-                </div>
-            </div>
-
-        </label>
-
-        <label for="website" class="margin-top">
-            Do you have a website (possible also social)?
-            <input type="text" name="website" id="website" value="">
-        </label>
-
-
-        <label for="">
-            How many students would you like to get in group?<span class="required">*</span>
-
-            <div class="box_items">
-
-                <div class="item">
-                    <label for="howmany_students5">
-                        <input type="radio" name="students" id="howmany_students5" value="<5" checked>
-                        <span></span>
-                        <5
-                    </label>
-                </div>
-
-                <div class="item">
-                    <label for="howmany_students5_10">
-                        <input type="radio" name="students" id="howmany_students5_10" value="5-10">
-                        <span></span>
-                        5-10
-                    </label>
-                </div>
-
-                <div class="item">
-                    <label for="howmany_students10_20">
-                        <input type="radio" name="students" id="howmany_students10_20" value="10-20">
-                        <span></span>
-                        10-20
-                    </label>
-                </div>
-
-            </div>
-
-        </label>
-
-        <div class="line"></div>
-
-        <label for="">
-
-            <div class="box_items">
-
-                <div class="item_checkbox">
-                    <label for="item12">
-                        <input type="checkbox" name="rules" id="item12" value="1">
-                        <span><i class="icon icon-check checked"></i></span>
-                        By checking this box I confirm my age is at least 18 years*
-                    </label>
-                </div>
-
-            </div>
-
-        </label>
-
-        <div class="box_send_form">
-            <span class="text_required"><span class="required">*</span>Required fields</span>
-            <input type="submit" value="Submit" class="btn_send btn_confirm_send">
-            <input type="button" style="display: none;" value="Processing" class="btn_send btn-btn-proccesing">
-        </div>
-    </form>
-</section>
-
-@await Component.InvokeAsync("ProductHome")
-
-<!--
-<script type="text/javascript">
-    function openAllTreeatments() {
-        var body = $("html, body");
-        body.stop().animate({scrollTop:0}, 1000, 'swing', function() {
-            $(".treatments-top").find('.list_li_menu').slideDown();
-        });
-    }
-</script>
-!-->
-@await Component.InvokeAsync("NewItemHome")
+    </div>
+</div>
+<!-- End Blog -->
+<!-- Start Footer

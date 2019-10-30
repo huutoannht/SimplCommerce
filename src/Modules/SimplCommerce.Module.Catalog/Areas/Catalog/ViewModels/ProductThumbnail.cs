@@ -45,6 +45,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels
 
         public IList<ProductCategory> Categories { get; set; }
         public DateTimeOffset CreatedOn { get; private set; }
+        public string ShortDescription { get; private set; }
 
         public static ProductThumbnail FromProduct(Product product)
         {
@@ -66,7 +67,8 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels
                 ReviewsCount = product.ReviewsCount,
                 RatingAverage = product.RatingAverage,
                 Categories = product.Categories,
-                CreatedOn = product.CreatedOn
+                CreatedOn = product.CreatedOn,
+                ShortDescription = product.ShortDescription,
             };
 
             return productThumbnail;

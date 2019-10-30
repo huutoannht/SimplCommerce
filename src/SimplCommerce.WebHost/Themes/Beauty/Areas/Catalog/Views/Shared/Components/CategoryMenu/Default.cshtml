@@ -4,381 +4,104 @@
 @inject IViewLocalizer Localizer
 @inject IWorkContext WorkContext
 @inject SignInManager<User> SignInManager
-@*<nav class="navbar navbar-expand-md navbar-dark">
-        <div class="wrap-main">
+<header id="home">
 
-            <a class="logo" title="Về trang chủ laptopcudanang.com" href="/" aria-label="logo">
-                <img src="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/V4/logo-techcare-web.png" class="logo" />
-            </a>
-            <form id="search-site" class="form-inline mt-2 mt-md-0" action="search" method="get" onsubmit="return submitSearchForm();" autocomplete="off">
-                <input class="form-control mr-sm-2" id="search-keyword" name="query" type="text" aria-label="Bạn tìm gì..." placeholder="Bạn tìm gì..." autocomplete="off" onkeyup="SuggestSearch(event,this, 0);" maxlength="50" />
-                <button class="btntop" type="submit" aria-label="tìm kiếm"><i class="icontgdd-topsearch"></i></button>
-            </form>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    <!-- Start Navigation -->
+    <nav class="navbar navbar-default attr-border navbar-sticky bootsnav">
 
-            <div class="collapse navbar-collapse" id="navbarCollapse">
+        <!-- Start Top Search -->
+        <div class="container">
+            <div class="row">
+                <div class="top-search">
+                    <div class="input-group">
+                        <form action="#">
+                            <input type="text" name="text" class="form-control" placeholder="Search">
+                            <button type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Top Search -->
 
-                <ul class="navbar-nav mr-auto">
+        <div class="container">
+
+            <!-- Start Atribute Navigation -->
+            <div class="attr-nav">
+                <ul>
+                    <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
+                    <li class="side-menu"><a href="#"><i class="fa fa-bars"></i></a></li>
+                </ul>
+            </div>
+            <!-- End Atribute Navigation -->
+            <!-- Start Header Navigation -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="/">
+                    <img src="~/themes/Beauty/img/logo.png" class="logo" alt="Logo">
+                </a>
+            </div>
+            <!-- End Header Navigation -->
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="navbar-menu">
+                <ul class="nav navbar-nav navbar-right" data-in="#" data-out="#">
                     @foreach (var item in Model)
                     {
-                        <li class="nav-item nav-item-active">
-                            <a href="/@item.Slug" class="mobile @item.Slug" title="@item.Name">
-                                @Html.Raw(item.Icon) @item.Name
-                            </a>
-                        </li>
+                    <li class="@(item.ChildItems.Count>0?"dropdown":"")">
+                        <a href="@item.Slug" class="dropdown-toggle" data-toggle="dropdown">@item.Name</a>
+                        @if (item.ChildItems.Count > 0)
+                        {
+
+                            <ul class="dropdown-menu">
+                                @foreach (var childMenu in item.ChildItems)
+                                {
+                                    <li><a href="@childMenu.Slug">@childMenu.Name</a></li>
+                                }
+                            </ul>
+                        }
+                    </li>
                     }
-                    <li class="nav-item nav-item-active menu-li-guide">
-                        <a href="#" class="ask " title="Hỏi đáp">
-                            <i class="icontgdd-ask"></i>Tư vấn
-                        </a>
-                        <ul class="menu-ul-guide">
-                            <li>
-                                <a href="~/huong-dan-thanh-toan" title="Hướng dẫn thanh toán">
-                                    Hướng dẫn thanh toán
-                                </a>
-                                <a href="~/chinh-sach-bao-hanh" title="Chính sách bảo hành">
-                                    Chính sách bảo hành
-                                </a>
-                                <a href="~/tu-van-tra-gop" title="Tư vấn trả góp">
-                                    Tư vấn trả góp
-                                </a>
-                                <a href="~/phuong-thuc-giao-hang-cod" title="Phương thức giao hàng COD">
-                                    Phương thức giao hàng COD
-                                </a>
-                                <a href="~/tin-tuc" title="Tin tức">
-                                    Tin tức
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    @if (SignInManager.IsSignedIn(User))
-                        {
-                            <li class="nav-item">
-                                <a class="mobile" asp-area="Core" asp-controller="Manage" asp-action="Index" title="@Localizer["Manage"]">
-                                    <i class="fa fa-user-circle" style="font-size: 20px;margin-bottom: -1px;" aria-hidden="true"></i>
-                                    @((await WorkContext.GetCurrentUser()).FullName)
-                                </a>
-                            </li>
 
-                            @if (User.IsInRole("admin") || User.IsInRole("vendor"))
-                            {
-                                <li class="nav-item">
-                                    <a class="mobile" asp-area="Core" asp-controller="HomeAdmin" asp-action="Index"><i class="fa fa-tachometer" aria-hidden="true" style="font-size: 20px;margin-bottom: -1px;"></i>@Localizer["Dashboard"]</a>
-                                </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div>
 
-                            }
-                            <li class="nav-item">
-                                <a class="mobile" asp-area="Core" asp-controller="Account" asp-action="LogOff"><i class="fa fa-sign-out" aria-hidden="true" style="font-size: 20px;margin-bottom: -1px;"></i>@Localizer["Log off"]</a>
-                            </li>
-                        }
-                        else
-                        {
-                            <li class="nav-item">
-                                <a class="mobile" asp-area="Core" asp-controller="Account" asp-action="Login"><i class="fa fa-sign-in" aria-hidden="true" style="font-size: 20px;margin-bottom: -1px;"></i>@Localizer["Log in"]</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="mobile" asp-area="Core" asp-controller="Account" asp-action="Register"><i class="fa fa-user-plus" aria-hidden="true" style="font-size: 20px;margin-bottom: -1px;"></i>@Localizer["Register"]</a>
-                            </li>
-                        }
-                    <li class="nav-item ">
-                        @await Component.InvokeAsync("CartBadge")
-                    </li>
+        <!-- Start Side Menu -->
+        <div class="side">
+            <a href="#" class="close-side"><i class="fa fa-times"></i></a>
+            <div class="widget">
+                <h4 class="title">About Us</h4>
+                <p>
+                    Arrived compass prepare an on as. Reasonable particular on my it in sympathize. Size now easy eat hand how. Unwilling he departure elsewhere dejection at. Heart large seems may purse means few blind.
+                </p>
+            </div>
+            <div class="widget">
+                <h4 class="title">Our Department</h4>
+                <ul>
+                    <li><a href="#">Eye Treatment</a></li>
+                    <li><a href="#">Children Chare</a></li>
+                    <li><a href="#">Traumatology</a></li>
+                    <li><a href="#">X-ray</a></li>
+                </ul>
+            </div>
+            <div class="widget social">
+                <h4 class="title">Connect With Us</h4>
+                <ul class="link">
+                    <li class="facebook"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li class="twitter"><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li class="pinterest"><a href="#"><i class="fab fa-pinterest"></i></a></li>
+                    <li class="dribbble"><a href="#"><i class="fab fa-dribbble"></i></a></li>
                 </ul>
             </div>
         </div>
-    </nav>*@
+        <!-- End Side Menu -->
 
+    </nav>
+    <!-- End Navigation -->
 
-<nav>
-    <div class="brand">
-        <a href="/">
-            <img src="~/themes/Gallery/public/assets/images/icons/ja-brow.jpg" alt="JA Brows"
-                 title="JA Brows">
-        </a>
-    </div>
-    <!--mySidenav-->
-    <div id="mySidenav" class="sidenav">
-        <div class="brand">
-            <a href="#">
-                <img src="~/themes/Gallery/public/assets/images/icons/ja-brow.jpg" alt="JA Brows"
-                     title="JA Brows">
-            </a>
-        </div>
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <div class="box_top">
-            <ul class="user-btns-mobile">
-                <li>
-                    <a class="logIN" href="javascript:" onclick="show_modal('modal_user', 1);">
-                        <span class="icon" data-icon="g"></span>
-                        <span class="text">Đăng nhập</span>
-                    </a>
-                </li>
-                <li>
-                    <a class="singUp" href="javascript:" onclick="show_modal('modal_user', 2);">
-                        <span class="icon" data-icon="h"></span>
-                        <span class="text">Đăng ký</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <ul class="main-nav" style="display: block !important; float:left; width: 100%;">
-            @foreach (var item in Model)
-            {
-            <li class=" " style="">
-                <a class="" style=""
-                   href="@item.Slug"><span class="coln">    @Html.Raw(item.Icon) @item.Name</span></a>
-                <div class="list_li_menu">
-                    @foreach (var childMenu in item.ChildItems)
-                    {
-                        <div class="option"><a href="@childMenu.Slug">@childMenu.Name</a></div>
-                    }
-                </div>
-            </li>
-            }
-            @*<li class=" " style="">
-                <a class="" style=""
-                   href="/"><span class="coln">Home</span></a>
+</header>
 
-            </li>
-            <li class=" " style="">
-                <a class="" style=""
-                   href="certification.html"><span class="coln">Certification</span></a>
-
-            </li>
-            <li class="  site_submenu_outer " style="">
-                <a class=" parent_link " style=""
-                   href="~/Home/About">
-                    <span class="coln">About</span> <span class="icon_c">
-                        <i class="icon-right-open-mini"></i>
-                    </span><span class="icon_c1"><i class="icon-btn-left"></i>Back</span>
-                </a>
-
-                <div class="site_submenu"></div>
-                <div class="list_li_menu">
-                    <div class="option"><a href="team/baltic-brows.html">JA Brows</a></div>
-                    <div class="option"><a href="team.html">Team</a></div>
-                    <div class="option"><a href="refund-policy.html">Refund policy</a></div>
-                    <div class="option"><a href="privacy-policy.html">Privacy policy</a></div>
-                    <div class="option"><a href="delivery-information.html">Delivery information</a></div>
-                    <div class="option back_to_main_menu">
-                        <a href="javascript:void(0)">
-                            <i class="icon-btn-left"></i>Back
-                            to main menu
-                        </a>
-                    </div>
-                </div>
-            </li>
-            <li class=" " style="">
-                <a class="" style=""
-                   href="#"><span class="coln">International Trainings</span></a>
-
-            </li>
-            <li class=" " style="">
-                <a class="" style=""
-                   href="en/register.html"><span class="coln">Register</span></a>
-
-            </li>
-            <li class="online " style="">
-                <a class="" style=""
-                   href="#"><span class="coln">Online Trainings</span></a>
-
-            </li>
-            <li class="treatments-top  site_submenu_outer " style="">
-                <a class=" parent_link " style=""
-                   href="~/Home/Treatment">
-                    <span class="coln">Treatments</span> <span class="icon_c">
-                        <i class="icon-right-open-mini"></i>
-                    </span><span class="icon_c1"><i class="icon-btn-left"></i>Back</span>
-                </a>
-
-                <div class="site_submenu"></div>
-                <div class="list_li_menu">
-                    <div class="option"><a href="microblading-6d-brows.html">Microblading 6D eyebrows</a></div>
-                    <div class="option"><a href="ombre-brows-yoa9jttn2fsztkij.html">Ombre brows</a></div>
-                    <div class="option"><a href="microblading-shading-gh4gii9y8fvntdv5.html">Microblading + shading</a></div>
-                    <div class="option"><a href="eyeliner-w7t8ema69hwq1749.html">Eyeliner</a></div>
-                    <div class="option"><a href="eyeshadow.html">Eyeshadow</a></div>
-                    <div class="option"><a href="lips-dykzf8tg9vgxh7yh.html">Lips</a></div>
-                    <div class="option"><a href="removal-pitg0rd4n5ukbmyd.html">Removal</a></div>
-                    <div class="option"><a href="scalp-tricopigmentation-j0mngqqnm2itli2p.html">Scalp tricopigmentation</a></div>
-                    <div class="option back_to_main_menu">
-                        <a href="javascript:void(0)">
-                            <i class="icon-btn-left"></i>Back
-                            to main menu
-                        </a>
-                    </div>
-                </div>
-            </li>
-            <li class=" " style="">
-                <a class="" style=""
-                   href="#"><span class="coln">Gallery</span></a>
-
-            </li>
-            <li class=" " style="">
-                <a class="" style=""
-                   target="_blank" href="#"><span class="coln">Shop</span></a>
-
-            </li>
-            <li class=" " style="">
-                <a class="" style=""
-                   href="#"><span class="coln">Reviews</span></a>
-
-            </li>
-            <li class=" " style="">
-                <a class="" style=""
-                   href="~/Home/Contact"><span class="coln">Contact</span></a>
-
-            </li>*@
-        </ul>
-
-        <div class="mobile_search">
-            <form  action="search" method="get">
-                <input type="text" name="query" placeholder="Tìm kiếm">
-                <button class="btn_send"><span class="icon icon-search"></span></button>
-            </form>
-        </div>
-    </div>
-    <!--mySidenav-->
-
-    <div id="mySidenav" class="mob-nav" onclick="openNav()">
-        <div class="icon icon-bars"></div>
-    </div>
-
-    <ul class="main-nav">
-        @foreach (var item in Model)
-        {
-        <li class="online" style="">
-            <a class="" style=""
-               href="@item.Slug">@Html.Raw(item.Icon)<span class="online-text">@item.Name</span></a>
-          
-            <div class="list_li_menu">
-                @foreach (var childMenu in item.ChildItems)
-                {
-                    <div class="option"><a href="@childMenu.Slug">@childMenu.Name</a></div>
-                }
-            </div>
-        </li>
-        }
-        @*<li class="" style="">
-            <a style="" href="/">Trang chủ</a>
-        </li>
-        <li class="" style="">
-            <a style="" href="certification.html">Certification</a>
-        </li>
-        <li class="" style="">
-            <a style="" href="~/Home/About">Về chúng tôi</a>
-            <div class="list_li_menu">
-                <div class="option"><a href="team/baltic-brows.html">JA Brows</a></div>
-                <div class="option"><a href="team.html">Team</a></div>
-                <div class="option"><a href="refund-policy.html">Refund policy</a></div>
-                <div class="option"><a href="privacy-policy.html">Privacy policy</a></div>
-                <div class="option"><a href="delivery-information.html">Delivery information</a></div>
-            </div>
-        </li>
-        <li class="" style="">
-            <a style="" href="#">International Trainings</a>
-        </li>
-        <li class="" style="">
-            <a style="" href="#">Register</a>
-        </li>
-        <li class="online" style="">
-            <a style="" href="#">
-                <div data-icon="a" class="icon"></div>
-                <span class="online-text"> Online Trainings</span>
-            </a>
-        </li>
-        <li class="treatments-top" style="">
-            <a style="" href="~/Home/Treatment">
-                <div data-icon="" class="icon"></div>
-                <span class="online-text"> Phương pháp điều trị</span>
-            </a>
-            <div class="list_li_menu">
-                <div class="option"><a href="microblading-6d-brows.html">Microblading 6D eyebrows</a></div>
-                <div class="option"><a href="ombre-brows-yoa9jttn2fsztkij.html">Ombre brows</a></div>
-                <div class="option"><a href="microblading-shading-gh4gii9y8fvntdv5.html">Microblading + shading</a></div>
-                <div class="option"><a href="eyeliner-w7t8ema69hwq1749.html">Eyeliner</a></div>
-                <div class="option"><a href="eyeshadow.html">Eyeshadow</a></div>
-                <div class="option"><a href="lips-dykzf8tg9vgxh7yh.html">Lips</a></div>
-                <div class="option"><a href="removal-pitg0rd4n5ukbmyd.html">Removal</a></div>
-                <div class="option"><a href="scalp-tricopigmentation-j0mngqqnm2itli2p.html">Scalp tricopigmentation</a></div>
-            </div>
-        </li>
-        <li class="" style="">
-            <a style="" href="#">Gallery</a>
-        </li>
-        <li class="" style="">
-            <a style="" target="_blank" href="#">Shop</a>
-        </li>
-        <li class="" style="">
-            <a style="" href="#">Reviews</a>
-        </li>
-        <li class="" style="">
-            <a style="" href="~/Home/Contact">Liên hệ</a>
-        </li>*@
-        <!--<li><a href="#Search"><span class="icon icon-search"></span></a></li>-->
-    </ul>
-
-    <ul class="user-btns">
-        <li style="border-left:none;">
-
-        </li>
-        <li>
-            <div class="search_desktop" id="search_desktop">
-                <form method="GET" action="search" accept-charset="UTF-8">
-                    <input type="text" name="keyword" placeholder="Tìm kiếm">
-                    <button class="btn_send"><span class="icon icon-search"></span></button>
-                </form>
-            </div>
-
-            <a href="javascript:" id="open_search_desktop"><span class="icon icon-search"></span></a>
-        </li>
-        @if (SignInManager.IsSignedIn(User))
-        {
-            @*<li class="nav-item">
-                <a class="mobile" asp-area="Core" asp-controller="Manage" asp-action="Index" title="@Localizer["Manage"]">
-                    <i class="fa fa-user-circle" style="font-size: 20px;margin-bottom: -1px;" aria-hidden="true"></i>
-                    @((await WorkContext.GetCurrentUser()).FullName)
-                </a>
-            </li>*@
-
-            @if (User.IsInRole("admin") || User.IsInRole("vendor"))
-            {
-                <li class="nav-item">
-                    <a class="mobile" asp-area="Core" asp-controller="HomeAdmin" asp-action="Index"><i class="fa fa-tachometer" aria-hidden="true" style="font-size: 20px;margin-bottom: -1px;"></i>Trang quản lý</a>
-                </li>
-
-            }
-            <li class="nav-item">
-                <a class="mobile" asp-area="Core" asp-controller="Account" asp-action="LogOff"><i class="fa fa-sign-out" aria-hidden="true" style="font-size: 20px;margin-bottom: -1px;"></i>@Localizer["Log off"]</a>
-            </li>
-        }
-        else
-        {
-            <li>
-                <a href="javascript:" onclick="show_modal('modal_user', 1);">
-                    <span class="icon" data-icon="g"></span>
-                    <span class="text">Đăng nhập</span>
-                </a>
-            </li>
-
-            <li>
-                <a class="singUp" href="javascript:" onclick="show_modal('modal_user', 2);">
-                    <span class="icon" data-icon="h"></span>
-                    <span class="text">Đăng ký</span>
-                </a>
-            </li>
-        }
-
-    </ul>
-
-    <ul class="widget-nav">
-        <li>
-            <a target="_blank" href="#" class="socal"><span class="icon icon-facebook"></span></a>
-            <a target="_blank" href="#" class="socal">
-                <span class="icon icon-instagram"></span>
-            </a>
-        </li>
-    </ul>
-</nav>
