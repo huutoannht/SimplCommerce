@@ -90,34 +90,15 @@
 @await Component.InvokeAsync("CarouselWidgetCategory")
 
 <div class="laptopcate filtered">
-    @* <div class="row">
-            <div class="laptopmanu">
-                <a href="macbook-cu"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Macbook44-b_34.png" /></a>
-                <a href="laptop-dell-cu"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Dell44-b_34.jpg" /></a>
-                <a href="laptop-asus-cu"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Asus44-b_35.jpg" /></a>
-                <a href="laptop-hp-cu"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/HP-Compaq44-b_36.jpg" /></a>
-                @*<a href="acer"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Acer44-b_37.jpg" /></a>
-                <a href="laptop-lenovo-cu"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Lenovo44-b_36.jpg" /></a>
-                <a href="laptop-msi-cu"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/MSI44-b_30.png" /></a>
-                <a href="laptop-hoc-tap-van-phong">Học tập văn phòng</a>
-                <a href="laptop-do-hoa-ky-thuat">Đồ họa- Kỹ thuật</a>
-                <a href="laptop-gaming">Laptop gaming</a>
-                <a href="laptop-cao-cap-sang-trong">Cao cấp - Sang trọng</a>
-            </div>
-
-        </div>
-    *@
-
     <div class="banner-bottom">
 
         <a href="#" rel="nofollow">
             <img src="~/themes/TheGioiDiDong/images/banner.png" />
         </a>
-
     </div>
     <section class="brand-slide">
         <div class="container">
-            <div id ="owl-category" class="owl-carousel owl-brand" data-items="8" data-dots="false" data-loop="true">
+            <div id="owl-category" class="owl-carousel owl-brand" data-items="8" data-dots="false" data-loop="true">
 
                 <div class="item">
                     <a href="#" rel="nofollow">
@@ -150,10 +131,10 @@
                 </div>
 
                 @*<div class="item">
-                    <a href="#" rel="nofollow">
-                        <img src="~/themes/TheGioiDiDong/images/home-msi.png" alt="MSI">
-                    </a>
-                </div>*@
+                        <a href="#" rel="nofollow">
+                            <img src="~/themes/TheGioiDiDong/images/home-msi.png" alt="MSI">
+                        </a>
+                    </div>*@
 
                 <div class="item">
                     <a href="#" rel="nofollow">
@@ -172,81 +153,14 @@
                         <img src="~/themes/TheGioiDiDong/images/home-asus.png" alt="ASUS">
                     </a>
                 </div>
-
             </div>
         </div>
     </section>
     <div class="row">
-        @*<div class="col-md-12">
-                <div class="row mb-3">
-                    <div class="col-sm-4 category-result">
-                        <h2>LAPTOP NỔI BẬT NHẤT</h2>
-                    </div>
-                    <div class="col-sm-8">
-                        <ul class="list-inline clear-both product-list-display-options">
-                            <li class="sort-by">
-                                Mức giá:
-                            </li>
-                            <li class="sort-by"> <a href="/laptop-cu-duoi-5-trieu" rel="nofolow"> Dưới 5 triệu</a> </li>
-                            <li>  <a href="/laptop-cu-5-10-trieu" rel="nofolow">5 - 10 triệu</a></li>
-                            <li class="sort-by">
-                                <a href="/laptop-cu-tren-10-trieu" rel="nofolow">Trên 10 triệu</a>
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-                <div class="row product-list ">
-                    <div class="homeproduct">
-
-                    </div>
-
-                </div>
-
-
-            </div>  ﻿*@
         <partial name="_WidgetInstances" model="Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeMainContent)" />
-        @*<div class="laptopacc">
-            <h3>PHẦN MỀM - PHỤ KIỆN LAPTOP</h3>
-            <div class="accessories-content">
-                <a href="/phu-kien?category=chuot-may-tinh">
-                    <span>
-                        <img class=" lazyloaded" data-original="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/chuot-ban-phim.jpg" src="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/chuot-ban-phim.jpg">
-                    </span>
-                    <h4>Chuột, bàn phím</h4>
-                </a>
-                <a href="/phu-kien?category=usb-/-o-cung">
-                    <span>
-                        <img class=" lazyloaded" data-original="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/usb.jpg" src="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/usb.jpg">
-                    </span>
-                    <h4>USB / Ổ cứng</h4>
-                </a>
-                <a href="/phu-kien?category=tai-nghe">
-                    <span>
-                        <img class=" lazyloaded" data-original="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/tai-nghe.jpg" src="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/tai-nghe.jpg">
-                    </span>
-                    <h4>Tai nghe</h4>
-                </a>
-                <a href="/phu-kien?category=loa">
-                    <span>
-                        <img class=" lazyloaded" data-original="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/loa.jpg" src="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/loa.jpg">
-                    </span>
-                    <h4>Loa</h4>
-                </a>
-                <a href="/phu-kien?key=mieng-dan-laptop">
-                    <span>
-                        <img class=" lazyloaded" data-original="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/mieng-dan-laptop.jpg" src="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/mieng-dan-laptop.jpg">
-                    </span>
-                    <h4>Miếng dán laptop</h4>
-                </a>
-            </div>*@
-
-        </div>
-        @await Component.InvokeAsync("NewItemHome")
     </div>
-
+    @await Component.InvokeAsync("NewItemHome")
 </div>
-
 
 @section scripts {
     <inline-script src="/lib/wnumb/wNumb.js"></inline-script>
@@ -255,11 +169,9 @@
     <script>
         var productFilter = {};
         var count = 2;
-
-
     </script>
-	 <script src="~/themes/TheGioiDiDong/js/carousel.js"></script>
-	 <script src="~/themes/TheGioiDiDong/js/script-home.js"></script>
+    <script src="~/themes/TheGioiDiDong/js/owl.carousel.min.js"></script>
+    <script src="~/themes/TheGioiDiDong/js/script-home.js"></script>
     <inline-script src="/themes/TheGioiDiDong/js/category.min.js"></inline-script>
     <inline-script src='/themes/TheGioiDiDong/images/cdn/v2015/Scripts/desktop/V5/home.min.js'></inline-script>
 }
