@@ -1,4 +1,4 @@
-/*!
+﻿/*!
  * elFinder - file manager for web
  * Version 2.1.50 (2019-08-20)
  * http://elfinder.org
@@ -4586,7 +4586,8 @@ var elFinder = function(elm, opts, bootCallback) {
 					// scroll to elFinder node
 					$('html,body').animate({ scrollTop: node.offset().top });
 				}
-				if (dialog.length || input.length) {
+                if (dialog.length || input.length) {
+                    debugger
 					history.pushState(state, null, location.pathname + location.search + '#elf_' + state.thash);
 					if (dialog.length) {
 						if (!dialog.hasClass(self.res('class', 'preventback'))) {
@@ -12876,8 +12877,8 @@ elFinder.prototype.resources = {
 				.css('position', 'relative')
 				.on('unselect.'+fm.namespace, unselect);
 			
-			fm.bind('resize', resize).one('open', openCallback);
-			
+            fm.bind('resize', resize).one('open', openCallback);
+            debugger
 			input.trigger('keyup');
 			select();
 
@@ -14028,7 +14029,8 @@ $.fn.elfindercontextmenu = function(fm) {
 				
 				selected = null;
 				subnodes = null;
-				subselected = null;
+                subselected = null;
+                debugger
 				$(document).on('keydown.' + fm.namespace, keyEvts);
 				evts = $._data(document).events;
 				if (evts && evts.keydown) {
@@ -16879,7 +16881,8 @@ $.fn.elfindercwd = function(fm, options) {
 			});
 		});
 		
-		$(document).on('keydown.'+fm.namespace, function(e) {
+            $(document).on('keydown.' + fm.namespace, function (e) {
+                debugger
 			if (e.keyCode == $.ui.keyCode.ESCAPE) {
 				if (! fm.getUI().find('.ui-widget:visible').length) {
 					unselectAll();

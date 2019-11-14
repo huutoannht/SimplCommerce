@@ -8,42 +8,114 @@
 @{
     ViewData["Title"] = Model.Name;
 }
-<style>
-    article img {
-        display: block;
-        width: auto;
-        height: auto;
-        max-width: 100%;
-        margin: 0 auto;
-    }
 
-    .titledetail {
-        display: block;
-        overflow: hidden;
-        line-height: 53px;
-        font-size: 45px;
-        color: #333;
-        font-family: 'Roboto Condensed',sans-serif;
-        font-weight: 600;
-        width: 800px;
-        margin: auto;
-    }
-</style>
-<section>
-
-    <article>
-        <h1 class="titledetail">@Model.Name</h1>
-
-        <div class="userdetail">
-
+<!-- Start Breadcrumb
+============================================= -->
+<div class="breadcrumb-area shadow dark bg-fixed text-light" style="background-image: url(/themes/Beauty/img/banner/banner.jpg);">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>Tin tức</h1>
+            </div>
+            <div class="col-md-6 text-right">
+                <ul class="breadcrumb">
+                    <li><a href="/"><i class="fas fa-home"></i> Trang chủ</a></li>
+                    <li><a href="/tin-tức">Tin tức</a></li>
+                    <li class="active">@Model.Name</li>
+                </ul>
+            </div>
         </div>
+    </div>
+</div>
+<!-- End Breadcrumb -->
+<!-- Start Blog
+============================================= -->
+<div class="blog-area single full-blog right-sidebar default-padding">
+    <div class="container">
+        <div class="row">
+            <div class="blog-items">
+                <div class="blog-content col-md-8">
+                    <div class="item">
 
-        <div class="imgwrap"><img alt="tet-huawei" data-original="@Model.ThumbnailImageUrl" src="@Model.ThumbnailImageUrl" title="tet-huawei"></div>
+                        <!-- Start Post Thumb -->
+                        <div class="thumb">
+                            <img src="@Model.ThumbnailImageUrl" alt="@Model.Name">
+                            <div class="post-type">
+                                <i class="fas fa-images"></i>
+                            </div>
+                        </div>
+                        <!-- Start Post Thumb -->
 
-        <div class="news-item-full-description">
-            @Html.Raw(Model.FullContent)
+                        <div class="info">
+                            <div class="meta">
+                                <ul>
+                                    <li><a href="#">Admin</a></li>
+                                    <li>@Model.CreatedOn.ToString("dd/MM/yyyy")</li>
+                                </ul>
+                            </div>
+                            <h3>@Model.Name</h3>
+                            @Html.Raw(Model.FullContent)
+
+                            <!-- Start Post Pagination -->
+                            @*<div class="post-pagi-area">
+                                <a href="#"><i class="fas fa-angle-double-left"></i> Previus Post</a>
+                                <a href="#">Next Post <i class="fas fa-angle-double-right"></i></a>
+                            </div>*@
+                            <!-- End Post Pagination -->
+                         
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Start Sidebar -->
+                <div class="sidebar col-md-4">
+                    <aside>
+                        <div class="sidebar-item search">
+                            <div class="title">
+                                <h4>Search</h4>
+                            </div>
+                            <div class="sidebar-info">
+                                <form>
+                                    <input type="text" class="form-control">
+                                    <input type="submit" value="search">
+                                </form>
+                            </div>
+                        </div>
+                        @await Component.InvokeAsync("NewItemRelate", Model.Id)
+                        <div class="sidebar-item social-sidebar">
+                            <div class="title">
+                                <h4>Chia sẻ</h4>
+                            </div>
+                            <div class="sidebar-info">
+                                <ul>
+                                    <li class="facebook">
+                                        <a href="#">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                    </li>
+                                    <li class="twitter">
+                                        <a href="#">
+                                            <i class="fab fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li class="pinterest">
+                                        <a href="#">
+                                            <i class="fab fa-pinterest"></i>
+                                        </a>
+                                    </li>
+                                    <li class="g-plus">
+                                        <a href="#">
+                                            <i class="fab fa-google-plus-g"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+                <!-- End Start Sidebar -->
+            </div>
         </div>
-        @await Component.InvokeAsync("NewItemRelate", Model.Id)
-    </article>
-
-</section>
+    </div>
+</div>
+<!-- End Blog -->

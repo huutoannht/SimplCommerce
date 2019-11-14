@@ -18,7 +18,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <h1>Tất cả khóa học</h1>
+                <h1>Khóa học</h1>
             </div>
             <div class="col-md-6 text-right">
                 <ul class="breadcrumb">
@@ -49,10 +49,10 @@
                                 </h4>
                                 <ul>
                                     <li>
-                                        Giá: @product.CalculatedProductPrice.Price.ToString("C0")
+                                        <a class="btn btn-outline-info">Giá: @product.CalculatedProductPrice.Price.ToString("C0")</a>
                                     </li>
                                     <li>
-                                        <a href="@product.Slug">chi tiết</a>
+                                        <a href="@product.Slug" class="btn btn-primary">chi tiết</a>
                                     </li>
                                 </ul>
                             </div>

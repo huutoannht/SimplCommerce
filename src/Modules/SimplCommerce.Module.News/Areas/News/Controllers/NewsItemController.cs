@@ -123,6 +123,7 @@ namespace SimplCommerce.Module.News.Areas.News.Controllers
                 {
                     Name = newsItem.Name,
                     FullContent = newsItem.FullContent,
+                    CreatedOn=newsItem.CreatedOn,
                     ThumbnailImageUrl = _mediaService.GetThumbnailUrl(newsItem.ThumbnailImage)
                 };
                 listNewsItemVm.Add(model);

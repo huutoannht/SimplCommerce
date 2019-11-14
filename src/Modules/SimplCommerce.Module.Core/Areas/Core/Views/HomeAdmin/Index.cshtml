@@ -25,8 +25,7 @@
     <link simpl-append-version="true" rel="stylesheet" href="~/lib/angular-ui-tree/angular-ui-tree.min.css" />
     <link simpl-append-version="true" rel="stylesheet" href="~/lib/angular-bootstrap-colorpicker/css/colorpicker.min.css" />
     <link simpl-append-version="true" rel="stylesheet" href="~/modules/core/admin/admin-core.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
-    <link simpl-append-version="true" rel=" stylesheet" href="~/lib/elfinder/css/elfinder.full.css" />
+ 
     <script>
         window.Global_AssetVersion = "@Config["Global.AssetVersion"]";
     </script>
@@ -47,8 +46,7 @@
     <script simpl-append-version="true" src="~/lib/bootstrap-ui-datetime-picker/datetime-picker.js"></script>
     <script simpl-append-version="true" src="~/lib/bootstrap-ui-datetime-picker/datetime-picker.tpls.js"></script>
     <script simpl-append-version="true" src="~/lib/angular-summernote/angular-summernote.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script src="~/lib/elfinder/js/elfinder.full.js"></script>
+
     <script simpl-append-version="true" src="~/lib/angular-ui-tree/angular-ui-tree.js"></script>
     <script simpl-append-version="true" src="~/lib/angular-bootstrap-colorpicker/js/bootstrap-colorpicker-module.js"></script>
     <script simpl-append-version="true" src="~/lib/toastr/build/toastr.min.js"></script>
@@ -322,12 +320,12 @@
                         <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@Localizer["Content"] <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a ui-sref="page">@Localizer["Pages"]</a></li>
-                            <li><a ui-sref="file">@Localizer["Files"]</a></li>
+                            <li><a href="/el-finder/file-system">@Localizer["Files"]</a></li>
                             @*<li><a ui-sref="menus">@Localizer["Menus"]</a></li>*@
                             <li><a ui-sref="widget">@Localizer["Widgets"]</a></li>
-                            <li><a ui-sref="themes">@Localizer["Themes"]</a></li>
-                            @*<li><a ui-sref="news-categories">Manage News Categories</a></li>
-        <li><a ui-sref="news-items">Manage News Items</a></li>*@
+                            @*<li><a ui-sref="themes">@Localizer["Themes"]</a></li>*@
+                            <li><a ui-sref="news-categories">Loại tin tức</a></li>
+                            <li><a ui-sref="news-items">Tin tức</a></li>
                         </ul>
                     </li>
                     @*<li class="dropdown">

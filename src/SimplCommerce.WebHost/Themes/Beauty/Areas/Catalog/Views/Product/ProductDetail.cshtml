@@ -76,52 +76,7 @@
                                 </form>
                             </div>
                         </div>
-                        <div class="sidebar-item recent-post">
-                            <div class="title">
-                                <h4>Bài viết gần đây</h4>
-                            </div>
-                            <ul>
-                                <li>
-                                    <div class="thumb">
-                                        <a href="#">
-                                            <img src="assets/img/gallery/77.jpg" alt="Thumb">
-                                        </a>
-                                    </div>
-                                    <div class="info">
-                                        <a href="#">Participate in staff meetingness manage dedicated</a>
-                                        <div class="meta-title">
-                                            <span class="post-date">12 Feb, 2018</span> - By <a href="#">Author</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="thumb">
-                                        <a href="#">
-                                            <img src="assets/img/gallery/55.jpg" alt="Thumb">
-                                        </a>
-                                    </div>
-                                    <div class="info">
-                                        <a href="#">Future Plan & Strategy for Consutruction </a>
-                                        <div class="meta-title">
-                                            <span class="post-date">12 Feb, 2018</span> - By <a href="#">Author</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="thumb">
-                                        <a href="#">
-                                            <img src="assets/img/gallery/88.jpg" alt="Thumb">
-                                        </a>
-                                    </div>
-                                    <div class="info">
-                                        <a href="#">Melancholy particular devonshire alteration</a>
-                                        <div class="meta-title">
-                                            <span class="post-date">12 Feb, 2018</span> - By <a href="#">Author</a>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                        @await Component.InvokeAsync("NewItemRelate", Model.Id)
                         <div class="sidebar-item social-sidebar">
                             <div class="title">
                                 <h4>Chia sẻ bài viết này</h4>

@@ -12,6 +12,10 @@ namespace SimplCommerce.Module.Cms.Areas.Cms.Controllers
     public class FileSystemController : Controller
     {
         private IHostingEnvironment _hostingEnvironment;
+        public IActionResult Index()
+        {
+            return View();
+        }
         public FileSystemController(IHostingEnvironment hostingEnvironment)
         {
             _hostingEnvironment = hostingEnvironment;

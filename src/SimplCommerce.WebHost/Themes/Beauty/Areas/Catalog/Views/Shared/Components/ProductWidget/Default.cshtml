@@ -1,7 +1,5 @@
 ﻿@model SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels.ProductWidgetComponentVm
-<!-- Start Doctors Tips
-  ============================================= -->
-<div class="doctor-tips-area default-padding bg-gray">
+@*<div class="doctor-tips-area default-padding bg-gray">
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
@@ -12,7 +10,6 @@
         </div>
         <div class="row">
             <div class="health-tips-items tips-carousel owl-carousel owl-theme">
-                <!-- Single Item -->
                 @foreach (var product in Model.Products)
                 {
                     <div class="single-item">
@@ -39,59 +36,85 @@
             </div>
         </div>
     </div>
-</div>
-<!-- End Doctors Tips -->
-@*<div class="news-row wrap-help">
-        <div id="events">
-            <div class="als-viewport">
-                <div class="event-container als-wrapper">
-                    @foreach (var product in Model.Products)
-                    {
-                        <div class="event als-item">
-                            <div class="event-title">
-                                <a href="@product.Slug">@product.Name</a>
-                            </div>
-                            <div class="event-date">@product.CreatedOn.ToString("dd/MM/yyyy")</div>
+</div>*@
 
-                            <div class="event-author"> </div>
-                        </div>
-                    }
-                </div>
-            </div>
-            <div class="event-navigation">
-                <div class="contorll">
-                    <div class="als-prev" data-icon="J" class="icon"></div>
-                    <div class="als-next" data-icon="U" class="icon"></div>
-                </div>
-                <div class="events-all">
-                    <a href="/san-pham">
-                        <span class="text">Xem thêm</span>
-                        <span data-icon="I" class="icon"></span>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="calender-wrap">
-            <div id="calendar"></div>
-        </div>
+
+
+
+<div class="block">
+    <div class="block-title">
+        <a href="blog.html" class="right">View blog</a>
+        <h2>Highlights</h2>
     </div>
-    <div id="alist-list" class="news-row als-container wrap-help">
-        <div class="LatestNews">
-            <div class="LatestNews-navigation-cont">
-                <div class="LatestNews-heders">
-                    <div class="LatestNews-nav-title">
-                        Tin tức mới nhất
-                    </div>
-                    <div class="LatestNews-archive">
-                        News <br>archive
-                    </div>
+    <div class="block-content">
+        <ul class="article-block-big">
+            <li>
+                <div class="article-photo">
+                    <a href="post.html" class="hover-effect"><img src="~/themes/Tourims/images/kyketduan19-232_thumb.gif" alt="" /></a>
                 </div>
-                <div class="LatestNews-nav">
-                    <div class="als-prev" data-icon="J" class="icon"></div>
-                    <div class="als-next" data-icon="U" class="icon"></div>
+                <div class="article-content">
+                    <h4><a href="post.html">Bổ nhiệm đồng chí Nguyễn Văn Chính làm Giám đốc Vườn Quốc gia Cúc Phương</a><a href="post.html#comments" class="h-comment">201</a></h4>
+                    <span class="meta">
+                        <a href="blog.html"><span class="icon-text">&#128340;</span>11:20, 7.Oct 2013</a>
+                    </span>
                 </div>
-            </div>
-            @await Component.InvokeAsync("NewItem")
-        </div>
-    </div>*@
-
+            </li>
+            <li>
+                <div class="article-photo">
+                    <a href="post.html" class="hover-effect"><img src="~/themes/Tourims/images/photos/image-11.jpg" alt="" /></a>
+                </div>
+                <div class="article-content">
+                    <h4><a href="post.html">Nec option veritus ullamcorper quaestio</a><a href="post.html#comments" class="h-comment">74</a></h4>
+                    <span class="meta">
+                        <a href="blog.html"><span class="icon-text">&#128340;</span>11:20, 7.Oct 2013</a>
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="article-photo">
+                    <a href="post.html" class="hover-effect"><img src="~/themes/Tourims/images/photos/image-12.jpg" alt="" /></a>
+                </div>
+                <div class="article-content">
+                    <h4><a href="post.html">Ea fugit appareat quaestio delectus pericula</a><a href="post.html#comments" class="h-comment">39</a></h4>
+                    <span class="meta">
+                        <a href="blog.html"><span class="icon-text">&#128340;</span>11:20, 7.Oct 2013</a>
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="article-photo">
+                    <a href="post.html" class="hover-effect"><img src="~/themes/Tourims/images/photos/image-13.jpg" alt="" /></a>
+                </div>
+                <div class="article-content">
+                    <h4><a href="post.html">Ex cibo ullum nostrum per quo cu utamur fabulas</a><a href="post.html#comments" class="h-comment">99</a></h4>
+                    <span class="meta">
+                        <a href="blog.html"><span class="icon-text">&#128340;</span>11:20, 7.Oct 2013</a>
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="article-photo">
+                    <a href="post.html" class="hover-effect"><img src="~/themes/Tourims/images/photos/image-14.jpg" alt="" /></a>
+                </div>
+                <div class="article-content">
+                    <h4><a href="post.html">Debitis minimum vituperata mei no intellegam</a><a href="post.html#comments" class="h-comment">201</a></h4>
+                    <span class="meta">
+                        <a href="blog.html"><span class="icon-text">&#128340;</span>11:20, 7.Oct 2013</a>
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="article-photo">
+                    <a href="post.html" class="hover-effect"><img src="~/themes/Tourims/images/photos/image-15.jpg" alt="" /></a>
+                </div>
+                <div class="article-content">
+                    <h4><a href="post.html">Debitis minimum vituperata mei no intellegam</a><a href="post.html#comments" class="h-comment">201</a></h4>
+                    <span class="meta">
+                        <a href="blog.html"><span class="icon-text">&#128340;</span>11:20, 7.Oct 2013</a>
+                        <span class="tag">Updated</span>
+                    </span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
