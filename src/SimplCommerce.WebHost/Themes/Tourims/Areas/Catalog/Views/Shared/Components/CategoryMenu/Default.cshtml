@@ -1,0 +1,32 @@
+﻿@model IEnumerable<SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels.CategoryMenuItem>
+@using SimplCommerce.Module.Core.Extensions
+@using SimplCommerce.Module.Core.Models
+@inject IViewLocalizer Localizer
+@inject IWorkContext WorkContext
+@inject SignInManager<User> SignInManager
+
+<div class="main-menu sticky" style="height: auto;">
+    <!-- BEGIN .wrapper -->
+    <div class="wrapper" style="left: auto; position: inherit; top: 0px;">
+        <ul class="the-menu transition-active">
+            @foreach (var item in Model)
+            {
+                <li>
+                    <a href="@item.Slug"><span>@item.Name</span></a>
+                    @if (item.ChildItems.Count > 0)
+                    {
+
+                        <ul>
+                            @foreach (var childMenu in item.ChildItems)
+                            {
+                                <li><a href="@childMenu.Slug">@childMenu.Name</a></li>
+                            }
+                        </ul>
+                    }
+                </li>
+            }
+        </ul>
+        <!-- END .wrapper -->
+    </div>
+
+</div>

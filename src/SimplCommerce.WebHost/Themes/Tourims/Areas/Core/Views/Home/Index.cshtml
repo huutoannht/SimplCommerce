@@ -1,0 +1,15 @@
+﻿
+
+@model SimplCommerce.Module.Core.Areas.Core.ViewModels.HomeViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="content-block main right">
+
+    <partial name="_WidgetInstances" model="Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeFeatured)" />
+
+    ﻿<partial name="_WidgetInstances" model="Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeMainContent)" />
+
+    <!-- END .content-block -->
+</div>
