@@ -27,7 +27,7 @@ namespace SimplCommerce.Module.Localization.Areas.Localization.Controllers
             currentUser.Culture = culture;
             _userRepository.SaveChanges();
 
-            return LocalRedirect(returnUrl);
+            return LocalRedirect("/ ");
         }
     }
 }

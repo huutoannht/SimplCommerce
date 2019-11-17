@@ -16,7 +16,7 @@ namespace SimplCommerce.Module.Localization.Areas.Localization.Controllers
     [Route("api/localization")]
     public class LocalizationApiController : Controller
     {
-        private const string STANDARD_CULTURE_ID = "vi-VN";
+        private const string STANDARD_CULTURE_ID = "en-US";
         private readonly IStringLocalizer _localizer;
         private readonly IRepository<Resource> _resourceRepository;
         private readonly IRepositoryWithTypedId<Culture, string> _cultureRepository;
@@ -31,7 +31,7 @@ namespace SimplCommerce.Module.Localization.Areas.Localization.Controllers
         [HttpGet("get-translation")]
         public IActionResult GetTranslation()
         {
-            var strings = _localizer.GetAllStrings().ToDictionary(x => x.Name, x => x.Value);
+            var strings = _localizer.GetAllStrings().ToDictionary(x => x.Value, x => x.Name);
             return Json(strings);
         }
 

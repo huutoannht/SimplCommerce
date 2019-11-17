@@ -112,6 +112,9 @@ namespace SimplCommerce.Module.Catalog.Models
         }
 
         public IList<ProductOptionCombination> OptionCombinations { get; protected set; } = new List<ProductOptionCombination>();
+        public string NameEN { get; internal set; }
+        public string ShortDescriptionEN { get; internal set; }
+        public string DescriptionEN { get; internal set; }
 
         public void AddOptionCombination(ProductOptionCombination combination)
         {

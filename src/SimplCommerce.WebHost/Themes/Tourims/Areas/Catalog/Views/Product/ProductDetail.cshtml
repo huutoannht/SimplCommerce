@@ -9,19 +9,20 @@
         <meta name="keywords" content="@Model.MetaKeywords" />
         <meta name="description" content="@Model.MetaDescription" />
     }
+<style>
+    .double-block .content-block.main{
+        width:890px!important;
+    }
+</style>
 
     @section head
         {
         <link simpl-append-version="true" rel="stylesheet" href="~/lib/smoothproducts/css/smoothproducts.css" />
         <link simpl-append-version="true" rel="stylesheet" href="~/modules/catalog/product-detail.css" />
     }
-    <style>
-        .collapse {
-            display: none;
-        }
-    </style>
+  
 
-    <section class="type0">
+    @*<section class="type0">
         <ul class="breadcrumb">
             <a href="~/" class="stext-109 cl8 hov-cl1 trans-04">
                 @Localizer["Home"]
@@ -147,18 +148,6 @@
                                         </div>
                                         <button type="button" disabled="@(!variant.IsAllowToOrder || (variant.StockTrackingIsEnabled && variant.StockQuantity <= 0))" class="btn btn-lg btn-add-cart">@Localizer["Add to cart"]</button>
 
-                                        @*<div>
-                                <ul class="list-inline add-to-wishlist">
-                                    <li class="wishlist-in">
-                                        <i class="fa fa-heart"></i>
-                                        <a href="#">Add to Wishlist</a>
-                                    </li>
-                                    <li class="compare-in">
-                                        <i class="fa fa-exchange"></i>
-                                        <a href="#" class="add-to-comparison">@Localizer["Add to Compare"]</a>
-                                    </li>
-                                </ul>
-                            </div>*@
                                     </form>
                                 </div>
                             </div>
@@ -202,18 +191,6 @@
                                 <div class="area_order">
                                     <a class="buy_repay " href="/mua-tra-gop"><b>Mua trả góp </b><span>Thủ tục đơn giản</span></a>
                                 </div>
-                                @*<div>
-                        <ul class="list-inline add-to-wishlist">
-                            <li class="wishlist-in">
-                                <i class="fa fa-heart"></i>
-                                <a href="#">Add to Wishlist</a>
-                            </li>
-                            <li class="compare-in">
-                                <i class="fa fa-exchange"></i>
-                                <a href="#" class="add-to-comparison">@Localizer["Add to Compare"]</a>
-                            </li>
-                        </ul>
-                    </div>*@
                             </form>
                         </div>
                     }
@@ -285,7 +262,6 @@
                     </div>
 
                     <div>
-                        @*<h3>@Localizer["Customer comments"]</h3>*@
                         <h3>Bình luận</h3>
                         @await Component.InvokeAsync("Comment", new { entityId = Model.Id, entityTypeId = "Product" })
                     </div>
@@ -327,4 +303,122 @@
         <partial name="_ValidationScriptsPartial" />
         <script simpl-append-version="true" src="~/lib/smoothproducts/js/smoothproducts.js"></script>
         <script simpl-append-version="true" src="~/modules/catalog/product-detail.js"></script>
-    }
+    }*@
+
+
+    
+<div class="main-page left">
+
+    <!-- BEGIN .single-block -->
+    <div class="single-block">
+
+
+        <!-- BEGIN .content-block -->
+        <div class="content-block main left">
+
+            <div class="block">
+                <div class="block-content">
+                    <div class="article-title">
+
+                        <h1>@Model.Name</h1>
+                        <div class="author">
+                            <span class="hover-effect left delegate"><span class="cover" style="font-size:20px;"><i></i><img src="images/photos/avatar-2.jpg" alt=""></span></span>
+                            <div class="a-content">
+                                <span class="meta">@Model.CreatedOn.ToString("dd/MM/yyyy") </span>
+                            </div>
+                        </div>
+                    </div>
+                    <p><span class="hover-effect delegate"><span class="cover" style="font-size:63.333333333333336px;"><i></i><img src="images/photos/image-35.jpg" alt=""></span></span></p>
+
+                    <div class="shortcode-content">
+                        @Html.Raw(Model.Description)
+
+                        <div class="article-title">
+                            <div class="share-block right">
+                                <div>
+                                    <div class="share-article left">
+                                        <span>Social media</span>
+                                        <strong>Share this article</strong>
+                                    </div>
+                                    <div class="left">
+                                        <a href="#" class="custom-soc icon-text"></a>
+                                        <a href="#" class="custom-soc icon-text"></a>
+                                        <a href="#" class="custom-soc icon-text"></a>
+                                        <a href="#" class="custom-soc icon-text"></a>
+                                        <a href="#" class="custom-soc icon-text"></a>
+                                    </div>
+                                    <div class="clear-float"></div>
+                                </div>
+                                <div>
+                                    <a href="#" class="small-button"><span class="icon-text"></span>&nbsp;&nbsp;Print this article</a>
+                                    <a href="#" class="small-button"><span class="icon-text">✉</span>&nbsp;&nbsp;Send e-mail</a>
+                                </div>
+                            </div>
+
+                            <div class="author">
+                                <span class="hover-effect left delegate"><span class="cover" style="font-size:20px;"><i></i><img src="images/photos/avatar-2.jpg" alt=""></span></span>
+                                <div class="a-content">
+                                    <span>By <b>Orange-Themes</b></span>
+                                    <span class="meta">October 8, 2013 10:23 <span class="tag" style="background-color: #2a8ece;">Custom Tag</span></span>
+                                </div>
+                            </div>
+
+                            <div class="article-tags tag-cloud">
+                                <strong>TAGS:</strong><a href="#">Duo illum</a><a href="#">Veritus ullamcorper</a><a href="#">Molestiae</a><a href="#">Mea fugit appareat</a><a href="#">Delectus pericula id sea</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                @*<div class="block-title">
+                    <a href="#writecomment" class="right">View all comments</a>
+                    <h2>Write a comment</h2>
+                </div>
+                <div class="block-content">
+                    <div id="writecomment">
+
+                        <form action="#" method="get">
+
+                            <div class="coloralert" style="background: #a12717;">
+                                <p>Error Occurred!</p>
+                                <a href="#close-alert" class="icon-text">✖</a>
+                            </div>
+
+                            <p>Your e-mail address will not be published.<br>Required fields are marked<span class="required">*</span></p>
+
+                            <p class="contact-form-user">
+                                <label for="c_name">Nickname<span class="required">*</span></label>
+                                <input type="text" class="error" placeholder="Nickname" name="c_name" id="c_name">
+                                <span class="error-msg"><span class="icon-text">⚠</span>&nbsp;&nbsp;This is an error message</span>
+                            </p>
+                            <p class="contact-form-email">
+                                <label for="c_email">E-mail<span class="required">*</span></label>
+                                <input type="text" placeholder="E-mail" name="c_email" id="c_email">
+                            </p>
+                            <p class="contact-form-webside">
+                                <label for="c_webside">Website</label>
+                                <input type="text" placeholder="Website" name="c_webside" id="c_webside">
+                            </p>
+                            <p class="contact-form-message">
+                                <label for="c_message">Comment<span class="required">*</span></label>
+                                <textarea name="c_message" placeholder="Your message.." id="c_message"></textarea>
+                            </p>
+                            <p><input type="submit" class="styled-button" value="Post a Comment"></p>
+                        </form>
+
+                    </div>
+                </div>*@
+
+            </div>
+
+            <!-- END .content-block -->
+        </div>
+
+        <!-- END .single-block -->
+    </div>
+
+    <!-- END .main-page -->
+</div>

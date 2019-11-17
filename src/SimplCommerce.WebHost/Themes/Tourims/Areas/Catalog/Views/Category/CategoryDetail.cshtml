@@ -1,5 +1,6 @@
 ﻿@using System.Threading.Tasks
 @addTagHelper *, SimplCommerce.Infrastructure
+@using System.Globalization
 
 @model SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels.ProductsByCategory
 @{
@@ -10,345 +11,71 @@
     <meta name="keywords" content="@Model.CategoryMetaKeywords" />
     <meta name="description" content="@Model.CategoryMetaDescription" />
 }
+
 <style>
-    @@media (min-width: 768px) {
-        .col-md-2 {
-            -webkit-box-flex: 0;
-            -ms-flex: 0 0 19.999999%;
-            flex: 0 0 19.999999%;
-            max-width: 29.666667%;
-        }
-    }
-
-    @@media (max-width: 768px) {
-        .col-sm-6 {
-            -webkit-box-flex: 0;
-            -ms-flex: 0 0 50%;
-            flex: 0 0 50%;
-            max-width: 50%;
-        }
-    }
-
-    .laptopnews .newslist h3 {
-        display: block;
-        overflow: hidden;
-        font-size: 18px;
-        font-weight: 600;
-        text-transform: none;
-        line-height: 1.3;
-        margin: 0;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-    }
-
-    .laptopnews .newslist figure {
-        display: block;
-        overflow: hidden;
-        font-size: 14px;
-        color: #333;
-        line-height: 1.3;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        padding-top: 5px;
-    }
-
-    .laptopnews .newslist .tempvideo {
-        float: left;
-        position: relative;
-        width: 142px;
-        height: 69px;
-        margin-right: 15px;
-        margin-bottom: 0;
-        overflow: hidden;
-    }
-
-        .laptopnews .newslist .tempvideo img {
-            display: block;
-            width: 100%;
-            height: 100%;
-        }
-
-    .laptopnews .newslist li {
-        padding-bottom: 10px;
-        float: left;
-    }
-
-    img.first-new {
-        width: 100%;
-        height: auto;
-    }
-
-    .laptopnews h3 {
-        font-size: 16px;
-        font-weight: bold;
-        display: block;
-        text-transform: uppercase;
-        margin-bottom: 10px;
-        margin-top: 20px;
+    .double-block .content-block.main {
+        width: 890px !important;
     }
 </style>
-@section head {
-    <link simpl-append-version="true" rel="stylesheet" href="~/lib/nouislider/distribute/nouislider.min.css" />
-}
-@await Component.InvokeAsync("CarouselWidgetCategory")
+<div class="main-page left">
 
-<div class="laptopcate filtered">
-    <div class="row">
-        <div class="laptopmanu">
-            <a href="macbook-cu"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Macbook44-b_34.png" /></a>
-            <a href="laptop-dell-cu"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Dell44-b_34.jpg" /></a>
-            <a href="laptop-asus-cu"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Asus44-b_35.jpg" /></a>
-            <a href="laptop-hp-cu"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/HP-Compaq44-b_36.jpg" /></a>
-            @*<a href="acer"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Acer44-b_37.jpg" /></a>*@
-            <a href="laptop-lenovo-cu"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Lenovo44-b_36.jpg" /></a>
-            <a href="laptop-msi-cu"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/MSI44-b_30.png" /></a>
-            <a href="laptop-hoc-tap-van-phong">Học tập văn phòng</a>
-            <a href="laptop-do-hoa-ky-thuat">Đồ họa- Kỹ thuật</a>
-            <a href="laptop-gaming">Laptop gaming</a>
-            <a href="laptop-cao-cap-sang-trong">Cao cấp - Sang trọng</a>
-        </div>
+    <!-- BEGIN .single-block -->
+    <div class="single-block">
 
-    </div>
-    @*<div class="row">
-            <form id="" name="productFilter" method="GET" action="~/search">
-                <ul class="filter barpage">
-                    <li class="fmanu " id="collapse-brand">
-                        <label class="criteria @(Model.FilterOption.Brands.Where(m=>Model.CurrentSearchOption.GetBrands().Contains(m.Slug)).Any()?"filter-selected":"")">
-                            Hãng
-                        </label>
-                        <div class="manufacture">
-                            <button type="button" class="closefilter"><i class="icontgdd-closefilter"></i></button>
-                            <strong>Hãng</strong>
-                            @foreach (var brand in Model.FilterOption.Brands)
-                            {
-                                <label class="checkbox">
-                                    <input type="checkbox" value="@brand.Slug" name="brand" checked="@Model.CurrentSearchOption.GetBrands().Contains(brand.Slug)">
-                                    @brand.Name
-                                </label>
-                            }
-                            <p class="doit"></p>
-                            <p class="cslder">
-                                <span class="cswrap">
-                                    <span class="csdot"></span>
-                                    <span class="csdot"></span>
-                                    <span class="csdot"></span>
-                                </span>
-                            </p>
-                        </div>
-                    </li>
-                    @foreach (var category in Model.FilterOption.Categories.Where(x => x.ParentId == 7))
+        <!-- BEGIN .content-block -->
+        <div class="content-block main left">
+
+            <div class="block">
+                <div class="block-title">
+                    <a href="/" class="right">@Localizer["Trở về trang chủ"]</a>
+                    <h2> @Localizer[Model.CategoryName]</h2>
+                </div>
+                <div class="block-content">
+                    @foreach (var item in Model.Products)
                     {
 
-                        var children = Model.FilterOption.Categories.Where(x => x.ParentId == category.Id);
-                        @if (children.Any())
+                        @if (CultureInfo.CurrentCulture.Name != "vi-VN")
                         {
-                            <li class="fmanu categoryFilter">
-                                <label class="criteria @(children.Where(m=>Model.CurrentSearchOption.GetCategories().Contains(m.Slug)).Any()?"filter-selected":"")">
-                                    @category.Name
-                                    @*<small>(@category.Count)</small>
-                                </label>
-                                <div class="manufacture">
-                                    <strong>@category.Name</strong>
-                                    <button type="button" class="closefilter"><i class="icontgdd-closefilter"></i></button>
-                                    @*<label class="all"><input type="checkbox" value="@category.Slug" name="category" checked="@Model.CurrentSearchOption.GetCategories().Contains(category.Slug)">Tất cả @category.Name</label>
-                                    @foreach (var child in children)
-                                    {
-                                        <label class="checkbox">
-                                            <input type="checkbox" value="@child.Slug" name="category" checked="@Model.CurrentSearchOption.GetCategories().Contains(child.Slug)">
-                                            @child.Name
-                                            <small>(@child.Count)</small>
-                                        </label>
-                                    }
-                                    <p class="doit"></p>
-                                    <p class="cslder">
-                                        <span class="cswrap">
-                                            <span class="csdot"></span>
-                                            <span class="csdot"></span>
-                                            <span class="csdot"></span>
-                                        </span>
-                                    </p>
-                                </div>
-                            </li>
+                            item.Name = item.NameEN;
+                            item.ShortDescription = item.ShortDescriptionEN;
                         }
-
-                    }
-
-                </ul>
-            </form>
-        </div>*@
-    <div class="row">
-        <div class="col-md-12">
-            <div class="row mb-3">
-                <div class="col-sm-4 category-result">
-                    <h2>LAPTOP NỔI BẬT NHẤT</h2>
-                    @*<small class="badge-results">@Model.TotalProduct @Localizer["results"]</small>*@
-                </div>
-                <div class="col-sm-8">
-                    <ul class="list-inline clear-both product-list-display-options">
-                        <li class="sort-by">
-                            Mức giá:
-                        </li>
-                        <li class="sort-by"> <a href="/laptop-cu-duoi-5-trieu" rel="nofolow"> Dưới 5 triệu</a> </li>
-                        <li>  <a href="/laptop-cu-5-10-trieu" rel="nofolow">5 - 10 triệu</a></li>
-                        @*<li class="sort-by">
-                                <a href="?category=15-25-trieu" rel="nofolow">15 - 25 triệu</a>
-                            </li>*@
-                        <li class="sort-by">
-                            <a href="/laptop-cu-tren-10-trieu" rel="nofolow">Trên 10 triệu</a>
-                        </li>
-
-                        <li class="sort-by">
-                            <label>@Localizer["Sort by:"]</label>
-                            <div class="btn-group">
-                                <select asp-for="CurrentSearchOption.Sort" asp-items="Model.AvailableSortOptions" class="form-control"></select>
+                        <div class="article-big">
+                            <div class="article-photo">
+                                <a href="post.html" class="hover-effect delegate"><span class="cover" style="font-size:23.333333333333332px;"><i></i><img src="@item.ThumbnailUrl" alt=""></span></a>
                             </div>
-                        </li>
-                        @*<li class="pagination-option">
-                                <label>Show :</label>
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                        20 <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">All</a></li>
-                                        <li><a href="#">50</a></li>
-                                        <li><a href="#">30</a></li>
-                                    </ul>
-                                </div>
-                            </li>*@
-                    </ul>
-                </div>
-            </div>
-            <div class="row product-list ">
-                <div class="homeproduct">
-                    @foreach (var product in Model.Products)
-                    {
-                        <div class="col-sm-6 col-md-2 item-product " id="load-more">
-                            <partial name="_ProductThumbnail" model="product" />
+                            <div class="article-content">
+                                <h2><a href="@item.Slug">@item.Name</a><a href="@item.Slug" class="h-comment">201</a></h2>
+                                <span class="meta">
+                                    <a href="blog.html"><span class="icon-text">👤</span>Orange-Themes</a>
+                                    <a href="blog.html"><span class="icon-text">🕔</span>@item.CreatedOn.ToString("dd/MM/yyyy")</a>
+                                </span>
+                                @Html.Raw(item.ShortDescription)
+                                <span class="meta">
+                                    <a href="@item.Slug" class="more">@Localizer["Read Full Article"]<span class="icon-text">▸</span></a>
+                                </span>
+                            </div>
                         </div>
                     }
-                </div>
 
-                @*@foreach (var product in Model.Products)
-                    {
-                    <div class="col-xs-6 col-md-4">
-                        <partial name="_ProductThumbnail" model="product" />
+
+                    <div class="pagination">
+                        <a href="#" class="prev page-numbers"><span class="icon-text left">◂</span>Previous Page</a>
+                        <a href="#" class="page-numbers">1</a>
+                        <a href="#" class="page-numbers current">2</a>
+                        <a href="#" class="page-numbers">3</a>
+                        <a href="#" class="page-numbers">4</a>
+                        <a href="#" class="page-numbers">6</a>
+                        <a href="#" class="next page-numbers">Next Page<span class="icon-text right">▸</span></a>
                     </div>
-                    }*@
-            </div>
-            @*<div class="row">
-                    <div class="col-md-12 text-right">
-                        <cs-pager cs-paging-pagesize="@Model.CurrentSearchOption.PageSize"
-                                  cs-paging-pagenumber="@Model.CurrentSearchOption.Page"
-                                  cs-paging-totalitems="@Model.TotalProduct"
-                                  cs-pagenumber-param="page"
-                                  asp-basehref="~/@Model.CategorySlug"
-                                  asp-all-route-data="@Model.CurrentSearchOption.ToDictionary()"></cs-pager>
-                    </div>
-                </div>*@
-            @if (Model.CurrentSearchOption.Page != Model.CurrentSearchOption.PageCount)
-            {
-                <div class="row load-more">
-                    <div class="col-md-12 text-center">
-                        <button class="btn btn-outline-primary" onclick="loadMoreProduct()">Xem thêm</button>
-                    </div>
+
                 </div>
-            }
-            <div class="category-description">
-                @Html.Raw(Model.Description)
-            </div>
-        </div>
-        <div class="laptopacc">
-            <h3>PHẦN MỀM - PHỤ KIỆN LAPTOP</h3>
-            <div class="accessories-content">
-                <a href="/phu-kien?category=phan-mem-diet-virus">
-                    <span>
-                        <img class=" lazyloaded" data-original="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/diet-virus.jpg" src="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/diet-virus.jpg">
-                    </span>
-                    <h4>Phần mềm diệt virus</h4>
-                </a>
-                <a href="/phu-kien?category=windows-10">
-                    <span>
-                        <img class=" lazyloaded" data-original="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/windows.jpg" src="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/windows.jpg">
-                    </span>
-                    <h4>Windows 10 bản quyền</h4>
-                </a>
-                <a href="/phu-kien?category=chuot-may-tinh">
-                    <span>
-                        <img class=" lazyloaded" data-original="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/chuot-ban-phim.jpg" src="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/chuot-ban-phim.jpg">
-                    </span>
-                    <h4>Chuột, bàn phím</h4>
-                </a>
-                <a href="/phu-kien?category=usb-/-o-cung">
-                    <span>
-                        <img class=" lazyloaded" data-original="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/usb.jpg" src="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/usb.jpg">
-                    </span>
-                    <h4>USB / Ổ cứng</h4>
-                </a>
-                <a href="/phu-kien?category=tai-nghe">
-                    <span>
-                        <img class=" lazyloaded" data-original="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/tai-nghe.jpg" src="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/tai-nghe.jpg">
-                    </span>
-                    <h4>Tai nghe</h4>
-                </a>
-                <a href="/phu-kien?category=loa">
-                    <span>
-                        <img class=" lazyloaded" data-original="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/loa.jpg" src="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/loa.jpg">
-                    </span>
-                    <h4>Loa</h4>
-                </a>
-                <a href="/phu-kien?key=mieng-dan-laptop">
-                    <span>
-                        <img class=" lazyloaded" data-original="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/mieng-dan-laptop.jpg" src="~/themes/TheGioiDiDong/images/cdn/v2015/Content/desktop/images/laptop/mieng-dan-laptop.jpg">
-                    </span>
-                    <h4>Miếng dán laptop</h4>
-                </a>
             </div>
 
+            <!-- END .content-block -->
         </div>
-        @await Component.InvokeAsync("NewItemHome")
+
+        <!-- END .single-block -->
     </div>
 
+    <!-- END .main-page -->
 </div>
-
-
-@section scripts {
-    <script simpl-append-version="true" src="~/lib/wnumb/wNumb.js"></script>
-    <script simpl-append-version="true" src="~/lib/nouislider/distribute/nouislider.min.js"></script>
-
-    <script>
-        var productFilter = {};
-        var count=2;
-
-            productFilter.currentSearchOption = @Html.Raw(Model.CurrentSearchOption.ToJson());
-            productFilter.priceSetting = {
-                min: @Model.FilterOption.Price.MinPrice.ToString("F0"),
-                max: @Model.FilterOption.Price.MaxPrice.ToString("F0"),
-                currentMin: @((Model.CurrentSearchOption.MinPrice ?? Model.FilterOption.Price.MinPrice).ToString("F0")),
-                currentMax: @((Model.CurrentSearchOption.MaxPrice ?? Model.FilterOption.Price.MaxPrice).ToString("F0")),
-            };
-
-        function loadMoreProduct(){
-            $.ajax({
-                url:'/Catalog/Category/CategoryDetailLoadMore/@Model.CategoryId?page='+count,
-                type:'get',
-                success:function(html){
-                    if(count=='@Model.CurrentSearchOption.PageCount')
-                    {
-                        $('.load-more').css('display','none');
-                    }
-                    ++count;
-                    $('.homeproduct').append(html);
-                },
-                error:function(ex){
-                    console.log(ex);
-                }
-
-            })
-        }
-    </script>
-    <script simpl-append-version="true" src="~/modules/catalog/product-filter.js"></script>
-    <script simpl-append-version="true" src="~/themes/TheGioiDiDong/js/category.js"></script>
-}

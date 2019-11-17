@@ -10,6 +10,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels
         public long Id { get; set; }
 
         public string Name { get; set; }
+        public string NameEN { get; set; }
 
         public string Slug { get; set; }
 
@@ -45,14 +46,15 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels
 
         public IList<ProductCategory> Categories { get; set; }
         public DateTimeOffset CreatedOn { get; private set; }
-        public string ShortDescription { get; private set; }
-
+        public string ShortDescription { get;  set; }
+        public string ShortDescriptionEN { get;  set; }
         public static ProductThumbnail FromProduct(Product product)
         {
             var productThumbnail = new ProductThumbnail
             {
                 Id = product.Id,
                 Name = product.Name,
+                NameEN = product.NameEN,
                 Slug = product.Slug,
                 Price = product.Price,
                 OldPrice = product.OldPrice,
@@ -69,6 +71,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels
                 Categories = product.Categories,
                 CreatedOn = product.CreatedOn,
                 ShortDescription = product.ShortDescription,
+                ShortDescriptionEN = product.ShortDescriptionEN,
             };
 
             return productThumbnail;
