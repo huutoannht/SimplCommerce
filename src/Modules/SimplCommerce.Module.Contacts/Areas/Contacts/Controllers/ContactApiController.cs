@@ -71,6 +71,7 @@ namespace SimplCommerce.Module.Contacts.Areas.Contacts.Controllers
                 x => new
                 {
                     Id = x.Id,
+                    PhoneNumber=x.PhoneNumber,
                     FullName = x.FullName,
                     ContactArea = x.ContactArea.Name,
                     CreatedOn = x.CreatedOn,

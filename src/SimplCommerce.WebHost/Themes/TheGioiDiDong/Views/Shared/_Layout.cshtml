@@ -7,7 +7,7 @@
     @RenderSection("additionalMeta", false)
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    @if (string.IsNullOrEmpty(ViewBag.Host))
+    @if (ViewBag.Host=="demo")
     {
         <meta content="NOINDEX,NOFOLLOW" name="robots" />
     }
@@ -44,6 +44,7 @@
     <inline-style rel="stylesheet" type="text/css" href="/themes/TheGioiDiDong/css/util.min.css" />
     <inline-style rel="stylesheet" type="text/css" href="/themes/TheGioiDiDong/css/main.min.css" />
     <inline-style rel="stylesheet" type="text/css" href="/themes/TheGioiDiDong/css/simpl.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
     <!-- Google Tag Manager -->
     <script>
         (function (w, d, s, l, i) {
@@ -122,25 +123,25 @@
         @RenderSection("featured", false)
         @RenderBody()
     </div>
-    <div class="catetag">
-        <div>
-            <a href="/laptop-cu-duoi-5-trieu" rel="nofolow">Dưới 5 triệu</a>
-            <a href="/laptop-cu-5-10-trieu" rel="nofolow">5 - 10 triệu</a>
-            <a href="/laptop-cu-tren-10-trieu" rel="nofolow">Trên 10 triệu</a>
+    @if (ViewBag.Host == "demo")
+    {
+        <div class="newleter">
+            <div class="container d-flex align-item-center">
+                <div class="newleter-text">
+                    <h4>Kênh thông tin</h4>
+                    <span>Mời bạn nhập số điện thoại để nhận những thông tin khuyến mại mới nhất từ chúng tôi</span>
+
+                </div>
+                <form action="/contact" class="newleter-form" id="contact" method="post">
+                    <input type="text" placeholder="Nhập số điện thoại của bạn " id="PhoneNumber" name="PhoneNumber" typeof="number" maxlength="10">
+                    <span id="now_submit" class="newleter-btn"><svg width="50" height="15" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1600 960q0 54-37 91l-651 651q-39 37-91 37-51 0-90-37l-75-75q-38-38-38-91t38-91l293-293h-704q-52 0-84.5-37.5t-32.5-90.5v-128q0-53 32.5-90.5t84.5-37.5h704l-293-294q-38-36-38-90t38-90l75-75q38-38 90-38 53 0 91 38l651 651q37 35 37 90z" /></svg></span>
+
+                </form>
+                <span id="messagecontact" style="color:#c22323"></span>
+            </div>
         </div>
-        <div>
-            <a href="/macbook-cu" rel="nofolow">Macbook</a>
-            <a href="/laptop-dell-cu" rel="nofolow">Dell</a>
-            <a href="/laptop-asus-cu" rel="nofolow">Asus</a>
-            <a href="/laptop-hp-cu" rel="nofolow">HP-Compaq</a>
-        </div>
-        <div>
-            <a href="/man-hinh-gap-360-do" rel="nofolow">Màn hình gập 360 độ</a>
-            <a href="/core-i7" rel="nofolow">CPU Core i7</a>
-            <a href="/tren-15" rel="nofolow">Màn hình trên 15"</a>
-            <a href="/bo-nho-intel-optane-2" rel="nofolow">Bộ nhớ Intel Optane</a>
-        </div>
-    </div>
+    }
+
     <div class="plc">
         <ul>
             <li><i class="icGh"></i><span>Giao hàng hoả tốc trong 90 phút</span></li>
@@ -153,21 +154,6 @@
     <footer class="bg3">
         <div class="container">
             <div class="row">
-
-
-                <div class="col-md-3 col-12 box-htch">
-                    <h4 class="stext-301 cl0 p-b-8">
-                        Hệ thống cửa hàng
-                    </h4>
-                    <p>
-                        ☎️ <strong>0236.366.3333</strong><br>
-                        🏪 <strong>133 – 135 Hàm Nghi, Đà Nẵng</strong><br>
-                        🏪 <strong>99 – 101 Hàm Nghi, Đà Nẵng</strong><br>
-                        🏪 40 – Trần Đại Nghĩa, Hà Nội<br>
-                        🏪 63 – Nguyễn Thiện Thuật, HCM<br>
-                        🗓Thứ 2 -> Chủ nhật / 8:00 – 20:00
-                    </p>
-                </div>
                 <div class="col-md-3 col-12 box-htch">
                     <h4 class="stext-301 cl0 p-b-8">
                         Chính Sách
@@ -183,6 +169,39 @@
                         <a href="~/ve-chung-toi">Tìm hiểu về chúng tôi</a>
                     </p>
                 </div>
+
+                <div class="col-md-3 col-12 box-htch">
+                    <h4 class="stext-301 cl0 p-b-8">
+                        Hệ thống cửa hàng
+                    </h4>
+                    <p>
+                        ☎️ <strong>0236.366.3333</strong><br>
+                        🏪 <strong>133 – 135 Hàm Nghi, Đà Nẵng</strong><br>
+                        🏪 <strong>99 – 101 Hàm Nghi, Đà Nẵng</strong><br>
+                        🏪 40 – Trần Đại Nghĩa, Hà Nội<br>
+                        🏪 63 – Nguyễn Thiện Thuật, HCM
+                    </p>
+                </div>
+
+                <div class="col-md-3 col-right-footer">
+                    <h4 class="stext-301 cl0 p-b-8">
+                        Phương thức thanh toán
+                    </h4>
+                    <ul class="list-pay">
+                        <li><img src="~/themes/TheGioiDiDong/images/cdn/icon_bank/icon-tienmat.png" alt="Thanh Toán" width="36" height="36">Tiền mặt</li>
+                        <li><img src="~/themes/TheGioiDiDong/images/cdn/icon_bank/icon-chuyenkhoan.png" alt="Chuyển Khoản" width="36" height="36">Chuyển Khoảng</li>
+                        <li><img src="~/themes/TheGioiDiDong/images/cdn/icon_bank/icon-internetbanking.png" alt="Internet Banking" width="36" height="36">Internet Banking</li>
+                        <li><img src="~/themes/TheGioiDiDong/images/cdn/icon_bank/icon-theatm.png" alt="Atm" width="36" height="36" />Thẻ ATM</li>
+                    </ul>
+                    <h4 class="stext-301 cl0 p-b-8">
+                        Liên hệ với chúng tôi
+                    </h4>
+                    <p>
+                        ✉ <a href="mailto:cskh.techcare@gmail.com">cskh.techcare&#64;gmail.com</a><br>
+                        🗓 Thứ 2 -> Chủ nhật / 8:00 – 20:00
+                    </p>
+                </div>
+
                 <div class="col-md-3 col-12 box-face">
                     <h4 class="stext-301 cl0 p-b-8">
                         FaceBook
@@ -195,30 +214,21 @@
                     </script>
 
                 </div>
-                <div class="col-md-3 col-right-footer">
-                    <h4 class="stext-301 cl0 p-b-8">
-                        Phương thức thanh toán
-                    </h4>
-                    <ul class="list-pay">
-                        <li><img src="~/themes/TheGioiDiDong/images/cdn/icon_bank/icon-tienmat.png" alt="Thanh Toán" width="36" height="36">Tiền mặt</li>
-                        <li><img src="~/themes/TheGioiDiDong/images/cdn/icon_bank/icon-chuyenkhoan.png" alt="Chuyển Khoản" width="36" height="36">Chuyển Khoảng</li>
-                        <li><img src="~/themes/TheGioiDiDong/images/cdn/icon_bank/icon-internetbanking.png" alt="Internet Banking" width="36" height="36">Internet Banking</li>
-                        <li><img src="~/themes/TheGioiDiDong/images/cdn/icon_bank/icon-theatm.png" alt="Atm" width="36" height="36" />Thẻ ATM</li>
-                    </ul>
-                </div>
             </div>
         </div>
 
-        </div>
-        </div>
+
+
 
     </footer>
     <p id="back-top">
         <a href="#top" title="Về Đầu Trang"><span></span></a>
     </p>
     <!--#endregion -->
-    <!--#region Hotjar -->
-    <!--#endregion -->
+    <!--
+        #region Hotjar -->
+    <!--
+        #endregion -->
     <div id="dlding">Đang xử lý, vui lòng đợi trong giây lát...</div>
     <div id="shopModal" class="modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog">
@@ -277,7 +287,16 @@
     <inline-script simpl-append-version="true" src="/modules/shoppingcart/add-to-cart.min.js"></inline-script>
     @*<script simpl-append-version="true" src="~/modules/productcomparison/product-comparison.js"></script>*@
     @RenderSection("scripts", required: false)
+    <script>
+        $('#now_submit').click(function () {
+            if (!$('#PhoneNumber').val()) {
+                $('#messagecontact').html('Mời nhập số điện thoại');
+                return;
+            }
+            $("#contact").submit();
+        })
 
+    </script>
 
 </body>
 </html>

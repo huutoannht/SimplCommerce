@@ -4033,6 +4033,10 @@ footer ul li .group {
   .laptoptop .owl-carousel .owl-item {
     margin: 0 auto;
   }
+  .laptoptop .owl-carousel .owl-item img {
+    height: auto !important;
+    max-width: 100%;
+  }
 
   .laptopcate .laptopmanu {
     width: 100%;
@@ -4268,7 +4272,7 @@ footer ul li .group {
     width: 100%;
   }
   footer .col-right-footer {
-    //text-align: center;
+    /* text-align: center; */
   }
   footer li a.bct {
     margin: 10px auto 0;
@@ -4320,6 +4324,11 @@ footer ul li .group {
 @media ( max-width: 360px ) {
   .rowdetail .sp-large {
     height: 270px !important;
+  }
+  .wrap-main .navbar-collapse .navbar-nav li a {
+    font-size: 10px;
+    text-align: center;
+    padding: 5px 2px;
   }
 }
 

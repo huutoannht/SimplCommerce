@@ -1,6 +1,6 @@
 ﻿@model SimplCommerce.Module.Core.Areas.Core.ViewModels.HomeViewModel
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Laptop Cũ Máy Tính Nhập Khẩu Uy Tín Giá Rẻ Tại Đà Nẵng Việt Nam";
 }
 <link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/TheGioiDiDong/css/style-home.css" />
 <link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/TheGioiDiDong/css/owl.carousel.min.css" />
@@ -83,6 +83,9 @@
         margin-bottom: 10px;
         margin-top: 20px;
     }
+    .banner-footer img{
+        width:373px;
+    }
 </style>
 @section head {
     <link simpl-append-version="true" rel="stylesheet" href="~/lib/nouislider/distribute/nouislider.min.css" />
@@ -90,67 +93,62 @@
 @await Component.InvokeAsync("CarouselWidgetCategory")
 
 <div class="laptopcate filtered">
-    <div class="banner-bottom">
-
-        <a href="#" rel="nofollow">
-            <img src="~/themes/TheGioiDiDong/images/banner.png" />
-        </a>
-    </div>
+    
     <section class="brand-slide">
         <div class="container">
             <div id="owl-category" class="owl-carousel owl-brand" data-items="8" data-dots="false" data-loop="true">
 
                 <div class="item">
                     <a href="#" rel="nofollow">
-                        <img src="~/themes/TheGioiDiDong/images/home-dell.png" alt="Dell">
+                        <img src="~/themes/TheGioiDiDong/images/brand_slide/laptopcu_hoctapvp.png" alt="Học tập văn phòng">
                     </a>
                 </div>
 
                 <div class="item">
                     <a href="#" rel="nofollow">
-                        <img src="~/themes/TheGioiDiDong/images/home-hp.png" alt="HP">
+                        <img src="~/themes/TheGioiDiDong/images/brand_slide/laptopcu_kythuatdohoa.png" alt="Đồ họa kỹ thuật">
                     </a>
                 </div>
 
                 <div class="item">
                     <a href="#" rel="nofollow">
-                        <img src="~/themes/TheGioiDiDong/images/home-thinkpad.png" alt="Thinkpad">
+                        <img src="~/themes/TheGioiDiDong/images/brand_slide/laptopcu_gaming.png" alt="Laptop gaming">
                     </a>
                 </div>
 
                 <div class="item">
                     <a href="#" rel="nofollow">
-                        <img src="~/themes/TheGioiDiDong/images/home-lenono.png" alt="Lenovo">
+                        <img src="~/themes/TheGioiDiDong/images/brand_slide/laptopcu_caocapsangtrong.png" alt="Cao cấp sang trọng">
                     </a>
                 </div>
 
                 <div class="item">
                     <a href="#" rel="nofollow">
-                        <img src="~/themes/TheGioiDiDong/images/home-macbook.png" alt="Macbook">
+                        <img src="~/themes/TheGioiDiDong/images/brand_slide/laptopcu_dell.png" alt="Dell">
                     </a>
                 </div>
 
                 @*<div class="item">
                         <a href="#" rel="nofollow">
-                            <img src="~/themes/TheGioiDiDong/images/home-msi.png" alt="MSI">
+                            <img src="~/themes/TheGioiDiDong/images/brand_slide/laptopcu_asus.png" alt="Asus">
                         </a>
                     </div>*@
 
                 <div class="item">
                     <a href="#" rel="nofollow">
-                        <img src="~/themes/TheGioiDiDong/images/home-lg.png" alt="LG">
+                        <img src="~/themes/TheGioiDiDong/images/brand_slide/laptopcu_hp.png" alt="HP">
                     </a>
                 </div>
 
                 <div class="item">
                     <a href="#" rel="nofollow">
-                        <img src="~/themes/TheGioiDiDong/images/home-acer.png" alt="ACER">
+                        <img src="~/themes/TheGioiDiDong/images/brand_slide/laptopcu_lenovo.png" alt="Lenovo">
                     </a>
                 </div>
 
                 <div class="item">
                     <a href="#" rel="nofollow">
-                        <img src="~/themes/TheGioiDiDong/images/home-asus.png" alt="ASUS">
+                        <img src="~/themes/TheGioiDiDong/images/brand_slide/laptopcu_msi.png" alt="MSI">
                     </a>
                 </div>
             </div>
@@ -159,8 +157,11 @@
     <div class="row">
         <partial name="_WidgetInstances" model="Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeMainContent)" />
     </div>
-    @await Component.InvokeAsync("NewItemHome")
-</div>
+    @if (!string.IsNullOrEmpty(ViewBag.Host))
+    {
+        @await Component.InvokeAsync("NewItemHome")
+    }
+    </div>
 
 @section scripts {
     <inline-script src="/lib/wnumb/wNumb.js"></inline-script>
@@ -175,3 +176,22 @@
     <inline-script src="/themes/TheGioiDiDong/js/category.min.js"></inline-script>
     <inline-script src='/themes/TheGioiDiDong/images/cdn/v2015/Scripts/desktop/V5/home.min.js'></inline-script>
 }
+<div class="banner-footer">
+    <div class="item">
+        <a href="#" rel="nofollow">
+            <img src="~/user-content/banner-tragop.jpg">
+        </a>
+    </div>
+    <div class="item">
+        <a href="#" rel="nofollow">
+            <img src="~/user-content/banner-chamsoctrongoi.jpg">
+        </a>
+    </div>
+    <div class="item">
+        <a href="#" rel="nofollow">
+            <img src="~/user-content/banner-samlaptopxin.png">
+        </a>
+    </div>
+</div>
+
+

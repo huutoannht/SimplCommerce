@@ -23,7 +23,7 @@
         };
         function uploadImageProduct() {
             if (vm.UploadImage) {
-                summerNoteService.upload(vm.UploadImage)
+                return summerNoteService.upload(vm.UploadImage)
                     .then(function (response) {
                         vm.widgetInstance.setting.imageUrl = response.data;
                         return Promise.resolve();

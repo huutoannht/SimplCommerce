@@ -1,61 +1,11 @@
 ﻿@model SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels.ProductWidgetComponentVm
-<!-- home products -->
-@*<div class="row navigat ">
-        <h2>@Model.WidgetName</h2>
-        <div class="viewallcat">
-            @foreach (var brand in Model.Brands)
-            {
-                if (brand != null)
-                {
-                    <a href="@brand.Slug"> @brand.Name</a>
-                }
-
-            }
-        </div>
-    </div>
-    <div class="row homeproduct">
-        @foreach (var product in Model.Products)
-        {
-            <div class="item-product col-md-2">
-                <partial name="/Themes/TheGioiDiDong/Areas/Catalog/Views/Shared/_ProductThumbnail.cshtml" model="product" />
-            </div>
-        }
-    </div>*@
-
-@*<section class="product-home">
-        <div class="container">
-            <div class="pro-head d-flex justify-content-between">
-                <div class="title">
-                    <h3><a href="laptop-cu/c2b8dc.html?filter=%2C539%2C">@Model.WidgetName</a></h3>
-                </div>
-                <div class="filter-price d-flex align-items-center">
-                    <span>Mức giá:</span>
-                    <ul class="d-flex m-0">
-                        <li><a href="laptop-cu/c2c888.html?filter=%2C539%2C&amp;max=15000000&amp;min=10000000">10 Triệu - 15 Triệu</a></li>
-                        <li><a href="laptop-cu/c25fd2.html?filter=%2C539%2C&amp;min=15000000">Trên 15 Triệu</a></li>
-                    </ul>
-                </div>
-            </div>
-
-                <div class="row homeproduct">
-                    @foreach (var product in Model.Products)
-                    {
-                        <div class="col-sm-6 col-md-2 item-product">
-                            <partial name="/Themes/TheGioiDiDong/Areas/Catalog/Views/Shared/_ProductThumbnail.cshtml" model="product" />
-                        </div>
-                    }
-                </div>
-
-        </div>
-    </section>*@
-
 @if (Model.WidgetName.Contains("Phụ kiện"))
 {
     <section class="product-home product-slider">
         <div class="container">
             <div class="pro-head d-flex justify-content-between">
                 <div class="title">
-                    <h3><a href="/ssd-linh-phu-kien/c3.html">Phụ kiện </a></h3>
+                    <h3><a href="@Model.Setting.LinkWidget">Phụ kiện </a></h3>
                 </div>
                 <div class="filter-price d-flex align-items-center">
                     <span>Xem thêm:</span>
@@ -72,9 +22,11 @@
                     {
                         <div class="item">
                             <div class="p-item">
-                                <a href="~/@product.Slug" class="p-img">
-                                    <img src="@product.ThumbnailUrl" alt="@product.Name">
-                                </a>
+                                <div class="p-img">
+                                    <a href="~/@product.Slug">
+                                        <img src="@product.ThumbnailUrl" alt="@product.Name">
+                                    </a>
+                                </div>
                                 <a href="~/@product.Slug" class="p-name">@product.Name</a>
                                 <span class="p-price">@product.CalculatedProductPrice.Price.ToString("C0")</span>
 
@@ -94,29 +46,24 @@ else
         <div class="container">
             <div class="pro-head d-flex justify-content-between">
                 <div class="title">
-                    <h3><a href="laptop-cu/c2.html-1?filter=%2C537%2C">@Model.WidgetName</a></h3>
+                    <h3><a href="@Model.Setting.LinkWidget">@Model.WidgetName</a></h3>
                 </div>
                 <div class="filter-price d-flex align-items-center">
                     <span>Mức giá:</span>
                     <ul class="d-flex m-0">
-                        <li><a href="/laptop-cu/c2.html-1?filter=%2C537%2C&amp;max=5000000">Dưới 5 Triệu</a></li>
-                        <li><a href="/laptop-cu/c2.html-1?filter=%2C537%2C&amp;max=7000000&amp;min=5000000">5 Triệu - 7 Triệu</a></li>
-                        <li><a href="/laptop-cu/c2.html-1?filter=%2C537%2C&amp;max=10000000&amp;min=7000000">7 Triệu - 10 Triệu</a></li>
-                        <li><a href="/laptop-cu/c2.html-1?filter=%2C537%2C&amp;max=15000000&amp;min=10000000">10 Triệu - 15 Triệu</a></li>
-                        <li><a href="/laptop-cu/c2.html-1?filter=%2C537%2C&amp;min=15000000">Trên 15 Triệu</a></li>
+                        <li><a href="@(Model.Setting.LinkWidget + "?maxPrice=5000000")">Dưới 5 Triệu</a></li>
+                        <li><a href="@(Model.Setting.LinkWidget + "?minPrice=5000000&maxPrice=10000000")">5 Triệu - 10 Triệu</a></li>
+                        <li><a href="@(Model.Setting.LinkWidget + "?minPrice=10000000")">Trên 10 Triệu</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="product_home-carousel owl-carousel">
-
-
-                <div class="product-item product-item-featured">
+            <div class="group-product-item">
+            	<div class="product-item product-item-featured">
                     <div class="p-img">
                         <a href="@Model.Setting.ImageUrl"><img src="@Model.Setting.ImageUrl" alt=" " style="height: auto; width: auto;"></a>
                     </div>
-                </div>
-
-
+            </div>
+            <div class="product_home-carousel owl-carousel">
                 @foreach (var product in Model.Products.Take(3))
                 {
                     <div class="product-item">
@@ -162,6 +109,8 @@ else
 
 
             </div>
+            </div>
+		
         </div>
     </section>
 

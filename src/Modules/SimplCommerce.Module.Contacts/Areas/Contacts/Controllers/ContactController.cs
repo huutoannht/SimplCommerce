@@ -32,16 +32,14 @@ namespace SimplCommerce.Module.Contacts.Areas.Contacts.Controllers
                 ContactAreas = GetContactArea()
             };
 
-            if(User.Identity.IsAuthenticated)
-            {
-                var currentUser = await _workContext.GetCurrentUser();
-            
-                model.FullName = currentUser.FullName;
-                model.EmailAddress = currentUser.Email;
-                model.PhoneNumber = currentUser.PhoneNumber;
-            }
 
-            return View(model);
+            var currentUser = await _workContext.GetCurrentUser();
+
+            model.FullName = currentUser.FullName;
+            model.EmailAddress = currentUser.Email;
+            model.PhoneNumber = currentUser.PhoneNumber;
+
+            return Json(true);
         }
 
         [HttpPost("contact")]
@@ -55,7 +53,7 @@ namespace SimplCommerce.Module.Contacts.Areas.Contacts.Controllers
                     PhoneNumber = model.PhoneNumber,
                     EmailAddress = model.EmailAddress,
                     Address = model.Address,
-                    ContactAreaId = model.ContactAreaId,
+                    ContactAreaId = model.ContactAreaId==0 ? 1: model.ContactAreaId,
                     Content = model.Content
                 };
 
