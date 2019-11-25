@@ -37,11 +37,11 @@ namespace SimplCommerce.Module.Core.Areas.Core.Controllers
             throw new Exception("Test behavior in case of error");
         }
 
-        [HttpGet("/template-demo")]
+        [HttpGet("/")]
         public IActionResult Index()
         {
             var model = new HomeViewModel();
-            ViewBag.Host = "demo";
+            ViewBag.Host = "https://" + Request.Host + Request.Path;
             model.WidgetInstances = _widgetInstanceService.GetPublished()
                 .OrderBy(x => x.DisplayOrder)
                 .Select(x => new WidgetInstanceViewModel

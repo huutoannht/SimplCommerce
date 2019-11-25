@@ -123,23 +123,23 @@
         @RenderSection("featured", false)
         @RenderBody()
     </div>
-    @if (ViewBag.Host == "demo")
+    @if (ViewBag.Host == "https://laptopcudanang.com.vn/")
     {
-        <div class="newleter">
-            <div class="container d-flex align-item-center">
-                <div class="newleter-text">
-                    <h4>Kênh thông tin</h4>
-                    <span>Mời bạn nhập số điện thoại để nhận những thông tin khuyến mại mới nhất từ chúng tôi</span>
+    <div class="newleter">
+        <div class="container d-flex align-item-center">
+            <div class="newleter-text">
+                <h4>Kênh thông tin</h4>
+                <span>Hãy nhập số điện thoại để nhận những thông tin khuyến mại mới nhất từ chúng tôi</span>
 
-                </div>
-                <form action="/contact" class="newleter-form" id="contact" method="post">
-                    <input type="text" placeholder="Nhập số điện thoại của bạn " id="PhoneNumber" name="PhoneNumber" typeof="number" maxlength="10">
-                    <span id="now_submit" class="newleter-btn"><svg width="50" height="15" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1600 960q0 54-37 91l-651 651q-39 37-91 37-51 0-90-37l-75-75q-38-38-38-91t38-91l293-293h-704q-52 0-84.5-37.5t-32.5-90.5v-128q0-53 32.5-90.5t84.5-37.5h704l-293-294q-38-36-38-90t38-90l75-75q38-38 90-38 53 0 91 38l651 651q37 35 37 90z" /></svg></span>
-
-                </form>
-                <span id="messagecontact" style="color:#c22323"></span>
             </div>
+            <form action="/contact" class="newleter-form" id="contact" method="post">
+                <input type="text" placeholder="Nhập số điện thoại của bạn " id="PhoneNumber" name="PhoneNumber" typeof="number" maxlength="10">
+                <span id="now_submit" class="newleter-btn"><svg width="50" height="15" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1600 960q0 54-37 91l-651 651q-39 37-91 37-51 0-90-37l-75-75q-38-38-38-91t38-91l293-293h-704q-52 0-84.5-37.5t-32.5-90.5v-128q0-53 32.5-90.5t84.5-37.5h704l-293-294q-38-36-38-90t38-90l75-75q38-38 90-38 53 0 91 38l651 651q37 35 37 90z" /></svg></span>
+
+            </form>
+            <span id="messagecontact" style="color:#c22323"></span>
         </div>
+    </div>
     }
 
     <div class="plc">
@@ -154,11 +154,11 @@
     <footer class="bg3">
         <div class="container">
             <div class="row">
-                <div class="col-md-3 col-12 box-htch">
+                <div class="col-md-3 col-sm-6 col-12 box-htch box-show-more">
                     <h4 class="stext-301 cl0 p-b-8">
                         Chính Sách
                     </h4>
-                    <p class="policy-list">
+                    <p class="policy-list more">
                         <a href="~/chinh-sach-bao-mat">Chính sách bảo mật</a><br>
                         <a href="~/chinh-sach-bao-hanh">Chính sách bảo hành</a><br>
                         <a href="~/chinh-sach-doi-tra">Chính sách đổi trả</a><br>
@@ -170,24 +170,25 @@
                     </p>
                 </div>
 
-                <div class="col-md-3 col-12 box-htch">
+                <div class="col-md-3 col-sm-6 col-12 box-htch">
                     <h4 class="stext-301 cl0 p-b-8">
                         Hệ thống cửa hàng
                     </h4>
                     <p>
-                        ☎️ <strong>0236.366.3333</strong><br>
-                        🏪 <strong>133 – 135 Hàm Nghi, Đà Nẵng</strong><br>
-                        🏪 <strong>99 – 101 Hàm Nghi, Đà Nẵng</strong><br>
-                        🏪 40 – Trần Đại Nghĩa, Hà Nội<br>
-                        🏪 63 – Nguyễn Thiện Thuật, HCM
+                        <strong>133 – 135 Hàm Nghi, Đà Nẵng</strong><br>
+                        <strong>99 – 101 Hàm Nghi, Đà Nẵng</strong><br>
+                        40 – Trần Đại Nghĩa, Hà Nội<br>
+                        63 – Nguyễn Thiện Thuật, HCM<br>
+                        <strong class="tel">☎️ 0236.366.3333 (Gọi Ngay)</strong><br>
+                        <strong class="tel">☎️ 088.8888.086 (Góp Ý)</strong>
                     </p>
                 </div>
 
-                <div class="col-md-3 col-right-footer">
+                <div class="col-md-3 col-sm-6 col-12 col-right-footer box-show-more">
                     <h4 class="stext-301 cl0 p-b-8">
                         Phương thức thanh toán
                     </h4>
-                    <ul class="list-pay">
+                    <ul class="list-pay more">
                         <li><img src="~/themes/TheGioiDiDong/images/cdn/icon_bank/icon-tienmat.png" alt="Thanh Toán" width="36" height="36">Tiền mặt</li>
                         <li><img src="~/themes/TheGioiDiDong/images/cdn/icon_bank/icon-chuyenkhoan.png" alt="Chuyển Khoản" width="36" height="36">Chuyển Khoảng</li>
                         <li><img src="~/themes/TheGioiDiDong/images/cdn/icon_bank/icon-internetbanking.png" alt="Internet Banking" width="36" height="36">Internet Banking</li>
@@ -196,13 +197,13 @@
                     <h4 class="stext-301 cl0 p-b-8">
                         Liên hệ với chúng tôi
                     </h4>
-                    <p>
+                    <p class="more">
                         ✉ <a href="mailto:cskh.techcare@gmail.com">cskh.techcare&#64;gmail.com</a><br>
                         🗓 Thứ 2 -> Chủ nhật / 8:00 – 20:00
                     </p>
                 </div>
 
-                <div class="col-md-3 col-12 box-face">
+                <div class="col-md-3 col-sm-6 col-12 box-face">
                     <h4 class="stext-301 cl0 p-b-8">
                         FaceBook
                     </h4>
@@ -264,28 +265,34 @@
         window.simplGlobalSetting = {};
         window.simplGlobalSetting.lang = '@CultureInfo.CurrentCulture.Name';
     </script>
-    @*<script src="https://code.jquery.com/jquery-3.4.0.min.js"
-        integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
-        crossorigin="anonymous"></script>*@
+    @*
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js"
+            integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
+            crossorigin="anonymous"></script>*@
     <inline-script src="/themes/TheGioiDiDong/js/jquery-3.4.0.min.js"></inline-script>
     <inline-script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></inline-script>
     <inline-script src="/lib/bootstrap4/js/bootstrap.min.js"></inline-script>
     @*<inline-script src="/lib/multi-dropdown-menu/js/bootstrap-4-navbar.js"></inline-script>*@
-    @*<script simpl-append-version="true" src="~/lib/matchheight/jquery.matchHeight.js"></script>*@
-    @*<script simpl-append-version="true" src="~/lib/toastr/build/toastr.min.js"></script>*@
+    @*
+    <script simpl-append-version="true" src="~/lib/matchheight/jquery.matchHeight.js"></script>*@
+    @*
+    <script simpl-append-version="true" src="~/lib/toastr/build/toastr.min.js"></script>*@
     <script simpl-append-version="true" src="~/lib/bootstrap-star-rating/js/star-rating.js"></script>
     @if (CultureInfo.CurrentCulture.Name == "vi-VN")
     {
-        <script simpl-append-version="true" src="~/lib/bootstrap-star-rating/js/locales/vi-vn.js"></script>
+    <script simpl-append-version="true" src="~/lib/bootstrap-star-rating/js/locales/vi-vn.js"></script>
     }
     <inline-script src="/themes/TheGioiDiDong/libs/OwlCarousel/dist/owl.carousel.min.js"></inline-script>
-    @*<script simpl-append-version="true" src="~/themes/CozaStore/vendor/animsition/js/animsition.min.js"></script>
-        <script simpl-append-version="true" src="~/themes/CozaStore/vendor/slick/slick.min.js"></script>
-        <script simpl-append-version="true" src="~/themes/TheGioiDiDong/js/slick-custom.min.js"></script>*@
+    @*
+    <script simpl-append-version="true" src="~/themes/CozaStore/vendor/animsition/js/animsition.min.js"></script>
+    <script simpl-append-version="true" src="~/themes/CozaStore/vendor/slick/slick.min.js"></script>
+    <script simpl-append-version="true" src="~/themes/TheGioiDiDong/js/slick-custom.min.js"></script>*@
     <inline-script simpl-append-version="true" src="/themes/TheGioiDiDong/js/thegioididong.min.js"></inline-script>
-    @*<script simpl-append-version="true" src="~/modules/core/main.min.js"></script>*@
+    @*
+    <script simpl-append-version="true" src="~/modules/core/main.min.js"></script>*@
     <inline-script simpl-append-version="true" src="/modules/shoppingcart/add-to-cart.min.js"></inline-script>
-    @*<script simpl-append-version="true" src="~/modules/productcomparison/product-comparison.js"></script>*@
+    @*
+    <script simpl-append-version="true" src="~/modules/productcomparison/product-comparison.js"></script>*@
     @RenderSection("scripts", required: false)
     <script>
         $('#now_submit').click(function () {

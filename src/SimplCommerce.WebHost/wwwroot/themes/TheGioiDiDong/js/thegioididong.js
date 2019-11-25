@@ -232,9 +232,11 @@
         $('.box_content .boxArticle .area_article').toggleClass('show-all');
         $('.box_content .boxArticle .showmore-content').fadeOut();
     });
-    var myLazyLoad = new LazyLoad({
-        elements_selector: ".lazy-img"
+    $('.box-show-more h4').each(function () {
+        $(this).click(function () {
+            $(this).toggleClass('show');
+            $(this).next().slideToggle();
+        });
     });
-
 
 })(jQuery);

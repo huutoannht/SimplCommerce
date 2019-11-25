@@ -149,8 +149,8 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
 
             return View(model);
         }
-      [HttpGet("/")]
-       // [ResponseCache(Duration = 300)]//300s
+        //[HttpGet("/")]
+        [ResponseCache(Duration = 300)]//300s
         public IActionResult CategoryHome(long id, SearchOption searchOption)
         {
             var host = "https://" + Request.Host + Request.Path;

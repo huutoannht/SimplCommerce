@@ -4789,3 +4789,103 @@ footer .policy-list a:hover {
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
+footer a:hover {
+    color: #f49b00;
+}
+
+.list-pay li {
+    display: inline-block;
+    text-align: center;
+    font-size: 13px;
+}
+
+    .list-pay li:not(:nth-child(2n)) {
+        margin-right: 10px;
+    }
+
+.list-pay + h4 {
+    margin-top: 15px;
+}
+
+footer .box-htch .tel {
+    font-size: 18px;
+    line-height: 1;
+    background: #f49b00;
+    border-radius: 30px;
+    padding: 5px 10px;
+    color: #fff;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+@media ( max-width: 1199px ) and ( min-width: 992px ) {
+    footer {
+        font-size: 14px;
+    }
+
+        footer .box-htch .tel {
+            font-size: 14px;
+            padding: 6px 8px;
+        }
+}
+
+@media ( max-width: 991px ) and ( min-width: 768px ) {
+    footer .col-sm-6 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+        footer .col-sm-6:nth-child(n+3) {
+            margin-top: 20px;
+        }
+}
+
+@media ( max-width: 767px ) {
+    footer .col-12 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    footer .row > div:nth-child(n+3) {
+        margin-top: 0;
+    }
+
+    .list-pay {
+        max-width: 300px;
+    }
+
+    footer .box-show-more h4 {
+        position: relative;
+    }
+
+        footer .box-show-more h4:after, footer .box-show-more h4:before {
+            content: '';
+            position: absolute;
+            width: 14px;
+            height: 2px;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #f49b00;
+            transition: 0.3s;
+            -moz-transition: 0.3s;
+            -webkit-transition: 0.3s;
+        }
+
+        footer .box-show-more h4:before {
+            transform: translateY(-50%) rotate(90deg);
+        }
+
+        footer .box-show-more h4.show:before {
+            transform: translateY(-50%) rotate(0);
+        }
+
+    footer .box-show-more .more {
+        display: none;
+    }
+}

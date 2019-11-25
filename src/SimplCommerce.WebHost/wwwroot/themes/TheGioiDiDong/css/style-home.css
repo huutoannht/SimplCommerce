@@ -644,21 +644,6 @@ body {
   transform: rotate(135deg);
 }
 
-footer a:hover {
-  color: #f49b00;
-}
-.list-pay li {
-  display: inline-block;
-  text-align: center;
-  font-size: 13px;
-}
-.list-pay li:not(:nth-child(2n)) {
-  margin-right: 10px;
-}
-.list-pay + h4 {
-  margin-top: 15px;
-}
-
 @media ( min-width: 768px ) {
   .product-home .group-product-item .product-item-featured {
     width: 33%;

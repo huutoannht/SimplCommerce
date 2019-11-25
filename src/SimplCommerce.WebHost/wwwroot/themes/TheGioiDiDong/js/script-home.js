@@ -23,27 +23,21 @@ $('.product_home-carousel').owlCarousel({
 $('.brand-slide .owl-brand').owlCarousel({
     loop: true,
     autoplay: true,
-    margin: 20,
-    nav: true,
+    margin: 5,
+    nav: false,
     dots: false,
     responsive:{
         0:{
-            items: 2
-        },
-        480:{
             items: 3
         },
-        600:{
+        641:{
             items: 4
         },
-        768:{
+        992:{
             items: 5
         },
-        992:{
-            items: 6
-        },
         1200:{
-            items: 8
+            items: 7
         }
     }
 });
