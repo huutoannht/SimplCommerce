@@ -3695,12 +3695,15 @@ footer {
   padding: 20px 0;
 }
 footer h4 {
-  color: #666 !important;
-  border-color: #666 !important; 
+  color: #f49b00 !important;
+  border-color: #f49b00 !important; 
   margin-bottom: 15px;
   padding-bottom: 5px !important;
-  font-weight: normal !important;
+  font-weight: bold !important;
   font-family: Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif !important;
+}
+footer a {
+  color: #666;
 }
 footer li + li {
   margin-top: 10px;
