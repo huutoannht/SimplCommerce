@@ -50,7 +50,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Components
             model.Products = query
               .Include(x => x.ThumbnailImage)
                .Include(x => x.AttributeValues)
-              .OrderByDescending(x => x.CreatedOn)
+              .OrderByDescending(x => x.DisplayOrder)
               .Take(model.Setting.NumberOfProducts)
               .Select(x => ProductThumbnail.FromProduct(x)).ToList();
 
