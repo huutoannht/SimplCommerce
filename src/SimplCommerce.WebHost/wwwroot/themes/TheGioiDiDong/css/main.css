@@ -4476,6 +4476,73 @@ footer ul li .group {
   
 }
 
+/*------------------------- newlester ----------------*/
+.newleter {
+  margin-top: 20px;
+  background-color: #e1e1e1;
+  padding: 27px 0;
+  -webkit-box-shadow: inset 0 6px 22px -7px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 6px 22px -7px rgba(0, 0, 0, 0.4);
+}
+
+.newleter-text h4 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333333;
+  text-transform: uppercase;
+}
+
+.newleter-text span {
+  color: #333333;
+}
+
+.newleter-form {
+  position: relative;
+  margin-left: 20px;
+}
+
+.newleter-form input {
+  width: 100%;
+  border: 1px solid #e1e1e1;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 3px 0px;
+  outline: 0;
+}
+
+.newleter-form span {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px;
+    text-align: center;
+    line-height: 19px;
+    cursor: pointer;
+    padding-top: 20px;
+}
+
+.newleter-form span:hover {
+  color: #ff9300;
+}
+
+@media ( min-width: 768px ) {
+  .newleter .newleter-form {
+    width: 50%;
+  }
+}
+@media ( max-width: 767px ) {
+  .newleter .container {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  .newleter .newleter-text, .newleter .newleter-form {
+    width: 100%;
+  }
+  .newleter .newleter-form {
+    margin: 10px 0 0;
+  }
+}
+
 /*//////////////////////////////////////////////////////////////////
 [ SSM ]*/
 @media (max-width: 480px) {

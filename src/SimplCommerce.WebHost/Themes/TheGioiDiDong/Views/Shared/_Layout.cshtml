@@ -5,9 +5,16 @@
     <meta name="google-site-verification" content="G5v-BJeHAQPIyjlml-DKi2JQtZm6NIQqSZvHLEjHTik" />
     <title>@ViewData["Title"]</title>
     @RenderSection("additionalMeta", false)
+    @if (ViewBag.Host == "https://laptopcudanang.com.vn/")
+    {
+        <meta name="title" content="Laptop Cũ Máy Tính Nhập Khẩu Uy Tín Giá Rẻ Tại Đà Nẵng Việt Nam" />
+        <meta name="keywords" />
+        <meta name="description" content="Hệ thống Techcare là một trong những trung tâm chuyên cung cấp các dòng sản phẩm laptop cũ máy tính nhập khẩu hoàn toàn chính hãng từ Mỹ với nhiều thương hiệu lớn nổi tiếng." />
+
+    }
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    @if (ViewBag.Host=="demo")
+    @if (ViewBag.Host == "demo")
     {
         <meta content="NOINDEX,NOFOLLOW" name="robots" />
     }
@@ -125,21 +132,21 @@
     </div>
     @if (ViewBag.Host == "https://laptopcudanang.com.vn/")
     {
-    <div class="newleter">
-        <div class="container d-flex align-item-center">
-            <div class="newleter-text">
-                <h4>Kênh thông tin</h4>
-                <span>Hãy nhập số điện thoại để nhận những thông tin khuyến mại mới nhất từ chúng tôi</span>
+        <div class="newleter">
+            <div class="container d-flex align-item-center">
+                <div class="newleter-text">
+                    <h4>Kênh thông tin</h4>
+                    <span>Hãy nhập số điện thoại để nhận những thông tin khuyến mại mới nhất từ chúng tôi</span>
 
+                </div>
+                <form action="/contact" class="newleter-form" id="contact" method="post">
+                    <input type="text" placeholder="Nhập số điện thoại của bạn " id="PhoneNumber" name="PhoneNumber" typeof="number" maxlength="10">
+                    <span id="now_submit" class="newleter-btn"><svg width="50" height="15" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1600 960q0 54-37 91l-651 651q-39 37-91 37-51 0-90-37l-75-75q-38-38-38-91t38-91l293-293h-704q-52 0-84.5-37.5t-32.5-90.5v-128q0-53 32.5-90.5t84.5-37.5h704l-293-294q-38-36-38-90t38-90l75-75q38-38 90-38 53 0 91 38l651 651q37 35 37 90z" /></svg></span>
+
+                </form>
+                <span id="messagecontact" style="color:#c22323"></span>
             </div>
-            <form action="/contact" class="newleter-form" id="contact" method="post">
-                <input type="text" placeholder="Nhập số điện thoại của bạn " id="PhoneNumber" name="PhoneNumber" typeof="number" maxlength="10">
-                <span id="now_submit" class="newleter-btn"><svg width="50" height="15" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1600 960q0 54-37 91l-651 651q-39 37-91 37-51 0-90-37l-75-75q-38-38-38-91t38-91l293-293h-704q-52 0-84.5-37.5t-32.5-90.5v-128q0-53 32.5-90.5t84.5-37.5h704l-293-294q-38-36-38-90t38-90l75-75q38-38 90-38 53 0 91 38l651 651q37 35 37 90z" /></svg></span>
-
-            </form>
-            <span id="messagecontact" style="color:#c22323"></span>
         </div>
-    </div>
     }
 
     <div class="plc">
@@ -266,33 +273,33 @@
         window.simplGlobalSetting.lang = '@CultureInfo.CurrentCulture.Name';
     </script>
     @*
-    <script src="https://code.jquery.com/jquery-3.4.0.min.js"
-            integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
-            crossorigin="anonymous"></script>*@
+        <script src="https://code.jquery.com/jquery-3.4.0.min.js"
+                integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
+                crossorigin="anonymous"></script>*@
     <inline-script src="/themes/TheGioiDiDong/js/jquery-3.4.0.min.js"></inline-script>
     <inline-script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></inline-script>
     <inline-script src="/lib/bootstrap4/js/bootstrap.min.js"></inline-script>
     @*<inline-script src="/lib/multi-dropdown-menu/js/bootstrap-4-navbar.js"></inline-script>*@
     @*
-    <script simpl-append-version="true" src="~/lib/matchheight/jquery.matchHeight.js"></script>*@
+        <script simpl-append-version="true" src="~/lib/matchheight/jquery.matchHeight.js"></script>*@
     @*
-    <script simpl-append-version="true" src="~/lib/toastr/build/toastr.min.js"></script>*@
+        <script simpl-append-version="true" src="~/lib/toastr/build/toastr.min.js"></script>*@
     <script simpl-append-version="true" src="~/lib/bootstrap-star-rating/js/star-rating.js"></script>
     @if (CultureInfo.CurrentCulture.Name == "vi-VN")
     {
-    <script simpl-append-version="true" src="~/lib/bootstrap-star-rating/js/locales/vi-vn.js"></script>
+        <script simpl-append-version="true" src="~/lib/bootstrap-star-rating/js/locales/vi-vn.js"></script>
     }
     <inline-script src="/themes/TheGioiDiDong/libs/OwlCarousel/dist/owl.carousel.min.js"></inline-script>
     @*
-    <script simpl-append-version="true" src="~/themes/CozaStore/vendor/animsition/js/animsition.min.js"></script>
-    <script simpl-append-version="true" src="~/themes/CozaStore/vendor/slick/slick.min.js"></script>
-    <script simpl-append-version="true" src="~/themes/TheGioiDiDong/js/slick-custom.min.js"></script>*@
+        <script simpl-append-version="true" src="~/themes/CozaStore/vendor/animsition/js/animsition.min.js"></script>
+        <script simpl-append-version="true" src="~/themes/CozaStore/vendor/slick/slick.min.js"></script>
+        <script simpl-append-version="true" src="~/themes/TheGioiDiDong/js/slick-custom.min.js"></script>*@
     <inline-script simpl-append-version="true" src="/themes/TheGioiDiDong/js/thegioididong.min.js"></inline-script>
     @*
-    <script simpl-append-version="true" src="~/modules/core/main.min.js"></script>*@
+        <script simpl-append-version="true" src="~/modules/core/main.min.js"></script>*@
     <inline-script simpl-append-version="true" src="/modules/shoppingcart/add-to-cart.min.js"></inline-script>
     @*
-    <script simpl-append-version="true" src="~/modules/productcomparison/product-comparison.js"></script>*@
+        <script simpl-append-version="true" src="~/modules/productcomparison/product-comparison.js"></script>*@
     @RenderSection("scripts", required: false)
     <script>
         $('#now_submit').click(function () {
