@@ -20,9 +20,9 @@ namespace SimplCommerce.Module.Cms.Areas.Cms.Components
             _pageRepository = pageRepository;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync()
+        public async Task<IViewComponentResult> InvokeAsync(int id)
         {
-            var page = await _pageRepository.Query().FirstOrDefaultAsync(x => x.Name.ToLower().Contains("cuối trang"));
+            var page = await _pageRepository.Query().FirstOrDefaultAsync(x => x.Id == id);
 
             return View(this.GetViewPath(), Map(page));
         }
@@ -37,7 +37,7 @@ namespace SimplCommerce.Module.Cms.Areas.Cms.Components
             {
                 Id = page.Id,
                 Name = page.Name,
-                Body = page.Body 
+                Body = page.Body
             };
             return pageVm;
         }

@@ -16,7 +16,7 @@ namespace SimplCommerce.Module.Localization.Areas.Localization.Controllers
     [Route("api/localization")]
     public class LocalizationApiController : Controller
     {
-        private const string STANDARD_CULTURE_ID = "en-US";
+        private const string STANDARD_CULTURE_ID = "vi-VN";
         private readonly IStringLocalizer _localizer;
         private readonly IRepository<Resource> _resourceRepository;
         private readonly IRepositoryWithTypedId<Culture, string> _cultureRepository;
