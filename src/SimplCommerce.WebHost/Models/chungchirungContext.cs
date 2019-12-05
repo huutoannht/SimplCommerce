@@ -1,12 +1,15 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using SimplCommerce.WebHost.Models;
 
 namespace SimplCommerce.WebHost.Models
 {
     public partial class chungchirungContext : DbContext
     {
+        //public chungchirungContext()
+        //{
+        //}
+
         public chungchirungContext(DbContextOptions<chungchirungContext> options)
             : base(options)
         {
@@ -30,6 +33,8 @@ namespace SimplCommerce.WebHost.Models
         public virtual DbSet<CatalogProductPriceHistory> CatalogProductPriceHistory { get; set; }
         public virtual DbSet<CatalogProductTemplate> CatalogProductTemplate { get; set; }
         public virtual DbSet<CatalogProductTemplateProductAttribute> CatalogProductTemplateProductAttribute { get; set; }
+        public virtual DbSet<Certification> Certification { get; set; }
+        public virtual DbSet<ChuRung> ChuRung { get; set; }
         public virtual DbSet<CmsMenu> CmsMenu { get; set; }
         public virtual DbSet<CmsMenuItem> CmsMenuItem { get; set; }
         public virtual DbSet<CmsPage> CmsPage { get; set; }
@@ -116,7 +121,7 @@ namespace SimplCommerce.WebHost.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=TCSVN00034N\\SQLEXPRESS;Database=chungchirung;uid=sa;pwd=123456;");
+                optionsBuilder.UseSqlServer("Server=TCSVN00034N\\SQLEXPRESS;Database=chungchirung;uid=sa;pwd=123456;MultipleActiveResultSets=true");
             }
         }
 
@@ -216,13 +221,21 @@ namespace SimplCommerce.WebHost.Models
 
                 entity.HasIndex(e => e.ThumbnailImageId);
 
+                entity.Property(e => e.DescriptionEn).HasColumnName("DescriptionEN");
+
                 entity.Property(e => e.Gtin).HasMaxLength(450);
 
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(450);
 
+                entity.Property(e => e.NameEn)
+                    .HasColumnName("NameEN")
+                    .HasMaxLength(450);
+
                 entity.Property(e => e.NormalizedName).HasMaxLength(450);
+
+                entity.Property(e => e.ShortDescriptionEn).HasColumnName("ShortDescriptionEN");
 
                 entity.Property(e => e.Sku).HasMaxLength(450);
 
@@ -443,6 +456,70 @@ namespace SimplCommerce.WebHost.Models
                 entity.HasOne(d => d.ProductTemplate)
                     .WithMany(p => p.CatalogProductTemplateProductAttribute)
                     .HasForeignKey(d => d.ProductTemplateId);
+            });
+
+            modelBuilder.Entity<Certification>(entity =>
+            {
+                entity.Property(e => e.CertificationBodyAddress).HasMaxLength(256);
+
+                entity.Property(e => e.CertificationBodyEmail).HasMaxLength(256);
+
+                entity.Property(e => e.CertificationBodyFax).HasMaxLength(256);
+
+                entity.Property(e => e.CertificationBodyName).HasMaxLength(256);
+
+                entity.Property(e => e.CertificationBodyPhone).HasMaxLength(256);
+
+                entity.Property(e => e.CertificationBodyWebsite).HasMaxLength(256);
+
+                entity.Property(e => e.CertificationInformationCertificate).HasMaxLength(256);
+
+                entity.Property(e => e.CertificationInformationCertificateNumber).HasMaxLength(256);
+
+                entity.Property(e => e.CertificationInformationExpiryDate).HasColumnType("date");
+
+                entity.Property(e => e.CertificationInformationStatus).HasMaxLength(256);
+
+                entity.Property(e => e.CertificationInformationSubCertificateNumber).HasMaxLength(256);
+
+                entity.Property(e => e.CertificationInformationTypeOfCertification).HasMaxLength(256);
+
+                entity.Property(e => e.CompanyInformationAddress).HasMaxLength(256);
+
+                entity.Property(e => e.CompanyInformationContactPersonName).HasMaxLength(256);
+
+                entity.Property(e => e.CompanyInformationEmail).HasMaxLength(256);
+
+                entity.Property(e => e.CompanyName).HasMaxLength(256);
+
+                entity.Property(e => e.LogoLisenceExprityDate).HasColumnType("date");
+
+                entity.Property(e => e.LogoLisenceNumber).HasMaxLength(256);
+
+                entity.Property(e => e.ProductsCategoriesLevel1).HasMaxLength(256);
+
+                entity.Property(e => e.ProductsCategoriesLevel2).HasMaxLength(256);
+
+                entity.Property(e => e.ProductsCategoriesLevel3).HasMaxLength(256);
+
+                entity.Property(e => e.ProductsName).HasMaxLength(256);
+            });
+
+            modelBuilder.Entity<ChuRung>(entity =>
+            {
+                entity.Property(e => e.DiaChi).HasMaxLength(1000);
+
+                entity.Property(e => e.LoaiChungChi).HasMaxLength(256);
+
+                entity.Property(e => e.LoaiRung).HasMaxLength(256);
+
+                entity.Property(e => e.MaSo).HasMaxLength(256);
+
+                entity.Property(e => e.TenChuRung).HasMaxLength(256);
+
+                entity.Property(e => e.ThoiGianCap).HasColumnType("datetime");
+
+                entity.Property(e => e.ToChuc).HasMaxLength(256);
             });
 
             modelBuilder.Entity<CmsMenu>(entity =>
@@ -1046,7 +1123,7 @@ namespace SimplCommerce.WebHost.Models
 
                 entity.Property(e => e.CultureId).IsRequired();
 
-                entity.Property(e => e.Key)
+                entity.Property(e => e.Value)
                     .IsRequired()
                     .HasMaxLength(450);
 
@@ -1267,6 +1344,8 @@ namespace SimplCommerce.WebHost.Models
 
                 entity.Property(e => e.Fax).HasMaxLength(20);
 
+                entity.Property(e => e.LicenseNumber).HasMaxLength(256);
+
                 entity.Property(e => e.Name).HasMaxLength(256);
 
                 entity.Property(e => e.NameBody).HasMaxLength(256);
@@ -1282,8 +1361,6 @@ namespace SimplCommerce.WebHost.Models
                 entity.Property(e => e.Type).HasMaxLength(256);
 
                 entity.Property(e => e.Website).HasMaxLength(256);
-
-                entity.Property(e => e.LicenseNumber).HasMaxLength(256);
             });
 
             modelBuilder.Entity<PefcCertificateMapping>(entity =>
@@ -1781,7 +1858,5 @@ namespace SimplCommerce.WebHost.Models
                     .HasForeignKey(d => d.WishListId);
             });
         }
-
-        public DbSet<SimplCommerce.WebHost.Models.ChuRung> ChuRung { get; set; }
     }
 }

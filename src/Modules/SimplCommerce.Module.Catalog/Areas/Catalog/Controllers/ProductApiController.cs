@@ -452,6 +452,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
                 {
                     Id = x.Id,
                     Name = x.Name,
+                    NameEN = x.NameEN,
                     HasOptions = x.HasOptions,
                     IsVisibleIndividually = x.IsVisibleIndividually,
                     IsFeatured = x.IsFeatured,

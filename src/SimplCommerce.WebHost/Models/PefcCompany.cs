@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace SimplCommerce.WebHost.Models
 {
@@ -12,8 +11,6 @@ namespace SimplCommerce.WebHost.Models
         }
 
         public int Id { get; set; }
-        [Display(Name = "Name of Company")]
-
         public string Name { get; set; }
         public string Phone { get; set; }
         public string Fax { get; set; }

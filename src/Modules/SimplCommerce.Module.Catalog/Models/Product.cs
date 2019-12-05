@@ -8,9 +8,12 @@ namespace SimplCommerce.Module.Catalog.Models
 {
     public class Product : Content
     {
+        public string NameEN { get; set; }
         public string ShortDescription { get; set; }
+        public string ShortDescriptionEN { get; set; }
 
         public string Description { get; set; }
+        public string DescriptionEN { get; set; }
 
         public string Specification { get; set; }
 
@@ -123,11 +126,13 @@ namespace SimplCommerce.Module.Catalog.Models
         {
             var product = new Product();
             product.Name = Name;
+            product.NameEN = NameEN;
             product.MetaTitle = MetaTitle;
             product.MetaKeywords = MetaKeywords;
             product.MetaDescription = MetaDescription;
             product.ShortDescription = ShortDescription;
             product.Description = Description;
+            product.DescriptionEN = DescriptionEN;
             product.Specification = Specification;
             product.IsPublished = IsPublished;
             product.Price = Price;

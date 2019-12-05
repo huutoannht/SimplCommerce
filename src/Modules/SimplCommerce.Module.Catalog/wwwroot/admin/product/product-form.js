@@ -53,7 +53,13 @@
                     $('.note-image-alt').val('');
                 });
         };
-
+        vm.shortDescUploadEn = function (files) {
+            summerNoteService.upload(files[0])
+                .then(function (response) {
+                    $(vm.shortDescEditorEn).summernote('insertImage', response.data, $('.note-image-alt').val());
+                    $('.note-image-alt').val('');
+                });
+        };
         vm.descUpload = function (files) {
             var altImage = '';
             $(".note-image-alt").each(function () {
@@ -65,6 +71,22 @@
             summerNoteService.upload(files[0])
                 .then(function (response) {
                     $(vm.descEditor).summernote('insertImage', response.data, altImage);
+                    $(".note-image-alt").each(function () {
+                        $(".note-image-alt").val('');
+                    });
+                });
+        };
+        vm.descUploadEn = function (files) {
+            var altImage = '';
+            $(".note-image-alt").each(function () {
+                if ($(this).val()) {
+                    altImage = $(this).val();
+                }
+            });
+
+            summerNoteService.upload(files[0])
+                .then(function (response) {
+                    $(vm.descEditorEn).summernote('insertImage', response.data, altImage);
                     $(".note-image-alt").each(function () {
                         $(".note-image-alt").val('');
                     });

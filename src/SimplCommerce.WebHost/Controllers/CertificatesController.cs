@@ -31,73 +31,7 @@ namespace SimplCommerce.WebHost.Controllers
             }
             return View(model);
         }
-        [HttpGet("tim-chung-chi")]
-        public async Task<IActionResult> Find(string certificateNumber,string companyName, string logoLicenseNumber,
-            string typeCertification,string status,string productName, string typeProduct, string industrySector)
-        {
-            var pefcCertificateMapping =  _context.PefcCertificateMapping
-              .Include(p => p.Certificate)
-              .Include(p => p.Company)
-              .Include(p => p.Product)
-              .AsNoTracking()
-              .AsQueryable();
-            if (!string.IsNullOrEmpty(certificateNumber))
-            {
-                pefcCertificateMapping = pefcCertificateMapping.Where(m => m.Certificate.Number.Contains(certificateNumber));
-            }
-            if (!string.IsNullOrEmpty(companyName))
-            {
-                pefcCertificateMapping = pefcCertificateMapping.Where(m => m.Company.Name.Contains(companyName));
-
-            }
-            if (!string.IsNullOrEmpty(logoLicenseNumber))
-            {
-                pefcCertificateMapping = pefcCertificateMapping.Where(m => m.Certificate.LicenseNumber.Contains(logoLicenseNumber));
-
-            }
-            if (!string.IsNullOrEmpty(typeCertification))
-            {
-                pefcCertificateMapping = pefcCertificateMapping.Where(m => m.Certificate.Type.Contains(typeCertification));
-
-            }
-            if (!string.IsNullOrEmpty(status))
-            {
-                pefcCertificateMapping = pefcCertificateMapping.Where(m => m.Certificate.Status.Contains(status));
-
-            }
-            if (!string.IsNullOrEmpty(productName))
-            {
-                pefcCertificateMapping = pefcCertificateMapping.Where(m => m.Product.Name.Contains(productName));
-
-            }
-            if (!string.IsNullOrEmpty(typeProduct))
-            {
-                pefcCertificateMapping = pefcCertificateMapping.Where(m => m.Product.Type.Contains(typeProduct));
-
-            }
-            if (!string.IsNullOrEmpty(industrySector))
-            {
-                pefcCertificateMapping = pefcCertificateMapping.Where(m => m.Product.IndustrySector.Contains(industrySector));
-
-            }
-
-            var selection = CertificateExtension.GetDataSelection();
-            ViewData["TypeProduct"] = new SelectList(selection.product_categories, "value", "label",typeProduct);
-            ViewData["IndustrySector"] = new SelectList(selection.industry_sector, "value", "label",industrySector);
-
-            ViewData["TypeCertification"] = new SelectList(selection.cb_type_of_certification, "value", "label",typeCertification);
-            ViewData["Status"] = new SelectList(selection.certificate_status, "value", "label",status);
-            var model = await pefcCertificateMapping.ToListAsync();
-            foreach (var item in model)
-            {
-                item.Certificate.Type = selection.cb_type_of_certification.FirstOrDefault(m => m.value == item.Certificate.Type)?.label;
-                item.Certificate.Status = selection.certificate_status.FirstOrDefault(m => m.value == item.Certificate.Status)?.label;
-                item.Product.Type = selection.product_categories.FirstOrDefault(m => m.value == item.Product.Type)?.label;
-                item.Product.IndustrySector = selection.industry_sector.FirstOrDefault(m => m.value == item.Product.IndustrySector)?.label;
-            }
-            return View(model);
-        }
-
+       
         // GET: Certificates/Details/5
         public async Task<IActionResult> Details(int? id)
         {

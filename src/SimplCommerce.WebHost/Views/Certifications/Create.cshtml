@@ -1,0 +1,208 @@
+﻿@model SimplCommerce.WebHost.Models.Certification
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h4>Tạo mới</h4>
+<hr />
+<form asp-action="Create">
+    <div class="row">
+        <div class="col-12">
+            <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+            <input type="submit" value="Tạo mới sản phẩm" class="btn btn-success float-right">
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Công ty </h3>
+
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body" style="display: block;">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="CompanyName" class="control-label"></label>
+                        <input asp-for="CompanyName" class="form-control" />
+                        <span asp-validation-for="CompanyName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CompanyInformationContactPersonName" class="control-label"></label>
+                        <input asp-for="CompanyInformationContactPersonName" class="form-control" />
+                        <span asp-validation-for="CompanyInformationContactPersonName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CompanyInformationAddress" class="control-label"></label>
+                        <input asp-for="CompanyInformationAddress" class="form-control" />
+                        <span asp-validation-for="CompanyInformationAddress" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CompanyInformationEmail" class="control-label"></label>
+                        <input asp-for="CompanyInformationEmail" class="form-control" />
+                        <span asp-validation-for="CompanyInformationEmail" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Sản phẩm </h3>
+
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body" style="display: block;">
+                    <div class="form-group">
+                        <label asp-for="ProductsName" class="control-label"></label>
+                        <input asp-for="ProductsName" class="form-control" />
+                        <span asp-validation-for="ProductsName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ProductsCategoriesLevel1" class="control-label"></label>
+                        <select asp-for="ProductsCategoriesLevel1" class="form-control select2" asp-items="ViewBag.ProductsCategoriesLevel1" multiple>
+                            <option value="">-------</option>
+                        </select>
+                        <span asp-validation-for="ProductsCategoriesLevel1" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ProductsCategoriesLevel2" class="control-label"></label>
+                        <select asp-for="ProductsCategoriesLevel2" class="form-control select2" asp-items="ViewBag.ProductsCategoriesLevel2" multiple>
+                            <option value="">-------</option>
+                        </select>
+                        <span asp-validation-for="ProductsCategoriesLevel2" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ProductsCategoriesLevel3" class="control-label"></label>
+                        <select asp-for="ProductsCategoriesLevel3" class="form-control select2" asp-items="ViewBag.ProductsCategoriesLevel3" multiple>
+                            <option value="">-------</option>
+                        </select>
+                        <span asp-validation-for="ProductsCategoriesLevel3" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card card-secondary">
+                <div class="card-header">
+                    <h3 class="card-title">Chứng chỉ</h3>
+
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label asp-for="CertificationInformationTypeOfCertification" class="control-label"></label>
+                        <input asp-for="CertificationInformationTypeOfCertification" class="form-control" />
+                        <span asp-validation-for="CertificationInformationTypeOfCertification" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CertificationInformationCertificate" class="control-label"></label>
+                        <input asp-for="CertificationInformationCertificate" class="form-control" />
+                        <span asp-validation-for="CertificationInformationCertificate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CertificationInformationCertificateNumber" class="control-label"></label>
+                        <input asp-for="CertificationInformationCertificateNumber" class="form-control" />
+                        <span asp-validation-for="CertificationInformationCertificateNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CertificationInformationSubCertificateNumber" class="control-label"></label>
+                        <input asp-for="CertificationInformationSubCertificateNumber" class="form-control" />
+                        <span asp-validation-for="CertificationInformationSubCertificateNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CertificationInformationStatus" class="control-label"></label>
+                        <select asp-for="CertificationInformationStatus" class="form-control" asp-items="ViewBag.CertificationInformationStatus">
+                            <option value="">-------</option>
+                        </select>
+                        <span asp-validation-for="CertificationInformationStatus" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CertificationInformationExpiryDate" class="control-label"></label>
+                        <input asp-for="CertificationInformationExpiryDate" class="form-control datepicker" />
+                        <span asp-validation-for="CertificationInformationExpiryDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CertificationBodyName" class="control-label"></label>
+                        <input asp-for="CertificationBodyName" class="form-control" />
+                        <span asp-validation-for="CertificationBodyName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CertificationBodyAddress" class="control-label"></label>
+                        <input asp-for="CertificationBodyAddress" class="form-control" />
+                        <span asp-validation-for="CertificationBodyAddress" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CertificationBodyPhone" class="control-label"></label>
+                        <input asp-for="CertificationBodyPhone" class="form-control" />
+                        <span asp-validation-for="CertificationBodyPhone" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CertificationBodyFax" class="control-label"></label>
+                        <input asp-for="CertificationBodyFax" class="form-control" />
+                        <span asp-validation-for="CertificationBodyFax" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CertificationBodyEmail" class="control-label"></label>
+                        <input asp-for="CertificationBodyEmail" class="form-control" />
+                        <span asp-validation-for="CertificationBodyEmail" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CertificationBodyWebsite" class="control-label"></label>
+                        <input asp-for="CertificationBodyWebsite" class="form-control" />
+                        <span asp-validation-for="CertificationBodyWebsite" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="LogoLisenceNumber" class="control-label"></label>
+                        <input asp-for="LogoLisenceNumber" class="form-control" />
+                        <span asp-validation-for="LogoLisenceNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="LogoLisenceExprityDate" class="control-label"></label>
+                        <input asp-for="LogoLisenceExprityDate" class="form-control datepicker" />
+                        <span asp-validation-for="LogoLisenceExprityDate" class="text-danger"></span>
+                    </div>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+            <input type="submit" value="Tạo mới chứng chỉ" class="btn btn-success float-right">
+        </div>
+    </div>
+</form>
+    @section Scripts {
+        <script>
+            $('.btn-submit').click(function () {
+                $('#frmCertification').submit();
+            })
+            $(function () {
+                $('.select2').select2();
+                //Date picker
+                //$('.datepicker').datepicker({
+                //    autoclose: true
+                //})
+            })
+        </script>
+
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

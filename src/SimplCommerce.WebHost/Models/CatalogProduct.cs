@@ -64,6 +64,9 @@ namespace SimplCommerce.WebHost.Models
         public long? TaxClassId { get; set; }
         public bool StockTrackingIsEnabled { get; set; }
         public long? PromotionImageId { get; set; }
+        public string NameEn { get; set; }
+        public string ShortDescriptionEn { get; set; }
+        public string DescriptionEn { get; set; }
 
         public CatalogBrand Brand { get; set; }
         public CoreUser CreatedBy { get; set; }

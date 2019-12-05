@@ -51,6 +51,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
             {
                 Id = product.Id,
                 Name = product.Name,
+                NameEN = product.NameEN,
                 CalculatedProductPrice = _productPricingService.CalculateProductPrice(product),
                 IsCallForPricing = product.IsCallForPricing,
                 IsAllowToOrder = product.IsAllowToOrder,
@@ -91,22 +92,25 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
             {
                 Id = product.Id,
                 Name = product.Name,
+                NameEN = product.NameEN,
                 CalculatedProductPrice = _productPricingService.CalculateProductPrice(product),
                 IsCallForPricing = product.IsCallForPricing,
                 IsAllowToOrder = product.IsAllowToOrder,
                 StockTrackingIsEnabled = product.StockTrackingIsEnabled,
                 StockQuantity = product.StockQuantity,
                 ShortDescription = product.ShortDescription,
+                ShortDescriptionEN = product.ShortDescriptionEN,
                 MetaTitle = product.MetaTitle,
                 MetaKeywords = product.MetaKeywords,
                 MetaDescription = product.MetaDescription,
                 Description = product.Description,
+                DescriptionEN = product.DescriptionEN,
                 Specification = product.Specification,
                 ReviewsCount = product.ReviewsCount,
                 RatingAverage = product.RatingAverage,
                 Attributes = product.AttributeValues.Select(x => new ProductDetailAttribute { Name = x.Attribute.Name, Value = x.Value }).ToList(),
                 Categories = product.Categories.Select(x => new ProductDetailCategory { Id = x.CategoryId, Name = x.Category.Name, Slug = x.Category.Slug }).ToList(),
-                Promotion=product.PromotionImage?.Caption,
+                Promotion = product.PromotionImage?.Caption,
                 CreatedOn = product.CreatedOn
             };
 

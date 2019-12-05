@@ -1,0 +1,1 @@
+﻿Scaffold-DbContext "Server=TCSVN00034N\SQLEXPRESS;Database=chungchirung;uid=sa;pwd=123456;MultipleActiveResultSets=true" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Context chungchirungContext -f

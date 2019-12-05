@@ -22,7 +22,6 @@
   <ItemGroup>
     <Compile Remove="Themes\Honda\**" />
     <Compile Remove="Themes\TheGioiDiDong\**" />
-    <Compile Remove="wwwroot\themes\ChungChiRung\**" />
     <Compile Remove="wwwroot\themes\CozaStore\**" />
     <Compile Remove="wwwroot\themes\Gallery\**" />
     <Compile Remove="wwwroot\themes\Honda\**" />
@@ -33,7 +32,6 @@
     <Compile Remove="wwwroot\user-content\**" />
     <Content Remove="Themes\Honda\**" />
     <Content Remove="Themes\TheGioiDiDong\**" />
-    <Content Remove="wwwroot\themes\ChungChiRung\**" />
     <Content Remove="wwwroot\themes\CozaStore\**" />
     <Content Remove="wwwroot\themes\Gallery\**" />
     <Content Remove="wwwroot\themes\Honda\**" />
@@ -44,7 +42,6 @@
     <Content Remove="wwwroot\user-content\**" />
     <EmbeddedResource Remove="Themes\Honda\**" />
     <EmbeddedResource Remove="Themes\TheGioiDiDong\**" />
-    <EmbeddedResource Remove="wwwroot\themes\ChungChiRung\**" />
     <EmbeddedResource Remove="wwwroot\themes\CozaStore\**" />
     <EmbeddedResource Remove="wwwroot\themes\Gallery\**" />
     <EmbeddedResource Remove="wwwroot\themes\Honda\**" />
@@ -55,7 +52,6 @@
     <EmbeddedResource Remove="wwwroot\user-content\**" />
     <None Remove="Themes\Honda\**" />
     <None Remove="Themes\TheGioiDiDong\**" />
-    <None Remove="wwwroot\themes\ChungChiRung\**" />
     <None Remove="wwwroot\themes\CozaStore\**" />
     <None Remove="wwwroot\themes\Gallery\**" />
     <None Remove="wwwroot\themes\Honda\**" />
@@ -110,6 +106,7 @@
     <None Remove="Themes\Tourims\Views\Shared\_Layout.cshtml" />
     <None Remove="Themes\Tourims\Views\Shared\_LoginPartial.cshtml" />
     <None Remove="Themes\Tourims\Views\_ViewImports.cshtml" />
+    <None Remove="Views\Certifications\_IndexGrid.cshtml" />
     <None Remove="Views\Shared\_LayoutAdmin.cshtml" />
     <None Remove="wwwroot\googlefbc689ad90567857.html" />
   </ItemGroup>
@@ -155,13 +152,25 @@
     <PackageReference Include="DotNetCore.NPOI" Version="1.2.1" />
     <PackageReference Include="EPPlus" Version="4.5.2.1" />
     <PackageReference Include="Hangfire" Version="1.7.2" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.1.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.1.3" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.1.14" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.14">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="2.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.1.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.10" />
+    <PackageReference Include="NonFactors.Grid.Core.Mvc6" Version="6.2.3" />
+    <PackageReference Include="NonFactors.Grid.Mvc6" Version="6.2.3" />
     <PackageReference Include="Serilog.Extensions.Logging" Version="2.0.2" />
     <PackageReference Include="Serilog.Settings.Configuration" Version="2.6.1" />
     <PackageReference Include="Serilog.Sinks.RollingFile" Version="3.3.1-dev-00767" />
     <PackageReference Include="MediatR" Version="5.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.4" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.14" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.4.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
   </ItemGroup>
@@ -174,6 +183,7 @@
     <Folder Include="wwwroot\modules\shippingfree\" />
     <Folder Include="wwwroot\modules\shippingprices\" />
     <Folder Include="wwwroot\modules\storagelocal\" />
+    <Folder Include="wwwroot\themes\ChungChiRung\assets\mvc-grid\" />
   </ItemGroup>
 
   <Target Name="CopyModule" AfterTargets="Build">

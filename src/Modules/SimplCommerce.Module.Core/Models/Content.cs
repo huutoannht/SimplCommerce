@@ -17,6 +17,7 @@ namespace SimplCommerce.Module.Core.Models
         [Required]
         [StringLength(450)]
         public string Name { get; set; }
+        
 
         [Required]
         [StringLength(450)]

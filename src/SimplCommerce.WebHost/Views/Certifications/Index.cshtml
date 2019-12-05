@@ -1,0 +1,17 @@
+﻿@*@model IEnumerable<SimplCommerce.WebHost.Models.Certification>*@
+@model IQueryable<SimplCommerce.WebHost.Models.Certification>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<h2>Danh sách chứng chỉ rừng</h2>
+<hr />
+<div class="row">
+    <div class="col-12">
+        <a asp-action="Create" class="btn btn-success float-right"><i class="fas fa-plus"></i>Tạo mới</a>
+    </div>
+</div>
+<hr />
+<partial name="_IndexGrid.cshtml" for="@Model">

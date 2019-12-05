@@ -30,7 +30,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Components
         {
 
             var query = _productRepository.Query().Include(m=>m.Categories)
-              .Where(x => x.IsPublished  && x.Categories.Any(m => ids.Contains(m.CategoryId))).OrderByDescending(m=>m.CreatedOn).Take(5);
+              .Where(x => x.IsPublished  && x.Categories.Any(m => ids.Contains(m.CategoryId))).OrderByDescending(m=>m.CreatedOn).Take(3);
 
             var model = query.ToList();
             List<ProductThumbnail> products = new List<ProductThumbnail>();

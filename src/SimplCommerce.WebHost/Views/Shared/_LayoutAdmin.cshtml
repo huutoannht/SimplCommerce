@@ -37,6 +37,10 @@
     <link rel="stylesheet" href="~/adminv2/plugins/summernote/summernote-bs4.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="~/adminv2/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="~/themes/ChungChiRung/assets/mvc-grid/css/mvc-grid/mvc-grid.css">
+    
 
     <link simpl-append-version="true" rel="stylesheet" href="~/lib/angular-material/angular-material.css" />
     <link simpl-append-version="true" rel="stylesheet" href="~/lib/angular-bootstrap/ui-bootstrap-csp.css" />
@@ -45,6 +49,7 @@
     <link simpl-append-version="true" rel="stylesheet" href="~/lib/angular-ui-tree/angular-ui-tree.min.css" />
     <link simpl-append-version="true" rel="stylesheet" href="~/lib/angular-bootstrap-colorpicker/css/colorpicker.min.css" />
     <link simpl-append-version="true" rel="stylesheet" href="~/modules/core/admin/admin-core.css" />
+
 
 
     <script>
@@ -341,7 +346,7 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
-                with font-awesome or any other icon font library -->
+                        with font-awesome or any other icon font library -->
 
                         <li class="nav-item has-treeview">
                             <a href="javascript:void(0)" class="nav-link">
@@ -363,44 +368,44 @@
                                     </a>
                                 </li>
                                 @*<li class="nav-item">
-                                <a ui-sref="brand" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i> <p>
-                                        @Localizer["Brands"]
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a ui-sref="product-option" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>@Localizer["Product Options"]</p>
-                                </a>
-                            </li>*@
+                                        <a ui-sref="brand" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i> <p>
+                                                @Localizer["Brands"]
+                                            </p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a ui-sref="product-option" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>@Localizer["Product Options"]</p>
+                                        </a>
+                                    </li>*@
                                 @*<li class="nav-item"><a ui-sref="product-attribute-group" class="nav-link"><i class="far fa-circle nav-icon"></i> <p>@Localizer["Product Attribute Groups"]</p></a></li>
-                            <li class="nav-item"><a ui-sref="product-attribute" class="nav-link"><i class="far fa-circle nav-icon"></i> <p>@Localizer["Product Attributes"]</p></a></li>
-                            <li class="nav-item"><a ui-sref="product-template" class="nav-link"><i class="far fa-circle nav-icon"></i> <p>@Localizer["Product Templates"]</p></a></li>*@
+                                    <li class="nav-item"><a ui-sref="product-attribute" class="nav-link"><i class="far fa-circle nav-icon"></i> <p>@Localizer["Product Attributes"]</p></a></li>
+                                    <li class="nav-item"><a ui-sref="product-template" class="nav-link"><i class="far fa-circle nav-icon"></i> <p>@Localizer["Product Templates"]</p></a></li>*@
                             </ul>
                         </li>
                         @*<li class="nav-item has-treeview">
-                        <a href="javascript:void(0)" class="nav-link">
-                            <i class="nav-icon fas fa-copy"></i>
-                            <p>
-                                Hiển thị bài viết
-                                <i class="fas fa-angle-left right"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a ui-sref="page" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i> <p>Phần hai bên trang web</p>
+                                <a href="javascript:void(0)" class="nav-link">
+                                    <i class="nav-icon fas fa-copy"></i>
+                                    <p>
+                                        Hiển thị bài viết
+                                        <i class="fas fa-angle-left right"></i>
+                                    </p>
                                 </a>
-                            </li>
-                            <li class="nav-item">
-                                <a ui-sref="widget" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i> <p>Phần giữa trang web</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>*@
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a ui-sref="page" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i> <p>Phần hai bên trang web</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a ui-sref="widget" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i> <p>Phần giữa trang web</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>*@
 
 
                         <li class="nav-item has-treeview">
@@ -413,15 +418,15 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 @*<li class="nav-item">
-                                <a href="/admin#!/news-categories" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i> <p>Chuyên mục</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/admin#!/news-items" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i> <p>Bài viết</p>
-                                </a>
-                            </li>*@
+                                        <a href="/admin#!/news-categories" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i> <p>Chuyên mục</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/admin#!/news-items" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i> <p>Bài viết</p>
+                                        </a>
+                                    </li>*@
                                 <li class="nav-item">
                                     <a href="/admin#!/widget" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i> <p>Slide ảnh</p>
@@ -444,25 +449,30 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="~/PefcProduct" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i> <p>Product</p>
+                                    <a href="~/Certifications" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i> <p>Danh sách</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="~/Certificates" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i> <p>Certificates</p>
+                                    <a href="~/Certifications/Create" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i> <p>Tạo mới</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="~/PefcCompany" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i> <p>Company</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="~/CertificateMapping" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i> <p>Certificates Mapping</p>
-                                    </a>
-                                </li>
+                                @*<li class="nav-item">
+                                        <a href="~/Certificates" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i> <p>Certificates</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="~/PefcCompany" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i> <p>Company</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="~/CertificateMapping" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i> <p>Certificates Mapping</p>
+                                        </a>
+                                    </li>*@
                             </ul>
                         </li>
                         <li class="nav-item has-treeview">
@@ -613,6 +623,13 @@
     <script src="~/adminv2/dist/js/adminlte.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="~/adminv2/dist/js/pages/dashboard.js"></script>
+    <!-- Select2 -->
+    <script src="~/adminv2/plugins/select2/js/select2.full.min.js"></script>
+    <script src="~/themes/ChungChiRung/assets/mvc-grid/js//mvc-grid/mvc-grid.js"></script>
+    <script>
+        document.querySelectorAll(".mvc-grid").forEach(element => new MvcGrid(element));
+    </script>
+
     <!-- AdminLTE for demo purposes -->
     @*<script src="~/adminv2/dist/js/demo.js"></script>*@
 </body>

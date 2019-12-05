@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SimplCommerce.WebHost.Models.PefcCertificateMapping>
+﻿@model IEnumerable<SimplCommerce.WebHost.Models.Certification>
 
 @{
     ViewData["Title"] = "Find Certification";
@@ -157,11 +157,11 @@
                                 @foreach (var item in Model)
                                 {
                                     <div class="col-12 pr-0 ">
-                                        <h2 class="mb-6"><a href="/find-certified/company/281374" class="text-gray">@item.Company.Name</a></h2>
-                                        <p class="mb-6 small"><span class="category text-uppercase">@item.Product.Type</span></p>
+                                        <h2 class="mb-6"><a href="/find-certified/company/281374" class="text-gray">@item.CompanyName</a></h2>
+                                        <p class="mb-6 small"><span class="category text-uppercase">@item.CertificationInformationTypeOfCertification</span></p>
                                         <div class="row mb-6 mb-md-0">
                                             <div class="col-12 col-md-5"><strong>Certificate</strong></div>
-                                            <div class="col-12 col-md-5">@item.Certificate.Name</div>
+                                            <div class="col-12 col-md-5">@item.CompanyName</div>
                                         </div>
                                         <div class="row mb-6 mb-md-0">
                                             <div class="col-12 col-md-5"><strong>Country</strong></div>
@@ -170,21 +170,21 @@
                                         <!---->
                                         <div class="row mb-6 mb-md-0">
                                             <div class="col-12 col-md-5"><strong>Certificate number</strong></div>
-                                            <div class="col-12 col-md-5">@item.Certificate.Number</div>
+                                            <div class="col-12 col-md-5">@item.CertificationInformationCertificateNumber</div>
                                         </div>
                                         <div class="row mb-6 mb-md-0">
                                             <div class="col-12 col-md-5"><strong>Certification body</strong></div>
-                                            <div class="col-12 col-md-5">@item.Certificate.NameBody</div>
+                                            <div class="col-12 col-md-5">@item.CertificationBodyName</div>
                                         </div>
                                         <div class="row mb-6 mb-md-0">
                                             <div class="col-12 col-md-5"><strong>PEFC logo licence No.</strong></div>
-                                            <div class="col-12 col-md-5">@item.Certificate.LicenseNumber</div>
+                                            <div class="col-12 col-md-5">@item.LogoLisenceNumber</div>
                                         </div>
                                         <div class="row mb-6 mb-md-0">
                                             <div class="col-12 col-md-5"><strong>Certificate status</strong></div>
-                                            <div class="col-12 col-md-5">@item.Certificate.Status</div>
+                                            <div class="col-12 col-md-5">@item.CertificationInformationStatus</div>
                                         </div>
-                                        <p class="lead mt-8 mb-0"><a href="#" class="read-more">More details »</a></p>
+                                        @*<p class="lead mt-8 mb-0"><a href="#" class="read-more">More details »</a></p>*@
                                     </div>
                                 }
 

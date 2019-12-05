@@ -1,0 +1,33 @@
+﻿@using NonFactors.Mvc.Grid;
+@model IQueryable<SimplCommerce.WebHost.Models.Certification>
+@(Html
+    .Grid(Model)
+    .Build(columns =>
+    {
+
+        columns.Add(model => Html.ActionLink("Sửa", "Edit", "Certifications", new { id = model.Id })).Titled("");
+        columns.Add(model => Html.ActionLink("Xóa", "Delete", "Certifications", new { id = model.Id })).Titled("");
+
+        columns.Add().RenderedAs((model, row) => row + 1).Titled("#").Css("text-center");
+        columns.Add(model => model.CompanyName).Titled("Tên công ty");
+        columns.Add(model => model.CompanyInformationAddress).Titled("Địa chỉ");
+        columns.Add(model => model.CompanyInformationPhone).Titled("SĐT");
+
+        columns.Add(model => model.CertificationInformationCertificateNumber).Titled("Mã số chứng chỉ");
+        columns.Add(model => model.CertificationInformationStatus).Titled("Tình trạng");
+        columns.Add(model => model.CertificationInformationExpiryDate).Titled("Ngày hết hạn").Formatted("{0:d}");
+
+        columns.Add(model => model.CertificationBodyName).Titled("Tổ chức chứng nhận");
+
+        columns.Add(model => model.ProductsName).Titled("Tên sản phẩm");
+
+
+
+    })
+     .UsingUrl(Url.Action("Index", "Certifications"))
+   .Using(GridFilterMode.Row)
+    .Empty("Không tìm thấy chứng chỉ nào ")
+    .Filterable()
+    .Sortable()
+    .Pageable()
+)
