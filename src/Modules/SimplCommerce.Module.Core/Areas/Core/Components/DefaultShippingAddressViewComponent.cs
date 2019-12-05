@@ -32,7 +32,8 @@ namespace SimplCommerce.Module.Core.Areas.Core.Components
             {
                 model.Address = await _userAddressRepository.Query()
                     .Where(x => x.Id == curentUser.DefaultShippingAddressId.Value)
-                    .Select(x => new UserAddressListItem {
+                    .Select(x => new UserAddressListItem
+                    {
                         UserAddressId = x.Id,
                         ContactName = x.Address.ContactName,
                         Phone = x.Address.Phone,

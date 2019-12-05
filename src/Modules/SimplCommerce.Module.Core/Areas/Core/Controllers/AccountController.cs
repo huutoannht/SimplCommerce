@@ -452,7 +452,7 @@ namespace SimplCommerce.Module.Core.Areas.Core.Controllers
             return View();
         }
 
-       #region Helpers
+        #region Helpers
 
         private void AddErrors(IdentityResult result)
         {
@@ -479,6 +479,6 @@ namespace SimplCommerce.Module.Core.Areas.Core.Controllers
             }
         }
 
-        #endregion
+        #endregion Helpers
     }
 }

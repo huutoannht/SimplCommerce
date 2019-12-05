@@ -21,6 +21,8 @@ namespace SimplCommerce.Module.Comments.Models
 
         public string CommenterName { get; set; }
 
+        public string CommenterPhoneNumber { get; set; }
+
         public CommentStatus Status { get; set; }
 
         public DateTimeOffset CreatedOn { get; set; }

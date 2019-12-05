@@ -1,7 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Net.Http;
-using System.Reflection;
+﻿using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,8 +7,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Net.Http.Headers;
 using SimplCommerce.Module.Core.Services;
-using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.Processing;
 
 namespace SimplCommerce.Module.Core.Areas.Core.Controllers
 {
@@ -36,6 +31,7 @@ namespace SimplCommerce.Module.Core.Areas.Core.Controllers
 
             return Ok(_mediaService.GetMediaUrl(fileName));
         }
+
         public string GetUniqueKey(int maxSize)
         {
             char[] chars = new char[62];

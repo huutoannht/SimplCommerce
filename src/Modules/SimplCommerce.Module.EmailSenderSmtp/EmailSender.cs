@@ -22,7 +22,7 @@ namespace SimplCommerce.Module.EmailSenderSmtp
         public async Task SendEmailAsync(string email, string subject, string body, bool isHtml = false)
         {
             var message = new MimeMessage();
-            message.From.Add(new MailboxAddress(_emailConfig.SmtpUsername));
+            message.From.Add(new MailboxAddress(_emailConfig.SmtpUsername.Trim()));
             message.To.Add(new MailboxAddress(email));
             message.Subject = subject;
 
@@ -43,7 +43,7 @@ namespace SimplCommerce.Module.EmailSenderSmtp
                 client.AuthenticationMechanisms.Remove("XOAUTH2");
 
                 // Note: only needed if the SMTP server requires authentication
-                await client.AuthenticateAsync(_emailConfig.SmtpUsername, _emailConfig.SmtpPassword);
+                await client.AuthenticateAsync(_emailConfig.SmtpUsername.Trim(), _emailConfig.SmtpPassword.Trim());
 
                 await client.SendAsync(message);
                 await client.DisconnectAsync(true);

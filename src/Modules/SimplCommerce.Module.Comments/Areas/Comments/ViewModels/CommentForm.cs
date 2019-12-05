@@ -8,6 +8,8 @@ namespace SimplCommerce.Module.Comments.Areas.Comments.ViewModels
         public string CommentText { get; set; }
 
         public string CommenterName { get; set; }
+        [Required]
+        public string CommenterPhoneNumber { get; set; }
 
         public long? ParentId { get; set; }
 

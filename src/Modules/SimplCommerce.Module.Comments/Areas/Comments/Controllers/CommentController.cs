@@ -1,13 +1,17 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using SimplCommerce.Infrastructure.Web;
 using SimplCommerce.Module.Comments.Areas.Comments.ViewModels;
 using SimplCommerce.Module.Comments.Data;
 using SimplCommerce.Module.Comments.Models;
+using SimplCommerce.Module.Comments.Services;
 using SimplCommerce.Module.Core.Extensions;
+using SimplCommerce.Module.EmailSenderSmtp;
 
 namespace SimplCommerce.Module.Comments.Areas.Comments.Controllers
 {
@@ -20,12 +24,23 @@ namespace SimplCommerce.Module.Comments.Areas.Comments.Controllers
         private readonly ICommentRepository _commentRepository;
         private readonly IWorkContext _workContext;
         private readonly bool _isCommentsRequireApproval;
+        private readonly string _userReceivedComment;
+        private readonly IConfiguration _config;
+        // readonly IEmailSender _emailSender;
+        private readonly IRazorViewRenderer _viewRender;
 
-        public CommentController(ICommentRepository commentRepository, IWorkContext workContext, IConfiguration config)
+        public CommentController(ICommentRepository commentRepository, IWorkContext workContext,
+            IConfiguration config,
+            //IEmailSender emailSender,
+            IRazorViewRenderer viewRender)
         {
             _commentRepository = commentRepository;
             _workContext = workContext;
+            _config = config;
             _isCommentsRequireApproval = config.GetValue<bool>("Catalog.IsCommentsRequireApproval");
+            _userReceivedComment = config.GetValue<string>("Comment.EmailReceviced");
+           // _emailSender = emailSender;
+            _viewRender = viewRender;
         }
 
         [HttpPost]
@@ -38,6 +53,7 @@ namespace SimplCommerce.Module.Comments.Areas.Comments.Controllers
                 {
                     CommentText = model.CommentText,
                     CommenterName = model.CommenterName,
+                    CommenterPhoneNumber = model.CommenterPhoneNumber,
                     Status = _isCommentsRequireApproval ? CommentStatus.Pending : CommentStatus.Approved,
                     EntityId = model.EntityId,
                     EntityTypeId = model.EntityTypeId,
@@ -46,6 +62,42 @@ namespace SimplCommerce.Module.Comments.Areas.Comments.Controllers
 
                 _commentRepository.Add(comment);
                 _commentRepository.SaveChanges();
+
+                if (user.Email != "admin123@gmail.com")
+                {
+                    var commentNotification = await _commentRepository
+                                               .List()
+                                               .Where(x => (x.Id == comment.Id))
+                                               .OrderByDescending(x => x.CreatedOn)
+                                               .Select(x => new CommentEmail
+                                               {
+                                                   Id = x.Id,
+                                                   CommentText = x.CommentText,
+                                                   CommenterName = x.CommenterName,
+                                                   CommenterPhoneNumber = x.CommenterPhoneNumber,
+                                                   EntitiesName = x.EntityName,
+                                                   EntityTypeId = x.EntityTypeId,
+                                                   EntityId = x.EntityId,
+                                                   EntitySlug = x.EntitySlug,
+                                                   CreatedOn = x.CreatedOn,
+                                               }).FirstOrDefaultAsync();
+
+                    //await _commentEmailService.SendEmailToUser(_userReceivedComment, commentNotification);
+                    try
+                    {
+                        var emailBody = await _viewRender.RenderViewToStringAsync("/Areas/Comments/Views/EmailTemplates/CommentEmailToUser.cshtml", commentNotification);
+                        var emailSubject = $"[laptopcudanang.com.vn] Bạn có comment mới.";
+                        var emailSender = new EmailSender(_config);
+                        _ = Task.Run(() => emailSender.SendEmailAsync(_userReceivedComment, emailSubject, emailBody, true));
+                    }
+                    catch (System.Exception ex)
+                    {
+
+                        
+                    }
+                    
+                }
+
 
                 return PartialView("_CommentFormSuccess", model);
             }
@@ -128,6 +180,7 @@ namespace SimplCommerce.Module.Comments.Areas.Comments.Controllers
                     ParentId = model.ParentId,
                     UserId = user.Id,
                     CommentText = model.CommentText,
+                    CommenterPhoneNumber = model.CommenterPhoneNumber,
                     CommenterName = model.CommenterName,
                     Status = _isCommentsRequireApproval ? CommentStatus.Pending : CommentStatus.Approved,
                     EntityId = model.EntityId,
@@ -136,6 +189,39 @@ namespace SimplCommerce.Module.Comments.Areas.Comments.Controllers
 
                 _commentRepository.Add(reply);
                 _commentRepository.SaveChanges();
+
+                if (user.Email != "admin123@gmail.com")
+                {
+                    var commentNotification = await _commentRepository
+                                               .List()
+                                               .Where(x => (x.Id == reply.Id))
+                                               .OrderByDescending(x => x.CreatedOn)
+                                               .Select(x => new CommentEmail
+                                               {
+                                                   Id = x.Id,
+                                                   CommentText = x.CommentText,
+                                                   CommenterName = x.CommenterName,
+                                                   CommenterPhoneNumber = x.CommenterPhoneNumber,
+                                                   EntitiesName = x.EntityName,
+                                                   EntityTypeId = x.EntityTypeId,
+                                                   EntityId = x.EntityId,
+                                                   EntitySlug = x.EntitySlug,
+                                                   CreatedOn = x.CreatedOn,
+                                               }).FirstOrDefaultAsync();
+
+                    try
+                    {
+                        var emailBody = await _viewRender.RenderViewToStringAsync("/Areas/Comments/Views/EmailTemplates/CommentEmailToUser.cshtml", commentNotification);
+                        var emailSubject = $"[laptopcudanang.com.vn] Bạn có comment mới.";
+                        EmailSender emailSender = new EmailSender(_config);
+                        await emailSender.SendEmailAsync(_userReceivedComment, emailSubject, emailBody, true);
+                    }
+                    catch (System.Exception ex)
+                    {
+
+                        throw;
+                    }
+                }
 
                 return PartialView("_CommentFormSuccess", model);
             }

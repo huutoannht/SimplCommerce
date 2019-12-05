@@ -37,7 +37,7 @@ namespace SimplCommerce.Module.Core.Areas.Core.Controllers
             if (ModelState.IsValid)
             {
                 var settings = await _appSettingRepository.Query().Where(x => x.IsVisibleInCommonSettingPage).ToListAsync();
-                foreach(var item in settings)
+                foreach (var item in settings)
                 {
                     var vm = model.FirstOrDefault(x => x.Id == item.Id);
                     if (vm != null)

@@ -11,6 +11,7 @@ namespace SimplCommerce.Module.Comments.Models
         public string CommentText { get; set; }
 
         public string CommenterName { get; set; }
+        public string CommenterPhoneNumber { get; set; }
 
         public CommentStatus Status { get; set; }
 

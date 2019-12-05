@@ -1,0 +1,70 @@
+﻿@using SimplCommerce.Infrastructure.Data
+@using SimplCommerce.Module.Core.Models
+
+@model SimplCommerce.Module.Comments.Areas.Comments.ViewModels.CommentEmail
+@inject IRepository<StateOrProvince> StateOrProvinceRepository
+@inject IRepository<District> DistrictRepository
+
+
+@{
+    Layout = null;
+}
+
+<table border="0" cellpadding="0" cellspacing="0" style="background:#ffffff;width:100%">
+    <tbody>
+        <tr>
+            <td align="center" valign="top">
+                <table border="0" cellpadding="0" cellspacing="0" style="width:650px;border-top:1px #cccccc">
+                    <tbody>
+                        <tr>
+                            <td align="left" style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#333333;background:#fff" valign="top">
+                                <p>Chào bạn,</p>
+                                <p>Người dùng "@Model.CommenterName" đã đăng tin nhắn với nội dung như sau:</p>
+                                <p></p>
+                                <div style="background:#eff0f4;border:1px solid #e2e2e2;margin-top:10px;width:100%">
+                                    <table bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0" style="width:100%">
+                                        <tbody>
+                                            <tr style="padding:10px">
+                                                <td colspan="2" style="border-top:1px solid #eff0f4">
+                                                    <table style="padding:7px 0">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td style="padding:2px 8px 0px 15px">Nội dung:</td>
+                                                                <td style="padding:2px 8px 0px 15px"><a href="@(string.Format("https://laptopcudanang.com.vn/Comments/Comment/List?entityId={0}&entityTypeId={1}&pageNumber=1&pageSize=25",Model.Id,Model.EntityTypeId))"><strong>@Model.CommentText</strong></a></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="padding:2px 8px 0px 15px">Số điện thoại:</td>
+                                                                <td style="padding:2px 8px 0px 15px"> <strong>@Model.CommenterPhoneNumber</strong></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="padding: 2px 8px 0px 15px">Thời gian tạo:</td>
+                                                                <td style="padding: 2px 8px 0px 15px"><strong>@Model.CreatedOn</strong></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="padding: 2px 8px 0px 15px">Sản phẩm:</td>
+                                                                <td style="padding: 2px 8px 0px 15px"><a href="@("https://laptopcudanang.com.vn/"+@Model.EntitySlug)"></a><strong>@Model.EntitiesName</strong></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="padding: 2px 8px 0px 15px"><a href="https://laptopcudanang.com.vn/admin#!/comments">Đăng nhập hệ thống</a>:</td>
+                                                                <td style="padding: 2px 8px 0px 15px"></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Cảm ơn!</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>

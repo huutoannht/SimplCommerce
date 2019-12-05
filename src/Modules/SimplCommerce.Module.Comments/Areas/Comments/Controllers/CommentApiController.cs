@@ -101,6 +101,7 @@ namespace SimplCommerce.Module.Comments.Areas.Comments.Controllers
                 {
                     x.Id,
                     x.CommenterName,
+                    x.CommenterPhoneNumber,
                     x.CommentText,
                     x.EntityName,
                     x.EntitySlug,
