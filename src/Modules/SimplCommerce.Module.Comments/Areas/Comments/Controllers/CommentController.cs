@@ -68,7 +68,6 @@ namespace SimplCommerce.Module.Comments.Areas.Comments.Controllers
                     var commentNotification = await _commentRepository
                                                .List()
                                                .Where(x => (x.Id == comment.Id))
-                                               .OrderByDescending(x => x.CreatedOn)
                                                .Select(x => new CommentEmail
                                                {
                                                    Id = x.Id,
@@ -92,8 +91,6 @@ namespace SimplCommerce.Module.Comments.Areas.Comments.Controllers
                     }
                     catch (System.Exception ex)
                     {
-
-                        
                     }
                     
                 }
@@ -213,13 +210,11 @@ namespace SimplCommerce.Module.Comments.Areas.Comments.Controllers
                     {
                         var emailBody = await _viewRender.RenderViewToStringAsync("/Areas/Comments/Views/EmailTemplates/CommentEmailToUser.cshtml", commentNotification);
                         var emailSubject = $"[laptopcudanang.com.vn] Bạn có comment mới.";
-                        EmailSender emailSender = new EmailSender(_config);
-                        await emailSender.SendEmailAsync(_userReceivedComment, emailSubject, emailBody, true);
+                        var emailSender = new EmailSender(_config);
+                        _ = Task.Run(() => emailSender.SendEmailAsync(_userReceivedComment, emailSubject, emailBody, true));
                     }
                     catch (System.Exception ex)
                     {
-
-                        throw;
                     }
                 }
 

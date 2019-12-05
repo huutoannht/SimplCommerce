@@ -21,6 +21,7 @@ namespace SimplCommerce.Module.Comments.Data
                     EntityTypeId = r.EntityTypeId,
                     Id = r.Id,
                     CommenterName = r.CommenterName,
+                    CommenterPhoneNumber = r.CommenterPhoneNumber,
                     CommentText = r.CommentText,
                     Status = r.Status,
                     CreatedOn = r.CreatedOn,

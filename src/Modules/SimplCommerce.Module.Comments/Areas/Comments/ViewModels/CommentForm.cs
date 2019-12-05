@@ -4,11 +4,12 @@ namespace SimplCommerce.Module.Comments.Areas.Comments.ViewModels
 {
     public class CommentForm
     {
-        [Required]
+        [Required(ErrorMessage = "Mời bạn nhập nội dung commnent.")]
         public string CommentText { get; set; }
 
         public string CommenterName { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Mời bạn nhập số điện thoại.")]
+
         public string CommenterPhoneNumber { get; set; }
 
         public long? ParentId { get; set; }
