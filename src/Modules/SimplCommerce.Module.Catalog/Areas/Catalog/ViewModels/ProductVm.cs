@@ -85,8 +85,8 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels
         public List<ProductLinkVm> RelatedProducts { get; set; } = new List<ProductLinkVm>();
 
         public List<ProductLinkVm> CrossSellProducts { get; set; } = new List<ProductLinkVm>();
-        public string NameEN { get; internal set; }
-        public string DescriptionEN { get; internal set; }
-        public string ShortDescriptionEN { get; internal set; }
+        public string NameEN { get;  set; }
+        public string DescriptionEN { get;  set; }
+        public string ShortDescriptionEN { get;  set; }
     }
 }

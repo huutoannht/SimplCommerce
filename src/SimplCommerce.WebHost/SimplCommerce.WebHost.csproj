@@ -130,6 +130,7 @@
     <None Remove="Themes\Tourims\Areas\Catalog\Views\_ViewStart.cshtml" />
     <None Remove="Themes\Tourims\Areas\Cms\Views\Shared\Components\CarouselWidgetCategory\Default.cshtml" />
     <None Remove="Themes\Tourims\Areas\Cms\Views\Shared\Components\CarouselWidget\Default.cshtml" />
+    <None Remove="Themes\Tourims\Areas\Cms\Views\Shared\Components\Headline\Default.cshtml" />
     <None Remove="Themes\Tourims\Areas\Cms\Views\Shared\Components\Menu\Default.cshtml" />
     <None Remove="Themes\Tourims\Areas\Cms\Views\_ViewImports.cshtml" />
     <None Remove="Themes\Tourims\Areas\Core\Views\Home\Index.cshtml" />

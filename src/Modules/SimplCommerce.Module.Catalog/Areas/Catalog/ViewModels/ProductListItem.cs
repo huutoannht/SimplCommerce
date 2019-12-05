@@ -23,5 +23,6 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels
         public bool IsAllowToOrder { get; set; }
 
         public int? StockQuantity { get; set; }
+        public string NameEN { get; internal set; }
     }
 }
