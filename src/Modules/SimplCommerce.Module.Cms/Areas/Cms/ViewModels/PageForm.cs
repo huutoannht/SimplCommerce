@@ -26,6 +26,8 @@ namespace SimplCommerce.Module.Cms.Areas.Cms.ViewModels
         [Required]
         public string Body { get; set; }
 
+        public string BodyEN { get; set; }
+
         public bool IsPublished { get; set; }
     }
 }

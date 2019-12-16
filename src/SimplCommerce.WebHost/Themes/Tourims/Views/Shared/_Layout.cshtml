@@ -25,22 +25,24 @@
     <link type="text/css" rel="stylesheet" href="~/themes/Tourims/css/responsive.css" />
 
     <!-- Demo Only -->
-    <link type="text/css" rel="stylesheet" href="~/themes/Tourims/css/demo-settings.css" />
+    @*<link type="text/css" rel="stylesheet" href="~/themes/Tourims/css/demo-settings.css" />*@
     @RenderSection("head", required: false)
     <!-- END head -->
 </head>
 
 <!-- BEGIN body -->
 <body>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0"></script>
     @*@RenderSection("featured", false)*@
     @*<div class="top-bar">
-        <div class="container">
-            <ul class="nav justify-content-end">
-                <partial name="_SelectLanguagePartial" />
-                <partial name="_LoginPartial" />
-            </ul>
-        </div>
-    </div>*@
+            <div class="container">
+                <ul class="nav justify-content-end">
+                    <partial name="_SelectLanguagePartial" />
+                    <partial name="_LoginPartial" />
+                </ul>
+            </div>
+        </div>*@
     <!-- BEGIN .boxed -->
     <div class="boxed active">
 
@@ -85,7 +87,7 @@
                 <div class="wrapper">
 
                     <ul>
-                        <li><a href="category.html">Thứ 5(31/10/2019)</a></li>
+                        <li><a href="/">@(DateTime.Today.DayOfWeek + "(" + @DateTime.Today.Date.ToString("dd/MM/yyyy") + ")")</a></li>
                     </ul>
 
                     <!-- END .wrapper -->
@@ -130,13 +132,7 @@
                         <div class="widget">
                             <h3>@Localizer["Liên kết"]</h3>
                             <div class="widget-social">
-                                <div class="social-bar">
-                                    <a href="#" class="social-icon"><i class="number">1.2m</i><span class="facebook">Facebook</span></a>
-                                    <a href="#" class="social-icon"><i class="number">2.6k</i><span class="twitter">Twitter</span></a>
-                                    <a href="#" class="social-icon"><i class="number">1.4k</i><span class="google">Google+</span></a>
-                                    <a href="#" class="social-icon"><i class="number">823</i><span class="linkedin">Linkedin</span></a>
-                                </div>
-                                <p>Suscipit partiendo comprehensam ne eos mel, nam omnis maiestatis no. Eum at reformidans ius, cu.</p>
+                                <div class="fb-page" data-href="https://www.facebook.com/caychongannam/" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/caychongannam/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/caychongannam/">Vườn Quốc Gia Cúc Phương</a></blockquote></div>
                             </div>
                             <!-- END .widget -->
                         </div>
@@ -146,7 +142,8 @@
                             <h3>@Localizer["Lịch"]</h3>
                             <div id="calendar_wrap">
                                 <table id="wp-calendar">
-                                    <caption>October 2013</caption>
+                                    <caption>@DateTime.Today.ToShortDateString()</caption>
+                                    @{ int dateOfWeek = DateTime.Today.Day;}
                                     <thead>
                                         <tr>
                                             <th scope="col" title="Monday">M</th>
@@ -161,7 +158,7 @@
 
                                     <tfoot>
                                         <tr>
-                                            <td colspan="3" id="prev"><a href="#" title="View posts for September 2013">« Sep</a></td>
+                                            <td colspan="3" id="prev"></td>
                                             <td class="pad">&nbsp;</td>
                                             <td colspan="3" id="next" class="pad">&nbsp;</td>
                                         </tr>
@@ -170,45 +167,34 @@
                                     <tbody>
                                         <tr>
                                             <td colspan="1" class="pad">&nbsp;</td>
-                                            <td>1</td>
-                                            <td>2</td>
-                                            <td>3</td>
-                                            <td><a href="blog.html">4</a></td>
-                                            <td>5</td>
-                                            <td><a href="blog.html">6</a></td>
+                                            @for (int i = 1; i < 7; i++)
+                                            {
+                                        <td id="@(i==dateOfWeek?"today":"")">@i</td>
+                                            }
                                         </tr>
                                         <tr>
-                                            <td>7</td>
-                                            <td><a href="blog.html">8</td>
-                                            <td><a href="blog.html">9</a></td>
-                                            <td><a href="blog.html">10</a></td>
-                                            <td>11</td>
-                                            <td>12</td>
-                                            <td>13</td>
+                                            @for (int i = 7; i < 13; i++)
+                                            {
+                                                <td id="@(i==dateOfWeek?"today":"")">@i</td>
+                                            }
                                         </tr>
                                         <tr>
-                                            <td>14</td>
-                                            <td><a href="blog.html">15</a></td>
-                                            <td>16</td>
-                                            <td><a href="blog.html">17</a></td>
-                                            <td><a href="blog.html">18</a></td>
-                                            <td>19</td>
-                                            <td><a href="blog.html">20</a></td>
+                                            @for (int i = 14; i < 20; i++)
+                                            {
+                                                <td id="@(i==dateOfWeek?"today":"")">@i</td>
+                                            }
                                         </tr>
                                         <tr>
-                                            <td><a href="blog.html">21</a></td>
-                                            <td>22</td>
-                                            <td id="today"><a href="blog.html">23</a></td>
-                                            <td>24</td>
-                                            <td>25</td>
-                                            <td>26</td>
-                                            <td>27</td>
+                                            @for (int i = 21; i < 27; i++)
+                                            {
+                                                <td id="@(i==dateOfWeek?"today":"")">@i</td>
+                                            }
                                         </tr>
                                         <tr>
-                                            <td>28</td>
-                                            <td>29</td>
-                                            <td>30</td>
-                                            <td>31</td>
+                                            @for (int i = 28; i <= 31; i++)
+                                            {
+                                                <td id="@(i==dateOfWeek?"today":"")">@i</td>
+                                            }
                                             <td class="pad" colspan="3">&nbsp;</td>
                                         </tr>
                                     </tbody>
@@ -219,7 +205,7 @@
 
                         <!-- BEGIN .widget -->
                         <div class="widget">
-                            <h3>Latest Photo Galleries</h3>
+                            <h3>@Localizer["THƯ VIỆN ẢNH MỚI NHẤT"]</h3>
                             <div class="latest-galleries">
 
                                 <div class="gallery-widget">
@@ -246,11 +232,10 @@
                                         <a href="#" class="slide-right icon-text">&#59230;</a>
                                         <ul>
                                             <li><a href="photo-gallery-single.html" class="hover-effect"><img src="~/themes/Tourims/images/don.jpg" alt="" /></a></li>
-                                            <li><a href="photo-gallery-single.html" class="hover-effect"><img src="~/themes/Tourims/images/photos/image-6.jpg" alt="" /></a></li>
+                                            <li><a href="photo-gallery-single.html" class="hover-effect"><img src="~/themes/Tourims/images/chim_cong_4.jpg" alt="" /></a></li>
                                         </ul>
                                     </div>
                                     <div class="gallery-content">
-                                        <h4><a href="photo-gallery-single.html">Ad vel ludus omnes clita aperiam accusam inimicus expetendis</a></h4>
                                         <span class="meta">
                                             <span class="right">35 photos</span>
                                             <a href="photo-gallery-single.html"><span class="icon-text">&#59212;</span>View all photos</a>
@@ -290,11 +275,11 @@
             <div class="wrapper">
 
                 <ul class="right">
-                    <li><a href="/">Homepage</a></li>
-                    <li><a href="blog.html">Blog Page</a></li>
-                    <li><a href="photo-gallery.html">Photo Gallery</a></li>
-                    <li><a href="error-404.html">404 Error Page</a></li>
-                    <li><a href="contact-us.html">Contact Us</a></li>
+                    <li><a href="/">@Localizer["Trang chủ"]</a></li>
+                    @*<li><a href="blog.html">Blog Page</a></li>
+                        <li><a href="photo-gallery.html">Photo Gallery</a></li>
+                        <li><a href="error-404.html">404 Error Page</a></li>
+                        <li><a href="contact-us.html">Contact Us</a></li>*@
                 </ul>
 
                 <a href="/" class="logo-footer"><img src="~/themes/Tourims/images/logo-footer.png" alt="" /></a>
@@ -314,7 +299,7 @@
     <script type="text/javascript" src="~/themes/Tourims/jscript/jquery-latest.min.js"></script>
     <script type="text/javascript" src="~/themes/Tourims/jscript/theme-scripts.js"></script>
     <script type="text/javascript" src="~/themes/Tourims/jscript/lightbox.js"></script>
-    <script type="text/javascript" src="~/themes/Tourims/jscript/demo-settings.js"></script>
+    @*<script type="text/javascript" src="~/themes/Tourims/jscript/demo-settings.js"></script>*@
     <script type="text/javascript" src="~/modules/core/main.js"></script>
     @RenderSection("scripts", required: false)
     <!-- END body -->

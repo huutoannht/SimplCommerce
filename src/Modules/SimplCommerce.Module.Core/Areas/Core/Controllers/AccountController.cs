@@ -79,7 +79,7 @@ namespace SimplCommerce.Module.Core.Areas.Core.Controllers
                 else
                 {
                     ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-                    return Json(false);
+                    return View("Login");
                 }
             }
 

@@ -62,7 +62,7 @@
                 {
                     <div class="wide-article">
                         <div class="article-photo">
-                            <a href="@productFirst.Slug" class="hover-effect"><img src="@productFirst.ThumbnailUrl" alt="@productFirst.Name" style="height:150px;width:134px" /></a>
+                            <a href="@productFirst.Slug" class="hover-effect"><img src="@productFirst.ThumbnailUrl" alt="@productFirst.Name" style="height:134px;width:134px" /></a>
                         </div>
                         <div class="article-content">
                             <h2><a href="@productFirst.Slug" style="font-size:13px">@productFirst.Name</a></h2>
@@ -77,7 +77,7 @@
                 {
                     <div class="wide-article">
                         <div class="article-photo">
-                            <a href="@productFirst.Slug" class="hover-effect"><img src="@productFirst.ThumbnailUrl" alt="@productFirst.NameEN"  style="height:150px;width:134px" /></a>
+                            <a href="@productFirst.Slug" class="hover-effect"><img src="@productFirst.ThumbnailUrl" alt="@productFirst.NameEN"  style="height:134px;width:134px" /></a>
                         </div>
                         <div class="article-content">
                             <h2><a href="@productFirst.Slug" style="font-size:13px">@productFirst.NameEN</a></h2>
@@ -133,7 +133,7 @@
 
                 <div class="column6">
                     <ul class="article-block">
-                        @foreach (var product in Model.Products.Skip(0).Take(3))
+                        @foreach (var product in Model.Products.Skip(3).Take(3))
                         {
                             @if (CultureInfo.CurrentCulture.Name == "vi-VN")
                             {

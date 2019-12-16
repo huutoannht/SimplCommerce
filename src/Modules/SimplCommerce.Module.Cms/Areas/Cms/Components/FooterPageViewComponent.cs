@@ -37,7 +37,8 @@ namespace SimplCommerce.Module.Cms.Areas.Cms.Components
             {
                 Id = page.Id,
                 Name = page.Name,
-                Body = page.Body
+                Body = page.Body,
+                BodyEN = page.BodyEN
             };
             return pageVm;
         }

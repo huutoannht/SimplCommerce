@@ -59,6 +59,7 @@ namespace SimplCommerce.Module.Cms.Areas.Cms.Controllers
                 MetaKeywords = page.MetaKeywords,
                 MetaDescription = page.MetaDescription,
                 Body = page.Body,
+                BodyEN = page.BodyEN,
                 IsPublished = page.IsPublished
             };
 
@@ -79,6 +80,7 @@ namespace SimplCommerce.Module.Cms.Areas.Cms.Controllers
                     MetaKeywords = model.MetaKeywords,
                     MetaDescription = model.MetaDescription,
                     Body = model.Body,
+                    BodyEN = model.BodyEN,
                     IsPublished = model.IsPublished,
                     CreatedBy = currentUser,
                     LatestUpdatedBy = currentUser
@@ -109,6 +111,7 @@ namespace SimplCommerce.Module.Cms.Areas.Cms.Controllers
                 page.MetaKeywords = model.MetaKeywords;
                 page.MetaDescription = model.MetaDescription;
                 page.Body = model.Body;
+                page.BodyEN = model.BodyEN;
                 page.IsPublished = model.IsPublished;
                 page.LatestUpdatedOn = DateTimeOffset.Now;
                 page.LatestUpdatedBy = currentUser;

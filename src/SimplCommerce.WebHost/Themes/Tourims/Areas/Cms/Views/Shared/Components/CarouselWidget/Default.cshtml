@@ -1,34 +1,58 @@
 ﻿@model SimplCommerce.Module.Cms.Areas.Cms.ViewModels.CarouselWidgetViewComponentVm
-@*<aside class="homebanner">
-        <div id="sync1">
-            @foreach (var item in Model.Items)
-            {
-                <div class="item">
-                    <a aria-label='slide' href='@item.TargetUrl'><img src='@item.Image' alt='@item.SubCaption' /></a>
+@using System.Globalization
+@*<div class="laptoptop no-margin-left  no-margin-right">
+        <div class="row">
+            <div class="col-md-8">
+                <div id="owl-laptop">
+                    @foreach (var item in Model.Items)
+                    {
+                        <a aria-label='slide' href='@item.TargetUrl'>
+                            <img src='@item.Image' alt='@item.LinkText' class="img-responsive" style="height:170px;"/>
+                        </a>
+                    }
                 </div>
-            }
-        </div>
-        <div id="sync2">
-            @foreach (var item in Model.Items)
-            {
-                <div class="item">
-                    <h3>@item.SubCaption<br /></h3>
-                    <i class="arrowbar"></i>
+            </div>
+            <div class="col-md-4 no-padding">
+                <div class="right">
+                    <div class="twobanner">
+                        <a aria-label="slide" href="windows-ban-quyen.html#banquyen" onclick=""  class="img-responsive"><img src="~/Themes/TheGioiDiDong/images/cdn/qcao/13_12_2018_14_31_02_May-tinh-bang-800-170.png" alt="2018 - NO - Sticky Laptop"></a>
+                        <a aria-label="slide" href="" onclick=""><img src="~/Themes/TheGioiDiDong/images/cdn/qcao/29_11_2018_09_15_28_sticky-nh-390-80.png" alt="2018 - DE - Sticky Laptop" class="img-responsive"></a>
+                    </div>
                 </div>
-            }
+            </div>
         </div>
-    </aside>*@
+    </div>*@
+<div class="widget">
+    <h3>@Localizer["THƯ VIỆN ẢNH MỚI NHẤT"]</h3>
+    <div class="latest-galleries">
 
-<div class="block">
-    <div class="featured-block">
-        <div class="article-content">
-            <h2><a href="post.html">An sint epicuri vel nibh assentior te eam ea vim civibus tacimates</a><a href="post.html#comments" class="h-comment">43</a></h2>
-            <span class="meta">
-                <a href="blog.html"><span class="icon-text">&#128340; </span>11:20, 7.Oct 2013</a>
-            </span>
+        <div class="gallery-widget">
+            <div class="gallery-photo" rel="hover-parent">
+                <a href="#" class="slide-left icon-text">&#59229;</a>
+                <a href="#" class="slide-right icon-text">&#59230;</a>
+                <ul>
+                    @foreach (var item in Model.Items)
+                    {
+                        <li><a href="@item.TargetUrl" class="hover-effect"><img src='@item.Image' alt="" /></a></li>
+                    }
+                </ul>
+            </div>
         </div>
-        <div class="article-photo">
-            <a href="post.html" class="hover-effect"><img src="~/themes/Tourims/images/01.jpg" alt="" /></a>
-        </div>
+
+
     </div>
+    <!-- END .widget -->
 </div>
+@*<div class="block">
+        <div class="featured-block">
+            <div class="article-content">
+                <h2><a href="post.html">An sint epicuri vel nibh assentior te eam ea vim civibus tacimates</a><a href="post.html#comments" class="h-comment">43</a></h2>
+                <span class="meta">
+                    <a href="blog.html"><span class="icon-text">&#128340; </span>11:20, 7.Oct 2013</a>
+                </span>
+            </div>
+            <div class="article-photo">
+                <a href="post.html" class="hover-effect"><img src="~/themes/Tourims/images/01.jpg" alt="" /></a>
+            </div>
+        </div>
+    </div>*@

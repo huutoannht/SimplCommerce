@@ -11,7 +11,11 @@
                 {
                     product.Name = product.NameEN;
                 }
-                <li><a href="~/@product.Slug">@product.Name</a></li>
+                if (!string.IsNullOrEmpty(product.Name) && product.Name!="null")
+                {
+                    <li><a href="~/@product.Slug">@product.Name</a></li>
+                }
+
             }
         </ul>
     </div>

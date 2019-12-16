@@ -815,10 +815,10 @@ a:focus {
 	margin-top: 3px;
 }
 
-.article-block .article-content {
-	display: block;
-	margin-left: 70px;
-}
+    .article-block .article-content {
+        display: block;
+        margin-left: 96px;
+    }
 
 .article-block .article-content:after {
 	display: block;
@@ -1478,22 +1478,36 @@ a.custom-soc:hover {
 	display: block;
 	position: relative;
 }
-
-#writecomment p textarea,
-#writecomment p input[type=text] {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	width: 100%;
-	padding: 8px 10px;
-	display: block;
-	background: #fff;
-	font-size: 13px;
-	border: 1px solid #d3d3d3;
-	font-family: 'Arial';
-	border-radius: 2px;
-	-moz-border-radius: 2px;
-}
+    #writecomment p input[type=submit], .button {
+        display: inline-block;
+        background: #5a9e25;
+        padding: 7px 14px;
+        font-size: 13px;
+        font-weight: bold;
+        border: 0px;
+        cursor: pointer;
+        color: #fff;
+        font-family: 'Arial';
+        border-radius: 2px;
+        -moz-border-radius: 2px;
+    }
+    #writecomment p textarea,
+    #writecomment p input[type=text],
+    #writecomment p input[type=password],
+    #writecomment p input[type=email] {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        width: 100%;
+        padding: 8px 10px;
+        display: block;
+        background: #fff;
+        font-size: 13px;
+        border: 1px solid #d3d3d3;
+        font-family: 'Arial';
+        border-radius: 2px;
+        -moz-border-radius: 2px;
+    }
 
 #writecomment p textarea:focus,
 #writecomment p input[type=text]:focus {
@@ -2334,12 +2348,14 @@ a.hover-effect:hover .cover i:before {
 	margin-right: 20px;
 	line-height: 33px;
 	vertical-align: middle;
+  
 }
 
-.footer .logo-footer img {
-	display: inline-block;
-	vertical-align: middle;
-}
+    .footer .logo-footer img {
+        display: inline-block;
+        vertical-align: middle;
+        width: 100px;
+    }
 
 
 .error-search {
@@ -2691,8 +2707,8 @@ a.hover-effect:hover .cover i:before {
 
 .double-block .gallery-widget .gallery-photo > a,
 .double-block .gallery-widget .gallery-photo ul {
-	height: 158px;
-	line-height: 158px;
+    height: 291px;
+    line-height: 291px;
 }
 
 .gallery-widget .gallery-photo img {

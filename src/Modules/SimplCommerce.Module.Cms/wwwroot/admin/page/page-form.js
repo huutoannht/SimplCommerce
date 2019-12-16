@@ -19,6 +19,13 @@
                 });
         };
 
+        vm.imageUploadEN = function (files) {
+            summerNoteService.upload(files[0])
+                .then(function (response) {
+                    $(vm.bodyEN).summernote('insertImage', response.data);
+                });
+        };
+
         vm.updateSlug = function () {
             vm.page.slug = slugify(vm.page.name);
         };

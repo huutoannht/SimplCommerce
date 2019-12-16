@@ -44,7 +44,7 @@ namespace SimplCommerce.Module.Localization
         public IEnumerable<LocalizedString> GetAllStrings(bool includeParentCultures)
         {
             var culture = CultureInfo.CurrentUICulture.Name;
-            var resources = LoadResources(culture);
+            var resources = LoadResources("en-US");
 
             return resources.Select(r => new LocalizedString(r.Key, r.Value, true));
         }

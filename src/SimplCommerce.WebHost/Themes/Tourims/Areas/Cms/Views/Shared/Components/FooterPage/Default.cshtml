@@ -1,2 +1,7 @@
-﻿@model SimplCommerce.Module.Cms.Areas.Cms.ViewModels.PageForm
+﻿@using System.Globalization
+@model SimplCommerce.Module.Cms.Areas.Cms.ViewModels.PageForm
+@if (CultureInfo.CurrentCulture.Name != "vi-VN")
+{
+    Model.Body = Model.BodyEN;
+}
 @Html.Raw(Model.Body)

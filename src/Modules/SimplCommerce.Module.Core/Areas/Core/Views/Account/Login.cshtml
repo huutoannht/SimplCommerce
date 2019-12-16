@@ -6,11 +6,11 @@
 @{
     ViewData["Title"] = Localizer["Log in"];
 }
-    <style>
-        .double-block .content-block.main {
-            width: 890px !important;
-        }
-    </style>
+<style>
+    .double-block .content-block.main {
+        width: 890px !important;
+    }
+</style>
 <div class="main-page left">
 
     <!-- BEGIN .single-block -->
@@ -24,29 +24,30 @@
                 <div class="block-content">
                     <div class="article-title">
                         <div class="block-title">
-                            <h2>@Localizer["Use a local account to log in."]</h2>
+                            <h2>@Localizer["Sử dụng tài khoản của bạn để đăng nhập"]</h2>
                         </div>
                         <div class="block-content">
                             <div id="writecomment">
 
                                 <form asp-area="Core" asp-controller="Account" asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]" class="frm-authentication" method="post">
-                                    <h4></h4>
-
-                                    @*<div class="coloralert" style="background: #a12717;">
-                                        <p>  <div asp-validation-summary="All" class="text-danger"></div></p>
-                                        <a href="#close-alert" class="icon-text">✖</a>
-                                    </div>*@
+                                    @if (!Html.ViewData.ModelState.IsValid)
+                                    {
+                                        <div class="coloralert" style="background: #a12717;">
+                                            <p> Error:  <div asp-validation-summary="All" class="text-danger"></div></p>
+                                            <a href="#close-alert" class="icon-text">✖</a>
+                                        </div>
+                                    }
                                     <p class="contact-form-email">
                                         <label for="c_email">@Localizer["Email"]<span class="required">*</span></label>
-                                        <input asp-for="Email" class="form-control" />
+                                        <input asp-for="Email" class="form-control" type="email" />
                                         <span asp-validation-for="Email" class="text-danger"></span>
                                     </p>
                                     <p class="contact-form-webside">
                                         <label for="c_webside">@Localizer["Password"]<span class="required">*</span></label>
-                                        <input asp-for="Password" class="form-control" />
+                                        <input asp-for="Password" class="form-control" type="password" />
                                         <span asp-validation-for="Password" class="text-danger"></span>
                                     </p>
-                                    <p>  <button type="submit" class="btn btn-primary styled-button">@Localizer["Log in"]</button></p>
+                                    <p>  <button type="submit" class="btn btn-primary styled-button button">@Localizer["Log in"]</button></p>
                                 </form>
 
                             </div>

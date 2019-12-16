@@ -22,7 +22,7 @@
                     <input name="slug" ng-model="vm.page.slug" class="form-control" />
                 </div>
             </div>
-            <div class="form-group">
+            <!--<div class="form-group">
                 <label class="col-sm-2 control-label">{{::vm.translate.get('Meta Title')}}</label>
                 <div class="col-sm-10">
                     <input name="metaTitle" ng-model="vm.page.metaTitle" class="form-control" />
@@ -39,11 +39,17 @@
                 <div class="col-sm-10">
                     <textarea name="metaDescription" ng-model="vm.page.metaDescription" class="form-control" rows="3"></textarea>
                 </div>
-            </div>
+            </div>-->
             <div class="form-group">
                 <label class="col-sm-2 control-label">{{::vm.translate.get('Body')}}</label>
                 <div class="col-sm-10">
                     <summernote on-image-upload="vm.imageUpload(files)" editor="vm.body" ng-model="vm.page.body"></summernote>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">{{::vm.translate.get('Body English')}}</label>
+                <div class="col-sm-10">
+                    <summernote on-image-upload="vm.imageUploadEN(files)" editor="vm.bodyEN" ng-model="vm.page.bodyEN"></summernote>
                 </div>
             </div>
             <div class="form-group">
