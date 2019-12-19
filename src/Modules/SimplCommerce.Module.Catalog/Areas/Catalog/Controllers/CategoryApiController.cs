@@ -57,6 +57,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
                 Icon = category.Icon,
                 DisplayOrder = category.DisplayOrder,
                 Description = category.Description,
+                Promotion = category.Promotion,
                 ParentId = category.ParentId,
                 IncludeInMenu = category.IncludeInMenu,
                 IsPublished = category.IsPublished,
@@ -81,7 +82,8 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
                     MetaDescription = model.MetaDescription,
                     DisplayOrder = model.DisplayOrder,
                     Description = model.Description,
-                    Icon=model.Icon,
+                    Promotion = model.Promotion,
+                    Icon = model.Icon,
                     ParentId = model.ParentId,
                     IncludeInMenu = model.IncludeInMenu,
                     IsPublished = model.IsPublished
@@ -113,6 +115,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
                 category.MetaKeywords = model.MetaKeywords;
                 category.MetaDescription = model.MetaDescription;
                 category.Description = model.Description;
+                category.Promotion = model.Promotion;
                 category.Icon = model.Icon;
                 category.DisplayOrder = model.DisplayOrder;
                 category.ParentId = model.ParentId;

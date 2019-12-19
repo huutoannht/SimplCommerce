@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
@@ -60,6 +61,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
                 CategoryMetaKeywords = category.MetaKeywords,
                 CategoryMetaDescription = category.MetaDescription,
                 Description = category.Description,
+                Promotion = category.Promotion,
                 CurrentSearchOption = searchOption,
                 FilterOption = new FilterOption()
             };
@@ -115,6 +117,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
             query = query
                 .Include(x => x.Brand)
                 .Include(x => x.Categories).ThenInclude(x => x.Category)
+                .Include(x => x.AttributeValues).ThenInclude(a => a.Attribute)
                 .Include(x => x.ThumbnailImage)
                 .Include(x => x.PromotionImage);
 
@@ -129,7 +132,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
             foreach (var product in products)
             {
                 product.ThumbnailUrl = _mediaService.GetThumbnailUrl(product.ThumbnailImage);
-
+                product.AttributeValues.Select(x => new ProductDetailAttribute { Name = x.Attribute.Name, Value = Regex.Replace(x.Value, @" ?\(.*?\)", string.Empty) }).ToList();
                 if (product.PromotionImage != null)
                 {
                     product.PromotionImageUrl = _mediaService.GetPromotionUrl(product.PromotionImage);
@@ -236,6 +239,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
                 query = query
                     .Include(x => x.Brand)
                     .Include(x => x.Categories).ThenInclude(x => x.Category)
+                    .Include(x => x.AttributeValues).ThenInclude(a => a.Attribute)
                     .Include(x => x.ThumbnailImage)
                     .Include(x => x.PromotionImage);
 
@@ -250,6 +254,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
                 foreach (var product in products)
                 {
                     product.ThumbnailUrl = _mediaService.GetThumbnailUrl(product.ThumbnailImage);
+                    product.AttributeValues.Select(x => new ProductDetailAttribute { Name = x.Attribute.Name, Value = Regex.Replace(x.Value, @" ?\(.*?\)", string.Empty) }).ToList();
 
                     if (product.PromotionImage != null)
                     {
@@ -345,6 +350,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
             query = query
                 .Include(x => x.Brand)
                 .Include(x => x.Categories).ThenInclude(x => x.Category)
+                .Include(x => x.AttributeValues).ThenInclude(a => a.Attribute)
                 .Include(x => x.ThumbnailImage)
                 .Include(x => x.PromotionImage);
 
@@ -359,6 +365,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
             foreach (var product in products)
             {
                 product.ThumbnailUrl = _mediaService.GetThumbnailUrl(product.ThumbnailImage);
+                product.AttributeValues.Select(x => new ProductDetailAttribute { Name = x.Attribute.Name, Value = Regex.Replace(x.Value, @" ?\(.*?\)", string.Empty) }).ToList();
 
                 if (product.PromotionImage != null)
                 {

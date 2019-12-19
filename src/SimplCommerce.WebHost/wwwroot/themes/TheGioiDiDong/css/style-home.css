@@ -120,16 +120,16 @@ footer
   outline: 0;
 }
 
-    .newleter-form span {
-        position: absolute;
-        right: 0;
-        top: 0;
-        width: 40px;
-        text-align: center;
-        line-height: 19px;
-        cursor: pointer;
-        padding-top: 20px;
-    }
+.newleter-form span {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px;
+    text-align: center;
+    line-height: 19px;
+    cursor: pointer;
+    padding-top: 20px;
+}
 
 .newleter-form span:hover {
   color: #ff9300;

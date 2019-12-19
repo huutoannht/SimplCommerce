@@ -34,5 +34,6 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels
         };
 
         public string Description { get;  set; }
+        public string Promotion { get;  set; }
     }
 }

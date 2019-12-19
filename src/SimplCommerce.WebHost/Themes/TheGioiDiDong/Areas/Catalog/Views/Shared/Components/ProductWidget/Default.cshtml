@@ -76,29 +76,30 @@ else
                         <div class="p-emtry">
                             <a href="~/@product.Slug" class="p-name">@product.Name</a>
                             <span class="p-summary">
+								@{if (product.AttributeValues.Where(m => m.AttributeId == 1).FirstOrDefault() != null)
+                                    {
+                                        <span class="dotted"> @product.AttributeValues.Where(m => m.AttributeId == 1).FirstOrDefault().Value - </span>
+                                    }
+                                }
                                 @{if (product.AttributeValues.Where(m => m.AttributeId == 4).FirstOrDefault() != null)
                                     {
-                                        <span class="dotted">RAM : @product.AttributeValues.Where(m => m.AttributeId == 4).FirstOrDefault().Value</span>
+                                        <span class="dotted">RAM : @product.AttributeValues.Where(m => m.AttributeId == 4).FirstOrDefault().Value - </span>
                                     }
                                 }
-                                @{if (product.AttributeValues.Where(m => m.AttributeId == 1).FirstOrDefault() != null)
-                                    {
-                                        <span class="dotted">CPU : @product.AttributeValues.Where(m => m.AttributeId == 1).FirstOrDefault().Value</span>
-                                    }
-                                }
+                                
                                 @{if (product.AttributeValues.Where(m => m.AttributeId == 19).FirstOrDefault() != null)
                                     {
-                                        <span class="dotted">Ổ cứng : @product.AttributeValues.Where(m => m.AttributeId == 19).FirstOrDefault().Value</span>
+                                        <span class="dotted"> @product.AttributeValues.Where(m => m.AttributeId == 19).FirstOrDefault().Value - </span>
                                     }
                                 }
                                 @{if (product.AttributeValues.Where(m => m.AttributeId == 20).FirstOrDefault() != null)
                                     {
-                                        <span class="dotted">Ổ cứng : @product.AttributeValues.Where(m => m.AttributeId == 20).FirstOrDefault().Value</span>
+                                        <span class="dotted"> @product.AttributeValues.Where(m => m.AttributeId == 20).FirstOrDefault().Value-</span>
                                     }
                                 }
                                 @{if (product.AttributeValues.Where(m => m.AttributeId == 21).FirstOrDefault() != null)
                                     {
-                                        <span class="dotted">Ổ cứng : @product.AttributeValues.Where(m => m.AttributeId == 21).FirstOrDefault().Value</span>
+                                        <span class="dotted"> @product.AttributeValues.Where(m => m.AttributeId == 21).FirstOrDefault().Value</span>
                                     }
                                 }
                             </span>

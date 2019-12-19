@@ -38,10 +38,10 @@
     <meta property="og:locale" content="vi_VN" />
     <meta property="fb:pages" content="214993791879039" />
     <meta http-equiv="x-dns-prefetch-control" content="on">
-    <link href="~/themes/TheGioiDiDong/css/style.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="~/themes/TheGioiDiDong/css/style.min.css" rel="stylesheet" async/>
+    <link rel="stylesheet" href="~/themes/TheGioiDiDong/css/bootstrap.min.css" async/>
     @*<link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/CozaStore/fonts/font-awesome-4.7.0/css/font-awesome.min.css" />*@
-    <inline-style rel="stylesheet" type="text/css" href="~/themes/CozaStore/fonts/iconic/css/material-design-iconic-font.min.css" />
+    @*<inline-style rel="stylesheet" type="text/css" href="~/themes/CozaStore/fonts/iconic/css/material-design-iconic-font.min.css" />*@
     @*<link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/CozaStore/fonts/linearicons-v1.0.0/icon-font.min.css" />*@
     <inline-style rel="stylesheet" type="text/css" href="/lib/bootstrap-star-rating/css/star-rating.css" />
     @*  <link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/TheGioiDiDong/vendor/animate/animate.css" />*@
@@ -51,7 +51,7 @@
     <inline-style rel="stylesheet" type="text/css" href="/themes/TheGioiDiDong/css/util.min.css" />
     <inline-style rel="stylesheet" type="text/css" href="/themes/TheGioiDiDong/css/main.min.css" />
     <inline-style rel="stylesheet" type="text/css" href="/themes/TheGioiDiDong/css/simpl.min.css" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
+    @*<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />*@
     <!-- Google Tag Manager -->
     <script>
         (function (w, d, s, l, i) {
@@ -103,6 +103,27 @@
             right: initial !important;
             left: 18pt !important;
         }
+
+        footer {
+            padding-bottom: 0;
+        }
+        #footer-bottom {
+            background-color: #1d1d1d;
+            border-top: 1px solid #363636;
+            color: #555;
+            padding: 10px 0;
+            margin-top: 25px;
+            font-size: 14px;
+        }
+        #footer-bottom a {
+            color: #fff;
+        }
+        @@media ( max-width: 767px ) {
+            footer #footer-bottom .row > div {
+                width: 100%;
+                text-align: center !important;
+            }
+        }
     </style>
 
 </head>
@@ -119,9 +140,12 @@
         gtag('js', new Date());
 
         gtag('config', 'UA-97842202-9');
+		if (window.matchMedia("(min-width: 768px)").matches) {
+			
+			document.write('<div id="fb-root"></div>\x3Cscript async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.2&appId=2215291551867822&autoLogAppEvents=1">\x3C/script>');
+		}
     </script>
     <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.2&appId=2215291551867822&autoLogAppEvents=1"></script>
     <header>
         @await Component.InvokeAsync("CategoryMenu")
     </header>
@@ -184,6 +208,7 @@
                     <p>
                         <strong>133 – 135 Hàm Nghi, Đà Nẵng</strong><br>
                         <strong>99 – 101 Hàm Nghi, Đà Nẵng</strong><br>
+                        <strong>50 Nguyễn Văn Thoại, Đà Nẵng</strong><br>
                         40 – Trần Đại Nghĩa, Hà Nội<br>
                         63 – Nguyễn Thiện Thuật, HCM<br>
                         <strong class="tel">☎️ 0236.366.3333 (Gọi Ngay)</strong><br>
@@ -220,13 +245,23 @@
                             document.write('<div class="fb-page" data-href="https://www.facebook.com/TechCare133/" data-width="500" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/TechCare133/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/TechCare133/">TechCare 133-135 Hàm Nghi</a></blockquote></div>');
                         }
                     </script>
-
+                    <div class="textwidget" style="font-size: 13px;">
+                        Công ty TNHH MTV PHÚC THÀNH ĐẠT<br>
+                        Đăng ký ngày: 15 tháng 03 năm 2017<br>
+                        Số Giấy Phép ĐKKD / MST: 0401741816 – Do Sở Kế Hoạch Đầu Tư Đà Nẵng Cấp
+                    </div>
                 </div>
             </div>
         </div>
 
-
-
+        <div id="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6"> Copyright © 2019 <span style="color: #fff;">TechCare.VN</span></div>
+                    <div class="col-md-6 text-right"> Thuộc hệ thống của <a href="https://techcare.vn/" rel="nofollow">TECHCARE</a></div>
+                </div>
+            </div>
+        </div>
 
     </footer>
     <p id="back-top">
@@ -284,10 +319,10 @@
         <script simpl-append-version="true" src="~/lib/matchheight/jquery.matchHeight.js"></script>*@
     @*
         <script simpl-append-version="true" src="~/lib/toastr/build/toastr.min.js"></script>*@
-    <script simpl-append-version="true" src="~/lib/bootstrap-star-rating/js/star-rating.js"></script>
+    <script simpl-append-version="true" src="~/lib/bootstrap-star-rating/js/star-rating.js" async></script>
     @if (CultureInfo.CurrentCulture.Name == "vi-VN")
     {
-        <script simpl-append-version="true" src="~/lib/bootstrap-star-rating/js/locales/vi-vn.js"></script>
+        <script simpl-append-version="true" src="~/lib/bootstrap-star-rating/js/locales/vi-vn.js" async></script>
     }
     <inline-script src="/themes/TheGioiDiDong/libs/OwlCarousel/dist/owl.carousel.min.js"></inline-script>
     @*

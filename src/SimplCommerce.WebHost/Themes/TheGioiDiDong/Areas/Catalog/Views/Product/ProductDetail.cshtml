@@ -64,7 +64,7 @@
                     @Html.Raw(Model.ShortDescription)
                 </div>
                 <aside class="price_sale product-detail">
-                    @if (Model.Promotion != null && Model.Promotion.Length > 10 && Regex.Replace(Model.Promotion, "<.*?>", String.Empty).Length > 0)
+                    @*@if (Model.Promotion != null && Model.Promotion.Length > 10 && Regex.Replace(Model.Promotion, "<.*?>", String.Empty).Length > 0)
                     {
                         <div class="area_promotion ">
                             <strong data-count="3">Khuyến mãi</strong>
@@ -72,7 +72,7 @@
                                 @Html.Raw(Model.Promotion)
                             </div>
                         </div>
-                    }
+                    }*@
                   
                     @if (Model.HasVariation)
                     {
@@ -222,23 +222,11 @@
                 </aside>
             </div>
             <div class="col-md-3">
-                <ul class="policy ">
-                    <li class="inpr">
-                        <span>Trong hộp có: <a class="stdImg" href="javascript:void(0)" onclick="showGalleryPS(100,0);">Sách hướng dẫn,Hộp,Adapter sạc,Chuột <i class="icondetail-camera standkit" href="//cdn.tgdd.vn/Products/Images/44/193516/Kit/asus-x507uf-i5-8250u-4gb-1tb-2gb-mx130-ej121t-bo-ban-hang-org.jpg"></i></a></span>
-                    </li>
-                    <li class="wrpr">
-                        <span>
-                            Bảo hành chính hãng 6-12 tháng.
-                            <a href="/chinh-sach-bao-hanh">Xem chi tiết</a>
-                        </span>
-                    </li>
-                    <li>
-                        Sản phẩm lỗi:<br>
-                        - Đối với máy mới: 1 đổi 1 trong vòng 10 ngày<br>- Đối với máy cũ: 1 đổi 1 trong vòng 14 ngày<br>
+                <div class="promo-detail">
+                    <h4>ƯU ĐÃI TẠI TECHCARE</h4>
+                    @Html.Raw(Model.Promotion)
+                </div>
 
-                        <a href="#" target="_blank">Xem chi tiết</a>
-                    </li>
-                </ul>
             </div>
         </div>
         <div class="clr"></div>
