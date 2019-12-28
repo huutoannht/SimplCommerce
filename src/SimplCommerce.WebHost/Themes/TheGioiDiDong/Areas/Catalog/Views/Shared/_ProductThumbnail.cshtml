@@ -21,30 +21,9 @@
 
     <div class="price"><strong>@Model.CalculatedProductPrice.Price.ToString("C0")</strong><span class="line-through">@Model.CalculatedProductPrice?.OldPrice?.ToString("C0")</span></div>
     <div class="promo">
-        @{if (Model.AttributeValues.Where(m => m.AttributeId == 1).FirstOrDefault() != null)
+        @{if (!string.IsNullOrEmpty(Model.ShortDescription))
             {
-                <span class="dotted"> @Model.AttributeValues.Where(m => m.AttributeId == 1).FirstOrDefault().Value.Split('(')[0].TrimEnd() - </span>
-            }
-        }
-        @{if (Model.AttributeValues.Where(m => m.AttributeId == 4).FirstOrDefault() != null)
-            {
-                <span class="dotted">RAM : @Model.AttributeValues.Where(m => m.AttributeId == 4).FirstOrDefault().Value.Split('(')[0].TrimEnd() - </span>
-            }
-        }
-
-        @{if (Model.AttributeValues.Where(m => m.AttributeId == 19).FirstOrDefault() != null)
-            {
-                <span class="dotted"> @Model.AttributeValues.Where(m => m.AttributeId == 19).FirstOrDefault().Value.Split('(')[0].TrimEnd() - </span>
-            }
-        }
-        @{if (Model.AttributeValues.Where(m => m.AttributeId == 20).FirstOrDefault() != null)
-            {
-                <span class="dotted"> @Model.AttributeValues.Where(m => m.AttributeId == 20).FirstOrDefault().Value.Split('(')[0].TrimEnd()-</span>
-            }
-        }
-        @{if (Model.AttributeValues.Where(m => m.AttributeId == 21).FirstOrDefault() != null)
-            {
-                <span class="dotted"> @Model.AttributeValues.Where(m => m.AttributeId == 21).FirstOrDefault().Value.Split('(')[0].TrimEnd()</span>
+                <span class="dotted"> @Html.Raw(Model.ShortDescription) </span>
             }
         }
     </div>

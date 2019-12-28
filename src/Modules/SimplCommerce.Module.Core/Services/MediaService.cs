@@ -46,10 +46,11 @@ namespace SimplCommerce.Module.Core.Services
             return _storageService.SaveMediaAsync(mediaBinaryStream, fileName, mimeType, typeCrop);
         }
 
-        public Task DeleteMediaAsync(Media media)
+        public async Task DeleteMediaAsync(Media media)
         {
             _mediaRepository.Remove(media);
-            return DeleteMediaAsync(media.FileName);
+            await _mediaRepository.SaveChangesAsync();
+            _ = DeleteMediaAsync(media.FileName);
         }
 
         public Task DeleteMediaAsync(string fileName)

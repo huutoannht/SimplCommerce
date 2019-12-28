@@ -92,6 +92,11 @@ namespace SimplCommerce.Module.Catalog.Models
             media.Product = this;
             Medias.Add(media);
         }
+        public void RemoveMedia(ProductMedia media)
+        {
+            media.Product = this;
+            Medias.Remove(media);
+        }
 
         public void AddAttributeValue(ProductAttributeValue attributeValue)
         {

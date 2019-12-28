@@ -630,11 +630,12 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
             }
 
             await SaveProductMedias(model, product);
-
             foreach (var productMediaId in model.Product.DeletedMediaIds)
             {
                 var productMedia = product.Medias.First(x => x.Id == productMediaId);
+                product.RemoveMedia(productMedia);
                 _productMediaRepository.Remove(productMedia);
+                await _productMediaRepository.SaveChangesAsync();
                 await _mediaService.DeleteMediaAsync(productMedia.Media);
             }
 
@@ -645,7 +646,6 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
             AddOrDeleteProductLinks(model, product);
 
             _productService.Update(product);
-
             return Accepted();
         }
         private string StripHTML(string input)

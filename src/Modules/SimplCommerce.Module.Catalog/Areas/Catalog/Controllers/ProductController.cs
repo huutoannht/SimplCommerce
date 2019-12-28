@@ -106,7 +106,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
                 Attributes = product.AttributeValues.Select(x => new ProductDetailAttribute { Name = x.Attribute.Name, Value = x.Value }).ToList(),
                 Categories = product.Categories.Select(x => new ProductDetailCategory { Id = x.CategoryId, Name = x.Category.Name, Slug = x.Category.Slug }).ToList(),
                 Promotion = product.PromotionImage?.Caption,
-                PromotionCategory = product.Categories.FirstOrDefault().Category.Promotion
+                PromotionCategory = product.Categories.FirstOrDefault()?.Category?.Promotion
             };
 
             MapProductVariantToProductVm(product, model);
