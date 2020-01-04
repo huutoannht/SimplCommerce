@@ -1,33 +1,38 @@
 ﻿/*global $ */
 $(function () {
     $('.cart-required').css('display', 'none');
-    $('body').on('click', '.btn-add-cart', function (e) {
+    $('body').on('click', '#btn-reg', function (e) {
         e.preventDefault();
         $('#productOverview').modal('hide');
-       
+
         $('.cart-required').css('display', 'none');
         var quantity,
             $form = $(this).closest("form"),
-            productId = $(this).closest("form").find('input[name=productId]').val(),
-            contactName = $(this).closest("form").find('input[name=contactName]').val(),
-            phone = $(this).closest("form").find('input[name=phone]').val(),
-            email = $(this).closest("form").find('input[name=email]').val(),
-            $quantityInput = $form.find('.quantity-field');
+            productId = $('#productId').val(),
+            contactName = $('#contactName').val(),
+            phone = $('#phone').val(),
+            email = $('#email').val();
         if (!contactName) {
-            $('#contactName-error').css('display', 'block');
+            alert('Mời nhập họ và tên');
+            // $('#contactName-error').css('display', 'block');
             return;
         }
         if (!phone) {
-            $('#phone-error').css('display', 'block');
+            alert('Mời số điện thoại');
+            //$('#phone-error').css('display', 'block');
             return;
         }
         if (!email) {
-            $('#email-error').css('display', 'block');
+            alert('Mời nhập địa chỉ email');
+            //$('#email-error').css('display', 'block');
             return;
         }
+        $('#contactName').val('');
+        $('#phone').val('');
+        $('#email').val('');
         $('.btn-add-cart').attr('disabled', true);
-        quantity = $quantityInput.length === 1 ? $quantityInput.val() : 1;
-
+        quantity = 1;
+        $('#modal-reg').modal('hide');
         $.ajax({
             type: 'POST',
             url: '/cart/add-item',
@@ -39,7 +44,7 @@ $(function () {
             $.ajax({
                 type: 'POST',
                 url: '/user/address/create',
-                data: JSON.stringify({ contactName: contactName, phone: phone, addressLine1:email }),
+                data: JSON.stringify({ contactName: contactName, phone: phone, addressLine1: email }),
                 contentType: "application/json"
             }).done(function (data) {
                 $.ajax({
@@ -54,14 +59,14 @@ $(function () {
                         data: null,
                         contentType: "application/json"
                     }).done(function (data) {
-                        show_modal('modal_success');
+                        $('#modal-success').modal('show');
                         //window.location.replace("/");
                     });
                 });
-               
+
             });
 
-            }).fail(function () {
+        }).fail(function () {
 
             /*jshint multistr: true */
             $('#shopModal').find('.modal-content').html(' \

@@ -4984,12 +4984,12 @@ footer .f-items img {
 }
 
 footer .f-item h2 {
-  font-weight: 800;
-  color: #0cb8b6;
-  border: 1px solid;
-  display: inline-block;
-  padding: 10px 20px;
-  margin: 0;
+    font-weight: 500;
+    color: #0cb8b6;
+    border: 1px solid;
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 0;
 }
 
 footer .f-item h2 i {

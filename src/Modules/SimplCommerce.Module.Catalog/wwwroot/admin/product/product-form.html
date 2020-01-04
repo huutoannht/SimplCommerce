@@ -49,12 +49,12 @@
                             <summernote on-image-upload="vm.descUpload(files)" editor="vm.descEditor" ng-model="vm.product.description"></summernote>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <!--<div class="form-group">
                         <label class="col-sm-2 control-label">{{::vm.translate.get('Specification')}}</label>
                         <div class="col-sm-10">
                             <summernote on-image-upload="vm.specUpload(files)" editor="vm.specEditor" ng-model="vm.product.specification"></summernote>
                         </div>
-                    </div>
+                    </div>-->
                     <!--<div class="form-group">
                         <label class="col-sm-2 control-label">{{::vm.translate.get('SKU')}}</label>
                         <div class="col-sm-10">
@@ -85,7 +85,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <!--<div class="form-group">
                         <label class="col-sm-2 control-label">{{::vm.translate.get('Special Price')}}</label>
                         <div class="col-sm-10">
                             <div class="input-number">
@@ -93,8 +93,8 @@
                                 <label class="form-control" for="productSpecialPrice">{{vm.product.specialPrice | number}}</label>
                             </div>
                         </div>
-                    </div>
-                    <div class="form-group">
+                    </div>-->
+                    <!--<div class="form-group">
                         <label class="col-sm-2 control-label">{{::vm.translate.get('Special Price Start')}}</label>
                         <div class="col-sm-10">
                             <p class="input-group simpl-datetime-picker">
@@ -115,7 +115,7 @@
                                 </span>
                             </p>
                         </div>
-                    </div>
+                    </div>-->
                     <!--<div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                             <div class="checkbox">
@@ -139,7 +139,7 @@
                             <img ng-show="!vm.thumbnailImage && vm.product.thumbnailImageUrl" ng-src="{{vm.product.thumbnailImageUrl}}" style="width: 100px; height: 100px" />
                         </div>
                     </div>
-                    <div class="form-group">
+                    <!--<div class="form-group">
                         <label class="col-sm-2 control-label">{{::vm.translate.get('Product Images')}}</label>
                         <div class="col-sm-10">
                             <input class="form-control" type="file" ngf-select ng-model="vm.productImages" ngf-multiple="true" name="productImages" ngf-accept="'image/*'">
@@ -153,8 +153,8 @@
                                 <img ngf-src="image" ngf-resize="{width: 100, height: 100, quality: 0.9}">
                             </span>
                         </div>
-                    </div>
-                    <div class="form-group">
+                    </div>-->
+                    <!--<div class="form-group">
                         <label class="col-sm-2 control-label">{{::vm.translate.get('Product Documents')}}</label>
                         <div class="col-sm-10">
                             <input class="form-control" type="file" ngf-select ng-model="vm.productDocuments" ngf-multiple="true" name="productDocuments" ngf-accept="'.pdf,.doc'">
@@ -168,7 +168,7 @@
                                 <span>{{file.name}}</span>
                             </span>
                         </div>
-                    </div>
+                    </div>-->
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                             <div class="checkbox">
@@ -422,7 +422,7 @@
                         </tr>
                     </table>
                 </uib-tab>-->
-                <uib-tab index="6" heading="{{::vm.translate.get('SEO')}}">
+                <!--<uib-tab index="6" heading="{{::vm.translate.get('SEO')}}">
                     <div class="form-group">
                         <label class="col-sm-2 control-label">{{::vm.translate.get('Meta Title')}}</label>
                         <div class="col-sm-10">
@@ -449,16 +449,16 @@
                             <summernote editor="promotionName" ng-model="vm.product.promotionName"></summernote>
                         </div>
                     </div>
-                    <!--<div class="form-group">
+                    <div class="form-group">
                         <label class="col-sm-2 control-label">{{::vm.translate.get('Promotion Image')}}</label>
                         <div class="col-sm-10">
                                 <input class="form-control" type="file" ngf-select ng-model="vm.promotionImage" name="promotionImage" ngf-accept="'image/*'">
                                 <img ngf-src="vm.promotionImage" ngf-resize="{width: 100, height: 100, quality: 0.9}">
                                 <img ng-show="!vm.promotionImage&&vm.product.promotionImageUrl" ng-src="{{vm.product.promotionImageUrl}}" style="width: 100px; height: 100px" />
                         </div>
-                    </div>-->
+                    </div>
 
-                </uib-tab>
+                </uib-tab>-->
             </uib-tabset>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">

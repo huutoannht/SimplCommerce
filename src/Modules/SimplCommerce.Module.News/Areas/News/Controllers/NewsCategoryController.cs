@@ -72,13 +72,13 @@ namespace SimplCommerce.Module.News.Areas.News.Controllers
                 offset = (_pageSize * currentPageNum) - _pageSize;
             }
 
-            model.NewsItem = query.Include(x => x.ThumbnailImage).Select( x => new NewsItemThumbnail()
+            model.NewsItem = query.Include(x => x.ThumbnailImage).Select(x => new NewsItemThumbnail()
             {
                 Id = x.Id,
                 ShortContent = x.ShortContent,
                 ImageUrl = _mediaService.GetMediaUrl(x.ThumbnailImage),
                 PublishedOn = x.CreatedOn,
-                Name=x.Name,
+                Name = x.Name,
                 Slug = x.Slug
             })
             .Skip(offset)
@@ -92,7 +92,7 @@ namespace SimplCommerce.Module.News.Areas.News.Controllers
         [HttpGet("tin-tuc")]
         public IActionResult NewsCategoryDetailClone(int page)
         {
-            page = 1;
+            page = page == 0 ? 1 : page;
             var newsCategoryList = _newsCategoryRepository.Query()
                 .Include(x => x.NewsItems)
                 .Where(x => !x.IsDeleted)
@@ -151,7 +151,7 @@ namespace SimplCommerce.Module.News.Areas.News.Controllers
 
             model.PageSize = _pageSize;
             model.Page = currentPageNum;
-            return View("NewsCategoryDetail",model);
+            return View("NewsCategoryDetail", model);
         }
     }
 }

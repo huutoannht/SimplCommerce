@@ -14,50 +14,42 @@
         margin: auto;
     }
 
-    .newsrelate {
-        /*display: flex;
-        flex-direction: row;*/
-        /*align-items: center;
-        justify-content: center;*/
-        margin-left: 240px;
-        margin-right: 240px;
+
+    .newsrelate .tempvideo {
+        display: block;
+        position: relative;
+        height: 105px;
+        overflow: hidden;
     }
 
-        .newsrelate .tempvideo {
-            display: block;
-            position: relative;
-            height: 105px;
-            overflow: hidden;
-        }
+    .newsrelate img {
+        display: block;
+        max-height: 135px;
+        margin: 0 auto;
+        float: left;
+        width: 150px;
+    }
 
-        .newsrelate img {
-            display: block;
-            max-height: 135px;
-            margin: 0 auto;
-            float: left;
-            width: 150px;
-        }
+    .newsrelate h3 {
+        display: block;
+        overflow: hidden;
+        line-height: 1.3em;
+        font-size: 16px;
+        color: #333;
+        line-height: 22px;
+        font-weight: 300;
+        font-family: Arial,Helvetica,sans-serif;
+        width: auto;
+        margin: 5px auto;
+    }
 
-        .newsrelate h3 {
-            display: block;
-            overflow: hidden;
-            line-height: 1.3em;
-            font-size: 16px;
-            color: #333;
-            line-height: 22px;
-            font-weight: 300;
-            font-family: Arial,Helvetica,sans-serif;
-            width: auto;
-            margin: 5px auto;
-        }
-
-        .newsrelate .timepost {
-            margin-top: 2px;
-            display: block;
-            overflow: hidden;
-            font-size: 13px;
-            color: #999;
-        }
+    .newsrelate .timepost {
+        margin-top: 2px;
+        display: block;
+        overflow: hidden;
+        font-size: 13px;
+        color: #999;
+    }
 
     .titlerelate {
         display: block;
@@ -68,30 +60,31 @@
         font-family: 'Roboto Condensed',sans-serif;
         line-height: 26px;
         text-transform: uppercase;
-        padding: 30px 20px 10px;
-        margin: 0 20px;
+        padding: 30px 0px 10px;
         border-top: 1px solid #eee;
     }
 </style>
 <h5 class="titlerelate">Bài viết liên quan</h5>
-<div class="row newsrelate">
-    @foreach (var itemNew in Model)
+<div class="row ">
+    @foreach (var itemNew in Model.Take(3))
     {
         <div class="col-sm-6 col-md-4">
             <a href="@itemNew.Slug" class="linkimg">
                 <div class="tempvideo">
-                    <img width="100" src="@itemNew.ThumbnailImageUrl">
+                    <img width="300" height="270" src="@itemNew.ThumbnailImageUrl">
                 </div>
-                <h3>
+                <h4>
                     @itemNew.Name
-                </h3>
+                </h4>
                 <span class="timepost">@itemNew.CreatedOn.ToString("dd/MM/yyyy")</span>
             </a>
         </div>
     }
-    <div class="col-sm-6 col-md-4">
-        <a href="/tin-tuc" class="linkimg">
-           Xem thêm
-        </a>
-    </div>
+
+</div>
+<hr />
+<div class="">
+    <a href="/tin-tuc" class="linkimg">
+        Xem thêm
+    </a>
 </div>

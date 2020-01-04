@@ -14,11 +14,9 @@
             <div class="row">
                 <div class="top-search">
                     <div class="input-group">
-                        <form action="#">
-                            <input type="text" name="text" class="form-control" placeholder="Search">
-                            <button type="submit">
-                                <i class="fas fa-search"></i>
-                            </button>
+                        <form id="search-site" class="form-inline mt-2 mt-md-0" action="search" method="get" onsubmit="return submitSearchForm();" autocomplete="off">
+                            <input class="form-control mr-sm-2" id="search-keyword" name="query" type="text" aria-label="Bạn tìm gì..." placeholder="Bạn tìm gì..." autocomplete="off" onkeyup="SuggestSearch(event,this, 0);" maxlength="50" />
+                            <button class="btntop" type="submit" aria-label="tìm kiếm"><i class="fas fa-search"></i></button>
                         </form>
                     </div>
                 </div>
@@ -32,7 +30,7 @@
             <div class="attr-nav">
                 <ul>
                     <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
-                    <li class="side-menu"><a href="#"><i class="fa fa-bars"></i></a></li>
+                    @*<li class="side-menu"><a href="#"><i class="fa fa-bars"></i></a></li>*@
                 </ul>
             </div>
             <!-- End Atribute Navigation -->
@@ -51,27 +49,28 @@
                 <ul class="nav navbar-nav navbar-right" data-in="#" data-out="#">
                     @foreach (var item in Model)
                     {
-                    <li class="@(item.ChildItems.Count>0?"dropdown":"")">
-                        <a href="@item.Slug" class="dropdown-toggle" data-toggle="dropdown">@item.Name</a>
-                        @if (item.ChildItems.Count > 0)
-                        {
+                        <li class="@(item.ChildItems.Count>0?"dropdown":"")">
+                            <a href="@item.Slug" class="dropdown-toggle" data-toggle="dropdown">@item.Name</a>
+                            @if (item.ChildItems.Count > 0)
+                            {
 
-                            <ul class="dropdown-menu">
-                                @foreach (var childMenu in item.ChildItems)
-                                {
-                                    <li><a href="@childMenu.Slug">@childMenu.Name</a></li>
-                                }
-                            </ul>
-                        }
-                    </li>
+                                <ul class="dropdown-menu">
+                                    @foreach (var childMenu in item.ChildItems)
+                                    {
+                                        <li><a href="@childMenu.Slug">@childMenu.Name</a></li>
+                                    }
+                                </ul>
+                            }
+                        </li>
                     }
+                    <li><a href="/contact">Liên  hệ</a></li>
 
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div>
 
         <!-- Start Side Menu -->
-        <div class="side">
+        @*<div class="side">
             <a href="#" class="close-side"><i class="fa fa-times"></i></a>
             <div class="widget">
                 <h4 class="title">About Us</h4>
@@ -97,7 +96,7 @@
                     <li class="dribbble"><a href="#"><i class="fab fa-dribbble"></i></a></li>
                 </ul>
             </div>
-        </div>
+        </div>*@
         <!-- End Side Menu -->
 
     </nav>

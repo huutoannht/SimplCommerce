@@ -3,83 +3,50 @@
 @{
     ViewData["Title"] = "Tin tức";
 }
-
-@*<div class="news row">
-    <div class="categories row">
-        <div class="btn-group btn-group-justified" role="group" aria-label="...">
-            @foreach (var item in Model.NewsCategory)
-            {
-                <div class="btn-group" role="group">
-                    <a type="button" class="btn btn-default" href="~/@item.Slug"> @item.Name</a>
-                </div>
-            }
-        </div>
-    </div>
-    @if (Model.NewsItem.Any())
-    {
-        <div class="news-category-detail row">
-            @foreach (var item in Model.NewsItem)
-            {
-                <partial name="_NewsThumbnail" model="item" />
-            }
-        </div>
-    }
-</div>*@
-<section>
-
-
-    <ul class="menu">
-        @foreach (var item in Model.NewsCategory)
-        {
-            <li><a href="~/@item.Slug" class="actmenu">@item.Name</a></li>
-        }
-    </ul>
-
+<div class="blog-area full-blog blog-standard default-padding">
     <div class="container">
-        @foreach (var item in Model.NewsItem)
-        {
-            <div class="new-item">
-                <div class="media">
-                    <a class="pull-left" href="@item.Slug">
-                        <img class="media-object image-new-item" src="@item.ImageUrl">
-                    </a>
-                    <div class="media-body">
-                        <a href="@item.Slug"><h4 class="media-heading">@item.Name</h4></a>
-                        <p>
+        <div class="row">
+            <div class="blog-items">
+                <div class="blog-content col-md-10 col-md-offset-1">
+                    @foreach (var item in Model.NewsItem)
+                        {
+                    <div class="single-item item">
+                        <div class="thumb">
+                            <a href="blog-single-right-sidebar.html">
+                                <img src="@item.ImageUrl" alt="@item.Name">
+                                <div class="post-type">
+                                    <i class="fas fa-images"></i>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="info">
+                            <div class="meta">
+                                <ul>
+                                    <li><a href="#">Admin</a></li>
+                                    <li>@item.PublishedOn.ToString("dd/MM/yyyy")</li>
+                                </ul>
+                            </div>
+                            <h3>
+                                <a href="@item.Slug">@item.Name</a>
+                            </h3>
                             @Html.Raw(item.ShortContent)
-                        </p>
-                        <ul class="list-inline list-unstyled">
-                            @*<li><span><i class="glyphicon glyphicon-calendar"></i> @Model..ToString("dd/MM/yyyy") </span></li>
-                            <li>|</li>*@
-                            @*<span><i class="glyphicon glyphicon-comment"></i> 2 comments</span>
-                            <li>|</li>*@
-                            @*<li>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star-empty"></span>
-                            </li>
-                            <li>|</li>*@
-                            @*<li>
-                                <span><i class="fa fa-facebook-square"></i></span>
-                                <span><i class="fa fa-twitter-square"></i></span>
-                                <span><i class="fa fa-google-plus-square"></i></span>
-                            </li>*@
-                        </ul>
+                            <a class="btn btn-theme circle border btn-sm" href="@item.Slug">Đọc tiếp <i class="fas fa-angle-right"></i></a>
+                        </div>
+                    </div>
+                        }
+
+                    <!-- Pagination -->
+                    <div class="row">
+                        <div class="col-md-12 text-right pagi-area">
+                            <cs-pager cs-paging-pagesize="@Model.PageSize"
+                                      cs-paging-pagenumber="@Model.Page"
+                                      cs-paging-totalitems="@Model.TotalItem"
+                                      asp-basehref="~/@Model.CurrentNewsCategory.Slug"
+                                      cs-pagenumber-param="page"></cs-pager>
+                        </div>
                     </div>
                 </div>
             </div>
-        }
-    </div>
-</section>
-<div class="row">
-    <div class="col-md-12 text-right">
-        <cs-pager cs-paging-pagesize="@Model.PageSize"
-                  cs-paging-pagenumber="@Model.Page"
-                  cs-paging-totalitems="@Model.TotalItem"
-                  asp-basehref="~/@Model.CurrentNewsCategory.Slug"
-                  cs-pagenumber-param="page"></cs-pager>
+        </div>
     </div>
 </div>
-

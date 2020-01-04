@@ -70,18 +70,17 @@
         border-top: 1px solid #eee;
     }
 </style>
-<h5 class="titlerelate">Bài viết liên quan</h5>
-    <div class="row newsrelate">
+    <div class="row ">
         @foreach (var itemNew in Model)
         {
             <div class="col-sm-6 col-md-3">
                 <a href="@itemNew.Slug" class="linkimg">
                     <div class="tempvideo">
-                        <img width="100" src="@itemNew.ThumbnailImageUrl">
+                        <img width="300" src="@itemNew.ThumbnailImageUrl">
                     </div>
-                    <h3>
+                    <h5>
                         @itemNew.Name
-                    </h3>
+                    </h5>
                     <span class="timepost">@itemNew.CreatedOn.ToString("dd/MM/yyyy")</span>
                 </a>
             </div>

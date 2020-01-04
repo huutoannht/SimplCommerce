@@ -8,42 +8,56 @@
 @{
     ViewData["Title"] = Model.Name;
 }
-<style>
-    article img {
-        display: block;
-        width: auto;
-        height: auto;
-        max-width: 100%;
-        margin: 0 auto;
-    }
-
-    .titledetail {
-        display: block;
-        overflow: hidden;
-        line-height: 53px;
-        font-size: 45px;
-        color: #333;
-        font-family: 'Roboto Condensed',sans-serif;
-        font-weight: 600;
-        width: 800px;
-        margin: auto;
-    }
-</style>
-<section>
-
-    <article>
-        <h1 class="titledetail">@Model.Name</h1>
-
-        <div class="userdetail">
-
+<div class="breadcrumb-area shadow dark bg-fixed text-light" style="background-image: url(/themes/Beauty/img/banner/banner.jpg);">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+            </div>
+            <div class="col-md-6 text-right">
+                <ul class="breadcrumb">
+                    <li><a href="/"><i class="fas fa-home"></i> Trang chủ</a></li>
+                    <li class="active">Tin tức</li>
+                </ul>
+            </div>
         </div>
+    </div>
+</div>
+<div class="blog-area single full-blog default-padding">
+    <div class="container">
+        <div class="row">
+            <div class="blog-items">
+                <div class="blog-content col-md-10 col-md-offset-1">
+                    <div class="item">
 
-        <div class="imgwrap"><img alt="tet-huawei" data-original="@Model.ThumbnailImageUrl" src="@Model.ThumbnailImageUrl" title="tet-huawei"></div>
+                        <!-- Start Post Thumb -->
+                        <div class="thumb">
+                            <img src="@Model.ThumbnailImageUrl" alt="@Model.Name">
+                            <div class="post-type">
+                                <i class="fas fa-images"></i>
+                            </div>
+                        </div>
+                        <!-- Start Post Thumb -->
 
-        <div class="news-item-full-description">
-            @Html.Raw(Model.FullContent)
+                        <div class="info">
+                            <div class="meta">
+                                <ul>
+                                    <li><a href="#">Admin</a></li>
+                                </ul>
+                            </div>
+                            <h3>@Model.Name</h3>
+                            @Html.Raw(Model.FullContent)
+
+                            <!-- Start Comments Form -->
+                            <div class="comments-area">
+                                <div class="comments-form">
+                                    @await Component.InvokeAsync("NewItemRelate", Model.Id)
+                                </div>
+                            </div>
+                            <!-- End Comments Form -->
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        @await Component.InvokeAsync("NewItemRelate", Model.Id)
-    </article>
-
-</section>
+    </div>
+</div>

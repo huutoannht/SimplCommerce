@@ -65,7 +65,7 @@ namespace SimplCommerce.Module.Core.Areas.Core.Controllers
                 if (result.Succeeded)
                 {
                     _logger.LogInformation(1, "User logged in.");
-                    return Json(true);
+                    return RedirectToAction("Index", "HomeAdmin");
                 }
                 if (result.RequiresTwoFactor)
                 {
@@ -78,8 +78,9 @@ namespace SimplCommerce.Module.Core.Areas.Core.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-                    return Json(false);
+                    ModelState.AddModelError(string.Empty, "Mật khẩu hoặc tên đăng nhập chưa đúng.");
+                    model.Password = string.Empty;
+                    return View(model);
                 }
             }
 
