@@ -8,6 +8,11 @@
         <meta name="title" content="@Model.MetaTitle" />
         <meta name="keywords" content="@Model.MetaKeywords" />
         <meta name="description" content="@Model.MetaDescription" />
+		 <meta name="og:title" content="@Model.MetaTitle" />
+        <meta name="og:description" content="@Model.MetaDescription" />
+		  <meta name="DC.title" content="@Model.MetaTitle" />
+        <meta name="DC.Subject" content="@Model.MetaKeywords" />
+        <meta name="DC.Description" content="@Model.MetaDescription" />
     }
 
     @section head
@@ -49,7 +54,7 @@
         </div>
         <div class="clr"></div>
         <div class="rowdetail row" id="normalproduct">
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <div class="sp-wrap">
                     @foreach (var image in Model.Images)
                     {
@@ -59,9 +64,14 @@
                     }
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <div class="product-short-desc">
+                    <h3 class="product-short-desc-title">Mô tả</h3>
                     @Html.Raw(Model.ShortDescription)
+                </div>
+                <div class="promo-detail">
+                    <h4>ƯU ĐÃI TẠI TECHCARE</h4>
+                    @Html.Raw(Model.Promotion)
                 </div>
                 <aside class="price_sale product-detail">
                     @*@if (Model.Promotion != null && Model.Promotion.Length > 10 && Regex.Replace(Model.Promotion, "<.*?>", String.Empty).Length > 0)
@@ -220,13 +230,6 @@
 
 
                 </aside>
-            </div>
-            <div class="col-md-3">
-                <div class="promo-detail">
-                    <h4>ƯU ĐÃI TẠI TECHCARE</h4>
-                    @Html.Raw(Model.Promotion)
-                </div>
-
             </div>
         </div>
         <div class="clr"></div>
