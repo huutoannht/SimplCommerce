@@ -218,6 +218,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\admin\" />
     <Folder Include="wwwroot\themes\Beauty\css\" />
     <Folder Include="wwwroot\themes\Beauty\fonts\" />
     <Folder Include="wwwroot\themes\Beauty\images\" />

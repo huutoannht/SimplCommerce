@@ -1,0 +1,588 @@
+﻿@using System.Globalization
+@using Microsoft.Extensions.Configuration;
+@using SimplCommerce.Module.Core.Extensions
+
+@inject IWorkContext WorkContext
+@inject IConfiguration Config
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html ng-app="simplAdmin">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Admin</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="~/admin/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/admin/bower_components/font-awesome/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="~/admin/bower_components/Ionicons/css/ionicons.min.css">
+    <!-- jvectormap -->
+    <link rel="stylesheet" href="~/admin/bower_components/jvectormap/jquery-jvectormap.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/admin/dist/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="~/admin/dist/css/skins/_all-skins.min.css">
+    <link simpl-append-version="true" rel="stylesheet" href="~/lib/angular-material/angular-material.css" />
+    <link simpl-append-version="true" rel="stylesheet" href="~/lib/angular-bootstrap/ui-bootstrap-csp.css" />
+    <link simpl-append-version="true" rel="stylesheet" href="~/lib/toastr/build/toastr.min.css" />
+    <link simpl-append-version="true" rel="stylesheet" href="~/lib/summernote/summernote.css" />
+    <link simpl-append-version="true" rel="stylesheet" href="~/lib/angular-ui-tree/angular-ui-tree.min.css" />
+    <link simpl-append-version="true" rel="stylesheet" href="~/lib/angular-bootstrap-colorpicker/css/colorpicker.min.css" />
+    <link simpl-append-version="true" rel="stylesheet" href="~/modules/core/admin/admin-core.css" />
+
+
+    <script>
+        window.Global_AssetVersion = "@Config["Global.AssetVersion"]";
+    </script>
+    <script simpl-append-version="true" src="~/lib/jquery/jquery.js"></script>
+    <script simpl-append-version="true" src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script simpl-append-version="true" src="~/lib/summernote/summernote.js"></script>
+
+    <script simpl-append-version="true" src="~/lib/angular/angular.js"></script>
+    <script simpl-append-version="true" src="~/lib/angular-ui-router/angular-ui-router.js"></script>
+    <script simpl-append-version="true" src="~/lib/angular-animate/angular-animate.js"></script>
+    <script simpl-append-version="true" src="~/lib/angular-aria/angular-aria.js"></script>
+    <script simpl-append-version="true" src="~/lib/angular-messages/angular-messages.js"></script>
+    <script simpl-append-version="true" src="~/lib/angular-material/angular-material.js"></script>
+    <script simpl-append-version="true" src="~/lib/angular-smart-table/dist/smart-table.js"></script>
+    <script simpl-append-version="true" src="~/lib/ng-file-upload/dist/ng-file-upload.js"></script>
+    <script simpl-append-version="true" src="~/lib/angular-bootstrap/ui-bootstrap.js"></script>
+    <script simpl-append-version="true" src="~/lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script simpl-append-version="true" src="~/lib/bootstrap-ui-datetime-picker/datetime-picker.js"></script>
+    <script simpl-append-version="true" src="~/lib/bootstrap-ui-datetime-picker/datetime-picker.tpls.js"></script>
+    <script simpl-append-version="true" src="~/lib/angular-summernote/angular-summernote.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="~/lib/elfinder/js/elfinder.full.js"></script>
+    <script simpl-append-version="true" src="~/lib/angular-ui-tree/angular-ui-tree.js"></script>
+    <script simpl-append-version="true" src="~/lib/angular-bootstrap-colorpicker/js/bootstrap-colorpicker-module.js"></script>
+    <script simpl-append-version="true" src="~/lib/toastr/build/toastr.min.js"></script>
+    <script simpl-append-version="true" src="~/lib/bootbox/bootbox.js"></script>
+    <script simpl-append-version="true" src="~/lib/i18n/angular-locale_@(CultureInfo.CurrentCulture.Name.ToLower()).js"></script>
+
+    <script simpl-append-version="true" src="~/modules/core/admin/common/slugify.js"></script>
+    <script simpl-append-version="true" src="~/modules/core/admin/admin-app.js"></script>
+    <script simpl-append-version="true" src="~/modules/core/admin/common/common.js"></script>
+    <script simpl-append-version="true" src="~/modules/core/admin/common/summernote-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/core/admin/common/st-date-range.js"></script>
+    <script simpl-append-version="true" src="~/modules/core/admin/common/translation-service.js"></script>
+
+    <script simpl-append-version="true" src="~/modules/core/admin/dashboard/dashboard.module.js"></script>
+
+    <script simpl-append-version="true" src="~/modules/core/admin/core.module.js"></script>
+    <script simpl-append-version="true" src="~/modules/core/admin/user/user-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/core/admin/user/user-list.js"></script>
+    <script simpl-append-version="true" src="~/modules/core/admin/user/user-form.js"></script>
+    <script simpl-append-version="true" src="~/modules/core/admin/widget/widget-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/core/admin/widget/widget-instance-list.js"></script>
+    <script simpl-append-version="true" src="~/modules/core/admin/configuration/configuration-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/core/admin/configuration/configuration.js"></script>
+    <script simpl-append-version="true" src="~/modules/core/admin/customergroups/customergroup-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/core/admin/customergroups/customergroup-list.js"></script>
+    <script simpl-append-version="true" src="~/modules/core/admin/customergroups/customergroup-form.js"></script>
+    <script simpl-append-version="true" src="~/modules/core/admin/themes/theme-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/core/admin/themes/theme-list.js"></script>
+    <script simpl-append-version="true" src="~/modules/core/admin/themes/online-theme-list.js"></script>
+    <script simpl-append-version="true" src="~/modules/core/admin/themes/theme-details.js"></script>
+    <script simpl-append-version="true" src="~/modules/core/admin/countries/country-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/core/admin/countries/country-list.js"></script>
+    <script simpl-append-version="true" src="~/modules/core/admin/countries/country-form.js"></script>
+    <script simpl-append-version="true" src="~/modules/core/admin/stateprovince/state-province-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/core/admin/stateprovince/state-province-list.js"></script>
+    <script simpl-append-version="true" src="~/modules/core/admin/stateprovince/state-province-form.js"></script>
+
+    <script simpl-append-version="true" src="~/modules/catalog/admin/catalog.module.js"></script>
+    <script simpl-append-version="true" src="~/modules/catalog/admin/brand/brand-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/catalog/admin/brand/brand-list.js"></script>
+    <script simpl-append-version="true" src="~/modules/catalog/admin/brand/brand-form.js"></script>
+    <script simpl-append-version="true" src="~/modules/catalog/admin/category/category-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/catalog/admin/category/category-list.js"></script>
+    <script simpl-append-version="true" src="~/modules/catalog/admin/category/category-form.js"></script>
+    <script simpl-append-version="true" src="~/modules/catalog/admin/product-option/product-option-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/catalog/admin/product-option/product-option-list.js"></script>
+    <script simpl-append-version="true" src="~/modules/catalog/admin/product-option/product-option-form.js"></script>
+    <script simpl-append-version="true" src="~/modules/catalog/admin/product-attribute-group/product-attribute-group-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/catalog/admin/product-attribute-group/product-attribute-group-list.js"></script>
+    <script simpl-append-version="true" src="~/modules/catalog/admin/product-attribute-group/product-attribute-group-form.js"></script>
+    <script simpl-append-version="true" src="~/modules/catalog/admin/product-attribute/product-attribute-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/catalog/admin/product-attribute/product-attribute-list.js"></script>
+    <script simpl-append-version="true" src="~/modules/catalog/admin/product-attribute/product-attribute-form.js"></script>
+    <script simpl-append-version="true" src="~/modules/catalog/admin/product-template/product-template-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/catalog/admin/product-template/product-template-list.js"></script>
+    <script simpl-append-version="true" src="~/modules/catalog/admin/product-template/product-template-form.js"></script>
+    <script simpl-append-version="true" src="~/modules/catalog/admin/product/product-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/catalog/admin/product/product-list.js"></script>
+    <script simpl-append-version="true" src="~/modules/catalog/admin/product/product-option-display-directive.js"></script>
+    <script simpl-append-version="true" src="~/modules/catalog/admin/product/product-selection-directive.js"></script>
+    <script simpl-append-version="true" src="~/modules/catalog/admin/product/product-form.js"></script>
+    <script simpl-append-version="true" src="~/modules/catalog/admin/product-widget/product-widget-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/catalog/admin/product-widget/product-widget-form.js"></script>
+    <script simpl-append-version="true" src="~/modules/catalog/admin/category-widget/category-widget-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/catalog/admin/category-widget/category-widget-form.js"></script>
+    <script simpl-append-version="true" src="~/modules/catalog/admin/simple-product-widget/simple-product-widget-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/catalog/admin/simple-product-widget/simple-product-widget-form.js"></script>
+    <script simpl-append-version="true" src="~/modules/catalog/admin/product-price/product-price-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/catalog/admin/product-price/product-price-form.js"></script>
+    <script simpl-append-version="true" src="~/modules/catalog/admin/product-clone/product-clone-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/catalog/admin/product-clone/product-clone-form.js"></script>
+
+    <script simpl-append-version="true" src="~/modules/orders/admin/orders.module.js"></script>
+    <script simpl-append-version="true" src="~/modules/orders/admin/order/order-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/orders/admin/order/order-list.js"></script>
+    <script simpl-append-version="true" src="~/modules/orders/admin/order/order-create.js"></script>
+    <script simpl-append-version="true" src="~/modules/orders/admin/order/order-detail.js"></script>
+    <script simpl-append-version="true" src="~/modules/orders/admin/order/order-widget.directive.js"></script>
+
+    <script simpl-append-version="true" src="~/modules/cms/admin/cms.module.js"></script>
+    <script simpl-append-version="true" src="~/modules/cms/admin/page/page-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/cms/admin/page/page-list.js"></script>
+    <script simpl-append-version="true" src="~/modules/cms/admin/file/file-list.js"></script>
+    <script simpl-append-version="true" src="~/modules/cms/admin/page/page-form.js"></script>
+    <script simpl-append-version="true" src="~/modules/cms/admin/menu/menu-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/cms/admin/menu/menu-list.js"></script>
+    <script simpl-append-version="true" src="~/modules/cms/admin/menu/menu-form.js"></script>
+    <script simpl-append-version="true" src="~/modules/cms/admin/menu/menu-form-create.js"></script>
+    <script simpl-append-version="true" src="~/modules/cms/admin/carousel-widget/carousel-widget-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/cms/admin/carousel-widget/carousel-widget-form.js"></script>
+    <script simpl-append-version="true" src="~/modules/cms/admin/html-widget/html-widget-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/cms/admin/html-widget/html-widget-form.js"></script>
+    <script simpl-append-version="true" src="~/modules/cms/admin/spacebar-widget/spacebar-widget-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/cms/admin/spacebar-widget/spacebar-widget-form.js"></script>
+
+    <script simpl-append-version="true" src="~/modules/search/admin/search.module.js"></script>
+    <script simpl-append-version="true" src="~/modules/search/admin/search-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/search/admin/most-search-keywords.directive.js"></script>
+
+    <script simpl-append-version="true" src="~/modules/reviews/admin/reviews.module.js"></script>
+    <script simpl-append-version="true" src="~/modules/reviews/admin/review/review-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/reviews/admin/review/review-list.js"></script>
+    <script simpl-append-version="true" src="~/modules/reviews/admin/review/review-widget.directive.js"></script>
+    <script simpl-append-version="true" src="~/modules/reviews/admin/review/review-reply-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/reviews/admin/review/review-reply-list.js"></script>
+    <script simpl-append-version="true" src="~/modules/reviews/admin/review/review-reply-widget.directive.js"></script>
+
+    <script simpl-append-version="true" src="~/modules/comments/admin/comments.module.js"></script>
+    <script simpl-append-version="true" src="~/modules/comments/admin/comment/comment-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/comments/admin/comment/comment-list.js"></script>
+
+    <script simpl-append-version="true" src="~/modules/activitylog/admin/activitylog.module.js"></script>
+    <script simpl-append-version="true" src="~/modules/activitylog/admin/activitylog-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/activitylog/admin/most-viewed-products.directive.js"></script>
+
+    <script simpl-append-version="true" src="~/modules/vendors/admin/vendors.module.js"></script>
+    <script simpl-append-version="true" src="~/modules/vendors/admin/vendors/vendor-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/vendors/admin/vendors/vendor-list.js"></script>
+    <script simpl-append-version="true" src="~/modules/vendors/admin/vendors/vendor-form.js"></script>
+
+    <script simpl-append-version="true" src="~/modules/localization/admin/localization.module.js"></script>
+    <script simpl-append-version="true" src="~/modules/localization/admin/localization/localization-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/localization/admin/localization/localization-form.js"></script>
+
+    <script simpl-append-version="true" src="~/modules/news/admin/news.module.js"></script>
+    <script simpl-append-version="true" src="~/modules/news/admin/news-categories/news-category-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/news/admin/news-categories/news-category-list.js"></script>
+    <script simpl-append-version="true" src="~/modules/news/admin/news-categories/news-category-form.js"></script>
+    <script simpl-append-version="true" src="~/modules/news/admin/news-items/news-item-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/news/admin/news-items/news-item-list.js"></script>
+    <script simpl-append-version="true" src="~/modules/news/admin/news-items/news-item-form.js"></script>
+
+    <script simpl-append-version="true" src="~/modules/contacts/admin/contacts.module.js"></script>
+    <script simpl-append-version="true" src="~/modules/contacts/admin/contact-area/contact-area-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/contacts/admin/contact-area/contact-area-list.js"></script>
+    <script simpl-append-version="true" src="~/modules/contacts/admin/contact-area/contact-area-form.js"></script>
+    <script simpl-append-version="true" src="~/modules/contacts/admin/contacts/contact-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/contacts/admin/contacts/contact-list.js"></script>
+    <script simpl-append-version="true" src="~/modules/contacts/admin/contacts/contact.js"></script>
+
+    <script simpl-append-version="true" src="~/modules/pricing/admin/pricing.module.js"></script>
+    <script simpl-append-version="true" src="~/modules/pricing/admin/cart-rule/cart-rule-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/pricing/admin/cart-rule/cart-rule-list.js"></script>
+    <script simpl-append-version="true" src="~/modules/pricing/admin/cart-rule/cart-rule-form.js"></script>
+    <script simpl-append-version="true" src="~/modules/pricing/admin/cart-rule-usage/cart-rule-usage-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/pricing/admin/cart-rule-usage/cart-rule-usage-list.js"></script>
+
+    <script simpl-append-version="true" src="~/modules/tax/admin/tax.module.js"></script>
+    <script simpl-append-version="true" src="~/modules/tax/admin/tax-class/tax-class-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/tax/admin/tax-class/tax-class-list.js"></script>
+    <script simpl-append-version="true" src="~/modules/tax/admin/tax-class/tax-class-form.js"></script>
+    <script simpl-append-version="true" src="~/modules/tax/admin/tax-rate/tax-rate-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/tax/admin/tax-rate/tax-rate-list.js"></script>
+    <script simpl-append-version="true" src="~/modules/tax/admin/tax-rate/tax-rate-form.js"></script>
+    <script simpl-append-version="true" src="~/modules/tax/admin/tax-rate/tax-rate-import.js"></script>
+
+    <script simpl-append-version="true" src="~/modules/shipping/admin/shipping.module.js"></script>
+    <script simpl-append-version="true" src="~/modules/shipping/admin/provider/shipping-provider-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/shipping/admin/provider/shipping-provider-list.js"></script>
+
+    <script simpl-append-version="true" src="~/modules/shippingtablerate/admin/shipping-tablerate.module.js"></script>
+    <script simpl-append-version="true" src="~/modules/shippingtablerate/admin/tablerate/shipping-tablerate-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/shippingtablerate/admin/tablerate/shipping-tablerate-form.js"></script>
+
+    <script simpl-append-version="true" src="~/modules/payments/admin/payments.module.js"></script>
+    <script simpl-append-version="true" src="~/modules/payments/admin/provider/payment-provider-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/payments/admin/provider/payment-provider-list.js"></script>
+    <script simpl-append-version="true" src="~/modules/payments/admin/payment/payment-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/payments/admin/payment/payment-list-by-order.directive.js"></script>
+
+    <script simpl-append-version="true" src="~/modules/paymentstripe/admin/paymentStripe.module.js"></script>
+    <script simpl-append-version="true" src="~/modules/paymentstripe/admin/stripe/stripe-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/paymentstripe/admin/stripe/stripe-config-form.js"></script>
+
+    <script simpl-append-version="true" src="~/modules/paymentpaypalexpress/admin/paypalExpress.module.js"></script>
+    <script simpl-append-version="true" src="~/modules/paymentpaypalexpress/admin/config/paypalExpress-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/paymentpaypalexpress/admin/config/config-form.js"></script>
+
+    <script simpl-append-version="true" src="~/modules/paymentcod/admin/paymentCoD.module.js"></script>
+    <script simpl-append-version="true" src="~/modules/paymentcod/admin/config/cod-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/paymentcod/admin/config/config-form.js"></script>
+
+    <script simpl-append-version="true" src="~/modules/productrecentlyviewed/admin/product-recently-viewed.module.js"></script>
+    <script simpl-append-version="true" src="~/modules/productrecentlyviewed/admin/recently-viewed-widget/recently-viewed-widget-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/productrecentlyviewed/admin/recently-viewed-widget/recently-viewed-widget-form.js"></script>
+
+    <script simpl-append-version="true" src="~/modules/inventory/admin/inventory.module.js"></script>
+    <script simpl-append-version="true" src="~/modules/inventory/admin/stock/stock-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/inventory/admin/stock/stock-form.js"></script>
+    <script simpl-append-version="true" src="~/modules/inventory/admin/stock/stock-history.js"></script>
+    <script simpl-append-version="true" src="~/modules/inventory/admin/warehouse/warehouse-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/inventory/admin/warehouse/warehouse-list.js"></script>
+    <script simpl-append-version="true" src="~/modules/inventory/admin/warehouse/warehouse-form.js"></script>
+
+    <script simpl-append-version="true" src="~/modules/shipments/admin/shipment.module.js"></script>
+    <script simpl-append-version="true" src="~/modules/shipments/admin/shipment/shipment-service.js"></script>
+    <script simpl-append-version="true" src="~/modules/shipments/admin/shipment/shipment-form.js"></script>
+    <script simpl-append-version="true" src="~/modules/shipments/admin/shipment/shipment-list.js"></script>
+    <script simpl-append-version="true" src="~/modules/shipments/admin/shipment/shipment-details.js"></script>
+    <script simpl-append-version="true" src="~/modules/shipments/admin/shipment/shipment-list-by-order.directive.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Google Font -->
+    <link rel="stylesheet"
+          href="~/admin/https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+
+        <header class="main-header">
+
+            <!-- Logo -->
+            <a href="~/admin/index2.html" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini"><b>A</b>LT</span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg"><b>Admin</b></span>
+            </a>
+
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top">
+                <!-- Sidebar toggle button-->
+                <a href="~/admin/#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+                <!-- Navbar Right Menu -->
+                <div class="navbar-custom-menu">
+                        <form asp-area="Core" asp-controller="Account" asp-action="LogOff" method="post" id="logoutForm" class="navbar-right">
+                            <ul class="nav navbar-nav">
+                                <li>
+                                    <a asp-area="Core" asp-controller="Manage" asp-action="Index" title="Manage">@Localizer["Hello {0}!", (await WorkContext.GetCurrentUser()).FullName]</a>
+                                </li>
+                                <li>
+                                    <a asp-area="Core" asp-controller="Account" asp-action="LogOff" title="Manage">@Localizer["Log off"] &nbsp;&nbsp;&nbsp;</a>
+                                </li>
+                            </ul>
+                        </form>
+                </div>
+
+            </nav>
+        </header>
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                <!-- Sidebar user panel -->
+                <!-- sidebar menu: : style can be found in sidebar.less -->
+                <ul class="sidebar-menu" data-widget="tree">
+                    <li class="header">Menu</li>
+                    <li class="treeview">
+                        <a href="javascript:void(0)">
+                            <i class="fa fa-pie-chart"></i>
+                            <span>Quản lý Bài viết</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a ui-sref="product"><i class="fa fa-circle-o"></i> Danh sách Bài viết</a></li>
+                            <li><a ui-sref="category"><i class="fa fa-circle-o"></i> Danh mục Bài viết</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="javascript:void(0)">
+                            <i class="fa fa-book"></i>
+                            <span>Hiển thị bài viết</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a ui-sref="page"><i class="fa fa-circle-o"></i>Phần hai bên trang web</a></li>
+                            @*<li><a ui-sref="file">@Localizer["Files"]</a></li>*@
+                            @*<li><a ui-sref="menus">@Localizer["Menus"]</a></li>*@
+                            <li><a ui-sref="widget"><i class="fa fa-circle-o"></i>Phần giữa trang web</a></li>
+                            @*<li><a ui-sref="themes">@Localizer["Themes"]</a></li>*@
+                            @*<li><a ui-sref="news-categories">Chuyên mục tin tức</a></li>*@
+                            @*<li><a ui-sref="news-items"><i class="fa fa-circle-o"></i>Tin tức</a></li>*@
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            <!-- /.sidebar -->
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+
+            <!-- Main content -->
+            <section class="content">
+                <div ui-view></div> 
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                <b>Version</b> 2.4.18
+            </div>
+            <strong>Copyright &copy; 2019-@DateTime.Today.Year <a href="#">Admin</a>.</strong> All rights
+            reserved.
+        </footer>
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Create the tabs -->
+            <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+                <li><a href="~/admin/#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+                <li><a href="~/admin/#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <!-- Home tab content -->
+                <div class="tab-pane" id="control-sidebar-home-tab">
+                    <h3 class="control-sidebar-heading">Recent Activity</h3>
+                    <ul class="control-sidebar-menu">
+                        <li>
+                            <a href="~/admin/javascript:void(0)">
+                                <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+
+                                <div class="menu-info">
+                                    <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+
+                                    <p>Will be 23 on April 24th</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/admin/javascript:void(0)">
+                                <i class="menu-icon fa fa-user bg-yellow"></i>
+
+                                <div class="menu-info">
+                                    <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
+
+                                    <p>New phone +1(800)555-1234</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/admin/javascript:void(0)">
+                                <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
+
+                                <div class="menu-info">
+                                    <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
+
+                                    <p>nora@example.com</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/admin/javascript:void(0)">
+                                <i class="menu-icon fa fa-file-code-o bg-green"></i>
+
+                                <div class="menu-info">
+                                    <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
+
+                                    <p>Execution time 5 seconds</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.control-sidebar-menu -->
+
+                    <h3 class="control-sidebar-heading">Tasks Progress</h3>
+                    <ul class="control-sidebar-menu">
+                        <li>
+                            <a href="~/admin/javascript:void(0)">
+                                <h4 class="control-sidebar-subheading">
+                                    Custom Template Design
+                                    <span class="label label-danger pull-right">70%</span>
+                                </h4>
+
+                                <div class="progress progress-xxs">
+                                    <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/admin/javascript:void(0)">
+                                <h4 class="control-sidebar-subheading">
+                                    Update Resume
+                                    <span class="label label-success pull-right">95%</span>
+                                </h4>
+
+                                <div class="progress progress-xxs">
+                                    <div class="progress-bar progress-bar-success" style="width: 95%"></div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/admin/javascript:void(0)">
+                                <h4 class="control-sidebar-subheading">
+                                    Laravel Integration
+                                    <span class="label label-warning pull-right">50%</span>
+                                </h4>
+
+                                <div class="progress progress-xxs">
+                                    <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/admin/javascript:void(0)">
+                                <h4 class="control-sidebar-subheading">
+                                    Back End Framework
+                                    <span class="label label-primary pull-right">68%</span>
+                                </h4>
+
+                                <div class="progress progress-xxs">
+                                    <div class="progress-bar progress-bar-primary" style="width: 68%"></div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.control-sidebar-menu -->
+
+                </div>
+                <!-- /.tab-pane -->
+                <!-- Settings tab content -->
+                <div class="tab-pane" id="control-sidebar-settings-tab">
+                    <form method="post">
+                        <h3 class="control-sidebar-heading">General Settings</h3>
+
+                        <div class="form-group">
+                            <label class="control-sidebar-subheading">
+                                Report panel usage
+                                <input type="checkbox" class="pull-right" checked>
+                            </label>
+
+                            <p>
+                                Some information about this general settings option
+                            </p>
+                        </div>
+                        <!-- /.form-group -->
+
+                        <div class="form-group">
+                            <label class="control-sidebar-subheading">
+                                Allow mail redirect
+                                <input type="checkbox" class="pull-right" checked>
+                            </label>
+
+                            <p>
+                                Other sets of options are available
+                            </p>
+                        </div>
+                        <!-- /.form-group -->
+
+                        <div class="form-group">
+                            <label class="control-sidebar-subheading">
+                                Expose author name in posts
+                                <input type="checkbox" class="pull-right" checked>
+                            </label>
+
+                            <p>
+                                Allow the user to show his name in blog posts
+                            </p>
+                        </div>
+                        <!-- /.form-group -->
+
+                        <h3 class="control-sidebar-heading">Chat Settings</h3>
+
+                        <div class="form-group">
+                            <label class="control-sidebar-subheading">
+                                Show me as online
+                                <input type="checkbox" class="pull-right" checked>
+                            </label>
+                        </div>
+                        <!-- /.form-group -->
+
+                        <div class="form-group">
+                            <label class="control-sidebar-subheading">
+                                Turn off notifications
+                                <input type="checkbox" class="pull-right">
+                            </label>
+                        </div>
+                        <!-- /.form-group -->
+
+                        <div class="form-group">
+                            <label class="control-sidebar-subheading">
+                                Delete chat history
+                                <a href="~/admin/javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
+                            </label>
+                        </div>
+                        <!-- /.form-group -->
+                    </form>
+                </div>
+                <!-- /.tab-pane -->
+            </div>
+        </aside>
+        <!-- /.control-sidebar -->
+        <!-- Add the sidebar's background. This div must be placed
+             immediately after the control sidebar -->
+        <div class="control-sidebar-bg"></div>
+
+    </div>
+    <!-- ./wrapper -->
+    <!-- jQuery 3 -->
+    <script src="~/admin/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="~/admin/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="~/admin/bower_components/fastclick/lib/fastclick.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/admin/dist/js/adminlte.min.js"></script>
+    <!-- Sparkline -->
+    <script src="~/admin/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+    <!-- jvectormap  -->
+    <script src="~/admin/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="~/admin/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <!-- SlimScroll -->
+    <script src="~/admin/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <!-- ChartJS -->
+    @*<script src="~/admin/bower_components/chart.js/Chart.js"></script>*@
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+   @* <script src="~/admin/dist/js/pages/dashboard2.js"></script>*@
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/admin/dist/js/demo.js"></script>
+</body>
+</html>

@@ -65,7 +65,7 @@ namespace SimplCommerce.Module.Core.Areas.Core.Controllers
                 if (result.Succeeded)
                 {
                     _logger.LogInformation(1, "User logged in.");
-                    return Json(true);
+                    return RedirectToAction("Index1", "HomeAdmin");
                 }
                 if (result.RequiresTwoFactor)
                 {
