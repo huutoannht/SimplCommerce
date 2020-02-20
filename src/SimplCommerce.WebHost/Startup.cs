@@ -28,6 +28,7 @@ using Microsoft.AspNetCore.Rewrite;
 using Microsoft.AspNetCore.ResponseCompression;
 using System.IO.Compression;
 using System.Collections.Generic;
+using RouteUrlRedirector;
 
 namespace SimplCommerce.WebHost
 {
@@ -73,7 +74,7 @@ namespace SimplCommerce.WebHost
             services.AddScoped<ITagHelperComponent, LanguageDirectionTagHelperComponent>();
             // services.AddScoped<ITagHelper, InlineStyleTagHelper>();
             services.AddTransient<IRazorViewRenderer, RazorViewRenderer>();
-             services.AddAntiforgery(options => options.HeaderName = "X-XSRF-Token");
+            services.AddAntiforgery(options => options.HeaderName = "X-XSRF-Token");
             services.AddSingleton<AutoValidateAntiforgeryTokenAuthorizationFilter, CookieOnlyAutoValidateAntiforgeryTokenAuthorizationFilter>();
             services.AddCloudscribePagination();
 
@@ -138,6 +139,42 @@ namespace SimplCommerce.WebHost
                 //    ServeUnknownFileTypes = true // serve extensionless file
                 //});
                 //app.UseRewriter(new RewriteOptions().AddRedirectToHttps(StatusCodes.Status301MovedPermanently, 443));
+            }
+            using (StreamReader apacheModRewriteStreamReader =
+            File.OpenText("ApacheModRewrite.txt"))
+            using (StreamReader iisUrlRewriteStreamReader =
+                File.OpenText("IISUrlRewrite.xml"))
+            {
+                var options = new RewriteOptions()
+                    .AddRedirectToHttpsPermanent()
+                    .AddRedirect("^dell-latitude-e7440", "laptop-cu-re")
+                    .AddRedirect("^tu-van-cau-hinh-may-tinh-thiet-ke-do-hoa-manh-chuyen-nghiep-2019", "/laptop-do-hoa-ky-thuat")
+                    .AddRedirect("^tong-hop-cac-dong-may-tinh-laptop-asus-mini-tot-nhat-nam-2019", "/laptop-hoc-tap-van-phong")
+                    .AddRedirect("^tong-hop-cac-dong-laptop-dell-core-i5-cu-tot-nhat-gia-re-nhat", "/laptop-dell-cu")
+                    .AddRedirect("^tong-hop-cac-dong-laptop-dell-core-i3-cu-tot-nhat-gia-re-nhat", "/laptop-dell-cu")
+                    .AddRedirect("^tieu-chi-de-chon-mua-laptop-do-hoa-cu", "/laptop-do-hoa-ky-thuat")
+                    .AddRedirect("^sinh-vien-dan-ky-thuat-nen-dung-laptop-nao-2019", "/laptop-do-hoa-ky-thuat")
+                    .AddRedirect("^nhung-dieu-gi-lam-nen-ten-tuoi-thuong-hieu-laptop-msi-cu", "/laptop-msi-cu")
+                    .AddRedirect("^nen-mua-laptop-gaming-choi-game-hang-nao-loai-nao-tot-nhat-hien-nay", "/laptop-gaming")
+                    .AddRedirect("^mua-laptop-dell-gia-re-chinh-hang-o-dau-da-nang", "/laptop-dell-cu")
+                    .AddRedirect("^may-tinh-laptop-dell-la-thuong-hieu-cua-nuoc-nao-san-xuat-o-dau", "/laptop-dell-cu")
+                    .AddRedirect("^dia-chi-mua-ban-cuc-sac-cu-sac-laptop-dell-o-dau-tai-da-nang", "/laptop-dell-cu")
+                    .AddRedirect("^dan-van-phong-nen-mua-nen-dung-laptop-loai-nao-la-tot-nhat", "/laptop-hoc-tap-van-phong")
+                    .AddRedirect("^co-nen-mua-laptop-hp-cu-hay-khong", "/laptop-hp-cu")
+                    .AddRedirect("^co-nen-mua-laptop-dell-precision-m4800", "/laptop-dell-cu")
+                    .AddRedirect("^chon-mua-laptop-cu-tai-da-nang-o-dau-la-tot-nhat", "/laptop-cu-re")
+                    .AddRedirect("^cach-test-kiem-tra-may-tinh-laptop-asus-chinh-hang", "/laptop-asus-cu")
+                    .AddRedirect("^cach-chon-mua-may-tinh-xach-tay-lenovo-cu-nhu-the-nao", "/laptop-lenovo-cu")
+                    .AddRedirect("^cac-dong-may-tinh-laptop-hp-nao-tot-nhat-ben-nhat-hien-nay", "/laptop-hoc-tap-van-phong")
+                    .AddRedirect("^cac-dong-may-tinh-de-ban-co-cau-hinh-dung-cho-do-hoa-thiet-ke", "/laptop-do-hoa-ky-thuat")
+                    .AddRedirect("^cac-dong-laptop-asus-gia-re-tai-cua-hang-laptop-cu-da-nang", "/laptop-asus-cu")
+                    .AddRedirect("^cac-dong-laptop-asus-choi-game-gia-re-nhat-2019", "/laptop-gaming")
+                    .AddRewrite(@"^rewrite-rule/(\d+)/(\d+)", "rewritten?var1=$1&var2=$2",
+                        skipRemainingRules: true)
+                    .AddApacheModRewrite(apacheModRewriteStreamReader)
+                    .AddIISUrlRewrite(iisUrlRewriteStreamReader);
+
+                app.UseRewriter(options);
             }
             app.UseResponseCaching();
             //app.Use(async (context, next) =>
