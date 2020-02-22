@@ -119,6 +119,8 @@
     <None Remove="Themes\Tourims\Areas\Catalog\Views\Category\CategoryDetail.cshtml" />
     <None Remove="Themes\Tourims\Areas\Catalog\Views\Category\CategoryDetailLoadMore.cshtml" />
     <None Remove="Themes\Tourims\Areas\Catalog\Views\Product\ProductDetail.cshtml" />
+    <None Remove="Themes\Tourims\Areas\Catalog\Views\Product\ProductImage.cshtml" />
+    <None Remove="Themes\Tourims\Areas\Catalog\Views\Product\ProductVideo.cshtml" />
     <None Remove="Themes\Tourims\Areas\Catalog\Views\Shared\Components\CategoryBreadcrumb\Default.cshtml" />
     <None Remove="Themes\Tourims\Areas\Catalog\Views\Shared\Components\CategoryMenu\Default.cshtml" />
     <None Remove="Themes\Tourims\Areas\Catalog\Views\Shared\Components\CategoryWidget\Default.cshtml" />

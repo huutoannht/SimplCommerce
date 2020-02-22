@@ -41,16 +41,15 @@
                         }
                         <div class="article-big">
                             <div class="article-photo">
-                                <a href="post.html" class="hover-effect delegate"><span class="cover" style="font-size:23.333333333333332px;"><i></i><img src="@item.ThumbnailUrl" alt=""></span></a>
+                                <a href="@item.Slug" class="hover-effect delegate"><span class="cover" style="font-size:23.333333333333332px;"><i></i><img src="@item.ThumbnailUrl" alt="" style="width: 250px; height: 200px; padding-right: 5px;"></span></a>
                             </div>
-                            <div class="article-content">
-                                <h2><a href="@item.Slug">@item.Name</a><a href="@item.Slug" class="h-comment">201</a></h2>
+                            <div class="article-content" style="padding-left: 41px;">
+                                <h2><a href="@item.Slug">@item.Name</a></h2>
                                 <span class="meta">
-                                    <a href="blog.html"><span class="icon-text">👤</span>Orange-Themes</a>
-                                    <a href="blog.html"><span class="icon-text">🕔</span>@item.CreatedOn.ToString("dd/MM/yyyy")</a>
+                                    <a href="@item.Slug"><span class="icon-text">🕔</span>@item.CreatedOn.ToString("dd/MM/yyyy")</a>
                                 </span>
                                 @Html.Raw(item.ShortDescription)
-                                <span class="meta">
+                                <span class="meta" style="padding-left: 10px;">
                                     <a href="@item.Slug" class="more">@Localizer["Read Full Article"]<span class="icon-text">▸</span></a>
                                 </span>
                             </div>
@@ -58,7 +57,7 @@
                     }
 
 
-                    <div class="pagination">
+                    @*<div class="pagination">
                         <a href="#" class="prev page-numbers"><span class="icon-text left">◂</span>Previous Page</a>
                         <a href="#" class="page-numbers">1</a>
                         <a href="#" class="page-numbers current">2</a>
@@ -66,7 +65,7 @@
                         <a href="#" class="page-numbers">4</a>
                         <a href="#" class="page-numbers">6</a>
                         <a href="#" class="next page-numbers">Next Page<span class="icon-text right">▸</span></a>
-                    </div>
+                    </div>*@
 
                 </div>
             </div>

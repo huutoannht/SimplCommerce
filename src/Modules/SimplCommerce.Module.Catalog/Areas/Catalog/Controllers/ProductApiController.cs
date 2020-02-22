@@ -402,7 +402,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
         [HttpPost("grid")]
         public async Task<IActionResult> List([FromBody] SmartTableParam param)
         {
-            var query = _productRepository.Query().Where(x => !x.IsDeleted);
+            var query = _productRepository.Query().Where(x => !x.IsDeleted && x.Id != 285 && x.Id != 286);
             var currentUser = await _workContext.GetCurrentUser();
             if (!User.IsInRole("admin"))
             {

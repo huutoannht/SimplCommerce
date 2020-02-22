@@ -68,7 +68,112 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
 
             return PartialView(model);
         }
+        [HttpGet("album-anh")]
+        public async Task<IActionResult> ProductImage(long id)
+        {
+            var host = "https://" + Request.Host + Request.Path;
+            id = 285;
+            ViewBag.Host = host;
+            var product = _productRepository.Query()
+                .Include(x => x.ThumbnailImage)
+                .Include(x => x.Medias).ThenInclude(m => m.Media)
+                .FirstOrDefault(x => x.Id == id && x.IsPublished);
+            if (product == null)
+            {
+                return NotFound();
+            }
 
+            var model = new ProductDetail
+            {
+                Id = product.Id,
+                Name = product.Name,
+                NameEN = product.NameEN,
+                CalculatedProductPrice = _productPricingService.CalculateProductPrice(product),
+                IsCallForPricing = product.IsCallForPricing,
+                IsAllowToOrder = product.IsAllowToOrder,
+                StockTrackingIsEnabled = product.StockTrackingIsEnabled,
+                StockQuantity = product.StockQuantity,
+                ShortDescription = product.ShortDescription,
+                ShortDescriptionEN = product.ShortDescriptionEN,
+                MetaTitle = product.MetaTitle,
+                MetaKeywords = product.MetaKeywords,
+                MetaDescription = product.MetaDescription,
+                Description = product.Description,
+                DescriptionEN = product.DescriptionEN,
+                Specification = product.Specification,
+                ReviewsCount = product.ReviewsCount,
+                RatingAverage = product.RatingAverage,
+                Attributes = product.AttributeValues.Select(x => new ProductDetailAttribute { Name = x.Attribute.Name, Value = x.Value }).ToList(),
+                Categories = product.Categories.Select(x => new ProductDetailCategory { Id = x.CategoryId, Name = x.Category.Name, Slug = x.Category.Slug }).ToList(),
+                Promotion = product.PromotionImage?.Caption,
+                CreatedOn = product.CreatedOn
+            };
+
+            MapProductImagesToProductVm(product, model);
+
+            model.ThumbnailImage = _mediaService.GetThumbnailUrl(product.ThumbnailImage);
+            await _mediator.Publish(new EntityViewed { EntityId = product.Id, EntityTypeId = "Product" });
+            _productRepository.SaveChanges();
+
+            return View(model);
+        }
+        [HttpGet("video")]
+        public async Task<IActionResult> ProductVideo(long id)
+        {
+            id = 286;
+            var host = "https://" + Request.Host + Request.Path;
+            ViewBag.Host = host;
+            var product = _productRepository.Query()
+                .Include(x => x.OptionValues)
+                .Include(x => x.Categories).ThenInclude(c => c.Category)
+                .Include(x => x.AttributeValues).ThenInclude(a => a.Attribute)
+                .Include(x => x.ProductLinks).ThenInclude(p => p.LinkedProduct).ThenInclude(m => m.ThumbnailImage)
+                .Include(x => x.ThumbnailImage)
+                .Include(x => x.PromotionImage)
+                .Include(x => x.Medias).ThenInclude(m => m.Media)
+                .FirstOrDefault(x => x.Id == id && x.IsPublished);
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            var model = new ProductDetail
+            {
+                Id = product.Id,
+                Name = product.Name,
+                NameEN = product.NameEN,
+                CalculatedProductPrice = _productPricingService.CalculateProductPrice(product),
+                IsCallForPricing = product.IsCallForPricing,
+                IsAllowToOrder = product.IsAllowToOrder,
+                StockTrackingIsEnabled = product.StockTrackingIsEnabled,
+                StockQuantity = product.StockQuantity,
+                ShortDescription = product.ShortDescription,
+                ShortDescriptionEN = product.ShortDescriptionEN,
+                MetaTitle = product.MetaTitle,
+                MetaKeywords = product.MetaKeywords,
+                MetaDescription = product.MetaDescription,
+                Description = product.Description,
+                DescriptionEN = product.DescriptionEN,
+                Specification = product.Specification,
+                ReviewsCount = product.ReviewsCount,
+                RatingAverage = product.RatingAverage,
+                Attributes = product.AttributeValues.Select(x => new ProductDetailAttribute { Name = x.Attribute.Name, Value = x.Value }).ToList(),
+                Categories = product.Categories.Select(x => new ProductDetailCategory { Id = x.CategoryId, Name = x.Category.Name, Slug = x.Category.Slug }).ToList(),
+                Promotion = product.PromotionImage?.Caption,
+                CreatedOn = product.CreatedOn
+            };
+
+            MapProductVariantToProductVm(product, model);
+            MapRelatedProductToProductVm(product, model);
+            MapProductOptionToProductVm(product, model);
+            MapProductImagesToProductVm(product, model);
+
+            model.ThumbnailImage = _mediaService.GetThumbnailUrl(product.ThumbnailImage);
+            await _mediator.Publish(new EntityViewed { EntityId = product.Id, EntityTypeId = "Product" });
+            _productRepository.SaveChanges();
+
+            return View(model);
+        }
         public async Task<IActionResult> ProductDetail(long id)
         {
             var host = "https://" + Request.Host + Request.Path;

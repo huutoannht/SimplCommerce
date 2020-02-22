@@ -1,0 +1,22 @@
+﻿@using SimplCommerce.Module.Core.Models
+
+@model SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels.ProductDetail
+
+@inject SignInManager<User> SignInManager
+
+@{
+    ViewBag.Title = Model.MetaTitle ?? Model.Name;
+}
+
+    <div class="main-page left">
+
+        <!-- BEGIN .single-block -->
+        <div class="single-block">
+
+
+            <!-- BEGIN .content-block -->
+            <div class="content-block main left">
+                @Html.Raw(Model.Description)
+            </div>
+        </div>
+    </div>  

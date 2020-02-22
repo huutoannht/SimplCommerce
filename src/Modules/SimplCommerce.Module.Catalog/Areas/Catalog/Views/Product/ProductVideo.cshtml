@@ -1,0 +1,442 @@
+﻿@using SimplCommerce.Module.Core.Models
+
+@model SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels.ProductDetail
+
+@inject SignInManager<User> SignInManager
+
+@{
+    ViewBag.Title = Model.MetaTitle ?? Model.Name;
+}
+<style>
+    .btn:focus, .btn:active, button:focus, button:active {
+        outline: none !important;
+        box-shadow: none !important;
+    }
+
+    #image-gallery .modal-footer {
+        display: block;
+    }
+
+    .thumb {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+</style>
+@*<div class="product-detail">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="sp-wrap">
+                    @foreach (var image in Model.Images)
+                    {
+                        <a href="@image.Url">
+                            <img src="@image.ThumbnailUrl" alt="" />
+                        </a>
+                    }
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="product-name">
+                    <h1 class="">@Model.Name</h1>
+                </div>
+                <ul class="list-inline product-ratings">
+                    <li><input type="hidden" value="@Model.RatingAverage" readonly="readonly" class="rating-loading" step="1" data-size="xs" data-show-clear="false" data-show-caption="false" /></li>
+                    <li class="product-review-list">
+                        <span>(@Model.ReviewsCount) @Localizer["reviews"]</span>
+                    </li>
+                </ul>
+                <div class="product-short-desc">@Html.Raw(Model.ShortDescription)</div>
+                @if (Model.HasVariation)
+                {
+                    <form>
+                        <div class="product-attrs">
+                            @foreach (var option in Model.AvailableOptions)
+                            {
+                                <div>
+                                    <h4>@option.OptionName </h4>
+                                    <ul class="list-inline product-attr-options">
+                                        @foreach (var value in option.Values)
+                                        {
+                                            var shouldChecked = Model.Variations.First().Options.Any(x => x.Value == value);
+                                            <li class="list-inline-item">
+                                                <input type="radio" value="@value" checked="@shouldChecked" name="@option.OptionName" />
+                                                @if (Model.OptionDisplayValues.ContainsKey(value) && !String.IsNullOrWhiteSpace(Model.OptionDisplayValues[value].Value))
+                                                {
+                                                    if (Model.OptionDisplayValues[value].DisplayType == "color")
+                                                    {
+                                                        <label title="@value" class="color" style="background-color:@Model.OptionDisplayValues[value].Value"></label>
+                                                    }
+                                                    else
+                                                    {
+                                                        <label>@Model.OptionDisplayValues[value].Value</label>
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    <label>@value</label>
+                                                }
+                                            </li>
+                                        }
+                                    </ul>
+                                </div>
+                            }
+                        </div>
+                    </form>
+
+                    foreach (var variant in Model.Variations)
+                    {
+                        var hidden = variant != Model.Variations.First() ? "collapse" : "";
+                        <div class="product-variation @hidden" data-variation-name="@variant.NormalizedName">
+                            <div class="product-price">
+                                @if (variant.IsCallForPricing)
+                                {
+                                    <span class="label label-info">@Localizer["Call for pricing"]</span>
+                                }
+                                else
+                                {
+                                    <h3>@variant.CalculatedProductPrice.Price.ToString("C0")</h3>
+                                    if (variant.CalculatedProductPrice.PercentOfSaving > 0)
+                                    {
+                                        <p class="product-price-regular">@variant.CalculatedProductPrice.OldPrice.Value.ToString("C0")</p>
+                                        <p class="product-price-saving">@Localizer["You save"] (@(variant.CalculatedProductPrice.PercentOfSaving)%)</p>
+                                    }
+                                }
+                            </div>
+                            @if (variant.StockTrackingIsEnabled && variant.StockQuantity <= 0)
+                            {
+                                <div class="out-of-stock">
+                                    <span class="label label-danger">@Localizer["Out of stock"]</span>
+                                </div>
+                            }
+                            <div class="add-to-cart">
+                                <form class="inline">
+                                    <input type="hidden" name="productId" value="@variant.Id" />
+                                    <div class="product-quantity">
+                                        <button type="button" class="quantity-button" name="subtract" value="-">-</button>
+                                        <input type="text" class="quantity-field" readonly="readonly" name="qty" value="1">
+                                        <button type="button" class="quantity-button" name="add" value="+">+</button>
+                                    </div>
+                                    <button type="button" disabled="@(!variant.IsAllowToOrder || (variant.StockTrackingIsEnabled && variant.StockQuantity <= 0))" class="btn btn-lg btn-add-cart">@Localizer["Add to cart"]</button>
+                                    <div>
+                                        <ul class="list-inline add-to-lists">
+                                            <li class="wishlist-in">
+                                                <i class="fa fa-heart"></i>
+                                                @if (SignInManager.IsSignedIn(User))
+                                                {
+                                                    <a href="#" class="add-to-wishlist">@Localizer["Add to Wishlist"]</a>
+                                                }
+                                                else
+                                                {
+                                                    <a asp-area="Catalog" asp-controller="Account" asp-action="Login" asp-route-returnurl="@($"{Context.Request.Path}{Context.Request.QueryString}")">@Localizer["Add to Wishlist"]</a>
+                                                }
+                                            </li>
+                                            <li class="compare-in">
+                                                <i class="fa fa-exchange"></i>
+                                                <a href="#" class="add-to-comparison">@Localizer["Add to Compare"]</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    }
+                    <div class="product-variation-notavailable collapse">
+                        <span class="label label-danger">@Localizer["Not available"]</span>
+                    </div>
+                }
+                else
+                {
+                    <div class="product-price">
+                        @if (Model.IsCallForPricing)
+                        {
+                            <span class="label label-info">@Localizer["Call for pricing"]</span>
+                        }
+                        else
+                        {
+                            <h3>@Model.CalculatedProductPrice.Price.ToString("C0")</h3>
+                            if (Model.CalculatedProductPrice.PercentOfSaving > 0)
+                            {
+                                <p class="product-price-regular">@Model.CalculatedProductPrice.OldPrice.Value.ToString("C0")</p>
+                                <p class="product-price-saving">@Localizer["You save"] (@(Model.CalculatedProductPrice.PercentOfSaving)%)</p>
+                            }
+                        }
+                    </div>
+                    if (Model.StockTrackingIsEnabled && Model.StockQuantity <= 0)
+                    {
+                        <div class="out-of-stock">
+                            <span class="label label-danger">@Localizer["Out of stock"]</span>
+                        </div>
+                    }
+                    <div class="add-to-cart">
+                        <form class="inline">
+                            <input type="hidden" name="productId" value="@Model.Id" />
+                            <div class="product-quantity">
+                                <button type="button" class="quantity-button" name="subtract" value="-">-</button>
+                                <input type="text" class="quantity-field" readonly="readonly" name="qty" value="1">
+                                <button type="button" class="quantity-button" name="add" value="+">+</button>
+                            </div>
+                            <button type="button" disabled="@(!Model.IsAllowToOrder || (Model.StockTrackingIsEnabled && Model.StockQuantity <= 0))" class="btn btn-lg btn-add-cart">@Localizer["Add to cart"]</button>
+                            <div>
+                                <ul class="list-inline add-to-lists">
+                                    <li class="wishlist-in">
+                                        <i class="fa fa-heart"></i>
+                                        @if (SignInManager.IsSignedIn(User))
+                                        {
+                                            <a href="#" class="add-to-wishlist">@Localizer["Add to Wishlist"]</a>
+                                        }
+                                        else
+                                        {
+                                            <a asp-area="Catalog" asp-controller="Account" asp-action="Login" asp-route-returnurl="@($"{Context.Request.Path}{Context.Request.QueryString}")">@Localizer["Add to Wishlist"]</a>
+                                        }
+                                    </li>
+                                    <li class="compare-in">
+                                        <i class="fa fa-exchange"></i>
+                                        <a href="#" class="add-to-comparison">@Localizer["Add to Compare"]</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </form>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>*@
+
+
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<div class="container">
+    <div class="row">
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
+                   data-image="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                   data-target="#image-gallery">
+                    <img class="img-thumbnail"
+                         src="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                         alt="Another alt text">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
+                   data-image="https://images.pexels.com/photos/158971/pexels-photo-158971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                   data-target="#image-gallery">
+                    <img class="img-thumbnail"
+                         src="https://images.pexels.com/photos/158971/pexels-photo-158971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                         alt="Another alt text">
+                </a>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
+                   data-image="https://images.pexels.com/photos/305070/pexels-photo-305070.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                   data-target="#image-gallery">
+                    <img class="img-thumbnail"
+                         src="https://images.pexels.com/photos/305070/pexels-photo-305070.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                         alt="Another alt text">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="Test1"
+                   data-image="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                   data-target="#image-gallery">
+                    <img class="img-thumbnail"
+                         src="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                         alt="Another alt text">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="Im so nice"
+                   data-image="https://images.pexels.com/photos/158971/pexels-photo-158971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                   data-target="#image-gallery">
+                    <img class="img-thumbnail"
+                         src="https://images.pexels.com/photos/158971/pexels-photo-158971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                         alt="Another alt text">
+                </a>
+            </div>
+
+
+
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="Im so nice"
+                   data-image="https://images.pexels.com/photos/305070/pexels-photo-305070.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                   data-target="#image-gallery">
+                    <img class="img-thumbnail"
+                         src="https://images.pexels.com/photos/305070/pexels-photo-305070.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                         alt="Another alt text">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="Im so nice"
+                   data-image="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                   data-target="#image-gallery">
+                    <img class="img-thumbnail"
+                         src="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                         alt="Another alt text">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="Im so nice"
+                   data-image="https://images.pexels.com/photos/158971/pexels-photo-158971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                   data-target="#image-gallery">
+                    <img class="img-thumbnail"
+                         src="https://images.pexels.com/photos/158971/pexels-photo-158971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                         alt="Another alt text">
+                </a>
+            </div>
+
+
+
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="Im so nice"
+                   data-image="https://images.pexels.com/photos/305070/pexels-photo-305070.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                   data-target="#image-gallery">
+                    <img class="img-thumbnail"
+                         src="https://images.pexels.com/photos/305070/pexels-photo-305070.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                         alt="Another alt text">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="Im so nice"
+                   data-image="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                   data-target="#image-gallery">
+                    <img class="img-thumbnail"
+                         src="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                         alt="Another alt text">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="Im so nice"
+                   data-image="https://images.pexels.com/photos/158971/pexels-photo-158971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                   data-target="#image-gallery">
+                    <img class="img-thumbnail"
+                         src="https://images.pexels.com/photos/158971/pexels-photo-158971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                         alt="Another alt text">
+                </a>
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="image-gallery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="image-gallery-title"></h4>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <img id="image-gallery-image" class="img-responsive col-md-12" src="">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary float-left" id="show-previous-image">
+                            <i class="fa fa-arrow-left"></i>
+                        </button>
+
+                        <button type="button" id="show-next-image" class="btn btn-secondary float-right">
+                            <i class="fa fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+    <script>
+        let modalId = $('#image-gallery');
+
+        $(document)
+            .ready(function () {
+
+                loadGallery(true, 'a.thumbnail');
+
+                //This function disables buttons when needed
+                function disableButtons(counter_max, counter_current) {
+                    $('#show-previous-image, #show-next-image')
+                        .show();
+                    if (counter_max === counter_current) {
+                        $('#show-next-image')
+                            .hide();
+                    } else if (counter_current === 1) {
+                        $('#show-previous-image')
+                            .hide();
+                    }
+                }
+
+
+                function loadGallery(setIDs, setClickAttr) {
+                    let current_image,
+                        selector,
+                        counter = 0;
+
+                    $('#show-next-image, #show-previous-image')
+                        .click(function () {
+                            if ($(this)
+                                .attr('id') === 'show-previous-image') {
+                                current_image--;
+                            } else {
+                                current_image++;
+                            }
+
+                            selector = $('[data-image-id="' + current_image + '"]');
+                            updateGallery(selector);
+                        });
+
+                    function updateGallery(selector) {
+                        let $sel = selector;
+                        current_image = $sel.data('image-id');
+                        $('#image-gallery-title')
+                            .text($sel.data('title'));
+                        $('#image-gallery-image')
+                            .attr('src', $sel.data('image'));
+                        disableButtons(counter, $sel.data('image-id'));
+                    }
+
+                    if (setIDs == true) {
+                        $('[data-image-id]')
+                            .each(function () {
+                                counter++;
+                                $(this)
+                                    .attr('data-image-id', counter);
+                            });
+                    }
+                    $(setClickAttr)
+                        .on('click', function () {
+                            updateGallery($(this));
+                        });
+                }
+            });
+
+        // build key actions
+        $(document)
+            .keydown(function (e) {
+                switch (e.which) {
+                    case 37: // left
+                        if ((modalId.data('bs.modal') || {})._isShown && $('#show-previous-image').is(":visible")) {
+                            $('#show-previous-image')
+                                .click();
+                        }
+                        break;
+
+                    case 39: // right
+                        if ((modalId.data('bs.modal') || {})._isShown && $('#show-next-image').is(":visible")) {
+                            $('#show-next-image')
+                                .click();
+                        }
+                        break;
+
+                    default:
+                        return; // exit this handler for other keys
+                }
+                e.preventDefault(); // prevent the default action (scroll / move caret)
+            });
+
+    </script>
+}
