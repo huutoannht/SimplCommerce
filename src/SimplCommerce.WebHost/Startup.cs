@@ -162,7 +162,7 @@ namespace SimplCommerce.WebHost
                     .AddRedirect("^dan-van-phong-nen-mua-nen-dung-laptop-loai-nao-la-tot-nhat", "/laptop-hoc-tap-van-phong")
                     .AddRedirect("^co-nen-mua-laptop-hp-cu-hay-khong", "/laptop-hp-cu")
                     .AddRedirect("^co-nen-mua-laptop-dell-precision-m4800", "/laptop-dell-cu")
-                    .AddRedirect("^chon-mua-laptop-cu-tai-da-nang-o-dau-la-tot-nhat", "/laptop-cu-re")
+                    .AddRedirect("^chon-mua-laptop-cu-tai-da-nang-o-dau-la-tot-nhat", "/")
                     .AddRedirect("^cach-test-kiem-tra-may-tinh-laptop-asus-chinh-hang", "/laptop-asus-cu")
                     .AddRedirect("^cach-chon-mua-may-tinh-xach-tay-lenovo-cu-nhu-the-nao", "/laptop-lenovo-cu")
                     .AddRedirect("^cac-dong-may-tinh-laptop-hp-nao-tot-nhat-ben-nhat-hien-nay", "/laptop-hoc-tap-van-phong")
