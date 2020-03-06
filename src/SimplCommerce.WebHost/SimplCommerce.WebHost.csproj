@@ -23,20 +23,24 @@
     <Compile Remove="logs\**" />
     <Compile Remove="Themes\CozaStore\**" />
     <Compile Remove="Themes\TheGioiDiDong\**" />
+    <Compile Remove="wwwroot\modules\**" />
     <Compile Remove="wwwroot\themes\Gallery\public\uploads\**" />
     <Compile Remove="wwwroot\themes\TheGioiDiDong\**" />
     <Content Remove="Themes\CozaStore\**" />
     <Content Remove="Themes\TheGioiDiDong\**" />
+    <Content Remove="wwwroot\modules\**" />
     <Content Remove="wwwroot\themes\Gallery\public\uploads\**" />
     <Content Remove="wwwroot\themes\TheGioiDiDong\**" />
     <EmbeddedResource Remove="logs\**" />
     <EmbeddedResource Remove="Themes\CozaStore\**" />
     <EmbeddedResource Remove="Themes\TheGioiDiDong\**" />
+    <EmbeddedResource Remove="wwwroot\modules\**" />
     <EmbeddedResource Remove="wwwroot\themes\Gallery\public\uploads\**" />
     <EmbeddedResource Remove="wwwroot\themes\TheGioiDiDong\**" />
     <None Remove="logs\**" />
     <None Remove="Themes\CozaStore\**" />
     <None Remove="Themes\TheGioiDiDong\**" />
+    <None Remove="wwwroot\modules\**" />
     <None Remove="wwwroot\themes\Gallery\public\uploads\**" />
     <None Remove="wwwroot\themes\TheGioiDiDong\**" />
   </ItemGroup>

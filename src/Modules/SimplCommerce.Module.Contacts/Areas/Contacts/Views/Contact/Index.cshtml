@@ -4,66 +4,72 @@
 @{
     ViewData["Title"] = "Contact Us";
 }
-<div class="row">
-    <div class="col-md-6">
-        <div class="col-md-12">
-            <h3 class="page-header">@Localizer["Contact Us"]</h3>
-        </div>
-        <div class="col-md-12">
-            <form class="form-horizontal" action="/contact" method="POST">
-                <div class="form-group">
-                    <div class="col-sm-6">
-                        <input asp-for="FullName" class="form-control input-contact" type="text" placeholder="@Localizer["Full name"]" />
-                        <span asp-validation-for="FullName" class="text-danger"></span>
-                    </div>
-                    <div class="col-sm-6">
-                        <input asp-for="PhoneNumber" class="form-control input-contact" type="text" placeholder="@Localizer["Phone number"]" />
-                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-12">
-                        <input asp-for="EmailAddress" class="form-control input-contact" type="email" placeholder="@Localizer["Email"]" />
-                        <span asp-validation-for="EmailAddress" class="text-danger"></span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-12">
-                        <input asp-for="Address" type="text" class="form-control input-contact" placeholder="@Localizer["Address"]">
-                        <span asp-validation-for="Address" class="text-danger"></span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-12">
-                        <select class="form-control input-contact" asp-for="ContactAreaId">
-                            @foreach (var item in Model.ContactAreas)
-                            {
-                                <option value="@item.Id"> @item.Name </option>
-                            }
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-12">
-                        <textarea class="form-control input-contact" rows="5" asp-for="Content"></textarea>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-4">
-                        <button type="submit" class="btn btn-success">@Localizer["Submit"]</button>
-                    </div>
-                </div>
-            </form>
+<style>
+    .double-block .content-block.main {
+        width: 890px !important;
+    }
+    .field-validation-error{
+        color: #bf0d0d;
+    }
+</style>
+<div class="main-page left">
 
+    <!-- BEGIN .single-block -->
+    <div class="single-block">
+
+
+        <!-- BEGIN .content-block -->
+        <div class="content-block main left">
+
+            <div class="block">
+                <div class="block-content">
+                    <div class="article-title">
+                        <div class="block-title">
+                            <h2>@Localizer["Liên hệ"]</h2>
+                        </div>
+                        <div class="block-content">
+                            <div id="writecomment">
+                                <form class="form-horizontal" action="/contact" method="POST">
+                                    <p class="contact-form-user">
+                                        <label for="c_name">@Localizer["Họ tên"]<span class="required">*</span></label>
+                                        <input asp-for="FullName" class="form-control input-contact" type="text" placeholder="@Localizer["Họ tên"]" required />
+                                        <span asp-validation-for="FullName" class="text-danger"></span>
+                                    </p>
+                                    <p class="contact-form-user">
+                                        <label for="c_name">@Localizer["Số điện thoại"]<span class="required">*</span></label>
+                                        <input asp-for="PhoneNumber" class="form-control input-contact" type="text" placeholder="@Localizer["Số điện thoại"]" required />
+                                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                                    </p>
+                                    <p class="contact-form-email">
+                                        <label for="c_email">@Localizer["Email"]<span class="required">*</span></label>
+                                        <input asp-for="EmailAddress" class="form-control input-contact" type="text" placeholder="@Localizer["Email"] "required />
+                                        <span asp-validation-for="EmailAddress" class="text-danger"></span>
+                                    </p>
+                                    <p class="contact-form-user">
+                                        <label for="c_name">@Localizer["Địa chỉ"]<span class="required">*</span></label>
+                                        <input asp-for="Address" class="form-control input-contact" type="email" placeholder="@Localizer["Địa chỉ"]" />
+                                        <span asp-validation-for="Address" class="text-danger"></span>
+                                    </p>
+                                    <p class="contact-form-message">
+                                        <label for="c_message">@Localizer["Nội dung"]<span class="required">*</span></label>
+                                        <textarea class="form-control input-contact" rows="5" asp-for="Content" required></textarea>
+                                        <span asp-validation-for="Content" class="text-danger"></span>
+                                    </p>
+                                    <p>
+                                        <input type="submit" class="styled-button" value="@Localizer["Gửi đi"]" />
+                                    </p>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="col-md-6" id="googleMap">
-
-    </div>
-
 </div>
 @section scripts {
     <partial name="_ValidationScriptsPartial" />
     <script simpl-append-version="true" src="~/modules/contacts/init-google-map.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=@Config["GoogleAppKey"]&callback=initMap"> </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=@Config["GoogleAppKey"]&callback=initMap"></script>
 }

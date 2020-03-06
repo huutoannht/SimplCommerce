@@ -33,7 +33,7 @@
 <!-- BEGIN body -->
 <body>
     <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0"></script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0"></script>
     @*@RenderSection("featured", false)*@
     @*<div class="top-bar">
             <div class="container">
@@ -63,10 +63,18 @@
                 </div>
 
                 <div class="header-addons">
-                    <div class="header-weather">
+                    @*<div class="header-weather">
                         <span class="report">+25°C</span>
                         <img src="~/themes/Tourims/images/weather-sun-cloud.png" alt="" />
                         <span class="city"><small>Cloudy</small><b>Hà nội</b></span>
+                    </div>*@
+                    <div class="header-weather">
+                        <span class="city">
+                            <img src="~/themes/Tourims/images/icon-en.jpg" alt="" />
+                        </span>
+                        <span class="city">
+                            <img src="~/themes/Tourims/images/icon-vn.jpg" alt="" />
+                        </span>
                     </div>
                     <div class="header-search">
                         <form action="#" method="get">
@@ -169,7 +177,7 @@
                                             <td colspan="1" class="pad">&nbsp;</td>
                                             @for (int i = 1; i < 7; i++)
                                             {
-                                        <td id="@(i==dateOfWeek?"today":"")">@i</td>
+                                                <td id="@(i==dateOfWeek?"today":"")">@i</td>
                                             }
                                         </tr>
                                         <tr>
@@ -301,6 +309,9 @@
     <script type="text/javascript" src="~/themes/Tourims/jscript/lightbox.js"></script>
     @*<script type="text/javascript" src="~/themes/Tourims/jscript/demo-settings.js"></script>*@
     <script type="text/javascript" src="~/modules/core/main.js"></script>
+
+    <script src="~/modules/shoppingcart/add-to-cart.js"></script>
+
     @RenderSection("scripts", required: false)
     <!-- END body -->
 </body>

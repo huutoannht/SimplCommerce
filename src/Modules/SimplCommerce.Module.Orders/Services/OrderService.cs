@@ -80,7 +80,7 @@ namespace SimplCommerce.Module.Orders.Services
                     CountryId = shippingData.NewAddressForm.CountryId,
                     StateOrProvinceId = shippingData.NewAddressForm.StateOrProvinceId,
                     DistrictId = shippingData.NewAddressForm.DistrictId,
-                    City = shippingData.NewAddressForm.City,
+                    City = shippingData.NewAddressForm.Ward,
                     ZipCode = shippingData.NewAddressForm.ZipCode,
                     Phone = shippingData.NewAddressForm.Phone
                 };
@@ -110,40 +110,7 @@ namespace SimplCommerce.Module.Orders.Services
               
             }
 
-            if (shippingData.UseShippingAddressAsBillingAddress)
-            {
-                billingAddress = shippingAddress;
-            }
-            else if (shippingData.BillingAddressId == 0)
-            {
-                var address = new Address
-                {
-                    AddressLine1 = shippingData.NewBillingAddressForm.AddressLine1,
-                    AddressLine2 = shippingData.NewBillingAddressForm.AddressLine2,
-                    ContactName = shippingData.NewBillingAddressForm.ContactName,
-                    CountryId = shippingData.NewBillingAddressForm.CountryId,
-                    StateOrProvinceId = shippingData.NewBillingAddressForm.StateOrProvinceId,
-                    DistrictId = shippingData.NewBillingAddressForm.DistrictId,
-                    City = shippingData.NewBillingAddressForm.City,
-                    ZipCode = shippingData.NewBillingAddressForm.ZipCode,
-                    Phone = shippingData.NewBillingAddressForm.Phone
-                };
-
-                var userAddress = new UserAddress
-                {
-                    Address = address,
-                    AddressType = AddressType.Billing,
-                    UserId = cart.CustomerId
-                };
-
-                _userAddressRepository.Add(userAddress);
-
-                billingAddress = address;
-            }
-            else
-            {
-                billingAddress = _userAddressRepository.Query().Where(x => x.Id == shippingData.BillingAddressId).Select(x => x.Address).First();
-            }
+            billingAddress = shippingAddress;
 
             return await CreateOrder(cartId, paymentMethod, paymentFeeAmount, shippingData.ShippingMethod, billingAddress, shippingAddress, orderStatus);
         }

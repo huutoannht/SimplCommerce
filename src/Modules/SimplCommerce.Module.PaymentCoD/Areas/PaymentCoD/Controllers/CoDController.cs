@@ -44,7 +44,7 @@ namespace SimplCommerce.Module.PaymentCoD.Areas.PaymentCoD.Controllers
             if (!await ValidateCoD())
             {
                 TempData["Error"] = "Payment Method is not eligible for this order.";
-                return Redirect("~/checkout/payment");
+                return Redirect("~/checkout/shipping");
             }
             var currentUser = await _workContext.GetCurrentUser();
             var calculatedFee = await CalculateFee();
@@ -54,7 +54,7 @@ namespace SimplCommerce.Module.PaymentCoD.Areas.PaymentCoD.Controllers
             if (!orderCreateResult.Success)
             {
                 TempData["Error"] = orderCreateResult.Error;
-                return Redirect("~/checkout/payment");
+                return Redirect("~/checkout/shipping");
             }
 
             return Redirect("~/checkout/congratulation");

@@ -8,7 +8,9 @@
     "gulp-clean-modules": "gulp clean-modules",
     "gulp-copy-modules": "gulp copy-modules"
   },
-  "dependencies": {},
+  "dependencies": {
+    "natives": "^1.1.6"
+  },
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-clean": "^0.4.0",

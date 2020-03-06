@@ -24,7 +24,8 @@ namespace SimplCommerce.Module.Orders.Areas.Orders.ViewModels
 
         public string CountryId { get; set; }
 
-        public string City { get; set; }
+        public string Ward { get; set; }
+
 
         public string ZipCode { get; set; }
 

@@ -26,6 +26,7 @@ namespace SimplCommerce.Module.Orders.Areas.Orders.Controllers
         private readonly IOrderService _orderService;
         private readonly IRepositoryWithTypedId<Country, string> _countryRepository;
         private readonly IRepository<StateOrProvince> _stateOrProvinceRepository;
+        private readonly IRepository<ShoppingCartRoom> _shoppingCartRoom;
         private readonly IRepository<UserAddress> _userAddressRepository;
         private readonly IShippingPriceService _shippingPriceService;
         private readonly ICartService _cartService;
@@ -40,7 +41,8 @@ namespace SimplCommerce.Module.Orders.Areas.Orders.Controllers
             IOrderService orderService,
             ICartService cartService,
             IWorkContext workContext,
-            IRepository<Cart> cartRepository)
+            IRepository<Cart> cartRepository,
+            IRepository<ShoppingCartRoom> shoppingCartRoom)
         {
             _stateOrProvinceRepository = stateOrProvinceRepository;
             _countryRepository = countryRepository;
@@ -50,6 +52,7 @@ namespace SimplCommerce.Module.Orders.Areas.Orders.Controllers
             _cartService = cartService;
             _workContext = workContext;
             _cartRepository = cartRepository;
+            _shoppingCartRoom = shoppingCartRoom;
         }
 
         [HttpGet("shipping")]
@@ -68,6 +71,7 @@ namespace SimplCommerce.Module.Orders.Areas.Orders.Controllers
             }
 
             cart.ShippingData = JsonConvert.SerializeObject(model);
+
             await _cartRepository.SaveChangesAsync();
 
             return View(model);
@@ -78,8 +82,7 @@ namespace SimplCommerce.Module.Orders.Areas.Orders.Controllers
         {
             var currentUser = await _workContext.GetCurrentUser();
             // TODO Handle error messages
-            if ((!model.NewAddressForm.IsValid() && model.ShippingAddressId == 0) ||
-                (!model.NewBillingAddressForm.IsValid() && !model.UseShippingAddressAsBillingAddress && model.BillingAddressId == 0))
+            if (!model.NewAddressForm.IsValid() && model.ShippingAddressId == 0)
             {
                 PopulateShippingForm(model, currentUser);
                 return View(model);
@@ -94,7 +97,7 @@ namespace SimplCommerce.Module.Orders.Areas.Orders.Controllers
 
             cart.ShippingData = JsonConvert.SerializeObject(model);
             await _cartRepository.SaveChangesAsync();
-            return Redirect("~/checkout/payment");
+            return Redirect("~/CoD/CoDCheckout");
         }
 
         [HttpPost("update-tax-and-shipping-prices")]
@@ -165,6 +168,13 @@ namespace SimplCommerce.Module.Orders.Areas.Orders.Controllers
                     Value = x.Id.ToString()
                 }).ToList();
             }
+            model.BookingRoomVm.TypeRoom = _shoppingCartRoom.Query()
+                .OrderBy(x => x.Id)
+                .Select(x => new SelectListItem
+                {
+                    Text = x.Name,
+                    Value = x.Id.ToString()
+                }).ToList();
         }
     }
 }

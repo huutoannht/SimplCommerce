@@ -55,7 +55,7 @@ namespace SimplCommerce.Module.Contacts.Areas.Contacts.Controllers
                     PhoneNumber = model.PhoneNumber,
                     EmailAddress = model.EmailAddress,
                     Address = model.Address,
-                    ContactAreaId = model.ContactAreaId,
+                    ContactAreaId = model.ContactAreaId=1,
                     Content = model.Content
                 };
 

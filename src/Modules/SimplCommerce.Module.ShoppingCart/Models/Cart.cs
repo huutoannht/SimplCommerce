@@ -47,6 +47,7 @@ namespace SimplCommerce.Module.ShoppingCart.Models
         /// </summary>
         public string ShippingData { get; set; }
 
+
         public string OrderNote { get; set; }
     }
 }

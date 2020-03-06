@@ -7,6 +7,8 @@ namespace SimplCommerce.Module.Orders.Areas.Orders.ViewModels
         public DeliveryInformationVm()
         {
             NewAddressForm = new AddressFormVm();
+            ServicesFlightVm = new ServicesFlightVm();
+            BookingRoomVm = new BookingRoomVm();
         }
 
         public IList<ShippingAddressVm> ExistingShippingAddresses { get; set; } =
@@ -23,6 +25,9 @@ namespace SimplCommerce.Module.Orders.Areas.Orders.ViewModels
         public bool UseShippingAddressAsBillingAddress { get; set; }
 
         public AddressFormVm NewBillingAddressForm { get; set; }
+
+        public ServicesFlightVm ServicesFlightVm { get; set; }
+        public BookingRoomVm BookingRoomVm { get; set; }
 
         public string OrderNote { get; set; }
 

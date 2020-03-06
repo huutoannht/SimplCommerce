@@ -3,190 +3,223 @@
 @{
     ViewBag.Title = "Shipping Information";
 }
+<style>
+     .double-block .content-block.main {
+        width: 890px !important;
+    }
+</style>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<div class="main-page left">
 
-<div class="row cart-list">
-    <div class="col-md-8">
-        <form asp-area="Orders" asp-controller="Checkout" asp-action="Shipping" method="POST" id="checkout-delivery-address">
-            <h3>@Localizer["Shipping address"]</h3>
-            @foreach (var address in Model.ExistingShippingAddresses)
-            {
-                <div class="radio">
-                    <label>
-                        <input type="radio" name="ShippingAddressId" value="@address.UserAddressId" checked="@(Model.ShippingAddressId == address.UserAddressId ? "checked" : null)">
-                        <strong>@address.ContactName </strong><br />
-                        @address.AddressLine1 <br />
-                        @address.AddressLine2 <br />
-                        Phone: @address.Phone
-                    </label>
+    <!-- BEGIN .single-block -->
+    <div class="single-block">
+
+
+        <!-- BEGIN .content-block -->
+        <div class="content-block main left">
+
+            <div class="block">
+                <div class="block-content">
+                    <div class="article-title">
+                        <div class="block-title">
+                            <h2>@Localizer["Liên hệ"]</h2>
+                        </div>
+                        <div class="block-content">
+                            <div class="row cart-list">
+                                <div class="col-md-12">
+                                    <form asp-area="Orders" asp-controller="Checkout" asp-action="Shipping" method="POST" id="checkout-delivery-address">
+                                        <h3>@Localizer["Thông tin khách hàng"]</h3>
+                                        @foreach (var address in Model.ExistingShippingAddresses)
+                                        {
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="ShippingAddressId" value="@address.UserAddressId" checked="@(Model.ShippingAddressId == address.UserAddressId ? "checked" : null)">
+                                                    <strong>@address.ContactName </strong><br />
+                                                    @address.AddressLine1 <br />
+                                                    @address.AddressLine2 <br />
+                                                    Phone: @address.Phone
+                                                </label>
+                                            </div>
+                                        }
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="ShippingAddressId" checked="@(Model.ShippingAddressId == 0 ? "checked" : null)" value="0" />
+                                                @Localizer["Add another address"]
+                                            </label>
+                                        </div>
+                                        <div class="create-shipping-address collapse">
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">@Localizer["Tên người liên hệ"]</label>
+                                                <div class="col-sm-8">
+                                                    <input asp-for="NewAddressForm.ContactName" type="text" class="form-control">
+                                                    <span asp-validation-for="NewAddressForm.ContactName" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">@Localizer["Quốc gia"]</label>
+                                                <div class="col-sm-8">
+                                                    <select asp-for="NewAddressForm.CountryId" asp-items="Model.NewAddressForm.ShipableContries" class="form-control">
+                                                        <option value="">@Localizer["Chọn"]</option>
+                                                    </select>
+                                                    <span asp-validation-for="NewAddressForm.CountryId" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">@Localizer["Tỉnh/ Thành phố"]</label>
+                                                <div class="col-sm-8">
+                                                    <select asp-for="NewAddressForm.StateOrProvinceId" asp-items="Model.NewAddressForm.StateOrProvinces" class="form-control">
+                                                        <option value="">@Localizer["Choose one"]</option>
+                                                    </select>
+                                                    <span asp-validation-for="NewAddressForm.StateOrProvinceId" class="text-danger"></span>
+
+                                                </div>
+                                            </div>
+
+                                            <div id="form-group-district" class="form-group row">
+                                                <label class="col-sm-4 col-form-label">@Localizer["Quận/ Huyện"]</label>
+                                                <div class="col-sm-8">
+                                                    <select asp-for="NewAddressForm.DistrictId" asp-items="Model.NewAddressForm.Districts" class="form-control">
+                                                        <option value=""></option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div id="form-group-city" class="form-group row">
+                                                <label class="col-sm-4 col-form-label">@Localizer["Phường/ Xã"]</label>
+                                                <div class="col-sm-8">
+                                                    <input asp-for="NewAddressForm.Ward" type="text" class="form-control">
+                                                    <span asp-validation-for="NewAddressForm.Ward" class="text-danger"></span>
+
+                                                </div>
+                                            </div>
+
+                                            <div id="form-group-postalcode" class="form-group row">
+                                                <label class="col-sm-4 col-form-label">@Localizer["Mã bưu điện"]</label>
+                                                <div class="col-sm-8">
+                                                    <input asp-for="NewAddressForm.ZipCode" type="text" class="form-control">
+                                                    <span asp-validation-for="NewAddressForm.ZipCode" class="text-danger"></span>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">@Localizer["Địa chỉ"]</label>
+                                                <div class="col-sm-8">
+                                                    <input asp-for="NewAddressForm.AddressLine1" type="text" class="form-control">
+                                                    <span asp-validation-for="NewAddressForm.AddressLine1" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">@Localizer["Số điện thoại"]</label>
+                                                <div class="col-sm-8">
+                                                    <input asp-for="NewAddressForm.Phone" type="text" class="form-control">
+                                                    <span asp-validation-for="NewAddressForm.Phone" class="text-danger"></span>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h3>@Localizer["Thông tin phòng và dịch vụ"]</h3>
+                                        <div class="create-shipping-address">
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">@Localizer["Loại phòng"]</label>
+                                                <div class="col-sm-8">
+                                                    <select asp-for="BookingRoomVm.TypeBookId" asp-items="Model.BookingRoomVm.TypeRoom" class="form-control">
+                                                        <option value="">@Localizer["Chọn"]</option>
+                                                    </select>
+                                                    <span asp-validation-for="BookingRoomVm.TypeRoom" class="text-danger"></span>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">@Localizer["Ở từ ngày"]</label>
+                                                <div class="col-sm-8">
+                                                    <input asp-for="BookingRoomVm.FromDate" type="date" class="form-control">
+                                                    <span asp-validation-for="BookingRoomVm.FromDate" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">@Localizer["Ở đến ngày"]</label>
+                                                <div class="col-sm-8">
+                                                    <input asp-for="BookingRoomVm.ToDate" type="date" class="form-control">
+                                                    <span asp-validation-for="BookingRoomVm.ToDate" class="text-danger"></span>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">@Localizer["Số lượng phòng"]</label>
+                                                <div class="col-sm-8">
+                                                    <input asp-for="BookingRoomVm.Count" type="text" class="form-control">
+                                                    <span asp-validation-for="BookingRoomVm.Count" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">@Localizer["Số lượng người lớn"]</label>
+                                                <div class="col-sm-8">
+                                                    <input asp-for="BookingRoomVm.CountAdult" type="text" class="form-control">
+                                                    <span asp-validation-for="BookingRoomVm.CountAdult" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">@Localizer["Số lượng trẻ em( dưới 6 tuổi)"]</label>
+                                                <div class="col-sm-8">
+                                                    <input asp-for="BookingRoomVm.CountChildren" type="text" class="form-control">
+                                                    <span asp-validation-for="BookingRoomVm.CountChildren" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h3>@Localizer["Dịch vụ đón sân bay và các dịch vụ khác"]</h3>
+                                        <div class="create-shipping-address">
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">@Localizer["Số hiệu chuyến bay"]</label>
+                                                <div class="col-sm-8">
+                                                    <input asp-for="ServicesFlightVm.FlightNumber" type="text" class="form-control">
+                                                    <span asp-validation-for="ServicesFlightVm.FlightNumber" class="text-danger"></span>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">@Localizer["Thời gian hạ cánh"]</label>
+                                                <div class="col-sm-8">
+                                                    <input asp-for="ServicesFlightVm.LandingTime" type="text" class="form-control">
+                                                    <span asp-validation-for="ServicesFlightVm.LandingTime" class="text-danger"></span>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">@Localizer["Tên sân bay"]</label>
+                                                <div class="col-sm-8">
+                                                    <input asp-for="ServicesFlightVm.AirportName" type="text" class="form-control">
+                                                    <span asp-validation-for="ServicesFlightVm.AirportName" class="text-danger"></span>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">@Localizer["Các yêu cầu khác"]</label>
+                                                <div class="col-sm-8">
+                                                    <input asp-for="ServicesFlightVm.Note" type="text" class="form-control">
+                                                    <span asp-validation-for="ServicesFlightVm.Note" class="text-danger"></span>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-12 text-right">
+                                                    <button type="submit" class="btn btn-primary btn-order" disabled>@Localizer["Gửi đi"]</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                @*<div class="col-md-4">
+                                        @await Component.InvokeAsync("OrderSummary")
+                                    </div>*@
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            }
-            <div class="radio">
-                <label>
-                    <input type="radio" name="ShippingAddressId" checked="@(Model.ShippingAddressId == 0 ? "checked" : null)" value="0" />
-                    @Localizer["Add another address"]
-                </label>
             </div>
-            <div class="create-shipping-address collapse">
-                <div class="form-group row">
-                    <label class="col-sm-4 col-form-label">@Localizer["Contact name"]</label>
-                    <div class="col-sm-8">
-                        <input asp-for="NewAddressForm.ContactName" type="text" class="form-control">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-4 col-form-label">@Localizer["Country"]</label>
-                    <div class="col-sm-8">
-                        <select asp-for="NewAddressForm.CountryId" asp-items="Model.NewAddressForm.ShipableContries" class="form-control">
-                            <option value="">@Localizer["Choose one"]</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-4 col-form-label">@Localizer["State or Province"]</label>
-                    <div class="col-sm-8">
-                        <select asp-for="NewAddressForm.StateOrProvinceId" asp-items="Model.NewAddressForm.StateOrProvinces" class="form-control">
-                            <option value="">@Localizer["Choose one"]</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div id="form-group-district" class="form-group row">
-                    <label class="col-sm-4 col-form-label">@Localizer["District"]</label>
-                    <div class="col-sm-8">
-                        <select asp-for="NewAddressForm.DistrictId" asp-items="Model.NewAddressForm.Districts" class="form-control">
-                            <option value=""></option>
-                        </select>
-                    </div>
-                </div>
-
-                <div id="form-group-city" class="form-group row">
-                    <label class="col-sm-4 col-form-label">@Localizer["City"]</label>
-                    <div class="col-sm-8">
-                        <input asp-for="NewAddressForm.City" type="text" class="form-control">
-                    </div>
-                </div>
-
-                <div id="form-group-postalcode" class="form-group row">
-                    <label class="col-sm-4 col-form-label">@Localizer["Postal Code"]</label>
-                    <div class="col-sm-8">
-                        <input asp-for="NewAddressForm.ZipCode" type="text" class="form-control">
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label class="col-sm-4 col-form-label">@Localizer["Address"]</label>
-                    <div class="col-sm-8">
-                        <input asp-for="NewAddressForm.AddressLine1" type="text" class="form-control">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-4 col-form-label">@Localizer["Phone"]</label>
-                    <div class="col-sm-8">
-                        <input asp-for="NewAddressForm.Phone" type="text" class="form-control">
-                    </div>
-                </div>
-            </div>
-            <h3>@Localizer["Shipping methods"]</h3>
-            <div id="shippingMethods">
-                <p>Please choose your shipping address</p>
-            </div>
-
-            <div>
-                <h3>@Localizer["Billing Address"]</h3>
-                <label>
-                    <input type="checkbox" name="UseShippingAddressAsBillingAddress" checked="@(Model.UseShippingAddressAsBillingAddress ? "checked" : null)" value="true" />
-                    @Localizer["Use Selected Shipping Address As Billing Address"]
-                </label>
-            </div>
-            <div class="change-billing-address collapse">
-                @foreach (var address in Model.ExistingShippingAddresses)
-                {
-                    <div class="radio">
-                        <label>
-                            <input type="radio" name="BillingAddressId" value="@address.UserAddressId" checked="@(Model.BillingAddressId == address.UserAddressId ? "checked" : null)">
-                            <strong>@address.ContactName </strong><br />
-                            @address.AddressLine1 <br />
-                            @address.AddressLine2 <br />
-                            Phone: @address.Phone
-                        </label>
-                    </div>
-                }
-                <div class="radio">
-                    <label>
-                        <input type="radio" name="BillingAddressId" checked="@(Model.BillingAddressId == 0 ? "checked" : null)" value="0" />
-                        @Localizer["Add another address"]
-                    </label>
-                </div>
-                <div class="create-billing-address collapse">
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-form-label">@Localizer["Contact name"]</label>
-                        <div class="col-sm-8">
-                            <input asp-for="NewBillingAddressForm.ContactName" type="text" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-form-label">@Localizer["Country"]</label>
-                        <div class="col-sm-8">
-                            <select asp-for="NewBillingAddressForm.CountryId" asp-items="Model.NewAddressForm.ShipableContries" class="form-control">
-                                <option value="">@Localizer["Choose one"]</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-form-label">@Localizer["State or Province"]</label>
-                        <div class="col-sm-8">
-                            <select asp-for="NewBillingAddressForm.StateOrProvinceId" asp-items="Model.NewAddressForm.StateOrProvinces" class="form-control">
-                                <option value="">@Localizer["Choose one"]</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div id="form-group-district" class="form-group row">
-                        <label class="col-sm-4 col-form-label">@Localizer["District"]</label>
-                        <div class="col-sm-8">
-                            <select asp-for="NewBillingAddressForm.DistrictId" asp-items="Model.NewAddressForm.Districts" class="form-control">
-                                <option value=""></option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div id="form-group-city" class="form-group row">
-                        <label class="col-sm-4 col-form-label">@Localizer["City"]</label>
-                        <div class="col-sm-8">
-                            <input asp-for="NewBillingAddressForm.City" type="text" class="form-control">
-                        </div>
-                    </div>
-
-                    <div id="form-group-postalcode" class="form-group row">
-                        <label class="col-sm-4 col-form-label">@Localizer["Postal Code"]</label>
-                        <div class="col-sm-8">
-                            <input asp-for="NewBillingAddressForm.ZipCode" type="text" class="form-control">
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-form-label">@Localizer["Address"]</label>
-                        <div class="col-sm-8">
-                            <input asp-for="NewBillingAddressForm.AddressLine1" type="text" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-form-label">@Localizer["Phone"]</label>
-                        <div class="col-sm-8">
-                            <input asp-for="NewBillingAddressForm.Phone" type="text" class="form-control">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-12 text-right">
-                    <button type="submit" class="btn btn-order" disabled>@Localizer["Continue"]</button>
-                </div>
-            </div>
-        </form>
-    </div>
-    <div class="col-md-4">
-        @await Component.InvokeAsync("OrderSummary")
+        </div>
     </div>
 </div>
 
