@@ -5,22 +5,31 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="content-block main right">
-
+<div class="content-block main">
     <partial name="_WidgetInstances" model="Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeFeatured)" />
-
-    ﻿<partial name="_WidgetInstances" model="Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeMainContent)" />
-
     <!-- END .content-block -->
 </div>
+<div class="main-page left">
 
+    <!-- BEGIN .double-block -->
+    <div class="double-block">
 
-<div class="content-block left">
+        <div class="content-block main right">
+            ﻿<partial name="_WidgetInstances" model="Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeMainContent)" />
+            <!-- END .content-block -->
+        </div>
 
-    @await Component.InvokeAsync("FooterPage", new { id = 15 })
-    @await Component.InvokeAsync("FooterPage", new { id = 16 })
-    @await Component.InvokeAsync("FooterPage", new { id = 17 })
+        <div class="content-block left">
+            @await Component.InvokeAsync("FooterPage", new { id = 18 })
+            @await Component.InvokeAsync("FooterPage", new { id = 15 })
+            @await Component.InvokeAsync("FooterPage", new { id = 16 })
+            @await Component.InvokeAsync("FooterPage", new { id = 17 })
 
+            <button type="button" class="button btn btn-danger btn-lg btn-add-cart">@Localizer["Đặt tour"]</button>
+            <!-- END .content-block -->
+        </div>
 
-    <!-- END .content-block -->
+    </div>
+
+    <!-- END .main-page -->
 </div>

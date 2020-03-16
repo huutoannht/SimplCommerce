@@ -1,58 +1,47 @@
-﻿@model SimplCommerce.Module.Cms.Areas.Cms.ViewModels.CarouselWidgetViewComponentVm
-@using System.Globalization
-@*<div class="laptoptop no-margin-left  no-margin-right">
-        <div class="row">
-            <div class="col-md-8">
-                <div id="owl-laptop">
-                    @foreach (var item in Model.Items)
-                    {
-                        <a aria-label='slide' href='@item.TargetUrl'>
-                            <img src='@item.Image' alt='@item.LinkText' class="img-responsive" style="height:170px;"/>
-                        </a>
-                    }
-                </div>
-            </div>
-            <div class="col-md-4 no-padding">
-                <div class="right">
-                    <div class="twobanner">
-                        <a aria-label="slide" href="windows-ban-quyen.html#banquyen" onclick=""  class="img-responsive"><img src="~/Themes/TheGioiDiDong/images/cdn/qcao/13_12_2018_14_31_02_May-tinh-bang-800-170.png" alt="2018 - NO - Sticky Laptop"></a>
-                        <a aria-label="slide" href="" onclick=""><img src="~/Themes/TheGioiDiDong/images/cdn/qcao/29_11_2018_09_15_28_sticky-nh-390-80.png" alt="2018 - DE - Sticky Laptop" class="img-responsive"></a>
+﻿@using System.Globalization
+@model SimplCommerce.Module.Cms.Areas.Cms.ViewModels.CarouselWidgetViewComponentVm
+
+@{
+    var effects = new string[] { "fadeInDown", "fadeInUp", "zoomIn", "rollIn", "lightSpeedIn", "slideInUp", "rotateInDownLeft", "rotateInUpRight", "rotateIn" };
+    var numEffects = effects.Length - 1;
+    var random = new Random();
+}
+
+<section class="section-slide">
+    <div class="wrap-slick1">
+        <div class="slick1">
+            @foreach (var item in Model.Items)
+            {
+                <div class="item-slick1" style="background-image: url(@item.Image);">
+                    <div class="container h-full">
+                        <div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
+                            @if (!string.IsNullOrEmpty(item.SubCaption))
+                            {
+                                <div class="layer-slick1 animated visible-false" data-appear="@effects[random.Next(0, numEffects)]" data-delay="0">
+                                    <span class="ltext-101 cl2 respon2">
+                                        @item.SubCaption
+                                    </span>
+                                </div>
+                            }
+                            @if (!string.IsNullOrEmpty(item.Caption))
+                                {
+                                    <div class="layer-slick1 animated visible-false" data-appear="@effects[random.Next(0, numEffects)]" data-delay="800">
+                                        <h2 class="ltext-201 cl2 p-t-19 p-b-43 respon1">@item.Caption</h2>
+                                    </div>
+                                }
+                                @if (!string.IsNullOrEmpty(item.LinkText))
+                                {
+                                    <div class="layer-slick1 animated visible-false" data-appear="@effects[random.Next(0, numEffects)]" data-delay="1600">
+                                        <a href="@item.TargetUrl" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+                                            @item.LinkText
+                                        </a>
+                                    </div>
+                                }
+                            </div>
+                               
                     </div>
                 </div>
-            </div>
+            }
         </div>
-    </div>*@
-<div class="widget">
-    <h3>@Localizer["THƯ VIỆN ẢNH MỚI NHẤT"]</h3>
-    <div class="latest-galleries">
-
-        <div class="gallery-widget">
-            <div class="gallery-photo" rel="hover-parent">
-                <a href="#" class="slide-left icon-text">&#59229;</a>
-                <a href="#" class="slide-right icon-text">&#59230;</a>
-                <ul>
-                    @foreach (var item in Model.Items)
-                    {
-                        <li><a href="@item.TargetUrl" class="hover-effect"><img src='@item.Image' alt="" /></a></li>
-                    }
-                </ul>
-            </div>
-        </div>
-
-
     </div>
-    <!-- END .widget -->
-</div>
-@*<div class="block">
-        <div class="featured-block">
-            <div class="article-content">
-                <h2><a href="#">An sint epicuri vel nibh assentior te eam ea vim civibus tacimates</a><a href="##comments" class="h-comment">43</a></h2>
-                <span class="meta">
-                    <a href="blog.html"><span class="icon-text">&#128340; </span>11:20, 7.Oct 2013</a>
-                </span>
-            </div>
-            <div class="article-photo">
-                <a href="#" class="hover-effect"><img src="~/themes/Tourims/images/01.jpg" alt="" /></a>
-            </div>
-        </div>
-    </div>*@
+</section>

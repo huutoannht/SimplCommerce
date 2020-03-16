@@ -1,7 +1,12 @@
 ﻿@{
     ViewBag.Title = "Order received";
 }
-<h1 style="color: #d15f38;"> @Localizer["Your order has been received"] </h1>
+<img href="../themes/Tourims/images/Customer-Thank-You.png"/>
+<div class="coloralert" style="background: #61aa21;">
+    <p>@Localizer["Your order has been received"]</p>
+    <a href="#close-alert" class="icon-text">✖</a>
+</div>
 <p>
-    <a href="/">@Localizer["Quay về"]</a>
+    <a href="/" class="button" style="background-color:#808080">@Localizer["Quay về"]</a>
 </p>
+

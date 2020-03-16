@@ -250,7 +250,7 @@ a:focus {
 	display: inline;
 	float: left;
 	margin-left: 20px;
-	width: 33%;
+	/*width: 33%;*/
 }
 
 .header .header-menu ul {
@@ -368,6 +368,7 @@ a:focus {
 	-moz-transition: all 0.2s;
 	-webkit-transition: all 0.2s;
 	-o-transition: all 0.2s;
+    color:#030202; 
 }
 
 .search-input:focus {
@@ -2784,3 +2785,10 @@ a.hover-effect:hover .cover i:before {
 	width:100%;
 }
 
+ol, ul {
+    margin-top: 0;
+    margin-bottom: 0px!important;
+}
+.section-slide{
+    margin-bottom:10px;
+}

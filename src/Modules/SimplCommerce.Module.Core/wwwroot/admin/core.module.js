@@ -94,6 +94,21 @@
                     url: '/countries/:countryId/state-province/edit/:id',
                     templateUrl: 'modules/core/admin/stateprovince/state-province-form.html',
                     controller: 'StateProvinceFormCtrl as vm'
+                })
+                .state('bookingroom-edit', {
+                    url: '/bookingroom/edit/:id',
+                    templateUrl: 'modules/core/admin/bookingroom/bookingroom-form.html',
+                    controller: 'BookingRoomFormCtrl as vm'
+                })
+                .state('bookingroom-create', {
+                    url: '/bookingroom/create',
+                    templateUrl: 'modules/core/admin/bookingroom/bookingroom-form.html',
+                    controller: 'BookingRoomFormCtrl as vm'
+                })
+                .state('bookingroom', {
+                    url: '/bookingroom',
+                    templateUrl: 'modules/core/admin/bookingroom/bookingroom-list.html',
+                    controller: 'BookingRoomListCtrl as vm'
                 });
         }]);
 })();

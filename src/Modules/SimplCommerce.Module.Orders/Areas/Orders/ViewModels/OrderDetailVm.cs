@@ -53,6 +53,10 @@ namespace SimplCommerce.Module.Orders.Areas.Orders.ViewModels
 
         public ShippingAddressVm ShippingAddress { get; set; }
 
+        public BookingRoomVm BookingRoom { get; set; }
+        public ServicesFlightVm ServicesFlight { get; set; }
+
+
         public IList<OrderItemVm> OrderItems { get; set; } = new List<OrderItemVm>();
 
         public IList<long> SubOrderIds { get; set; }

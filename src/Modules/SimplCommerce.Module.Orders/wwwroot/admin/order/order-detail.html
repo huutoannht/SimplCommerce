@@ -3,9 +3,9 @@
         <div class="col-md-8">
             <h2>Thông tin đăng ký: #{{vm.order.id}}</h2>
         </div>
-        <div class="col-md-4 text-right">
+        <!--<div class="col-md-4 text-right">
             <a href="/api/invoices/print/{{vm.order.id}}" target="_blank" class="btn btn-info"><span class="glyphicon glyphicon-download-alt"></span> {{::vm.translate.get('Download Invoice')}}</a>
-        </div>
+        </div>-->
     </div>
 </div>
 <div class="panel panel-default">
@@ -28,33 +28,10 @@
 
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h3 class="panel-title">{{::vm.translate.get('Product Information')}}</h3>
+        <h3 class="panel-title">{{::vm.translate.get('Thông tin đăng ký')}}</h3>
     </div>
     <div class="panel-body">
-        <table class="table table-striped order-item-list">
-            <thead>
-                <tr>
-                    <th>{{::vm.translate.get('Product')}}</th>
-                    <th class="text-right">{{::vm.translate.get('Price')}}</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="item in vm.order.orderItems">
-                    <td>
-                        <a ui-sref="product-edit({id: item.productId})">{{item.productName}}</a>
-                        <ul ng-if="item.variationOptions.length > 0" class="list-unstyled">
-                            <li ng-repeat="opt in item.variationOptions">
-                                <span>{{opt.optionName}}:</span> {{opt.value}}
-                            </li>
-                        </ul>
-                    </td>
-                    <td class="text-right">{{item.productPriceString}}</td>
-                    <td class="text-right">
-                        Ordered {{item.quantity}}<span ng-if="item.shippedQuantity"><br />Shipped {{item.shippedQuantity}}</span>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+     
     </div>
 </div>
 

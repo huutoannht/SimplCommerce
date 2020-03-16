@@ -21,28 +21,24 @@
 
   <ItemGroup>
     <Compile Remove="logs\**" />
-    <Compile Remove="Themes\CozaStore\**" />
     <Compile Remove="Themes\TheGioiDiDong\**" />
-    <Compile Remove="wwwroot\modules\**" />
     <Compile Remove="wwwroot\themes\Gallery\public\uploads\**" />
     <Compile Remove="wwwroot\themes\TheGioiDiDong\**" />
-    <Content Remove="Themes\CozaStore\**" />
+    <Compile Remove="wwwroot\user-content\**" />
     <Content Remove="Themes\TheGioiDiDong\**" />
-    <Content Remove="wwwroot\modules\**" />
     <Content Remove="wwwroot\themes\Gallery\public\uploads\**" />
     <Content Remove="wwwroot\themes\TheGioiDiDong\**" />
+    <Content Remove="wwwroot\user-content\**" />
     <EmbeddedResource Remove="logs\**" />
-    <EmbeddedResource Remove="Themes\CozaStore\**" />
     <EmbeddedResource Remove="Themes\TheGioiDiDong\**" />
-    <EmbeddedResource Remove="wwwroot\modules\**" />
     <EmbeddedResource Remove="wwwroot\themes\Gallery\public\uploads\**" />
     <EmbeddedResource Remove="wwwroot\themes\TheGioiDiDong\**" />
+    <EmbeddedResource Remove="wwwroot\user-content\**" />
     <None Remove="logs\**" />
-    <None Remove="Themes\CozaStore\**" />
     <None Remove="Themes\TheGioiDiDong\**" />
-    <None Remove="wwwroot\modules\**" />
     <None Remove="wwwroot\themes\Gallery\public\uploads\**" />
     <None Remove="wwwroot\themes\TheGioiDiDong\**" />
+    <None Remove="wwwroot\user-content\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -170,6 +166,8 @@
     <None Remove="wwwroot\themes\Gallery\public\assets\js\jquery.validate.js" />
     <None Remove="wwwroot\themes\Gallery\public\assets\js\jquery.validate.min.js" />
     <None Remove="wwwroot\themes\Gallery\public\assets\js\picturefill.min.js" />
+    <None Remove="wwwroot\themes\Tourims\css\site.css" />
+    <None Remove="wwwroot\themes\Tourims\css\site.min.css" />
   </ItemGroup>
 
   <ItemGroup>
@@ -225,6 +223,12 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\admin\" />
+    <Folder Include="wwwroot\modules\dinktopdf\" />
+    <Folder Include="wwwroot\modules\emailsendersmtp\" />
+    <Folder Include="wwwroot\modules\sampledata\" />
+    <Folder Include="wwwroot\modules\shippingfree\" />
+    <Folder Include="wwwroot\modules\shippingprices\" />
+    <Folder Include="wwwroot\modules\storagelocal\" />
     <Folder Include="wwwroot\themes\Beauty\css\" />
     <Folder Include="wwwroot\themes\Beauty\fonts\" />
     <Folder Include="wwwroot\themes\Beauty\images\" />

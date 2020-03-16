@@ -137,7 +137,7 @@
 
             var $districtSelect = $("#NewAddressForm_DistrictId");
             resetSelect($districtSelect);
-
+            console.log(data);
             $.each(data.statesOrProvinces, function (index, option) {
                 $stateOrProvinceSelect.append($("<option></option>").attr("value", option.id).text(option.name));
             });

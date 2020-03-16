@@ -89,7 +89,10 @@
             </div>*@
 
                     </div>
-                    <button type="button" class="btn btn-lg btn-add-cart">@Localizer["Add to cart"]</button>
+                    @if (@Model.Categories.FirstOrDefault()?.Id == 20076)
+                    {
+                        <button type="button" class="button btn btn-lg btn-add-cart">@Localizer["Đặt tour"]</button>
+                    }
                 </div>
 
                 <div class="fb-comments" data-href="@ViewBag.Host" data-width="" data-numposts="5" width="780" ></div>
