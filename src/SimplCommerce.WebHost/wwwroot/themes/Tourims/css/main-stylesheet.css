@@ -209,7 +209,7 @@ a:focus {
 }
 
 .header > .wrapper {
-	padding: 30px 0px;
+	padding: 16px 0px;
 	background: transparent!important;
 	position: relative;
 }
@@ -218,11 +218,11 @@ a:focus {
 	background: inherit;
 }
 
-.header .header-logo {
-	float: left;
-	display: inline;
-	margin-left: 12px;
-}
+    .header .header-logo {
+        float: left;
+        display: inline;
+        margin-left: 12px;
+    }
 
 .header .header-logo h1 {
 	display: block;
@@ -237,7 +237,6 @@ a:focus {
 	display: inline;
 	margin-right: 12px;
 	text-align: right;
-	margin-top: -7px;
 }
 
 .header .wrapper:after {
@@ -309,7 +308,6 @@ a:focus {
 
 .header .header-addons .header-weather {
 	display: block;
-	margin-bottom: 10px;
 	margin-top: -4px;
 	line-height: 100%;
 	vertical-align: baseline;

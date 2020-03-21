@@ -64,5 +64,7 @@ namespace SimplCommerce.Module.Orders.Areas.Orders.ViewModels
         public bool IsMasterOrder { get; set; }
 
         public string OrderNote { get; set; }
+        public BookingRoomVm BookingRoomVm { get;  set; }
+        public ServicesFlightVm ServicesFlightVm { get;  set; }
     }
 }

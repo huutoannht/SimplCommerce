@@ -30,6 +30,7 @@ namespace SimplCommerce.Module.Orders.Services
         private readonly ICartService _cartService;
         private readonly IShippingPriceService _shippingPriceService;
         private readonly IRepository<UserAddress> _userAddressRepository;
+        private readonly IRepository<UserBookingTour> _userBookingTourRepository;
         private readonly IMediator _mediator;
 
         public OrderService(IRepository<Order> orderRepository,
@@ -42,7 +43,8 @@ namespace SimplCommerce.Module.Orders.Services
             ICartService cartService,
             IShippingPriceService shippingPriceService,
             IRepository<UserAddress> userAddressRepository,
-            IMediator mediator)
+            IMediator mediator,
+            IRepository<UserBookingTour> userBookingTourRepository)
         {
             _orderRepository = orderRepository;
             _cartRepository = cartRepository;
@@ -54,6 +56,7 @@ namespace SimplCommerce.Module.Orders.Services
             _shippingPriceService = shippingPriceService;
             _userAddressRepository = userAddressRepository;
             _mediator = mediator;
+            _userBookingTourRepository = userBookingTourRepository;
         }
 
         public async Task<Result<Order>> CreateOrder(long cartId, string paymentMethod, decimal paymentFeeAmount, OrderStatus orderStatus = OrderStatus.New)
@@ -70,6 +73,7 @@ namespace SimplCommerce.Module.Orders.Services
             var shippingData = JsonConvert.DeserializeObject<DeliveryInformationVm>(cart.ShippingData);
             Address billingAddress;
             Address shippingAddress;
+            BookingTour bookingTour = null;
             if (shippingData.ShippingAddressId == 0)
             {
                 var address = new Address
@@ -94,6 +98,21 @@ namespace SimplCommerce.Module.Orders.Services
 
                 _userAddressRepository.Add(userAddress);
 
+                bookingTour = new BookingTour
+                {
+                    Count = shippingData.BookingRoomVm?.Count,
+                    CountAdult = shippingData.BookingRoomVm?.CountAdult,
+                    CountChildren = shippingData.BookingRoomVm?.CountChildren,
+                    FromDate = shippingData.BookingRoomVm?.FromDate,
+                    ToDate = shippingData.BookingRoomVm?.ToDate,
+                    BookingTypeId = shippingData.BookingRoomVm?.TypeBookId,
+                    FlightNumber= shippingData.ServicesFlightVm?.FlightNumber,
+                    AirportName = shippingData.ServicesFlightVm?.AirportName,
+                    LandingTime = shippingData.ServicesFlightVm?.LandingTime,
+                    Note = shippingData.ServicesFlightVm?.Note,
+                };
+
+
                 shippingAddress = address;
             }
             else
@@ -112,10 +131,12 @@ namespace SimplCommerce.Module.Orders.Services
 
             billingAddress = shippingAddress;
 
-            return await CreateOrder(cartId, paymentMethod, paymentFeeAmount, shippingData.ShippingMethod, billingAddress, shippingAddress, orderStatus);
+            return await CreateOrder(cartId, paymentMethod, paymentFeeAmount, shippingData.ShippingMethod, billingAddress, shippingAddress, orderStatus, bookingTour);
         }
 
-        public async Task<Result<Order>> CreateOrder(long cartId, string paymentMethod, decimal paymentFeeAmount, string shippingMethodName, Address billingAddress, Address shippingAddress, OrderStatus orderStatus = OrderStatus.New)
+        public async Task<Result<Order>> CreateOrder(long cartId, string paymentMethod, decimal paymentFeeAmount,
+            string shippingMethodName, Address billingAddress, Address shippingAddress, 
+            OrderStatus orderStatus = OrderStatus.New, BookingTour bookingTour = null)
         {
             var cart = _cartRepository
                 .Query()
@@ -177,7 +198,8 @@ namespace SimplCommerce.Module.Orders.Services
                 BillingAddress = orderBillingAddress,
                 ShippingAddress = orderShippingAddress,
                 PaymentMethod = paymentMethod,
-                PaymentFeeAmount = paymentFeeAmount
+                PaymentFeeAmount = paymentFeeAmount,
+                BookingTour = bookingTour
             };
 
             foreach (var cartItem in cart.Items)
@@ -456,5 +478,6 @@ namespace SimplCommerce.Module.Orders.Services
 
             return Result.Ok(shippingMethod);
         }
+
     }
 }

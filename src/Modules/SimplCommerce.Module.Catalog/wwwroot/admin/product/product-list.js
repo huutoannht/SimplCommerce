@@ -29,12 +29,12 @@
         };
 
         vm.deleteProduct = function deleteProduct(product) {
-            bootbox.confirm('Are you sure you want to delete this product: ' + product.name, function (result) {
+            bootbox.confirm('Bạn muốn xóa bài viết này không : ' + product.name, function (result) {
                 if (result) {
                     productService.deleteProduct(product)
                        .then(function (result) {
                            vm.getProducts(vm.tableStateRef);
-                           toastr.success(product.name + ' has been deleted');
+                           toastr.success(product.name + ' đã được xóa');
                        })
                         .catch(function (response) {
                             toastr.error(response.data.error);

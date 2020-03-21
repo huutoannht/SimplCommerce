@@ -31,11 +31,30 @@
         <h3 class="panel-title">{{::vm.translate.get('Thông tin đăng ký')}}</h3>
     </div>
     <div class="panel-body">
-     
+        <p>
+            <strong>Số người: {{vm.order.bookingRoomVm.count}}</strong> <br />
+            Loại phòng: {{vm.order.bookingRoomVm.bookingType.name}} <br />
+            Số người lớn: {{vm.order.bookingRoomVm.countAdult}} <br />
+            Số trẻ em: {{vm.order.bookingRoomVm.countChildren}} <br />
+            Ở từ ngày: {{vm.order.bookingRoomVm.fromDate | date:'medium'}} <br />
+            Ở đến ngày: {{vm.order.bookingRoomVm.toDate | date:'medium'}} <br />
+        </p>
     </div>
 </div>
 
-
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{::vm.translate.get('Dịch vụ đăng ký thêm')}}</h3>
+    </div>
+    <div class="panel-body">
+        <p>
+            Thời gia hạn cánh: {{vm.order.servicesFlightVm.landingTime}} <br />
+            Ghi chú: {{vm.order.servicesFlightVm.note}} <br />
+            Tên sân bay: {{vm.order.servicesFlightVmairportName}} <br />
+            Số hiệu chuyến bay: {{vm.order.servicesFlightVm.flightNumber}} <br />
+        </p>
+    </div>
+</div>
 <div>
     <button ui-sref="order" class="btn btn-default">{{::vm.translate.get('Back')}}</button>
 </div>

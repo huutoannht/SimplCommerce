@@ -81,6 +81,7 @@ namespace SimplCommerce.Module.Orders.Models
         public decimal PaymentFeeAmount { get; set; }
 
         public IList<Order> Children { get; protected set; } = new List<Order>();
+        public BookingTour BookingTour { get;  set; }
 
         public void AddOrderItem(OrderItem item)
         {

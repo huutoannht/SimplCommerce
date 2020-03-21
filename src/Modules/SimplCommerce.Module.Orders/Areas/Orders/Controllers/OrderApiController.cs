@@ -139,6 +139,7 @@ namespace SimplCommerce.Module.Orders.Areas.Orders.Controllers
                 .Include(x => x.ShippingAddress).ThenInclude(x => x.District)
                 .Include(x => x.ShippingAddress).ThenInclude(x => x.StateOrProvince)
                 .Include(x => x.ShippingAddress).ThenInclude(x => x.Country)
+                .Include(x=>x.BookingTour).ThenInclude(x=>x.BookingType)
                 .Include(x => x.OrderItems).ThenInclude(x => x.Product).ThenInclude(x => x.ThumbnailImage)
                 .Include(x => x.OrderItems).ThenInclude(x => x.Product).ThenInclude(x => x.OptionCombinations).ThenInclude(x => x.Option)
                 .Include(x => x.Customer)
@@ -184,6 +185,22 @@ namespace SimplCommerce.Module.Orders.Areas.Orders.Controllers
                     DistrictName = order.ShippingAddress.District?.Name,
                     StateOrProvinceName = order.ShippingAddress.StateOrProvince.Name,
                     Phone = order.ShippingAddress.Phone
+                },
+                BookingRoomVm = new BookingRoomVm
+                {
+                    Count = order.BookingTour.Count,
+                    BookingType = order.BookingTour.BookingType,
+                    CountAdult = order.BookingTour.CountAdult,
+                    CountChildren = order.BookingTour.CountChildren,
+                    FromDate = order.BookingTour.FromDate,
+                    ToDate = order.BookingTour.ToDate,
+                },
+                ServicesFlightVm = new ServicesFlightVm
+                {
+                    LandingTime = order.BookingTour.LandingTime,
+                    Note = order.BookingTour.Note,
+                    AirportName = order.BookingTour.AirportName,
+                    FlightNumber = order.BookingTour.FlightNumber,
                 },
                 OrderItems = order.OrderItems.Select(x => new OrderItemVm
                 {

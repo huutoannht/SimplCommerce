@@ -1,7 +1,7 @@
 ﻿<div class="panel panel-default">
     <div class="panel-heading">
-        <h2 ng-if="!vm.isEditMode">{{::vm.translate.get('Create State or Province')}}</h2>
-        <h2 ng-if="vm.isEditMode">{{::vm.translate.get('Edit State or Province')}}</h2>
+        <h2 ng-if="!vm.isEditMode">{{::vm.translate.get('Tạo mới loại đặt phòng')}}</h2>
+        <h2 ng-if="vm.isEditMode">{{::vm.translate.get('Chỉnh sửa loại đặt phòng')}}</h2>
     </div>
     <div class="panel-body">
         <form name="bookingRoomForm" class="form-horizontal">
@@ -33,7 +33,7 @@
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                     <button class="btn btn-primary" ng-click="vm.save()"><span class="glyphicon glyphicon-ok"></span> {{::vm.translate.get('Save')}}</button>
-                    <button ui-sref="country-states-provinces({countryId: vm.countryId})" class="btn btn-default">{{::vm.translate.get('Cancel')}}</button>
+                    <button ui-sref="bookingroom" class="btn btn-default">{{::vm.translate.get('Cancel')}}</button>
                 </div>
             </div>
         </form>

@@ -17,7 +17,6 @@
             <th st-sort="Id" class="sortable">Mã đăng ký</th>
             <th>{{::vm.translate.get('Customer')}}</th>
             <th st-sort="CreatedOn" class="sortable">{{::vm.translate.get('Created On')}}</th>
-            <th st-sort="SubTotal" class="sortable">Giá tiền</th>
             <th>Actions</th>
         </tr>
         <tr>
@@ -33,7 +32,6 @@
             </th>
             <th><st-date-range predicate="CreatedOn" before="query.before" after="query.after"></st-date-range></th>
             <th></th>
-            <th></th>
         </tr>
         <tr>
             <th ng-show="!vm.isLoading" colspan="6">{{vm.tableStateRef.pagination.totalItemCount | number:0}} records found</th>
@@ -44,7 +42,6 @@
             <td>{{order.id}}</td>
             <td>{{order.customerName}}</td>
             <td>{{order.createdOn | date:'medium'}}</td>
-            <td>{{order.orderTotal | currency }}</td>
             <td><a ui-sref="order-detail({id: order.id})" title="View" class="btn btn-primary btn-xs"> <span class="glyphicon glyphicon-eye-open"></span></a></td>
         </tr>
     </tbody>

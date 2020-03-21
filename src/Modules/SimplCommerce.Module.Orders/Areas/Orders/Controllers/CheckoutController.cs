@@ -26,7 +26,7 @@ namespace SimplCommerce.Module.Orders.Areas.Orders.Controllers
         private readonly IOrderService _orderService;
         private readonly IRepositoryWithTypedId<Country, string> _countryRepository;
         private readonly IRepository<StateOrProvince> _stateOrProvinceRepository;
-        private readonly IRepository<ShoppingCartRoom> _shoppingCartRoom;
+        private readonly IRepository<BookingType> _bookingType;
         private readonly IRepository<UserAddress> _userAddressRepository;
         private readonly IShippingPriceService _shippingPriceService;
         private readonly ICartService _cartService;
@@ -42,7 +42,7 @@ namespace SimplCommerce.Module.Orders.Areas.Orders.Controllers
             ICartService cartService,
             IWorkContext workContext,
             IRepository<Cart> cartRepository,
-            IRepository<ShoppingCartRoom> shoppingCartRoom)
+            IRepository<BookingType> bookingType)
         {
             _stateOrProvinceRepository = stateOrProvinceRepository;
             _countryRepository = countryRepository;
@@ -52,7 +52,7 @@ namespace SimplCommerce.Module.Orders.Areas.Orders.Controllers
             _cartService = cartService;
             _workContext = workContext;
             _cartRepository = cartRepository;
-            _shoppingCartRoom = shoppingCartRoom;
+            _bookingType = bookingType;
         }
 
         [HttpGet("shipping")]
@@ -168,7 +168,7 @@ namespace SimplCommerce.Module.Orders.Areas.Orders.Controllers
                     Value = x.Id.ToString()
                 }).ToList();
             }
-            model.BookingRoomVm.TypeRoom = _shoppingCartRoom.Query()
+            model.BookingRoomVm.TypeRoom = _bookingType.Query()
                 .OrderBy(x => x.Id)
                 .Select(x => new SelectListItem
                 {

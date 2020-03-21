@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using SimplCommerce.Infrastructure.Models;
+using SimplCommerce.Module.Core.Models;
 
 namespace SimplCommerce.Module.Orders.Areas.Orders.ViewModels
 {
@@ -10,8 +11,9 @@ namespace SimplCommerce.Module.Orders.Areas.Orders.ViewModels
     {
         [Required]
         public IList<SelectListItem> TypeRoom { get; set; }
+        public BookingType BookingType { get; set; }
         [Required]
-        public Int32? TypeBookId { get; set; }
+        public Int64? TypeBookId { get; set; }
         [Required]
         public DateTime? FromDate { get; set; }
 

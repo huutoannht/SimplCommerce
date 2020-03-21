@@ -17,12 +17,12 @@
         };
 
         vm.deleteCategory = function deleteCategory(category) {
-            bootbox.confirm('Are you sure you want to delete this ' + category.name, function (result) {
+            bootbox.confirm('Bạn muốn xóa danh mục này không ' + category.name, function (result) {
                 if (result) {
                     categoryService.deleteCategory(category)
                        .then(function (result) {
                            vm.getCategories();
-                           toastr.success(category.name + 'Have been deleted');
+                           toastr.success(category.name + ' đã được xóa');
                         })
                         .catch(function (response) {
                             toastr.error(response.data.error);

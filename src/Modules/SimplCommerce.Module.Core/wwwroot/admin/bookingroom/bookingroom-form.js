@@ -10,7 +10,6 @@
         vm.translate = translateService;
         vm.bookingRoom = {};
         vm.bookingRoomId = $stateParams.id;
-        vm.countryId = $stateParams.countryId;
         vm.isEditMode = vm.bookingRoomId > 0;
 
         vm.save = function save() {
@@ -18,13 +17,12 @@
             if (vm.isEditMode) {
                 promise = bookingRoomService.editBookingRoom(vm.bookingRoom);
             } else {
-                vm.bookingRoom.countryId = vm.countryId;
                 promise = bookingRoomService.createBookingRoom(vm.bookingRoom);
             }
 
             promise
                 .then(function (result) {
-                    $state.go('country-states-provinces', {countryId: vm.countryId});
+                    $state.go('bookingroom');
                 })
                 .catch(function (response) {
                     var error = response.data;
@@ -34,7 +32,7 @@
                             vm.validationErrors.push(error[key][0]);
                         }
                     } else { 
-                        vm.validationErrors.push(translateService.get('Could not add State or Province.'));
+                        vm.validationErrors.push(translateService.get('Could not add Booking type.'));
                     }
                 });
         };

@@ -2,21 +2,21 @@
 (function () {
     angular
         .module('simplAdmin.core')
-        .factory('stateBookingRoomService', stateBookingRoomService);
+        .factory('bookingRoomService', bookingRoomService);
 
     /* @ngInject */
-    function stateBookingRoomService($http) {
+    function bookingRoomService($http) {
         var service = {
             editBookingRoom: editBookingRoom,
             getBookingRoom: getBookingRoom,
             createBookingRoom: createBookingRoom,
             deleteBookingRoom: deleteBookingRoom,
-            getStateOrProvinces: getStateOrProvinces
+            getAllBookingRoom: getAllBookingRoom
         };
         return service;
 
-        function getStateOrProvinces(countryId, params) {
-            return $http.post('api/booking-room/grid?countryId=' + countryId, params);
+        function getAllBookingRoom(params) {
+            return $http.post('api/booking-room/grid', params);
         }
 
         function getBookingRoom(id) {
