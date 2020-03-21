@@ -24,20 +24,24 @@
     <Compile Remove="Themes\TheGioiDiDong\**" />
     <Compile Remove="wwwroot\themes\Gallery\public\uploads\**" />
     <Compile Remove="wwwroot\themes\TheGioiDiDong\**" />
+    <Compile Remove="wwwroot\themes\TuanNguyenStudio\**" />
     <Compile Remove="wwwroot\user-content\**" />
     <Content Remove="Themes\TheGioiDiDong\**" />
     <Content Remove="wwwroot\themes\Gallery\public\uploads\**" />
     <Content Remove="wwwroot\themes\TheGioiDiDong\**" />
+    <Content Remove="wwwroot\themes\TuanNguyenStudio\**" />
     <Content Remove="wwwroot\user-content\**" />
     <EmbeddedResource Remove="logs\**" />
     <EmbeddedResource Remove="Themes\TheGioiDiDong\**" />
     <EmbeddedResource Remove="wwwroot\themes\Gallery\public\uploads\**" />
     <EmbeddedResource Remove="wwwroot\themes\TheGioiDiDong\**" />
+    <EmbeddedResource Remove="wwwroot\themes\TuanNguyenStudio\**" />
     <EmbeddedResource Remove="wwwroot\user-content\**" />
     <None Remove="logs\**" />
     <None Remove="Themes\TheGioiDiDong\**" />
     <None Remove="wwwroot\themes\Gallery\public\uploads\**" />
     <None Remove="wwwroot\themes\TheGioiDiDong\**" />
+    <None Remove="wwwroot\themes\TuanNguyenStudio\**" />
     <None Remove="wwwroot\user-content\**" />
   </ItemGroup>
 
