@@ -49,6 +49,7 @@
     <None Remove="wwwroot\themes\TheGioiDiDong\css\style-home.css" />
     <None Remove="wwwroot\themes\TheGioiDiDong\images\banner.png" />
     <None Remove="wwwroot\themes\TheGioiDiDong\images\bg_title.jpg" />
+    <None Remove="wwwroot\themes\TheGioiDiDong\images\checkbox-product.png" />
     <None Remove="wwwroot\themes\TheGioiDiDong\images\home-acer.png" />
     <None Remove="wwwroot\themes\TheGioiDiDong\images\home-asus.png" />
     <None Remove="wwwroot\themes\TheGioiDiDong\images\home-dell.png" />
@@ -67,6 +68,11 @@
     <None Remove="wwwroot\user-content\banner-chamsoctrongoi.jpg" />
     <None Remove="wwwroot\user-content\banner-samlaptopxin.png" />
     <None Remove="wwwroot\user-content\banner-tragop.jpg" />
+    <None Remove="wwwroot\user-content\Dell_G3_G5_G7_Inspiron.jpg" />
+    <None Remove="wwwroot\user-content\Dell_Precision_7510.jpg" />
+    <None Remove="wwwroot\user-content\Dell_Precision_M4800.jpg" />
+    <None Remove="wwwroot\user-content\Dell_XPS_15_9570.jpg" />
+    <None Remove="wwwroot\user-content\HP_Folio_9470.jpg" />
   </ItemGroup>
 
   <ItemGroup>

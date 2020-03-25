@@ -132,13 +132,13 @@ namespace SimplCommerce.WebHost
                     a => a.UseExceptionHandler("/Home/Error")
                 );
                 app.UseHsts();
-                //app.UseStaticFiles(new StaticFileOptions
-                //{
-                //    FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @".well-known")),
-                //    RequestPath = new PathString("/.well-known"),
-                //    ServeUnknownFileTypes = true // serve extensionless file
-                //});
-                //app.UseRewriter(new RewriteOptions().AddRedirectToHttps(StatusCodes.Status301MovedPermanently, 443));
+                app.UseStaticFiles(new StaticFileOptions
+                {
+                    FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @".well-known")),
+                    RequestPath = new PathString("/.well-known"),
+                    ServeUnknownFileTypes = true // serve extensionless file
+                });
+                app.UseRewriter(new RewriteOptions().AddRedirectToHttps(StatusCodes.Status301MovedPermanently, 443));
             }
             using (StreamReader apacheModRewriteStreamReader =
             File.OpenText("ApacheModRewrite.txt"))
@@ -169,6 +169,8 @@ namespace SimplCommerce.WebHost
                     .AddRedirect("^cac-dong-may-tinh-de-ban-co-cau-hinh-dung-cho-do-hoa-thiet-ke", "/laptop-do-hoa-ky-thuat")
                     .AddRedirect("^cac-dong-laptop-asus-gia-re-tai-cua-hang-laptop-cu-da-nang", "/laptop-asus-cu")
                     .AddRedirect("^cac-dong-laptop-asus-choi-game-gia-re-nhat-2019", "/laptop-gaming")
+                    .AddRedirect("^lam-viec-van-phong-thi-nen-chon-mua-laptop-cu-loai-nao", "/laptop-hoc-tap-van-phong")
+                    .AddRedirect("^laptop-gaming-co-lam-do-hoa-duoc-khong", "/laptop-gaming")
                     .AddRewrite(@"^rewrite-rule/(\d+)/(\d+)", "rewritten?var1=$1&var2=$2",
                         skipRemainingRules: true)
                     .AddApacheModRewrite(apacheModRewriteStreamReader)

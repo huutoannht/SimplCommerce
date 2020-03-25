@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -22,22 +23,25 @@ namespace SimplCommerce.Module.PaymentCoD.Areas.PaymentCoD.Controllers
         private readonly IWorkContext _workContext;
         private readonly ICartService _cartService;
         private readonly IRepositoryWithTypedId<PaymentProvider, string> _paymentProviderRepository;
+        private readonly IHttpClientFactory _httpClientFactory;
         private Lazy<CoDSetting> _setting;
 
         public CoDController(
             ICartService cartService,
             IOrderService orderService,
             IRepositoryWithTypedId<PaymentProvider, string> paymentProviderRepository,
-            IWorkContext workContext)
+            IWorkContext workContext,
+            IHttpClientFactory httpClientFactory)
         {
             _paymentProviderRepository = paymentProviderRepository;
             _cartService = cartService;
             _orderService = orderService;
             _workContext = workContext;
             _setting = new Lazy<CoDSetting>(GetSetting());
+            _httpClientFactory = httpClientFactory;
         }
 
-        [HttpPost]
+        [HttpGet]
         [AllowAnonymous]
         public async Task<IActionResult> CoDCheckout()
         {
@@ -56,7 +60,12 @@ namespace SimplCommerce.Module.PaymentCoD.Areas.PaymentCoD.Controllers
                 TempData["Error"] = orderCreateResult.Error;
                 return Redirect("~/checkout/payment");
             }
-
+            var client = _httpClientFactory.CreateClient();
+            var hostingDomain = Request.Host.Value;
+            var schemeDomain = Request.Scheme;
+            var path = string.Format("{0}://{1}/api/invoices/print/{2}", schemeDomain, hostingDomain, orderCreateResult.Value.Id);
+            var response = await client.GetAsync(path);
+            response.EnsureSuccessStatusCode();
             return Redirect("~/checkout/congratulation");
         }
 

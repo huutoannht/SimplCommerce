@@ -1,80 +1,141 @@
 ﻿@model SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels.ProductDetail
 @using System.Text.RegularExpressions;
-    @{
-        ViewBag.Title = Model.MetaTitle ?? Model.Name;
-    }
+@{
+    ViewBag.Title = Model.MetaTitle ?? Model.Name;
+}
 
-    @section additionalMeta {
-        <meta name="title" content="@Model.MetaTitle" />
-        <meta name="keywords" content="@Model.MetaKeywords" />
-        <meta name="description" content="@Model.MetaDescription" />
-		 <meta name="og:title" content="@Model.MetaTitle" />
-        <meta name="og:description" content="@Model.MetaDescription" />
-		  <meta name="DC.title" content="@Model.MetaTitle" />
-        <meta name="DC.Subject" content="@Model.MetaKeywords" />
-        <meta name="DC.Description" content="@Model.MetaDescription" />
-    }
+@section additionalMeta {
+    <meta name="title" content="@Model.MetaTitle" />
+    <meta name="keywords" content="@Model.MetaKeywords" />
+    <meta name="description" content="@Model.MetaDescription" />
+    <meta name="og:title" content="@Model.MetaTitle" />
+    <meta name="og:description" content="@Model.MetaDescription" />
+    <meta name="DC.title" content="@Model.MetaTitle" />
+    <meta name="DC.Subject" content="@Model.MetaKeywords" />
+    <meta name="DC.Description" content="@Model.MetaDescription" />
+}
 
-    @section head
+@section head
         {
-        <link simpl-append-version="true" rel="stylesheet" href="~/lib/smoothproducts/css/smoothproducts.css" />
-        <link simpl-append-version="true" rel="stylesheet" href="~/modules/catalog/product-detail.css" />
+    <link simpl-append-version="true" rel="stylesheet" href="~/lib/smoothproducts/css/smoothproducts.css" />
+    <link simpl-append-version="true" rel="stylesheet" href="~/modules/catalog/product-detail.css" />
+}
+<style>
+    .collapse {
+        display: none;
     }
-    <style>
-        .collapse {
-            display: none;
+
+    #config-holder ul {
+    }
+
+        #config-holder ul li {
+            float: left;
+            margin-right: 5px;
+            border: solid 1px #aaa;
+            padding: 1px 10px;
+            cursor: pointer;
+            position: relative;
+            box-sizing: border-box;
+            height: 23px;
+            overflow: hidden;
+            color: #333;
         }
-    </style>
 
-    <section class="type0">
-        <ul class="breadcrumb">
-            <a href="~/" class="stext-109 cl8 hov-cl1 trans-04">
-                @Localizer["Home"]
-                <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
-            </a>
-            @if (Model.Categories.Any())
-            {
-                @await Component.InvokeAsync("CategoryBreadcrumb", new { categoryIds = Model.Categories.Select(x => x.Id) })
+        #config-holder ul > span {
+            line-height: 23px;
+            margin-right: 10px;
+        }
+
+        #config-holder ul li.selected-attr-value {
+            border-color: #ff9300 !important;
+            border-width: 2px !important;
+        }
+
+            #config-holder ul li.selected-attr-value::before {
+                content: '';
+                background: url(./themes/TheGioiDiDong/images/checkbox-product.png) right bottom no-repeat;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                display: block;
+                left: 0;
+                top: 0;
             }
-            <a href="#" class="stext-109 cl8 hov-cl1 trans-04">
-                @Model.Name
-            </a>
-        </ul>
-        <div class="rowtop">
-            <h1>@Model.Name</h1>
 
-            <div class="ratingresult">
-                <ul class="list-inline product-ratings">
-                    <li><input type="hidden" value="@Model.RatingAverage" readonly="readonly" class="rating-loading" step="1" data-size="xs" data-show-clear="false" data-show-caption="false" /></li>
-                    <li class="product-review-list">
-                        <span>(@Model.ReviewsCount) <a href="#reviews">@Localizer["reviews"]</a> | <a href="#addreview"> @Localizer["Add Review"]</a></span>
-                    </li>
-                </ul>
+    #config-holder, ul {
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
+
+        #config-holder ul li.unselectable-attr-value {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        #config-holder ul.active {
+            overflow: visible;
+            background-color: #fff;
+        }
+
+            #config-holder ul.active li {
+                position: relative;
+                top: auto;
+            }
+
+        #config-holder ul li:hover {
+            font-weight: 500;
+        }
+</style>
+
+<section class="type0">
+    <ul class="breadcrumb">
+        <a href="~/" class="stext-109 cl8 hov-cl1 trans-04">
+            @Localizer["Home"]
+            <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+        </a>
+        @if (Model.Categories.Any())
+        {
+            @await Component.InvokeAsync("CategoryBreadcrumb", new { categoryIds = Model.Categories.Select(x => x.Id) })
+        }
+        <a href="#" class="stext-109 cl8 hov-cl1 trans-04">
+            @Model.Name
+        </a>
+    </ul>
+    <div class="rowtop">
+        <h1>@Model.Name</h1>
+
+        <div class="ratingresult">
+            <ul class="list-inline product-ratings">
+                <li><input type="hidden" value="@Model.RatingAverage" readonly="readonly" class="rating-loading" step="1" data-size="xs" data-show-clear="false" data-show-caption="false" /></li>
+                <li class="product-review-list">
+                    <span>(@Model.ReviewsCount) <a href="#reviews">@Localizer["reviews"]</a> | <a href="#addreview"> @Localizer["Add Review"]</a></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="clr"></div>
+    <div class="rowdetail row" id="normalproduct">
+        <div class="col-md-6">
+            <div class="sp-wrap">
+                @foreach (var image in Model.Images)
+                {
+                    <a href="@image.Url">
+                        <img src="@image.ThumbnailUrl" alt="@Model.Name" />
+                    </a>
+                }
             </div>
         </div>
-        <div class="clr"></div>
-        <div class="rowdetail row" id="normalproduct">
-            <div class="col-md-6">
-                <div class="sp-wrap">
-                    @foreach (var image in Model.Images)
-                    {
-                        <a href="@image.Url">
-                            <img src="@image.ThumbnailUrl" alt="@Model.Name" />
-                        </a>
-                    }
-                </div>
+        <div class="col-md-6">
+            <div class="product-short-desc">
+                <h3 class="product-short-desc-title">Mô tả</h3>
+                @Html.Raw(Model.ShortDescription)
             </div>
-            <div class="col-md-6">
-                <div class="product-short-desc">
-                    <h3 class="product-short-desc-title">Mô tả</h3>
-                    @Html.Raw(Model.ShortDescription)
-                </div>
-                <div class="promo-detail">
-                    <h4>ƯU ĐÃI TẠI TECHCARE</h4>
-                    @Html.Raw(Model.Promotion)
-                </div>
-                <aside class="price_sale product-detail">
-                    @*@if (Model.Promotion != null && Model.Promotion.Length > 10 && Regex.Replace(Model.Promotion, "<.*?>", String.Empty).Length > 0)
+            <div class="promo-detail">
+                <h4>ƯU ĐÃI TẠI TECHCARE</h4>
+                @Html.Raw(Model.Promotion)
+            </div>
+            <aside class="price_sale product-detail">
+                @*@if (Model.Promotion != null && Model.Promotion.Length > 10 && Regex.Replace(Model.Promotion, "<.*?>", String.Empty).Length > 0)
                     {
                         <div class="area_promotion ">
                             <strong data-count="3">Khuyến mãi</strong>
@@ -83,240 +144,241 @@
                             </div>
                         </div>
                     }*@
-                  
-                    @if (Model.HasVariation)
-                    {
-                        <form>
-                            <div class="product-attrs">
-                                @foreach (var option in Model.AvailableOptions)
-                                {
-                                    <div>
-                                        <h5 class="p-t-25">@option.OptionName </h5>
-                                        <ul class="list-inline product-attr-options">
-                                            @foreach (var value in option.Values)
-                                            {
-                                                var shouldChecked = Model.Variations.First().Options.Any(x => x.Value == value);
-                                                <li class="list-inline-item">
-                                                    <input type="radio" value="@value" checked="@shouldChecked" name="@option.OptionName" />
-                                                    @if (Model.OptionDisplayValues.ContainsKey(value) && !String.IsNullOrWhiteSpace(Model.OptionDisplayValues[value].Value))
+
+                @if (Model.HasVariation)
+                {
+                    <form>
+                        <div class="product-attrs">
+                            @foreach (var option in Model.AvailableOptions)
+                            {
+                                <div  id="config-holder">
+                                    <ul class="list-inline product-attr-options d-flex flex-wrap js-select-config">
+                                        <span class="name">@option.OptionName: </span>
+                                        @foreach (var value in option.Values)
+                                        {
+                                            var shouldChecked = Model.Variations.First().Options.Any(x => x.Value == value);
+
+                                            <li class="list-inline-item attr-value selected-attr-value">
+                                                <input type="radio" value="@value" checked="@shouldChecked" name="@option.OptionName" />
+                                                @if (Model.OptionDisplayValues.ContainsKey(value) && !String.IsNullOrWhiteSpace(Model.OptionDisplayValues[value].Value))
+                                                {
+                                                    if (Model.OptionDisplayValues[value].DisplayType == "color")
                                                     {
-                                                        if (Model.OptionDisplayValues[value].DisplayType == "color")
-                                                        {
-                                                            <label title="@value" class="color" style="background-color:@Model.OptionDisplayValues[value].Value"></label>
-                                                        }
-                                                        else
-                                                        {
-                                                            <label>@Model.OptionDisplayValues[value].Value</label>
-                                                        }
+                                                        <label title="@value" class="color" style="background-color:@Model.OptionDisplayValues[value].Value"></label>
                                                     }
                                                     else
                                                     {
-                                                        <label>@value</label>
+                                                        <label>@Model.OptionDisplayValues[value].Value</label>
                                                     }
-                                                </li>
-                                            }
-                                        </ul>
-                                    </div>
-                                }
-                            </div>
-                        </form>
-
-                        foreach (var variant in Model.Variations)
-                        {
-                            var hidden = variant != Model.Variations.First() ? "collapse" : "";
-                            <div class="product-variation @hidden" data-variation-name="@variant.NormalizedName">
-                                <div class="product-price">
-                                    @if (variant.IsCallForPricing)
-                                    {
-                                        <span class="label label-info">@Localizer["Call for pricing"]</span>
-                                    }
-                                    else
-                                    {
-                                        <h3>@variant.CalculatedProductPrice.Price.ToString("C0")</h3>
-                                        if (variant.CalculatedProductPrice.PercentOfSaving > 0)
-                                        {
-                                            <p class="product-price-regular">@variant.CalculatedProductPrice.OldPrice.Value.ToString("C0")</p>
-                                            <p class="product-price-saving">@Localizer["You save"] (@(variant.CalculatedProductPrice.PercentOfSaving)%)</p>
+                                                }
+                                                else
+                                                {
+                                                    <label>@value</label>
+                                                }
+                                            </li>
                                         }
-                                    }
+                                    </ul>
                                 </div>
-                                @if (variant.StockTrackingIsEnabled && variant.StockQuantity <= 0)
+                            }
+                        </div>
+                    </form>
+
+                    foreach (var variant in Model.Variations)
+                    {
+                        var hidden = variant != Model.Variations.First() ? "collapse" : "";
+                        <div class="product-variation @hidden" data-variation-name="@variant.NormalizedName">
+                            <div class="product-price">
+                                @if (variant.IsCallForPricing)
                                 {
-                                    <div class="out-of-stock">
-                                        <span class="label label-danger">@Localizer["Out of stock"]</span>
+                                    <span class="label label-info">@Localizer["Call for pricing"]</span>
+                                }
+                                else
+                                {
+                                    <h3>@variant.CalculatedProductPrice.Price.ToString("C0")</h3>
+                                    if (variant.CalculatedProductPrice.PercentOfSaving > 0)
+                                    {
+                                        <p class="product-price-regular">@variant.CalculatedProductPrice.OldPrice.Value.ToString("C0")</p>
+                                        <p class="product-price-saving">@Localizer["You save"] (@(variant.CalculatedProductPrice.PercentOfSaving)%)</p>
+                                    }
+                                }
+                            </div>
+                            @if (variant.StockTrackingIsEnabled && variant.StockQuantity <= 0)
+                            {
+                                <div class="out-of-stock">
+                                    <span class="label label-danger">@Localizer["Out of stock"]</span>
+                                </div>
+                            }
+
+                            <div class="add-to-cart">
+                                <form class="inline">
+                                    <input type="hidden" name="productId" value="@variant.Id" />
+                                    <div class="product-quantity">
+                                        <button type="button" class="quantity-button" name="subtract" value="-">-</button>
+                                        <input type="text" class="quantity-field" readonly="readonly" name="qty" value="1">
+                                        <button type="button" class="quantity-button" name="add" value="+">+</button>
+                                    </div>
+                                    <button type="button" disabled="@(!variant.IsAllowToOrder || (variant.StockTrackingIsEnabled && variant.StockQuantity <= 0))" class="btn btn-lg btn-add-cart">@Localizer["Add to cart"]</button>
+
+                                    @*<div>
+                                            <ul class="list-inline add-to-wishlist">
+                                                <li class="wishlist-in">
+                                                    <i class="fa fa-heart"></i>
+                                                    <a href="#">Add to Wishlist</a>
+                                                </li>
+                                                <li class="compare-in">
+                                                    <i class="fa fa-exchange"></i>
+                                                    <a href="#" class="add-to-comparison">@Localizer["Add to Compare"]</a>
+                                                </li>
+                                            </ul>
+                                        </div>*@
+                                </form>
+                            </div>
+                        </div>
+                    }
+                    <div class="product-variation-notavailable collapse">
+                        <span class="label label-danger">@Localizer["Not available"]</span>
+                    </div>
+                }
+                else
+                {
+                    <div class="product-price">
+                        @if (Model.IsCallForPricing)
+                        {
+                            <span class="label label-info">@Localizer["Call for pricing"]</span>
+                        }
+                        else
+                        {
+                            <h3>@Model.CalculatedProductPrice.Price.ToString("C0")</h3>
+                            if (Model.CalculatedProductPrice.PercentOfSaving > 0)
+                            {
+                                <p class="product-price-regular">@Model.CalculatedProductPrice.OldPrice.Value.ToString("C0")</p>
+                                <p class="product-price-saving">@Localizer["You save"] (@(Model.CalculatedProductPrice.PercentOfSaving)%)</p>
+                            }
+                        }
+                    </div>
+                    if (Model.StockTrackingIsEnabled && Model.StockQuantity <= 0)
+                    {
+                        <div class="out-of-stock">
+                            <span class="label label-danger">@Localizer["Out of stock"]</span>
+                        </div>
+                    }
+                    <div class="add-to-cart">
+                        <form class="inline">
+                            <input type="hidden" name="productId" value="@Model.Id" />
+                            <div class="product-quantity">
+                                <button type="button" class="quantity-button" name="subtract" value="-">-</button>
+                                <input type="text" class="quantity-field" readonly="readonly" name="qty" value="1">
+                                <button type="button" class="quantity-button" name="add" value="+">+</button>
+                            </div>
+                            <button type="button" disabled="@(!Model.IsAllowToOrder || (Model.StockTrackingIsEnabled && Model.StockQuantity <= 0))" class="btn btn-lg btn-add-cart buy_now">@Localizer["Add to cart"]</button>
+                            <div class="area_order">
+                                <a class="buy_repay " href="/mua-tra-gop"><b>Mua trả góp </b><span>Thủ tục đơn giản</span></a>
+                            </div>
+                            @*<div>
+                                    <ul class="list-inline add-to-wishlist">
+                                        <li class="wishlist-in">
+                                            <i class="fa fa-heart"></i>
+                                            <a href="#">Add to Wishlist</a>
+                                        </li>
+                                        <li class="compare-in">
+                                            <i class="fa fa-exchange"></i>
+                                            <a href="#" class="add-to-comparison">@Localizer["Add to Compare"]</a>
+                                        </li>
+                                    </ul>
+                                </div>*@
+                        </form>
+                    </div>
+                }
+
+
+            </aside>
+        </div>
+    </div>
+    <div class="clr"></div>
+    <div class="box_content row">
+        <div class="col-md-8">
+            <aside class="">
+                <div class="boxArticle">
+                    <article class="area_article">
+                        @if (!string.IsNullOrWhiteSpace(Model.Description))
+                        {
+                            <div>
+                                <h3 class="p-t-25 p-b-25">@Localizer["Product detail"]</h3>
+                                @Html.Raw(Model.Description)
+                            </div>
+                        }
+                    </article>
+                </div>
+                <div class="clr"></div>
+                @if (Model.RelatedProducts.Count > 0)
+                {
+                    <div class="compare">
+                        <div class="tcpr">
+                            <h4>@Localizer["Compare with similar products"]</h4>
+                        </div>
+                        <div class="row product-list">
+                            <div id="owl-promo" class="owl-carousel homepromo ">
+                                @foreach (var product in Model.RelatedProducts)
+                                {
+                                    <div class="item">
+                                        <partial name="/Themes/TheGioiDiDong/Areas/Catalog/Views/Shared/_ProductThumbnail.cshtml" model="product" />
                                     </div>
                                 }
-
-                                <div class="add-to-cart">
-                                    <form class="inline">
-                                        <input type="hidden" name="productId" value="@variant.Id" />
-                                        <div class="product-quantity">
-                                            <button type="button" class="quantity-button" name="subtract" value="-">-</button>
-                                            <input type="text" class="quantity-field" readonly="readonly" name="qty" value="1">
-                                            <button type="button" class="quantity-button" name="add" value="+">+</button>
-                                        </div>
-                                        <button type="button" disabled="@(!variant.IsAllowToOrder || (variant.StockTrackingIsEnabled && variant.StockQuantity <= 0))" class="btn btn-lg btn-add-cart">@Localizer["Add to cart"]</button>
-
-                                        @*<div>
-                                <ul class="list-inline add-to-wishlist">
-                                    <li class="wishlist-in">
-                                        <i class="fa fa-heart"></i>
-                                        <a href="#">Add to Wishlist</a>
-                                    </li>
-                                    <li class="compare-in">
-                                        <i class="fa fa-exchange"></i>
-                                        <a href="#" class="add-to-comparison">@Localizer["Add to Compare"]</a>
-                                    </li>
-                                </ul>
-                            </div>*@
-                                    </form>
-                                </div>
                             </div>
-                        }
-                        <div class="product-variation-notavailable collapse">
-                            <span class="label label-danger">@Localizer["Not available"]</span>
                         </div>
-                    }
-                    else
+                    </div>
+                }
+
+                <div class="comdetail">
+                    <div class="wrap_comment" title="Bình luận sản phẩm" id="comment" cmtcategoryid="2" siteid="1" detailid="154897" cateid="15" urlpage="" pagesize="5">
+                        <div>
+                            <h3 class="p-t-25 p-b-25">@Localizer["Customer reviews"]</h3>
+                            @await Component.InvokeAsync("Review", new { entityId = Model.Id, entityTypeId = "Product" })
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    @*<h3>@Localizer["Customer comments"]</h3>*@
+                    <h3>Bình luận</h3>
+                    @await Component.InvokeAsync("Comment", new { entityId = Model.Id, entityTypeId = "Product" })
+                </div>
+
+
+            </aside>
+        </div>
+        <div class="col-md-4">
+            <aside class="">
+                <div class="tableparameter">
+                    @if (Model.Attributes.Any())
                     {
-                        <div class="product-price">
-                            @if (Model.IsCallForPricing)
-                            {
-                                <span class="label label-info">@Localizer["Call for pricing"]</span>
-                            }
-                            else
-                            {
-                                <h3>@Model.CalculatedProductPrice.Price.ToString("C0")</h3>
-                                if (Model.CalculatedProductPrice.PercentOfSaving > 0)
+                        <div class="table-attribute">
+                            <h3 class="p-t-25 p-b-25">@Localizer["Product specification"]</h3>
+                            <table class="table table-striped">
+                                @foreach (var attribute in Model.Attributes)
                                 {
-                                    <p class="product-price-regular">@Model.CalculatedProductPrice.OldPrice.Value.ToString("C0")</p>
-                                    <p class="product-price-saving">@Localizer["You save"] (@(Model.CalculatedProductPrice.PercentOfSaving)%)</p>
+                                    <tr>
+                                        <td>@attribute.Name</td>
+                                        <td>@attribute.Value</td>
+                                    </tr>
                                 }
-                            }
-                        </div>
-                        if (Model.StockTrackingIsEnabled && Model.StockQuantity <= 0)
-                        {
-                            <div class="out-of-stock">
-                                <span class="label label-danger">@Localizer["Out of stock"]</span>
-                            </div>
-                        }
-                        <div class="add-to-cart">
-                            <form class="inline">
-                                <input type="hidden" name="productId" value="@Model.Id" />
-                                <div class="product-quantity">
-                                    <button type="button" class="quantity-button" name="subtract" value="-">-</button>
-                                    <input type="text" class="quantity-field" readonly="readonly" name="qty" value="1">
-                                    <button type="button" class="quantity-button" name="add" value="+">+</button>
-                                </div>
-                                <button type="button" disabled="@(!Model.IsAllowToOrder || (Model.StockTrackingIsEnabled && Model.StockQuantity <= 0))" class="btn btn-lg btn-add-cart buy_now">@Localizer["Add to cart"]</button>
-                                <div class="area_order">
-                                    <a class="buy_repay " href="/mua-tra-gop"><b>Mua trả góp </b><span>Thủ tục đơn giản</span></a>
-                                </div>
-                                @*<div>
-                        <ul class="list-inline add-to-wishlist">
-                            <li class="wishlist-in">
-                                <i class="fa fa-heart"></i>
-                                <a href="#">Add to Wishlist</a>
-                            </li>
-                            <li class="compare-in">
-                                <i class="fa fa-exchange"></i>
-                                <a href="#" class="add-to-comparison">@Localizer["Add to Compare"]</a>
-                            </li>
-                        </ul>
-                    </div>*@
-                            </form>
+                            </table>
                         </div>
                     }
-
-
-                </aside>
-            </div>
+                </div>
+                <div class="clr"></div>
+                @await Component.InvokeAsync("NewItem")
+            </aside>
         </div>
-        <div class="clr"></div>
-        <div class="box_content row">
-            <div class="col-md-8">
-                <aside class="">
-                    <div class="boxArticle">
-                        <article class="area_article">
-                            @if (!string.IsNullOrWhiteSpace(Model.Description))
-                            {
-                                <div>
-                                    <h3 class="p-t-25 p-b-25">@Localizer["Product detail"]</h3>
-                                    @Html.Raw(Model.Description)
-                                </div>
-                            }
-                        </article>
-                    </div>
-                    <div class="clr"></div>
-                    @if (Model.RelatedProducts.Count > 0)
-                    {
-                        <div class="compare">
-                            <div class="tcpr">
-                                <h4>@Localizer["Compare with similar products"]</h4>
-                            </div>
-                            <div class="row product-list">
-                                <div id="owl-promo" class="owl-carousel homepromo ">
-                                    @foreach (var product in Model.RelatedProducts)
-                                    {
-                                        <div class="item">
-                                            <partial name="/Themes/TheGioiDiDong/Areas/Catalog/Views/Shared/_ProductThumbnail.cshtml" model="product" />
-                                        </div>
-                                    }
-                                </div>
-                            </div>
-                        </div>
-                    }
-
-                    <div class="comdetail">
-                        <div class="wrap_comment" title="Bình luận sản phẩm" id="comment" cmtcategoryid="2" siteid="1" detailid="154897" cateid="15" urlpage="" pagesize="5">
-                            <div>
-                                <h3 class="p-t-25 p-b-25">@Localizer["Customer reviews"]</h3>
-                                @await Component.InvokeAsync("Review", new { entityId = Model.Id, entityTypeId = "Product" })
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        @*<h3>@Localizer["Customer comments"]</h3>*@
-                        <h3>Bình luận</h3>
-                        @await Component.InvokeAsync("Comment", new { entityId = Model.Id, entityTypeId = "Product" })
-                    </div>
-
-
-                </aside>
-            </div>
-            <div class="col-md-4">
-                <aside class="">
-                    <div class="tableparameter">
-                        @if (Model.Attributes.Any())
-                        {
-                            <div class="table-attribute">
-                                <h3 class="p-t-25 p-b-25">@Localizer["Product specification"]</h3>
-                                <table class="table table-striped">
-                                    @foreach (var attribute in Model.Attributes)
-                                    {
-                                        <tr>
-                                            <td>@attribute.Name</td>
-                                            <td>@attribute.Value</td>
-                                        </tr>
-                                    }
-                                </table>
-                            </div>
-                        }
-                    </div>
-                    <div class="clr"></div>
-                    @await Component.InvokeAsync("NewItem")
-                </aside>
-            </div>
-            <div class="compare">
-                @await Component.InvokeAsync("ProductRecentlyViewed", new { productId = Model.Id })
-            </div>
-
+        <div class="compare">
+            @await Component.InvokeAsync("ProductRecentlyViewed", new { productId = Model.Id })
         </div>
-    </section>
 
-    @section scripts {
-        <partial name="_ValidationScriptsPartial" />
-        <script simpl-append-version="true" src="~/lib/smoothproducts/js/smoothproducts.js"></script>
-        <script simpl-append-version="true" src="~/modules/catalog/product-detail.js"></script>
-    }
+    </div>
+</section>
+
+@section scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script simpl-append-version="true" src="~/lib/smoothproducts/js/smoothproducts.js"></script>
+    <script simpl-append-version="true" src="~/modules/catalog/product-detail.js"></script>
+}

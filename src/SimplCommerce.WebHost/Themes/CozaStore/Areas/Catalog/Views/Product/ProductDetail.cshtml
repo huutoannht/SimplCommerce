@@ -91,7 +91,7 @@
                     </div>
                 </form>
 
-                foreach (var variant in Model.Variations)
+                @foreach (var variant in Model.Variations)
                 {
                     var hidden = variant != Model.Variations.First() ? "collapse" : "";
                     <div class="product-variation @hidden" data-variation-name="@variant.NormalizedName">

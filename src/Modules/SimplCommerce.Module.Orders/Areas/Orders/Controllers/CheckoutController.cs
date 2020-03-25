@@ -85,7 +85,7 @@ namespace SimplCommerce.Module.Orders.Areas.Orders.Controllers
 
             cart.ShippingData = JsonConvert.SerializeObject(model);
             await _cartRepository.SaveChangesAsync();
-            return Redirect("~/checkout/payment");
+            return Redirect("~/CoD/CoDCheckout");
         }
 
         [HttpPost("update-tax-and-shipping-prices")]

@@ -3,17 +3,19 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using SimplCommerce.Infrastructure.Data;
 using SimplCommerce.Infrastructure.Web;
 using SimplCommerce.Module.Core.Extensions;
 using SimplCommerce.Module.Core.Services;
+using SimplCommerce.Module.EmailSenderSmtp;
 using SimplCommerce.Module.Orders.Areas.Orders.ViewModels;
 using SimplCommerce.Module.Orders.Models;
 
 namespace SimplCommerce.Module.Orders.Areas.Orders.Controllers
 {
     [Area("Orders")]
-    [Authorize(Roles = "admin, vendor")]
+    //[Authorize(Roles = "admin, vendor")]
     [Route("api/invoices")]
     public class InvoiceApiController : Controller
     {
@@ -21,13 +23,19 @@ namespace SimplCommerce.Module.Orders.Areas.Orders.Controllers
         private readonly IWorkContext _workContext;
         private readonly IRazorViewRenderer _viewRender;
         private readonly IPdfConverter _pdfConverter;
+        private readonly string _userReceivedComment;
+        private readonly IConfiguration _config;
 
-        public InvoiceApiController(IRepository<Order> orderRepository, IWorkContext workContext, IRazorViewRenderer viewRender, IPdfConverter pdfConverter)
+        public InvoiceApiController(IRepository<Order> orderRepository, IWorkContext workContext, IRazorViewRenderer viewRender, 
+            IPdfConverter pdfConverter,
+             IConfiguration config)
         {
             _orderRepository = orderRepository;
             _workContext = workContext;
             _viewRender = viewRender;
             _pdfConverter = pdfConverter;
+            _config = config;
+            _userReceivedComment = config.GetValue<string>("Comment.EmailReceviced");
         }
 
         [HttpGet("print/{id}")]
@@ -49,10 +57,10 @@ namespace SimplCommerce.Module.Orders.Areas.Orders.Controllers
             }
 
             var currentUser = await _workContext.GetCurrentUser();
-            if (!User.IsInRole("admin") && order.VendorId != currentUser.VendorId)
-            {
-                return BadRequest(new { error = "You don't have permission to manage this order" });
-            }
+            //if (!User.IsInRole("admin") && order.VendorId != currentUser.VendorId)
+            //{
+            //    return BadRequest(new { error = "You don't have permission to manage this order" });
+            //}
 
             var model = new OrderDetailVm
             {
@@ -97,8 +105,19 @@ namespace SimplCommerce.Module.Orders.Areas.Orders.Controllers
             };
 
             var invoiceHtml = await _viewRender.RenderViewToStringAsync("/Areas/Orders/Views/Shared/InvoicePdf.cshtml", model);
-            byte[] pdf = _pdfConverter.Convert(invoiceHtml);
-            return File(pdf, "application/pdf", $"Invoice-{id}.pdf");
+            var emailSubject = $"[laptopcudanang.com.vn] Hệ thống nhận được order.";
+            var emailSender = new EmailSender(_config);
+            try
+            {
+                _ = Task.Run(() => emailSender.SendEmailAsync(_userReceivedComment, emailSubject, invoiceHtml, true));
+            }
+            catch (System.Exception ex)
+            {
+
+            }
+            return StatusCode(Microsoft.AspNetCore.Http.StatusCodes.Status200OK);
+            //byte[] pdf = _pdfConverter.Convert(invoiceHtml);
+            //return File(pdf, "application/pdf", $"Invoice-{id}.pdf");
         }
     }
 }
