@@ -49,8 +49,7 @@
 
         function getProducts(params) {
             return $http.post('api/products/grid', params);
-        }
-
+        } 
         function createProduct(product, thumbnailImage,promotionImage, productImages, productDocuments) {
             return Upload.upload({
                 url: 'api/products',

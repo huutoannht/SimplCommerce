@@ -10,4 +10,27 @@
     <meta name="description" content="@Model.MetaDescription" />
 }
 
-<div class="pageDetail">@Html.Raw(Model.Body)</div>
+<style>
+    .double-block .content-block.main {
+        width: 890px !important;
+    }
+</style>
+<div class="main-page left">
+
+    <!-- BEGIN .single-block -->
+    <div class="single-block">
+
+        <!-- BEGIN .content-block -->
+        <div class="content-block main left">
+
+            <div class="block">
+                <div class="block-title">
+                    <h2> @Model.Name</h2>
+                </div>
+                <div class="block-content">
+                    <div class="pageDetail">@Html.Raw(Model.Body)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

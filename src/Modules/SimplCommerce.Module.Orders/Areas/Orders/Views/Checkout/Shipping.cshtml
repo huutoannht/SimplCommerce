@@ -26,6 +26,8 @@
 </style>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker-standalone.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" />
 <div class="main-page left">
 
     <!-- BEGIN .single-block -->
@@ -62,8 +64,7 @@
                                             }*@
                                         <div class="radio">
                                             <label>
-                                                <input type="radio" name="ShippingAddressId" checked="@(Model.ShippingAddressId == 0 ? "checked" : null)" value="0" />
-                                                @Localizer["Add another address"]
+                                                <input type="hidden" name="ShippingAddressId" checked="checked" value="0" />
                                             </label>
                                         </div>
                                         <div class="">
@@ -104,7 +105,7 @@
                                                 </div>
                                             </div>
 
-                                            <div  class="form-group row">
+                                            <div class="form-group row">
                                                 <label class="col-sm-4 col-form-label">@Localizer["Phường/ Xã"]</label>
                                                 <div class="col-sm-8">
                                                     <input asp-for="NewAddressForm.Ward" type="text" class="form-control">
@@ -156,14 +157,14 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-4 col-form-label">@Localizer["Ở từ ngày"]</label>
                                                 <div class="col-sm-8">
-                                                    <input asp-for="BookingRoomVm.FromDate" type="date" class="form-control">
+                                                    <input asp-for="BookingRoomVm.FromDate" type="date" class="form-control datepicker">
                                                     <span asp-validation-for="BookingRoomVm.FromDate" class="text-danger"></span>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-sm-4 col-form-label">@Localizer["Ở đến ngày"]</label>
                                                 <div class="col-sm-8">
-                                                    <input asp-for="BookingRoomVm.ToDate" type="date" class="form-control">
+                                                    <input asp-for="BookingRoomVm.ToDate" type="text" class="form-control datepicker">
                                                     <span asp-validation-for="BookingRoomVm.ToDate" class="text-danger"></span>
 
                                                 </div>
@@ -195,18 +196,18 @@
                                         </div>
                                         <div class="">
                                             <div class="form-group row">
-                                                <label class="col-sm-4 col-form-label">@Localizer["Số hiệu chuyến bay"]</label>
+                                                <label class="col-sm-4 col-form-label">@Localizer["Thời gian hạ cánh"]</label>
                                                 <div class="col-sm-8">
-                                                    <input asp-for="ServicesFlightVm.FlightNumber" type="text" class="form-control">
-                                                    <span asp-validation-for="ServicesFlightVm.FlightNumber" class="text-danger"></span>
+                                                    <input asp-for="ServicesFlightVm.LandingTime" type="text" class="form-control datepicker">
+                                                    <span asp-validation-for="ServicesFlightVm.LandingTime" class="text-danger"></span>
 
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-sm-4 col-form-label">@Localizer["Thời gian hạ cánh"]</label>
+                                                <label class="col-sm-4 col-form-label">@Localizer["Số hiệu chuyến bay"]</label>
                                                 <div class="col-sm-8">
-                                                    <input asp-for="ServicesFlightVm.LandingTime" type="text" class="form-control">
-                                                    <span asp-validation-for="ServicesFlightVm.LandingTime" class="text-danger"></span>
+                                                    <input asp-for="ServicesFlightVm.FlightNumber" type="text" class="form-control">
+                                                    <span asp-validation-for="ServicesFlightVm.FlightNumber" class="text-danger"></span>
 
                                                 </div>
                                             </div>
@@ -250,4 +251,13 @@
 @section scripts {
     <partial name="_ValidationScriptsPartial" />
     <script simpl-append-version="true" src="~/modules/orders/checkout.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
+    <script>
+        $(function () {
+            $('.datepicker').datetimepicker();
+        });
+    </script>
 }

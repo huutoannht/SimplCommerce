@@ -149,6 +149,21 @@
                     url: '/product-clone/:id',
                     templateUrl: 'modules/catalog/admin/product-clone/product-clone-form.html',
                     controller: 'ProductCloneFormCtrl as vm'
+                })
+                .state('product-album', {
+                    url: '/product-album',
+                    templateUrl: 'modules/catalog/admin/product-album/product-list.html',
+                    controller: 'ProductAlbumListCtrl as vm'
+                })
+                .state('product-album-create', {
+                    url: '/product-album-create',
+                    templateUrl: 'modules/catalog/admin/product-album/product-form.html',
+                    controller: 'ProductAlbumFormCtrl as vm'
+                })
+                .state('product-album-edit', {
+                    url: '/product-album/edit/:id',
+                    templateUrl: 'modules/catalog/admin/product-album/product-form.html',
+                    controller: 'ProductAlbumFormCtrl as vm'
                 });
         }]);
 })();

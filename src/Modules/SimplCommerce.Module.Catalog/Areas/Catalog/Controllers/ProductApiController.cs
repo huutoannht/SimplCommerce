@@ -402,7 +402,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
         [HttpPost("grid")]
         public async Task<IActionResult> List([FromBody] SmartTableParam param)
         {
-            var query = _productRepository.Query().Where(x => !x.IsDeleted && x.Id != 285 && x.Id != 286);
+            var query = _productRepository.Query().Where(x => !x.IsDeleted );
             var currentUser = await _workContext.GetCurrentUser();
             if (!User.IsInRole("admin"))
             {
@@ -450,6 +450,14 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
                         query = query.Where(x => x.CreatedOn >= after);
                     }
                 }
+                if (search.IsAlbum != null)
+                {
+                    query = query.Where(x => x.Categories.Where(m => m.CategoryId == 20078).Any());
+                }
+            }
+            else
+            {
+                query = query.Where(x => !x.Categories.Where(m => m.CategoryId == 20078).Any());
             }
 
             var gridData = query.ToSmartTableResult(

@@ -120,6 +120,7 @@
     <None Remove="Themes\Gallery\Views\Shared\_Layout.cshtml" />
     <None Remove="Themes\Gallery\Views\Shared\_LoginPartial.cshtml" />
     <None Remove="Themes\Gallery\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\Tourims\Areas\Catalog\Views\Category\CategoryAlbum.cshtml" />
     <None Remove="Themes\Tourims\Areas\Catalog\Views\Category\CategoryDetail.cshtml" />
     <None Remove="Themes\Tourims\Areas\Catalog\Views\Category\CategoryDetailLoadMore.cshtml" />
     <None Remove="Themes\Tourims\Areas\Catalog\Views\Product\ProductDetail.cshtml" />

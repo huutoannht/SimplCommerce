@@ -68,11 +68,10 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
 
             return PartialView(model);
         }
-        [HttpGet("album-anh")]
+        [HttpGet("album-anh/xem-anh/{id}")]
         public async Task<IActionResult> ProductImage(long id)
         {
             var host = "https://" + Request.Host + Request.Path;
-            id = 285;
             ViewBag.Host = host;
             var product = _productRepository.Query()
                 .Include(x => x.ThumbnailImage)
