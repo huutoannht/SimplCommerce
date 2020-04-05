@@ -155,7 +155,6 @@ namespace SimplCommerce.WebHost
                     .AddRedirect("^tieu-chi-de-chon-mua-laptop-do-hoa-cu", "/laptop-do-hoa-ky-thuat")
                     .AddRedirect("^sinh-vien-dan-ky-thuat-nen-dung-laptop-nao-2019", "/laptop-do-hoa-ky-thuat")
                     .AddRedirect("^nhung-dieu-gi-lam-nen-ten-tuoi-thuong-hieu-laptop-msi-cu", "/laptop-msi-cu")
-                    .AddRedirect("^nen-mua-laptop-gaming-choi-game-hang-nao-loai-nao-tot-nhat-hien-nay", "/laptop-gaming")
                     .AddRedirect("^mua-laptop-dell-gia-re-chinh-hang-o-dau-da-nang", "/laptop-dell-cu")
                     .AddRedirect("^may-tinh-laptop-dell-la-thuong-hieu-cua-nuoc-nao-san-xuat-o-dau", "/laptop-dell-cu")
                     .AddRedirect("^dia-chi-mua-ban-cuc-sac-cu-sac-laptop-dell-o-dau-tai-da-nang", "/laptop-dell-cu")
@@ -170,7 +169,6 @@ namespace SimplCommerce.WebHost
                     .AddRedirect("^cac-dong-laptop-asus-gia-re-tai-cua-hang-laptop-cu-da-nang", "/laptop-asus-cu")
                     .AddRedirect("^cac-dong-laptop-asus-choi-game-gia-re-nhat-2019", "/laptop-gaming")
                     .AddRedirect("^lam-viec-van-phong-thi-nen-chon-mua-laptop-cu-loai-nao", "/laptop-hoc-tap-van-phong")
-                    .AddRedirect("^laptop-gaming-co-lam-do-hoa-duoc-khong", "/laptop-gaming")
                     .AddRewrite(@"^rewrite-rule/(\d+)/(\d+)", "rewritten?var1=$1&var2=$2",
                         skipRemainingRules: true)
                     .AddApacheModRewrite(apacheModRewriteStreamReader)
