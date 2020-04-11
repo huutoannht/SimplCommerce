@@ -35,7 +35,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Components
             };
 
             var query = _productRepository.Query().Include(m=>m.Brand)
-              .Where(x => x.IsPublished && x.IsVisibleIndividually);
+              .Where(x => x.IsPublished && !x.IsDeleted && x.IsVisibleIndividually);
 
             if (model.Setting.CategoryId.HasValue && model.Setting.CategoryId.Value > 0)
             {
