@@ -27,7 +27,7 @@
         vm.deleteBookingRoom = function deleteBookingRoom(BookingRoom) {
             bootbox.confirm('Are you sure you want to delete this booking type: ' + BookingRoom.name, function (result) {
                 if (result) {
-                    bookingRoomService.deleteStateProvince(BookingRoom)
+                    bookingRoomService.deleteBookingRoom(BookingRoom)
                         .then(function (result) {
                             vm.getBookingRoom(vm.tableStateRef);
                             toastr.success(BookingRoom.name + ' has been deleted');

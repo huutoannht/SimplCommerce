@@ -209,19 +209,15 @@ a:focus {
 }
 
 .header > .wrapper {
-	padding: 16px 0px;
-	background: transparent!important;
+	/*padding: 16px 0px;*/
 	position: relative;
 }
 
-.header .wrapper {
-	background: inherit;
-}
 
     .header .header-logo {
         float: left;
         display: inline;
-        margin-left: 12px;
+        /*margin-left: 12px;*/
     }
 
 .header .header-logo h1 {
@@ -235,7 +231,7 @@ a:focus {
 .header .header-addons {
 	float: right;
 	display: inline;
-	margin-right: 12px;
+	/*margin-right: 12px;*/
 	text-align: right;
 }
 
@@ -245,13 +241,22 @@ a:focus {
 	clear: both;
 }
 
-.header .header-menu {
-	display: inline;
-	float: left;
-	margin-left: 20px;
-	/*width: 33%;*/
+    .header .header-menu {
+        display: inline;
+        float: left;
+        background-image: url(../images/banner.jpg) !important;
+        background-position: center center !important;
+        background-repeat: no-repeat !important;
+        background-size: cover;
+        text-align: center;
+        width: 1019px;
+        height: 146px;
+    }
+.wide-banner img, .banner img {
+    width: 1019px;
+    float: left;
+    height: 146px;
 }
-
 .header .header-menu ul {
 	display: block;
 	margin-bottom: 7px;
@@ -420,11 +425,11 @@ a:focus {
 	border-top: 1px solid rgba(0,0,0,0.15);
 }
 
-.main-menu .the-menu {
-	display: block;
-	font-size: 0;
-	background: inherit;
-}
+    .main-menu .the-menu {
+        display: block;
+        font-size: 0;
+        background: #5a9e25;
+    }
 
 .main-menu .the-menu:after {
 	display: block;
@@ -775,7 +780,7 @@ a:focus {
 .banner {
 	display: block;
 	text-align: center;
-	padding: 10px 0px;
+	/*padding: 10px 0px;*/
 }
 
 .banner:first-child {
@@ -786,11 +791,6 @@ a:focus {
 	width: 22.6%!important;
 }
 
-.wide-banner img,
-.banner img {
-	max-width: 100%;
-	height: auto;
-}
 
 .article-block {
 	display: block;
@@ -1473,10 +1473,11 @@ a.custom-soc:hover {
 	margin: 20px auto;
 }
 
-#writecomment p {
-	display: block;
-	position: relative;
-}
+    #writecomment p {
+        display: block;
+        position: relative;
+        padding-bottom: 10px;
+    }
     #writecomment p input[type=submit], .button {
         display: inline-block;
         background: #5a9e25;
@@ -2789,4 +2790,7 @@ ol, ul {
 }
 .section-slide{
     margin-bottom:10px;
+}
+span.language{
+    padding-left:5px;
 }

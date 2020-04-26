@@ -41,7 +41,7 @@ namespace SimplCommerce.Module.Core.Areas.Core.Controllers
         public IActionResult Index()
         {
             var model = new HomeViewModel();
-
+            ViewBag.IsHomePage = "Home";
             model.WidgetInstances = _widgetInstanceService.GetPublished()
                 .OrderBy(x => x.DisplayOrder)
                 .Select(x => new WidgetInstanceViewModel

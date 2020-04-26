@@ -13,19 +13,19 @@
     <link rel="shortcut icon" href="~/themes/Tourims/images/favicon.ico" type="image/x-icon" />
 
     <!-- Stylesheets -->
-    <link simpl-append-version="true"  type="text/css" rel="stylesheet" href="~/themes/Tourims/css/reset.css" />
-    <link simpl-append-version="true"  type="text/css" rel="stylesheet" href="~/themes/Tourims/css/main-stylesheet.css" />
-    <link simpl-append-version="true"  type="text/css" rel="stylesheet" href="~/themes/Tourims/css/lightbox.css" />
-    <link simpl-append-version="true"  type="text/css" rel="stylesheet" href="~/themes/Tourims/css/shortcode.css" />
+    <link simpl-append-version="true" type="text/css" rel="stylesheet" href="~/themes/Tourims/css/reset.css" />
+    <link simpl-append-version="true" type="text/css" rel="stylesheet" href="~/themes/Tourims/css/main-stylesheet.css" />
+    <link simpl-append-version="true" type="text/css" rel="stylesheet" href="~/themes/Tourims/css/lightbox.css" />
+    <link simpl-append-version="true" type="text/css" rel="stylesheet" href="~/themes/Tourims/css/shortcode.css" />
     @*<link simpl-append-version="true"  type="text/css" rel="stylesheet" href="~/themes/Tourims/css/fonts.css" />*@
-    <link simpl-append-version="true"  type="text/css" rel="stylesheet" href="~/themes/Tourims/css/colors.css" />
+    <link simpl-append-version="true" type="text/css" rel="stylesheet" href="~/themes/Tourims/css/colors.css" />
     <!--[if lte IE 8]>
     <link type="text/css" rel="stylesheet" href="~/themes/Tourims/css/ie-ancient.css" />
     <![endif]-->
-    <link simpl-append-version="true"  type="text/css" rel="stylesheet" href="~/themes/Tourims/css/responsive.css" />
+    <link simpl-append-version="true" type="text/css" rel="stylesheet" href="~/themes/Tourims/css/responsive.css" />
     <link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/CozaStore/vendor/slick/slick.css" />
-    <link simpl-append-version="true"  href="~/themes/Tourims/css/site.min.css" rel="stylesheet" />
-    <link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+    <link simpl-append-version="true" href="~/themes/Tourims/css/site.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
     @RenderSection("head", required: false)
     <!-- END head -->
 </head>
@@ -50,19 +50,14 @@
         <div class="header">
 
             <!-- BEGIN .wrapper -->
-            <div class="wrapper">
+            <div class="wrapper banner">
 
-                <div class="header-logo">
+                @*<div class="header-logo">
                     <a href="/"> @await Component.InvokeAsync("FooterPage", new { id = 21 })</a>
-                </div>
-
-                <div class="header-menu" style="text-align:center;padding-top: 40px;">
-                    <h3 style="width: 526px;color: #edda07;font-weight: bold;">VƯỜN QUỐC GIA ĐẦU TIÊN CỦA VIỆT NAM</h3>
-                    <h6 style="color: #e6d608;font-style: italic;">CUC PHUONG NATIONAL PARK</h6>
-                    @*<p>
-                            @Localizer["Vườn bách thảo Cúc Phương được thành lập năm 1985 và cũng là nơi đầu tiên nằm trong hệ thống vườn quốc gia và khu bảo tồn tại Việt Nam"]
-                        </p>*@
-                </div>
+                </div>*@
+                <img src="~/themes/Tourims/images/banner.jpg" class="img-banner"/>
+                @*<div class="header-menu">
+                </div>*@
 
                 <div class="header-addons">
                     @*<div class="header-weather">
@@ -71,13 +66,7 @@
                             <span class="city"><small>Cloudy</small><b>Hà nội</b></span>
                         </div>*@
                     <div class="header-weather">
-                        @*<span class="city">
-                                <a href="/Localization/Localization/SetLanguage?culture=en-US"> <img src="~/themes/Tourims/images/icon-en.jpg" alt="" /></a>
-
-                            </span>
-                            <span class="city">
-                                <a href="/Localization/Localization/SetLanguage?culture=vi-VN"> <img src="~/themes/Tourims/images/icon-vn.jpg" alt="" /></a>
-                            </span>*@
+                    
                         @await Component.InvokeAsync("FooterPage", new { id = 22 })
                     </div>
                     @*<div class="header-search">
@@ -112,138 +101,54 @@
 
             </div>
 
-            <!-- END .header -->
         </div>
 
-        <!-- BEGIN .content -->
         <div class="content">
 
-            <!-- BEGIN .wrapper -->
             <div class="wrapper">
 
-                <div class="ad-banner">
-                    <a href="contact-us.html" class="ad-link top"><span class="icon-text">&#9662;</span>Advertisement<span class="icon-text">&#9662;</span></a>
-                </div>
-                @await Component.InvokeAsync("Headline")
+                @*@await Component.InvokeAsync("Headline")*@
 
                 <div class="main-content">
                     @RenderBody()
-                    <!-- BEGIN .main-page -->
-                    <!-- BEGIN .main-sidebar -->
-                    <div class="main-sidebar right">
-                        <!-- BEGIN .widget -->
-                        <div class="widget">
-                            <h3>@Localizer["Liên kết"]</h3>
-                            <div class="widget-social">
-                                <div class="fb-page" data-href="https://www.facebook.com/caychongannam/" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/caychongannam/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/caychongannam/">Vườn Quốc Gia Cúc Phương</a></blockquote></div>
-                            </div>
-                            <!-- END .widget -->
-                        </div>
-
-                        <!-- BEGIN .widget -->
-                        @*<div class="widget">
-                            <h3>@Localizer["Lịch"]</h3>
-                            <div id="calendar_wrap">
-                                <table id="wp-calendar">
-                                    <caption>@DateTime.Today.ToShortDateString()</caption>
-                                    @{ int dateOfWeek = DateTime.Today.Day;}
-                                    <thead>
-                                        <tr>
-                                            <th scope="col" title="Monday">M</th>
-                                            <th scope="col" title="Tuesday">T</th>
-                                            <th scope="col" title="Wednesday">W</th>
-                                            <th scope="col" title="Thursday">T</th>
-                                            <th scope="col" title="Friday">F</th>
-                                            <th scope="col" title="Saturday">S</th>
-                                            <th scope="col" title="Sunday">S</th>
-                                        </tr>
-                                    </thead>
-
-                                    <tfoot>
-                                        <tr>
-                                            <td colspan="3" id="prev"></td>
-                                            <td class="pad">&nbsp;</td>
-                                            <td colspan="3" id="next" class="pad">&nbsp;</td>
-                                        </tr>
-                                    </tfoot>
-
-                                    <tbody>
-                                        <tr>
-                                            <td colspan="1" class="pad">&nbsp;</td>
-                                            @for (int i = 1; i < 7; i++)
-                                            {
-                                                <td id="@(i==dateOfWeek?"today":"")">@i</td>
-                                            }
-                                        </tr>
-                                        <tr>
-                                            @for (int i = 7; i < 13; i++)
-                                            {
-                                                <td id="@(i==dateOfWeek?"today":"")">@i</td>
-                                            }
-                                        </tr>
-                                        <tr>
-                                            @for (int i = 14; i < 20; i++)
-                                            {
-                                                <td id="@(i==dateOfWeek?"today":"")">@i</td>
-                                            }
-                                        </tr>
-                                        <tr>
-                                            @for (int i = 21; i < 27; i++)
-                                            {
-                                                <td id="@(i==dateOfWeek?"today":"")">@i</td>
-                                            }
-                                        </tr>
-                                        <tr>
-                                            @for (int i = 28; i <= 31; i++)
-                                            {
-                                                <td id="@(i==dateOfWeek?"today":"")">@i</td>
-                                            }
-                                            <td class="pad" colspan="3">&nbsp;</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>*@
-
-                        <!-- BEGIN .widget -->
-                        <div class="widget">
-                            <h3>@Localizer["Banner"]</h3>
-                            <div class="latest-galleries">
-
-                                <div class="gallery-widget">
-                                    @await Component.InvokeAsync("FooterPage", new { id = 19 })
+                    @if (ViewBag.IsHomePage == null)
+                    {
+                        <div class="main-sidebar right">
+                            <div class="widget">
+                                <h3>@Localizer["Liên kết"]</h3>
+                                <div class="widget-social">
+                                    <div class="fb-page" data-href="https://www.facebook.com/caychongannam/" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/caychongannam/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/caychongannam/">Vườn Quốc Gia Cúc Phương</a></blockquote></div>
                                 </div>
+                            </div>
+                            <div class="widget">
+                                <h3>@Localizer["Banner"]</h3>
+                                <div class="latest-galleries">
 
-                                <div class="gallery-widget">
-                                    @await Component.InvokeAsync("FooterPage", new { id = 20 })
+                                    <div class="gallery-widget">
+                                        @await Component.InvokeAsync("FooterPage", new { id = 19 })
+                                    </div>
+
+                                    <div class="gallery-widget">
+                                        @await Component.InvokeAsync("FooterPage", new { id = 20 })
+                                    </div>
+
                                 </div>
-
                             </div>
-                            <!-- END .widget -->
-                        </div>
-                        <div class="widget">
-                            <h3>Views</h3>
-                            <div class="tag-cloud">
-                                <a href="category.html">Hôm qua :20343</a><br />
-                                <a href="category.html">Hôm nay : 3234</a><br />
-                                <a href="category.html">Tháng này : 329385</a><br />
+                            <div class="widget">
+                                <h3>Views</h3>
+                                <div class="tag-cloud">
+                                    <a href="category.html">Hôm qua :20343</a><br />
+                                    <a href="category.html">Hôm nay : 3234</a><br />
+                                    <a href="category.html">Tháng này : 329385</a><br />
+                                </div>
                             </div>
-                            <!-- END .widget -->
                         </div>
-                        <!-- END .main-sidebar -->
-                    </div>
-
+                    }
                     <div class="clear-float"></div>
 
                 </div>
-
-                <!-- END .wrapper -->
             </div>
-
-            <!-- BEGIN .content -->
         </div>
-
-        <!-- BEGIN .footer -->
         <div class="footer">
 
             <!-- BEGIN .wrapper -->
@@ -251,10 +156,10 @@
 
                 <ul class="right">
                     <li><a href="/">@Localizer["Trang chủ"]</a></li>
-                    <li><a href="#">Bản đồ du lịch</a></li>
-                    <li><a href="https://facebook.com">Facebook</a></li>
+                    <li><a href="/ban-do-cuc-phuong">Bản đồ du lịch</a></li>
+                    <li><a href="https://www.facebook.com/caychongannam/">Facebook</a></li>
                     <li><a href="https://lichvannien365.com/lich-am-duong">Lịch vạn niên</a></li>
-                    <li><a href="/contact">Liên hệ</a></li>
+                    <li><a href="/lien-he">Liên hệ</a></li>
                 </ul>
 
                 <a href="/" class="logo-footer"><img src="~/themes/Tourims/images/logo-footer.png" alt="" /></a>
@@ -271,8 +176,8 @@
     </div>
 
     <!-- Scripts -->
-    <script simpl-append-version="true"  type="text/javascript" src="~/themes/Tourims/jscript/jquery-latest.min.js"></script>
-    <script simpl-append-version="true"  type="text/javascript"  src="~/themes/Tourims/jscript/theme-scripts.js"></script>
+    <script simpl-append-version="true" type="text/javascript" src="~/themes/Tourims/jscript/jquery-latest.min.js"></script>
+    <script simpl-append-version="true" type="text/javascript" src="~/themes/Tourims/jscript/theme-scripts.js"></script>
     <script simpl-append-version="true" type="text/javascript" src="~/themes/Tourims/jscript/lightbox.js"></script>
     @*<script type="text/javascript" src="~/themes/Tourims/jscript/demo-settings.js"></script>*@
     <script type="text/javascript" simpl-append-version="true" src="~/modules/core/main.js"></script>

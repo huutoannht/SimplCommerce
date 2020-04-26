@@ -9,43 +9,52 @@
 @inject IWorkContext WorkContext
 @inject SignInManager<User> SignInManager
 
-<div class="main-menu sticky" style="height: auto;">
-    <!-- BEGIN .wrapper -->
-    <div class="wrapper" style="left: auto; position: inherit; top: 0px;">
-        <ul class="the-menu ">
-            <li>
-                <a href="/">@Localizer["Trang chủ"]</a>
-            </li>
-            @foreach (var item in Model)
-            {
+    <div class="main-menu sticky" style="height: auto;">
+        <!-- BEGIN .wrapper -->
+        <div class="wrapper" style="left: auto; position: inherit; top: 0px;">
+            <ul class="the-menu ">
                 <li>
-                    <a href="~/@item.Slug"><span>@Localizer[item.Name]</span></a>
-                    @if (item.ChildItems.Count > 0)
-                    {
-
-                        <ul>
-                            @foreach (var childMenu in item.ChildItems)
-                            {
-                                <li><a href="~/@childMenu.Slug">@Localizer[childMenu.Name]</a></li>
-                            }
-                        </ul>
-                    }
+                    <a href="/">@Localizer["Trang chủ"]</a>
                 </li>
-            }
-            <li>
-                <a href="/phan-hoi">@Localizer["Phản hồi"]</a>
-            </li>
-            <li>
-                <a href="/album-anh">@Localizer["Thư viện ảnh"]</a>
-            </li>
-            <li>
-                <a href="/video">@Localizer["Video"]</a>
-            </li>
-            <li>
-                <a href="/lien-he">@Localizer["Liên hệ"]</a>
-            </li>
-        </ul>
-        <!-- END .wrapper -->
-    </div>
+                @foreach (var item in Model)
+                {
+                    <li>
+                        @if (item.ChildItems.Count > 0)
+                        {
+                            <a href="~/@item.Slug"><span>@Localizer[item.Name]</span></a>
+                            <ul>
+                                @foreach (var childMenu in item.ChildItems)
+                                {
+                                    <li><a href="~/@childMenu.Slug">@Localizer[childMenu.Name]</a></li>
+                                }
+                            </ul>
+                        }
+                        else
+                        {
+                            <a href="~/@item.Slug">@Localizer[item.Name]</a>
+                        }
+                    </li>
+                }
+                <li>
+                    <a href="/contact">@Localizer["Phản hồi"]</a>
+                </li>
+                <li>
+                    <a href="/album-anh">@Localizer["Thư viện ảnh"]</a>
+                </li>
+                <li>
+                    <a href="/video">@Localizer["Video"]</a>
+                </li>
+                <li>
+                    <a href="/lien-he">@Localizer["Liên hệ"]</a>
+                </li>
+            </ul>
+            <!-- END .wrapper -->
+        </div>
+        <span class="language">
+            <a href="/Localization/Localization/SetLanguage?culture=en-US"> <img src="~/themes/Tourims/images/icon-en.jpg" alt="" /></a>
 
-</div>
+        </span>
+        <span class="language">
+            <a href="/Localization/Localization/SetLanguage?culture=vi-VN"> <img src="~/themes/Tourims/images/icon-vn.jpg" alt="" /></a>
+        </span>
+    </div>

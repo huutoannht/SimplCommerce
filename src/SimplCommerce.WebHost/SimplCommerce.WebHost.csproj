@@ -173,6 +173,8 @@
     <None Remove="wwwroot\themes\Gallery\public\assets\js\picturefill.min.js" />
     <None Remove="wwwroot\themes\Tourims\css\site.css" />
     <None Remove="wwwroot\themes\Tourims\css\site.min.css" />
+    <None Remove="wwwroot\themes\Tourims\images\banner.jpg" />
+    <None Remove="wwwroot\themes\Tourims\images\banner.png" />
   </ItemGroup>
 
   <ItemGroup>
