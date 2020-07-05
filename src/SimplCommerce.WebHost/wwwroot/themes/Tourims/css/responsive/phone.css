@@ -54,10 +54,27 @@
 		display: none;
 	}
 
-	.footer ul {
-		display: none;
-	}
-
+    .footer ul {
+        /*display: none;*/
+        padding-left: 68px;
+       
+    }
+    .the-menu transition-active {
+        display: none;
+    }
+    .main-menu sticky {
+        display: none;
+    }
+    .banner:first-child {
+        background: #2b5d02;
+    }
+    .footer {
+        text-align: center;
+    }
+        .footer ul li a {
+            display: block;
+            font-size: 10vw!important;
+        }
 	.footer .logo-footer {
 		float: none;
 	}

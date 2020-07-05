@@ -25,7 +25,23 @@
                             <ul>
                                 @foreach (var childMenu in item.ChildItems)
                                 {
-                                    <li><a href="~/@childMenu.Slug">@Localizer[childMenu.Name]</a></li>
+                                    if (childMenu.ChildItems.Any())
+                                    {
+                                        <li>
+                                            <a class="" href="~/@childMenu.Slug"> <span>@Localizer[childMenu.Name]</span></a>
+                                            <ul >
+                                                @foreach (var childChildItem in childMenu.ChildItems)
+                                                {
+                                                    <li><a class="dropdown-item" href="/@childChildItem.Slug">@childChildItem.Name</a></li>
+                                                }
+                                            </ul>
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        <li><a href="/@childMenu.Slug">@childMenu.Name</a></li>
+                                    }
+
                                 }
                             </ul>
                         }
@@ -36,16 +52,11 @@
                     </li>
                 }
                 <li>
-                    <a href="/contact">@Localizer["Phản hồi"]</a>
+                    <a href="http://dulichcucphuong.com.vn/Checkout/shipping">@Localizer["Đặt tour"]</a>
                 </li>
+               
                 <li>
-                    <a href="/album-anh">@Localizer["Thư viện ảnh"]</a>
-                </li>
-                <li>
-                    <a href="/video">@Localizer["Video"]</a>
-                </li>
-                <li>
-                    <a href="/lien-he">@Localizer["Liên hệ"]</a>
+                    <a href="http://dulichcucphuong.com.vn/lien-he-chung-toi">@Localizer["Liên hệ"]</a>
                 </li>
             </ul>
             <!-- END .wrapper -->

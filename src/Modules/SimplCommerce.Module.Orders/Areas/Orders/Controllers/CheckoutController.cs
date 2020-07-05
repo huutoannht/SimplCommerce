@@ -19,7 +19,6 @@ namespace SimplCommerce.Module.Orders.Areas.Orders.Controllers
 {
     [Area("Orders")]
     [Route("checkout")]
-    [Authorize]
     [ApiExplorerSettings(IgnoreApi = true)]
     public class CheckoutController : Controller
     {
@@ -67,7 +66,7 @@ namespace SimplCommerce.Module.Orders.Areas.Orders.Controllers
 
             if (cart == null)
             {
-                throw new ApplicationException($"Cart of user {currentUser.Id} cannot be found");
+                cart = new Cart();
             }
 
             cart.ShippingData = JsonConvert.SerializeObject(model);
@@ -106,8 +105,12 @@ namespace SimplCommerce.Module.Orders.Areas.Orders.Controllers
         {
             var currentUser = await _workContext.GetCurrentUser();
             var cart = await _cartService.GetActiveCart(currentUser.Id).FirstOrDefaultAsync();
-            var orderTaxAndShippingPrice = await _orderService.UpdateTaxAndShippingPrices(cart.Id, model);
-
+            var orderTaxAndShippingPrice = new OrderTaxAndShippingPriceVm();
+            if (cart != null)
+            {
+                orderTaxAndShippingPrice = await _orderService.UpdateTaxAndShippingPrices(cart.Id, model);
+               
+            }
             return Ok(orderTaxAndShippingPrice);
         }
 

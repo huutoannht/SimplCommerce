@@ -185,7 +185,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
                 .Include(x => x.ThumbnailImage)
                 .Include(x => x.PromotionImage)
                 .Include(x => x.Medias).ThenInclude(m => m.Media)
-                .FirstOrDefault(x => x.Id == id && x.IsPublished);
+                .FirstOrDefault(x => x.Id == id && x.IsPublished && !x.IsDeleted);
             if (product == null)
             {
                 return NotFound();

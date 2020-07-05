@@ -58,9 +58,13 @@ namespace SimplCommerce.Module.Core.Services
 
         public void Update(string newName, string newSlug, long entityId, string entityTypeId)
         {
-            var entity = _entityRepository.Query().First(x => x.EntityId == entityId && x.EntityTypeId == entityTypeId);
-            entity.Name = newName;
-            entity.Slug = newSlug;
+            var entity = _entityRepository.Query().FirstOrDefault(x => x.EntityId == entityId && x.EntityTypeId == entityTypeId);
+            if (entity != null)
+            {
+                entity.Name = newName;
+                entity.Slug = newSlug;
+            }
+            
         }
 
         public async Task Remove(long entityId, string entityTypeId)

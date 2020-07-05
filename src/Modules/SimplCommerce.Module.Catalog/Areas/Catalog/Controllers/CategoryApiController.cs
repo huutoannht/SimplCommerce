@@ -118,15 +118,22 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
                 category.ParentId = model.ParentId;
                 category.IncludeInMenu = model.IncludeInMenu;
                 category.IsPublished = model.IsPublished;
-
-                if (category.ParentId.HasValue && await HaveCircularNesting(category.Id, category.ParentId.Value))
+                //if (category.ParentId !=null)
+                //{
+                //    ModelState.AddModelError("ParentId", "Parent category cannot be itself children");
+                //    return BadRequest(ModelState);
+                //}
+                try
                 {
-                    ModelState.AddModelError("ParentId", "Parent category cannot be itself children");
-                    return BadRequest(ModelState);
+                    await SaveCategoryImage(category, model);
+                    await _categoryService.Update(category);
                 }
+                catch (Exception ex)
+                {
 
-                await SaveCategoryImage(category, model);
-                await _categoryService.Update(category);
+                    throw;
+                }
+            
 
                 return Accepted();
             }

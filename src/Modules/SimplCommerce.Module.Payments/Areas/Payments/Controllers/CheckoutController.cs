@@ -15,7 +15,6 @@ namespace SimplCommerce.Module.Payments.Areas.Payments.Controllers
 {
     [Area("Payments")]
     [Route("checkout")]
-    [Authorize]
     [ApiExplorerSettings(IgnoreApi = true)]
     public class CheckoutController : Controller
     {

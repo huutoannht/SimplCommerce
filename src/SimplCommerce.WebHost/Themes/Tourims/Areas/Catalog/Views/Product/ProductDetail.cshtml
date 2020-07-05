@@ -54,49 +54,64 @@
                         @Html.Raw(Model.Description)
 
                         @*<div class="article-title">
-                <div class="share-block right">
-                    <div>
-                        <div class="share-article left">
-                            <span>Social media</span>
-                            <strong>Share this article</strong>
+                        <div class="share-block right">
+                            <div>
+                                <div class="share-article left">
+                                    <span>Social media</span>
+                                    <strong>Share this article</strong>
+                                </div>
+                                <div class="left">
+                                    <a href="#" class="custom-soc icon-text"></a>
+                                    <a href="#" class="custom-soc icon-text"></a>
+                                    <a href="#" class="custom-soc icon-text"></a>
+                                    <a href="#" class="custom-soc icon-text"></a>
+                                    <a href="#" class="custom-soc icon-text"></a>
+                                </div>
+                                <div class="clear-float"></div>
+                            </div>
+                            <div>
+                                <a href="#" class="small-button"><span class="icon-text"></span>&nbsp;&nbsp;Print this article</a>
+                                <a href="#" class="small-button"><span class="icon-text">✉</span>&nbsp;&nbsp;Send e-mail</a>
+                            </div>
                         </div>
-                        <div class="left">
-                            <a href="#" class="custom-soc icon-text"></a>
-                            <a href="#" class="custom-soc icon-text"></a>
-                            <a href="#" class="custom-soc icon-text"></a>
-                            <a href="#" class="custom-soc icon-text"></a>
-                            <a href="#" class="custom-soc icon-text"></a>
+
+                        <div class="author">
+                            <span class="hover-effect left delegate"><span class="cover" style="font-size:20px;"><i></i><img src="images/photos/avatar-2.jpg" alt=""></span></span>
+                            <div class="a-content">
+                                <span>By <b>Orange-Themes</b></span>
+                                <span class="meta">October 8, 2013 10:23 <span class="tag" style="background-color: #2a8ece;">Custom Tag</span></span>
+                            </div>
                         </div>
-                        <div class="clear-float"></div>
-                    </div>
-                    <div>
-                        <a href="#" class="small-button"><span class="icon-text"></span>&nbsp;&nbsp;Print this article</a>
-                        <a href="#" class="small-button"><span class="icon-text">✉</span>&nbsp;&nbsp;Send e-mail</a>
-                    </div>
-                </div>
 
-                <div class="author">
-                    <span class="hover-effect left delegate"><span class="cover" style="font-size:20px;"><i></i><img src="images/photos/avatar-2.jpg" alt=""></span></span>
-                    <div class="a-content">
-                        <span>By <b>Orange-Themes</b></span>
-                        <span class="meta">October 8, 2013 10:23 <span class="tag" style="background-color: #2a8ece;">Custom Tag</span></span>
-                    </div>
-                </div>
-
-                <div class="article-tags tag-cloud">
-                    <strong>TAGS:</strong><a href="#">Duo illum</a><a href="#">Veritus ullamcorper</a><a href="#">Molestiae</a><a href="#">Mea fugit appareat</a><a href="#">Delectus pericula id sea</a>
-                </div>
-            </div>*@
+                        <div class="article-tags tag-cloud">
+                            <strong>TAGS:</strong><a href="#">Duo illum</a><a href="#">Veritus ullamcorper</a><a href="#">Molestiae</a><a href="#">Mea fugit appareat</a><a href="#">Delectus pericula id sea</a>
+                        </div>
+                    </div>*@
 
                     </div>
-                    @if (@Model.Categories.FirstOrDefault()?.Id == 20076)
+                    @if (@Model.Categories.Any(m=>m.Id == 20076))
                     {
-                        <button type="button" class="button btn btn-lg btn-add-cart">@Localizer["Đặt tour"]</button>
+                        <button type="button" class="button btn btn-lg btn-danger btn-add-cart">@Localizer["Đặt tour"]</button>
                     }
                 </div>
 
-                <div class="fb-comments" data-href="@ViewBag.Host" data-width="" data-numposts="5" width="780" ></div>
+                <div class="fb-comments" data-href="@ViewBag.Host" data-width="" data-numposts="5" width="780"></div>
             </div>
+
+
+            @if (Model.RelatedProducts.Any())
+            {
+                <h3 class="p-t-25 p-b-25">Related Products</h3>
+                <div class="row product-list">
+                    @foreach (var product in Model.RelatedProducts)
+                    {
+                        <div class="col-xs-6 col-md-3">
+                            <partial name="_ProductThumbnail" model="product" />
+                        </div>
+                    }
+                </div>
+            }
+            @await Component.InvokeAsync("ProductRecentlyViewed", new { productId = Model.Id })
 
             <!-- END .content-block -->
         </div>

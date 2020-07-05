@@ -1,4 +1,4 @@
-
+﻿
 
 var supports = (function() {
   var div = document.createElement('div'),
@@ -252,9 +252,9 @@ function lightboxclose(){
  )( jQuery );
  
 
- jQuery(document).ready(
-   function(){jQuery('.breaking-news ul').marquee({delay:3000});}
- );
+ //jQuery(document).ready(
+ //  function(){jQuery('.breaking-news ul').marquee({delay:3000});}
+ //);
 
 
 

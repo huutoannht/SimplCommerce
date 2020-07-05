@@ -7,6 +7,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta property="fb:app_id" content="349559452627839" />
+    <meta property="og:url" content="@ViewBag.Host" />
+    <meta property="og:title" content="Du lịch Cúc Phương, Vườn quốc gia Cúc phương" />
+    <meta property="og:description" content="Vườn quốc gia đầu tiên của Việt Nam" />
+    <meta property="og:image" content="http://dulichcucphuong.com.vn/themes/Tourims/images/cpnp-logo.png" />
+    <meta property="og:type" content="website" /> 
+    <meta property="og:site_name" content="Vườn quốc gia Cúc phương" />
     @RenderSection("additionalMeta", false)
 
     <!-- Favicon -->
@@ -33,7 +40,7 @@
 <!-- BEGIN body -->
 <body>
     <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0"></script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v7.0&appId=349559452627839&autoLogAppEvents=1"></script>
     @*@RenderSection("featured", false)*@
     @*<div class="top-bar">
             <div class="container">
@@ -52,22 +59,28 @@
             <!-- BEGIN .wrapper -->
             <div class="wrapper banner">
 
-                @*<div class="header-logo">
-                    <a href="/"> @await Component.InvokeAsync("FooterPage", new { id = 21 })</a>
-                </div>*@
-                <img src="~/themes/Tourims/images/banner.jpg" class="img-banner"/>
-                @*<div class="header-menu">
-                </div>*@
+                <div class="header-logo">
+                    <img src="~/themes/Tourims/images/cpnp-logo.png" />
+                </div>
 
+                <div class="header-menu" style="text-align:center;padding-top: 40px;padding-left: 200px;">
+                    <h4 style="width: 526px;color: #edda07;font-weight: bold;">VƯỜN QUỐC GIA ĐẦU TIÊN CỦA VIỆT NAM</h4>
+                    <h6 style="color: #e6d608;font-style: italic;">CUC PHUONG NATIONAL PARK</h6>
+                </div>
                 <div class="header-addons">
-                    @*<div class="header-weather">
-                            <span class="report">+25°C</span>
-                            <img src="~/themes/Tourims/images/weather-sun-cloud.png" alt="" />
-                            <span class="city"><small>Cloudy</small><b>Hà nội</b></span>
-                        </div>*@
                     <div class="header-weather">
-                    
-                        @await Component.InvokeAsync("FooterPage", new { id = 22 })
+                        @*<span class="report"><i class="zmdi zmdi-search-in-page"></i></span> <br />*@
+                        <br />
+                        <div class="header-search pull-right">
+                            <form action="Search" method="get">
+                                <input type="text" placeholder="@Localizer["Tìm kiếm"].." value="" name="query" class="search-input" />
+                                <input type="submit" value="Search" class="search-button" />
+                            </form>
+                        </div>
+                    </div>
+                    <div class="header-weather">
+
+                        @*@await Component.InvokeAsync("FooterPage", new { id = 22 })*@
                     </div>
                     @*<div class="header-search">
                             <form action="#" method="get">
@@ -85,19 +98,15 @@
 
             <div class="secondary-menu">
 
-                <!-- BEGIN .wrapper -->
-                <div class="wrapper">
-
-                    <a href="/" style="color:#000000">@(DateTime.Today.DayOfWeek + "(" + @DateTime.Today.Date.ToString("dd/MM/yyyy") + ")")</a>
-                    <div class="header-search pull-right">
-                        <form action="Search" method="get">
-                            <input type="text" placeholder="@Localizer["Tìm kiếm"].." value="" name="query" class="search-input" />
-                            <input type="submit" value="Search" class="search-button" />
-                        </form>
-                    </div>
-
-                    <!-- END .wrapper -->
-                </div>
+                @*<div class="wrapper">
+                        <a href="/" style="color:#000000">@(DateTime.Today.DayOfWeek + "(" + @DateTime.Today.Date.ToString("dd/MM/yyyy") + ")")</a>
+                        <div class="header-search pull-right">
+                            <form action="Search" method="get">
+                                <input type="text" placeholder="@Localizer["Tìm kiếm"].." value="" name="query" class="search-input" />
+                                <input type="submit" value="Search" class="search-button" />
+                            </form>
+                        </div>
+                    </div>*@
 
             </div>
 
@@ -117,7 +126,7 @@
                             <div class="widget">
                                 <h3>@Localizer["Liên kết"]</h3>
                                 <div class="widget-social">
-                                    <div class="fb-page" data-href="https://www.facebook.com/caychongannam/" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/caychongannam/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/caychongannam/">Vườn Quốc Gia Cúc Phương</a></blockquote></div>
+                                    <div class="fb-page" data-href="https://www.facebook.com/CPNPtourism/" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/CPNPtourism/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/CPNPtourism/">Vườn Quốc Gia Cúc Phương</a></blockquote></div>
                                 </div>
                             </div>
                             <div class="widget">
@@ -155,14 +164,15 @@
             <div class="wrapper">
 
                 <ul class="right">
-                    <li><a href="/">@Localizer["Trang chủ"]</a></li>
-                    <li><a href="/ban-do-cuc-phuong">Bản đồ du lịch</a></li>
-                    <li><a href="https://www.facebook.com/caychongannam/">Facebook</a></li>
-                    <li><a href="https://lichvannien365.com/lich-am-duong">Lịch vạn niên</a></li>
-                    <li><a href="/lien-he">Liên hệ</a></li>
+                    <li><a href="/"><i class="zmdi zmdi-home"></i></a></li>
+                    @*<li><a href="/ban-do-cuc-phuong">Bản đồ du lịch</a></li>*@
+                    <li><a href="https://www.facebook.com/CPNPtourism/" target="_blank"><i class="zmdi zmdi-facebook-box"></i></a></li>
+                    <li><a href="https://lichvannien365.com/lich-am-duong" target="_blank"><i class="zmdi zmdi-calendar-note"></i></a></li>
+                    <li><a href="https://www.youtube.com/channel/UCHQv1POXF0ppZoZ-HLmlVlw" target="_blank"><i class="zmdi zmdi-youtube-play"></i></a></li>
+                    <li><a href="/lien-he"><i class="zmdi zmdi-phone"></i></a></li>
                 </ul>
 
-                <a href="/" class="logo-footer"><img src="~/themes/Tourims/images/logo-footer.png" alt="" /></a>
+                @*<a href="/" class="logo-footer"><img src="~/themes/Tourims/images/logo-footer.png" alt="" /></a>*@
 
                 <p>&copy; Copyrights ® 2011-@DateTime.Now.Year by <b>CUCPHUONG NATIONAL PARK.</b>. All Rights reserved.<br /></p>
 

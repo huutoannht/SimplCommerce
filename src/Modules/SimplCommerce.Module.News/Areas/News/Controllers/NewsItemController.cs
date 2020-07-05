@@ -30,7 +30,7 @@ namespace SimplCommerce.Module.News.Areas.News.Controllers
             _pageSize = config.GetValue<int>("News.PageSize");
         }
 
-        [HttpGet("news")]
+        [HttpGet("news123")]
         public IActionResult NewsHome(int page)
         {
             var host = "https://" + Request.Host + Request.Path;

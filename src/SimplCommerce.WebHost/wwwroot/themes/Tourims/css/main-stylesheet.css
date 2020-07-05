@@ -163,7 +163,7 @@ a:focus {
 }
 
 .wrapper {
-	width: 1220px;
+	/*width: 1220px;*/
 	margin: 0px auto;
 	position: relative;
 }
@@ -195,9 +195,9 @@ a:focus {
 /* #2 Main header */
 
 .header {
-	background-color: #5a9e25;
-	color: #fff;
-	box-shadow: inset 0px -140px 200px -50px rgba(0,0,0,0.15);
+    background-color: #2b5d02;
+    color: #fff;
+    box-shadow: inset 0px -140px 200px -50px rgba(0,0,0,0.15);
 }
 
 .header a {
@@ -244,18 +244,17 @@ a:focus {
     .header .header-menu {
         display: inline;
         float: left;
-        background-image: url(../images/banner.jpg) !important;
+        /*background-image: url(../images/banner.jpg) !important;
         background-position: center center !important;
         background-repeat: no-repeat !important;
         background-size: cover;
         text-align: center;
         width: 1019px;
-        height: 146px;
+        height: 146px;*/
     }
 .wide-banner img, .banner img {
-    width: 1019px;
     float: left;
-    height: 146px;
+    height: 118px;
 }
 .header .header-menu ul {
 	display: block;
@@ -318,12 +317,15 @@ a:focus {
 	vertical-align: baseline;
 }
 
-.header .header-addons .header-weather .report {
-	display: inline-block;
-	font-size: 26px;
-	font-weight: bold;
-	vertical-align: baseline;
-	line-height: 100%;
+    .header .header-addons .header-weather .report {
+        display: inline-block;
+        font-size: 26px;
+        font-weight: bold;
+        vertical-align: baseline;
+        line-height: 100%;
+         color: #000; 
+        font-size: 30px;
+    }
 }
 
 .header .header-addons .header-weather .city small {
@@ -378,7 +380,7 @@ a:focus {
 	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
 	filter: alpha(opacity=100);
 	opacity: 1;
-	width: 200px;
+	width: 300px;
 }
 
 #searchsubmit,
@@ -428,7 +430,7 @@ a:focus {
     .main-menu .the-menu {
         display: block;
         font-size: 0;
-        background: #5a9e25;
+        background: #2b5d02;
     }
 
 .main-menu .the-menu:after {
@@ -602,16 +604,18 @@ a:focus {
 
 .content {
 	display: block;
-	padding: 20px 0px 35px 0px;
+	padding: 1px 0px 0px 0px;
 	background: #f0efef;
-	min-height: 630px;
+	/*min-height: 630px;*/
 }
-
+.slick-initialized .slick-slide {
+    height: 461px;
+}
 .ad-banner {
-	display: block;
-	margin-bottom: 20px;
-	text-align: center;
-	position: relative;
+    display: block;
+    margin-bottom: 20px;
+    text-align: center;
+    position: relative;
 }
 
 .ad-link {
@@ -785,6 +789,7 @@ a:focus {
 
 .banner:first-child {
 	padding-top: 0px;
+    background:#ffff;
 }
 
 .double-block .widget .social-bar a {
@@ -2318,7 +2323,7 @@ a.hover-effect:hover .cover i:before {
 
 .footer ul li:after {
 	display: block;
-	content: '/';
+	/*content: '/';*/
 	position: absolute;
 	top: 0px;
 	right: -10px;
@@ -2328,9 +2333,11 @@ a.hover-effect:hover .cover i:before {
 	display: none;
 }
 
-.footer ul li a {
-	display: block;
-}
+    .footer ul li a {
+        display: block;
+        font-size: 2vw;
+        color: #2f8539;
+    }
 
 .footer a.orange-themes {
 	display: inline-block;
@@ -2761,9 +2768,10 @@ a.hover-effect:hover .cover i:before {
 	z-index: 1000;
 }
 
-.main-menu.sticky {
-	padding: 0px!important;
-}
+    .main-menu.sticky {
+        padding: 0px !important;
+        background: #2b5d02;
+    }
 
 .main-menu.sticky:before {
 	display: block;

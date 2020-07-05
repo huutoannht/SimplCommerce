@@ -5,19 +5,19 @@ namespace SimplCommerce.Module.Contacts.Areas.Contacts.ViewModels
 {
     public class ContactVm
     {
-        [Required]
+        [Required(ErrorMessage = "Mời nhập họ tên.")]
         public string FullName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Mời nhập số điện thoại.")]
         public string PhoneNumber { get; set; }
 
-        [Required]
-        [EmailAddress(ErrorMessage = "Invalid Email Address")]
+        [Required(ErrorMessage = "Mời nhập địa chỉ email")]
+        [EmailAddress(ErrorMessage = "Mời nhập đúng định dạng email")]
         public string EmailAddress { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Mời nhập địa chỉ.")]
         public string Address { get; set; }
-
+        [Required(ErrorMessage = "Mời nhập nội dung.")]
         public string Content { get; set; }
 
         public long ContactAreaId { get; set; }
