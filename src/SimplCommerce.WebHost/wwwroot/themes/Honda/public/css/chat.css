@@ -1,0 +1,80 @@
+/* CSS Document */
+.viet-net-chat-online, .viet-net-chat-offline{position:fixed; bottom:0px; right:7px; width:250px; max-width:100%; z-index:9999999; -webkit-box-shadow: 0px 0px 8px 0px rgba(50, 50, 50, 0.65); -moz-box-shadow: 0px 0px 8px 0px rgba(50, 50, 50, 0.65); box-shadow: 0px 0px 8px 0px rgba(50, 50, 50, 0.65); background:#FFF;  -webkit-border-top-left-radius: 5px; -webkit-border-top-right-radius: 5px; -moz-border-radius-topleft: 5px; -moz-border-radius-topright: 5px; border-top-left-radius: 5px; border-top-right-radius: 5px;}
+.viet-net-chat-online{}
+.viet-net-mini-online{background:#555555; position:relative; display:none; -webkit-border-top-left-radius: 5px;
+-webkit-border-top-right-radius: 5px;
+-moz-border-radius-topleft: 5px;
+-moz-border-radius-topright: 5px;
+border-top-left-radius: 5px;
+border-top-right-radius: 5px;}
+.viet-net-mini-online .title{display:block; line-height:35px; color:#FFF; font-weight:bold; text-align:center; font-size:14px; cursor:pointer}
+.viet-net-mini-online input{display:block; width:100%; line-height:30px; padding:0px 10px; border:none; border:1px solid #dddddd;}
+.viet-net-mini-online button{display:inline-block; position:absolute; border:none; background:transparent; height:30px; width:30px; line-height:26px; text-align:center; cursor:pointer; bottom:0px; right:10px; font-weight:bold; font-size:20px; color:#777777}
+.viet-net-mini-online .disabled{cursor:not-allowed;}
+.viet-next-chat-wrapper 
+
+
+
+.viet-net-online{background:#FFF; display:none;}
+.viet-net-online .viet-net-online .message-left{clear:both; position:relative}
+.viet-net-online .message-right{clear:both; position:relative}
+.viet-net-online .message-right .fa{display:inline-block; width:32px; height:32px; line-height:32px; text-align:center; color:#7e7e7e; border:1px solid #dddddd; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; position:absolute; bottom:0px; right:0px;}
+.viet-net-online .message-right > div{margin-right:40px; position:relative; min-height:32px; margin-bottom:7px; border:1px solid #eeeeee; -webkit-border-radius: 5px; -webkit-border-bottom-right-radius: 0; -moz-border-radius: 5px; -moz-border-radius-bottomright: 0; border-radius: 5px; border-bottom-right-radius: 0; background-color:#fbfbfb; color:#787878; padding:8px; position:relative;}
+.viet-net-online .message-right > div:after{display:block; content:" "; position:absolute; bottom:5px; right:-14px; border:7px solid #fbfbfb; border-top:7px solid transparent; border-right:7px solid transparent; border-bottom:7px solid transparent; z-index:99999}
+.viet-net-online .message-right > div:before{display:block; content:" "; position:absolute; bottom:5px; right:-15px; border:7px solid #eeeeee; border-top:7px solid transparent; border-right:7px solid transparent; border-bottom:7px solid transparent; z-index:9999}
+.viet-net-online .message-right > div b{display:block; font-weight:bold; margin-bottom:0px; cursor:pointer}
+.viet-net-online .message-right .message-time{display:block; font-size:10px; color:#807f7f; display:none;}
+
+.viet-net-online .message-left{clear:both; position:relative}
+.viet-net-online .message-left{clear:both; position:relative}
+.viet-net-online .message-left .fa{display:inline-block; width:32px; height:32px; line-height:32px; text-align:center; color:#7e7e7e; border:1px solid #dddddd; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; position:absolute; bottom:0px; left:0px;}
+.viet-net-online .message-left > div{margin-left:40px; position:relative; min-height:32px; margin-bottom:7px; border:1px solid #eeeeee; -webkit-border-radius: 5px; -webkit-border-bottom-right-radius: 0; -moz-border-radius: 5px; -moz-border-radius-bottomright: 0; border-radius: 5px; border-bottom-right-radius: 0; background-color:#fbfbfb; color:#787878; padding:8px; position:relative;}
+.viet-net-online .message-left > div:after{display:block; content:" "; position:absolute; bottom:5px; left:-14px; border:7px solid #fbfbfb; border-top:7px solid transparent; border-left:7px solid transparent; border-bottom:7px solid transparent; z-index:99999}
+.viet-net-online .message-left > div:before{display:block; content:" "; position:absolute; bottom:5px; left:-15px; border:7px solid #eeeeee; border-top:7px solid transparent; border-left:7px solid transparent; border-bottom:7px solid transparent; z-index:9999}
+.viet-net-online .message-left > div b{display:block; font-weight:bold; margin-bottom:0px; cursor:pointer}
+.viet-net-online .message-left .message-time{display:block; font-size:10px; color:#807f7f; display:none;}
+
+.viet-net-offline{display:none;}
+.viet-net-online .title, .viet-net-offline .title{display:block; position:relative; background-color:#555555; color:#b2b2b2; text-align:center; font-weight:bold; font-size:13px; line-height:25px; -webkit-border-top-left-radius: 5px; -webkit-border-top-right-radius: 5px; -moz-border-radius-topleft: 5px; -moz-border-radius-topright: 5px; border-top-left-radius: 5px; border-top-right-radius: 5px;}
+.viet-net-online .title .button-title, .viet-net-offline .title .button-title{display:inline-block; position:absolute; top:0px; right:0px; height:25px; line-height:20px; width:25px; cursor:pointer; text-align:center; font-weight:bold; font-size:30px; }
+.viet-net-online .support{display:block; position:relative; min-height:55px; padding-left:65px; border:1px solid #dddddd}
+.viet-net-online .support .fa{display:inline-block; width:50px; height:50px; line-height:50px; text-align:center; font-weight:bold; font-size:40px; position:absolute; top:-8px; left:8px; background:#ffffff; color:#787878; border:1px solid #dedede}
+.viet-net-online .content-support{color:#b6b6b6; padding:7px 0px;}
+.viet-net-online .title-support{display:block; font-weight:bold; font-size:14px; color:#000}
+.viet-net-online .content{display:block; padding:7px; border:1px solid #dddddd; border-top:0px; height:200px; overflow:scroll; overflow-x:hidden; overflow-y:scroll; font-size:12px;}
+.viet-net-online .content::-webkit-scrollbar-track{-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);background-color: #F5F5F5;}
+.viet-net-online .content::-webkit-scrollbar{width: 6px;background-color: #F5F5F5;}
+.viet-net-online .content::-webkit-scrollbar-thumb{background-color: #000000;}
+.viet-net-online textarea::-webkit-scrollbar-track{-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);background-color: #F5F5F5;}
+.viet-net-online textarea::-webkit-scrollbar{width: 6px;background-color: #F5F5F5;}
+.viet-net-online textarea::-webkit-scrollbar-thumb{background-color: #000000;}
+.viet-net-online .footer{display:block; border:1px solid #dddddd; border-top:0px; padding-top:7px;}
+.viet-net-online textarea{display:block; width: calc(100% - 14px); height:50px; line-height:16px; margin:7px; border:1px solid #6d6d6d; margin-top:0px; padding:4px 7px; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; -webkit-box-shadow: inset 0px 0px 7px 0px rgba(50, 50, 50, 0.5); -moz-box-shadow: inset 0px 0px 7px 0px rgba(50, 50, 50, 0.5); box-shadow: inset 0px 0px 7px 0px rgba(50, 50, 50, 0.5);}
+.viet-net-online textarea:hover, .viet-net-online textarea:focus{-webkit-box-shadow: inset 0px 0px 7px 0px rgba(120, 163, 0, 0.7); -moz-box-shadow: inset 0px 0px 7px 0px rgba(120, 163, 0, 0.7); box-shadow: inset 0px 0px 7px 0px rgba(120, 163, 0, 0.7); border-color:#78a300}
+.viet-net-online .infomation{display:block; cursor:pointer; line-height:25px; padding-left:10px; color:#b5b5b5}
+
+.viet-net-mini-offline{display:none;}
+.viet-net-mini-offline .title{display:block; background:#555555; position:relative; padding-left:40px; color:#FFF; font-weight:bold; -webkit-border-top-left-radius: 5px; -webkit-border-top-right-radius: 5px; -moz-border-radius-topleft: 5px; -moz-border-radius-topright: 5px; border-top-left-radius: 5px; border-top-right-radius: 5px; line-height:35px; cursor:pointer}
+.viet-net-mini-offline .title .icon{display:inline-block; position:absolute; width:35px; height:35px; line-height:32px; color:#FFF; text-align:center; top:0px; left:0px; -webkit-border-top-left-radius: 5px; -moz-border-radius-topleft: 5px; border-top-left-radius: 5px; background:#494949}
+
+.viet-net-chat-offline .content, .viet-net-chat-offline form{display:block; padding:10px; border:1px solid #dddddd; border-top:0px; border-bottom:0px;}
+.viet-net-chat-offline form{padding-top:0px;}
+.viet-net-chat-offline .content{font-size:12px;}
+.viet-net-chat-offline label{display:block; font-size:12px; font-weight:bold; color:#000; margin-bottom:3px;}
+.viet-net-chat-offline input, .viet-net-chat-offline textarea{display:block; width:100%; margin-bottom:10px; border:1px solid #dddddd; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; padding:2px 8px;}
+.viet-net-chat-offline .footer{display:block; border-top:1px solid #eeeeee; padding:10px 10px 0px 10px; margin:0px -10px;}
+.viet-net-chat-offline button{display:block; width:100%; border:1px solid #3e3e3e; background:#555555; text-align:center; line-height:25px; cursor:pointer; font-weight:bold; color:#FFF}
+
+.content-message{color:#F00;}
+
+.viet-net-mini-infomation{position:fixed; z-index:9999999999; width:250px; bottom:0px; right:7px; border:1px solid #dddddd; -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75); -moz-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75); box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75); padding:10px; background:#FFF; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; display:none}
+.viet-net-mini-infomation .title{color:#b0b0b0; font-size:16px; font-weight:normal;}
+.viet-net-mini-infomation label{display:block; font-size:12px; font-weight:bold; color:#000; margin-bottom:3px;}
+.viet-net-mini-infomation input, .viet-net-mini-infomation textarea{display:block; width:100%; margin-bottom:10px; border:1px solid #dddddd; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; padding:2px 8px;}
+.viet-net-mini-infomation button{display:inline-block; cursor:pointer; border:1px solid #5c8900; line-height:25px; color:#FFF; font-weight:bold; text-align:center; padding:0px 25px; background-color:#78a300; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px;}
+.viet-net-online{display:none;}
+
+@media (max-width: 767px) {
+
+	.viet-net-online .content{height:150px;}
+}

@@ -1,0 +1,25 @@
+﻿@model IEnumerable<SimplCommerce.Module.News.Areas.News.ViewModels.NewsItemVm>
+
+<div class="sidebar-item recent-post">
+    <div class="title">
+        <h4>Bài liên quan</h4>
+    </div>
+    <ul>
+        @foreach (var itemNew in Model)
+        {
+            <li>
+                <div class="thumb">
+                    <a href="#">
+                        <img src="@itemNew.Slug" alt="@itemNew.Name">
+                    </a>
+                </div>
+                <div class="info">
+                    <a href="@itemNew.Slug">@itemNew.Name</a>
+                    <div class="meta-title">
+                        <span class="post-date">@itemNew.CreatedOn.ToString("dd/MM/yyyy")</span> - By <a href="#">admin</a>
+                    </div>
+                </div>
+            </li>
+        }
+    </ul>
+</div>

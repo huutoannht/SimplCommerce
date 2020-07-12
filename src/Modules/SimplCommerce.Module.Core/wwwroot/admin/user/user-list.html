@@ -4,7 +4,7 @@
             <h2>{{::vm.translate.get('Users')}}</h2>
         </div>
         <div class="col-md-4 text-right">
-            <a ui-sref="user-create" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {{::vm.translate.get('Create User')}}</a>
+            <a ui-sref="user-create" class="btn btn-primary"><i class="fas fa-plus"></i> {{::vm.translate.get('Create User')}}</a>
         </div>
     </div>
 </div>
@@ -61,8 +61,8 @@
             <td>{{user.customerGroups.join(', ')}}</td>
             <td>{{user.createdOn | date:'medium' }}</td>
             <td>
-                <a ui-sref="user-edit({id: user.id})" title="Edit" class="btn btn-primary btn-xs"> <span class="glyphicon glyphicon-pencil"></span></a>
-                <button ng-click="vm.deleteUser(user)" class="btn btn-danger btn-xs delete"> <span class="glyphicon glyphicon-remove"></span></button>
+                <a ui-sref="user-edit({id: user.id})" title="Edit" class="btn btn-primary btn-xs"> <i class="fas fa-pencil-alt"></i></a>
+                <button ng-click="vm.deleteUser(user)" class="btn btn-danger btn-xs delete"> <i class="fas fa-trash-alt"></i></button>
             </td>
         </tr>
     </tbody>

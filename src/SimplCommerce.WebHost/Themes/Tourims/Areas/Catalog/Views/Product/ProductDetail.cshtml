@@ -1,0 +1,167 @@
+﻿@model SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels.ProductDetail
+@using System.Text.RegularExpressions;
+@using System.Globalization
+@{
+    ViewBag.Title = Model.MetaTitle ?? Model.Name;
+    if (CultureInfo.CurrentCulture.Name != "vi-VN")
+    {
+        Model.Name = Model.NameEN ?? Model.Name;
+        Model.Description = Model.DescriptionEN ?? Model.Description;
+    }
+}
+
+@section additionalMeta {
+    <meta name="title" content="@ViewBag.Title" />
+    <meta name="keywords" content="@Model.MetaKeywords" />
+    <meta name="description" content="@Model.MetaDescription" />
+}
+<style>
+    .double-block .content-block.main {
+        width: 890px !important;
+    }
+</style>
+
+@section head
+        {
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+
+
+    <link simpl-append-version="true" rel="stylesheet" href="~/lib/smoothproducts/css/smoothproducts.css" />
+    <link simpl-append-version="true" rel="stylesheet" href="~/modules/catalog/product-detail.css" />
+}
+
+<div class="main-page left">
+
+    <!-- BEGIN .single-block -->
+    <div class="single-block">
+
+
+        <!-- BEGIN .content-block -->
+        <div class="content-block main left">
+
+            <div class="block">
+                <div class="block-content">
+                    <div class="article-title">
+
+                        <h1>@Model.Name</h1>
+                        <div class="author">
+                            <span class="hover-effect left delegate"><span class="cover" style="font-size:20px;"><i></i><img src="images/photos/avatar-2.jpg" alt=""></span></span>
+                            <div class="a-content">
+                                <span class="meta">@Model.CreatedOn.ToString("dd/MM/yyyy") </span>
+                            </div>
+                        </div>
+                    </div>
+                    <p><span class="hover-effect delegate"><span class="cover" style="font-size:63.333333333333336px;"><i></i><img src="images/photos/image-35.jpg" alt=""></span></span></p>
+
+                    <div class="shortcode-content">
+                        @Html.Raw(Model.Description)
+
+                        @*<div class="article-title">
+                                <div class="share-block right">
+                                    <div>
+                                        <div class="share-article left">
+                                            <span>Social media</span>
+                                            <strong>Share this article</strong>
+                                        </div>
+                                        <div class="left">
+                                            <a href="#" class="custom-soc icon-text"></a>
+                                            <a href="#" class="custom-soc icon-text"></a>
+                                            <a href="#" class="custom-soc icon-text"></a>
+                                            <a href="#" class="custom-soc icon-text"></a>
+                                            <a href="#" class="custom-soc icon-text"></a>
+                                        </div>
+                                        <div class="clear-float"></div>
+                                    </div>
+                                    <div>
+                                        <a href="#" class="small-button"><span class="icon-text"></span>&nbsp;&nbsp;Print this article</a>
+                                        <a href="#" class="small-button"><span class="icon-text">✉</span>&nbsp;&nbsp;Send e-mail</a>
+                                    </div>
+                                </div>
+
+                                <div class="author">
+                                    <span class="hover-effect left delegate"><span class="cover" style="font-size:20px;"><i></i><img src="images/photos/avatar-2.jpg" alt=""></span></span>
+                                    <div class="a-content">
+                                        <span>By <b>Orange-Themes</b></span>
+                                        <span class="meta">October 8, 2013 10:23 <span class="tag" style="background-color: #2a8ece;">Custom Tag</span></span>
+                                    </div>
+                                </div>
+
+                                <div class="article-tags tag-cloud">
+                                    <strong>TAGS:</strong><a href="#">Duo illum</a><a href="#">Veritus ullamcorper</a><a href="#">Molestiae</a><a href="#">Mea fugit appareat</a><a href="#">Delectus pericula id sea</a>
+                                </div>
+                            </div>*@
+
+                    </div>
+                    @if (@Model.Categories.Any(m => m.Id == 20076))
+                    {
+                        <button type="button" class="button btn btn-lg btn-danger btn-add-cart">@Localizer["Đặt tour"]</button>
+                    }
+                </div>
+
+                <!-- Page Content -->
+                <div class="container page-top">
+
+
+
+                    <div class="row">
+
+                        @foreach (var image in Model.Images)
+                        {
+                            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                                <a href="@image.Url" class="fancybox" rel="ligthbox">
+                                    <img src="@image.ThumbnailUrl" class="zoom img-fluid " alt="">
+                                </a>
+                            </div>
+                        }
+
+                    </div>
+
+
+
+
+                </div>
+
+                <div class="fb-comments" data-href="@ViewBag.Host" data-width="" data-numposts="5" width="780"></div>
+            </div>
+
+
+            @if (Model.RelatedProducts.Any())
+            {
+                <h3 class="p-t-25 p-b-25">Related Products</h3>
+                <div class="row product-list">
+                    @foreach (var product in Model.RelatedProducts)
+                    {
+                        <div class="col-xs-6 col-md-3">
+                            <partial name="_ProductThumbnail" model="product" />
+                        </div>
+                    }
+                </div>
+            }
+            @await Component.InvokeAsync("ProductRecentlyViewed", new { productId = Model.Id })
+
+            <!-- END .content-block -->
+        </div>
+
+        <!-- END .single-block -->
+    </div>
+
+    <!-- END .main-page -->
+</div>
+
+@section scripts{
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+<script>
+    $(".fancybox").fancybox({
+        openEffect: "none",
+        closeEffect: "none"
+    });
+
+    $(".zoom").hover(function () {
+
+        $(this).addClass('transition');
+    }, function () {
+
+        $(this).removeClass('transition');
+    });
+</script>
+} 
