@@ -21,58 +21,73 @@
 
   <ItemGroup>
     <Compile Remove="logs\**" />
-    <Compile Remove="Themes\CozaStore\**" />
-    <Compile Remove="wwwroot\themes\TheGioiDiDong\images\cdn\**" />
-    <Compile Remove="wwwroot\themes\TheGioiDiDong\images\icons\**" />
-    <Content Remove="Themes\CozaStore\**" />
-    <Content Remove="wwwroot\themes\TheGioiDiDong\images\cdn\**" />
-    <Content Remove="wwwroot\themes\TheGioiDiDong\images\icons\**" />
+    <Compile Remove="Themes\TheGioiDiDong\**" />
+    <Compile Remove="wwwroot\themes\Gallery\public\uploads\**" />
+    <Compile Remove="wwwroot\themes\TheGioiDiDong\**" />
+    <Compile Remove="wwwroot\themes\TuanNguyenStudio\**" />
+    <Compile Remove="wwwroot\user-content\**" />
+    <Content Remove="Themes\TheGioiDiDong\**" />
+    <Content Remove="wwwroot\themes\Gallery\public\uploads\**" />
+    <Content Remove="wwwroot\themes\TheGioiDiDong\**" />
+    <Content Remove="wwwroot\themes\TuanNguyenStudio\**" />
+    <Content Remove="wwwroot\user-content\**" />
     <EmbeddedResource Remove="logs\**" />
-    <EmbeddedResource Remove="Themes\CozaStore\**" />
-    <EmbeddedResource Remove="wwwroot\themes\TheGioiDiDong\images\cdn\**" />
-    <EmbeddedResource Remove="wwwroot\themes\TheGioiDiDong\images\icons\**" />
+    <EmbeddedResource Remove="Themes\TheGioiDiDong\**" />
+    <EmbeddedResource Remove="wwwroot\themes\Gallery\public\uploads\**" />
+    <EmbeddedResource Remove="wwwroot\themes\TheGioiDiDong\**" />
+    <EmbeddedResource Remove="wwwroot\themes\TuanNguyenStudio\**" />
+    <EmbeddedResource Remove="wwwroot\user-content\**" />
     <None Remove="logs\**" />
-    <None Remove="Themes\CozaStore\**" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\images\cdn\**" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\images\icons\**" />
+    <None Remove="Themes\TheGioiDiDong\**" />
+    <None Remove="wwwroot\themes\Gallery\public\uploads\**" />
+    <None Remove="wwwroot\themes\TheGioiDiDong\**" />
+    <None Remove="wwwroot\themes\TuanNguyenStudio\**" />
+    <None Remove="wwwroot\user-content\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Themes\TheGioiDiDong\Areas\Catalog\Views\Category\CategoryDetailLoadMore.cshtml" />
-    <None Remove="Themes\TheGioiDiDong\Areas\Catalog\Views\Shared\Components\NewItem\Default.cshtml" />
-    <None Remove="Themes\TheGioiDiDong\Areas\Cms\Views\Shared\Components\CarouselWidgetCategory\Default.cshtml" />
-    <None Remove="Themes\TheGioiDiDong\Areas\News\Views\Shared\Components\NewItemHome\Default.cshtml" />
-    <None Remove="Themes\TheGioiDiDong\Areas\News\Views\Shared\Components\NewItemRelate\Default.cshtml" />
-    <None Remove="Themes\TheGioiDiDong\Areas\News\Views\Shared\Components\NewItem\Default.cshtml" />
+   
+    <None Remove="Themes\Tourims\Areas\Catalog\Views\Category\CategoryAlbum.cshtml" />
+    <None Remove="Themes\Tourims\Areas\Catalog\Views\Category\CategoryDetail.cshtml" />
+    <None Remove="Themes\Tourims\Areas\Catalog\Views\Category\CategoryDetailLoadMore.cshtml" />
+    <None Remove="Themes\Tourims\Areas\Catalog\Views\Product\ProductDetail.cshtml" />
+    <None Remove="Themes\Tourims\Areas\Catalog\Views\Product\ProductImage.cshtml" />
+    <None Remove="Themes\Tourims\Areas\Catalog\Views\Product\ProductVideo.cshtml" />
+    <None Remove="Themes\Tourims\Areas\Catalog\Views\Shared\Components\CategoryBreadcrumb\Default.cshtml" />
+    <None Remove="Themes\Tourims\Areas\Catalog\Views\Shared\Components\CategoryMenu\Default.cshtml" />
+    <None Remove="Themes\Tourims\Areas\Catalog\Views\Shared\Components\CategoryWidget\Default.cshtml" />
+    <None Remove="Themes\Tourims\Areas\Catalog\Views\Shared\Components\NewItem\Default.cshtml" />
+    <None Remove="Themes\Tourims\Areas\Catalog\Views\Shared\Components\ProductWidget\Default.cshtml" />
+    <None Remove="Themes\Tourims\Areas\Catalog\Views\Shared\Components\SimpleProductWidget\Default.cshtml" />
+    <None Remove="Themes\Tourims\Areas\Catalog\Views\Shared\_ProductThumbnail.cshtml" />
+    <None Remove="Themes\Tourims\Areas\Catalog\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\Tourims\Areas\Catalog\Views\_ViewStart.cshtml" />
+    <None Remove="Themes\Tourims\Areas\Cms\Views\Shared\Components\CarouselWidgetCategory\Default.cshtml" />
+    <None Remove="Themes\Tourims\Areas\Cms\Views\Shared\Components\CarouselWidget\Default.cshtml" />
+    <None Remove="Themes\Tourims\Areas\Cms\Views\Shared\Components\Headline\Default.cshtml" />
+    <None Remove="Themes\Tourims\Areas\Cms\Views\Shared\Components\Menu\Default.cshtml" />
+    <None Remove="Themes\Tourims\Areas\Cms\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\Tourims\Areas\Core\Views\Home\Index.cshtml" />
+    <None Remove="Themes\Tourims\Areas\Core\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\Tourims\Areas\Core\Views\_ViewStart.cshtml" />
+    <None Remove="Themes\Tourims\Areas\News\Views\Shared\Components\NewItemHome\Default.cshtml" />
+    <None Remove="Themes\Tourims\Areas\News\Views\Shared\Components\NewItemRelate\Default.cshtml" />
+    <None Remove="Themes\Tourims\Areas\News\Views\Shared\Components\NewItem\Default.cshtml" />
+    <None Remove="Themes\Tourims\Areas\ProductRecentlyViewed\Views\Shared\Components\ProductRecentlyViewed\Default.cshtml" />
+    <None Remove="Themes\Tourims\Areas\ProductRecentlyViewed\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\Tourims\Areas\Search\Views\Shared\Components\SearchForm\Default.cshtml" />
+    <None Remove="Themes\Tourims\Areas\Search\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\Tourims\Areas\ShoppingCart\Views\Shared\Components\CartBadge\Default.cshtml" />
+    <None Remove="Themes\Tourims\Areas\ShoppingCart\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\Tourims\theme.json" />
+    <None Remove="Themes\Tourims\Views\Shared\_Layout.cshtml" />
+    <None Remove="Themes\Tourims\Views\Shared\_LoginPartial.cshtml" />
+    <None Remove="Themes\Tourims\Views\_ViewImports.cshtml" />
     <None Remove="wwwroot\googlefbc689ad90567857.html" />
-    <None Remove="wwwroot\modules\core\main.min.js" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\css\style-home.css" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\images\banner.png" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\images\bg_title.jpg" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\images\checkbox-product.png" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\images\home-acer.png" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\images\home-asus.png" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\images\home-dell.png" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\images\home-hp.png" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\images\home-lenono.png" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\images\home-lg.png" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\images\home-macbook.png" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\images\home-thinkpad.png" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\images\logo.html" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\images\logoe26a.html" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\images\logo_favicon.1.jpg" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\js\category.js" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\js\jquery-3.4.0.min.js" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\js\lazysizes.min.js" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\js\owl.carousel.js" />
-    <None Remove="wwwroot\user-content\banner-chamsoctrongoi.jpg" />
-    <None Remove="wwwroot\user-content\banner-samlaptopxin.png" />
-    <None Remove="wwwroot\user-content\banner-tragop.jpg" />
-    <None Remove="wwwroot\user-content\Dell_G3_G5_G7_Inspiron.jpg" />
-    <None Remove="wwwroot\user-content\Dell_Precision_7510.jpg" />
-    <None Remove="wwwroot\user-content\Dell_Precision_M4800.jpg" />
-    <None Remove="wwwroot\user-content\Dell_XPS_15_9570.jpg" />
-    <None Remove="wwwroot\user-content\HP_Folio_9470.jpg" />
+    <None Remove="wwwroot\themes\Tourims\css\site.css" />
+    <None Remove="wwwroot\themes\Tourims\css\site.min.css" />
+    <None Remove="wwwroot\themes\Tourims\images\banner.jpg" />
+    <None Remove="wwwroot\themes\Tourims\images\banner.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -116,8 +131,6 @@
     <PackageReference Include="DotNetCore.NPOI" Version="1.2.1" />
     <PackageReference Include="EPPlus" Version="4.5.2.1" />
     <PackageReference Include="Hangfire" Version="1.7.2" />
-    <PackageReference Include="Microsoft.AspNetCore.ResponseCompression" Version="2.1.1" />
-    <PackageReference Include="RouteUrlRedirector" Version="0.1.0" />
     <PackageReference Include="Serilog.Extensions.Logging" Version="2.0.2" />
     <PackageReference Include="Serilog.Settings.Configuration" Version="2.6.1" />
     <PackageReference Include="Serilog.Sinks.RollingFile" Version="3.3.1-dev-00767" />
@@ -126,6 +139,16 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.3" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.4.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\admin\" />
+    <Folder Include="wwwroot\modules\dinktopdf\" />
+    <Folder Include="wwwroot\modules\emailsendersmtp\" />
+    <Folder Include="wwwroot\modules\sampledata\" />
+    <Folder Include="wwwroot\modules\shippingfree\" />
+    <Folder Include="wwwroot\modules\shippingprices\" />
+    <Folder Include="wwwroot\modules\storagelocal\" />
   </ItemGroup>
 
   <Target Name="CopyModule" AfterTargets="Build">

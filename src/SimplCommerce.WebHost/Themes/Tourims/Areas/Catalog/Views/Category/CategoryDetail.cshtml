@@ -1,0 +1,235 @@
+﻿@using System.Threading.Tasks
+@addTagHelper *, SimplCommerce.Infrastructure
+@using System.Globalization
+
+@model SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels.ProductsByCategory
+@{
+    ViewBag.Title = Model.CategoryMetaTitle ?? Model.CategoryName;
+}
+@section additionalMeta {
+    <meta name="title" content="@ViewBag.Title" />
+    <meta name="keywords" content="@Model.CategoryMetaKeywords" />
+    <meta name="description" content="@Model.CategoryMetaDescription" />
+}
+
+<style>
+    .double-block .content-block.main {
+        width: 890px !important;
+    }
+    .pagination {
+        display: inline-block;
+        padding-left: 0;
+        margin: 20px 0;
+        border-radius: 4px;
+    }
+
+        .pagination > li {
+            display: inline;
+        }
+
+            .pagination > li > a,
+            .pagination > li > span {
+                position: relative;
+                float: left;
+                padding: 6px 12px;
+                margin-left: -1px;
+                line-height: 1.42857143;
+                color: #337ab7;
+                text-decoration: none;
+                background-color: #fff;
+                border: 1px solid #ddd;
+            }
+
+                .pagination > li > a:hover,
+                .pagination > li > span:hover,
+                .pagination > li > a:focus,
+                .pagination > li > span:focus {
+                    z-index: 2;
+                    color: #23527c;
+                    background-color: #eeeeee;
+                    border-color: #ddd;
+                }
+
+            .pagination > li:first-child > a,
+            .pagination > li:first-child > span {
+                margin-left: 0;
+                border-top-left-radius: 4px;
+                border-bottom-left-radius: 4px;
+            }
+
+            .pagination > li:last-child > a,
+            .pagination > li:last-child > span {
+                border-top-right-radius: 4px;
+                border-bottom-right-radius: 4px;
+            }
+
+        .pagination > .active > a,
+        .pagination > .active > span,
+        .pagination > .active > a:hover,
+        .pagination > .active > span:hover,
+        .pagination > .active > a:focus,
+        .pagination > .active > span:focus {
+            z-index: 3;
+            color: #fff;
+            cursor: default;
+            background-color: #337ab7;
+            border-color: #337ab7;
+        }
+
+        .pagination > .disabled > span,
+        .pagination > .disabled > span:hover,
+        .pagination > .disabled > span:focus,
+        .pagination > .disabled > a,
+        .pagination > .disabled > a:hover,
+        .pagination > .disabled > a:focus {
+            color: #777777;
+            cursor: not-allowed;
+            background-color: #fff;
+            border-color: #ddd;
+        }
+
+    .pagination-lg > li > a,
+    .pagination-lg > li > span {
+        padding: 10px 16px;
+        font-size: 18px;
+        line-height: 1.3333333;
+    }
+
+    .pagination-lg > li:first-child > a,
+    .pagination-lg > li:first-child > span {
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+    }
+
+    .pagination-lg > li:last-child > a,
+    .pagination-lg > li:last-child > span {
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
+    }
+
+    .pagination-sm > li > a,
+    .pagination-sm > li > span {
+        padding: 5px 10px;
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    .pagination-sm > li:first-child > a,
+    .pagination-sm > li:first-child > span {
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+    }
+
+    .pagination-sm > li:last-child > a,
+    .pagination-sm > li:last-child > span {
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+    }
+
+    .pager {
+        padding-left: 0;
+        margin: 20px 0;
+        text-align: center;
+        list-style: none;
+    }
+
+        .pager li {
+            display: inline;
+        }
+
+            .pager li > a,
+            .pager li > span {
+                display: inline-block;
+                padding: 5px 14px;
+                background-color: #fff;
+                border: 1px solid #ddd;
+                border-radius: 15px;
+            }
+
+                .pager li > a:hover,
+                .pager li > a:focus {
+                    text-decoration: none;
+                    background-color: #eeeeee;
+                }
+
+        .pager .next > a,
+        .pager .next > span {
+            float: right;
+        }
+
+        .pager .previous > a,
+        .pager .previous > span {
+            float: left;
+        }
+
+        .pager .disabled > a,
+        .pager .disabled > a:hover,
+        .pager .disabled > a:focus,
+        .pager .disabled > span {
+            color: #777777;
+            cursor: not-allowed;
+            background-color: #fff;
+        }
+</style>
+<div class="main-page left">
+
+    <!-- BEGIN .single-block -->
+    <div class="single-block">
+
+        <!-- BEGIN .content-block -->
+        <div class="content-block main left">
+
+            <div class="block">
+                <div class="block-title">
+                    <a href="/" class="right">@Localizer["Trở về trang chủ"]</a>
+                    <h2> @Localizer[Model.CategoryName]</h2>
+                </div>
+                <div class="block-content">
+                    @foreach (var item in Model.Products)
+                    {
+
+                        @if (CultureInfo.CurrentCulture.Name != "vi-VN")
+                        {
+                            item.Name = item.NameEN;
+                            item.ShortDescription = item.ShortDescriptionEN;
+                        }
+                        <div class="article-big">
+                            <div class="article-photo">
+                                <a href="@item.Slug" class="hover-effect delegate"><span class="cover" style="font-size:23.333333333333332px;"><i></i><img src="@item.ThumbnailUrl" alt="" style="width: 250px; height: 200px; padding-right: 5px;"></span></a>
+                            </div>
+                            <div class="article-content" style="padding-left: 41px;">
+                                <h2><a href="@item.Slug">@item.Name</a></h2>
+                                <span class="meta">
+                                    <a href="@item.Slug"><span class="icon-text">🕔</span>@item.CreatedOn.ToString("dd/MM/yyyy")</a>
+                                </span>
+                                @Html.Raw(item.ShortDescription)
+                                <span class="meta" style="padding-left: 10px;">
+                                    <a href="@item.Slug" class="more">@Localizer["Đọc tiếp"]<span class="icon-text">▸</span></a>
+                                </span>
+                            </div>
+                        </div>
+                    }
+
+
+                    <div class="row">
+                        <div class="col-md-12 text-right">
+                            <cs-pager cs-paging-pagesize="@Model.CurrentSearchOption.PageSize"
+                                      cs-paging-pagenumber="@Model.CurrentSearchOption.Page"
+                                      cs-paging-totalitems="@Model.TotalProduct"
+                                      cs-pagenumber-param="page"
+                                      asp-basehref="~/@Model.CategorySlug"
+                                      asp-all-route-data="@Model.CurrentSearchOption.ToDictionary()"></cs-pager>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- END .content-block -->
+        </div>
+
+        <!-- END .single-block -->
+    </div>
+
+    <!-- END .main-page -->
+</div>
