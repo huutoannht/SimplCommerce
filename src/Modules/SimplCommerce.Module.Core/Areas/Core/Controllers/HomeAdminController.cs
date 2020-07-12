@@ -28,7 +28,7 @@ namespace SimplCommerce.Module.Core.Areas.Core.Controllers
         //    return View();
         //}
         [Route("admin")]
-        public IActionResult Index1()
+        public IActionResult Index2()
         {
             var tokens = _antiforgery.GetAndStoreTokens(HttpContext);
             HttpContext.Response.Cookies.Append("XSRF-TOKEN",

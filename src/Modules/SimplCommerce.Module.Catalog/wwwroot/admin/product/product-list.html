@@ -4,7 +4,7 @@
             <h2>{{::vm.translate.get('Posts')}}</h2>
         </div>
         <div class="col-md-4 text-right">
-            <a ui-sref="product-create" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {{::vm.translate.get('Create Post')}}</a>
+            <a ui-sref="product-create" class="btn btn-primary"><i class="fas fa-plus"></i> {{::vm.translate.get('Create Post')}}</a>
             <!--<a href="/api/products/export" target="_blank" class="btn btn-info"><span class="glyphicon glyphicon-download-alt"></span>Tải khóa học</a>-->
         </div>
     </div>
@@ -80,10 +80,10 @@
             <td class="text-center"><i ng-attr-class="{{product.isPublished && 'fa fa-circle' || 'fa fa-circle-o'}}"></i></td>
             <td class="text-center">{{product.createdOn | date:'medium'}}</td>
             <td class="text-center">
-                <button ng-if="product.isPublished" title="Un Publish" ng-click="vm.changeStatus(product)" class="btn btn-primary btn-xs"> <span class="glyphicon glyphicon-pause"></span></button>
-                <button ng-if="!product.isPublished" title="Publish" ng-click="vm.changeStatus(product)" class="btn btn-primary btn-xs"> <span class="glyphicon glyphicon-play"></span></button>
-                <a ui-sref="product-edit({id: product.id})" title="Edit" class="btn btn-primary btn-xs"> <span class="glyphicon glyphicon-pencil"></span></a>
-                <button ng-click="vm.deleteProduct(product)" title="Delete" class="btn btn-danger btn-xs delete"> <span class="glyphicon glyphicon-remove"></span></button>
+                <button ng-if="product.isPublished" title="Un Publish" ng-click="vm.changeStatus(product)" class="btn btn-primary btn-xs"> <i class="fas fa-pause"></i></button>
+                <button ng-if="!product.isPublished" title="Publish" ng-click="vm.changeStatus(product)" class="btn btn-primary btn-xs"> <i class="fas fa-play"></i></button>
+                <a ui-sref="product-edit({id: product.id})" title="Edit" class="btn btn-primary btn-xs"> <i class="fas fa-pencil-alt"></i></a>
+                <button ng-click="vm.deleteProduct(product)" title="Delete" class="btn btn-danger btn-xs delete"> <i class="fas fa-trash-alt"></i></button>
             </td>
         </tr>
     </tbody>

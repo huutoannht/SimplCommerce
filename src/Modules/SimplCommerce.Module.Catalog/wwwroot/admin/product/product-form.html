@@ -171,7 +171,7 @@
                             <img ng-show="!vm.thumbnailImage && vm.product.thumbnailImageUrl" ng-src="{{vm.product.thumbnailImageUrl}}" style="width: 100px; height: 100px" />
                         </div>
                     </div>
-                    <div class="form-group" ng-show="vm.product.id === 285">
+                    <div class="form-group">
                         <label class="col-sm-2 control-label">{{::vm.translate.get('Product Images')}}</label>
                         <div class="col-sm-10">
                             <input class="form-control" type="file" ngf-select ng-model="vm.productImages" ngf-multiple="true" name="productImages" ngf-accept="'image/*'">
@@ -322,7 +322,7 @@
                                     <td></td>
                                     <td>
                                         <button ng-click="vm.deleteVariation(variation)" type="button" class="btn">
-                                            <span class="glyphicon glyphicon-remove"></span>
+                                            <i class="fas fa-trash-alt"></i>
                                         </button>
                                     </td>
                                 </tr>
@@ -360,7 +360,7 @@
                                                         </div>
                                                     </td>
                                                     <td class="col-md-1"></td>
-                                                    <td class="col-md-1"><button type="button" class="btn btn-primary" ng-disabled="!vm.isAddVariationFormValid()" ng-click="vm.addVariation()"><span class="glyphicon glyphicon-plus"></span></button></td>
+                                                    <td class="col-md-1"><button type="button" class="btn btn-primary" ng-disabled="!vm.isAddVariationFormValid()" ng-click="vm.addVariation()"><i class="fas fa-plus"></i></button></td>
                                                 </tr>
                                             </table>
                                         </ng-form>
@@ -407,7 +407,7 @@
                                     <td><input type="text" class="form-control" ng-model="attr.value" /></td>
                                     <td>
                                         <button ng-click="vm.deleteAttribute(attr)" type="button" class="btn">
-                                            <span class="glyphicon glyphicon-remove"></span>
+                                            <i class="fas fa-trash-alt"></i>
                                         </button>
                                     </td>
                                 </tr>
@@ -494,7 +494,7 @@
             </uib-tabset>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button class="btn btn-primary" ng-disabled="productForm.$invalid" ng-click="vm.save()"><span class="glyphicon glyphicon-ok"></span>{{::vm.translate.get('Save')}}</button>
+                    <button class="btn btn-primary" ng-disabled="productForm.$invalid" ng-click="vm.save()"><i class="fas fa-check"></i>{{::vm.translate.get('Save')}}</button>
                     <button ui-sref="product" class="btn btn-default">{{::vm.translate.get('Cancel')}}</button>
                 </div>
             </div>

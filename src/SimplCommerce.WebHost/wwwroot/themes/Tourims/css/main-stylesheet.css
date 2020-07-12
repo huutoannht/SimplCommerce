@@ -1053,6 +1053,9 @@ a:focus {
 .article-big .article-content {
 	display: block;
 	margin-left: 225px;
+	font-family: "Times New Roman", Times, serif;
+	text-align: justify;
+	font-size: 17px;
 }
 
 .article-big .article-content h2 {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using SimplCommerce.Module.Catalog.Models;
 using SimplCommerce.Module.Core.Models;
 
@@ -50,7 +51,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels
         public string ShortDescriptionEN { get;  set; }
         public static ProductThumbnail FromProduct(Product product)
         {
-            var productThumbnail = new ProductThumbnail
+            return new ProductThumbnail
             {
                 Id = product.Id,
                 Name = product.Name,
@@ -70,11 +71,17 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels
                 RatingAverage = product.RatingAverage,
                 Categories = product.Categories,
                 CreatedOn = product.CreatedOn,
-                ShortDescription = product.ShortDescription,
-                ShortDescriptionEN = product.ShortDescriptionEN,
+                ShortDescription = StripHTML(product.ShortDescription),
+                ShortDescriptionEN = StripHTML(product.ShortDescriptionEN),
             };
-
-            return productThumbnail;
+        }
+        public static  string StripHTML(string input)
+        {
+            if (string.IsNullOrEmpty(input))
+            {
+                return string.Empty;
+            }
+            return Regex.Replace(input, "<.*?>", String.Empty);
         }
     }
 }

@@ -93,18 +93,18 @@
                         </div>
                         <div class="col-md-1 text-right">
                             <button ng-click="vm.removeItem(item)" type="button" class="btn btn-default btn-xs">
-                                <span class="glyphicon glyphicon-remove"></span>
+                                <i class="fas fa-trash-alt"></i>
                             </button>
                         </div>
                     </div>
                     <button ng-click="vm.addItem()" type="button" class="btn btn-default">
-                        <span class="glyphicon glyphicon-plus"></span> {{::vm.translate.get('Add more')}}
+                        <i class="fas fa-plus"></i> {{::vm.translate.get('Add more')}}
                     </button>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button class="btn btn-primary" ng-click="vm.save()"><span class="glyphicon glyphicon-ok"></span> {{::vm.translate.get('Save')}}</button>
+                    <button class="btn btn-primary" ng-click="vm.save()"><i class="fas fa-check"></i> {{::vm.translate.get('Save')}}</button>
                     <button ui-sref="widget" class="btn btn-default">{{::vm.translate.get('Cancel')}}</button>
                 </div>
             </div>

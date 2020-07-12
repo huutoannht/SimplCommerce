@@ -23,6 +23,9 @@
 
 @section head
         {
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+
+
     <link simpl-append-version="true" rel="stylesheet" href="~/lib/smoothproducts/css/smoothproducts.css" />
     <link simpl-append-version="true" rel="stylesheet" href="~/modules/catalog/product-detail.css" />
 }
@@ -54,45 +57,68 @@
                         @Html.Raw(Model.Description)
 
                         @*<div class="article-title">
-                        <div class="share-block right">
-                            <div>
-                                <div class="share-article left">
-                                    <span>Social media</span>
-                                    <strong>Share this article</strong>
+                                <div class="share-block right">
+                                    <div>
+                                        <div class="share-article left">
+                                            <span>Social media</span>
+                                            <strong>Share this article</strong>
+                                        </div>
+                                        <div class="left">
+                                            <a href="#" class="custom-soc icon-text"></a>
+                                            <a href="#" class="custom-soc icon-text"></a>
+                                            <a href="#" class="custom-soc icon-text"></a>
+                                            <a href="#" class="custom-soc icon-text"></a>
+                                            <a href="#" class="custom-soc icon-text"></a>
+                                        </div>
+                                        <div class="clear-float"></div>
+                                    </div>
+                                    <div>
+                                        <a href="#" class="small-button"><span class="icon-text"></span>&nbsp;&nbsp;Print this article</a>
+                                        <a href="#" class="small-button"><span class="icon-text">✉</span>&nbsp;&nbsp;Send e-mail</a>
+                                    </div>
                                 </div>
-                                <div class="left">
-                                    <a href="#" class="custom-soc icon-text"></a>
-                                    <a href="#" class="custom-soc icon-text"></a>
-                                    <a href="#" class="custom-soc icon-text"></a>
-                                    <a href="#" class="custom-soc icon-text"></a>
-                                    <a href="#" class="custom-soc icon-text"></a>
+
+                                <div class="author">
+                                    <span class="hover-effect left delegate"><span class="cover" style="font-size:20px;"><i></i><img src="images/photos/avatar-2.jpg" alt=""></span></span>
+                                    <div class="a-content">
+                                        <span>By <b>Orange-Themes</b></span>
+                                        <span class="meta">October 8, 2013 10:23 <span class="tag" style="background-color: #2a8ece;">Custom Tag</span></span>
+                                    </div>
                                 </div>
-                                <div class="clear-float"></div>
-                            </div>
-                            <div>
-                                <a href="#" class="small-button"><span class="icon-text"></span>&nbsp;&nbsp;Print this article</a>
-                                <a href="#" class="small-button"><span class="icon-text">✉</span>&nbsp;&nbsp;Send e-mail</a>
-                            </div>
-                        </div>
 
-                        <div class="author">
-                            <span class="hover-effect left delegate"><span class="cover" style="font-size:20px;"><i></i><img src="images/photos/avatar-2.jpg" alt=""></span></span>
-                            <div class="a-content">
-                                <span>By <b>Orange-Themes</b></span>
-                                <span class="meta">October 8, 2013 10:23 <span class="tag" style="background-color: #2a8ece;">Custom Tag</span></span>
-                            </div>
-                        </div>
-
-                        <div class="article-tags tag-cloud">
-                            <strong>TAGS:</strong><a href="#">Duo illum</a><a href="#">Veritus ullamcorper</a><a href="#">Molestiae</a><a href="#">Mea fugit appareat</a><a href="#">Delectus pericula id sea</a>
-                        </div>
-                    </div>*@
+                                <div class="article-tags tag-cloud">
+                                    <strong>TAGS:</strong><a href="#">Duo illum</a><a href="#">Veritus ullamcorper</a><a href="#">Molestiae</a><a href="#">Mea fugit appareat</a><a href="#">Delectus pericula id sea</a>
+                                </div>
+                            </div>*@
 
                     </div>
-                    @if (@Model.Categories.Any(m=>m.Id == 20076))
+                    @if (@Model.Categories.Any(m => m.Id == 20076))
                     {
                         <button type="button" class="button btn btn-lg btn-danger btn-add-cart">@Localizer["Đặt tour"]</button>
                     }
+                </div>
+
+                <!-- Page Content -->
+                <div class="container page-top">
+
+
+
+                    <div class="row">
+
+                        @foreach (var image in Model.Images)
+                        {
+                            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                                <a href="@image.Url" class="fancybox" rel="ligthbox">
+                                    <img src="@image.ThumbnailUrl" class="zoom img-fluid " alt="">
+                                </a>
+                            </div>
+                        }
+
+                    </div>
+
+
+
+
                 </div>
 
                 <div class="fb-comments" data-href="@ViewBag.Host" data-width="" data-numposts="5" width="780"></div>
@@ -121,3 +147,21 @@
 
     <!-- END .main-page -->
 </div>
+
+@section scripts{
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+<script>
+    $(".fancybox").fancybox({
+        openEffect: "none",
+        closeEffect: "none"
+    });
+
+    $(".zoom").hover(function () {
+
+        $(this).addClass('transition');
+    }, function () {
+
+        $(this).removeClass('transition');
+    });
+</script>
+} 
