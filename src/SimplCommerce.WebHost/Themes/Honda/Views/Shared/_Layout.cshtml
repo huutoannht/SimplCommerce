@@ -9,21 +9,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="SHORTCUT ICON" href="/themes/Honda/public/Logo.png" />
+    <link rel="SHORTCUT ICON" href="/themes/Honda/public/img/logo.jpg" />
     <meta itemprop="name" name="name" content="" />
-    <meta itemprop="description" name="description" content="HỆ THỐNG HEAD VISACOOP" />
-    <meta itemprop="image" name="image" content="public/Logo.png" />
+    <meta itemprop="description" name="description" content="HỆ THỐNG HEAD Honda Khanh Linh" />
+    <meta itemprop="image" name="image" content="/themes/Honda/public/img/logo.jpg" />
     <meta name="language" content="" />
     <meta name="geo.region" content="" />
-    <meta name="keywords" content="HỆ THỐNG HEAD VISACOOP" />
+    <meta name="keywords" content="HỆ THỐNG HEAD Honda Khanh Linh" />
     <meta name="DC.Creator" content="" />
     <meta name="DC.Type" content="" />
     <meta name="DC.Indentifier" content="" />
-    <meta property="og:image" content="public/Logo.png" />
-    <title>VISACOOP</title>
+    <meta property="og:image" content="/themes/Honda/public/img/logo.jpg" />
+    <title>Honda Khanh Linh</title>
     <meta property="og:title" content="" />
-    <meta property="og:site_name" content="VISACOOP" />
-    <meta property="og:description" content="HỆ THỐNG HEAD VISACOOP" />
+    <meta property="og:site_name" content="Honda Khanh Linh" />
+    <meta property="og:description" content="HỆ THỐNG HEAD Honda Khanh Linh" />
     <meta property="og:url" content="index.html" />
     <meta property="og:type" content="article" />
     <meta property="fb:admins" content="{100002905337831}" />
@@ -33,8 +33,8 @@
     <meta name="robots" content="noodp,index,follow" />
     <meta name='revisit-after' content='1 days' />
     <meta name="twitter:title" content="" />
-    <meta name="twitter:description" content="HỆ THỐNG HEAD VISACOOP" />
-    <meta name="twitter:image" content="public/Logo.png" />
+    <meta name="twitter:description" content="HỆ THỐNG HEAD HONDA KHÁNH LINH" />
+    <meta name="twitter:image" content="/themes/Honda/public/img/logo.jpg" />
     <link rel="image_src" href="/themes/Honda/public/img/favicon.png" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Roboto:900,700,400' rel='stylesheet' type='text/css'>
@@ -44,12 +44,272 @@
     <link href="/themes/Honda/public/css/font-awesome.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="/themes/Honda/public/css/bootstrap-theme.min.css" type="text/css" />
     <link rel="stylesheet" href="/themes/Honda/public/css/nivo-slider.css" type="text/css" />
-    <link href='public/css/jquery.bxslider.css' rel='stylesheet' type='text/css' />
-    <link href='public/css/slick.css' rel='stylesheet' type='text/css' />
+    <link href='/themes/Honda/public/css/jquery.bxslider.css' rel='stylesheet' type='text/css' />
+    <link href='/themes/Honda/public/css/slick.css' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="/themes/Honda/public/css/loader.css" type="text/css" />
     <link rel="stylesheet" href="/themes/Honda/public/css/animate.css" type="text/css" />
     <link rel="stylesheet" href="/themes/Honda/public/css/chat.css" type="text/css" />
     <link rel="stylesheet" href="/themes/Honda/public/css/site.css" type="text/css" />
+
+     @RenderSection("head", required: false)
+</head>
+
+<body>
+
+    <div id="fb-root"></div>
+    <div class="banner-website">
+        <!--<div class="tuyet"></div>-->
+        <!--<div class="home-left"></div>-->
+        <!--<div class="home-right"></div>-->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                    <a href="index.html" title="Home Page" class="banner-logo">
+                        <img src="/themes/Honda/public/img/logo.jpg" alt="Honda Khanh Linh" class="" />
+                    </a>
+                </div>
+                @*<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                        <b class="slogan-banner-website"><img src="/themes/Honda/public/img/slogan.png" alt="Hệ thống Visacoop" /></b>
+                    </div>*@
+                <div class="col-lg-1 col-md-1 col-sm-1"></div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="search-top-wrapper">
+                        <div class="mini-row">
+                            <div class="col-lg-8 col-md-8 col-sm-7 col-xs-6">
+                                <form method="get" action="http://visacoop.com/search.html" class="top-form-search">
+                                    <input type="text" name="q" placeholder="Tìm kiếm ..." value="" />
+                                    <button type="submit"><i class="fa fa-search"></i></button>
+                                </form>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-5 col-xs-6">
+                                <div class="social-banner pull-right">
+                                    <a href="https://www.facebook.com" title="facebook"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://business.google.com" title=""><i class="fa fa-google-plus"></i></a>
+                                    <a href="https://www.instagram.com" title="instagram"><i class="fa fa-instagram"></i></a>
+                                    <!--<a href="#" title="linkedin"><i class="fa fa-linkedin"></i></a>-->
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+
+                    <div class="hotline-top-wrapper">
+                        <i class="fa fa-phone"></i> <b class="phone">0211 356 6666</b>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    @await Component.InvokeAsync("CategoryMenu")
+
+    @RenderSection("featured", false)
+    @RenderBody()
+
+
+    @if (ViewBag.Host == "https://hondakhanhlinh.com/" || ViewBag.Host == "https://localhost:44364/")
+    {
+        @await Component.InvokeAsync("NewItemHome")
+    }
+
+
+    <div class="panel panel-tid service-website">
+        <div class="tuyet"></div>
+        <div class="panel-black">
+            <div class="container">
+                <div class="title">Liên Hệ</div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="container">
+                <div class="row ">
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 animated mt-2" data-animation="bounceInLeft">
+                        <a class="transition-light" href="head-cong-hoa.html" title="HEAD Honda Khanh Linh #1">
+                            <img src="/themes/Honda/public/uploads/images/thumbs/COOP_1.jpg" alt="HEAD Honda Khanh Linh #1" class="width-100 border-radius-img" />
+
+                        </a>
+                        <a href="head-cong-hoa.html" title="HEAD Honda Khanh Linh #1"><b class="title-contact">HEAD Honda Khanh Linh #1</b></a>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 animated mt-2" data-animation="bounceInLeft">
+                        <a class="transition-light" href="head-trung-chanh.html" title="HEAD Honda Khanh Linh #2 ">
+                            <img src="/themes/Honda/public/uploads/images/thumbs/COOP_2.jpg" alt="HEAD Honda Khanh Linh #2 " class="width-100 border-radius-img" />
+
+                        </a>
+                        <a href="head-trung-chanh.html" title="HEAD Honda Khanh Linh #2 "><b class="title-contact">HEAD Honda Khanh Linh #2 </b></a>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 animated mt-2" data-animation="bounceInLeft">
+                        <a class="transition-light" href="head-tan-ky-tan-quy.html" title="HEAD Honda Khanh Linh #3">
+                            <img src="/themes/Honda/public/uploads/images/thumbs/COOP_3.jpg" alt="HEAD Honda Khanh Linh #3" class="width-100 border-radius-img" />
+
+                        </a>
+                        <a href="head-tan-ky-tan-quy.html" title="HEAD Honda Khanh Linh #3"><b class="title-contact">HEAD Honda Khanh Linh #3</b></a>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 animated mt-2" data-animation="bounceInLeft">
+                        <a class="transition-light" href="head-ben-thanh.html" title="HEAD Honda Khanh Linh BẾN THÀNH">
+                            <img src="/themes/Honda/public/uploads/images/thumbs/head-ben-thanh.jpg" alt="HEAD Honda Khanh Linh BẾN THÀNH" class="width-100 border-radius-img" />
+
+                        </a>
+                        <a href="head-ben-thanh.html" title="HEAD Honda Khanh Linh BẾN THÀNH"><b class="title-contact">HEAD Honda Khanh Linh BẾN THÀNH</b></a>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 animated mt-2" data-animation="bounceInLeft">
+                        <a class="transition-light" href="0be-head-visacoop-6.html" title="HEAD Honda Khanh Linh #5">
+                            <img src="/themes/Honda/public/uploads/images/thumbs/COOP_5.jpg" alt="HEAD Honda Khanh Linh #5" class="width-100 border-radius-img" />
+
+                        </a>
+                        <a href="0be-head-visacoop-6.html" title="HEAD Honda Khanh Linh #5"><b class="title-contact">HEAD Honda Khanh Linh #5</b></a>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 animated mt-2" data-animation="bounceInLeft">
+                        <a class="transition-light" href="c58-head-visacoop-6.html" title="HEAD Honda Khanh Linh #6">
+                            <img src="/themes/Honda/public/uploads/images/thumbs/COOP_6.jpg" alt="HEAD Honda Khanh Linh #6" class="width-100 border-radius-img" />
+
+                        </a>
+                        <a href="c58-head-visacoop-6.html" title="HEAD Honda Khanh Linh #6"><b class="title-contact">HEAD Honda Khanh Linh #6</b></a>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 animated mt-2" data-animation="bounceInLeft">
+                        <a class="transition-light" href="hss-visacoop.html" title="HSS Honda Khanh Linh #7">
+                            <img src="/themes/Honda/public/uploads/images/thumbs/z1100632292449_2fe469f6236e96f79b108d0b690b6567.jpg" alt="HSS Honda Khanh Linh #7" class="width-100 border-radius-img" />
+
+                        </a>
+                        <a href="hss-visacoop.html" title="HSS Honda Khanh Linh #7"><b class="title-contact">HSS Honda Khanh Linh #7</b></a>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 animated mt-2" data-animation="bounceInLeft">
+                        <a class="transition-light" href="gs-visacoop.html" title="GS Honda Khanh Linh 8">
+                            <img src="/themes/Honda/public/uploads/images/thumbs/z1100632292237_b6c2645af20faeeb43ae39165a8f9488.jpg" alt="GS Honda Khanh Linh 8" class="width-100 border-radius-img" />
+
+                        </a>
+                        <a href="gs-visacoop.html" title="GS Honda Khanh Linh 8"><b class="title-contact">GS Honda Khanh Linh 8</b></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container padding-bottom margin-bottom">
+        <div class="row resize-height-container" resize=".col-lg-4">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 video-more animated margin-bottom" data-animation="bounceInLeft">
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 animated margin-bottom" data-animation="bounceInRight">
+                <a href="skype:#?call" title="Support Website" class="support-website transition-light">
+                    <img src="/themes/Honda/public/uploads/images/customer-support-online1.jpg" title="Hotline" class="width-100" />
+                    <span>Hỗ trợ trực tuyến</span>
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12  animated margin-bottom" data-animation="bounceInDown">
+                <div class="statistical-website col-lg-4">
+                    <span class="">Thống kê truy cập </span>
+                    <p><i class="fa fa-users"></i> Đang truy cập : 11</p>
+                    <p><i class="fa fa-bar-chart"></i> Hôm nay : 437</p>
+                    <p><i class="fa fa-calendar-o"></i> Hôm qua: 959</p>
+                    <p><i class="fa fa-pie-chart"></i> Tổng lượt truy cập : 3,893,228</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-website">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span class="title-footer">hệ thống cửa hàng visacoop</span>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <p>
+                                <b> HEAD Honda Khanh Linh #1</b>
+                            <p>
+                                <span style="font-family:arial, helvetica, sans-serif;">Địa chỉ: 478 - 480 - 482 Cộng Hòa, Phường 13, Quận Tân Bình, TP.HCM</span>
+                            </p>
+                            <p>
+                                <span style="font-family:arial, helvetica, sans-serif;">ĐT: (028) 38105159 - (028) 38109106</span>
+                            </p>
+                            <p>
+                                <span style="font-family:arial, helvetica, sans-serif;">Fax : (028) 38109105</span>
+                            </p>
+                            <hr />                        </p>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <p>
+                                <b>HEAD Honda Khanh Linh #2</b>
+                            <p>
+                                <span style="font-family:arial, helvetica, sans-serif;">ĐC: 27/6 Ấp Hưng Lân, Xã Bà Điểm, H.Hóc Môn, TP.HCM (Ngã tư Trung Chánh)</span>
+                            </p>
+                            <p>
+                                <span style="font-family:arial, helvetica, sans-serif;">SĐT: (028) 62549616 - (028) 62549617</span>
+                            </p>
+                            <p>
+                                <span style="font-family:arial, helvetica, sans-serif;">Fax : (028) 62549615</span>
+                            </p>
+                            <hr />                        </p>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <p>
+                                <b>HEAD Honda Khanh Linh #3</b>
+                            <p>
+                                <span style="font-family:arial, helvetica, sans-serif;">ĐC: 839 Tân Kỳ Tân Quý, P Bình Hưng Hòa A, Bình Tân, TP.HCM</span>
+                            </p>
+                            <p>
+                                <span style="font-family:arial, helvetica, sans-serif;">SĐT: (028) 62615555</span>
+                            </p>
+                            <p>
+                                <span style="font-family:arial, helvetica, sans-serif;">FAX: (028) 62545555</span>
+                            </p>
+                            <hr />                        </p>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <p>
+                                <b>HEAD Honda Khanh Linh BẾN THÀNH</b>
+                            <p>
+                                <span style="font-family:arial, helvetica, sans-serif;">ĐC: 48-50-52 Trần Hưng Đạo, Phường Phạm Ngũ Lão, Quận 1, TPHCM</span>
+                            </p>
+                            <p>
+                                <span style="font-family:arial, helvetica, sans-serif;">SĐT: (028) 38377025 - (028) 38364084</span>
+                            </p>
+                            <p>
+                                <span style="font-family:arial, helvetica, sans-serif;">FAX: (028) 38368119</span>
+                            </p>
+                            <hr />                        </p>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <p>
+                                <b>HEAD Honda Khanh Linh #5</b>
+                            <p>
+                                <span style="font-family:arial, helvetica, sans-serif;">ĐC: A22/18-A22/19 Quốc Lộ 50, Bình Hưng, Bình Chánh, TPHCM</span>
+                            </p>
+                            <p>
+                                <span style="font-family:arial, helvetica, sans-serif;">SĐT: (028) 2253 8686 - (028) 2253 6868</span>
+                            </p>
+                            <p>
+                                <span style="font-family:arial, helvetica, sans-serif;">FAX: (028) 2253 8866</span>
+                            </p>
+                            <hr />                        </p>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <p>
+                                <b>HEAD Honda Khanh Linh #6</b>
+                            <p>
+                                <span style="font-family:arial, helvetica, sans-serif;">ĐC: D19/16C VĨNH LỘC, ẤP 4, XÃ VĨNH LỘC B, HUYỆN BÌNH CHÁNH, TP. HỒ CHÍ MINH</span>
+                            </p>
+                            <p>
+                                <span style="font-family:arial, helvetica, sans-serif;">SĐT: (028) 37655927</span>
+                            </p>
+                            <p>
+                                <span style="font-family:arial, helvetica, sans-serif;">FAX: (028) 37655930</span>
+                            </p>
+                            <hr />                        </p>
+                        </div>
+                    </div>
+                </div>
+                <!--start code noel-->
+                <!--<img src="http://visacoop.com/public/img/noel2018/footer-left.png" class="footer-left" >-->
+                <!--<img src="http://visacoop.com/public/img/noel2018/footer-right.png" class="footer-right">-->
+                <!--<img src="http://visacoop.com/public/img/noel2018/sp3.png" class="sp3">-->
+                <!--<img src="http://visacoop.com/public/img/noel2018/moon.png" class="moon">-->
+                <!--end code noel-->
+            </div>
+        </div>
+        <div class="copyright-end-footer">
+            Copyright &copy; 2015 CÔNG TY Honda Khanh Linh
+        </div>
+    </div>
+
 
 
     <script type="text/javascript" src="/themes/Honda/public/js/jquery.js"></script>
@@ -70,1055 +330,42 @@
     <!--<script language="javascript" type="text/javascript" src="http://visacoop.com/public/js/ion.sound.min.js"></script>-->
     <script language="javascript" type="text/javascript" src="/themes/Honda/public/js/waypoints.min.js"></script>
     <script language="javascript" type="text/javascript" src="/themes/Honda/public/js/jquery.responsiveTabs.js"></script>
-    <script language="javascript" type="text/javascript">
-        base_url = 'index.html';
-        full_url = 'index.html';
-    </script>
     <!--<script type="text/javascript" src="http://visacoop.com/public/js/chat.js"></script>-->
     <script type="text/javascript" src="/themes/Honda/public/js/sitetid.js"></script>
-    <script>
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date(); a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', '../www.google-analytics.com/analytics.js', 'ga');
-
-        ga('create', 'UA-63396400-1', 'auto');
-        ga('send', 'pageview');
-
-    </script>
     <!--<script type="text/javascript" src="http://www.maytinhhtl.com/images/code/snowstorm.js"></script>-->
+
     <script type="text/javascript">
         $(document).ready(function () {
             $('*').bind('cut copy paste', function (e) {
                 e.preventDefault();
             })
+            if ($(window).innerWidth() < 767)
+                var showslide = 1;
+            else
+                var showslide = 4;
+            $(".product-scroll").slick({
+                slidesToShow: showslide,
+                slidesToScroll: showslide,
+                autoplay: true,
+                autoplaySpeed: 4000,
+            })
         });
-    </script>
-     @RenderSection("head", required: false)
-</head>
-
-<body>
-
-<div id="fb-root"></div>
-<script>
-    (function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "../connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.3";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-</script>
-<div class="banner-website">
-    <!--<div class="tuyet"></div>-->
-    <!--<div class="home-left"></div>-->
-    <!--<div class="home-right"></div>-->
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                <a href="index.html" title="Home Page" class="banner-logo">
-                    <img src="/themes/Honda/public/img/logo20nam.png" alt="VISACOOP" class="" />
-                </a>
-            </div>
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                <b class="slogan-banner-website"><img src="/themes/Honda/public/img/slogan.png" alt="Hệ thống Visacoop" /></b>
-            </div>
-            <div class="col-lg-1 col-md-1 col-sm-1"></div>
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                <div class="search-top-wrapper">
-                    <div class="mini-row">
-                        <div class="col-lg-8 col-md-8 col-sm-7 col-xs-6">
-                            <form method="get" action="http://visacoop.com/search.html" class="top-form-search">
-                                <input type="text" name="q" placeholder="Tìm kiếm ..." value="" />
-                                <button type="submit"><i class="fa fa-search"></i></button>
-                            </form>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-5 col-xs-6">
-                            <div class="social-banner pull-right">
-                                <a href="https://www.facebook.com/Hondavisacoop" title="facebook"><i class="fa fa-facebook"></i></a>
-                                <a href="https://business.google.com/dashboard/l/16239551613036889267" title=""><i class="fa fa-google-plus"></i></a>
-                                <a href="https://www.instagram.com/hondavisacoop/" title="instagram"><i class="fa fa-instagram"></i></a>
-                                <!--<a href="#" title="linkedin"><i class="fa fa-linkedin"></i></a>-->
-                            </div>
-                        </div>
-                        <div class="clear"></div>
-                    </div>
-                </div>
-
-                <div class="hotline-top-wrapper">
-                    <i class="fa fa-phone"></i> <b class="phone">1800 57 77 36</b> MIỄN PHÍ
-                </div>
-
-            </div>
-        </div>
-    </div>
-</div>
-<div class="nav-wrapper">
-    @RenderSection("featured", false)
-    @RenderBody()
-    <div class="container">
-        <nav class="navbar navbar-default">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html"><i class="fa fa-home"></i></a>
-            </div>
-
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li><a href="gioi-thieu.html" title="giới thiệu">Giới Thiệu</a></li>
-                    <li class="dropdown">
-                        <a href="san-pham.html" title="Sản Phẩm" class="dropdown-toggle" role="button" aria-expanded="false" data-hover="dropdown" data-close-others="false" title="">Sản Phẩm</a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li>
-                                <a href="xe-con-tay.html" title="XE CÔN TAY">
-                                    XE CÔN TAY
-                                </a>
-                            </li>
-                            <li>
-                                <a href="xe-so.html" title="XE SỐ">
-                                    XE SỐ
-                                </a>
-                            </li>
-                            <li>
-                                <a href="xe-ga.html" title="XE GA">
-                                    XE GA
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <a href="phu-tung.html" title="Phụ tùng">
-                            Phụ tùng
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="dich-vu.html" title="Dịch vụ">
-                            Dịch vụ
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="lai-xe-an-toan.html" title="Lái xe an toàn">
-                            Lái xe an toàn
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="tin-tuc.html" title="Tin tức">
-                            Tin tức
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="hoi-dap-gop-y.html" title="Hỏi đáp - Góp ý">
-                            Hỏi đáp - Góp ý
-                        </a>
-                    </li>
-
-                    <li><a href="lien-he.html" title="Liên Hệ">Liên Hệ</a></li>
-                </ul>
-            </div>
-        </nav>
-    </div>
-</div>
-<script>
-    jQuery(document).ready(function (e) {
-        function i() { var t = document.body.clientWidth; if (t) { r.$ScaleWidth(Math.min(e("body").width(), 1920)) } else { window.setTimeout(i, 30) } } var t = []; t["L"] = { $Duration: 900, x: .6, $Easing: { $Left: $JssorEasing$.$EaseInOutSine }, $Opacity: 2 }; t["R"] = { $Duration: 900, x: -.6, $Easing: { $Left: $JssorEasing$.$EaseInOutSine }, $Opacity: 2 }; t["T"] = { $Duration: 900, y: .6, $Easing: { $Top: $JssorEasing$.$EaseInOutSine }, $Opacity: 2 }; t["B"] = { $Duration: 900, y: -.6, $Easing: { $Top: $JssorEasing$.$EaseInOutSine }, $Opacity: 2 }; t["ZMF|10"] = { $Duration: 900, $Zoom: 11, $Easing: { $Zoom: $JssorEasing$.$EaseOutQuad, $Opacity: $JssorEasing$.$EaseLinear }, $Opacity: 2 }; t["RTT|10"] = { $Duration: 900, $Zoom: 11, $Rotate: 1, $Easing: { $Zoom: $JssorEasing$.$EaseOutQuad, $Opacity: $JssorEasing$.$EaseLinear, $Rotate: $JssorEasing$.$EaseInExpo }, $Opacity: 2, $Round: { $Rotate: .8 } }; t["RTT|2"] = { $Duration: 900, $Zoom: 3, $Rotate: 1, $Easing: { $Zoom: $JssorEasing$.$EaseInQuad, $Opacity: $JssorEasing$.$EaseLinear, $Rotate: $JssorEasing$.$EaseInQuad }, $Opacity: 2, $Round: { $Rotate: .5 } }; t["RTTL|BR"] = { $Duration: 900, x: -.6, y: -.6, $Zoom: 11, $Rotate: 1, $Easing: { $Left: $JssorEasing$.$EaseInCubic, $Top: $JssorEasing$.$EaseInCubic, $Zoom: $JssorEasing$.$EaseInCubic, $Opacity: $JssorEasing$.$EaseLinear, $Rotate: $JssorEasing$.$EaseInCubic }, $Opacity: 2, $Round: { $Rotate: .8 } }; t["CLIP|LR"] = { $Duration: 900, $Clip: 15, $Easing: { $Clip: $JssorEasing$.$EaseInOutCubic }, $Opacity: 2 }; t["MCLIP|L"] = { $Duration: 900, $Clip: 1, $Move: true, $Easing: { $Clip: $JssorEasing$.$EaseInOutCubic } }; t["MCLIP|R"] = { $Duration: 900, $Clip: 2, $Move: true, $Easing: { $Clip: $JssorEasing$.$EaseInOutCubic } }; var n = { $FillMode: 2, $AutoPlay: true, $AutoPlayInterval: 4e3, $PauseOnHover: 1, $ArrowKeyNavigation: true, $SlideEasing: $JssorEasing$.$EaseOutQuint, $SlideDuration: 800, $MinDragOffsetToSlide: 20, $SlideSpacing: 0, $DisplayPieces: 1, $ParkingPosition: 0, $UISearchMode: 1, $PlayOrientation: 1, $DragOrientation: 1, $CaptionSliderOptions: { $Class: $JssorCaptionSlider$, $CaptionTransitions: t, $PlayInMode: 1, $PlayOutMode: 3 }, $BulletNavigatorOptions: { $Class: $JssorBulletNavigator$, $ChanceToShow: 2, $AutoCenter: 1, $Steps: 1, $Lanes: 1, $SpacingX: 8, $SpacingY: 8, $Orientation: 1 }, $ArrowNavigatorOptions: { $Class: $JssorArrowNavigator$, $ChanceToShow: 1, $AutoCenter: 2, $Steps: 1 } }; var r = new $JssorSlider$("slider1_container", n); i(); if (!navigator.userAgent.match(/(iPhone|iPod|iPad|BlackBerry|IEMobile)/)) { e(window).bind("resize", i) }
-    })
-</script>
-<!-- Jssor Slider Begin -->
-<div id="slider1_container" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 1800px; height: 570px;">
-    <!-- Loading Screen -->
-    <!--<div u="loading" style="position: absolute; top: 0px; left: 0px;">-->
-    <!--    <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;">-->
-    <!--    </div>-->
-    <!--    <div style="position: absolute; display: block; background: url(http://visacoop.com/public/img/loading.gif) no-repeat center center; top: 0px; left: 0px; width: 100%; height: 100%;">-->
-    <!--    </div>-->
-    <!--</div>-->
-    <!-- Slides Container -->
-    <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 1800px; height: 570px; overflow: hidden;">
-        <div>
-            <a target="_blank" u="image" href="https://business.facebook.com/Hondavisacoop/photos/a.264986893683341/1534430180072333/?type=3&amp;theater" title="SẮM WINNER X NHÂN ĐÔI PHẤN KHÍCH"><img src="/themes/Honda/public/uploads/images/40e0516321efdcb185fe.jpg" alt="SẮM WINNER X NHÂN ĐÔI PHẤN KHÍCH" u="image" /></a>
-        </div>
-        <div>
-            <a target="_blank" u="image" href="sam-xe-chat-nhat-qua-tang.html" title="MUA XE CHẤT NHẤT QUÀ TẠNG"><img src="/themes/Honda/public/uploads/images/Webcover-CTKM-BH-T06-(1800x570px).jpg" alt="MUA XE CHẤT NHẤT QUÀ TẠNG" u="image" /></a>
-        </div>
-        <div>
-            <a target="_blank" u="image" href="bao-tri-tan-tam-100-trung-qua.html" title="Bảo Trì Tận Tâm - 100% Trúng Quà"><img src="/themes/Honda/public/uploads/images/Webcover-CTKM-DV-T06-(1800x570px).jpg" alt="Bảo Trì Tận Tâm - 100% Trúng Quà" u="image" /></a>
-        </div>
-        <div>
-            <a target="_blank" u="image" href="future-fi-125cc-phien-ban-moi-dinh-tam-cao-xung-tu-hao.html" title="Future FI 125cc phiên bản mới – Định tầm cao, xứng tự hào"><img src="/themes/Honda/public/uploads/images/Banner-WEB-Future-2020.jpg" alt="Future FI 125cc phiên bản mới – Định tầm cao, xứng tự hào" u="image" /></a>
-        </div>
-        <div>
-            <a target="_blank" u="image" href="he-cuc-thich-cung-winner-x.html" title="HÈ CỰC THÍCH CÙNG WINNER X"><img src="/themes/Honda/public/uploads/images/96636394_1802218489936181_3039560913863573504_o.png" alt="HÈ CỰC THÍCH CÙNG WINNER X" u="image" /></a>
-        </div>
-        <div>
-            <a target="_blank" u="image" href="sieu-pham-x-da-tro-lai-cuc-loi-hai-voi-phien-ban-the-thao-abs-moi.html" title=" “Siêu phẩm X” đã trở lại cực lợi hại với phiên bản Thể thao ABS mới!"><img src="/themes/Honda/public/uploads/images/123456.jpg" alt=" “Siêu phẩm X” đã trở lại cực lợi hại với phiên bản Thể thao ABS mới!" u="image" /></a>
-        </div>
-        <div>
-            <a target="_blank" u="image" href="https://www.honda.com.vn/pages/honda-motor/motor-detail/motor-detail.html?xe=%22sh-300cc%22" title="2"><img src="/themes/Honda/public/uploads/images/5.jpg" alt="2" u="image" /></a>
-        </div>
-    </div>
-    <!-- Arrow Navigator Skin Begin -->
-    <style>
-        .jssorb21 {
-            bottom: 6px !important;
-        }
-
-            .jssorb21 div, .jssorb21 div:hover, .jssorb21 .av {
-                background: url(public/img/b21.png) no-repeat;
-                overflow: hidden;
-                cursor: pointer;
-            }
-
-            .jssorb21 div {
-                background-position: -5px -5px;
-            }
-
-                .jssorb21 div:hover, .jssorb21 .av:hover {
-                    background-position: -35px -5px;
-                }
-
-            .jssorb21 .av {
-                background-position: -65px -5px;
-            }
-
-            .jssorb21 .dn, .jssorb21 .dn:hover {
-                background-position: -95px -5px;
-            }
-
-        .jssora21l, .jssora21r, .jssora21ldn, .jssora21rdn {
-            position: absolute;
-            cursor: pointer;
-            display: block;
-            background: url(public/img/a21.png) center center no-repeat;
-            overflow: hidden;
-        }
-
-        .jssora21l {
-            background-position: -3px -33px;
-        }
-
-        .jssora21r {
-            background-position: -63px -33px;
-        }
-
-        .jssora21l:hover {
-            background-position: -123px -33px;
-        }
-
-        .jssora21r:hover {
-            background-position: -183px -33px;
-        }
-
-        .jssora21ldn {
-            background-position: -243px -33px;
-        }
-
-        .jssora21rdn {
-            background-position: -303px -33px;
-        }
-    </style>
-
-    <div u="navigator" class="jssorb21" style="position: absolute; bottom: -21px; left: 6px;">
-        <!-- bullet navigator item prototype -->
-        <div u="prototype" style="POSITION: absolute; WIDTH: 25px; HEIGHT: 25px; text-align:center; line-height:25px; color:White; font-size:12px;"></div>
-    </div>
-    <span u="arrowleft" class="jssora21l" style="width: 55px; height: 55px; top: 123px; left: 8px;">
-    </span>
-    <!-- Arrow Right -->
-    <span u="arrowright" class="jssora21r" style="width: 55px; height: 55px; top: 123px; right: 8px">
-    </span>
-</div>
-
-
-
-<div class="panel-tid product-website">
-    <!--<div class="tuyet"></div> code noel-->
-    <!--<img src="http://visacoop.com/public/img/noel2018/sp2.png" class="topsp2" alt="trang trí noel">-->
-    <div class="panel-red">
-        <div class="container">
-            <div class="title">Sản phẩm</div>
-        </div>
-    </div>
-    <div class="panel-body">
-        <div class="container">
-            <div class="row product-scroll padding transition-light">
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 animated" data-animation="bounceInUp">
-                    <a class="transition-light" href="cb150r.html" title="CB150R">
-                        <img src="/themes/Honda/public/uploads/images/thumbs/cb150.png" alt="CB150R" class="width-100" />
-                        <span class="product-title">CB150R</span>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 animated" data-animation="bounceInUp">
-                    <a class="transition-light" href="super-cub-c125.html" title="Super Cub C125">
-                        <img src="/themes/Honda/public/uploads/images/thumbs/cub.png" alt="Super Cub C125" class="width-100" />
-                        <span class="product-title">Super Cub C125</span>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 animated" data-animation="bounceInUp">
-                    <a class="transition-light" href="monkey.html" title="MONKEY">
-                        <img src="/themes/Honda/public/uploads/images/thumbs/monkey.png" alt="MONKEY" class="width-100" />
-                        <span class="product-title">MONKEY</span>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 animated" data-animation="bounceInUp">
-                    <a class="transition-light" href="pcx-hybrid.html" title="PCX Hybrid">
-                        <img src="/themes/Honda/public/uploads/images/thumbs/PCX.png" alt="PCX Hybrid" class="width-100" />
-                        <span class="product-title">PCX Hybrid</span>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 animated" data-animation="bounceInUp">
-                    <a class="transition-light" href="cb300r.html" title="CB300R">
-                        <img src="/themes/Honda/public/uploads/images/thumbs/cb300.png" alt="CB300R" class="width-100" />
-                        <span class="product-title">CB300R</span>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 animated" data-animation="bounceInUp">
-                    <a class="transition-light" href="7b3-winner-150cc.html" title="Winner X 150cc">
-                        <img src="/themes/Honda/public/uploads/images/thumbs/winnerx.png" alt="Winner X 150cc" class="width-100" />
-                        <span class="product-title">Winner X 150cc</span>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 animated" data-animation="bounceInUp">
-                    <a class="transition-light" href="air-blade-125cc-den-do.html" title="Air Blade 125cc\150cc">
-                        <img src="/themes/Honda/public/uploads/images/thumbs/AB.png" alt="Air Blade 125cc\150cc" class="width-100" />
-                        <span class="product-title">Air Blade 125cc\150cc</span>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 animated" data-animation="bounceInUp">
-                    <a class="transition-light" href="sh-125150cc-xanh-den.html" title="SH 125/150cc">
-                        <img src="/themes/Honda/public/uploads/images/thumbs/SH125-150.png" alt="SH 125/150cc" class="width-100" />
-                        <span class="product-title">SH 125/150cc</span>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 animated" data-animation="bounceInUp">
-                    <a class="transition-light" href="rebel-300.html" title="Rebel 300">
-                        <img src="/themes/Honda/public/uploads/images/thumbs/rebel300.png" alt="Rebel 300" class="width-100" />
-                        <span class="product-title">Rebel 300</span>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 animated" data-animation="bounceInUp">
-                    <a class="transition-light" href="sh-300cc.html" title="SH 300cc">
-                        <img src="/themes/Honda/public/uploads/images/thumbs/SH300.png" alt="SH 300cc" class="width-100" />
-                        <span class="product-title">SH 300cc</span>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 animated" data-animation="bounceInUp">
-                    <a class="transition-light" href="lead-125cc.html" title="LEAD 125CC">
-                        <img src="/themes/Honda/public/uploads/images/thumbs/lead.png" alt="LEAD 125CC" class="width-100" />
-                        <span class="product-title">LEAD 125CC</span>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 animated" data-animation="bounceInUp">
-                    <a class="transition-light" href="sh-mode-2015.html" title="SH MODE 125cc">
-                        <img src="/themes/Honda/public/uploads/images/thumbs/SHmode.png" alt="SH MODE 125cc" class="width-100" />
-                        <span class="product-title">SH MODE 125cc</span>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 animated" data-animation="bounceInUp">
-                    <a class="transition-light" href="61f-pcx.html" title="PCX">
-                        <img src="/themes/Honda/public/uploads/images/thumbs/tr.png" alt="PCX" class="width-100" />
-                        <span class="product-title">PCX</span>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 animated" data-animation="bounceInUp">
-                    <a class="transition-light" href="vision-2014-trang.html" title="Vision 2014">
-                        <img src="/themes/Honda/public/uploads/images/thumbs/vision.png" alt="Vision 2014" class="width-100" />
-                        <span class="product-title">Vision 2014</span>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 animated" data-animation="bounceInUp">
-                    <a class="transition-light" href="d60-msx-125-do-den.html" title="MSX 125">
-                        <img src="/themes/Honda/public/uploads/images/thumbs/MSX.png" alt="MSX 125" class="width-100" />
-                        <span class="product-title">MSX 125</span>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 animated" data-animation="bounceInUp">
-                    <a class="transition-light" href="future-125-fi.html" title="FUTURE 125 FI">
-                        <img src="/themes/Honda/public/uploads/images/thumbs/vanhnanhoa_bacden_image.png" alt="FUTURE 125 FI" class="width-100" />
-                        <span class="product-title">FUTURE 125 FI</span>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 animated" data-animation="bounceInUp">
-                    <a class="transition-light" href="blade-110.html" title="BLADE 110">
-                        <img src="/themes/Honda/public/uploads/images/thumbs/BLADE.png" alt="BLADE 110" class="width-100" />
-                        <span class="product-title">BLADE 110</span>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 animated" data-animation="bounceInUp">
-                    <a class="transition-light" href="e5b-wave-alpha.html" title="WAVE ALPHA 110CC">
-                        <img src="/themes/Honda/public/uploads/images/thumbs/wave.png" alt="WAVE ALPHA 110CC" class="width-100" />
-                        <span class="product-title">WAVE ALPHA 110CC</span>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 animated" data-animation="bounceInUp">
-                    <a class="transition-light" href="a55-wave-rsx.html" title="WAVE RSX">
-                        <img src="/themes/Honda/public/uploads/images/thumbs/rsx.png" alt="WAVE RSX" class="width-100" />
-                        <span class="product-title">WAVE RSX</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="panel-tid service-website">
-    <!--<div class="tuyet">code noel</div>-->
-
-    <div class="panel-black">
-        <div class="container">
-            <div class="title">Dịch vụ &amp; phụ tùng</div>
-        </div>
-    </div>
-    <div class="panel-body">
-        <div class="container ">
-            <div class="row product-scroll">
-                <div class="col-lg-3 col-md-3 col-sm-6 ol-xs-6 animated" data-animation="bounceInRight">
-                    <a href="dat-lich-hen-truoc-de-duoc-uu-dai.html" title="Đặt Lịch Hẹn Trước Để Được Ưu Đãi">
-                        <img src="/themes/Honda/public/uploads/images/thumbs/Web-datlichhen.jpg" alt="Đặt Lịch Hẹn Trước Để Được Ưu Đãi" class="width-100" />
-                        <span class="title-service">Đặt Lịch Hẹn Trước Để Được Ưu Đãi</span>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 ol-xs-6 animated" data-animation="bounceInLeft">
-                    <a href="dich-vu-sua-chua-bao-tri-xe.html" title="DỊCH VỤ SỬA CHỮA BẢO TRÌ XE">
-                        <img src="/themes/Honda/public/uploads/images/thumbs/Web-baoduong.jpg" alt="DỊCH VỤ SỬA CHỮA BẢO TRÌ XE" class="width-100" />
-                        <span class="title-service">DỊCH VỤ SỬA CHỮA BẢO TRÌ XE</span>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 ol-xs-6 animated" data-animation="bounceInRight">
-                    <a href="phu-kien-trang-tri-xe.html" title="PHỤ KIỆN TRANG TRÍ XE">
-                        <img src="/themes/Honda/public/uploads/images/thumbs/loc_may_1.jpg" alt="PHỤ KIỆN TRANG TRÍ XE" class="width-100" />
-                        <span class="title-service">PHỤ KIỆN TRANG TRÍ XE</span>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 ol-xs-6 animated" data-animation="bounceInLeft">
-                    <a href="81e-mua-xe-tra-gop.html" title="MUA XE TRẢ GÓP">
-                        <img src="/themes/Honda/public/uploads/images/thumbs/Web-TraGop(2500x1834).jpg" alt="MUA XE TRẢ GÓP" class="width-100" />
-                        <span class="title-service">MUA XE TRẢ GÓP</span>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 ol-xs-6 animated" data-animation="bounceInRight">
-                    <a href="trang-tri-phoi-mau-son-sporty.html" title="XE TRANG TRÍ SPORTY">
-                        <img src="/themes/Honda/public/uploads/images/thumbs/Web-XeSporty1.jpg" alt="XE TRANG TRÍ SPORTY" class="width-100" />
-                        <span class="title-service">XE TRANG TRÍ SPORTY</span>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 ol-xs-6 animated" data-animation="bounceInLeft">
-                    <a href="bao-hiem-xe-may-honda-plus.html" title="BẢO HIỂM XE MÁY HONDA PLUS">
-                        <img src="/themes/Honda/public/uploads/images/thumbs/Web-hondaplus.jpg" alt="BẢO HIỂM XE MÁY HONDA PLUS" class="width-100" />
-                        <span class="title-service">BẢO HIỂM XE MÁY HONDA PLUS</span>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 ol-xs-6 animated" data-animation="bounceInRight">
-                    <a href="phu-tung-chinh-hieu-honda.html" title="PHỤ TÙNG CHÍNH HIỆU HONDA">
-                        <img src="/themes/Honda/public/uploads/images/thumbs/label.jpg" alt="PHỤ TÙNG CHÍNH HIỆU HONDA" class="width-100" />
-                        <span class="title-service">PHỤ TÙNG CHÍNH HIỆU HONDA</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--<img src="http://visacoop.com/public/img/noel2018/sp3.png" class="topsp3" alt="trang trí noel">-->
-</div>
-
-<script language="javascript" type="text/javascript">
-    $(document).ready(function () {
-        if ($(window).innerWidth() < 767)
-            var showslide = 1;
-        else
-            var showslide = 4;
-        $(".product-scroll").slick({
-            slidesToShow: showslide,
-            slidesToScroll: showslide,
-            autoplay: true,
-            autoplaySpeed: 4000,
+        $(window).load(function () {
+            setTimeout(function () {
+                $('.video-more').html('<iframe width="100%" height="' + $('.video-more').height() + '" src="https://www.youtube.com/embed/4Ln6_gm38X0" frameborder="0" allowfullscreen></iframe>');
+            }, 500)
         })
-    })
-</script>
-<div class="news-content-website">
-    <div style="background: url('public/img/noel2018/products-bg.jpg') repeat center top; background-size: auto 100%; height: 150px;"></div>
-    <!--<div class="tuyet"></div> code noel-->
-    <!--<img src="http://visacoop.com/public/img/noel2018/onggia.png" class="onggia"> code noel-->
-    <div class="bg-top"></div>
-    <div class="container">
-        <div class="title-news-content">
-            <div class="row">
-                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                    Tin tức sự kiện &amp; khuyến mãi
-                </div>
-            </div>
-
-        </div>
-        <div class="list-news-content-website">
-            <div class="row">
-                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                    <div class="">
-                        <div class="box-news-website resize-height-container resize-padding" resize=".animated">
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 animated" data-animation="bounceInLeft">
-                                <a href="vuot-ngan-dam-xa-da-co-honda.html" title="Vượt Ngàn Dặm Xa Đã Có Honda">
-                                    <img src="/themes/Honda/public/uploads/images/thumbs/107001639_3041176626001009_5816999849379109920_n.jpg" alt="Vượt Ngàn Dặm Xa Đã Có Honda" class="width-100" />
-                                </a>
-                            </div>
-                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 animated" data-animation="bounceInRight">
-                                <h1>
-                                    <a href="vuot-ngan-dam-xa-da-co-honda.html" title="Vượt Ngàn Dặm Xa Đã Có Honda">
-                                        Vượt Ngàn Dặm Xa Đã Có Honda
-                                    </a>
-                                </h1>
-                                <span class="time-news-website">
-                                    09/07/2020
-                                </span>
-                                <h2>Vượt Ngàn Dặm Xa Đã Có Honda . . . <a href="vuot-ngan-dam-xa-da-co-honda.html" title="Vượt Ngàn Dặm Xa Đã Có Honda" class="more">Xem chi tiết</a></h2>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class="box-news-website resize-height-container resize-padding" resize=".animated">
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 animated" data-animation="bounceInLeft">
-                                <a href="rut-tham-sam-xe-hang-hieu-nhan-qua-sanh-dieu.html" title="Rút Thăm Sắm Xe Hàng Hiệu Nhận Quà Sành Điệu">
-                                    <img src="/themes/Honda/public/uploads/images/thumbs/_DSC9103.jpg" alt="Rút Thăm Sắm Xe Hàng Hiệu Nhận Quà Sành Điệu" class="width-100" />
-                                </a>
-                            </div>
-                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 animated" data-animation="bounceInRight">
-                                <h1>
-                                    <a href="rut-tham-sam-xe-hang-hieu-nhan-qua-sanh-dieu.html" title="Rút Thăm Sắm Xe Hàng Hiệu Nhận Quà Sành Điệu">
-                                        Rút Thăm Sắm Xe Hàng Hiệu Nhận Quà Sành Điệu
-                                    </a>
-                                </h1>
-                                <span class="time-news-website">
-                                    23/06/2020
-                                </span>
-                                <h2>Rút Thăm Sắm Xe Hàng Hiệu Nhận Quà Sành Điệu . . . <a href="rut-tham-sam-xe-hang-hieu-nhan-qua-sanh-dieu.html" title="Rút Thăm Sắm Xe Hàng Hiệu Nhận Quà Sành Điệu" class="more">Xem chi tiết</a></h2>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class="box-news-website resize-height-container resize-padding" resize=".animated">
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 animated" data-animation="bounceInLeft">
-                                <a href="bao-tri-tan-tam-100-trung-qua.html" title="Bảo Trì Tận Tâm - 100% Trúng Quà">
-                                    <img src="/themes/Honda/public/uploads/images/thumbs/FB-CTKM-DV-T06-1.jpg" alt="Bảo Trì Tận Tâm - 100% Trúng Quà" class="width-100" />
-                                </a>
-                            </div>
-                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 animated" data-animation="bounceInRight">
-                                <h1>
-                                    <a href="bao-tri-tan-tam-100-trung-qua.html" title="Bảo Trì Tận Tâm - 100% Trúng Quà">
-                                        Bảo Trì Tận Tâm - 100% Trúng Quà
-                                    </a>
-                                </h1>
-                                <span class="time-news-website">
-                                    08/06/2020
-                                </span>
-                                <h2>Chương Trình Khuyến Mãi Dịch Vụ Bảo Trì Tận Tâm - 100% Trúng Quà . . . <a href="bao-tri-tan-tam-100-trung-qua.html" title="Bảo Trì Tận Tâm - 100% Trúng Quà" class="more">Xem chi tiết</a></h2>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class="box-news-website resize-height-container resize-padding" resize=".animated">
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 animated" data-animation="bounceInLeft">
-                                <a href="sam-xe-chat-nhat-qua-tang.html" title="SẮM XE CHẤT NHẤT QUÀ TẶNG">
-                                    <img src="/themes/Honda/public/uploads/images/thumbs/web3.jpg" alt="SẮM XE CHẤT NHẤT QUÀ TẶNG" class="width-100" />
-                                </a>
-                            </div>
-                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 animated" data-animation="bounceInRight">
-                                <h1>
-                                    <a href="sam-xe-chat-nhat-qua-tang.html" title="SẮM XE CHẤT NHẤT QUÀ TẶNG">
-                                        SẮM XE CHẤT NHẤT QUÀ TẶNG
-                                    </a>
-                                </h1>
-                                <span class="time-news-website">
-                                    04/06/2020
-                                </span>
-                                <h2>Chương trình khuyến mãi mới SẮM XE CHẤT NHẤT QUÀ TẶNG.. . . . <a href="sam-xe-chat-nhat-qua-tang.html" title="SẮM XE CHẤT NHẤT QUÀ TẶNG" class="more">Xem chi tiết</a></h2>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class="box-news-website resize-height-container resize-padding" resize=".animated">
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 animated" data-animation="bounceInLeft">
-                                <a href="future-fi-125cc-phien-ban-moi-dinh-tam-cao-xung-tu-hao.html" title="Future FI 125cc phiên bản mới – Định tầm cao, xứng tự hào">
-                                    <img src="/themes/Honda/public/uploads/images/thumbs/99045959_1805664959591534_7091451606578757632_n.jpg" alt="Future FI 125cc phiên bản mới – Định tầm cao, xứng tự hào" class="width-100" />
-                                </a>
-                            </div>
-                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 animated" data-animation="bounceInRight">
-                                <h1>
-                                    <a href="future-fi-125cc-phien-ban-moi-dinh-tam-cao-xung-tu-hao.html" title="Future FI 125cc phiên bản mới – Định tầm cao, xứng tự hào">
-                                        Future FI 125cc phiên bản mới – Định tầm cao, xứng tự hào
-                                    </a>
-                                </h1>
-                                <span class="time-news-website">
-                                    19/05/2020
-                                </span>
-                                <h2>Future FI 125cc phiên bản mới – Định tầm cao, xứng tự hào . . . <a href="future-fi-125cc-phien-ban-moi-dinh-tam-cao-xung-tu-hao.html" title="Future FI 125cc phiên bản mới – Định tầm cao, xứng tự hào" class="more">Xem chi tiết</a></h2>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class="box-news-website resize-height-container resize-padding" resize=".animated">
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 animated" data-animation="bounceInLeft">
-                                <a href="he-cuc-thich-cung-winner-x.html" title="HỀ CỰC THÍCH CÙNG WINNER X">
-                                    <img src="/themes/Honda/public/uploads/images/thumbs/96737066_1493253364190015_2888466287967600640_o.jpg" alt="HỀ CỰC THÍCH CÙNG WINNER X" class="width-100" />
-                                </a>
-                            </div>
-                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 animated" data-animation="bounceInRight">
-                                <h1>
-                                    <a href="he-cuc-thich-cung-winner-x.html" title="HỀ CỰC THÍCH CÙNG WINNER X">
-                                        HỀ CỰC THÍCH CÙNG WINNER X
-                                    </a>
-                                </h1>
-                                <span class="time-news-website">
-                                    19/05/2020
-                                </span>
-                                <h2>HỀ CỰC THÍCH CÙNG WINNER X . . . <a href="he-cuc-thich-cung-winner-x.html" title="HỀ CỰC THÍCH CÙNG WINNER X" class="more">Xem chi tiết</a></h2>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class="box-news-website resize-height-container resize-padding" resize=".animated">
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 animated" data-animation="bounceInLeft">
-                                <a href="sieu-pham-x-da-tro-lai-cuc-loi-hai-voi-phien-ban-the-thao-abs-moi.html" title=" “Siêu phẩm X” đã trở lại cực lợi hại với phiên bản Thể thao ABS mới!">
-                                    <img src="/themes/Honda/public/uploads/images/thumbs/93519627_1781413738683323_4888613762937913344_n.jpg" alt=" “Siêu phẩm X” đã trở lại cực lợi hại với phiên bản Thể thao ABS mới!" class="width-100" />
-                                </a>
-                            </div>
-                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 animated" data-animation="bounceInRight">
-                                <h1>
-                                    <a href="sieu-pham-x-da-tro-lai-cuc-loi-hai-voi-phien-ban-the-thao-abs-moi.html" title=" “Siêu phẩm X” đã trở lại cực lợi hại với phiên bản Thể thao ABS mới!">
-                                        “Siêu phẩm X” đã trở lại cực lợi hại với phiên bản Thể thao ABS mới!
-                                    </a>
-                                </h1>
-                                <span class="time-news-website">
-                                    27/04/2020
-                                </span>
-                                <h2>“Siêu phẩm X” đã trở lại cực lợi hại với phiên bản Thể thao ABS mới! . . . <a href="sieu-pham-x-da-tro-lai-cuc-loi-hai-voi-phien-ban-the-thao-abs-moi.html" title=" “Siêu phẩm X” đã trở lại cực lợi hại với phiên bản Thể thao ABS mới!" class="more">Xem chi tiết</a></h2>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class="box-news-website resize-height-container resize-padding" resize=".animated">
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 animated" data-animation="bounceInLeft">
-                                <a href="luot-cung-chat-choi-msx125.html" title="LƯỚT CÙNG CHẤT CHƠI - MSX125">
-                                    <img src="/themes/Honda/public/uploads/images/thumbs/93702747_1781433742014656_2532112709684559872_n.jpg" alt="LƯỚT CÙNG CHẤT CHƠI - MSX125" class="width-100" />
-                                </a>
-                            </div>
-                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 animated" data-animation="bounceInRight">
-                                <h1>
-                                    <a href="luot-cung-chat-choi-msx125.html" title="LƯỚT CÙNG CHẤT CHƠI - MSX125">
-                                        LƯỚT CÙNG CHẤT CHƠI - MSX125
-                                    </a>
-                                </h1>
-                                <span class="time-news-website">
-                                    27/04/2020
-                                </span>
-                                <h2>LƯỚT CÙNG CHẤT CHƠI - MSX125 . . . <a href="luot-cung-chat-choi-msx125.html" title="LƯỚT CÙNG CHẤT CHƠI - MSX125" class="more">Xem chi tiết</a></h2>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class="box-news-website resize-height-container resize-padding" resize=".animated">
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 animated" data-animation="bounceInLeft">
-                                <a href="le-rut-tham-don-xuan-thinh-vuon-rinh-xe-thoi-thuong.html" title="Lễ Rút Thăm Đón Xuân Thịnh Vượn Rinh Xe Thời Thượng">
-                                    <img src="/themes/Honda/public/uploads/images/thumbs/f2300382a98c52d20b9d.jpg" alt="Lễ Rút Thăm Đón Xuân Thịnh Vượn Rinh Xe Thời Thượng" class="width-100" />
-                                </a>
-                            </div>
-                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 animated" data-animation="bounceInRight">
-                                <h1>
-                                    <a href="le-rut-tham-don-xuan-thinh-vuon-rinh-xe-thoi-thuong.html" title="Lễ Rút Thăm Đón Xuân Thịnh Vượn Rinh Xe Thời Thượng">
-                                        Lễ Rút Thăm Đón Xuân Thịnh Vượn Rinh Xe Thời Thượng
-                                    </a>
-                                </h1>
-                                <span class="time-news-website">
-                                    30/03/2020
-                                </span>
-                                <h2>Lễ Rút Thăm Đón Xuân Thịnh Vượn Rinh Xe Thời Thượng . . . <a href="le-rut-tham-don-xuan-thinh-vuon-rinh-xe-thoi-thuong.html" title="Lễ Rút Thăm Đón Xuân Thịnh Vượn Rinh Xe Thời Thượng" class="more">Xem chi tiết</a></h2>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class="box-news-website resize-height-container resize-padding" resize=".animated">
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 animated" data-animation="bounceInLeft">
-                                <a href="trao-giai-ngap-tran-qua-niem-vui-lan-toa.html" title="Trao giải " Ngập Tràn Quà - Niềm Vui Lan Tỏa">
-                                    <img src="/themes/Honda/public/uploads/images/thumbs/C6_(83).jpg" alt="Trao giải " Ngập Tràn Quà - Niềm Vui Lan Tỏa" class="width-100" />
-                                </a>
-                            </div>
-                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 animated" data-animation="bounceInRight">
-                                <h1>
-                                    <a href="trao-giai-ngap-tran-qua-niem-vui-lan-toa.html" title="Trao giải " Ngập Tràn Quà - Niềm Vui Lan Tỏa">
-                                        Trao giải "Ngập Tràn Quà - Niềm Vui Lan Tỏa
-                                    </a>
-                                </h1>
-                                <span class="time-news-website">
-                                    25/03/2020
-                                </span>
-                                <h2>Trao giải "Ngập Tràn Quà - Niềm Vui Lan Tỏa . . . <a href="trao-giai-ngap-tran-qua-niem-vui-lan-toa.html" title="Trao giải " Ngập Tràn Quà - Niềm Vui Lan Tỏa" class="more">Xem chi tiết</a></h2>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class="box-news-website resize-height-container resize-padding" resize=".animated">
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 animated" data-animation="bounceInLeft">
-                                <a href="ung-dung-my-honda-plus.html" title="ỨNG DỤNG My Honda Plus">
-                                    <img src="/themes/Honda/public/uploads/images/thumbs/overview-11.png" alt="ỨNG DỤNG My Honda Plus" class="width-100" />
-                                </a>
-                            </div>
-                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 animated" data-animation="bounceInRight">
-                                <h1>
-                                    <a href="ung-dung-my-honda-plus.html" title="ỨNG DỤNG My Honda Plus">
-                                        ỨNG DỤNG My Honda Plus
-                                    </a>
-                                </h1>
-                                <span class="time-news-website">
-                                    18/03/2020
-                                </span>
-                                <h2>ỨNG DỤNG My Honda Plus . . . <a href="ung-dung-my-honda-plus.html" title="ỨNG DỤNG My Honda Plus" class="more">Xem chi tiết</a></h2>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class="box-news-website resize-height-container resize-padding" resize=".animated">
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 animated" data-animation="bounceInLeft">
-                                <a href="huong-dan-cai-dat-ung-dung-my-honda-.html" title="HƯỚNG DẪN CÀI ĐẶT ỨNG DỤNG My Honda +">
-                                    <img src="/themes/Honda/public/uploads/images/thumbs/overview-1.png" alt="HƯỚNG DẪN CÀI ĐẶT ỨNG DỤNG My Honda +" class="width-100" />
-                                </a>
-                            </div>
-                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 animated" data-animation="bounceInRight">
-                                <h1>
-                                    <a href="huong-dan-cai-dat-ung-dung-my-honda-.html" title="HƯỚNG DẪN CÀI ĐẶT ỨNG DỤNG My Honda +">
-                                        HƯỚNG DẪN CÀI ĐẶT ỨNG DỤNG My Honda +
-                                    </a>
-                                </h1>
-                                <span class="time-news-website">
-                                    18/03/2020
-                                </span>
-                                <h2>HƯỚNG DẪN CÀI ĐẶT ỨNG DỤNG My Honda + . . . <a href="huong-dan-cai-dat-ung-dung-my-honda-.html" title="HƯỚNG DẪN CÀI ĐẶT ỨNG DỤNG My Honda +" class="more">Xem chi tiết</a></h2>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class="box-news-website resize-height-container resize-padding" resize=".animated">
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 animated" data-animation="bounceInLeft">
-                                <a href="sam-xe-hang-hieu-nhan-qua-sanh-dieu.html" title="SẮM XE HÀNG HIỆU, NHẬN QUÀ SÀNH ĐIỆU">
-                                    <img src="/themes/Honda/public/uploads/images/thumbs/Flyer_CTKM_T03_A5_A.png" alt="SẮM XE HÀNG HIỆU, NHẬN QUÀ SÀNH ĐIỆU" class="width-100" />
-                                </a>
-                            </div>
-                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 animated" data-animation="bounceInRight">
-                                <h1>
-                                    <a href="sam-xe-hang-hieu-nhan-qua-sanh-dieu.html" title="SẮM XE HÀNG HIỆU, NHẬN QUÀ SÀNH ĐIỆU">
-                                        SẮM XE HÀNG HIỆU, NHẬN QUÀ SÀNH ĐIỆU
-                                    </a>
-                                </h1>
-                                <span class="time-news-website">
-                                    07/03/2020
-                                </span>
-                                <h2>CHƯƠNG TRÌNH KHUYẾN MÃI "SẮM XE HÀNG HIỆU, NHẬN QUÀ SÀNH ĐIỆU" . . . <a href="sam-xe-hang-hieu-nhan-qua-sanh-dieu.html" title="SẮM XE HÀNG HIỆU, NHẬN QUÀ SÀNH ĐIỆU" class="more">Xem chi tiết</a></h2>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class="box-news-website resize-height-container resize-padding" resize=".animated">
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 animated" data-animation="bounceInLeft">
-                                <a href="dich-vu-combo-khuyen-mai-tron-bo.html" title="Dịch Vụ Combo Khuyến Mãi Trọn Bộ">
-                                    <img src="/themes/Honda/public/uploads/images/thumbs/986769.jpg" alt="Dịch Vụ Combo Khuyến Mãi Trọn Bộ" class="width-100" />
-                                </a>
-                            </div>
-                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 animated" data-animation="bounceInRight">
-                                <h1>
-                                    <a href="dich-vu-combo-khuyen-mai-tron-bo.html" title="Dịch Vụ Combo Khuyến Mãi Trọn Bộ">
-                                        Dịch Vụ Combo Khuyến Mãi Trọn Bộ
-                                    </a>
-                                </h1>
-                                <span class="time-news-website">
-                                    24/02/2020
-                                </span>
-                                <h2>Chương trình khuyến mãi Dịch Vụ Combo Khuyến Mãi Trọn Bộ . . . <a href="dich-vu-combo-khuyen-mai-tron-bo.html" title="Dịch Vụ Combo Khuyến Mãi Trọn Bộ" class="more">Xem chi tiết</a></h2>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class="box-news-website resize-height-container resize-padding" resize=".animated">
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 animated" data-animation="bounceInLeft">
-                                <a href="le-rut-tham-chuong-trinh-mua-xe-vui-giang-trung-xe-mung-nam-moi.html" title="Lễ Rút Thăm Chương Trình " Mua Xe Vui Giáng Trúng Xe Mừng Năm Mới"">
-                                    <img src="/themes/Honda/public/uploads/images/thumbs/_DSC5036.jpg" alt="Lễ Rút Thăm Chương Trình " Mua Xe Vui Giáng Trúng Xe Mừng Năm Mới"" class="width-100" />
-                                </a>
-                            </div>
-                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 animated" data-animation="bounceInRight">
-                                <h1>
-                                    <a href="le-rut-tham-chuong-trinh-mua-xe-vui-giang-trung-xe-mung-nam-moi.html" title="Lễ Rút Thăm Chương Trình " Mua Xe Vui Giáng Trúng Xe Mừng Năm Mới"">
-                                        Lễ Rút Thăm Chương Trình " Mua Xe Vui Giáng Trúng Xe Mừng Năm Mới"
-                                    </a>
-                                </h1>
-                                <span class="time-news-website">
-                                    07/01/2020
-                                </span>
-                                <h2>Lễ Rút Thăm Chương Trình " Mua Xe Vui Giáng Trúng Xe Mừng Năm Mới" . . . <a href="le-rut-tham-chuong-trinh-mua-xe-vui-giang-trung-xe-mung-nam-moi.html" title="Lễ Rút Thăm Chương Trình " Mua Xe Vui Giáng Trúng Xe Mừng Năm Mới"" class="more">Xem chi tiết</a></h2>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 transition-light">
-                    <div class="box-left-news">
-                        <a href="472-tu-van-su-dung.html" title="BÁN XE ƯU ĐÃI CHO DOANH NGHIỆP">
-                            <i class="fa fa-users"></i>
-                            <img src="/themes/Honda/public/uploads/images/thumbs/Web-XeDOANHNGHIEP.jpg" alt="BÁN XE ƯU ĐÃI CHO DOANH NGHIỆP" class="width-100" />
-                            <span>BÁN XE ƯU ĐÃI CHO DOANH NGHIỆP</span>
-                        </a>
-                        <a href="b6a-dao-tao-ky-thuat-vien.html" title="XE TRANG TRÍ SPORTY">
-                            <i class="fa fa-empire"></i>
-                            <img src="/themes/Honda/public/uploads/images/thumbs/Web-XeSporty.jpg" alt="XE TRANG TRÍ SPORTY" class="width-100" />
-                            <span>XE TRANG TRÍ SPORTY</span>
-                        </a>
-                        <a href="287-dich-vu-bao-duong-mien-phi.html" title="THU XE CŨ ĐỔI XE MỚI">
-                            <i class="fa fa-wrench"></i>
-                            <img src="/themes/Honda/public/uploads/images/thumbs/Web-Thumuaxecu.jpg" alt="THU XE CŨ ĐỔI XE MỚI" class="width-100" />
-                            <span>THU XE CŨ ĐỔI XE MỚI</span>
-                        </a>
-                        <a href="882-kiem-tra-truoc-khi-giao-xe-pdi.html" title="PHỤ KIỆN TRANG TRÍ">
-                            <i class="fa fa-motorcycle"></i>
-                            <img src="/themes/Honda/public/uploads/images/thumbs/Web-phutung.jpg" alt="PHỤ KIỆN TRANG TRÍ" class="width-100" />
-                            <span>PHỤ KIỆN TRANG TRÍ</span>
-                        </a>
-                        <a href="hoat-dong-dao-tao-lxat.html" title="HOẠT ĐỘNG ĐÀO TẠO LXAT">
-                            <i class="fa fa-child"></i>
-                            <img src="/themes/Honda/public/uploads/images/thumbs/Web-LXAT.jpg" alt="HOẠT ĐỘNG ĐÀO TẠO LXAT" class="width-100" />
-                            <span>HOẠT ĐỘNG ĐÀO TẠO LXAT</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="bg-bottom"></div>
-    <!--<img src="http://visacoop.com/public/img/noel2018/sp3.png" class="topsp3" alt="trang trí noel"> code noel-->
-</div>
-<div class="panel panel-tid service-website">
-    <div class="tuyet"></div>
-    <div class="panel-black">
-        <div class="container">
-            <div class="title">Liên Hệ</div>
-        </div>
-    </div>
-    <div class="panel-body">
-        <div class="container">
-            <div class="row ">
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 animated mt-2" data-animation="bounceInLeft">
-                    <a class="transition-light" href="head-cong-hoa.html" title="HEAD VISACOOP #1">
-                        <img src="/themes/Honda/public/uploads/images/thumbs/COOP_1.jpg" alt="HEAD VISACOOP #1" class="width-100 border-radius-img" />
-
-                    </a>
-                    <a href="head-cong-hoa.html" title="HEAD VISACOOP #1"><b class="title-contact">HEAD VISACOOP #1</b></a>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 animated mt-2" data-animation="bounceInLeft">
-                    <a class="transition-light" href="head-trung-chanh.html" title="HEAD VISACOOP #2 ">
-                        <img src="/themes/Honda/public/uploads/images/thumbs/COOP_2.jpg" alt="HEAD VISACOOP #2 " class="width-100 border-radius-img" />
-
-                    </a>
-                    <a href="head-trung-chanh.html" title="HEAD VISACOOP #2 "><b class="title-contact">HEAD VISACOOP #2 </b></a>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 animated mt-2" data-animation="bounceInLeft">
-                    <a class="transition-light" href="head-tan-ky-tan-quy.html" title="HEAD VISACOOP #3">
-                        <img src="/themes/Honda/public/uploads/images/thumbs/COOP_3.jpg" alt="HEAD VISACOOP #3" class="width-100 border-radius-img" />
-
-                    </a>
-                    <a href="head-tan-ky-tan-quy.html" title="HEAD VISACOOP #3"><b class="title-contact">HEAD VISACOOP #3</b></a>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 animated mt-2" data-animation="bounceInLeft">
-                    <a class="transition-light" href="head-ben-thanh.html" title="HEAD VISACOOP BẾN THÀNH">
-                        <img src="/themes/Honda/public/uploads/images/thumbs/head-ben-thanh.jpg" alt="HEAD VISACOOP BẾN THÀNH" class="width-100 border-radius-img" />
-
-                    </a>
-                    <a href="head-ben-thanh.html" title="HEAD VISACOOP BẾN THÀNH"><b class="title-contact">HEAD VISACOOP BẾN THÀNH</b></a>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 animated mt-2" data-animation="bounceInLeft">
-                    <a class="transition-light" href="0be-head-visacoop-6.html" title="HEAD VISACOOP #5">
-                        <img src="/themes/Honda/public/uploads/images/thumbs/COOP_5.jpg" alt="HEAD VISACOOP #5" class="width-100 border-radius-img" />
-
-                    </a>
-                    <a href="0be-head-visacoop-6.html" title="HEAD VISACOOP #5"><b class="title-contact">HEAD VISACOOP #5</b></a>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 animated mt-2" data-animation="bounceInLeft">
-                    <a class="transition-light" href="c58-head-visacoop-6.html" title="HEAD VISACOOP #6">
-                        <img src="/themes/Honda/public/uploads/images/thumbs/COOP_6.jpg" alt="HEAD VISACOOP #6" class="width-100 border-radius-img" />
-
-                    </a>
-                    <a href="c58-head-visacoop-6.html" title="HEAD VISACOOP #6"><b class="title-contact">HEAD VISACOOP #6</b></a>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 animated mt-2" data-animation="bounceInLeft">
-                    <a class="transition-light" href="hss-visacoop.html" title="HSS VISACOOP #7">
-                        <img src="/themes/Honda/public/uploads/images/thumbs/z1100632292449_2fe469f6236e96f79b108d0b690b6567.jpg" alt="HSS VISACOOP #7" class="width-100 border-radius-img" />
-
-                    </a>
-                    <a href="hss-visacoop.html" title="HSS VISACOOP #7"><b class="title-contact">HSS VISACOOP #7</b></a>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 animated mt-2" data-animation="bounceInLeft">
-                    <a class="transition-light" href="gs-visacoop.html" title="GS VISACOOP 8">
-                        <img src="/themes/Honda/public/uploads/images/thumbs/z1100632292237_b6c2645af20faeeb43ae39165a8f9488.jpg" alt="GS VISACOOP 8" class="width-100 border-radius-img" />
-
-                    </a>
-                    <a href="gs-visacoop.html" title="GS VISACOOP 8"><b class="title-contact">GS VISACOOP 8</b></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="container padding-bottom margin-bottom">
-    <div class="row resize-height-container" resize=".col-lg-4">
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 video-more animated margin-bottom" data-animation="bounceInLeft">
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 animated margin-bottom" data-animation="bounceInRight">
-            <a href="skype:#?call" title="Support Website" class="support-website transition-light">
-                <img src="/themes/Honda/public/uploads/images/customer-support-online1.jpg" title="Hotline" class="width-100" />
-                <span>Hỗ trợ trực tuyến</span>
-            </a>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12  animated margin-bottom" data-animation="bounceInDown">
-            <div class="statistical-website col-lg-4">
-                <span class="">Thống kê truy cập </span>
-                <p><i class="fa fa-users"></i> Đang truy cập : 11</p>
-                <p><i class="fa fa-bar-chart"></i> Hôm nay : 437</p>
-                <p><i class="fa fa-calendar-o"></i> Hôm qua: 959</p>
-                <p><i class="fa fa-pie-chart"></i> Tổng lượt truy cập : 3,893,228</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script language="javascript" type="text/javascript">
-    $(window).load(function () {
-        setTimeout(function () {
-            $('.video-more').html('<iframe width="100%" height="' + $('.video-more').height() + '" src="https://www.youtube.com/embed/eqmaZ38xSn0" frameborder="0" allowfullscreen></iframe>');
-        }, 500)
-    })
-</script>
-<div class="footer-website">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <span class="title-footer">hệ thống cửa hàng visacoop</span>
-                <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                        <p>
-                            <b> HEAD VISACOOP #1</b>
-                        <p>
-                            <span style="font-family:arial, helvetica, sans-serif;">Địa chỉ: 478 - 480 - 482 Cộng Hòa, Phường 13, Quận Tân Bình, TP.HCM</span>
-                        </p>
-                        <p>
-                            <span style="font-family:arial, helvetica, sans-serif;">ĐT: (028) 38105159 - (028) 38109106</span>
-                        </p>
-                        <p>
-                            <span style="font-family:arial, helvetica, sans-serif;">Fax : (028) 38109105</span>
-                        </p>
-                        <hr />                        </p>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                        <p>
-                            <b>HEAD VISACOOP #2</b>
-                        <p>
-                            <span style="font-family:arial, helvetica, sans-serif;">ĐC: 27/6 Ấp Hưng Lân, Xã Bà Điểm, H.Hóc Môn, TP.HCM (Ngã tư Trung Chánh)</span>
-                        </p>
-                        <p>
-                            <span style="font-family:arial, helvetica, sans-serif;">SĐT: (028) 62549616 - (028) 62549617</span>
-                        </p>
-                        <p>
-                            <span style="font-family:arial, helvetica, sans-serif;">Fax : (028) 62549615</span>
-                        </p>
-                        <hr />                        </p>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                        <p>
-                            <b>HEAD VISACOOP #3</b>
-                        <p>
-                            <span style="font-family:arial, helvetica, sans-serif;">ĐC: 839 Tân Kỳ Tân Quý, P Bình Hưng Hòa A, Bình Tân, TP.HCM</span>
-                        </p>
-                        <p>
-                            <span style="font-family:arial, helvetica, sans-serif;">SĐT: (028) 62615555</span>
-                        </p>
-                        <p>
-                            <span style="font-family:arial, helvetica, sans-serif;">FAX: (028) 62545555</span>
-                        </p>
-                        <hr />                        </p>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                        <p>
-                            <b>HEAD VISACOOP BẾN THÀNH</b>
-                        <p>
-                            <span style="font-family:arial, helvetica, sans-serif;">ĐC: 48-50-52 Trần Hưng Đạo, Phường Phạm Ngũ Lão, Quận 1, TPHCM</span>
-                        </p>
-                        <p>
-                            <span style="font-family:arial, helvetica, sans-serif;">SĐT: (028) 38377025 - (028) 38364084</span>
-                        </p>
-                        <p>
-                            <span style="font-family:arial, helvetica, sans-serif;">FAX: (028) 38368119</span>
-                        </p>
-                        <hr />                        </p>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                        <p>
-                            <b>HEAD VISACOOP #5</b>
-                        <p>
-                            <span style="font-family:arial, helvetica, sans-serif;">ĐC: A22/18-A22/19 Quốc Lộ 50, Bình Hưng, Bình Chánh, TPHCM</span>
-                        </p>
-                        <p>
-                            <span style="font-family:arial, helvetica, sans-serif;">SĐT: (028) 2253 8686 - (028) 2253 6868</span>
-                        </p>
-                        <p>
-                            <span style="font-family:arial, helvetica, sans-serif;">FAX: (028) 2253 8866</span>
-                        </p>
-                        <hr />                        </p>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                        <p>
-                            <b>HEAD VISACOOP #6</b>
-                        <p>
-                            <span style="font-family:arial, helvetica, sans-serif;">ĐC: D19/16C VĨNH LỘC, ẤP 4, XÃ VĨNH LỘC B, HUYỆN BÌNH CHÁNH, TP. HỒ CHÍ MINH</span>
-                        </p>
-                        <p>
-                            <span style="font-family:arial, helvetica, sans-serif;">SĐT: (028) 37655927</span>
-                        </p>
-                        <p>
-                            <span style="font-family:arial, helvetica, sans-serif;">FAX: (028) 37655930</span>
-                        </p>
-                        <hr />                        </p>
-                    </div>
-                </div>
-            </div>
-            <!--start code noel-->
-            <!--<img src="http://visacoop.com/public/img/noel2018/footer-left.png" class="footer-left" >-->
-            <!--<img src="http://visacoop.com/public/img/noel2018/footer-right.png" class="footer-right">-->
-            <!--<img src="http://visacoop.com/public/img/noel2018/sp3.png" class="sp3">-->
-            <!--<img src="http://visacoop.com/public/img/noel2018/moon.png" class="moon">-->
-            <!--end code noel-->
-        </div>
-    </div>
-    <div class="copyright-end-footer">
-        Copyright &copy; 2015 CÔNG TY VISACOOP
-    </div>
-</div>
-
-
-<script language="javascript" type="text/javascript" src="/themes/Honda/public/js/pathLoader.js"></script>
-<script language="javascript" type="text/javascript" src="/themes/Honda/public/js/loader.js"></script>
-@RenderSection("scripts", required: false)
+    </script>
+    @if (ViewBag.Host == "https://hondakhanhlinh.com/" || ViewBag.Host == "https://localhost:44364/")
+    {
+        <script>
+            jQuery(document).ready(function (e) {
+                function i() { var t = document.body.clientWidth; if (t) { r.$ScaleWidth(Math.min(e("body").width(), 1920)) } else { window.setTimeout(i, 30) } } var t = []; t["L"] = { $Duration: 900, x: .6, $Easing: { $Left: $JssorEasing$.$EaseInOutSine }, $Opacity: 2 }; t["R"] = { $Duration: 900, x: -.6, $Easing: { $Left: $JssorEasing$.$EaseInOutSine }, $Opacity: 2 }; t["T"] = { $Duration: 900, y: .6, $Easing: { $Top: $JssorEasing$.$EaseInOutSine }, $Opacity: 2 }; t["B"] = { $Duration: 900, y: -.6, $Easing: { $Top: $JssorEasing$.$EaseInOutSine }, $Opacity: 2 }; t["ZMF|10"] = { $Duration: 900, $Zoom: 11, $Easing: { $Zoom: $JssorEasing$.$EaseOutQuad, $Opacity: $JssorEasing$.$EaseLinear }, $Opacity: 2 }; t["RTT|10"] = { $Duration: 900, $Zoom: 11, $Rotate: 1, $Easing: { $Zoom: $JssorEasing$.$EaseOutQuad, $Opacity: $JssorEasing$.$EaseLinear, $Rotate: $JssorEasing$.$EaseInExpo }, $Opacity: 2, $Round: { $Rotate: .8 } }; t["RTT|2"] = { $Duration: 900, $Zoom: 3, $Rotate: 1, $Easing: { $Zoom: $JssorEasing$.$EaseInQuad, $Opacity: $JssorEasing$.$EaseLinear, $Rotate: $JssorEasing$.$EaseInQuad }, $Opacity: 2, $Round: { $Rotate: .5 } }; t["RTTL|BR"] = { $Duration: 900, x: -.6, y: -.6, $Zoom: 11, $Rotate: 1, $Easing: { $Left: $JssorEasing$.$EaseInCubic, $Top: $JssorEasing$.$EaseInCubic, $Zoom: $JssorEasing$.$EaseInCubic, $Opacity: $JssorEasing$.$EaseLinear, $Rotate: $JssorEasing$.$EaseInCubic }, $Opacity: 2, $Round: { $Rotate: .8 } }; t["CLIP|LR"] = { $Duration: 900, $Clip: 15, $Easing: { $Clip: $JssorEasing$.$EaseInOutCubic }, $Opacity: 2 }; t["MCLIP|L"] = { $Duration: 900, $Clip: 1, $Move: true, $Easing: { $Clip: $JssorEasing$.$EaseInOutCubic } }; t["MCLIP|R"] = { $Duration: 900, $Clip: 2, $Move: true, $Easing: { $Clip: $JssorEasing$.$EaseInOutCubic } }; var n = { $FillMode: 2, $AutoPlay: true, $AutoPlayInterval: 4e3, $PauseOnHover: 1, $ArrowKeyNavigation: true, $SlideEasing: $JssorEasing$.$EaseOutQuint, $SlideDuration: 800, $MinDragOffsetToSlide: 20, $SlideSpacing: 0, $DisplayPieces: 1, $ParkingPosition: 0, $UISearchMode: 1, $PlayOrientation: 1, $DragOrientation: 1, $CaptionSliderOptions: { $Class: $JssorCaptionSlider$, $CaptionTransitions: t, $PlayInMode: 1, $PlayOutMode: 3 }, $BulletNavigatorOptions: { $Class: $JssorBulletNavigator$, $ChanceToShow: 2, $AutoCenter: 1, $Steps: 1, $Lanes: 1, $SpacingX: 8, $SpacingY: 8, $Orientation: 1 }, $ArrowNavigatorOptions: { $Class: $JssorArrowNavigator$, $ChanceToShow: 1, $AutoCenter: 2, $Steps: 1 } }; var r = new $JssorSlider$("slider1_container", n); i(); if (!navigator.userAgent.match(/(iPhone|iPod|iPad|BlackBerry|IEMobile)/)) { e(window).bind("resize", i) }
+            })
+        </script>
+    }
+    <script language="javascript" type="text/javascript" src="/themes/Honda/public/js/pathLoader.js"></script>
+    <script language="javascript" type="text/javascript" src="/themes/Honda/public/js/loader.js"></script>
+    @RenderSection("scripts", required: false)
 </body>
 </html>

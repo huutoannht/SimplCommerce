@@ -1,20 +1,99 @@
 ﻿@model SimplCommerce.Module.Cms.Areas.Cms.ViewModels.CarouselWidgetViewComponentVm
-<aside class="homebanner">
-    <div id="sync1">
+@*<aside class="homebanner">
+        <div id="sync1">
+            @foreach (var item in Model.Items)
+            {
+                <div class="item">
+                    <a aria-label='slide' href='@item.TargetUrl'><img src='@item.Image' alt='@item.SubCaption' /></a>
+                </div>
+            }
+        </div>
+        <div id="sync2">
+            @foreach (var item in Model.Items)
+            {
+                <div class="item">
+                    <h3>@item.SubCaption<br /></h3>
+                    <i class="arrowbar"></i>
+                </div>
+            }
+        </div>
+    </aside>*@
+<div id="slider1_container" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 1800px; height: 570px;">
+    <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 1800px; height: 570px; overflow: hidden;">
         @foreach (var item in Model.Items)
         {
-            <div class="item">
-                <a aria-label='slide' href='@item.TargetUrl'><img src='@item.Image' alt='@item.SubCaption' /></a>
+            <div>
+                <a target="_blank" u="image" href='@item.TargetUrl' alt='@item.SubCaption'><img src='@item.Image' alt='@item.SubCaption' u="image" /></a>
             </div>
         }
     </div>
-    <div id="sync2">
-        @foreach (var item in Model.Items)
-        {
-            <div class="item">
-                <h3>@item.SubCaption<br /></h3>
-                <i class="arrowbar"></i>
-            </div>
+    <style>
+        .jssorb21 {
+            bottom: 6px !important;
         }
+
+            .jssorb21 div, .jssorb21 div:hover, .jssorb21 .av {
+                background: url(/themes/Honda/public/img/b21.png) no-repeat;
+                overflow: hidden;
+                cursor: pointer;
+            }
+
+            .jssorb21 div {
+                background-position: -5px -5px;
+            }
+
+                .jssorb21 div:hover, .jssorb21 .av:hover {
+                    background-position: -35px -5px;
+                }
+
+            .jssorb21 .av {
+                background-position: -65px -5px;
+            }
+
+            .jssorb21 .dn, .jssorb21 .dn:hover {
+                background-position: -95px -5px;
+            }
+
+        .jssora21l, .jssora21r, .jssora21ldn, .jssora21rdn {
+            position: absolute;
+            cursor: pointer;
+            display: block;
+            background: url(/themes/Honda/public/img/a21.png) center center no-repeat;
+            overflow: hidden;
+        }
+
+        .jssora21l {
+            background-position: -3px -33px;
+        }
+
+        .jssora21r {
+            background-position: -63px -33px;
+        }
+
+        .jssora21l:hover {
+            background-position: -123px -33px;
+        }
+
+        .jssora21r:hover {
+            background-position: -183px -33px;
+        }
+
+        .jssora21ldn {
+            background-position: -243px -33px;
+        }
+
+        .jssora21rdn {
+            background-position: -303px -33px;
+        }
+    </style>
+
+    <div u="navigator" class="jssorb21" style="position: absolute; bottom: -21px; left: 6px;">
+        <!-- bullet navigator item prototype -->
+        <div u="prototype" style="POSITION: absolute; WIDTH: 25px; HEIGHT: 25px; text-align:center; line-height:25px; color:White; font-size:12px;"></div>
     </div>
-</aside>
+    <span u="arrowleft" class="jssora21l" style="width: 55px; height: 55px; top: 123px; left: 8px;">
+    </span>
+    <!-- Arrow Right -->
+    <span u="arrowright" class="jssora21r" style="width: 55px; height: 55px; top: 123px; right: 8px">
+    </span>
+</div>

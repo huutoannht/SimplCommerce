@@ -14,7 +14,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Quản lý Cúc phương</title>
+    <title>Quản lý Honda Khánh Linh</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -53,7 +53,7 @@
     <script simpl-append-version="true" src="~/lib/jquery/jquery.js"></script>
     <script simpl-append-version="true" src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
     <script simpl-append-version="true" src="~/lib/summernote/summernote.js"></script>
-
+    @*<script simpl-append-version="true" src="~/lib/summernote/summernote-image-title.js"></script>*@
     <script simpl-append-version="true" src="~/lib/angular/angular.js"></script>
     <script simpl-append-version="true" src="~/lib/angular-ui-router/angular-ui-router.js"></script>
     <script simpl-append-version="true" src="~/lib/angular-animate/angular-animate.js"></script>
@@ -67,8 +67,6 @@
     <script simpl-append-version="true" src="~/lib/bootstrap-ui-datetime-picker/datetime-picker.js"></script>
     <script simpl-append-version="true" src="~/lib/bootstrap-ui-datetime-picker/datetime-picker.tpls.js"></script>
     <script simpl-append-version="true" src="~/lib/angular-summernote/angular-summernote.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script src="~/lib/elfinder/js/elfinder.full.js"></script>
     <script simpl-append-version="true" src="~/lib/angular-ui-tree/angular-ui-tree.js"></script>
     <script simpl-append-version="true" src="~/lib/angular-bootstrap-colorpicker/js/bootstrap-colorpicker-module.js"></script>
     <script simpl-append-version="true" src="~/lib/toastr/build/toastr.min.js"></script>
@@ -105,9 +103,6 @@
     <script simpl-append-version="true" src="~/modules/core/admin/stateprovince/state-province-service.js"></script>
     <script simpl-append-version="true" src="~/modules/core/admin/stateprovince/state-province-list.js"></script>
     <script simpl-append-version="true" src="~/modules/core/admin/stateprovince/state-province-form.js"></script>
-    <script simpl-append-version="true" src="~/modules/core/admin/bookingroom/bookingroom-list.js"></script>
-    <script simpl-append-version="true" src="~/modules/core/admin/bookingroom/bookingroom-form.js"></script>
-    <script simpl-append-version="true" src="~/modules/core/admin/bookingroom/bookingroom-service.js"></script>
 
     <script simpl-append-version="true" src="~/modules/catalog/admin/catalog.module.js"></script>
     <script simpl-append-version="true" src="~/modules/catalog/admin/brand/brand-service.js"></script>
@@ -144,9 +139,6 @@
     <script simpl-append-version="true" src="~/modules/catalog/admin/product-clone/product-clone-service.js"></script>
     <script simpl-append-version="true" src="~/modules/catalog/admin/product-clone/product-clone-form.js"></script>
 
-    <script simpl-append-version="true" src="~/modules/catalog/admin/product-album/product-list.js"></script>
-    <script simpl-append-version="true" src="~/modules/catalog/admin/product-album/product-form.js"></script>
-
     <script simpl-append-version="true" src="~/modules/orders/admin/orders.module.js"></script>
     <script simpl-append-version="true" src="~/modules/orders/admin/order/order-service.js"></script>
     <script simpl-append-version="true" src="~/modules/orders/admin/order/order-list.js"></script>
@@ -157,7 +149,6 @@
     <script simpl-append-version="true" src="~/modules/cms/admin/cms.module.js"></script>
     <script simpl-append-version="true" src="~/modules/cms/admin/page/page-service.js"></script>
     <script simpl-append-version="true" src="~/modules/cms/admin/page/page-list.js"></script>
-    <script simpl-append-version="true" src="~/modules/cms/admin/file/file-list.js"></script>
     <script simpl-append-version="true" src="~/modules/cms/admin/page/page-form.js"></script>
     <script simpl-append-version="true" src="~/modules/cms/admin/menu/menu-service.js"></script>
     <script simpl-append-version="true" src="~/modules/cms/admin/menu/menu-list.js"></script>
@@ -169,7 +160,6 @@
     <script simpl-append-version="true" src="~/modules/cms/admin/html-widget/html-widget-form.js"></script>
     <script simpl-append-version="true" src="~/modules/cms/admin/spacebar-widget/spacebar-widget-service.js"></script>
     <script simpl-append-version="true" src="~/modules/cms/admin/spacebar-widget/spacebar-widget-form.js"></script>
-
 
     <script simpl-append-version="true" src="~/modules/search/admin/search.module.js"></script>
     <script simpl-append-version="true" src="~/modules/search/admin/search-service.js"></script>
@@ -339,9 +329,9 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="/" class="brand-link">
-                <img src="~/themes/Tourims/images/cpnp-logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+                <img src="~/themes/Honda/public/img/logo.jpg" alt="Honda" class="brand-image"
                      style="opacity: .8">
-                <span class="brand-text font-weight-light">Cúc phương</span>
+                <span class="brand-text font-weight-light">Admin</span>
             </a>
 
             <!-- Sidebar -->
@@ -358,21 +348,37 @@
                             <a href="javascript:void(0)" class="nav-link">
                                 <i class="nav-icon fas fa-copy"></i>
                                 <p>
-                                    Quản lý Bài viết
+                                    Quản lý sản phẩm
                                     <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a ui-sref="product" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i> <p>Danh sách Bài viết</p>
+                                        <i class="far fa-circle nav-icon"></i> <p>Sản phẩm</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a ui-sref="category" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i> <p>Danh mục Bài viết</p>
+                                        <i class="far fa-circle nav-icon"></i> <p>Danh mục</p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a ui-sref="brand"  class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i> <p>
+                                            @Localizer["Brands"]
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a ui-sref="product-option" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>@Localizer["Product Options"]</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item"><a ui-sref="product-attribute-group" class="nav-link"><i class="far fa-circle nav-icon"></i> <p>@Localizer["Product Attribute Groups"]</p></a></li>
+                                <li class="nav-item"><a ui-sref="product-attribute" class="nav-link"><i class="far fa-circle nav-icon"></i> <p>@Localizer["Product Attributes"]</p></a></li>
+                                <li class="nav-item"><a ui-sref="product-template" class="nav-link"><i class="far fa-circle nav-icon"></i> <p>@Localizer["Product Templates"]</p></a></li>
                             </ul>
                         </li>
                         <li class="nav-item has-treeview">
@@ -396,44 +402,35 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item has-treeview">
-                            <a href="javascript:void(0)" class="nav-link">
-                                <i class="nav-icon fas fa-video"></i>
-                                <p>
-                                    Quản lý Media
-                                    <i class="fas fa-angle-left right"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="/admin#!/product-album" class="nav-link">
-                                        <i class="fas fa-image nav-icon"></i> <p>Hình ảnh</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="/admin#!/product/edit/286" class="nav-link">
-                                        <i class="fas fa-video nav-icon"></i> <p>Video</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
+                        
+                     
                         <li class="nav-item has-treeview">
                             <a href="javascript:void(0)" class="nav-link">
                                 <i class="nav-icon fas fa-copy"></i>
                                 <p>
-                                    Đặt tour
+                                    Bài viết
                                     <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a ui-sref="order" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i> <p>@Localizer["Danh sách đăng ký"]</p>
+                                    <a ui-sref="news-categories" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i> <p>Chuyên mục</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a ui-sref="bookingroom" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i> <p>Loại đặt phòng</p>
+                                    <a ui-sref="news-items" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i> <p>Bài viết</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a ui-sref="widget" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i> <p>@Localizer["Widgets"]</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a ui-sref="page" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i> <p>@Localizer["Pages"]</p>
                                     </a>
                                 </li>
                             </ul>
@@ -445,7 +442,7 @@
                                     Phản hồi
                                 </p>
                             </a>
-                            
+
                         </li>
                     </ul>
                 </nav>
@@ -496,7 +493,7 @@
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer">
-            <strong>Copyright &copy; @DateTime.Today.Year <a href="http://dulichcucphuong.com.vn">Du lịch cúc phương</a>.</strong>
+            <strong>Copyright &copy; @DateTime.Today.Year <a href="/">Honda Khánh Linh</a>.</strong>
             All rights reserved.
             <div class="float-right d-none d-sm-inline-block">
                 <b>Version</b> 3.0.5
@@ -521,14 +518,14 @@
     <!-- Bootstrap 4 -->
     <script src="~/adminv2/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- ChartJS -->
-    <script src="~/adminv2/plugins/chart.js/Chart.min.js"></script>
+    @*<script src="~/adminv2/plugins/chart.js/Chart.min.js"></script>*@
     <!-- Sparkline -->
-    <script src="~/adminv2/plugins/sparklines/sparkline.js"></script>
+    @*<script src="~/adminv2/plugins/sparklines/sparkline.js"></script>*@
     <!-- JQVMap -->
-    <script src="~/adminv2/plugins/jqvmap/jquery.vmap.min.js"></script>
-    <script src="~/adminv2/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+    @*<script src="~/adminv2/plugins/jqvmap/jquery.vmap.min.js"></script>
+    <script src="~/adminv2/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>*@
     <!-- jQuery Knob Chart -->
-    <script src="~/adminv2/plugins/jquery-knob/jquery.knob.min.js"></script>
+    @*<script src="~/adminv2/plugins/jquery-knob/jquery.knob.min.js"></script>*@
     <!-- daterangepicker -->
     <script src="~/adminv2/plugins/moment/moment.min.js"></script>
     <script src="~/adminv2/plugins/daterangepicker/daterangepicker.js"></script>
@@ -543,6 +540,6 @@
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="~/adminv2/dist/js/pages/dashboard.js"></script>
     <!-- AdminLTE for demo purposes -->
-    <script src="~/adminv2/dist/js/demo.js"></script>
+    @*<script src="~/adminv2/dist/js/demo.js"></script>*@
 </body>
 </html>

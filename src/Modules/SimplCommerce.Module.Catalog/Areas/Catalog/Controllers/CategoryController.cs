@@ -141,7 +141,6 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
 
             return View(model);
         }
-        [HttpGet("/")]
         public IActionResult CategoryHome(long id, SearchOption searchOption)
         {
             var host = "https://" + Request.Host + Request.Path;

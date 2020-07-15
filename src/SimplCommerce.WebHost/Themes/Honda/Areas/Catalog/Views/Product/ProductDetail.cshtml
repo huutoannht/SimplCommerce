@@ -1,21 +1,21 @@
 ﻿@model SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels.ProductDetail
 @using System.Text.RegularExpressions;
-    @{
-        ViewBag.Title = Model.MetaTitle ?? Model.Name;
-    }
+@{
+    ViewBag.Title = Model.MetaTitle ?? Model.Name;
+}
 
-    @section additionalMeta {
-        <meta name="title" content="@ViewBag.Title" />
-        <meta name="keywords" content="@Model.MetaKeywords" />
-        <meta name="description" content="@Model.MetaDescription" />
-    }
+@section additionalMeta {
+    <meta name="title" content="@ViewBag.Title" />
+    <meta name="keywords" content="@Model.MetaKeywords" />
+    <meta name="description" content="@Model.MetaDescription" />
+}
 
-    @section head
+@section head
         {
-        <link simpl-append-version="true" rel="stylesheet" href="~/lib/smoothproducts/css/smoothproducts.css" />
-        <link simpl-append-version="true" rel="stylesheet" href="~/modules/catalog/product-detail.css" />
-    }
-    <style>
+    @*<link simpl-append-version="true" rel="stylesheet" href="~/lib/smoothproducts/css/smoothproducts.css" />
+        <link simpl-append-version="true" rel="stylesheet" href="~/modules/catalog/product-detail.css" />*@
+}
+@*<style>
         .collapse {
             display: none;
         }
@@ -73,7 +73,7 @@
                             </div>
                         </div>
                     }
-                  
+
                     @if (Model.HasVariation)
                     {
                         <form>
@@ -147,18 +147,7 @@
                                         </div>
                                         <button type="button" disabled="@(!variant.IsAllowToOrder || (variant.StockTrackingIsEnabled && variant.StockQuantity <= 0))" class="btn btn-lg btn-add-cart">@Localizer["Add to cart"]</button>
 
-                                        @*<div>
-                                <ul class="list-inline add-to-wishlist">
-                                    <li class="wishlist-in">
-                                        <i class="fa fa-heart"></i>
-                                        <a href="#">Add to Wishlist</a>
-                                    </li>
-                                    <li class="compare-in">
-                                        <i class="fa fa-exchange"></i>
-                                        <a href="#" class="add-to-comparison">@Localizer["Add to Compare"]</a>
-                                    </li>
-                                </ul>
-                            </div>*@
+
                                     </form>
                                 </div>
                             </div>
@@ -202,18 +191,7 @@
                                 <div class="area_order">
                                     <a class="buy_repay " href="/mua-tra-gop"><b>Mua trả góp </b><span>Thủ tục đơn giản</span></a>
                                 </div>
-                                @*<div>
-                        <ul class="list-inline add-to-wishlist">
-                            <li class="wishlist-in">
-                                <i class="fa fa-heart"></i>
-                                <a href="#">Add to Wishlist</a>
-                            </li>
-                            <li class="compare-in">
-                                <i class="fa fa-exchange"></i>
-                                <a href="#" class="add-to-comparison">@Localizer["Add to Compare"]</a>
-                            </li>
-                        </ul>
-                    </div>*@
+
                             </form>
                         </div>
                     }
@@ -285,7 +263,7 @@
                     </div>
 
                     <div>
-                        @*<h3>@Localizer["Customer comments"]</h3>*@
+
                         <h3>Bình luận</h3>
                         @await Component.InvokeAsync("Comment", new { entityId = Model.Id, entityTypeId = "Product" })
                     </div>
@@ -321,10 +299,362 @@
             </div>
 
         </div>
-    </section>
+    </section>*@
 
-    @section scripts {
-        <partial name="_ValidationScriptsPartial" />
+<div class="news-content-website">
+    <div class="bg-top"></div>
+    <div class="container">
+        <div class="panel panel-tid" itemscope="" itemtype="http://schema.org/Article">
+            <div class="panel-heading">
+                <h1 itemprop="name"><span ="title-website">@Model.Name</span></h1>
+            </div>
+            <div class="panel-body content-product-website">
+                <div class="show-image-product">
+                    <div class="entry-content">
+                        <div class="list-action-right">
+                            <div class="share">
+                                <span class="fa fa-share-alt"></span>
+                                <div class="sub">
+                                    <div class="wrapper">
+                                        <a href="http://www.facebook.com/sharer.php?u=@ViewBag.Host" target="_blank"><i class="fa fa-facebook"></i></a>
+                                        <a href="http://twitter.com/share?url=@ViewBag.Host&amp;text=Simple Share Buttons&amp;hashtags=simplesharebuttons" target="_blank"><i class="fa fa-twitter"></i></a>
+                                        <a href="https://plus.google.com/share?url=@ViewBag.Host" target="_blank"><i class="fa fa-google-plus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="color">
+                                <img src="http://visacoop.com/public/img/color.png" alt="color">
+                                <div class="sub">
+                                    <div class="wrapper">
+                                        <div class="color-item" image="0" color="123">
+                                            <img src="http://visacoop.com/public/uploads/images/thumbs/Xanh-Xam-Den-PB420M.png" alt="Wave RSX - Xanh Xám Đen"> Màu Wave RSX - Xanh Xám Đen
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slider-wrapper theme-default">
+                            <div class="ribbon"></div>
+
+                            <div class="bx-wrapper" style="max-width: 100%;">
+                                <div class="bx-viewport" style="width: 100%; overflow: hidden; position: relative; height: 463px;">
+                                    <ul class="bx-home-slider" style="width: 315%; position: relative; transition-duration: 0s; transform: translate3d(-1143px, 0px, 0px);">
+
+                                        @foreach (var image in Model.Images)
+                                        {
+                                            <li>
+                                                <img itemprop="image" src="@image.ThumbnailUrl" alt="@Model.Name" data-zoom-image="@image.ThumbnailUrl" color="123" class="width-100" />
+                                            </li>
+                                        }
+                                    </ul>
+                                </div><div class="bx-controls bx-has-pager bx-has-controls-direction"><div class="bx-pager bx-default-pager"><div class="bx-pager-item"><a href="" data-slide-index="0" class="bx-pager-link active">1</a></div></div><div class="bx-controls-direction"><a class="bx-prev disabled" href="">Prev</a><a class="bx-next disabled" href="">Next</a></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content" itemprop="articleBody">
+                        <div>
+
+                            <!-- Begin Tabs -->
+                            <div class="margin-bottom products-tabs">
+                                <ul class="">
+                                    <li class=""><a href="#details" title="Thông tin sản phẩm">Thông tin sản phẩm</a></li>
+                                    <li class=""><a href="#properties" title="Thông số kỹ thuật">Thông số kỹ thuật</a></li>
+                                    <li class=""><a href="#content1" title="Thông số kỹ thuật">Phụ tùng</a></li>
+                                    <li class=""><a href="#content2" title="Thông số kỹ thuật">Xe trang trí</a></li>
+                                    <li class=""><a href="#comment" title="catalogue">Bình Luận</a></li>
+                                    <li class=""><a href="#products" title="Sản phẩm cùng loại">Sản phẩm cùng loại</a></li>
+                                </ul>
+                                <div id="details">
+                                    @Html.Raw(Model.Description)
+                                </div>
+                                <div id="properties">
+                                    <div class="tableparameter">
+                                        @if (Model.Attributes.Any())
+                                        {
+                                            <div class="table-attribute">
+                                                <h3 class="p-t-25 p-b-25">@Localizer["Product specification"]</h3>
+                                                <table class="table table-striped">
+                                                    @foreach (var attribute in Model.Attributes)
+                                                    {
+                                                        <tr>
+                                                            <td>@attribute.Name</td>
+                                                            <td>@attribute.Value</td>
+                                                        </tr>
+                                                    }
+                                                </table>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                                <div id="content1">
+                                </div>
+                                <div id="content2">
+                                </div>
+                                <div id="comment">
+                                    @await Component.InvokeAsync("Comment", new { entityId = Model.Id, entityTypeId = "Product" })
+                                </div>
+                                <div id="products" class=" padding-top">
+                                    <div class="row">
+
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                            <div class="list-product">
+                                                <div class="price">
+                                                    <p><i class="fa fa-money"></i> 0 VNĐ</p>
+                                                    <p><i class="fa fa-arrow-circle-o-down"></i> 0</p>
+                                                </div>
+                                                <a href="http://visacoop.com/cb300r.html" title="CB300R">
+                                                    <img src="http://visacoop.com/public/uploads/images/thumbs/cb300.png" alt="CB300R" class="width-100" />
+                                                </a>
+                                                <div class="tool-product">
+                                                    <a href="http://visacoop.com/cb300r.html" title="CB300R"><span class="fa fa-list"></span></a>
+                                                    <a href="http://www.facebook.com/sharer.php?u=http://visacoop.com/cb300r.html" title="share product buttom"><span class="fa fa-share-alt"></span></a>
+                                                    <a href="http://visacoop.com/cart/buy/cb300r.html" title="CB300R"><span class="fa fa-shopping-cart"></span></a>
+                                                </div>
+                                                <h4><a href="http://visacoop.com/cb300r.html" title="CB300R">CB300R</a></h4>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                            <div class="list-product">
+                                                <div class="price">
+                                                    <p><i class="fa fa-money"></i> 0 VNĐ</p>
+                                                    <p><i class="fa fa-arrow-circle-o-down"></i> 0</p>
+                                                </div>
+                                                <a href="http://visacoop.com/7b3-winner-150cc.html" title="Winner X 150cc">
+                                                    <img src="http://visacoop.com/public/uploads/images/thumbs/winnerx.png" alt="Winner X 150cc" class="width-100" />
+                                                </a>
+                                                <div class="tool-product">
+                                                    <a href="http://visacoop.com/7b3-winner-150cc.html" title="Winner X 150cc"><span class="fa fa-list"></span></a>
+                                                    <a href="http://www.facebook.com/sharer.php?u=http://visacoop.com/7b3-winner-150cc.html" title="share product buttom"><span class="fa fa-share-alt"></span></a>
+                                                    <a href="http://visacoop.com/cart/buy/7b3-winner-150cc.html" title="Winner X 150cc"><span class="fa fa-shopping-cart"></span></a>
+                                                </div>
+                                                <h4><a href="http://visacoop.com/7b3-winner-150cc.html" title="Winner X 150cc">Winner X 150cc</a></h4>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                            <div class="list-product">
+                                                <div class="price">
+                                                    <p><i class="fa fa-money"></i> 0 VNĐ</p>
+                                                    <p><i class="fa fa-arrow-circle-o-down"></i> 0</p>
+                                                </div>
+                                                <a href="http://visacoop.com/air-blade-125cc-den-do.html" title="Air Blade 125cc\150cc">
+                                                    <img src="http://visacoop.com/public/uploads/images/thumbs/AB.png" alt="Air Blade 125cc\150cc" class="width-100" />
+                                                </a>
+                                                <div class="tool-product">
+                                                    <a href="http://visacoop.com/air-blade-125cc-den-do.html" title="Air Blade 125cc\150cc"><span class="fa fa-list"></span></a>
+                                                    <a href="http://www.facebook.com/sharer.php?u=http://visacoop.com/air-blade-125cc-den-do.html" title="share product buttom"><span class="fa fa-share-alt"></span></a>
+                                                    <a href="http://visacoop.com/cart/buy/air-blade-125cc-den-do.html" title="Air Blade 125cc"><span class="fa fa-shopping-cart"></span></a>
+                                                </div>
+                                                <h4><a href="http://visacoop.com/air-blade-125cc-den-do.html" title="Air Blade 125cc\150cc">Air Blade 125cc\150cc</a></h4>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                            <div class="list-product">
+                                                <div class="price">
+                                                    <p><i class="fa fa-money"></i> 0 VNĐ</p>
+                                                    <p><i class="fa fa-arrow-circle-o-down"></i> 0</p>
+                                                </div>
+                                                <a href="http://visacoop.com/sh-125150cc-xanh-den.html" title="SH 125/150cc">
+                                                    <img src="http://visacoop.com/public/uploads/images/thumbs/SH125-150.png" alt="SH 125/150cc" class="width-100" />
+                                                </a>
+                                                <div class="tool-product">
+                                                    <a href="http://visacoop.com/sh-125150cc-xanh-den.html" title="SH 125/150cc"><span class="fa fa-list"></span></a>
+                                                    <a href="http://www.facebook.com/sharer.php?u=http://visacoop.com/sh-125150cc-xanh-den.html" title="share product buttom"><span class="fa fa-share-alt"></span></a>
+                                                    <a href="http://visacoop.com/cart/buy/sh-125150cc-xanh-den.html" title="SH 125/150cc"><span class="fa fa-shopping-cart"></span></a>
+                                                </div>
+                                                <h4><a href="http://visacoop.com/sh-125150cc-xanh-den.html" title="SH 125/150cc">SH 125/150cc</a></h4>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                            <div class="list-product">
+                                                <div class="price">
+                                                    <p><i class="fa fa-money"></i> 0 VNĐ</p>
+                                                    <p><i class="fa fa-arrow-circle-o-down"></i> 0</p>
+                                                </div>
+                                                <a href="http://visacoop.com/rebel-300.html" title="Rebel 300">
+                                                    <img src="http://visacoop.com/public/uploads/images/thumbs/rebel300.png" alt="Rebel 300" class="width-100" />
+                                                </a>
+                                                <div class="tool-product">
+                                                    <a href="http://visacoop.com/rebel-300.html" title="Rebel 300"><span class="fa fa-list"></span></a>
+                                                    <a href="http://www.facebook.com/sharer.php?u=http://visacoop.com/rebel-300.html" title="share product buttom"><span class="fa fa-share-alt"></span></a>
+                                                    <a href="http://visacoop.com/cart/buy/rebel-300.html" title="Rebel 300"><span class="fa fa-shopping-cart"></span></a>
+                                                </div>
+                                                <h4><a href="http://visacoop.com/rebel-300.html" title="Rebel 300">Rebel 300</a></h4>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                            <div class="list-product">
+                                                <div class="price">
+                                                    <p><i class="fa fa-money"></i> 0 VNĐ</p>
+                                                    <p><i class="fa fa-arrow-circle-o-down"></i> 0</p>
+                                                </div>
+                                                <a href="http://visacoop.com/sh-300cc.html" title="SH 300cc">
+                                                    <img src="http://visacoop.com/public/uploads/images/thumbs/SH300.png" alt="SH 300cc" class="width-100" />
+                                                </a>
+                                                <div class="tool-product">
+                                                    <a href="http://visacoop.com/sh-300cc.html" title="SH 300cc"><span class="fa fa-list"></span></a>
+                                                    <a href="http://www.facebook.com/sharer.php?u=http://visacoop.com/sh-300cc.html" title="share product buttom"><span class="fa fa-share-alt"></span></a>
+                                                    <a href="http://visacoop.com/cart/buy/sh-300cc.html" title="SH 300cc"><span class="fa fa-shopping-cart"></span></a>
+                                                </div>
+                                                <h4><a href="http://visacoop.com/sh-300cc.html" title="SH 300cc">SH 300cc</a></h4>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                            <div class="list-product">
+                                                <div class="price">
+                                                    <p><i class="fa fa-money"></i> 0 VNĐ</p>
+                                                    <p><i class="fa fa-arrow-circle-o-down"></i> 0</p>
+                                                </div>
+                                                <a href="http://visacoop.com/lead-125cc.html" title="LEAD 125CC">
+                                                    <img src="http://visacoop.com/public/uploads/images/thumbs/lead.png" alt="LEAD 125CC" class="width-100" />
+                                                </a>
+                                                <div class="tool-product">
+                                                    <a href="http://visacoop.com/lead-125cc.html" title="LEAD 125CC"><span class="fa fa-list"></span></a>
+                                                    <a href="http://www.facebook.com/sharer.php?u=http://visacoop.com/lead-125cc.html" title="share product buttom"><span class="fa fa-share-alt"></span></a>
+                                                    <a href="http://visacoop.com/cart/buy/lead-125cc.html" title="LEAD 125CC"><span class="fa fa-shopping-cart"></span></a>
+                                                </div>
+                                                <h4><a href="http://visacoop.com/lead-125cc.html" title="LEAD 125CC">LEAD 125CC</a></h4>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                            <div class="list-product">
+                                                <div class="price">
+                                                    <p><i class="fa fa-money"></i> 0 VNĐ</p>
+                                                    <p><i class="fa fa-arrow-circle-o-down"></i> 0</p>
+                                                </div>
+                                                <a href="http://visacoop.com/sh-mode-2015.html" title="SH MODE 125cc">
+                                                    <img src="http://visacoop.com/public/uploads/images/thumbs/SHmode.png" alt="SH MODE 125cc" class="width-100" />
+                                                </a>
+                                                <div class="tool-product">
+                                                    <a href="http://visacoop.com/sh-mode-2015.html" title="SH MODE 125cc"><span class="fa fa-list"></span></a>
+                                                    <a href="http://www.facebook.com/sharer.php?u=http://visacoop.com/sh-mode-2015.html" title="share product buttom"><span class="fa fa-share-alt"></span></a>
+                                                    <a href="http://visacoop.com/cart/buy/sh-mode-2015.html" title="SH MODE 125cc"><span class="fa fa-shopping-cart"></span></a>
+                                                </div>
+                                                <h4><a href="http://visacoop.com/sh-mode-2015.html" title="SH MODE 125cc">SH MODE 125cc</a></h4>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                            <div class="list-product">
+                                                <div class="price">
+                                                    <p><i class="fa fa-money"></i> 0 VNĐ</p>
+                                                    <p><i class="fa fa-arrow-circle-o-down"></i> 0</p>
+                                                </div>
+                                                <a href="http://visacoop.com/61f-pcx.html" title="PCX">
+                                                    <img src="http://visacoop.com/public/uploads/images/thumbs/tr.png" alt="PCX" class="width-100" />
+                                                </a>
+                                                <div class="tool-product">
+                                                    <a href="http://visacoop.com/61f-pcx.html" title="PCX"><span class="fa fa-list"></span></a>
+                                                    <a href="http://www.facebook.com/sharer.php?u=http://visacoop.com/61f-pcx.html" title="share product buttom"><span class="fa fa-share-alt"></span></a>
+                                                    <a href="http://visacoop.com/cart/buy/61f-pcx.html" title=""><span class="fa fa-shopping-cart"></span></a>
+                                                </div>
+                                                <h4><a href="http://visacoop.com/61f-pcx.html" title="PCX">PCX</a></h4>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                            <div class="list-product">
+                                                <div class="price">
+                                                    <p><i class="fa fa-money"></i> 0 VNĐ</p>
+                                                    <p><i class="fa fa-arrow-circle-o-down"></i> 0</p>
+                                                </div>
+                                                <a href="http://visacoop.com/vision-2014-trang.html" title="Vision 2014">
+                                                    <img src="http://visacoop.com/public/uploads/images/thumbs/vision.png" alt="Vision 2014" class="width-100" />
+                                                </a>
+                                                <div class="tool-product">
+                                                    <a href="http://visacoop.com/vision-2014-trang.html" title="Vision 2014"><span class="fa fa-list"></span></a>
+                                                    <a href="http://www.facebook.com/sharer.php?u=http://visacoop.com/vision-2014-trang.html" title="share product buttom"><span class="fa fa-share-alt"></span></a>
+                                                    <a href="http://visacoop.com/cart/buy/vision-2014-trang.html" title=""><span class="fa fa-shopping-cart"></span></a>
+                                                </div>
+                                                <h4><a href="http://visacoop.com/vision-2014-trang.html" title="Vision 2014">Vision 2014</a></h4>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                            <div class="list-product">
+                                                <div class="price">
+                                                    <p><i class="fa fa-money"></i> 0 VNĐ</p>
+                                                    <p><i class="fa fa-arrow-circle-o-down"></i> 0</p>
+                                                </div>
+                                                <a href="http://visacoop.com/d60-msx-125-do-den.html" title="MSX 125">
+                                                    <img src="http://visacoop.com/public/uploads/images/thumbs/MSX.png" alt="MSX 125" class="width-100" />
+                                                </a>
+                                                <div class="tool-product">
+                                                    <a href="http://visacoop.com/d60-msx-125-do-den.html" title="MSX 125"><span class="fa fa-list"></span></a>
+                                                    <a href="http://www.facebook.com/sharer.php?u=http://visacoop.com/d60-msx-125-do-den.html" title="share product buttom"><span class="fa fa-share-alt"></span></a>
+                                                    <a href="http://visacoop.com/cart/buy/d60-msx-125-do-den.html" title="MSX 125"><span class="fa fa-shopping-cart"></span></a>
+                                                </div>
+                                                <h4><a href="http://visacoop.com/d60-msx-125-do-den.html" title="MSX 125">MSX 125</a></h4>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                            <div class="list-product">
+                                                <div class="price">
+                                                    <p><i class="fa fa-money"></i> 0 VNĐ</p>
+                                                    <p><i class="fa fa-arrow-circle-o-down"></i> 0</p>
+                                                </div>
+                                                <a href="http://visacoop.com/future-125-fi.html" title="FUTURE 125 FI">
+                                                    <img src="http://visacoop.com/public/uploads/images/thumbs/vanhnanhoa_bacden_image.png" alt="FUTURE 125 FI" class="width-100" />
+                                                </a>
+                                                <div class="tool-product">
+                                                    <a href="http://visacoop.com/future-125-fi.html" title="FUTURE 125 FI"><span class="fa fa-list"></span></a>
+                                                    <a href="http://www.facebook.com/sharer.php?u=http://visacoop.com/future-125-fi.html" title="share product buttom"><span class="fa fa-share-alt"></span></a>
+                                                    <a href="http://visacoop.com/cart/buy/future-125-fi.html" title="FUTURE 125 FI"><span class="fa fa-shopping-cart"></span></a>
+                                                </div>
+                                                <h4><a href="http://visacoop.com/future-125-fi.html" title="FUTURE 125 FI">FUTURE 125 FI</a></h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Tabs -->
+
+
+                        </div>
+                    </div>
+
+                    <div class="share-content-social text-right">
+                        <span>Chia sẻ bài viết : </span>
+                        <a href="http://www.facebook.com/sharer.php?u=http://visacoop.com/pcx-hybrid.html" target="_blank"><i class="fa fa-facebook"></i></a>
+                        <a href="http://twitter.com/share?url=http://visacoop.com/pcx-hybrid.html&amp;text=Simple Share Buttons&amp;hashtags=simplesharebuttons" target="_blank"><i class="fa fa-twitter"></i></a>
+                        <a href="https://plus.google.com/share?url=http://visacoop.com/pcx-hybrid.html" target="_blank"><i class="fa fa-google-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-bottom"></div>
+</div>
+@section scripts {
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function (e) {
+            $('.products-tabs').responsiveTabs({
+                rotate: false,
+                startCollapsed: 'accordion',
+                collapsible: 'accordion',
+                setHash: true,
+            });
+            Slider = $('.bx-home-slider').bxSlider({
+                mode: 'horizontal',
+                slideMargin: 5,
+                pause: 10000,
+                auto: true,
+            });
+
+            $('.list-action-right .color .color-item').hover(function () {
+                Slider.goToSlide($(this).attr('image'));
+            });
+        });
+    </script>
+    @*<partial name="_ValidationScriptsPartial" />
         <script simpl-append-version="true" src="~/lib/smoothproducts/js/smoothproducts.js"></script>
-        <script simpl-append-version="true" src="~/modules/catalog/product-detail.js"></script>
-    }
+        <script simpl-append-version="true" src="~/modules/catalog/product-detail.js"></script>*@
+}

@@ -2,49 +2,82 @@
 
 @if (Model.Count() > 0)
 {
-    <div class="laptopnews">
-        <h3>Góc tư vấn chọn mua laptop</h3>
-        <div class="row">
-            <div class="col-md-6">
-                <a href="@Model.FirstOrDefault().Slug">
-                    <div class="tempvideo">
-                        <img width="100" height="70" data-original="@Model.FirstOrDefault().ThumbnailImageUrl" class="first-new" src="@Model.FirstOrDefault().ThumbnailImageUrl">
+    <div class="news-content-website">
+        <div style="background: url('/themes/Honda/public/img/noel2018/products-bg.jpg') repeat center top; background-size: auto 100%; height: 150px;"></div>
+        <!--<div class="tuyet"></div> code noel-->
+        <!--<img src="http://visacoop.com/public/img/noel2018/onggia.png" class="onggia"> code noel-->
+        <div class="bg-top"></div>
+        <div class="container">
+            <div class="title-news-content">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                        Tin tức sự kiện &amp; khuyến mãi
                     </div>
-                    <h3>
-                        @Model.FirstOrDefault().Name
-                    </h3>
-                    <figure>
-                        @Model.FirstOrDefault().ShortContent
-                    </figure>
-                    <div class="timepost">
-                        <span>@Model.FirstOrDefault().CreatedOn.ToString("dd/MM/yyyy")</span>
-                    </div>
-                </a>
+                </div>
+
             </div>
-            <div class="col-md-6">
-                <ul class="newslist" id="mainlist">
-                    @foreach (var item in Model.Skip(1))
-                    {
-                        <li>
-                            <a href="@item.Slug">
-                                <div class="tempvideo">
-                                    <img width="100" height="70" data-original="@item.ThumbnailImageUrl" class=" lazyloaded" src="@item.ThumbnailImageUrl">
+            <div class="list-news-content-website">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                        @foreach (var item in Model)
+                        {
+                            <div class="">
+                                <div class="box-news-website resize-height-container resize-padding" resize=".animated">
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 animated" data-animation="bounceInLeft">
+                                        <a href="@item.Slug" title="@item.Name">
+                                            <img src="@item.ThumbnailImageUrl" alt="@item.Name" class="width-100" />
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 animated" data-animation="bounceInRight">
+                                        <h1>
+                                            <a href="@item.Slug" title=" @item.Name">
+                                                @item.Name
+                                            </a>
+                                        </h1>
+                                        <span class="time-news-website">
+                                            @item.CreatedOn.ToString("dd/MM/yyyy")
+                                        </span>
+                                        <h2> @item.ShortContent<a href="@item.Slug" title="@item.ShortContent" class="more">Xem chi tiết</a></h2>
+                                    </div>
+                                    <div class="clear"></div>
                                 </div>
-                                <h3>
-                                    @item.Name
-                                </h3>
-                                <figure>
-                                   @item.ShortContent
-                                </figure>
-                                <div class="timepost">
-                                    <span>@item.CreatedOn.ToString("dd/MM/yyyy")</span>
-                                </div>
+                            </div>
+                        }
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 transition-light">
+                        <div class="box-left-news">
+                            <a href="472-tu-van-su-dung.html" title="BÁN XE ƯU ĐÃI CHO DOANH NGHIỆP">
+                                <i class="fa fa-users"></i>
+                                <img src="/themes/Honda/public/uploads/images/thumbs/Web-XeDOANHNGHIEP.jpg" alt="BÁN XE ƯU ĐÃI CHO DOANH NGHIỆP" class="width-100" />
+                                <span>BÁN XE ƯU ĐÃI CHO DOANH NGHIỆP</span>
                             </a>
-                        </li>
-                    }
-                    <li><a href="/tin-tuc">Xem thêm</a></li>
-                </ul>
+                            <a href="b6a-dao-tao-ky-thuat-vien.html" title="XE TRANG TRÍ SPORTY">
+                                <i class="fa fa-empire"></i>
+                                <img src="/themes/Honda/public/uploads/images/thumbs/Web-XeSporty.jpg" alt="XE TRANG TRÍ SPORTY" class="width-100" />
+                                <span>XE TRANG TRÍ SPORTY</span>
+                            </a>
+                            <a href="287-dich-vu-bao-duong-mien-phi.html" title="THU XE CŨ ĐỔI XE MỚI">
+                                <i class="fa fa-wrench"></i>
+                                <img src="/themes/Honda/public/uploads/images/thumbs/Web-Thumuaxecu.jpg" alt="THU XE CŨ ĐỔI XE MỚI" class="width-100" />
+                                <span>THU XE CŨ ĐỔI XE MỚI</span>
+                            </a>
+                            <a href="882-kiem-tra-truoc-khi-giao-xe-pdi.html" title="PHỤ KIỆN TRANG TRÍ">
+                                <i class="fa fa-motorcycle"></i>
+                                <img src="/themes/Honda/public/uploads/images/thumbs/Web-phutung.jpg" alt="PHỤ KIỆN TRANG TRÍ" class="width-100" />
+                                <span>PHỤ KIỆN TRANG TRÍ</span>
+                            </a>
+                            <a href="hoat-dong-dao-tao-lxat.html" title="HOẠT ĐỘNG ĐÀO TẠO LXAT">
+                                <i class="fa fa-child"></i>
+                                <img src="/themes/Honda/public/uploads/images/thumbs/Web-LXAT.jpg" alt="HOẠT ĐỘNG ĐÀO TẠO LXAT" class="width-100" />
+                                <span>HOẠT ĐỘNG ĐÀO TẠO LXAT</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
             </div>
+            <div class="bg-bottom"></div>
+            <!--<img src="http://visacoop.com/public/img/noel2018/sp3.png" class="topsp3" alt="trang trí noel"> code noel-->
         </div>
     </div>
 
