@@ -6,150 +6,55 @@
 }
 
 @section head {
-    <link simpl-append-version="true" href="~/lib/nouislider/distribute/nouislider.min.css" rel="stylesheet" />
 }
-<div class="row row-filter">
-    <div class="laptopcate filtered">
-        <div class="laptopmanu">
-            <a href="macbook"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Macbook44-b_34.png" /></a>
-            <a href="dell"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Dell44-b_34.jpg" /></a>
-            <a href="asus"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Asus44-b_35.jpg" /></a>
-            <a href="hp"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/HP-Compaq44-b_36.jpg" /></a>
-            <a href="acer"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Acer44-b_37.jpg" /></a>
-            <a href="lenovo"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/Lenovo44-b_36.jpg" /></a>
-            <a href="msi"><img src="~/themes/TheGioiDiDong/images/cdn/Brand/1/MSI44-b_30.png" /></a>
+
+<div class="container">
+
+    <div class="panel panel-tid">
+        <div class="panel-heading">
+            <span class="title-website">
+                Số kết quả tìm thấy : @Model.TotalProduct
+            </span>
         </div>
-        <form id="" name="productFilter" method="GET" action="~/search">
-            <ul class="filter barpage">
-                <li class="fmanu" id="collapse-brand">
-                    <span class="criteria">
-                        Hãng
-                    </span>
-                    <div class="manufacture">
-                        <button type="button" class="closefilter"><i class="icontgdd-closefilter"></i></button>
-                        @foreach (var brand in Model.FilterOption.Brands)
-                        {
-                            <label class="checkbox">
-                                <input type="checkbox" value="@brand.Slug" name="brand" checked="@Model.CurrentSearchOption.GetBrands().Contains(brand.Slug)">
-                                @brand.Name
-                                <small>(@brand.Count)</small>
-                            </label>
-                        }
-                        <p class="doit"></p>
-                        <p class="cslder">
-                            <span class="cswrap">
-                                <span class="csdot"></span>
-                                <span class="csdot"></span>
-                                <span class="csdot"></span>
-                            </span>
-                        </p>
-                    </div>
-                </li>
-                @foreach (var category in Model.FilterOption.Categories.Where(x => x.ParentId == 7))
+        <div class="panel-body">
+            <div class="row resize-height-container" resize=".col-lg-4">
+                @foreach (var product in Model.Products)
                 {
-
-                    var children = Model.FilterOption.Categories.Where(x => x.ParentId == category.Id);
-                    @if (children.Any())
-                    {
-                        <li class="fmanu categoryFilter" >
-                            <label class="criteria">
-                                @category.Name
-                                <small>(@category.Count)</small>
-                            </label>
-                            <div class="manufacture">
-                                <button type="button" class="closefilter"><i class="icontgdd-closefilter"></i></button>
-                                @*<label class="all"><input type="checkbox" value="@category.Slug" name="category" checked="@Model.CurrentSearchOption.GetCategories().Contains(category.Slug)">Tất cả @category.Name</label>*@
-                                @foreach (var child in children)
-                                {
-                                    <label class="checkbox">
-                                        <input type="checkbox" value="@child.Slug" name="category" checked="@Model.CurrentSearchOption.GetCategories().Contains(child.Slug)">
-                                        @child.Name
-                                        <small>(@child.Count)</small>
-                                    </label>
-                                }
-                                <p class="doit"></p>
-                                <p class="cslder">
-                                    <span class="cswrap">
-                                        <span class="csdot"></span>
-                                        <span class="csdot"></span>
-                                        <span class="csdot"></span>
-                                    </span>
-                                </p>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div class="list-product">
+                            <div class="price">
+                                <p><i class="fa fa-money"></i> @product.Price.ToString("C0")</p>
+                                <p><i class="fa fa-arrow-circle-o-down"></i> 0</p>
                             </div>
-                        </li>
-                    }
-
+                            <a class="transition-light" href="@product.Slug" title="@product.Name">
+                                <img src="@product.ThumbnailUrl" alt="CB150R" class="width-100" />
+                            </a>
+                            <div class="tool-product">
+                                <a href="@product.Slug" title="@product.Name"><span class="fa fa-list"></span></a>
+                                <a href="http://www.facebook.com/sharer.php?u=@ViewBag.Host" title="share product buttom"><span class="fa fa-share-alt"></span></a>
+                                <a href="cart.html" title="CB150R"><span class="fa fa-shopping-cart"></span></a>
+                            </div>
+                            <h4><a href="@product.Slug" title="@product.Name">@product.Name</a></h4>
+                        </div>
+                    </div>
                 }
 
-            </ul>
-        </form>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-12">
-        <div class="row mb-3">
-            <div class="col-md-7 category-result">
-                <h2>Search result for @Model.CurrentSearchOption.Query</h2>
-                <small class="badge-results">@Model.TotalProduct Results</small>
             </div>
-            <div class="col-md-5">
-                <ul class="list-inline clear-both product-list-display-options">
-                    <li class="sort-by">
-                        <label>Sort By :</label>
-                        <div class="btn-group">
-                            <select asp-for="CurrentSearchOption.Sort" asp-items="Model.AvailableSortOptions" class="form-control"></select>
-                        </div>
-                    </li>
-                    @*<li class="pagination-option">
-                            <label>Show :</label>
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                    20 <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">All</a></li>
-                                    <li><a href="#">50</a></li>
-                                    <li><a href="#">30</a></li>
-                                </ul>
-                            </div>
-                        </li>*@
-                </ul>
-            </div>
-        </div>
-        <div class="row product-list">
-            @foreach (var product in Model.Products)
-            {
-                <div class="col-xs-6 col-md-3 item-product">
-                    <partial name="/Areas/Catalog/Views/Shared/_ProductThumbnail.cshtml" model="product" />
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <cs-pager cs-paging-pagesize="@Model.CurrentSearchOption.PageSize"
+                              cs-paging-pagenumber="@Model.CurrentSearchOption.Page"
+                              cs-paging-totalitems="@Model.TotalProduct"
+                              cs-pagenumber-param="page"
+                              asp-basehref="~/@Model.BrandSlug"
+                              asp-all-route-data="@Model.CurrentSearchOption.ToDictionary()"></cs-pager>
                 </div>
-            }
-        </div>
-        <div class="row">
-            <div class="col-md-12 text-right">
-                <cs-pager cs-paging-pagesize="@Model.CurrentSearchOption.PageSize"
-                          cs-paging-pagenumber="@Model.CurrentSearchOption.Page"
-                          cs-paging-totalitems="@Model.TotalProduct"
-                          cs-pagenumber-param="page"
-                          asp-basehref="~/search"
-                          asp-all-route-data="@Model.CurrentSearchOption.ToDictionary()"></cs-pager>
             </div>
         </div>
     </div>
 </div>
+
 
 @section scripts {
-    <script simpl-append-version="true" src="~/lib/wnumb/wNumb.js"></script>
-    <script simpl-append-version="true" src="~/lib/nouislider/distribute/nouislider.min.js"></script>
 
-    <script>
-        var productFilter = {};
-        productFilter.currentSearchOption = @Html.Raw(Model.CurrentSearchOption.ToJson());
-        productFilter.priceSetting = {
-            min: @Model.FilterOption.Price.MinPrice.ToString("F0"),
-            max: @Model.FilterOption.Price.MaxPrice.ToString("F0"),
-            currentMin: @((Model.CurrentSearchOption.MinPrice ?? Model.FilterOption.Price.MinPrice).ToString("F0")),
-            currentMax: @((Model.CurrentSearchOption.MaxPrice ?? Model.FilterOption.Price.MaxPrice).ToString("F0"))
-        };
-    </script>
-    <script simpl-append-version="true" src="~/modules/catalog/product-filter.js"></script>
 }

@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -29,7 +30,12 @@ namespace SimplCommerce.Module.Core.Extensions
             var urlSlugRepository = context.HttpContext.RequestServices.GetService<IRepository<Entity>>();
 
             // Get the slug that matches.
-            var urlSlug = await urlSlugRepository.Query().Include(x => x.EntityType).FirstOrDefaultAsync(x => x.Slug == requestPath);
+            var listUrlSlug= await urlSlugRepository.Query().Include(x => x.EntityType).Where(x => x.Slug == requestPath).ToListAsync();
+            Entity urlSlug = listUrlSlug.FirstOrDefault();
+            if (listUrlSlug.Count > 1)
+            {
+                urlSlug = listUrlSlug.Where(m => m.EntityTypeId == "NewsItem").FirstOrDefault();
+            }
 
             // Invoke MVC controller/action
             var oldRouteData = context.RouteData;

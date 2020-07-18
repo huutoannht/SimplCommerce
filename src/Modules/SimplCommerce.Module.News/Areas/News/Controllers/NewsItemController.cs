@@ -101,6 +101,7 @@ namespace SimplCommerce.Module.News.Areas.News.Controllers
                 MetaDescription = newsItem.MetaDescription,
                 MetaKeywords = newsItem.MetaKeywords,
                 MetaTitle = newsItem.MetaTitle,
+                CreatedOn = newsItem.CreatedOn,
                 ThumbnailImageUrl = _mediaService.GetThumbnailUrl(newsItem.ThumbnailImage)
             };
 

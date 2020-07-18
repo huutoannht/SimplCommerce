@@ -41,7 +41,7 @@ namespace SimplCommerce.Module.News.Services
         {
             if (newsItem != null)
             {
-                newsItem.Slug = _entityService.ToSafeSlug(newsItem.Slug, newsItem.Id, NewsItemEntityTypeId);
+               // newsItem.Slug = _entityService.ToSafeSlug(newsItem.Slug, newsItem.Id, NewsItemEntityTypeId);
                 _entityService.Update(newsItem.Name, newsItem.Slug, newsItem.Id, NewsItemEntityTypeId);
                 _newsItemRepository.SaveChanges();
             }
