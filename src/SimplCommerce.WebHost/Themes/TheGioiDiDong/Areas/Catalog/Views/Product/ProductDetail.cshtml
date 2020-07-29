@@ -47,13 +47,13 @@
         }
 
         #config-holder ul li.selected-attr-value {
-            border-color: #ff9300 !important;
+           /* border-color: #ff9300 !important;*/
             border-width: 2px !important;
         }
 
             #config-holder ul li.selected-attr-value::before {
                 content: '';
-                background: url(./themes/TheGioiDiDong/images/checkbox-product.png) right bottom no-repeat;
+/*                background: url(./themes/TheGioiDiDong/images/checkbox-product.png) right bottom no-repeat;*/
                 position: absolute;
                 width: 100%;
                 height: 100%;
@@ -85,6 +85,9 @@
         #config-holder ul li:hover {
             font-weight: 500;
         }
+        #form-variant{
+                 float:right;
+             }
 </style>
 
 <section class="type0">
@@ -147,11 +150,12 @@
 
                 @if (Model.HasVariation)
                 {
-                    <form>
+                    <form id="form-variant">
                         <div class="product-attrs">
-                            @foreach (var option in Model.AvailableOptions)
-                            {
-                                <div  id="config-holder">
+                            <div id="config-holder">
+                                @foreach (var option in Model.AvailableOptions)
+                                {
+
                                     <ul class="list-inline product-attr-options d-flex flex-wrap js-select-config">
                                         <span class="name">@option.OptionName: </span>
                                         @foreach (var value in option.Values)
@@ -178,8 +182,9 @@
                                             </li>
                                         }
                                     </ul>
-                                </div>
-                            }
+
+                                }
+                            </div>
                         </div>
                     </form>
 

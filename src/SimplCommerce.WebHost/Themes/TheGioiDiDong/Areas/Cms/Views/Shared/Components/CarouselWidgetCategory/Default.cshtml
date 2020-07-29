@@ -5,7 +5,7 @@
             <div id="owl-laptop">
                 @foreach (var item in Model.Items)
                 {
-                    <a aria-label='slide' href='@item.TargetUrl'>
+                    <a aria-label='slide' href='@item.TargetUrl' rel="nofollow">
                         <img src='@item.Image' alt='@item.LinkText' class="img-responsive lazyload" style="height:300px;"
                              data-src="@item.Image" data-srcset="@item.Image 300w, @item.Image 600w, @item.Image 900w" />
                     </a>
