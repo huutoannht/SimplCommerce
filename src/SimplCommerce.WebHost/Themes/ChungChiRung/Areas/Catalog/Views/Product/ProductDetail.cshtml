@@ -1,0 +1,660 @@
+﻿@model SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels.ProductDetail
+@using System.Text.RegularExpressions;
+@{
+    ViewBag.Title = Model.MetaTitle ?? Model.Name;
+}
+
+@section additionalMeta {
+    <meta name="title" content="@ViewBag.Title" />
+    <meta name="keywords" content="@Model.MetaKeywords" />
+    <meta name="description" content="@Model.MetaDescription" />
+}
+
+@section head
+        {
+    @*<link simpl-append-version="true" rel="stylesheet" href="~/lib/smoothproducts/css/smoothproducts.css" />
+        <link simpl-append-version="true" rel="stylesheet" href="~/modules/catalog/product-detail.css" />*@
+}
+@*<style>
+        .collapse {
+            display: none;
+        }
+    </style>
+
+    <section class="type0">
+        <ul class="breadcrumb">
+            <a href="~/" class="stext-109 cl8 hov-cl1 trans-04">
+                @Localizer["Home"]
+                <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+            </a>
+            @if (Model.Categories.Any())
+            {
+                @await Component.InvokeAsync("CategoryBreadcrumb", new { categoryIds = Model.Categories.Select(x => x.Id) })
+            }
+            <a href="#" class="stext-109 cl8 hov-cl1 trans-04">
+                @Model.Name
+            </a>
+        </ul>
+        <div class="rowtop">
+            <h1>@Model.Name</h1>
+
+            <div class="ratingresult">
+                <ul class="list-inline product-ratings">
+                    <li><input type="hidden" value="@Model.RatingAverage" readonly="readonly" class="rating-loading" step="1" data-size="xs" data-show-clear="false" data-show-caption="false" /></li>
+                    <li class="product-review-list">
+                        <span>(@Model.ReviewsCount) <a href="#reviews">@Localizer["reviews"]</a> | <a href="#addreview"> @Localizer["Add Review"]</a></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="clr"></div>
+        <div class="rowdetail row" id="normalproduct">
+            <div class="col-md-5">
+                <div class="sp-wrap">
+                    @foreach (var image in Model.Images)
+                    {
+                        <a href="@image.Url">
+                            <img src="@image.ThumbnailUrl" alt="@Model.Name" />
+                        </a>
+                    }
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="product-short-desc">
+                    @Html.Raw(Model.ShortDescription)
+                </div>
+                <aside class="price_sale product-detail">
+                    @if (Model.Promotion != null && Model.Promotion.Length > 10 && Regex.Replace(Model.Promotion, "<.*?>", String.Empty).Length > 0)
+                    {
+                        <div class="area_promotion ">
+                            <strong data-count="3">Khuyến mãi</strong>
+                            <div class="pro-img">
+                                @Html.Raw(Model.Promotion)
+                            </div>
+                        </div>
+                    }
+
+                    @if (Model.HasVariation)
+                    {
+                        <form>
+                            <div class="product-attrs">
+                                @foreach (var option in Model.AvailableOptions)
+                                {
+                                    <div>
+                                        <h5 class="p-t-25">@option.OptionName </h5>
+                                        <ul class="list-inline product-attr-options">
+                                            @foreach (var value in option.Values)
+                                            {
+                                                var shouldChecked = Model.Variations.First().Options.Any(x => x.Value == value);
+                                                <li class="list-inline-item">
+                                                    <input type="radio" value="@value" checked="@shouldChecked" name="@option.OptionName" />
+                                                    @if (Model.OptionDisplayValues.ContainsKey(value) && !String.IsNullOrWhiteSpace(Model.OptionDisplayValues[value].Value))
+                                                    {
+                                                        if (Model.OptionDisplayValues[value].DisplayType == "color")
+                                                        {
+                                                            <label title="@value" class="color" style="background-color:@Model.OptionDisplayValues[value].Value"></label>
+                                                        }
+                                                        else
+                                                        {
+                                                            <label>@Model.OptionDisplayValues[value].Value</label>
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        <label>@value</label>
+                                                    }
+                                                </li>
+                                            }
+                                        </ul>
+                                    </div>
+                                }
+                            </div>
+                        </form>
+
+                        foreach (var variant in Model.Variations)
+                        {
+                            var hidden = variant != Model.Variations.First() ? "collapse" : "";
+                            <div class="product-variation @hidden" data-variation-name="@variant.NormalizedName">
+                                <div class="product-price">
+                                    @if (variant.IsCallForPricing)
+                                    {
+                                        <span class="label label-info">@Localizer["Call for pricing"]</span>
+                                    }
+                                    else
+                                    {
+                                        <h3>@variant.CalculatedProductPrice.Price.ToString("C0")</h3>
+                                        if (variant.CalculatedProductPrice.PercentOfSaving > 0)
+                                        {
+                                            <p class="product-price-regular">@variant.CalculatedProductPrice.OldPrice.Value.ToString("C0")</p>
+                                            <p class="product-price-saving">@Localizer["You save"] (@(variant.CalculatedProductPrice.PercentOfSaving)%)</p>
+                                        }
+                                    }
+                                </div>
+                                @if (variant.StockTrackingIsEnabled && variant.StockQuantity <= 0)
+                                {
+                                    <div class="out-of-stock">
+                                        <span class="label label-danger">@Localizer["Out of stock"]</span>
+                                    </div>
+                                }
+
+                                <div class="add-to-cart">
+                                    <form class="inline">
+                                        <input type="hidden" name="productId" value="@variant.Id" />
+                                        <div class="product-quantity">
+                                            <button type="button" class="quantity-button" name="subtract" value="-">-</button>
+                                            <input type="text" class="quantity-field" readonly="readonly" name="qty" value="1">
+                                            <button type="button" class="quantity-button" name="add" value="+">+</button>
+                                        </div>
+                                        <button type="button" disabled="@(!variant.IsAllowToOrder || (variant.StockTrackingIsEnabled && variant.StockQuantity <= 0))" class="btn btn-lg btn-add-cart">@Localizer["Add to cart"]</button>
+
+
+                                    </form>
+                                </div>
+                            </div>
+                        }
+                        <div class="product-variation-notavailable collapse">
+                            <span class="label label-danger">@Localizer["Not available"]</span>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="product-price">
+                            @if (Model.IsCallForPricing)
+                            {
+                                <span class="label label-info">@Localizer["Call for pricing"]</span>
+                            }
+                            else
+                            {
+                                <h3>@Model.CalculatedProductPrice.Price.ToString("C0")</h3>
+                                if (Model.CalculatedProductPrice.PercentOfSaving > 0)
+                                {
+                                    <p class="product-price-regular">@Model.CalculatedProductPrice.OldPrice.Value.ToString("C0")</p>
+                                    <p class="product-price-saving">@Localizer["You save"] (@(Model.CalculatedProductPrice.PercentOfSaving)%)</p>
+                                }
+                            }
+                        </div>
+                        if (Model.StockTrackingIsEnabled && Model.StockQuantity <= 0)
+                        {
+                            <div class="out-of-stock">
+                                <span class="label label-danger">@Localizer["Out of stock"]</span>
+                            </div>
+                        }
+                        <div class="add-to-cart">
+                            <form class="inline">
+                                <input type="hidden" name="productId" value="@Model.Id" />
+                                <div class="product-quantity">
+                                    <button type="button" class="quantity-button" name="subtract" value="-">-</button>
+                                    <input type="text" class="quantity-field" readonly="readonly" name="qty" value="1">
+                                    <button type="button" class="quantity-button" name="add" value="+">+</button>
+                                </div>
+                                <button type="button" disabled="@(!Model.IsAllowToOrder || (Model.StockTrackingIsEnabled && Model.StockQuantity <= 0))" class="btn btn-lg btn-add-cart buy_now">@Localizer["Add to cart"]</button>
+                                <div class="area_order">
+                                    <a class="buy_repay " href="/mua-tra-gop"><b>Mua trả góp </b><span>Thủ tục đơn giản</span></a>
+                                </div>
+
+                            </form>
+                        </div>
+                    }
+
+
+                </aside>
+            </div>
+            <div class="col-md-3">
+                <ul class="policy ">
+                    <li class="inpr">
+                        <span>Trong hộp có: <a class="stdImg" href="javascript:void(0)" onclick="showGalleryPS(100,0);">Sách hướng dẫn,Hộp,Adapter sạc,Chuột <i class="icondetail-camera standkit" href="//cdn.tgdd.vn/Products/Images/44/193516/Kit/asus-x507uf-i5-8250u-4gb-1tb-2gb-mx130-ej121t-bo-ban-hang-org.jpg"></i></a></span>
+                    </li>
+                    <li class="wrpr">
+                        <span>
+                            Bảo hành chính hãng 24 tháng.
+                            <a href="/chinh-sach-bao-hanh">Xem chi tiết</a>
+                        </span>
+                    </li>
+                    <li>
+                        1 đổi 1 trong 1 tháng nếu lỗi, đổi sản phẩm tại nhà trong 1 ngày.
+
+                        <a href="#" target="_blank">Xem chi tiết</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="clr"></div>
+        <div class="box_content row">
+            <div class="col-md-8">
+                <aside class="">
+                    <div class="boxArticle">
+                        <article class="area_article">
+                            @if (!string.IsNullOrWhiteSpace(Model.Description))
+                            {
+                                <div>
+                                    <h3 class="p-t-25 p-b-25">@Localizer["Product detail"]</h3>
+                                    @Html.Raw(Model.Description)
+                                </div>
+                            }
+                        </article>
+                    </div>
+                    <div class="clr"></div>
+                    @if (Model.RelatedProducts.Count > 0)
+                    {
+                        <div class="compare">
+                            <div class="tcpr">
+                                <h4>@Localizer["Compare with similar products"]</h4>
+                            </div>
+                            <div class="row product-list">
+                                <div id="owl-promo" class="owl-carousel homepromo ">
+                                    @foreach (var product in Model.RelatedProducts)
+                                    {
+                                        <div class="item">
+                                            <partial name="/Themes/TheGioiDiDong/Areas/Catalog/Views/Shared/_ProductThumbnail.cshtml" model="product" />
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    <div class="comdetail">
+                        <div class="wrap_comment" title="Bình luận sản phẩm" id="comment" cmtcategoryid="2" siteid="1" detailid="154897" cateid="15" urlpage="" pagesize="5">
+                            <div>
+                                <h3 class="p-t-25 p-b-25">@Localizer["Customer reviews"]</h3>
+                                @await Component.InvokeAsync("Review", new { entityId = Model.Id, entityTypeId = "Product" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+
+                        <h3>Bình luận</h3>
+                        @await Component.InvokeAsync("Comment", new { entityId = Model.Id, entityTypeId = "Product" })
+                    </div>
+
+
+                </aside>
+            </div>
+            <div class="col-md-4">
+                <aside class="">
+                    <div class="tableparameter">
+                        @if (Model.Attributes.Any())
+                        {
+                            <div class="table-attribute">
+                                <h3 class="p-t-25 p-b-25">@Localizer["Product specification"]</h3>
+                                <table class="table table-striped">
+                                    @foreach (var attribute in Model.Attributes)
+                                    {
+                                        <tr>
+                                            <td>@attribute.Name</td>
+                                            <td>@attribute.Value</td>
+                                        </tr>
+                                    }
+                                </table>
+                            </div>
+                        }
+                    </div>
+                    <div class="clr"></div>
+                    @await Component.InvokeAsync("NewItem")
+                </aside>
+            </div>
+            <div class="compare">
+                @await Component.InvokeAsync("ProductRecentlyViewed", new { productId = Model.Id })
+            </div>
+
+        </div>
+    </section>*@
+
+<div class="news-content-website">
+    <div class="bg-top"></div>
+    <div class="container">
+        <div class="panel panel-tid" itemscope="" itemtype="http://schema.org/Article">
+            <div class="panel-heading">
+                <h1 itemprop="name"><span ="title-website">@Model.Name</span></h1>
+            </div>
+            <div class="panel-body content-product-website">
+                <div class="show-image-product">
+                    <div class="entry-content">
+                        <div class="list-action-right">
+                            <div class="share">
+                                <span class="fa fa-share-alt"></span>
+                                <div class="sub">
+                                    <div class="wrapper">
+                                        <a href="http://www.facebook.com/sharer.php?u=@ViewBag.Host" target="_blank"><i class="fa fa-facebook"></i></a>
+                                        <a href="http://twitter.com/share?url=@ViewBag.Host&amp;text=Simple Share Buttons&amp;hashtags=simplesharebuttons" target="_blank"><i class="fa fa-twitter"></i></a>
+                                        <a href="https://plus.google.com/share?url=@ViewBag.Host" target="_blank"><i class="fa fa-google-plus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="color">
+                                <img src="http://visacoop.com/public/img/color.png" alt="color">
+                                <div class="sub">
+                                    <div class="wrapper">
+                                        <div class="color-item" image="0" color="123">
+                                            <img src="http://visacoop.com/public/uploads/images/thumbs/Xanh-Xam-Den-PB420M.png" alt="Wave RSX - Xanh Xám Đen"> Màu Wave RSX - Xanh Xám Đen
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slider-wrapper theme-default">
+                            <div class="ribbon"></div>
+
+                            <div class="bx-wrapper" style="max-width: 100%;">
+                                <div class="bx-viewport" style="width: 100%; overflow: hidden; position: relative; height: 463px;">
+                                    <ul class="bx-home-slider" style="width: 315%; position: relative; transition-duration: 0s; transform: translate3d(-1143px, 0px, 0px);">
+
+                                        @foreach (var image in Model.Images)
+                                        {
+                                            <li>
+                                                <img itemprop="image" src="@image.ThumbnailUrl" alt="@Model.Name" data-zoom-image="@image.ThumbnailUrl" color="123" class="width-100" />
+                                            </li>
+                                        }
+                                    </ul>
+                                </div><div class="bx-controls bx-has-pager bx-has-controls-direction"><div class="bx-pager bx-default-pager"><div class="bx-pager-item"><a href="" data-slide-index="0" class="bx-pager-link active">1</a></div></div><div class="bx-controls-direction"><a class="bx-prev disabled" href="">Prev</a><a class="bx-next disabled" href="">Next</a></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content" itemprop="articleBody">
+                        <div>
+
+                            <!-- Begin Tabs -->
+                            <div class="margin-bottom products-tabs">
+                                <ul class="">
+                                    <li class=""><a href="#details" title="Thông tin sản phẩm">Thông tin sản phẩm</a></li>
+                                    <li class=""><a href="#properties" title="Thông số kỹ thuật">Thông số kỹ thuật</a></li>
+                                    <li class=""><a href="#content1" title="Thông số kỹ thuật">Phụ tùng</a></li>
+                                    <li class=""><a href="#content2" title="Thông số kỹ thuật">Xe trang trí</a></li>
+                                    <li class=""><a href="#comment" title="catalogue">Bình Luận</a></li>
+                                    <li class=""><a href="#products" title="Sản phẩm cùng loại">Sản phẩm cùng loại</a></li>
+                                </ul>
+                                <div id="details">
+                                    @Html.Raw(Model.Description)
+                                </div>
+                                <div id="properties">
+                                    <div class="tableparameter">
+                                        @if (Model.Attributes.Any())
+                                        {
+                                            <div class="table-attribute">
+                                                <h3 class="p-t-25 p-b-25">@Localizer["Product specification"]</h3>
+                                                <table class="table table-striped">
+                                                    @foreach (var attribute in Model.Attributes)
+                                                    {
+                                                        <tr>
+                                                            <td>@attribute.Name</td>
+                                                            <td>@attribute.Value</td>
+                                                        </tr>
+                                                    }
+                                                </table>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                                <div id="content1">
+                                </div>
+                                <div id="content2">
+                                </div>
+                                <div id="comment">
+                                    @await Component.InvokeAsync("Comment", new { entityId = Model.Id, entityTypeId = "Product" })
+                                </div>
+                                <div id="products" class=" padding-top">
+                                    <div class="row">
+
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                            <div class="list-product">
+                                                <div class="price">
+                                                    <p><i class="fa fa-money"></i> 0 VNĐ</p>
+                                                    <p><i class="fa fa-arrow-circle-o-down"></i> 0</p>
+                                                </div>
+                                                <a href="http://visacoop.com/cb300r.html" title="CB300R">
+                                                    <img src="http://visacoop.com/public/uploads/images/thumbs/cb300.png" alt="CB300R" class="width-100" />
+                                                </a>
+                                                <div class="tool-product">
+                                                    <a href="http://visacoop.com/cb300r.html" title="CB300R"><span class="fa fa-list"></span></a>
+                                                    <a href="http://www.facebook.com/sharer.php?u=http://visacoop.com/cb300r.html" title="share product buttom"><span class="fa fa-share-alt"></span></a>
+                                                    <a href="http://visacoop.com/cart/buy/cb300r.html" title="CB300R"><span class="fa fa-shopping-cart"></span></a>
+                                                </div>
+                                                <h4><a href="http://visacoop.com/cb300r.html" title="CB300R">CB300R</a></h4>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                            <div class="list-product">
+                                                <div class="price">
+                                                    <p><i class="fa fa-money"></i> 0 VNĐ</p>
+                                                    <p><i class="fa fa-arrow-circle-o-down"></i> 0</p>
+                                                </div>
+                                                <a href="http://visacoop.com/7b3-winner-150cc.html" title="Winner X 150cc">
+                                                    <img src="http://visacoop.com/public/uploads/images/thumbs/winnerx.png" alt="Winner X 150cc" class="width-100" />
+                                                </a>
+                                                <div class="tool-product">
+                                                    <a href="http://visacoop.com/7b3-winner-150cc.html" title="Winner X 150cc"><span class="fa fa-list"></span></a>
+                                                    <a href="http://www.facebook.com/sharer.php?u=http://visacoop.com/7b3-winner-150cc.html" title="share product buttom"><span class="fa fa-share-alt"></span></a>
+                                                    <a href="http://visacoop.com/cart/buy/7b3-winner-150cc.html" title="Winner X 150cc"><span class="fa fa-shopping-cart"></span></a>
+                                                </div>
+                                                <h4><a href="http://visacoop.com/7b3-winner-150cc.html" title="Winner X 150cc">Winner X 150cc</a></h4>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                            <div class="list-product">
+                                                <div class="price">
+                                                    <p><i class="fa fa-money"></i> 0 VNĐ</p>
+                                                    <p><i class="fa fa-arrow-circle-o-down"></i> 0</p>
+                                                </div>
+                                                <a href="http://visacoop.com/air-blade-125cc-den-do.html" title="Air Blade 125cc\150cc">
+                                                    <img src="http://visacoop.com/public/uploads/images/thumbs/AB.png" alt="Air Blade 125cc\150cc" class="width-100" />
+                                                </a>
+                                                <div class="tool-product">
+                                                    <a href="http://visacoop.com/air-blade-125cc-den-do.html" title="Air Blade 125cc\150cc"><span class="fa fa-list"></span></a>
+                                                    <a href="http://www.facebook.com/sharer.php?u=http://visacoop.com/air-blade-125cc-den-do.html" title="share product buttom"><span class="fa fa-share-alt"></span></a>
+                                                    <a href="http://visacoop.com/cart/buy/air-blade-125cc-den-do.html" title="Air Blade 125cc"><span class="fa fa-shopping-cart"></span></a>
+                                                </div>
+                                                <h4><a href="http://visacoop.com/air-blade-125cc-den-do.html" title="Air Blade 125cc\150cc">Air Blade 125cc\150cc</a></h4>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                            <div class="list-product">
+                                                <div class="price">
+                                                    <p><i class="fa fa-money"></i> 0 VNĐ</p>
+                                                    <p><i class="fa fa-arrow-circle-o-down"></i> 0</p>
+                                                </div>
+                                                <a href="http://visacoop.com/sh-125150cc-xanh-den.html" title="SH 125/150cc">
+                                                    <img src="http://visacoop.com/public/uploads/images/thumbs/SH125-150.png" alt="SH 125/150cc" class="width-100" />
+                                                </a>
+                                                <div class="tool-product">
+                                                    <a href="http://visacoop.com/sh-125150cc-xanh-den.html" title="SH 125/150cc"><span class="fa fa-list"></span></a>
+                                                    <a href="http://www.facebook.com/sharer.php?u=http://visacoop.com/sh-125150cc-xanh-den.html" title="share product buttom"><span class="fa fa-share-alt"></span></a>
+                                                    <a href="http://visacoop.com/cart/buy/sh-125150cc-xanh-den.html" title="SH 125/150cc"><span class="fa fa-shopping-cart"></span></a>
+                                                </div>
+                                                <h4><a href="http://visacoop.com/sh-125150cc-xanh-den.html" title="SH 125/150cc">SH 125/150cc</a></h4>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                            <div class="list-product">
+                                                <div class="price">
+                                                    <p><i class="fa fa-money"></i> 0 VNĐ</p>
+                                                    <p><i class="fa fa-arrow-circle-o-down"></i> 0</p>
+                                                </div>
+                                                <a href="http://visacoop.com/rebel-300.html" title="Rebel 300">
+                                                    <img src="http://visacoop.com/public/uploads/images/thumbs/rebel300.png" alt="Rebel 300" class="width-100" />
+                                                </a>
+                                                <div class="tool-product">
+                                                    <a href="http://visacoop.com/rebel-300.html" title="Rebel 300"><span class="fa fa-list"></span></a>
+                                                    <a href="http://www.facebook.com/sharer.php?u=http://visacoop.com/rebel-300.html" title="share product buttom"><span class="fa fa-share-alt"></span></a>
+                                                    <a href="http://visacoop.com/cart/buy/rebel-300.html" title="Rebel 300"><span class="fa fa-shopping-cart"></span></a>
+                                                </div>
+                                                <h4><a href="http://visacoop.com/rebel-300.html" title="Rebel 300">Rebel 300</a></h4>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                            <div class="list-product">
+                                                <div class="price">
+                                                    <p><i class="fa fa-money"></i> 0 VNĐ</p>
+                                                    <p><i class="fa fa-arrow-circle-o-down"></i> 0</p>
+                                                </div>
+                                                <a href="http://visacoop.com/sh-300cc.html" title="SH 300cc">
+                                                    <img src="http://visacoop.com/public/uploads/images/thumbs/SH300.png" alt="SH 300cc" class="width-100" />
+                                                </a>
+                                                <div class="tool-product">
+                                                    <a href="http://visacoop.com/sh-300cc.html" title="SH 300cc"><span class="fa fa-list"></span></a>
+                                                    <a href="http://www.facebook.com/sharer.php?u=http://visacoop.com/sh-300cc.html" title="share product buttom"><span class="fa fa-share-alt"></span></a>
+                                                    <a href="http://visacoop.com/cart/buy/sh-300cc.html" title="SH 300cc"><span class="fa fa-shopping-cart"></span></a>
+                                                </div>
+                                                <h4><a href="http://visacoop.com/sh-300cc.html" title="SH 300cc">SH 300cc</a></h4>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                            <div class="list-product">
+                                                <div class="price">
+                                                    <p><i class="fa fa-money"></i> 0 VNĐ</p>
+                                                    <p><i class="fa fa-arrow-circle-o-down"></i> 0</p>
+                                                </div>
+                                                <a href="http://visacoop.com/lead-125cc.html" title="LEAD 125CC">
+                                                    <img src="http://visacoop.com/public/uploads/images/thumbs/lead.png" alt="LEAD 125CC" class="width-100" />
+                                                </a>
+                                                <div class="tool-product">
+                                                    <a href="http://visacoop.com/lead-125cc.html" title="LEAD 125CC"><span class="fa fa-list"></span></a>
+                                                    <a href="http://www.facebook.com/sharer.php?u=http://visacoop.com/lead-125cc.html" title="share product buttom"><span class="fa fa-share-alt"></span></a>
+                                                    <a href="http://visacoop.com/cart/buy/lead-125cc.html" title="LEAD 125CC"><span class="fa fa-shopping-cart"></span></a>
+                                                </div>
+                                                <h4><a href="http://visacoop.com/lead-125cc.html" title="LEAD 125CC">LEAD 125CC</a></h4>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                            <div class="list-product">
+                                                <div class="price">
+                                                    <p><i class="fa fa-money"></i> 0 VNĐ</p>
+                                                    <p><i class="fa fa-arrow-circle-o-down"></i> 0</p>
+                                                </div>
+                                                <a href="http://visacoop.com/sh-mode-2015.html" title="SH MODE 125cc">
+                                                    <img src="http://visacoop.com/public/uploads/images/thumbs/SHmode.png" alt="SH MODE 125cc" class="width-100" />
+                                                </a>
+                                                <div class="tool-product">
+                                                    <a href="http://visacoop.com/sh-mode-2015.html" title="SH MODE 125cc"><span class="fa fa-list"></span></a>
+                                                    <a href="http://www.facebook.com/sharer.php?u=http://visacoop.com/sh-mode-2015.html" title="share product buttom"><span class="fa fa-share-alt"></span></a>
+                                                    <a href="http://visacoop.com/cart/buy/sh-mode-2015.html" title="SH MODE 125cc"><span class="fa fa-shopping-cart"></span></a>
+                                                </div>
+                                                <h4><a href="http://visacoop.com/sh-mode-2015.html" title="SH MODE 125cc">SH MODE 125cc</a></h4>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                            <div class="list-product">
+                                                <div class="price">
+                                                    <p><i class="fa fa-money"></i> 0 VNĐ</p>
+                                                    <p><i class="fa fa-arrow-circle-o-down"></i> 0</p>
+                                                </div>
+                                                <a href="http://visacoop.com/61f-pcx.html" title="PCX">
+                                                    <img src="http://visacoop.com/public/uploads/images/thumbs/tr.png" alt="PCX" class="width-100" />
+                                                </a>
+                                                <div class="tool-product">
+                                                    <a href="http://visacoop.com/61f-pcx.html" title="PCX"><span class="fa fa-list"></span></a>
+                                                    <a href="http://www.facebook.com/sharer.php?u=http://visacoop.com/61f-pcx.html" title="share product buttom"><span class="fa fa-share-alt"></span></a>
+                                                    <a href="http://visacoop.com/cart/buy/61f-pcx.html" title=""><span class="fa fa-shopping-cart"></span></a>
+                                                </div>
+                                                <h4><a href="http://visacoop.com/61f-pcx.html" title="PCX">PCX</a></h4>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                            <div class="list-product">
+                                                <div class="price">
+                                                    <p><i class="fa fa-money"></i> 0 VNĐ</p>
+                                                    <p><i class="fa fa-arrow-circle-o-down"></i> 0</p>
+                                                </div>
+                                                <a href="http://visacoop.com/vision-2014-trang.html" title="Vision 2014">
+                                                    <img src="http://visacoop.com/public/uploads/images/thumbs/vision.png" alt="Vision 2014" class="width-100" />
+                                                </a>
+                                                <div class="tool-product">
+                                                    <a href="http://visacoop.com/vision-2014-trang.html" title="Vision 2014"><span class="fa fa-list"></span></a>
+                                                    <a href="http://www.facebook.com/sharer.php?u=http://visacoop.com/vision-2014-trang.html" title="share product buttom"><span class="fa fa-share-alt"></span></a>
+                                                    <a href="http://visacoop.com/cart/buy/vision-2014-trang.html" title=""><span class="fa fa-shopping-cart"></span></a>
+                                                </div>
+                                                <h4><a href="http://visacoop.com/vision-2014-trang.html" title="Vision 2014">Vision 2014</a></h4>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                            <div class="list-product">
+                                                <div class="price">
+                                                    <p><i class="fa fa-money"></i> 0 VNĐ</p>
+                                                    <p><i class="fa fa-arrow-circle-o-down"></i> 0</p>
+                                                </div>
+                                                <a href="http://visacoop.com/d60-msx-125-do-den.html" title="MSX 125">
+                                                    <img src="http://visacoop.com/public/uploads/images/thumbs/MSX.png" alt="MSX 125" class="width-100" />
+                                                </a>
+                                                <div class="tool-product">
+                                                    <a href="http://visacoop.com/d60-msx-125-do-den.html" title="MSX 125"><span class="fa fa-list"></span></a>
+                                                    <a href="http://www.facebook.com/sharer.php?u=http://visacoop.com/d60-msx-125-do-den.html" title="share product buttom"><span class="fa fa-share-alt"></span></a>
+                                                    <a href="http://visacoop.com/cart/buy/d60-msx-125-do-den.html" title="MSX 125"><span class="fa fa-shopping-cart"></span></a>
+                                                </div>
+                                                <h4><a href="http://visacoop.com/d60-msx-125-do-den.html" title="MSX 125">MSX 125</a></h4>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                            <div class="list-product">
+                                                <div class="price">
+                                                    <p><i class="fa fa-money"></i> 0 VNĐ</p>
+                                                    <p><i class="fa fa-arrow-circle-o-down"></i> 0</p>
+                                                </div>
+                                                <a href="http://visacoop.com/future-125-fi.html" title="FUTURE 125 FI">
+                                                    <img src="http://visacoop.com/public/uploads/images/thumbs/vanhnanhoa_bacden_image.png" alt="FUTURE 125 FI" class="width-100" />
+                                                </a>
+                                                <div class="tool-product">
+                                                    <a href="http://visacoop.com/future-125-fi.html" title="FUTURE 125 FI"><span class="fa fa-list"></span></a>
+                                                    <a href="http://www.facebook.com/sharer.php?u=http://visacoop.com/future-125-fi.html" title="share product buttom"><span class="fa fa-share-alt"></span></a>
+                                                    <a href="http://visacoop.com/cart/buy/future-125-fi.html" title="FUTURE 125 FI"><span class="fa fa-shopping-cart"></span></a>
+                                                </div>
+                                                <h4><a href="http://visacoop.com/future-125-fi.html" title="FUTURE 125 FI">FUTURE 125 FI</a></h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Tabs -->
+
+
+                        </div>
+                    </div>
+
+                    <div class="share-content-social text-right">
+                        <span>Chia sẻ bài viết : </span>
+                        <a href="http://www.facebook.com/sharer.php?u=http://visacoop.com/pcx-hybrid.html" target="_blank"><i class="fa fa-facebook"></i></a>
+                        <a href="http://twitter.com/share?url=http://visacoop.com/pcx-hybrid.html&amp;text=Simple Share Buttons&amp;hashtags=simplesharebuttons" target="_blank"><i class="fa fa-twitter"></i></a>
+                        <a href="https://plus.google.com/share?url=http://visacoop.com/pcx-hybrid.html" target="_blank"><i class="fa fa-google-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-bottom"></div>
+</div>
+@section scripts {
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function (e) {
+            $('.products-tabs').responsiveTabs({
+                rotate: false,
+                startCollapsed: 'accordion',
+                collapsible: 'accordion',
+                setHash: true,
+            });
+            Slider = $('.bx-home-slider').bxSlider({
+                mode: 'horizontal',
+                slideMargin: 5,
+                pause: 10000,
+                auto: true,
+            });
+
+            $('.list-action-right .color .color-item').hover(function () {
+                Slider.goToSlide($(this).attr('image'));
+            });
+        });
+    </script>
+    @*<partial name="_ValidationScriptsPartial" />
+        <script simpl-append-version="true" src="~/lib/smoothproducts/js/smoothproducts.js"></script>
+        <script simpl-append-version="true" src="~/modules/catalog/product-detail.js"></script>*@
+}

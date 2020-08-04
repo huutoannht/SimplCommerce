@@ -1,0 +1,39 @@
+﻿@model IEnumerable<SimplCommerce.Module.News.Areas.News.ViewModels.NewsItemVm>
+@*<figure>
+        <h2><a href="tin-tuc.html">Tin công nghệ</a></h2>
+        <b></b>
+    </figure>
+    <ul>
+        @foreach (var newItem in Model)
+        {
+            <li>
+                <a href="@newItem.Slug">
+                    <img width="100" height="70" src='@newItem.ThumbnailImageUrl' alt="@newItem.Name">
+                    <h3>@newItem.Name</h3>
+                    <span>@newItem.CreatedOn.ToString("dd/MM/yyyy")</span>
+                </a>
+            </li>
+        }
+    </ul>*@
+
+
+<div class="col-sm-4">
+    <div class="panel panel-primary update">
+        <div class="panel-heading">
+            <h4>News & Events</h4>
+        </div>
+        <div class="panel-body update-news">
+            <ul class="list-unstyled">
+                @foreach (var newItem in Model)
+                {
+                    <li class="clearfix">
+                        <a href="@newItem.Slug">
+                            <img class="pull-left" src="@newItem.ThumbnailImageUrl" alt="@newItem.Name" />
+                            <div class="news-text"><span class="news-date"> @newItem.CreatedOn.ToString("dd/MM/yyyy")</span><br /><span class="headline">@newItem.Name</span><br /><small class="news-label">News</small></div>
+                        </a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>

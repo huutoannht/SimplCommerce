@@ -1,0 +1,61 @@
+﻿@using System.Threading.Tasks
+@addTagHelper *, SimplCommerce.Infrastructure
+
+@model SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels.ProductsByCategory
+@{
+    ViewBag.Title = Model.CategoryMetaTitle ?? Model.CategoryName;
+}
+@section additionalMeta {
+    <meta name="title" content="@ViewBag.Title" />
+    <meta name="keywords" content="@Model.CategoryMetaKeywords" />
+    <meta name="description" content="@Model.CategoryMetaDescription" />
+}
+@section head {
+}
+
+
+<div class="container">
+
+    <div class="panel panel-tid">
+        <div class="panel-heading">
+            <span class="title-website">
+                @Model.CategoryName
+            </span>
+        </div>
+        <div class="panel-body">
+            <div class="row resize-height-container" resize=".col-lg-4">
+                @foreach (var product in Model.Products)
+                {
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div class="list-product">
+                            <div class="price">
+                                <p><i class="fa fa-money"></i> @product.Price.ToString("C0")</p>
+                                <p><i class="fa fa-arrow-circle-o-down"></i> 0</p>
+                            </div>
+                            <a class="transition-light" href="@product.Slug" title="@product.Name">
+                                <img src="@product.ThumbnailUrl" alt="CB150R" class="width-100" />
+                            </a>
+                            <div class="tool-product">
+                                <a href="@product.Slug" title="@product.Name"><span class="fa fa-list"></span></a>
+                                <a href="http://www.facebook.com/sharer.php?u=@ViewBag.Host" title="share product buttom"><span class="fa fa-share-alt"></span></a>
+                                <a href="cart.html" title="CB150R"><span class="fa fa-shopping-cart"></span></a>
+                            </div>
+                            <h4><a href="@product.Slug" title="@product.Name">@product.Name</a></h4>
+                        </div>
+                    </div>
+                }
+
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <cs-pager cs-paging-pagesize="@Model.CurrentSearchOption.PageSize"
+                              cs-paging-pagenumber="@Model.CurrentSearchOption.Page"
+                              cs-paging-totalitems="@Model.TotalProduct"
+                              cs-pagenumber-param="page"
+                              asp-basehref="~/@Model.CategorySlug"
+                              asp-all-route-data="@Model.CurrentSearchOption.ToDictionary()"></cs-pager>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
