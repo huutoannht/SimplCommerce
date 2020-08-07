@@ -47,13 +47,13 @@
         }
 
         #config-holder ul li.selected-attr-value {
-           /* border-color: #ff9300 !important;*/
+            /* border-color: #ff9300 !important;*/
             border-width: 2px !important;
         }
 
             #config-holder ul li.selected-attr-value::before {
                 content: '';
-/*                background: url(./themes/TheGioiDiDong/images/checkbox-product.png) right bottom no-repeat;*/
+                /*                background: url(./themes/TheGioiDiDong/images/checkbox-product.png) right bottom no-repeat;*/
                 position: absolute;
                 width: 100%;
                 height: 100%;
@@ -85,9 +85,15 @@
         #config-holder ul li:hover {
             font-weight: 500;
         }
-        #form-variant{
-                 float:right;
-             }
+
+    #form-variant {
+        float: right;
+    }
+
+
+    .product-variation {
+        width: 100%;
+    }
 </style>
 
 <section class="type0">
@@ -129,24 +135,16 @@
             </div>
         </div>
         <div class="col-md-6">
-            <div class="product-short-desc">
-                <h3 class="product-short-desc-title">Mô tả</h3>
-                @Html.Raw(Model.ShortDescription)
-            </div>
-            <div class="promo-detail">
-                <h4>ƯU ĐÃI TẠI TECHCARE</h4>
-                @Html.Raw(Model.Promotion)
-            </div>
             <aside class="price_sale product-detail">
                 @*@if (Model.Promotion != null && Model.Promotion.Length > 10 && Regex.Replace(Model.Promotion, "<.*?>", String.Empty).Length > 0)
-                    {
-                        <div class="area_promotion ">
-                            <strong data-count="3">Khuyến mãi</strong>
-                            <div class="pro-img">
-                                @Html.Raw(Model.Promotion)
-                            </div>
-                        </div>
-                    }*@
+            {
+                <div class="area_promotion ">
+                    <strong data-count="3">Khuyến mãi</strong>
+                    <div class="pro-img">
+                        @Html.Raw(Model.Promotion)
+                    </div>
+                </div>
+            }*@
 
                 @if (Model.HasVariation)
                 {
@@ -223,19 +221,21 @@
                                         <button type="button" class="quantity-button" name="add" value="+">+</button>
                                     </div>
                                     <button type="button" disabled="@(!variant.IsAllowToOrder || (variant.StockTrackingIsEnabled && variant.StockQuantity <= 0))" class="btn btn-lg btn-add-cart">@Localizer["Add to cart"]</button>
-
+                                    <div class="area_order">
+                                        <a class="buy_repay " href="/mua-tra-gop"><b>Mua trả góp </b><span>Thủ tục đơn giản</span></a>
+                                    </div>
                                     @*<div>
-                                            <ul class="list-inline add-to-wishlist">
-                                                <li class="wishlist-in">
-                                                    <i class="fa fa-heart"></i>
-                                                    <a href="#">Add to Wishlist</a>
-                                                </li>
-                                                <li class="compare-in">
-                                                    <i class="fa fa-exchange"></i>
-                                                    <a href="#" class="add-to-comparison">@Localizer["Add to Compare"]</a>
-                                                </li>
-                                            </ul>
-                                        </div>*@
+                                    <ul class="list-inline add-to-wishlist">
+                                        <li class="wishlist-in">
+                                            <i class="fa fa-heart"></i>
+                                            <a href="#">Add to Wishlist</a>
+                                        </li>
+                                        <li class="compare-in">
+                                            <i class="fa fa-exchange"></i>
+                                            <a href="#" class="add-to-comparison">@Localizer["Add to Compare"]</a>
+                                        </li>
+                                    </ul>
+                                </div>*@
                                 </form>
                             </div>
                         </div>
@@ -280,23 +280,32 @@
                                 <a class="buy_repay " href="/mua-tra-gop"><b>Mua trả góp </b><span>Thủ tục đơn giản</span></a>
                             </div>
                             @*<div>
-                                    <ul class="list-inline add-to-wishlist">
-                                        <li class="wishlist-in">
-                                            <i class="fa fa-heart"></i>
-                                            <a href="#">Add to Wishlist</a>
-                                        </li>
-                                        <li class="compare-in">
-                                            <i class="fa fa-exchange"></i>
-                                            <a href="#" class="add-to-comparison">@Localizer["Add to Compare"]</a>
-                                        </li>
-                                    </ul>
-                                </div>*@
+                            <ul class="list-inline add-to-wishlist">
+                                <li class="wishlist-in">
+                                    <i class="fa fa-heart"></i>
+                                    <a href="#">Add to Wishlist</a>
+                                </li>
+                                <li class="compare-in">
+                                    <i class="fa fa-exchange"></i>
+                                    <a href="#" class="add-to-comparison">@Localizer["Add to Compare"]</a>
+                                </li>
+                            </ul>
+                        </div>*@
                         </form>
                     </div>
                 }
 
 
             </aside>
+            <div class="product-short-desc">
+                <h3 class="product-short-desc-title">Mô tả</h3>
+                @Html.Raw(Model.ShortDescription)
+            </div>
+            <div class="promo-detail">
+                <h4>ƯU ĐÃI TẠI TECHCARE</h4>
+                @Html.Raw(Model.Promotion)
+            </div>
+
         </div>
     </div>
     <div class="clr"></div>
