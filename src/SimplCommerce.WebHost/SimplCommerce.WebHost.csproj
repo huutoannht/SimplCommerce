@@ -22,25 +22,45 @@
   <ItemGroup>
     <Compile Remove="logs\**" />
     <Compile Remove="Themes\TheGioiDiDong\**" />
-    <Compile Remove="wwwroot\themes\Gallery\public\uploads\**" />
+    <Compile Remove="wwwroot\themes\ChungChiRung\**" />
+    <Compile Remove="wwwroot\themes\CozaStore\**" />
+    <Compile Remove="wwwroot\themes\Gallery\**" />
+    <Compile Remove="wwwroot\themes\Honda\**" />
+    <Compile Remove="wwwroot\themes\SampleTheme\**" />
     <Compile Remove="wwwroot\themes\TheGioiDiDong\**" />
+    <Compile Remove="wwwroot\themes\Tourims\**" />
     <Compile Remove="wwwroot\themes\TuanNguyenStudio\**" />
     <Compile Remove="wwwroot\user-content\**" />
     <Content Remove="Themes\TheGioiDiDong\**" />
-    <Content Remove="wwwroot\themes\Gallery\public\uploads\**" />
+    <Content Remove="wwwroot\themes\ChungChiRung\**" />
+    <Content Remove="wwwroot\themes\CozaStore\**" />
+    <Content Remove="wwwroot\themes\Gallery\**" />
+    <Content Remove="wwwroot\themes\Honda\**" />
+    <Content Remove="wwwroot\themes\SampleTheme\**" />
     <Content Remove="wwwroot\themes\TheGioiDiDong\**" />
+    <Content Remove="wwwroot\themes\Tourims\**" />
     <Content Remove="wwwroot\themes\TuanNguyenStudio\**" />
     <Content Remove="wwwroot\user-content\**" />
     <EmbeddedResource Remove="logs\**" />
     <EmbeddedResource Remove="Themes\TheGioiDiDong\**" />
-    <EmbeddedResource Remove="wwwroot\themes\Gallery\public\uploads\**" />
+    <EmbeddedResource Remove="wwwroot\themes\ChungChiRung\**" />
+    <EmbeddedResource Remove="wwwroot\themes\CozaStore\**" />
+    <EmbeddedResource Remove="wwwroot\themes\Gallery\**" />
+    <EmbeddedResource Remove="wwwroot\themes\Honda\**" />
+    <EmbeddedResource Remove="wwwroot\themes\SampleTheme\**" />
     <EmbeddedResource Remove="wwwroot\themes\TheGioiDiDong\**" />
+    <EmbeddedResource Remove="wwwroot\themes\Tourims\**" />
     <EmbeddedResource Remove="wwwroot\themes\TuanNguyenStudio\**" />
     <EmbeddedResource Remove="wwwroot\user-content\**" />
     <None Remove="logs\**" />
     <None Remove="Themes\TheGioiDiDong\**" />
-    <None Remove="wwwroot\themes\Gallery\public\uploads\**" />
+    <None Remove="wwwroot\themes\ChungChiRung\**" />
+    <None Remove="wwwroot\themes\CozaStore\**" />
+    <None Remove="wwwroot\themes\Gallery\**" />
+    <None Remove="wwwroot\themes\Honda\**" />
+    <None Remove="wwwroot\themes\SampleTheme\**" />
     <None Remove="wwwroot\themes\TheGioiDiDong\**" />
+    <None Remove="wwwroot\themes\Tourims\**" />
     <None Remove="wwwroot\themes\TuanNguyenStudio\**" />
     <None Remove="wwwroot\user-content\**" />
   </ItemGroup>
@@ -84,10 +104,6 @@
     <None Remove="Themes\Tourims\Views\Shared\_LoginPartial.cshtml" />
     <None Remove="Themes\Tourims\Views\_ViewImports.cshtml" />
     <None Remove="wwwroot\googlefbc689ad90567857.html" />
-    <None Remove="wwwroot\themes\Tourims\css\site.css" />
-    <None Remove="wwwroot\themes\Tourims\css\site.min.css" />
-    <None Remove="wwwroot\themes\Tourims\images\banner.jpg" />
-    <None Remove="wwwroot\themes\Tourims\images\banner.png" />
   </ItemGroup>
 
   <ItemGroup>
