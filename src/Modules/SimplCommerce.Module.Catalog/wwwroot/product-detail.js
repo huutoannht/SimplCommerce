@@ -1,8 +1,13 @@
 ﻿/*global jQuery, window*/
 $(document).ready(function () {
     $('.sp-wrap').smoothproducts();
-
-    $('.product-attrs li').on('click', function () {
+    $('.product-attrs-relate li').on('click', function () {
+        let productMapping = $(this).find("[name='productMapping']").val();
+        if (productMapping) {
+            window.location.href = productMapping;
+        }
+    })
+    $('.product-attrs-variant li').on('click', function () {
         var $variationDiv,
             selectedproductOptions = [],
             variationName,
@@ -11,6 +16,10 @@ $(document).ready(function () {
 
         $(this).find('input').prop('checked', true);
 
+        let productMapping = $(this).find("[name='productMapping']").val();
+        if (productMapping) {
+            window.location.href = productMapping;
+        }
         $attrOptions.each(function () {
             selectedproductOptions.push($(this).find('input[type=radio]:checked').val());
         });

@@ -8,6 +8,8 @@ namespace SimplCommerce.Module.Catalog.Models
 
         public Product Product { get; set; }
 
+        public string NameOption { get; set; }
+
         public long LinkedProductId { get; set; }
 
         public Product LinkedProduct { get; set; }

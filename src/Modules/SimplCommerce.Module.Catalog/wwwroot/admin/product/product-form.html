@@ -409,11 +409,19 @@
                     <table class="table table-striped">
                         <tr>
                             <th>{{::vm.translate.get('Name')}}</th>
+                            <th>{{::vm.translate.get('Giá trị')}}</th>
                             <th class="text-center">{{::vm.translate.get('Is Published')}}</th>
+                            <th>{{::vm.translate.get('Actions')}}</th>
                         </tr>
                         <tr ng-repeat="product in vm.product.relatedProducts">
                             <td>{{product.name}}</td>
+                            <td><input type="text" class="form-control" ng-model="product.nameOption" /></td>
                             <td class="text-center"><i ng-attr-class="{{product.isPublished && 'fa fa-circle' || 'fa fa-circle-o'}}"></i></td>
+                            <td>
+                                <button ng-click="vm.deleteProductMapping(product)" type="button" class="btn">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </button>
+                            </td>
                         </tr>
                     </table>
                 </uib-tab>

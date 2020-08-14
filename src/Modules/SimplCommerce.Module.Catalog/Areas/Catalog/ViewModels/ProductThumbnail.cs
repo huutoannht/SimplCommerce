@@ -47,6 +47,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels
 
         public IList<ProductAttributeValue> AttributeValues { get; set; }
         public string ShortDescription { get;  set; }
+        public string NameOption { get; set; }
 
         public static ProductThumbnail FromProduct(Product product)
         {
@@ -69,7 +70,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels
                 RatingAverage = product.RatingAverage,
                 Categories = product.Categories,
                 AttributeValues=product.AttributeValues,
-                ShortDescription = product.ShortDescription
+                ShortDescription = product.ShortDescription,
             };
 
             return productThumbnail;

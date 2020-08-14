@@ -195,6 +195,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
 
                 if (productLink.LinkType == ProductLinkType.Related)
                 {
+                    productThumbnail.NameOption = productLink.NameOption;
                     model.RelatedProducts.Add(productThumbnail);
                 }
 

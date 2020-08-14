@@ -184,7 +184,8 @@
 
         vm.isAddVariationFormValid = function () {
             var i;
-            if (isNaN(vm.addingVariation.price) || vm.addingVariation.price === '') {
+            vm.addingVariation.price = vm.addingVariation.price.toString().replace(/\./g, '').replace(',', '.');
+            if (!isNumber(vm.addingVariation.price) || vm.addingVariation.price === '') {
                 return false;
             }
 
@@ -280,7 +281,11 @@
             vm.product.attributes.splice(index, 1);
             vm.attributes.push(attribute);
         };
-
+        vm.deleteProductMapping = function deleteProductMapping(product) {
+            var index = vm.product.relatedProducts.indexOf(product);
+            vm.product.relatedProducts.splice(index, 1);
+            vm.relatedProducts.push(product);
+        };
         vm.toggleCategories = function toggleCategories(categoryId) {
             var index = vm.product.categoryIds.indexOf(categoryId);
             if (index > -1) {
@@ -486,7 +491,11 @@
 
             return result;
         }
-
+        function isNumber(n) {
+            'use strict';
+            n = n.toString().replace(/\./g, '').replace(',', '.');
+            return !isNaN(parseFloat(n)) && isFinite(n);
+        }
         init();
     }
 })(jQuery);

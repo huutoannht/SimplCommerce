@@ -7,5 +7,6 @@
         public string Name { get; set; }
 
         public bool IsPublished { get; set; }
+        public string NameOption { get;  set; }
     }
 }

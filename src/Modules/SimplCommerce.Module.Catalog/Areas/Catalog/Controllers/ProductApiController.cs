@@ -362,13 +362,14 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
                 });
             }
 
-            foreach (var relatedProduct in product.ProductLinks.Where(x => x.LinkType == ProductLinkType.Related).Select(x => x.LinkedProduct).Where(x => !x.IsDeleted).OrderBy(x => x.Id))
+            foreach (var relatedProduct in product.ProductLinks.Where(x => x.LinkType == ProductLinkType.Related).Select(x => new { x.LinkedProduct , x.NameOption}).Where(x => !x.LinkedProduct.IsDeleted).OrderBy(x => x.LinkedProduct.Id))
             {
                 productVm.RelatedProducts.Add(new ProductLinkVm
                 {
-                    Id = relatedProduct.Id,
-                    Name = relatedProduct.Name,
-                    IsPublished = relatedProduct.IsPublished
+                    Id = relatedProduct.LinkedProduct.Id,
+                    Name = relatedProduct.LinkedProduct.Name,
+                    NameOption = relatedProduct.NameOption,
+                    IsPublished = relatedProduct.LinkedProduct.IsPublished
                 });
             }
 
@@ -762,7 +763,8 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
                 {
                     LinkType = ProductLinkType.Related,
                     Product = product,
-                    LinkedProductId = relatedProductVm.Id
+                    LinkedProductId = relatedProductVm.Id,
+                    NameOption = relatedProductVm.NameOption
                 };
 
                 product.AddProductLinks(productLink);
@@ -934,10 +936,15 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
                     {
                         LinkType = ProductLinkType.Related,
                         Product = product,
+                        NameOption = relatedProductVm.NameOption,
                         LinkedProductId = relatedProductVm.Id,
                     };
 
                     _productLinkRepository.Add(productLink);
+                }
+                else
+                {
+                    productLink.NameOption = relatedProductVm.NameOption;
                 }
             }
 

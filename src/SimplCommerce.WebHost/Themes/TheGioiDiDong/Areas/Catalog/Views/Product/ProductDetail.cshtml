@@ -94,6 +94,12 @@
     .product-variation {
         width: 100%;
     }
+    .product-attrs input:checked ~ label a{
+        color: #ff9300;
+        /* border-color: #ff9300; */
+        font-size: 1em;
+        font-weight: bold;
+    }
 </style>
 
 <section class="type0">
@@ -137,20 +143,43 @@
         <div class="col-md-6">
             <aside class="price_sale product-detail">
                 @*@if (Model.Promotion != null && Model.Promotion.Length > 10 && Regex.Replace(Model.Promotion, "<.*?>", String.Empty).Length > 0)
-            {
-                <div class="area_promotion ">
-                    <strong data-count="3">Khuyến mãi</strong>
-                    <div class="pro-img">
-                        @Html.Raw(Model.Promotion)
+                    {
+                        <div class="area_promotion ">
+                            <strong data-count="3">Khuyến mãi</strong>
+                            <div class="pro-img">
+                                @Html.Raw(Model.Promotion)
+                            </div>
+                        </div>
+                    }*@
+                <div class="product-attrs product-attrs-relate">
+                    <div id="config-holder">
+                        @if (Model.RelatedProducts.Count > 0)
+                        {
+                        <ul class="list-inline product-attr-options d-flex flex-wrap js-select-config">
+                            @foreach (var value in Model.RelatedProducts)
+                            {
+                                var shouldChecked = value.Id == Model.Id;
+                                if (shouldChecked)
+                                {
+                                    value.Slug = "#";
+                                }
+                                <li class="list-inline-item attr-value selected-attr-value">
+                                    <input type="radio" value="@value.NameOption" checked="@shouldChecked" name="@value.NameOption" />
+                                    <input type="hidden" name="productMapping" value="@value.Slug"/>
+                                    <label><a href="@value.Slug">@value.NameOption</a></label>
+                                </li>
+                            }
+                        </ul>
+                        }
                     </div>
                 </div>
-            }*@
 
                 @if (Model.HasVariation)
                 {
                     <form id="form-variant">
-                        <div class="product-attrs">
+                        <div class="product-attrs product-attrs-variant">
                             <div id="config-holder">
+                                
                                 @foreach (var option in Model.AvailableOptions)
                                 {
 
@@ -159,7 +188,6 @@
                                         @foreach (var value in option.Values)
                                         {
                                             var shouldChecked = Model.Variations.First().Options.Any(x => x.Value == value);
-
                                             <li class="list-inline-item attr-value selected-attr-value">
                                                 <input type="radio" value="@value" checked="@shouldChecked" name="@option.OptionName" />
                                                 @if (Model.OptionDisplayValues.ContainsKey(value) && !String.IsNullOrWhiteSpace(Model.OptionDisplayValues[value].Value))
@@ -225,17 +253,17 @@
                                         <a class="buy_repay " href="/mua-tra-gop"><b>Mua trả góp </b><span>Thủ tục đơn giản</span></a>
                                     </div>
                                     @*<div>
-                                    <ul class="list-inline add-to-wishlist">
-                                        <li class="wishlist-in">
-                                            <i class="fa fa-heart"></i>
-                                            <a href="#">Add to Wishlist</a>
-                                        </li>
-                                        <li class="compare-in">
-                                            <i class="fa fa-exchange"></i>
-                                            <a href="#" class="add-to-comparison">@Localizer["Add to Compare"]</a>
-                                        </li>
-                                    </ul>
-                                </div>*@
+                                            <ul class="list-inline add-to-wishlist">
+                                                <li class="wishlist-in">
+                                                    <i class="fa fa-heart"></i>
+                                                    <a href="#">Add to Wishlist</a>
+                                                </li>
+                                                <li class="compare-in">
+                                                    <i class="fa fa-exchange"></i>
+                                                    <a href="#" class="add-to-comparison">@Localizer["Add to Compare"]</a>
+                                                </li>
+                                            </ul>
+                                        </div>*@
                                 </form>
                             </div>
                         </div>
@@ -280,17 +308,17 @@
                                 <a class="buy_repay " href="/mua-tra-gop"><b>Mua trả góp </b><span>Thủ tục đơn giản</span></a>
                             </div>
                             @*<div>
-                            <ul class="list-inline add-to-wishlist">
-                                <li class="wishlist-in">
-                                    <i class="fa fa-heart"></i>
-                                    <a href="#">Add to Wishlist</a>
-                                </li>
-                                <li class="compare-in">
-                                    <i class="fa fa-exchange"></i>
-                                    <a href="#" class="add-to-comparison">@Localizer["Add to Compare"]</a>
-                                </li>
-                            </ul>
-                        </div>*@
+                                    <ul class="list-inline add-to-wishlist">
+                                        <li class="wishlist-in">
+                                            <i class="fa fa-heart"></i>
+                                            <a href="#">Add to Wishlist</a>
+                                        </li>
+                                        <li class="compare-in">
+                                            <i class="fa fa-exchange"></i>
+                                            <a href="#" class="add-to-comparison">@Localizer["Add to Compare"]</a>
+                                        </li>
+                                    </ul>
+                                </div>*@
                         </form>
                     </div>
                 }
@@ -324,24 +352,24 @@
                     </article>
                 </div>
                 <div class="clr"></div>
-                @if (Model.RelatedProducts.Count > 0)
-                {
-                    <div class="compare">
-                        <div class="tcpr">
-                            <h4>@Localizer["Compare with similar products"]</h4>
-                        </div>
-                        <div class="row product-list">
-                            <div id="owl-promo" class="owl-carousel homepromo ">
-                                @foreach (var product in Model.RelatedProducts)
-                                {
-                                    <div class="item">
-                                        <partial name="/Themes/TheGioiDiDong/Areas/Catalog/Views/Shared/_ProductThumbnail.cshtml" model="product" />
-                                    </div>
-                                }
+                @*@if (Model.RelatedProducts.Count > 0)
+                    {
+                        <div class="compare">
+                            <div class="tcpr">
+                                <h4>@Localizer["Compare with similar products"]</h4>
+                            </div>
+                            <div class="row product-list">
+                                <div id="owl-promo" class="owl-carousel homepromo ">
+                                    @foreach (var product in Model.RelatedProducts)
+                                    {
+                                        <div class="item">
+                                            <partial name="/Themes/TheGioiDiDong/Areas/Catalog/Views/Shared/_ProductThumbnail.cshtml" model="product" />
+                                        </div>
+                                    }
+                                </div>
                             </div>
                         </div>
-                    </div>
-                }
+                    }*@
 
                 <div class="comdetail">
                     <div class="wrap_comment" title="Bình luận sản phẩm" id="comment" cmtcategoryid="2" siteid="1" detailid="154897" cateid="15" urlpage="" pagesize="5">
