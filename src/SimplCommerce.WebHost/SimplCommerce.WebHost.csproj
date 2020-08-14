@@ -67,6 +67,8 @@
 
   <ItemGroup>
    
+    <None Remove="Themes\ChungChiRung\Areas\News\Views\Shared\Components\NewItemShow\Default.cshtml" />
+   
     <None Remove="Themes\Tourims\Areas\Catalog\Views\Category\CategoryAlbum.cshtml" />
     <None Remove="Themes\Tourims\Areas\Catalog\Views\Category\CategoryDetail.cshtml" />
     <None Remove="Themes\Tourims\Areas\Catalog\Views\Category\CategoryDetailLoadMore.cshtml" />
