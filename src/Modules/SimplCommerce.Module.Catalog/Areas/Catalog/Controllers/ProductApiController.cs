@@ -944,7 +944,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
                 }
                 else
                 {
-                    productLink.NameOption = relatedProductVm.NameOption;
+                    productLink.NameOption = relatedProductVm.NameOption == "null" ? null : relatedProductVm.NameOption;
                 }
             }
 

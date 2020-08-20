@@ -182,10 +182,12 @@
                                 
                                 @foreach (var option in Model.AvailableOptions)
                                 {
-
+                                    var keys = Model.OptionDisplayValues.Keys.ToArray();
+                                    keys = keys.Where(m => option.Values.Contains(m)).ToArray();
                                     <ul class="list-inline product-attr-options d-flex flex-wrap js-select-config">
                                         <span class="name">@option.OptionName: </span>
-                                        @foreach (var value in option.Values)
+
+                                        @foreach (var value in keys)
                                         {
                                             var shouldChecked = Model.Variations.First().Options.Any(x => x.Value == value);
                                             <li class="list-inline-item attr-value selected-attr-value">
