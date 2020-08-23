@@ -341,7 +341,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
                     Values = JsonConvert.DeserializeObject<IList<ProductOptionValueVm>>(x.Value)
                 }).ToList();
 
-            foreach (var variation in product.ProductLinks.Where(x => x.LinkType == ProductLinkType.Super).Select(x => x.LinkedProduct).Where(x => !x.IsDeleted).OrderBy(x => x.Id))
+            foreach (var variation in product.ProductLinks.Where(x => x.LinkType == ProductLinkType.Super).Select(x => x.LinkedProduct).Where(x => !x.IsDeleted).OrderBy(x => x.CreatedOn))
             {
                 productVm.Variations.Add(new ProductVariationVm
                 {
@@ -362,7 +362,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
                 });
             }
 
-            foreach (var relatedProduct in product.ProductLinks.Where(x => x.LinkType == ProductLinkType.Related).Select(x => new { x.LinkedProduct , x.NameOption}).Where(x => !x.LinkedProduct.IsDeleted).OrderBy(x => x.LinkedProduct.Id))
+            foreach (var relatedProduct in product.ProductLinks.Where(x => x.LinkType == ProductLinkType.Related).Select(x => new { x.LinkedProduct , x.NameOption}).Where(x => !x.LinkedProduct.IsDeleted).OrderBy(x => x.LinkedProduct.CreatedOn))
             {
                 productVm.RelatedProducts.Add(new ProductLinkVm
                 {
