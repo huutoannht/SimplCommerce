@@ -151,6 +151,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
                 .Include(x => x.OptionCombinations).ThenInclude(o => o.Option)
                 .Where(x => x.LinkedProductLinks.Any(link => link.ProductId == product.Id && link.LinkType == ProductLinkType.Super))
                 .Where(x => x.IsPublished)
+                .OrderBy(x=>x.Price)
                 .ToList();
 
             foreach (var variation in variations)

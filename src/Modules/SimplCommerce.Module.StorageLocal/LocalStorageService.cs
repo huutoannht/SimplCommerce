@@ -19,7 +19,7 @@ namespace SimplCommerce.Module.StorageLocal
 
         public async Task SaveMediaAsync(Stream mediaBinaryStream, string fileName, string mimeType = null, string typeCrop = null)
         {
-            var filePath = Path.Combine(GlobalConfiguration.WebRootPath, MediaRootFoler, fileName).Replace("png", "jpg", System.StringComparison.OrdinalIgnoreCase);
+            var filePath = Path.Combine(GlobalConfiguration.WebRootPath, MediaRootFoler, fileName).Replace(".png", ".jpg", System.StringComparison.OrdinalIgnoreCase);
 
             using (var image = Image.Load(mediaBinaryStream))
             {
