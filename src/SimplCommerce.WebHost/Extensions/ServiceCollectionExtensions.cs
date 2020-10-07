@@ -205,6 +205,9 @@ namespace SimplCommerce.WebHost.Extensions
             services.AddDbContextPool<SimplDbContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"),
                     b => b.MigrationsAssembly("SimplCommerce.WebHost")));
+            services.AddDbContextPool<Models.chungchirungContext>(options =>
+               options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"),
+                   b => b.MigrationsAssembly("SimplCommerce.WebHost")));
             return services;
         }
 

@@ -39,7 +39,7 @@ namespace SimplCommerce.WebHost
         }
 
         public void ConfigureServices(IServiceCollection services)
-        {
+        { 
             Infrastructure.GlobalConfiguration.WebRootPath = _hostingEnvironment.WebRootPath;
             Infrastructure.GlobalConfiguration.ContentRootPath = _hostingEnvironment.ContentRootPath;
             services.AddModules(_hostingEnvironment.ContentRootPath);
@@ -85,12 +85,11 @@ namespace SimplCommerce.WebHost
             {
                 c.SwaggerDoc("v1", new Info { Title = "SimplCommerce API", Version = "v1" });
             });
-            services.AddHangfire(x => x.UseSqlServerStorage(_configuration.GetConnectionString("DefaultConnection")));
-            services.AddHangfireServer();
+            //services.AddHangfire(x => x.UseSqlServerStorage(_configuration.GetConnectionString("DefaultConnection")));
+            //services.AddHangfireServer();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env,
-            IBackgroundJobClient backgroundJobs)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -111,8 +110,8 @@ namespace SimplCommerce.WebHost
                     ServeUnknownFileTypes = true // serve extensionless file
                 });
             }
-            app.UseHangfireDashboard();
-            RecurringJob.AddOrUpdate( () => HealCheckJob.HealBeatAsync(),Cron.Minutely);
+            //app.UseHangfireDashboard();
+            //RecurringJob.AddOrUpdate( () => HealCheckJob.HealBeatAsync(),Cron.Minutely);
             app.UseWhen(
                 context => !context.Request.Path.StartsWithSegments("/api"),
                 a => a.UseStatusCodePagesWithReExecute("/Home/ErrorWithCode/{0}")

@@ -1,0 +1,207 @@
+﻿@model IEnumerable<SimplCommerce.WebHost.Models.PefcCertificateMapping>
+
+@{
+    ViewData["Title"] = "Find Certification";
+    Layout = "~/Themes/ChungChiRung/Views/Shared/_Layout.cshtml";
+}
+<section class="bg-white" id="content">
+
+    <div class="container-fluid">
+        <div class="container-limited pb-150" id="find-certified-results">
+
+            <div class="row pt-30 justify-content-center">
+                <div class="col-12 col-md-12">
+
+                    <nav aria-label="breadcrumb" id="breadcrumbs" class="d-none d-md-block">
+                        <ol class="breadcrumb m-0">
+                            <li class="breadcrumb-item">
+                                <a href="/">Home</a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                <a id="breadcrumbs-10000152" href="/Certificates/Find">Find Certified</a>
+                            </li>
+                        </ol>
+                    </nav>
+
+                </div>
+            </div>
+
+            <div class="row pt-30">
+                <div id="find-certified-app" class="col-xxl col-md-12 pr-md-36">
+                    <form autocomplete="off" method="get">
+                        <div class="row justify-content-center">
+                            <div class="col-12 col-md-12">
+                                <div class="row"><div class="col-12 title"><h2 class="underline text-green mb-36 text-center"><span>Find Certified</span></h2> <div class=" w-75"><p></p><p>PEFC maintains comprehensive databases to ensure easy access to relevant information about certificate holders, logo and label users, certified products, accredited certification bodies, and PEFC-endorsed national certification systems.</p> <p></p></div></div></div> <div class="row mb-30">
+                                    <div class="col-12 mb-20"><h4>Company</h4></div> <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <span data-toggle="tooltip" title=""
+                                                  data-original-title="<h5>Name of the organization</h5><p>The name of the organisation or the individual to which a certificate was issued.</p>"><i class="far fa-question-circle"></i></span>
+                                            <label for="company_name">Name of the organization</label>
+                                            <input type="text" autocapitalize="none" id="company_name" name="companyName" placeholder="Name of the organization" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                    </div>
+                                </div> <div class="row mb-30">
+                                    <div class="col-12 mb-20"><h4>Certificate</h4></div> <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <span data-toggle="tooltip" title=""
+                                                  data-original-title="<h5>Certificate number</h5><p>Unique code on the certificate issued to an organisation or an individual. This number can be freely defined by the certification body and is usually not identical with the PEFC logo license number.</p>">
+                                                <i class="far fa-question-circle"></i>
+                                            </span> <label for="certificate_number">Certificate number</label>
+                                            <input type="text" autocapitalize="none" id="certificate_number" name="certificateNumber" placeholder="Certificate number" class="form-control form-control-sm">
+                                        </div>
+                                    </div> <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <span data-toggle="tooltip" title="" data-original-title="<h5>Logo license number</h5><p>This is the license number issued to certified and uncertified PEFC logo license holders by PEFC. It generally starts with “PEFC/” and is followed by a combination of figures.</p>">
+                                                <i class="far fa-question-circle"></i>
+                                            </span> <label for="logo_license_number">
+                                                Logo license number
+                                            </label>
+                                            <input type="text" autocapitalize="none" id="logo_license_number" name="logoLicenseNumber" placeholder="Logo license number" class="form-control form-control-sm">
+                                        </div>
+                                    </div> <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <span data-toggle="tooltip" title="" data-original-title="<h5>Type of certification</h5><p>Different types of PEFC certification are Forest Management (FM) certification and Chain of Custody certification (CoC).</p>"><i class="far fa-question-circle"></i></span>
+                                            <label for="type_of_certification">Type of certification</label>
+                                            <div dir="auto" class="dropdown v-select single searchable">
+                                                <div class="dropdown-toggle">
+                                                    <div class="vs__selected-options">
+                                                        <span class="selected-tag">
+                                                            Chain of Custody
+                                                            <!---->
+                                                        </span>   <select name="TypeCertification" class="form-control" asp-items="ViewBag.TypeCertification">
+                                                            <option value="">-------</option>
+                                                        </select>
+                                                    </div>
+                                                </div> <!---->
+                                            </div>
+                                        </div>
+                                    </div> <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <span data-toggle="tooltip" title="" data-original-title="<h5>Certificate status</h5><p>The status of an issued certificate can be one of the following: valid, suspended, expired, withdrawn or not PEFC recognized</p>"><i class="far fa-question-circle"></i></span> <label for="certificate_status">Certificate status</label> <div dir="auto" class="dropdown v-select single searchable">
+                                                <div class="dropdown-toggle">
+                                                    <div class="vs__selected-options">
+                                                        <span class="selected-tag">
+                                                            Suspended
+                                                            <!---->
+                                                        </span>
+                                                        <select name="Status" class="form-control" asp-items="ViewBag.Status">
+                                                            <option value="">-------</option>
+                                                        </select>
+                                                    </div>
+                                                </div> <!---->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <div class="row mb-30">
+                                    <div class="col-12 mb-20"><h4>Products</h4></div> <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <span data-toggle="tooltip" title="" data-original-title="<h5>Industry sector</h5><p>Main industry sector in which a company is operating</p>"><i class="far fa-question-circle"></i></span>
+                                            <label for="industry_sector">Industry sector</label>
+                                            <div dir="auto" class="dropdown v-select single searchable">
+                                                <div class="dropdown-toggle">
+                                                    <div class="vs__selected-options">
+                                                        <select name="IndustrySector" class="form-control" asp-items="ViewBag.IndustrySector">
+                                                            <option value="">-------</option>
+                                                        </select>
+                                                    </div>
+                                                </div> <!---->
+                                            </div>
+                                        </div>
+                                    </div> <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <span data-toggle="tooltip" title=""
+                                                  data-original-title="<h5>Product type</h5><p>PEFC specific categories and sub-categories of groups of products.</p>">
+                                                <i class="far fa-question-circle"></i>
+                                            </span>
+                                            <label for="product_categories">Product type</label>
+                                            <div dir="auto" class="dropdown v-select single searchable">
+                                                <div class="dropdown-toggle">
+                                                    <div class="vs__selected-options">
+                                                        <select name="TypeProduct" class="form-control" asp-items="ViewBag.TypeProduct">
+                                                            <option value="">-------</option>
+                                                        </select>
+                                                    </div>
+                                                </div> <!---->
+                                            </div>
+                                        </div>
+                                    </div> <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <span data-toggle="tooltip" title=""
+                                                  data-original-title="<h5>Name of product</h5><p>This can be the general name of products, like “books”, or a specific technical description or brand name, for example.</p>">
+                                                <i class="far fa-question-circle"></i>
+                                            </span> <label for="product_name">Name of product</label>
+                                            <input type="text" name="productName" autocapitalize="none" id="product_name"
+                                                   placeholder="Name of product" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                </div> <div class="row">
+                                    <div class="col-12 col-sm-4">
+                                        <button type="submit" class="btn btn-sm btn-green mr-5 text-white w-100 btn-primary"><strong>Search<i class="fal fa-search ml-12 small"></i></strong></button> <p class="small text-center d-sm-none mt-20">
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form> <div id="results" class="row justify-content-center mt-md-60">
+                        <div class="d-none d-md-block col-12 col-md-9 d-print-none"><!----></div>
+                        <div class="col-12 col-md-9 mt-30 d-print-none">
+                            <h2 class="underline text-black mb-36 text-center">
+                                <!----> <span>@Model.Count() Results</span>
+                            </h2>
+                        </div>
+                        <div class="col-12 col-md-9 col-print">
+                            <div class="row content-item full-width mb-50">
+                                @foreach (var item in Model)
+                                {
+                                    <div class="col-12 pr-0 ">
+                                        <h2 class="mb-6"><a href="/find-certified/company/281374" class="text-gray">@item.Company.Name</a></h2>
+                                        <p class="mb-6 small"><span class="category text-uppercase">@item.Product.Type</span></p>
+                                        <div class="row mb-6 mb-md-0">
+                                            <div class="col-12 col-md-5"><strong>Certificate</strong></div>
+                                            <div class="col-12 col-md-5">@item.Certificate.Name</div>
+                                        </div>
+                                        <div class="row mb-6 mb-md-0">
+                                            <div class="col-12 col-md-5"><strong>Country</strong></div>
+                                            <div class="col-12 col-md-5">VN (Viet Nam)</div>
+                                        </div>
+                                        <!---->
+                                        <div class="row mb-6 mb-md-0">
+                                            <div class="col-12 col-md-5"><strong>Certificate number</strong></div>
+                                            <div class="col-12 col-md-5">@item.Certificate.Number</div>
+                                        </div>
+                                        <div class="row mb-6 mb-md-0">
+                                            <div class="col-12 col-md-5"><strong>Certification body</strong></div>
+                                            <div class="col-12 col-md-5">@item.Certificate.NameBody</div>
+                                        </div>
+                                        <div class="row mb-6 mb-md-0">
+                                            <div class="col-12 col-md-5"><strong>PEFC logo licence No.</strong></div>
+                                            <div class="col-12 col-md-5">@item.Certificate.LicenseNumber</div>
+                                        </div>
+                                        <div class="row mb-6 mb-md-0">
+                                            <div class="col-12 col-md-5"><strong>Certificate status</strong></div>
+                                            <div class="col-12 col-md-5">@item.Certificate.Status</div>
+                                        </div>
+                                        <p class="lead mt-8 mb-0"><a href="#" class="read-more">More details »</a></p>
+                                    </div>
+                                }
+
+                            </div>
+                            @*<ul data-v-82963a40="" class="d-none d-md-flex d-print-none pagination">
+                                <li data-v-82963a40="" class="page-item disabled"><a data-v-82963a40="" tabindex="-1" class="page-link">Previous</a></li>
+                                <li data-v-82963a40="" class="page-item active"><a data-v-82963a40="" tabindex="0" class="page-link">1</a></li>
+                                <li data-v-82963a40="" class="page-item"><a data-v-82963a40="" tabindex="0" class="page-link">2</a></li>
+                                <li data-v-82963a40="" class="page-item"><a data-v-82963a40="" tabindex="0" class="page-link">3</a></li>
+                                <li data-v-82963a40="" class="page-item"><a data-v-82963a40="" tabindex="0" class="page-link">Next</a></li>
+                            </ul>*@
+                            <div class="d-block d-md-none d-print-none">
+                                <!---->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

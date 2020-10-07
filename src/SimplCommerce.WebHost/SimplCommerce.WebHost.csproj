@@ -105,6 +105,7 @@
     <None Remove="Themes\Tourims\Views\Shared\_Layout.cshtml" />
     <None Remove="Themes\Tourims\Views\Shared\_LoginPartial.cshtml" />
     <None Remove="Themes\Tourims\Views\_ViewImports.cshtml" />
+    <None Remove="Views\Shared\_LayoutAdmin.cshtml" />
     <None Remove="wwwroot\googlefbc689ad90567857.html" />
   </ItemGroup>
 
@@ -149,6 +150,7 @@
     <PackageReference Include="DotNetCore.NPOI" Version="1.2.1" />
     <PackageReference Include="EPPlus" Version="4.5.2.1" />
     <PackageReference Include="Hangfire" Version="1.7.2" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.10" />
     <PackageReference Include="Serilog.Extensions.Logging" Version="2.0.2" />
     <PackageReference Include="Serilog.Settings.Configuration" Version="2.6.1" />
     <PackageReference Include="Serilog.Sinks.RollingFile" Version="3.3.1-dev-00767" />
