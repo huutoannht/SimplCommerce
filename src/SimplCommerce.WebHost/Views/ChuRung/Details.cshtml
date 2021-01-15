@@ -1,0 +1,57 @@
+﻿@model IEnumerable<SimplCommerce.WebHost.Models.ChuRung>
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Themes/ChungChiRung/Views/Shared/_Layout.cshtml";
+}
+    <div class="col-xs-12">
+        <div class="row">
+            <div class="col-md-3 right-widget-area">
+                <div class="row content-block-widget well">
+                    <div class="col-xs-12">
+                        <div class="alert alert-info right">
+                            <div class="list-group">
+                                @foreach (var item in ViewBag.LoaiRung)
+                                {
+                                    <a class="list-group-item depth-0" href="/chungchi?loairung=@item.value">@item.label</a>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row content-block-widget well">
+                    <div class="col-xs-12">
+                        <div class="alert alert-info right">
+                            <div class="list-group">
+                                @foreach (var item in ViewBag.LoaiChungChi)
+                                {
+                                    <a class="list-group-item depth-0" href="/chungchi?chungchi=@item.value">@item.label</a>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <h1 class="title">Danh sách chứng chỉ</h1>
+                <div class="row content-block-widget">
+                    <div class="col-xs-12">
+                    </div>
+                </div>
+                @foreach (var item in Model)
+                {
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <p><h4><strong><a href="#" title="@item.TenChuRung">@item.TenChuRung</a>&nbsp;</strong></h4></p>
+                            <p>Địa chỉ: @item.DiaChi</p>
+                            <p>Loại rừng:@item.LoaiRung&nbsp;</p>
+                            <p>Loại chứng chỉ:@item.LoaiChungChi&nbsp;</p>
+                            <p>Mã chủ rừng:@item.MaSo&nbsp;</p>
+                            <p>Thời gian cấp:@item.ThoiGianCap&nbsp;</p>
+                        </div>
+                    </div>
+                    <hr />
+                }
+            </div>
+        </div>
+    </div>

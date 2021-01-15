@@ -18,7 +18,12 @@
 .nav-tabs {
     margin-bottom: 15px;
 }
-
+    .nav-tabs li.active {
+        background: #9adb75;
+    }
+        .nav-tabs li.active a {
+            color: #ffff;
+        }
 th.sortable {
     cursor: pointer;
 }

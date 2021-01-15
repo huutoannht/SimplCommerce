@@ -31,6 +31,7 @@ namespace SimplCommerce.WebHost.Controllers
             }
             return View(model);
         }
+        [HttpGet("tim-chung-chi")]
         public async Task<IActionResult> Find(string certificateNumber,string companyName, string logoLicenseNumber,
             string typeCertification,string status,string productName, string typeProduct, string industrySector)
         {

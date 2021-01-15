@@ -15,15 +15,16 @@
         <div class="panel panel-primary update">
             <div class="panel-heading">
                 <a class="label-link" href="chain-of-custody-logo-use/pefc-logo-use.html">
-                    <h4>PEFC Label Generator</h4>
+                    <h4>@Localizer["PEFC Video"] </h4>
                 </a>
             </div>
             <div class="panel-body label-generator">
-                @await Component.InvokeAsync("NewItemShow",new {id = 401 })
+                @await Component.InvokeAsync("PageShow", new { pageId = 17 })
             </div>
         </div>
     </div>
-    @await Component.InvokeAsync("NewItem")
+    @await Component.InvokeAsync("ProductWidgetByCategory", new List<long>() { 10092 })
+    @*@await Component.InvokeAsync("NewItem")*@
     <div class="col-sm-4 twitter">
         <div class="panel panel-primary update">
 
@@ -32,40 +33,40 @@
     </div>
 </div>
 <div class="row two-column-block-widget">
-    <div class="col-sm-6">
+    @*<div class="col-sm-6">
         <div class="widget-block">
             <div class="row">
                 <div class="col-xs-12">
                     <div class="hidden-xs">
                         <div class="content" id="ctagreen">
-                            <h3><a href="~/certificates/find">Get Certified</a></h3>
-                            <p><a href="~/certificates/find">Find out about the certification process</a></p>
+                            <h3><a href="~/tim-chung-chi">Get Certified</a></h3>
+                            <p><a href="~/tim-chung-chi">Find out about the certification process</a></p>
                         </div>
                     </div>
                     <div class="visible-xs">
                         <div class="content-small" id="ctagreen">
-                            <h3><a href="~/certificates/find">Get Certified</a></h3>
-                            <p><a href="~/certificates/find">Find out about the certification process</a></p>
+                            <h3><a href="~/tim-chung-chi">Get Certified</a></h3>
+                            <p><a href="~/tim-chung-chi">Find out about the certification process</a></p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-sm-6">
+    </div>*@
+    <div class="col-sm-12">
         <div class="widget-block">
             <div class="row">
                 <div class="col-xs-12">
                     <div class="hidden-xs">
                         <div class="content" id="ctabrown">
-                            <h3><a href="~/certificates/find">Find Certified</a></h3>
-                            <p><a href="~/certificates/find">Search our database to find relevant organisations</a></p>
+                            <h3><a href="~/tim-chung-chi">Find Certified</a></h3>
+                            <p><a href="~/tim-chung-chi">Search our database to find relevant organisations</a></p>
                         </div>
                     </div>
                     <div class="visible-xs">
                         <div class="content-small" id="ctabrown">
-                            <h3><a href="~/certificates/find">Find Certified</a></h3>
-                            <p><a href="~/certificates/find">Search our database to find relevant organisations</a></p>
+                            <h3><a href="~/tim-chung-chi">Find Certified</a></h3>
+                            <p><a href="~/tim-chung-chi">Search our database to find relevant organisations</a></p>
                         </div>
                     </div>
                 </div>
@@ -104,15 +105,15 @@
             <p class="chain-more-info-paragraph"><a class="chain-more-info" href="chain-of-custody-logo-use/benefits.html" title="Benefits">Find out more</a></p>
         </div>
         <div class="col-sm-8">
-            <div class="chain-images">    <img alt="1 trees 250x250" class="img-responsive active" data-position="1" src="~/themes/ChungChiRung/assets/1-trees-250x250.png" />    <img alt="2 logs 250x250" class="img-responsive" data-position="2" src="~/themes/ChungChiRung/assets/2-logs-250x250.png" />    <img alt="3 saw 250x250" class="img-responsive" data-position="3" src="~/themes/ChungChiRung/assets/3-saw-250x250.png" />    <img alt="4 planks 250x250" class="img-responsive" data-position="4" src="~/themes/ChungChiRung/assets/4-planks-250x250.png" />    <img alt="5 hammer 250x250" class="img-responsive" data-position="5" src="~/themes/ChungChiRung/assets/5-hammer-250x250.png" />    <img alt="6 logo 250x250" class="img-responsive" data-position="6" src="~/themes/ChungChiRung/assets/6-logo-250x250.png" />  </div>
-            <div class="chain-bar"></div>
-            <div class="chain-text">
-                <p class="chain-1">Woodlands certified to PEFC’s sustainable forest management requirements can sell materials as certified.</p>
-                <p class="chain-2">Timber stored in saw mill yards may be segregated to ensure certified material is not mixed with uncertified material.</p>
-                <p class="chain-3">Timber enters the saw mill under a third party audited chain of custody certification, so the credentials of the sustainable material can be passed on to the next customer.</p>
-                <p class="chain-4">Certified materials supplied to a manufacturing plant via a “chain of custody” are monitored through the process to enable them to be sold as certified.</p>
-                <p class="chain-5">The final product may be sold to a retailer or a customer as certified, giving confidence that the product comes from a sustainably managed forest.</p>
-                <p class="chain-6">All products that have been through the chain of custody may carry the PEFC label to show the consumer their sustainability credentials.</p>
+            <div class="chain-images1">    <img alt="1 trees 250x250" class="img-responsive active" data-position="11" src="~/themes/ChungChiRung/assets/1-trees-250x250.png" />    <img alt="2 logs 250x250" class="img-responsive" data-position="12" src="~/themes/ChungChiRung/assets/2-logs-250x250.png" />    <img alt="3 saw 250x250" class="img-responsive" data-position="13" src="~/themes/ChungChiRung/assets/3-saw-250x250.png" />    <img alt="4 planks 250x250" class="img-responsive" data-position="14" src="~/themes/ChungChiRung/assets/4-planks-250x250.png" />    <img alt="5 hammer 250x250" class="img-responsive" data-position="15" src="~/themes/ChungChiRung/assets/5-hammer-250x250.png" />    <img alt="6 logo 250x250" class="img-responsive" data-position="16" src="~/themes/ChungChiRung/assets/6-logo-250x250.png" />  </div>
+            <div class="chain-bar1"></div>
+            <div class="chain-text1">
+                <p class="chain-11">Woodlands certified to PEFC’s sustainable forest management requirements can sell materials as certified.</p>
+                <p class="chain-12">Timber stored in saw mill yards may be segregated to ensure certified material is not mixed with uncertified material.</p>
+                <p class="chain-13">Timber enters the saw mill under a third party audited chain of custody certification, so the credentials of the sustainable material can be passed on to the next customer.</p>
+                <p class="chain-14">Certified materials supplied to a manufacturing plant via a “chain of custody” are monitored through the process to enable them to be sold as certified.</p>
+                <p class="chain-15">The final product may be sold to a retailer or a customer as certified, giving confidence that the product comes from a sustainably managed forest.</p>
+                <p class="chain-16">All products that have been through the chain of custody may carry the PEFC label to show the consumer their sustainability credentials.</p>
             </div>
         </div>
     </div>

@@ -89,7 +89,7 @@ namespace SimplCommerce.Module.News.Areas.News.Controllers
             model.Page = currentPageNum;
             return View(model);
         }
-        [HttpGet("tin-tuc")]
+        //[HttpGet("tin-tuc")]
         public IActionResult NewsCategoryDetailClone(int page)
         {
             page = 1;

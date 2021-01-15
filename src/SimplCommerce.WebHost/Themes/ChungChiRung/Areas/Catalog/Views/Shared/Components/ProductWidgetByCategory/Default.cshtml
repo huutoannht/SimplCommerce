@@ -1,0 +1,22 @@
+﻿@model IEnumerable<SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels.ProductThumbnail>
+<div class="col-sm-4">
+    <div class="panel panel-primary update">
+        <div class="panel-heading">
+            <h4>@Localizer["Tin tức và sự kiện"]</h4>
+        </div>
+        <div class="panel-body update-news">
+            <ul class="list-unstyled">
+                @foreach (var newItem in Model)
+                {
+                    <li class="clearfix">
+                        <a href="@newItem.Slug">
+                            <img class="pull-left" src="@newItem.ThumbnailUrl" alt="@newItem.Name" />
+                            <div class="news-text"><span class="news-date"> @newItem.CreatedOn.ToString("dd/MM/yyyy")</span><br /><span class="headline">@newItem.Name</span><br /></div>
+                        </a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+

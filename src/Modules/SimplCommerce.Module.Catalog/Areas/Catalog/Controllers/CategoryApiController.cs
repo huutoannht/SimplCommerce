@@ -126,7 +126,16 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
                 }
 
                 await SaveCategoryImage(category, model);
-                await _categoryService.Update(category);
+                try
+                {
+                    await _categoryService.Update(category);
+                }
+                catch (Exception ex)
+                {
+
+                    throw;
+                }
+               
 
                 return Accepted();
             }

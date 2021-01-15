@@ -22,17 +22,12 @@
                 {
                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                         <div class="list-product">
-                            <div class="price">
-                                <p><i class="fa fa-money"></i> @product.Price.ToString("C0")</p>
-                                <p><i class="fa fa-arrow-circle-o-down"></i> 0</p>
-                            </div>
                             <a class="transition-light" href="@product.Slug" title="@product.Name">
-                                <img src="@product.ThumbnailUrl" alt="CB150R" class="width-100" />
+                                <img src="@product.ThumbnailUrl" alt="@product.Name" class="width-100" />
                             </a>
                             <div class="tool-product">
                                 <a href="@product.Slug" title="@product.Name"><span class="fa fa-list"></span></a>
-                                <a href="http://www.facebook.com/sharer.php?u=@ViewBag.Host" title="share product buttom"><span class="fa fa-share-alt"></span></a>
-                                <a href="cart.html" title="CB150R"><span class="fa fa-shopping-cart"></span></a>
+                                <a href="http://www.facebook.com/sharer.php?u="@ViewBag.Host title="share product buttom"><span class="fa fa-share-alt"></span></a>
                             </div>
                             <h4><a href="@product.Slug" title="@product.Name">@product.Name</a></h4>
                         </div>

@@ -266,6 +266,7 @@
     <script simpl-append-version="true" src="~/modules/shipments/admin/shipment/shipment-list.js"></script>
     <script simpl-append-version="true" src="~/modules/shipments/admin/shipment/shipment-details.js"></script>
     <script simpl-append-version="true" src="~/modules/shipments/admin/shipment/shipment-list-by-order.directive.js"></script>
+    @RenderSection("Scripts", required: false)
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
@@ -340,67 +341,7 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
-    with font-awesome or any other icon font library -->
-
-                        <li class="nav-item has-treeview">
-                            <a href="javascript:void(0)" class="nav-link">
-                                <i class="nav-icon fas fa-copy"></i>
-                                <p>
-                                    Menu
-                                    <i class="fas fa-angle-left right"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                @*<li class="nav-item">
-                                    <a ui-sref="product" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i> <p>Sản phẩm</p>
-                                    </a>
-                                </li>*@
-                                <li class="nav-item">
-                                    <a href="/admin#!/category" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i> <p>Danh mục</p>
-                                    </a>
-                                </li>
-                                @*<li class="nav-item">
-                                    <a ui-sref="brand" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i> <p>
-                                            @Localizer["Brands"]
-                                        </p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a ui-sref="product-option" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>@Localizer["Product Options"]</p>
-                                    </a>
-                                </li>*@
-                                @*<li class="nav-item"><a ui-sref="product-attribute-group" class="nav-link"><i class="far fa-circle nav-icon"></i> <p>@Localizer["Product Attribute Groups"]</p></a></li>
-                                <li class="nav-item"><a ui-sref="product-attribute" class="nav-link"><i class="far fa-circle nav-icon"></i> <p>@Localizer["Product Attributes"]</p></a></li>
-                                <li class="nav-item"><a ui-sref="product-template" class="nav-link"><i class="far fa-circle nav-icon"></i> <p>@Localizer["Product Templates"]</p></a></li>*@
-                            </ul>
-                        </li>
-                        @*<li class="nav-item has-treeview">
-                            <a href="javascript:void(0)" class="nav-link">
-                                <i class="nav-icon fas fa-copy"></i>
-                                <p>
-                                    Hiển thị bài viết
-                                    <i class="fas fa-angle-left right"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a ui-sref="page" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i> <p>Phần hai bên trang web</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a ui-sref="widget" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i> <p>Phần giữa trang web</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>*@
-
+                with font-awesome or any other icon font library -->
 
                         <li class="nav-item has-treeview">
                             <a href="javascript:void(0)" class="nav-link">
@@ -412,15 +353,75 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="/admin#!/news-categories" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i> <p>Chuyên mục</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="/admin#!/news-items" class="nav-link">
+                                    <a ui-sref="product" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i> <p>Bài viết</p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="/admin#!/category" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i> <p>Danh mục</p>
+                                    </a>
+                                </li>
+                                @*<li class="nav-item">
+                                <a ui-sref="brand" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i> <p>
+                                        @Localizer["Brands"]
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a ui-sref="product-option" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>@Localizer["Product Options"]</p>
+                                </a>
+                            </li>*@
+                                @*<li class="nav-item"><a ui-sref="product-attribute-group" class="nav-link"><i class="far fa-circle nav-icon"></i> <p>@Localizer["Product Attribute Groups"]</p></a></li>
+                            <li class="nav-item"><a ui-sref="product-attribute" class="nav-link"><i class="far fa-circle nav-icon"></i> <p>@Localizer["Product Attributes"]</p></a></li>
+                            <li class="nav-item"><a ui-sref="product-template" class="nav-link"><i class="far fa-circle nav-icon"></i> <p>@Localizer["Product Templates"]</p></a></li>*@
+                            </ul>
+                        </li>
+                        @*<li class="nav-item has-treeview">
+                        <a href="javascript:void(0)" class="nav-link">
+                            <i class="nav-icon fas fa-copy"></i>
+                            <p>
+                                Hiển thị bài viết
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a ui-sref="page" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i> <p>Phần hai bên trang web</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a ui-sref="widget" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i> <p>Phần giữa trang web</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>*@
+
+
+                        <li class="nav-item has-treeview">
+                            <a href="javascript:void(0)" class="nav-link">
+                                <i class="nav-icon fas fa-copy"></i>
+                                <p>
+                                    Hiển thị
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                @*<li class="nav-item">
+                                <a href="/admin#!/news-categories" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i> <p>Chuyên mục</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/admin#!/news-items" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i> <p>Bài viết</p>
+                                </a>
+                            </li>*@
                                 <li class="nav-item">
                                     <a href="/admin#!/widget" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i> <p>Slide ảnh</p>
@@ -462,6 +463,50 @@
                                         <i class="far fa-circle nav-icon"></i> <p>Certificates Mapping</p>
                                     </a>
                                 </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="javascript:void(0)" class="nav-link">
+                                <i class="nav-icon fas fa-copy"></i>
+                                <p>
+                                    Sản xuất lâm nghiệp
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="~/ChuRung" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i> <p>Danh sách</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="~/ChuRung/Create" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i> <p>Thêm mới</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="javascript:void(0)" class="nav-link">
+                                <i class="nav-icon fas fa-copy"></i>
+                                <p>
+                                    Ngôn ngữ
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="~/ngon-ngu" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i> <p>Danh sách</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="~/LocalizationResource/Create" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i> <p>Thêm mới</p>
+                                    </a>
+                                </li>
+
                             </ul>
                         </li>
                         <li class="nav-item has-treeview">

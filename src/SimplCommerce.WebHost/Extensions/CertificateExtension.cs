@@ -721,6 +721,30 @@ namespace SimplCommerce.WebHost.Extensions
          ""value"":""Forest Management Certification"",
          ""label"":""Forest Management Certification""
       }
+   ],
+ ""loaichungchi"":[
+{
+         ""value"":""1"",
+         ""label"":""VFCS/PEFC""
+      },
+{
+         ""value"":""2"",
+         ""label"":""FSC""
+      }
+   ],
+ ""loairung"":[
+{
+         ""value"":""94"",
+         ""label"":""Rừng đặc dụng""
+      },
+{
+         ""value"":""95"",
+         ""label"":""Rừng phòng hộ""
+      },
+{
+         ""value"":""96"",
+         ""label"":""Rừng sản xuất""
+      }
    ]
 }            
 ";
@@ -761,6 +785,8 @@ namespace SimplCommerce.WebHost.Extensions
         public selectData[] industry_sector { get; set; }
 
         public selectData[] cb_type_of_certification { get; set; }
+        public selectData[] loaichungchi { get; set; }
+        public selectData[] loairung { get; set; }
     }
     public class selectData {
         public string value { get; set; }

@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using SimplCommerce.WebHost.Models;
 
 namespace SimplCommerce.WebHost.Models
 {
@@ -1780,5 +1781,7 @@ namespace SimplCommerce.WebHost.Models
                     .HasForeignKey(d => d.WishListId);
             });
         }
+
+        public DbSet<SimplCommerce.WebHost.Models.ChuRung> ChuRung { get; set; }
     }
 }

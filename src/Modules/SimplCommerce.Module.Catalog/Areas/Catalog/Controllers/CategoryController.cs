@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -125,7 +126,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
             foreach (var product in products)
             {
                 product.ThumbnailUrl = _mediaService.GetThumbnailUrl(product.ThumbnailImage);
-
+                product.ShortDescription = StripHTML(product.ShortDescription);
                 if (product.PromotionImage!=null)
                 {
                     product.PromotionImageUrl = _mediaService.GetPromotionUrl(product.PromotionImage);
@@ -140,6 +141,14 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
             model.CurrentSearchOption.Page = currentPageNum;
 
             return View(model);
+        }
+        public string StripHTML(string input)
+        {
+            if (string.IsNullOrEmpty(input))
+            {
+                return string.Empty;
+            }
+            return Regex.Replace(input, "<.*?>", String.Empty);
         }
         public IActionResult CategoryHome(long id, SearchOption searchOption)
         {

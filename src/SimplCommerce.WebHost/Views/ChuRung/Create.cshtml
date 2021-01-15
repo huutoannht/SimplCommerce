@@ -1,0 +1,75 @@
+﻿@model SimplCommerce.WebHost.Models.ChuRung
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Tạo mới</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TenChuRung" class="control-label"></label>
+                <input asp-for="TenChuRung" class="form-control" />
+                <span asp-validation-for="TenChuRung" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MaSo" class="control-label"></label>
+                <input asp-for="MaSo" class="form-control" />
+                <span asp-validation-for="MaSo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ToChuc" class="control-label"></label>
+                <input asp-for="ToChuc" class="form-control" />
+                <span asp-validation-for="ToChuc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DiaChi" class="control-label"></label>
+                <input asp-for="DiaChi" class="form-control" />
+                <span asp-validation-for="DiaChi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ThoiGianCap" class="control-label"></label>
+                <input asp-for="ThoiGianCap" class="form-control" />
+                <span asp-validation-for="ThoiGianCap" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DienTichPhongHo" class="control-label"></label>
+                <input asp-for="DienTichPhongHo" class="form-control" />
+                <span asp-validation-for="DienTichPhongHo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DienTichDacDung" class="control-label"></label>
+                <input asp-for="DienTichDacDung" class="form-control" />
+                <span asp-validation-for="DienTichDacDung" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DienTichSanXuat" class="control-label"></label>
+                <input asp-for="DienTichSanXuat" class="form-control" />
+                <span asp-validation-for="DienTichSanXuat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LoaiChungChi" class="control-label"></label>
+                <select asp-for="LoaiChungChi" class="form-control" asp-items="ViewBag.LoaiChungChi">
+                    <option value="">-------</option>
+                </select>
+                <span asp-validation-for="LoaiChungChi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LoaiRung" class="control-label"></label>
+                <select asp-for="LoaiRung" class="form-control" asp-items="ViewBag.LoaiRung">
+                    <option value="">-------</option>
+                </select>
+                <span asp-validation-for="LoaiRung" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" /> &nbsp; &nbsp;
+                <a class="btn btn-default right" asp-action="Index"><i class="fas fa-backward"></i> &nbsp;Quay lại</a>
+            </div>
+        </form>
+    </div>
+</div>

@@ -5,9 +5,9 @@
                 <h2 ng-if="!vm.isEditMode">{{::vm.translate.get('Create Product')}}</h2>
                 <h2 ng-if="vm.isEditMode">{{::vm.translate.get('Edit Product')}} {{vm.product.name}}</h2>
             </div>
-            <div class="col-md-4 text-right">
+            <!--<div class="col-md-4 text-right">
                 <a ng-if="vm.isEditMode" ui-sref="product-clone({id: vm.product.id})" class="btn btn-primary"><span class="glyphicon glyphicon-copy"></span> {{::vm.translate.get('Clone Product')}}</a>
-            </div>
+            </div>-->
         </div>
     </div>
     <div class="panel-body">
@@ -31,12 +31,12 @@
                             <input name="slug" ng-model="vm.product.slug" class="form-control" />
                         </div>
                     </div>
-                    <div class="form-group">
+                    <!--<div class="form-group">
                         <label class="col-sm-2 control-label">{{::vm.translate.get('Brand')}}</label>
                         <div class="col-sm-10">
                             <select class="form-control" ng-model="vm.product.brandId" ng-options="brand.id as brand.name for brand in vm.brands"></select>
                         </div>
-                    </div>
+                    </div>-->
                     <div class="form-group">
                         <label class="col-sm-2 control-label">{{::vm.translate.get('Short Description')}}</label>
                         <div class="col-sm-10">
@@ -49,13 +49,13 @@
                             <summernote on-image-upload="vm.descUpload(files)" editor="vm.descEditor" ng-model="vm.product.description"></summernote>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <!--<div class="form-group">
                         <label class="col-sm-2 control-label">{{::vm.translate.get('Specification')}}</label>
                         <div class="col-sm-10">
                             <summernote on-image-upload="vm.specUpload(files)" editor="vm.specEditor" ng-model="vm.product.specification"></summernote>
                         </div>
-                    </div>
-                    <div class="form-group">
+                    </div>-->
+                    <!--<div class="form-group">
                         <label class="col-sm-2 control-label">{{::vm.translate.get('SKU')}}</label>
                         <div class="col-sm-10">
                             <input name="sku" ng-model="vm.product.sku" class="form-control" />
@@ -84,8 +84,8 @@
                                 <label class="form-control" for="productOldPrice">{{vm.product.oldPrice | number}}</label>
                             </div>
                         </div>
-                    </div>
-                    <div class="form-group">
+                    </div>-->
+                    <!--<div class="form-group">
                         <label class="col-sm-2 control-label">{{::vm.translate.get('Special Price')}}</label>
                         <div class="col-sm-10">
                             <div class="input-number">
@@ -104,8 +104,8 @@
                                 </span>
                             </p>
                         </div>
-                    </div>
-                    <div class="form-group">
+                    </div>-->
+                    <!--<div class="form-group">
                         <label class="col-sm-2 control-label">{{::vm.translate.get('Special Price End')}}</label>
                         <div class="col-sm-10">
                             <p class="input-group simpl-datetime-picker">
@@ -124,13 +124,13 @@
                                 </label>
                             </div>
                         </div>
-                    </div>
-                    <div class="form-group">
+                    </div>-->
+                    <!--<div class="form-group">
                         <label class="col-sm-2 control-label">{{::vm.translate.get('Tax Class')}}</label>
                         <div class="col-sm-10">
                             <select class="form-control" ng-model="vm.product.taxClassId" ng-options="taxClass.id as taxClass.name for taxClass in vm.taxClasses"></select>
                         </div>
-                    </div>
+                    </div>-->
                     <div class="form-group">
                         <label class="col-sm-2 control-label">{{::vm.translate.get('Thumbnail')}}</label>
                         <div class="col-sm-10">
@@ -139,7 +139,7 @@
                             <img ng-show="!vm.thumbnailImage && vm.product.thumbnailImageUrl" ng-src="{{vm.product.thumbnailImageUrl}}" style="width: 100px; height: 100px" />
                         </div>
                     </div>
-                    <div class="form-group">
+                    <!--<div class="form-group">
                         <label class="col-sm-2 control-label">{{::vm.translate.get('Product Images')}}</label>
                         <div class="col-sm-10">
                             <input class="form-control" type="file" ngf-select ng-model="vm.productImages" ngf-multiple="true" name="productImages" ngf-accept="'image/*'">
@@ -153,8 +153,8 @@
                                 <img ngf-src="image" ngf-resize="{width: 100, height: 100, quality: 0.9}">
                             </span>
                         </div>
-                    </div>
-                    <div class="form-group">
+                    </div>-->
+                    <!--<div class="form-group">
                         <label class="col-sm-2 control-label">{{::vm.translate.get('Product Documents')}}</label>
                         <div class="col-sm-10">
                             <input class="form-control" type="file" ngf-select ng-model="vm.productDocuments" ngf-multiple="true" name="productDocuments" ngf-accept="'.pdf,.doc'">
@@ -177,7 +177,7 @@
                                 </label>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                             <div class="checkbox">
@@ -187,7 +187,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <!--<div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                             <div class="checkbox">
                                 <label>
@@ -204,9 +204,9 @@
                                 </label>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                 </uib-tab>
-                <uib-tab index="1" heading="{{::vm.translate.get('Product Variations')}}">
+                <!--<uib-tab index="1" heading="{{::vm.translate.get('Product Variations')}}">
                     <div class="form-group">
                         <label class="col-sm-2 control-label">{{::vm.translate.get('Available Options')}}</label>
                         <div class="col-sm-10">
@@ -382,7 +382,7 @@
                             </table>
                         </div>
                     </div>
-                </uib-tab>
+                </uib-tab>-->
                 <uib-tab index="3" heading="{{::vm.translate.get('Category Mapping')}}">
                     <md-content class="md-padding">
                         <md-input-container class="md-block">
@@ -394,7 +394,7 @@
                         </md-input-container>
                     </md-content>
                 </uib-tab>
-                <uib-tab index="4" heading="{{::vm.translate.get('Related Products')}}">
+                <!--<uib-tab index="4" heading="{{::vm.translate.get('Related Products')}}">
                     <product-selection-directive model-id="productRelationSelector" title="Add related products" is-visible-individually="true" selected-products="vm.product.relatedProducts"></product-selection-directive>
                     <p><button type="button" class="btn btn-default" data-toggle="modal" data-target="#productRelationSelector">{{::vm.translate.get('Manage Related Products')}}</button></p>
                     <table class="table table-striped">
@@ -449,16 +449,8 @@
                             <summernote editor="promotionName" ng-model="vm.product.promotionName"></summernote>
                         </div>
                     </div>
-                    <!--<div class="form-group">
-                        <label class="col-sm-2 control-label">{{::vm.translate.get('Promotion Image')}}</label>
-                        <div class="col-sm-10">
-                                <input class="form-control" type="file" ngf-select ng-model="vm.promotionImage" name="promotionImage" ngf-accept="'image/*'">
-                                <img ngf-src="vm.promotionImage" ngf-resize="{width: 100, height: 100, quality: 0.9}">
-                                <img ng-show="!vm.promotionImage&&vm.product.promotionImageUrl" ng-src="{{vm.product.promotionImageUrl}}" style="width: 100px; height: 100px" />
-                        </div>
-                    </div>-->
 
-                </uib-tab>
+                </uib-tab>-->
             </uib-tabset>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">

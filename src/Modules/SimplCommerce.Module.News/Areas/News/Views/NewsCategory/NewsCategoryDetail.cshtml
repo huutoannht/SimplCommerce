@@ -4,73 +4,43 @@
     ViewData["Title"] = "Tin tức";
 }
 
-@*<div class="news row">
-    <div class="categories row">
-        <div class="btn-group btn-group-justified" role="group" aria-label="...">
-            @foreach (var item in Model.NewsCategory)
-            {
-                <div class="btn-group" role="group">
-                    <a type="button" class="btn btn-default" href="~/@item.Slug"> @item.Name</a>
-                </div>
-            }
-        </div>
-    </div>
-    @if (Model.NewsItem.Any())
-    {
-        <div class="news-category-detail row">
-            @foreach (var item in Model.NewsItem)
-            {
-                <partial name="_NewsThumbnail" model="item" />
-            }
-        </div>
-    }
-</div>*@
-<section>
+<section id="page">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="row">
+                <div class="col-md-3 right-widget-area">
+                    <div class="well">
+                        <div class="list-group">
+                            @foreach (var item in Model.NewsCategory)
+                            {
+                                <a class="list-group-item depth-0" href="~/@item.Slug">@item.Name</a>
+                            }
 
-
-    <ul class="menu">
-        @foreach (var item in Model.NewsCategory)
-        {
-            <li><a href="~/@item.Slug" class="actmenu">@item.Name</a></li>
-        }
-    </ul>
-
-    <div class="container">
-        @foreach (var item in Model.NewsItem)
-        {
-            <div class="new-item">
-                <div class="media">
-                    <a class="pull-left" href="@item.Slug">
-                        <img class="media-object image-new-item" src="@item.ImageUrl">
-                    </a>
-                    <div class="media-body">
-                        <a href="@item.Slug"><h4 class="media-heading">@item.Name</h4></a>
-                        <p>
-                            @Html.Raw(item.ShortContent)
-                        </p>
-                        <ul class="list-inline list-unstyled">
-                            @*<li><span><i class="glyphicon glyphicon-calendar"></i> @Model..ToString("dd/MM/yyyy") </span></li>
-                            <li>|</li>*@
-                            @*<span><i class="glyphicon glyphicon-comment"></i> 2 comments</span>
-                            <li>|</li>*@
-                            @*<li>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star-empty"></span>
-                            </li>
-                            <li>|</li>*@
-                            @*<li>
-                                <span><i class="fa fa-facebook-square"></i></span>
-                                <span><i class="fa fa-twitter-square"></i></span>
-                                <span><i class="fa fa-google-plus-square"></i></span>
-                            </li>*@
-                        </ul>
+                        </div>
                     </div>
                 </div>
+                <div class="col-md-9">
+                    <h1 class="title">@Model.CurrentNewsCategory.Name</h1>  
+                    <ul id="news_articles" class="list-group">
+                        @foreach (var item in Model.NewsItem)
+                        {
+                            <a href="~/@item.Slug" class="list-group-item">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <img class="img-thumbnail" src="@item.ImageUrl" alt="@item.Name">
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <h3><div class="row"><div class="col-sm-9 headline">@item.Name</div><div class="col-sm-3"><small class="pull-right hidden-xs"> 1 July 2020</small><small class="visible-xs">@item.PublishedOn.ToLocalTime()</small></div></div></h3><p>
+                                            @Html.Raw(item.ShortContent)
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        }
+                    </ul>
+                </div>
             </div>
-        }
+        </div>
     </div>
 </section>
 <div class="row">

@@ -14,48 +14,70 @@
 }
 
 
-<div class="container">
 
-    <div class="panel panel-tid">
-        <div class="panel-heading">
-            <span class="title-website">
-                @Model.CategoryName
-            </span>
-        </div>
-        <div class="panel-body">
-            <div class="row resize-height-container" resize=".col-lg-4">
-                @foreach (var product in Model.Products)
-                {
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                        <div class="list-product">
-                            <div class="price">
-                                <p><i class="fa fa-money"></i> @product.Price.ToString("C0")</p>
-                                <p><i class="fa fa-arrow-circle-o-down"></i> 0</p>
-                            </div>
-                            <a class="transition-light" href="@product.Slug" title="@product.Name">
-                                <img src="@product.ThumbnailUrl" alt="CB150R" class="width-100" />
-                            </a>
-                            <div class="tool-product">
-                                <a href="@product.Slug" title="@product.Name"><span class="fa fa-list"></span></a>
-                                <a href="http://www.facebook.com/sharer.php?u=@ViewBag.Host" title="share product buttom"><span class="fa fa-share-alt"></span></a>
-                                <a href="cart.html" title="CB150R"><span class="fa fa-shopping-cart"></span></a>
-                            </div>
-                            <h4><a href="@product.Slug" title="@product.Name">@product.Name</a></h4>
+<section id="page">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="row">
+                @*<div class="col-md-3 right-widget-area">
+                    <div class="well">
+                        <div class="list-group">
+                            <a class="list-group-item depth-0" href="/tin-tuc-2-2">Tin Tức</a>
+                            <a class="list-group-item depth-0" href="/video-2">Video</a>
+
                         </div>
                     </div>
-                }
-
-            </div>
-            <div class="row">
-                <div class="col-md-12 text-right">
-                    <cs-pager cs-paging-pagesize="@Model.CurrentSearchOption.PageSize"
-                              cs-paging-pagenumber="@Model.CurrentSearchOption.Page"
-                              cs-paging-totalitems="@Model.TotalProduct"
-                              cs-pagenumber-param="page"
-                              asp-basehref="~/@Model.CategorySlug"
-                              asp-all-route-data="@Model.CurrentSearchOption.ToDictionary()"></cs-pager>
+                </div>*@
+                <div class="col-md-9">
+                    <h1 class="title">@Model.CategoryName</h1>
+                    <ul id="news_articles" class="list-group">
+                        @foreach (var item in Model.Products)
+                        {
+                            <a href="~/@item.Slug" class="list-group-item">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <img class="img-thumbnail" src="@item.ThumbnailUrl" alt="@item.Name">
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <h3><div class="row"><div class="col-sm-9 headline">@item.Name</div><div class="col-sm-3"><small class="pull-right hidden-xs"> @item.CreatedOn.ToString("dd/MM/yyyy")</small><small class="visible-xs">@item.CreatedOn.ToString("dd/MM/yyyy")</small></div></div></h3><p>
+                                        </p><p style="text-align: justify; "><span style="color: rgb(46, 44, 41); font-family: Arial; font-size: 14px; text-align: left;">@Html.Raw(item.ShortDescription)</span><br></p>
+                                    </div>
+                                </div>
+                            </a>
+                        }
+                        </ul>
                 </div>
+                @*<div class="col-md-9">
+                    <h1 class="title">@Model.CategoryName</h1>
+                    <ul id="news_articles" class="list-group">
+                        @foreach (var item in Model.Products)
+                        {
+                            <a href="~/@item.Slug" class="list-group-item">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <img class="img-thumbnail" src="@item.ThumbnailUrl" alt="@item.Name">
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <h3><div class="row"><div class="col-sm-9 headline">@item.Name</div><div class="col-sm-3"><small class="pull-right hidden-xs"> @item.CreatedOn.ToString("dd/MM/yyyy")</small><small class="visible-xs">@item.CreatedOn.ToString("dd/MM/yyyy")</small></div></div></h3><p>
+                                            @Html.Raw(item.ShortDescription)
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        }
+                    </ul>
+                </div>*@
             </div>
         </div>
+    </div>
+</section>
+<div class="row">
+    <div class="col-md-12 text-right">
+        <cs-pager cs-paging-pagesize="@Model.CurrentSearchOption.PageSize"
+                  cs-paging-pagenumber="@Model.CurrentSearchOption.Page"
+                  cs-paging-totalitems="@Model.TotalProduct"
+                  cs-pagenumber-param="page"
+                  asp-basehref="~/@Model.CategorySlug"
+                  asp-all-route-data="@Model.CurrentSearchOption.ToDictionary()"></cs-pager>
     </div>
 </div>

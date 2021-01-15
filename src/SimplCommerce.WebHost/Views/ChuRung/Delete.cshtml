@@ -1,0 +1,82 @@
+﻿@model SimplCommerce.WebHost.Models.ChuRung
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Bạn muốn xóa dòng này không?</h3>
+<div>
+    <h4>ChuRung</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenChuRung)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TenChuRung)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MaSo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MaSo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ToChuc)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ToChuc)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaChi)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ThoiGianCap)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ThoiGianCap)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DienTichPhongHo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DienTichPhongHo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DienTichDacDung)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DienTichDacDung)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DienTichSanXuat)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DienTichSanXuat)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LoaiChungChi)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LoaiChungChi)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LoaiRung)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LoaiRung)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> &nbsp; &nbsp;
+        <a class="btn btn-default right" asp-action="Index"><i class="fas fa-backward"></i> &nbsp;Quay lại</a>
+    </form>
+</div>

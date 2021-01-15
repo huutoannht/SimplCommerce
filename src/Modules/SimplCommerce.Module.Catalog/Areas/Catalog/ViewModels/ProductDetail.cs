@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using SimplCommerce.Module.Catalog.Models;
 using SimplCommerce.Module.Core.Areas.Core.ViewModels;
@@ -40,6 +41,8 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels
         public bool HasVariation => Variations.Any();
 
         public string Promotion { get; set; }
+
+        public DateTimeOffset CreatedOn { get; set; }
 
         public IList<ProductDetailOption> AvailableOptions
         {

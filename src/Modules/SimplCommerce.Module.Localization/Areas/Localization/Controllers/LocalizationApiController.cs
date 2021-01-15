@@ -31,7 +31,7 @@ namespace SimplCommerce.Module.Localization.Areas.Localization.Controllers
         [HttpGet("get-translation")]
         public IActionResult GetTranslation()
         {
-            var strings = _localizer.GetAllStrings().ToDictionary(x => x.Name, x => x.Value);
+            var strings = _localizer.GetAllStrings().ToDictionary(x => x.Value,x => x.Name);
             return Json(strings);
         }
 
