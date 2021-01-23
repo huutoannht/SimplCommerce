@@ -1,133 +1,126 @@
 ﻿@model SimplCommerce.WebHost.Models.Certification
 
 @{
-    ViewData["Title"] = "Details";
-    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "Details Certification";
+    Layout = "~/Themes/ChungChiRung/Views/Shared/_Layout.cshtml";
 }
+<div class="container-limited pb-150" id="find-certified-results">
 
-<h2>Details</h2>
+    <div class="row pt-30 justify-content-center align-items-center d-print-none">
+        <div class="col-12 col-md-7">
 
-<div>
-    <h4>Certification</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.CompanyName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.CompanyName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.CompanyInformationContactPersonName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.CompanyInformationContactPersonName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.CompanyInformationAddress)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.CompanyInformationAddress)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.CompanyInformationEmail)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.CompanyInformationEmail)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.CertificationInformationTypeOfCertification)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.CertificationInformationTypeOfCertification)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.CertificationInformationCertificate)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.CertificationInformationCertificate)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.CertificationInformationCertificateNumber)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.CertificationInformationCertificateNumber)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.CertificationInformationSubCertificateNumber)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.CertificationInformationSubCertificateNumber)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.CertificationInformationStatus)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.CertificationInformationStatus)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.CertificationInformationExpiryDate)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.CertificationInformationExpiryDate)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.CertificationBodyName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.CertificationBodyName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.CertificationBodyAddress)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.CertificationBodyAddress)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.CertificationBodyPhone)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.CertificationBodyPhone)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.CertificationBodyFax)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.CertificationBodyFax)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.CertificationBodyEmail)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.CertificationBodyEmail)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.CertificationBodyWebsite)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.CertificationBodyWebsite)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.LogoLisenceNumber)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.LogoLisenceNumber)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.LogoLisenceExprityDate)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.LogoLisenceExprityDate)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Products)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Products)
-        </dd>
-    </dl>
+            <nav aria-label="breadcrumb" id="breadcrumbs" class="d-none d-md-block">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item">
+                        <a href="/">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a id="breadcrumbs-10000152" href="/find-certified">Find Certified</a>
+                    </li>
+                </ol>
+            </nav>
+
+        </div>
+
+        <div class="col-12 col-md-2 text-md-right text-center pr-md-25">
+            <button class="btn btn-outline-green mr-5 pr-20 pl-20" onclick="javascript:window.print();"><i class="fal fa-print pr-10"></i>Print</button>
+        </div>
+    </div>
+
+    <div class="row pt-30">
+        <div id="find-certified-app" class="col-xxl col-md-12 pr-md-36">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-9"><div class="row"><div class="col-12 title"><h2 class="underline text-green mb-36 text-center"><span>Find Certified</span></h2> <div class=" w-75"><p></p><p>PEFC maintains comprehensive databases to ensure easy access to relevant information about certificate holders, logo and label users, certified products, accredited certification bodies, and PEFC-endorsed national certification systems.</p> <p></p></div></div></div></div> <div class="col-12 col-md-9">
+                    <p><strong>PEFC council information register</strong></p> <h3 class="mb-6">
+                        @Model.CompanyName
+                    </h3> <div class="row mt-30">
+                              <div class="col-12">
+                                  <strong>  @Model.CompanyName</strong><br>
+                                  @Model.CompanyInformationContactPersonName                                   <br>
+                                  @Model.CompanyInformationAddress <strong>Phone                                        : </strong><a href="tel://@Model.CompanyInformationPhone">@Model.CompanyInformationPhone</a> <br> <strong>Email                                        : </strong><a href="mailto:@Model.CompanyInformationEmail">@Model.CompanyInformationEmail</a> <br>
+                              </div>
+                    </div>
+                </div> <div class="col-12 col-md-9 mb-30"><hr></div> <div class="col-12 col-md-9"><h4>Certificate</h4></div> <div class="col-12 col-md-9">
+                    <div class="row mb-6">
+                        <div class="col-6 col-md-4">
+                            Type of certification
+                        </div> <div class="col-6 col-md-8">
+    @Model.CertificationInformationTypeOfCertification<br>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+                    </div> <div class="row mb-6">
+                        <div class="col-6 col-md-4">
+                            Certificate
+                        </div> <div class="col-6 col-md-8">
+    @Model.CertificationInformationCertificate<br>
+</div>
+                    </div> 
+                 <div class="row mb-6">
+                        <div class="col-6 col-md-4">
+                            Certificate number
+                        </div> <div class="col-6 col-md-8">
+    @Model.CertificationInformationCertificateNumber<br>
+</div>
+                    </div> <div class="row mb-6">
+                        <div class="col-6 col-md-4">
+                            Sub certificate number
+                        </div> <div class="col-6 col-md-8">@Model.CertificationInformationSubCertificateNumber</div>
+                    </div> <div class="row mb-6">
+                        <div class="col-6 col-md-4">
+                            Status
+                        </div> <div class="col-6 col-md-8">
+    @Model.CertificationInformationStatus<br>
+</div>
+                    </div>
+                </div> <div class="col-12 col-md-9">
+                    <div class="row">
+                        <div class="col-6 col-md-4">
+                            Expiry Date
+                        </div> <div class="col-6 col-md-8">
+    @Model.CertificationInformationExpiryDate                                   <br>
+</div>
+                    </div>
+                </div> <div class="col-12 col-md-9 mb-30"><hr></div> <div class="col-12 col-md-9"><h4>Certification body</h4></div> <div class="col-12 col-md-9">
+                    <div class="row">
+                        <div class="col-12">
+                            <strong>@Model.CertificationBodyName</strong><br>
+
+                            @Model.CertificationBodyAddress<br> <strong>Phone                                        : </strong><a href="tel://@Model.CertificationBodyPhone">@Model.CertificationBodyPhone</a> <br> <strong>Fax                                    : </strong>@Model.CertificationBodyFax<br> <strong>Email                                        : </strong><a href="mailto:sylvie.seisun@sgs.com">sylvie.seisun@sgs.com</a> <br> <strong>Website                                        : </strong><span><a href="http://www.sgs.com">http://www.sgs.com</a> </span> <br>
+                        </div>
+                    </div>
+                </div> <div class="col-12 col-md-9 mb-30"><hr></div> <div class="col-12 col-md-9"><h4>PEFC logo license</h4></div> <div class="col-12 col-md-9">
+                    <div class="row">
+                        <div class="col-6 col-md-4">
+                            License number
+                        </div> <div class="col-6 col-md-8">
+    @Model.LogoLisenceNumber                                    <br>
+</div>
+                    </div>
+                </div> <div class="col-12 col-md-9">
+                    <div class="row">
+                        <div class="col-6 col-md-4">
+                            Expiry Date
+                        </div> <div class="col-6 col-md-8">
+    @Model.LogoLisenceExprityDate                                   <br>
+</div>
+                    </div>
+                </div> <div class="col-12 col-md-9 mb-30"><hr></div> <div class="col-12 col-md-9"><h4>Company Products</h4></div> <div class="col-12 col-md-9">
+                    <div class="row">
+                        <div class="col-6 col-md-4">
+                            Products Categories Level 1
+                        </div> <div class="col-6 col-md-8">
+                            05000 Wood based panels<br>08000 Wood manufacturers<br>03000 Sawnwood and sleepers                                        <br>
+                        </div>
+                    </div>
+                </div> <div class="col-12 col-md-9">
+                    <div class="row">
+                        <div class="col-6 col-md-4">
+                            Products Categories Level 2
+                        </div> <div class="col-6 col-md-8">
+                            03020 Sawnwood<br>05010 Veneer sheets<br>05020 Plywood<br>05030 Particle Board<br>08020 Furniture                                        <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

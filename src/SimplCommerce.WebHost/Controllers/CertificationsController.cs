@@ -91,6 +91,7 @@ namespace SimplCommerce.WebHost.Controllers
             return View(model);
         }
         // GET: Certifications/Details/5
+        [HttpGet("chung-chi/{id?}")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
