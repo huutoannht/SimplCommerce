@@ -147,7 +147,7 @@ namespace SimplCommerce.WebHost
             {
                 var options = new RewriteOptions()
                     .AddRedirectToHttpsPermanent()
-                    .AddRedirect("^dell-latitude-e7440", "laptop-cu-re")
+                    //.AddRedirect("^dell-latitude-e7440", "laptop-cu-re")
                     .AddRedirect("^tu-van-cau-hinh-may-tinh-thiet-ke-do-hoa-manh-chuyen-nghiep-2019", "/laptop-do-hoa-ky-thuat")
                     .AddRedirect("^tong-hop-cac-dong-may-tinh-laptop-asus-mini-tot-nhat-nam-2019", "/laptop-hoc-tap-van-phong")
                     .AddRedirect("^tong-hop-cac-dong-laptop-dell-core-i5-cu-tot-nhat-gia-re-nhat", "/laptop-dell-cu")
