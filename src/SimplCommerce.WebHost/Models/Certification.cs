@@ -74,6 +74,9 @@ namespace SimplCommerce.WebHost.Models
         [Display(Name = "Sản phẩm:")]
 
         public string ProductsName { get; set; }
+        [Display(Name = "Mô tả Sản phẩm:")]
+
+        public string ProductsDescrition { get; set; }
         [Display(Name = "Loại sản phẩm 1:")]
 
         public string ProductsCategoriesLevel1 { get; set; }
