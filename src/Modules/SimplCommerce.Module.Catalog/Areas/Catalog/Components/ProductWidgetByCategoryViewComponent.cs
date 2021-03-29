@@ -41,6 +41,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Components
                 productThumbnail.ThumbnailUrl = _mediaService.GetThumbnailUrl(product.ThumbnailImage);
                 productThumbnail.CreatedOn = product.CreatedOn;
                 productThumbnail.Name = product.Name;
+                productThumbnail.NameEN = product.NameEN;
                 productThumbnail.Slug = product.Slug;
                 products.Add(productThumbnail);
             }

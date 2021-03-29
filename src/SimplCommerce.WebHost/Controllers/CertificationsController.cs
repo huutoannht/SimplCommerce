@@ -113,10 +113,10 @@ namespace SimplCommerce.WebHost.Controllers
         public IActionResult Create()
         {
             var selection = CertificateExtension.GetDataSelection();
-            ViewData["ProductsCategoriesLevel1"] = new SelectList(selection.product_categories, "value", "label");
-            ViewData["ProductsCategoriesLevel2"] = new SelectList(selection.product_categories, "value", "label");
-            ViewData["ProductsCategoriesLevel3"] = new SelectList(selection.product_categories, "value", "label");
-            ViewData["CertificationInformationStatus"] = new SelectList(selection.certificate_status, "value", "label");
+            //ViewData["ProductsCategoriesLevel1"] = new SelectList(selection.product_categories, "value", "label");
+            //ViewData["ProductsCategoriesLevel2"] = new SelectList(selection.product_categories, "value", "label");
+            //ViewData["ProductsCategoriesLevel3"] = new SelectList(selection.product_categories, "value", "label");
+            //ViewData["CertificationInformationStatus"] = new SelectList(selection.certificate_status, "value", "label");
             return View();
         }
 
@@ -130,9 +130,9 @@ namespace SimplCommerce.WebHost.Controllers
         {
             if (ModelState.IsValid)
             {
-                certification.ProductsCategoriesLevel1 = string.Join("#", ProductsCategoriesLevel1);
-                certification.ProductsCategoriesLevel2 = string.Join("#", ProductsCategoriesLevel2);
-                certification.ProductsCategoriesLevel3 = string.Join("#", ProductsCategoriesLevel3);
+                //certification.ProductsCategoriesLevel1 = string.Join("#", ProductsCategoriesLevel1);
+                //certification.ProductsCategoriesLevel2 = string.Join("#", ProductsCategoriesLevel2);
+                //certification.ProductsCategoriesLevel3 = string.Join("#", ProductsCategoriesLevel3);
                 _context.Add(certification);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -161,7 +161,7 @@ namespace SimplCommerce.WebHost.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,CompanyName,CompanyInformationContactPersonName,CompanyInformationAddress,CompanyInformationEmail,CertificationInformationTypeOfCertification,CertificationInformationCertificate,CertificationInformationCertificateNumber,CertificationInformationSubCertificateNumber,CertificationInformationStatus,CertificationInformationExpiryDate,CertificationBodyName,CertificationBodyAddress,CertificationBodyPhone,CertificationBodyFax,CertificationBodyEmail,CertificationBodyWebsite,LogoLisenceNumber,LogoLisenceExprityDate,Products")] Certification certification)
+        public async Task<IActionResult> Edit(int id, Certification certification)
         {
             if (id != certification.Id)
             {

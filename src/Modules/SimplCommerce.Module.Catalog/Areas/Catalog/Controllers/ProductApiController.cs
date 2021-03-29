@@ -124,6 +124,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
                 {
                     Id = product.Id,
                     Name = product.Name,
+                    NameEN = product.NameEN,
                     Slug = product.Slug,
                     MetaTitle = product.MetaTitle,
                     MetaKeywords = product.MetaKeywords,
@@ -284,6 +285,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
             {
                 Id = product.Id,
                 Name = product.Name,
+                NameEn = product.NameEN,
                 Slug = product.Slug,
                 MetaTitle = product.MetaTitle,
                 MetaKeywords = product.MetaKeywords,
@@ -291,7 +293,9 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
                 Sku = product.Sku,
                 Gtin = product.Gtin,
                 ShortDescription = product.ShortDescription,
+                ShortDescriptionEN = product.ShortDescriptionEN,
                 Description = product.Description,
+                DescriptionEN = product.DescriptionEN,
                 Specification = product.Specification,
                 OldPrice = product.OldPrice,
                 Price = product.Price,
@@ -479,6 +483,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
             var product = new Product
             {
                 Name = model.Product.Name,
+                NameEN = model.Product.NameEN,
                 Slug = model.Product.Slug,
                 MetaTitle = model.Product.MetaTitle,
                 MetaKeywords = model.Product.MetaKeywords,
@@ -486,7 +491,9 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
                 Sku = model.Product.Sku,
                 Gtin = model.Product.Gtin,
                 ShortDescription = model.Product.ShortDescription,
+                ShortDescriptionEN = model.Product.ShortDescriptionEN,
                 Description = model.Product.Description,
+                DescriptionEN = model.Product.DescriptionEN,
                 Specification = model.Product.Specification,
                 Price = model.Product.Price,
                 OldPrice = model.Product.OldPrice,
@@ -597,6 +604,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
 
 
             product.Name = model.Product.Name;
+            product.NameEN = model.Product.NameEN;
             product.Slug = model.Product.Slug;
             product.MetaTitle = model.Product.MetaTitle;
             product.MetaKeywords = model.Product.MetaKeywords;
@@ -604,7 +612,9 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
             product.Sku = model.Product.Sku;
             product.Gtin = model.Product.Gtin;
             product.ShortDescription = model.Product.ShortDescription;
+            product.ShortDescriptionEN = model.Product.ShortDescriptionEN;
             product.Description = model.Product.Description;
+            product.DescriptionEN = model.Product.DescriptionEN;
             product.Specification = model.Product.Specification;
             product.Price = model.Product.Price;
             product.OldPrice = model.Product.OldPrice;

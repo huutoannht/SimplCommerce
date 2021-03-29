@@ -1,4 +1,18 @@
 ﻿@model IEnumerable<SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels.ProductThumbnail>
+
+@using System.Globalization
+@{
+    if (CultureInfo.CurrentCulture.Name != "vi-VN")
+    {
+        @foreach (var newItem in Model)
+        {
+            if (!string.IsNullOrEmpty(newItem.NameEN))
+            {
+                newItem.Name = newItem.NameEN;
+            }
+        }
+    }
+}
 <div class="col-sm-4">
     <div class="panel panel-primary update">
         <div class="panel-heading">

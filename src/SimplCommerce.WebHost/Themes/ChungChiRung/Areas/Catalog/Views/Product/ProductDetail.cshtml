@@ -1,7 +1,18 @@
-﻿@model SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels.ProductDetail
-@using System.Text.RegularExpressions;
+﻿@using System.Globalization
+
+@model SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels.ProductDetail
+
 @{
     ViewBag.Title = Model.MetaTitle ?? Model.Name;
+}
+
+@{
+    ViewBag.Title = Model.MetaTitle ?? Model.Name;
+    if (CultureInfo.CurrentCulture.Name != "vi-VN")
+    {
+        Model.Name = Model.NameEN ?? Model.Name;
+        Model.Description = Model.DescriptionEN ?? Model.Description;
+    }
 }
 
 @section additionalMeta {
@@ -318,8 +329,8 @@
                     <div class="share-content-social text-right">
                         <span>Chia sẻ bài viết : </span>
                         @*<a href="http://www.facebook.com/sharer.php?u=@ViewBag.Host" target="_blank"><i class="fa fa-facebook"></i></a>
-                        <a href="http://twitter.com/share?url=@ViewBag.Host&amp;text=Simple%20Share%20Buttons&amp;hashtags=simplesharebuttons" target="_blank"><i class="fa fa-twitter"></i></a>
-                        <a href="https://plus.google.com/share?url=@ViewBag.Host" target="_blank"><i class="fa fa-google-plus"></i></a>*@
+                            <a href="http://twitter.com/share?url=@ViewBag.Host&amp;text=Simple%20Share%20Buttons&amp;hashtags=simplesharebuttons" target="_blank"><i class="fa fa-twitter"></i></a>
+                            <a href="https://plus.google.com/share?url=@ViewBag.Host" target="_blank"><i class="fa fa-google-plus"></i></a>*@
                     </div>
                     <div class="fb-comment">
                     </div>
@@ -336,33 +347,33 @@
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 
             <div class="panel panel-tid">
-               
+
                 <div class="panel-body right-content news-right-content">
                     @await Component.InvokeAsync("ProductRecentlyViewed", new { productId = Model.Id })
 
                 </div>
             </div>
             @*<div class="panel panel-tid">
-                <div class="panel-heading">
-                    <h3>Bài viết liên quan</h3>
-                </div>
-                <div class="panel-body right-content news-right-content">
-                    @foreach (var product in Model.RelatedProducts)
-                    {
-                        <div class="item">
-                            <partial name="/Themes/ChungChiRung/Areas/Catalog/Views/Shared/_ProductThumbnail.cshtml" model="product" />
-                        </div>
-                    }
+                    <div class="panel-heading">
+                        <h3>Bài viết liên quan</h3>
+                    </div>
+                    <div class="panel-body right-content news-right-content">
+                        @foreach (var product in Model.RelatedProducts)
+                        {
+                            <div class="item">
+                                <partial name="/Themes/ChungChiRung/Areas/Catalog/Views/Shared/_ProductThumbnail.cshtml" model="product" />
+                            </div>
+                        }
 
-                </div>
-            </div>*@
+                    </div>
+                </div>*@
         </div>
     </div>
 </div>
 
 @section scripts {
     <script language="javascript" type="text/javascript">
-      
+
     </script>
     @*<partial name="_ValidationScriptsPartial" />
         <script simpl-append-version="true" src="~/lib/smoothproducts/js/smoothproducts.js"></script>

@@ -1,14 +1,40 @@
 ﻿
+@using System.Globalization
 
 @model SimplCommerce.Module.Core.Areas.Core.ViewModels.HomeViewModel
 @{
     ViewData["Title"] = "Văn phòng chứng chỉ rừng";
 }
+@{
+    var pharagraph1_1 = "Bộ tiêu chuẩn quản lý rừng bền vững của Hệ thống chứng chỉ rừng quốc gia (VFCS/PEFC FM) cung cấp các yêu cầu tự nguyện cho các Chủ rừng thực hiện hoạt động quản lý rừng tự nhiên và rừng trồng xin cấp chứng chỉ quản lý rừng bền vững.";
+    var pharagraph1_2 = "Bộ tiêu chuẩn cũng là cơ sở để các Tổ chức cấp chứng chỉ sử dụng để đánh giá và cấp chứng chỉ QLRBV theo Hệ thống chứng chỉ rừng Quốc gia.";
+    var pharagraph2_1 = "Chứng nhận chuỗi hành trình sản phẩm PEFC cung cấp sự đảm bảo được kiểm chứng một cách độc lập rằng gỗ đã có chứng nhận chứa trong một sản phẩm có nguồn gốc từ những diện tích rừng được quản lý tốt.";
+    var pharagraph2_2 = "Để đạt được chứng nhận chuỗi hành trình sản phẩm PEFC, các công ty cần phải thiết lập và áp dụng các quy trình về mua bán, kiểm soát, sản xuất, tiêu thụ và lưu trữ tài liệu liên quan đến các nguồn nguyên liệu đã được chứng nhận.";
+    var step1_1 = "Các bước thực hiện chứng chỉ VFCS/PEFC FM";
+    var step2_1 = "Các bước thực hiện chứng chỉ PEFC CoC";
+    var detail = "Chi tiết tại";
+    var findCertificate = "Tìm Chứng Chỉ";
+    var detailFindCertificate = "Tìm kiếm thông tin các công ty/ tổ chức đạt chứng chỉ <br>VFCS/PEFC FM và PEFC CoC tại đây";
+    if (CultureInfo.CurrentCulture.Name != "vi-VN")
+    {
 
-@section featured {
-        <partial name="_WidgetInstances" model="Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeFeatured)" />
+        pharagraph1_1 = @"The sustainable forest management standard of the Vietnam Forest Certification (VFCS/PEFC FM) provides requirements and indicator systems for voluntary forest management unit/forest owner who shall meet to implement sustainable (natural and/or plantation) forest management certification under the system of VFCS.
+This standard provides forest certificate bodies with basis for auditing and assessing sustainable forest management according to Viet Nam Forest Certification Scheme (VFCS)
+";
+        pharagraph1_2 = "";
+        pharagraph2_1 = "PEFC Chain of Custody certification provides independently verified assurance that the certified wood contained in a product originates from well-managed forests. ";
+        pharagraph2_2 = "To earn PEFC Chain of Custody certification, companies must develop and implement procedures to account for the purchasing, tracking, manufacturing, sale and recordkeeping of certified materials. ";
+        step1_1 = "How to certified VFCS/PEFC FM ";
+        step2_1 = "How to certified PEFC CoC ";
+        detail = "FIND OUT MORE";
+        findCertificate = "Find Certified";
+        detailFindCertificate = "Search our database to find relevant organisations certified <br> VFCS/PEFC FM & PEFC CoC Certifications";
     }
-    @*<partial name="_WidgetInstances" model="Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeMainContent)" />
+}
+@section featured {
+    <partial name="_WidgetInstances" model="Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeFeatured)" />
+}
+@*<partial name="_WidgetInstances" model="Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeMainContent)" />
     @await Component.InvokeAsync("NewItem")*@
 <div class="row updates-widget">
     <div class="col-sm-4">
@@ -34,39 +60,47 @@
 </div>
 <div class="row two-column-block-widget">
     @*<div class="col-sm-6">
-        <div class="widget-block">
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="hidden-xs">
-                        <div class="content" id="ctagreen">
-                            <h3><a href="~/tim-chung-chi">Get Certified</a></h3>
-                            <p><a href="~/tim-chung-chi">Find out about the certification process</a></p>
+            <div class="widget-block">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="hidden-xs">
+                            <div class="content" id="ctagreen">
+                                <h3><a href="~/tim-chung-chi">Get Certified</a></h3>
+                                <p><a href="~/tim-chung-chi">Find out about the certification process</a></p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="visible-xs">
-                        <div class="content-small" id="ctagreen">
-                            <h3><a href="~/tim-chung-chi">Get Certified</a></h3>
-                            <p><a href="~/tim-chung-chi">Find out about the certification process</a></p>
+                        <div class="visible-xs">
+                            <div class="content-small" id="ctagreen">
+                                <h3><a href="~/tim-chung-chi">Get Certified</a></h3>
+                                <p><a href="~/tim-chung-chi">Find out about the certification process</a></p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>*@
+        </div>*@
     <div class="col-sm-12">
         <div class="widget-block">
             <div class="row">
                 <div class="col-xs-12">
                     <div class="hidden-xs">
                         <div class="content" id="ctabrown">
-                            <h3><a href="~/tim-chung-chi">Find Certified</a></h3>
-                            <p><a href="~/tim-chung-chi">Search our database to find relevant organisations</a></p>
+                            <h3>
+                                <a href="~/tim-chung-chi">
+                                    @findCertificate
+                                </a>
+                            </h3>
+                            <p>
+                                <a href="~/tim-chung-chi">
+                                    @Html.Raw(detailFindCertificate)
+                                </a>
+                            </p>
                         </div>
                     </div>
                     <div class="visible-xs">
                         <div class="content-small" id="ctabrown">
-                            <h3><a href="~/tim-chung-chi">Find Certified</a></h3>
-                            <p><a href="~/tim-chung-chi">Search our database to find relevant organisations</a></p>
+                            <h3><a href="~/tim-chung-chi">@findCertificate</a></h3>
+                            <p><a href="~/tim-chung-chi">@Html.Raw(detailFindCertificate)</a></p>
                         </div>
                     </div>
                 </div>
@@ -78,20 +112,40 @@
     <div class="col-xs-12">
         <div class="col-sm-4">
             <h3 class="chain">Chain of Custody Certification</h3>
-            <p>PEFC&#160;Chain of Custody is the process of handling information on the origin of forest-based products and allows an organisation to make accurate and verifiable claims on the content of sustainably certified material.&#160;</p>
-            <p><span style="background-color: transparent;">This proves that each step of the supply chain from the forest to the end user has been monitored closely through independent auditing.</span></p>
-            <p class="chain-more-info-paragraph"><a class="chain-more-info" href="chain-of-custody-logo-use/benefits.html" title="Benefits">Find out more</a></p>
+            <p>
+                @pharagraph1_1
+                &#160;
+            </p>
+            <p><span style="background-color: transparent;">@pharagraph1_2</span></p>
+            <p class="chain-more-info-paragraph"><a class="chain-more-info" href="~/cach-lam-chung-chi-vfcs/pefc-fm" title="Benefits">@detail</a></p>
         </div>
         <div class="col-sm-8">
-            <div class="chain-images">    <img alt="1 trees 250x250" class="img-responsive active" data-position="1" src="~/themes/ChungChiRung/assets/1-trees-250x250.png" />    <img alt="2 logs 250x250" class="img-responsive" data-position="2" src="~/themes/ChungChiRung/assets/2-logs-250x250.png" />    <img alt="3 saw 250x250" class="img-responsive" data-position="3" src="~/themes/ChungChiRung/assets/3-saw-250x250.png" />    <img alt="4 planks 250x250" class="img-responsive" data-position="4" src="~/themes/ChungChiRung/assets/4-planks-250x250.png" />    <img alt="5 hammer 250x250" class="img-responsive" data-position="5" src="~/themes/ChungChiRung/assets/5-hammer-250x250.png" />    <img alt="6 logo 250x250" class="img-responsive" data-position="6" src="~/themes/ChungChiRung/assets/6-logo-250x250.png" />  </div>
+            <div class="chain-images">
+                <img alt="1 trees 250x250" class="img-responsive active" data-position="1" src="~/themes/ChungChiRung/assets/p1.png" />
+                <img alt="2 logs 250x250" class="img-responsive" data-position="2" src="~/themes/ChungChiRung/assets/p2.png" />
+                <img alt="3 saw 250x250" class="img-responsive" data-position="3" src="~/themes/ChungChiRung/assets/p3.png" />
+                <img alt="4 planks 250x250" class="img-responsive" data-position="4" src="~/themes/ChungChiRung/assets/p4.png" />
+                <img alt="5 hammer 250x250" class="img-responsive" data-position="5" src="~/themes/ChungChiRung/assets/p5.png" />
+                @*<img alt="6 logo 250x250" class="img-responsive" data-position="6" src="~/themes/ChungChiRung/assets/6-logo-250x250.png" />*@
+            </div>
             <div class="chain-bar"></div>
             <div class="chain-text">
-                <p class="chain-1">Woodlands certified to PEFC’s sustainable forest management requirements can sell materials as certified.</p>
-                <p class="chain-2">Timber stored in saw mill yards may be segregated to ensure certified material is not mixed with uncertified material.</p>
-                <p class="chain-3">Timber enters the saw mill under a third party audited chain of custody certification, so the credentials of the sustainable material can be passed on to the next customer.</p>
-                <p class="chain-4">Certified materials supplied to a manufacturing plant via a “chain of custody” are monitored through the process to enable them to be sold as certified.</p>
-                <p class="chain-5">The final product may be sold to a retailer or a customer as certified, giving confidence that the product comes from a sustainably managed forest.</p>
-                <p class="chain-6">All products that have been through the chain of custody may carry the PEFC label to show the consumer their sustainability credentials.</p>
+                <p class="chain-1">
+                    @step1_1
+                </p>
+                <p class="chain-2">
+                    @step1_1
+                </p>
+                <p class="chain-3">
+                    @step1_1
+                </p>
+                <p class="chain-4">
+                    @step1_1
+                </p>
+                <p class="chain-5">
+                    @step1_1
+                </p>
+                @*<p class="chain-6">All products that have been through the chain of custody may carry the PEFC label to show the consumer their sustainability credentials.</p>*@
             </div>
         </div>
     </div>
@@ -100,24 +154,45 @@
     <div class="col-xs-12">
         <div class="col-sm-4">
             <h3 class="chain">Chain of Custody Certification</h3>
-            <p>PEFC&#160;Chain of Custody is the process of handling information on the origin of forest-based products and allows an organisation to make accurate and verifiable claims on the content of sustainably certified material.&#160;</p>
-            <p><span style="background-color: transparent;">This proves that each step of the supply chain from the forest to the end user has been monitored closely through independent auditing.</span></p>
-            <p class="chain-more-info-paragraph"><a class="chain-more-info" href="chain-of-custody-logo-use/benefits.html" title="Benefits">Find out more</a></p>
+            <p>
+                @pharagraph2_1
+            </p>
+            <p>
+                <span style="background-color: transparent;">
+                    @pharagraph2_2
+                </span>
+            </p>
+            <p class="chain-more-info-paragraph">
+                <a class="chain-more-info" href="~/cach-lam-chung-chi-pefc-coc" title="Benefits">
+                    @detail
+                </a>
+            </p>
         </div>
         <div class="col-sm-8">
-            <div class="chain-images1">    <img alt="1 trees 250x250" class="img-responsive active" data-position="11" src="~/themes/ChungChiRung/assets/1-trees-250x250.png" />    <img alt="2 logs 250x250" class="img-responsive" data-position="12" src="~/themes/ChungChiRung/assets/2-logs-250x250.png" />    <img alt="3 saw 250x250" class="img-responsive" data-position="13" src="~/themes/ChungChiRung/assets/3-saw-250x250.png" />    <img alt="4 planks 250x250" class="img-responsive" data-position="14" src="~/themes/ChungChiRung/assets/4-planks-250x250.png" />    <img alt="5 hammer 250x250" class="img-responsive" data-position="15" src="~/themes/ChungChiRung/assets/5-hammer-250x250.png" />    <img alt="6 logo 250x250" class="img-responsive" data-position="16" src="~/themes/ChungChiRung/assets/6-logo-250x250.png" />  </div>
+            <div class="chain-images1">
+                <img alt="1 trees 250x250" class="img-responsive active" data-position="11" src="~/themes/ChungChiRung/assets/p1.png" />
+                <img alt="2 logs 250x250" class="img-responsive" data-position="12" src="~/themes/ChungChiRung/assets/p2.png" />
+                <img alt="3 saw 250x250" class="img-responsive" data-position="13" src="~/themes/ChungChiRung/assets/p3.png" />
+                <img alt="4 planks 250x250" class="img-responsive" data-position="14" src="~/themes/ChungChiRung/assets/p4_2.png" />
+                <img alt="5 hammer 250x250" class="img-responsive" data-position="15" src="~/themes/ChungChiRung/assets/p5_2.png" />
+                @*<img alt="6 logo 250x250" class="img-responsive" data-position="16" src="~/themes/ChungChiRung/assets/6-logo-250x250.png" />*@
+            </div>
             <div class="chain-bar1"></div>
             <div class="chain-text1">
-                <p class="chain-11">Woodlands certified to PEFC’s sustainable forest management requirements can sell materials as certified.</p>
-                <p class="chain-12">Timber stored in saw mill yards may be segregated to ensure certified material is not mixed with uncertified material.</p>
-                <p class="chain-13">Timber enters the saw mill under a third party audited chain of custody certification, so the credentials of the sustainable material can be passed on to the next customer.</p>
-                <p class="chain-14">Certified materials supplied to a manufacturing plant via a “chain of custody” are monitored through the process to enable them to be sold as certified.</p>
-                <p class="chain-15">The final product may be sold to a retailer or a customer as certified, giving confidence that the product comes from a sustainably managed forest.</p>
-                <p class="chain-16">All products that have been through the chain of custody may carry the PEFC label to show the consumer their sustainability credentials.</p>
+                <p class="chain-11">
+                    @step2_1
+                </p>
+                <p class="chain-12">
+                    @step2_1
+                </p>
+                <p class="chain-13">@step2_1</p>
+                <p class="chain-14">@step2_1</p>
+                <p class="chain-15">@step2_1</p>
+                @*<p class="chain-16">All products that have been through the chain of custody may carry the PEFC label to show the consumer their sustainability credentials.</p>*@
             </div>
         </div>
     </div>
 </div>
 <div class="row s-margin">
-    <div class="col-sm-12"><img class="img-responsive" src="~/themes/ChungChiRung/assets/system/images/pefc-viet-nam-map.jpg" alt="Pefc world map" /></div>
+    <div class="col-sm-12"><img class="img-responsive" src="~/themes/ChungChiRung/assets/system/images/pefc-viet-nam-map1.jpg" alt="Pefc world map" /></div>
 </div>
