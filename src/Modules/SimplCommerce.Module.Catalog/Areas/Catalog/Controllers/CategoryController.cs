@@ -52,6 +52,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
                 CategoryId = category.Id,
                 ParentCategorId = category.ParentId,
                 CategoryName = category.Name,
+                
                 CategorySlug = category.Slug,
                 CategoryMetaTitle = category.MetaTitle,
                 CategoryMetaKeywords = category.MetaKeywords,

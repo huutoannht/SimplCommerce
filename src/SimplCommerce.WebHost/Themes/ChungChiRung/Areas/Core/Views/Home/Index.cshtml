@@ -15,6 +15,9 @@
     var detail = "Chi tiết tại";
     var findCertificate = "Tìm Chứng Chỉ";
     var detailFindCertificate = "Tìm kiếm thông tin các công ty/ tổ chức đạt chứng chỉ <br>VFCS/PEFC FM và PEFC CoC tại đây";
+    var title1 = "Chứng chỉ Quản lý rừng bền vững VFCS/PEFC FM";
+    var title2 = "Chứng chỉ Chuỗi hành trình sản phẩm PEFC CoC";
+    var image2 = "p2.png";
     if (CultureInfo.CurrentCulture.Name != "vi-VN")
     {
 
@@ -29,6 +32,10 @@ This standard provides forest certificate bodies with basis for auditing and ass
         detail = "FIND OUT MORE";
         findCertificate = "Find Certified";
         detailFindCertificate = "Search our database to find relevant organisations certified <br> VFCS/PEFC FM & PEFC CoC Certifications";
+        title1 = "VFCS/PEFC Forest Management Certification";
+        title2 = "PEFC Chain of Custody Cerfitication";
+        image2 = "p2-en.png";
+
     }
 }
 @section featured {
@@ -111,7 +118,7 @@ This standard provides forest certificate bodies with basis for auditing and ass
 <div class="row content-block-widget">
     <div class="col-xs-12">
         <div class="col-sm-4">
-            <h3 class="chain">Chain of Custody Certification</h3>
+            <h3 class="chain">@title1</h3>
             <p>
                 @pharagraph1_1
                 &#160;
@@ -122,7 +129,7 @@ This standard provides forest certificate bodies with basis for auditing and ass
         <div class="col-sm-8">
             <div class="chain-images">
                 <img alt="1 trees 250x250" class="img-responsive active" data-position="1" src="~/themes/ChungChiRung/assets/p1.png" />
-                <img alt="2 logs 250x250" class="img-responsive" data-position="2" src="~/themes/ChungChiRung/assets/p2.png" />
+                <img alt="2 logs 250x250" class="img-responsive" data-position="2" src="~/themes/ChungChiRung/assets/@image2" />
                 <img alt="3 saw 250x250" class="img-responsive" data-position="3" src="~/themes/ChungChiRung/assets/p3.png" />
                 <img alt="4 planks 250x250" class="img-responsive" data-position="4" src="~/themes/ChungChiRung/assets/p4.png" />
                 <img alt="5 hammer 250x250" class="img-responsive" data-position="5" src="~/themes/ChungChiRung/assets/p5.png" />
@@ -153,7 +160,7 @@ This standard provides forest certificate bodies with basis for auditing and ass
 <div class="row content-block-widget">
     <div class="col-xs-12">
         <div class="col-sm-4">
-            <h3 class="chain">Chain of Custody Certification</h3>
+            <h3 class="chain">@title2</h3>
             <p>
                 @pharagraph2_1
             </p>
@@ -171,7 +178,7 @@ This standard provides forest certificate bodies with basis for auditing and ass
         <div class="col-sm-8">
             <div class="chain-images1">
                 <img alt="1 trees 250x250" class="img-responsive active" data-position="11" src="~/themes/ChungChiRung/assets/p1.png" />
-                <img alt="2 logs 250x250" class="img-responsive" data-position="12" src="~/themes/ChungChiRung/assets/p2.png" />
+                <img alt="2 logs 250x250" class="img-responsive" data-position="12" src="~/themes/ChungChiRung/assets/@image2" />
                 <img alt="3 saw 250x250" class="img-responsive" data-position="13" src="~/themes/ChungChiRung/assets/p3.png" />
                 <img alt="4 planks 250x250" class="img-responsive" data-position="14" src="~/themes/ChungChiRung/assets/p4_2.png" />
                 <img alt="5 hammer 250x250" class="img-responsive" data-position="15" src="~/themes/ChungChiRung/assets/p5_2.png" />

@@ -1274,7 +1274,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-    font-family: "Arial Narrow", Arial, "Helvetica Condensed", Helvetica, sans-serif;
+    font-family: Tahoma, "Helvetica Condensed", Helvetica, sans-serif;
     font-weight: 500;
     line-height: 1.1;
     color: inherit
@@ -8169,13 +8169,13 @@ button.close {
         cursor: pointer;
         float: left;
         margin-right: 2.5%;
-        width: 14.1%
+        width: 17.1%
     }
 
         .chain-images img.active, .chain-images1 img.active {
-            border-radius: 50%;
+            /*border-radius: 50%;*/
             border-color: black;
-            background-color: #ebeae6;
+            /*background-color: #ebeae6;*/
             color: #fff;
             padding-left: 4px;
             padding-right: 4px;
@@ -8415,7 +8415,7 @@ li.dropdown {
     }
 
 .navbar {
-    font-family: "Arial Narrow", Arial, "Helvetica Condensed", Helvetica, sans-serif;
+    font-family: Tahoma,Arial,sans-serif, "Helvetica Condensed", Helvetica;
     font-weight: 400;
     text-transform: uppercase;
     border: none
@@ -9084,7 +9084,7 @@ footer#footer {
 
 .list-group-item {
     text-transform: dppercase;
-    font-family: "Arial Narrow", Arial, "Helvetica Condensed", Helvetica, sans-serif
+    font-family: Tahoma, Arial, "Helvetica Condensed", Helvetica, sans-serif
 }
 
 .right-widget-area .well {
@@ -9103,7 +9103,7 @@ footer#footer {
 }
 
     .panel .panel-header {
-        font-family: "Arial Narrow", Arial, "Helvetica Condensed", Helvetica, sans-serif
+        font-family: Tahoma, Arial, "Helvetica Condensed", Helvetica, sans-serif
     }
 
 article.news-article {
@@ -9116,9 +9116,13 @@ ul#news_articles .headline {
 
 ul#news_articles .list-group-item {
     text-transform: none;
-    font-family: "Arial Narrow", Arial, "Helvetica Condensed", Helvetica, sans-serif
+    font-family:  Arial, "Helvetica Condensed", Helvetica, sans-serif
 }
 
 small.news-label {
     opacity: 0.7
+}
+
+.two-column-block-widget{
+    padding-bottom:30px;
 }

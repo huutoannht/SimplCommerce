@@ -22,6 +22,7 @@ namespace SimplCommerce.Module.Catalog.Models
         public string MetaDescription { get; set; }
 
         public string Description { get; set; }
+        public string DescriptionEn { get; set; }
 
         public string Icon { get; set; }
 
@@ -40,5 +41,6 @@ namespace SimplCommerce.Module.Catalog.Models
         public IList<Category> Children { get; protected set; } = new List<Category>();
 
         public Media ThumbnailImage { get; set; }
+        public string NameEn { get;  set; }
     }
 }

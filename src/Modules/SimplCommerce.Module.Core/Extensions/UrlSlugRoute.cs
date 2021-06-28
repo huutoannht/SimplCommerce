@@ -34,7 +34,16 @@ namespace SimplCommerce.Module.Core.Extensions
             Entity urlSlug = listUrlSlug.FirstOrDefault();
             if (listUrlSlug.Count > 1)
             {
-                urlSlug = listUrlSlug.Where(m => m.EntityTypeId == "NewsItem").FirstOrDefault();
+                urlSlug = listUrlSlug.Where(m => m.EntityTypeId == "Product" ).FirstOrDefault();
+                if (urlSlug==null)
+                {
+                    urlSlug = listUrlSlug.Where(m =>  m.EntityTypeId == "Page").FirstOrDefault();
+                }
+                if (urlSlug == null)
+                {
+                    urlSlug = listUrlSlug.Where(m =>  m.EntityTypeId == "NewsItem" ).FirstOrDefault();
+                }
+
             }
 
             // Invoke MVC controller/action

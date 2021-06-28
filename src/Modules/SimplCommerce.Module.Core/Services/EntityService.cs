@@ -21,9 +21,13 @@ namespace SimplCommerce.Module.Core.Services
         public string ToSafeSlug(string slug, long entityId, string entityTypeId)
         {
             var i = 2;
+            if (entityTypeId == "Category")
+            {
+                return slug;
+            }
             while (true)
             {
-                var entity = _entityRepository.Query().FirstOrDefault(x => x.Slug == slug && x.EntityTypeId != "Category");
+                var entity = _entityRepository.Query().FirstOrDefault(x => x.Slug == slug && x.EntityTypeId != "Page");
                 if (entity != null && !(entity.EntityId == entityId && entity.EntityTypeId == entityTypeId))
                 {
                     slug = string.Format("{0}-{1}", slug, i);

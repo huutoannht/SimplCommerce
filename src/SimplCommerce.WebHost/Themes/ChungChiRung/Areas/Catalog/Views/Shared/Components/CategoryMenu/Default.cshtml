@@ -1,6 +1,8 @@
 ﻿@model IEnumerable<SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels.CategoryMenuItem>
 @using SimplCommerce.Module.Core.Extensions
 @using SimplCommerce.Module.Core.Models
+@using System.Globalization
+
 @inject IViewLocalizer Localizer
 @inject IWorkContext WorkContext
 @inject SignInManager<User> SignInManager
@@ -13,7 +15,12 @@
                     @foreach (var item in Model)
                     {
                         <li class="dropdown fhmm-fw ">
-                            <a class="dropdown-toggle" href="~/@item.Slug">@Localizer[item.Name]</a>
+                            @if (CultureInfo.CurrentCulture.Name != "vi-VN")
+                            {
+                                item.Name = item.NameEn ?? item.Name;
+                                item.Description = item.DescriptionEn ?? item.Description;
+                            }
+                            <a class="dropdown-toggle" href="~/@item.Slug">@item.Name</a>
                             @if (item.ChildItems.Any())
                             {
                                 <div class="dropdown-menu hidden-xs" role="menu">
@@ -22,12 +29,13 @@
                                             <div class="list-group">
                                                 @foreach (var childItem in item.ChildItems)
                                                 {
-                                                <a class="list-group-item" href="~/@childItem.Slug">@Localizer[childItem.Name]</a>
+                                                    <a class="list-group-item" href="~/@childItem.Slug">@childItem.Name</a>
                                                 }
                                             </div>
                                         </div>
                                         <div class="col-sm-4 menu-content">
                                             <h3>@item.Name</h3>
+
                                             @Html.Raw(item.Description)
                                         </div>
                                         @if (!string.IsNullOrEmpty(item.Icon))

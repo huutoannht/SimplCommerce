@@ -50,6 +50,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
             {
                 Id = category.Id,
                 Name = category.Name,
+                NameEn = category.NameEn,
                 Slug = category.Slug,
                 MetaTitle = category.MetaTitle,
                 MetaKeywords = category.MetaKeywords,
@@ -57,6 +58,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
                 Icon = category.Icon,
                 DisplayOrder = category.DisplayOrder,
                 Description = category.Description,
+                DescriptionEn = category.DescriptionEn,
                 ParentId = category.ParentId,
                 IncludeInMenu = category.IncludeInMenu,
                 IsPublished = category.IsPublished,
@@ -75,13 +77,15 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
                 var category = new Category
                 {
                     Name = model.Name,
+                    NameEn = model.NameEn,
                     Slug = model.Slug,
                     MetaTitle = model.MetaTitle,
                     MetaKeywords = model.MetaKeywords,
                     MetaDescription = model.MetaDescription,
                     DisplayOrder = model.DisplayOrder,
                     Description = model.Description,
-                    Icon=model.Icon,
+                    DescriptionEn = model.DescriptionEn,
+                    Icon =model.Icon,
                     ParentId = model.ParentId,
                     IncludeInMenu = model.IncludeInMenu,
                     IsPublished = model.IsPublished
@@ -108,11 +112,13 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
                 }
 
                 category.Name = model.Name;
+                category.NameEn = model.NameEn;
                 category.Slug = model.Slug;
                 category.MetaTitle = model.MetaTitle;
                 category.MetaKeywords = model.MetaKeywords;
                 category.MetaDescription = model.MetaDescription;
                 category.Description = model.Description;
+                category.DescriptionEn = model.DescriptionEn;
                 category.Icon = model.Icon;
                 category.DisplayOrder = model.DisplayOrder;
                 category.ParentId = model.ParentId;

@@ -24,21 +24,21 @@ function initChain() {
     $(".chain-images").length && $(document).on("mouseover", ".chain-images img", function () {
         var t = $(this).attr("data-position");
         if ($(".chain-text p").hide(), $(".chain-text .chain-" + t).show(), 1 == t) var e = 7.1;
-        else if (2 == t) e = 23.2;
-        else if (3 == t) e = 40.3;
-        else if (4 == t) e = 56.7;
-        else if (5 == t) e = 73.1;
+        else if (2 == t) e = 28.2;
+        else if (3 == t) e = 47.3;
+        else if (4 == t) e = 68.7;
+        else if (5 == t) e = 87.1;
         else if (6 == t) e = 89.9;
         $(".chain-bar").css("left", e + "%"), $(".chain-images img").removeClass("active"), $(this).addClass("active")
     })
     $(".chain-images1").length && $(document).on("mouseover", ".chain-images1 img", function () {
         var t = $(this).attr("data-position");
-        if ($(".chain-text1 p").hide(), $(".chain-text1 .chain-" + t).show(), 1 == t) var e = 7.1;
-        else if (2 == t) e = 23.2;
-        else if (3 == t) e = 40.3;
-        else if (4 == t) e = 56.7;
-        else if (5 == t) e = 73.1;
-        else if (6 == t) e = 89.9;
+        if ($(".chain-text1 p").hide(), $(".chain-text1 .chain-" + t).show(), 11 == t) var e = 7.1;
+        else if (12 == t) e = 28.2;
+        else if (13 == t) e = 47.3;
+        else if (14 == t) e = 68.7;
+        else if (15 == t) e = 87.1;
+        else if (16 == t) e = 89.9;
         $(".chain-bar1").css("left", e + "%"), $(".chain-images1 img").removeClass("active"), $(this).addClass("active")
     })
 }

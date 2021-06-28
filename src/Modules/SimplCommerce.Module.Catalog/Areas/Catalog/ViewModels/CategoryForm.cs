@@ -19,6 +19,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels
         public string Name { get; set; }
 
         public string Description { get; set; }
+        public string DescriptionEn { get; set; }
 
         public string MetaTitle { get; set; }
 
@@ -38,5 +39,6 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels
 
         public string ThumbnailImageUrl { get; set; }
         public string Icon { get;  set; }
+        public string NameEn { get; set; }
     }
 }

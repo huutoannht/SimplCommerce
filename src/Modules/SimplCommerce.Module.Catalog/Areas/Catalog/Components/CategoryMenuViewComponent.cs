@@ -38,13 +38,16 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Components
             {
                 Id = category.Id,
                 Name = category.Name,
+                NameEn = category.NameEn,
                 Slug = category.Slug,
+                DisplayOrder= category.DisplayOrder,
                 Description=category.Description,
+                DescriptionEn=category.DescriptionEn,
                 Icon = category.Icon
             };
 
             var childCategories = category.Children;
-            foreach (var childCategory in childCategories.OrderByDescending(x => x.DisplayOrder))
+            foreach (var childCategory in childCategories.OrderBy(x => x.DisplayOrder))
             {
                 var childCategoryMenuItem = Map(childCategory);
                 categoryMenuItem.AddChildItem(childCategoryMenuItem);

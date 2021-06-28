@@ -22,7 +22,6 @@
   <ItemGroup>
     <Compile Remove="Themes\Honda\**" />
     <Compile Remove="Themes\TheGioiDiDong\**" />
-    <Compile Remove="wwwroot\themes\ChungChiRung\**" />
     <Compile Remove="wwwroot\themes\CozaStore\**" />
     <Compile Remove="wwwroot\themes\Gallery\**" />
     <Compile Remove="wwwroot\themes\Honda\**" />
@@ -33,7 +32,6 @@
     <Compile Remove="wwwroot\user-content\**" />
     <Content Remove="Themes\Honda\**" />
     <Content Remove="Themes\TheGioiDiDong\**" />
-    <Content Remove="wwwroot\themes\ChungChiRung\**" />
     <Content Remove="wwwroot\themes\CozaStore\**" />
     <Content Remove="wwwroot\themes\Gallery\**" />
     <Content Remove="wwwroot\themes\Honda\**" />
@@ -44,7 +42,6 @@
     <Content Remove="wwwroot\user-content\**" />
     <EmbeddedResource Remove="Themes\Honda\**" />
     <EmbeddedResource Remove="Themes\TheGioiDiDong\**" />
-    <EmbeddedResource Remove="wwwroot\themes\ChungChiRung\**" />
     <EmbeddedResource Remove="wwwroot\themes\CozaStore\**" />
     <EmbeddedResource Remove="wwwroot\themes\Gallery\**" />
     <EmbeddedResource Remove="wwwroot\themes\Honda\**" />
@@ -55,7 +52,6 @@
     <EmbeddedResource Remove="wwwroot\user-content\**" />
     <None Remove="Themes\Honda\**" />
     <None Remove="Themes\TheGioiDiDong\**" />
-    <None Remove="wwwroot\themes\ChungChiRung\**" />
     <None Remove="wwwroot\themes\CozaStore\**" />
     <None Remove="wwwroot\themes\Gallery\**" />
     <None Remove="wwwroot\themes\Honda\**" />
