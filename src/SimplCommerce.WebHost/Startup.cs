@@ -21,14 +21,12 @@ using SimplCommerce.Module.Localization.TagHelpers;
 using SimplCommerce.WebHost.Extensions;
 using Microsoft.Extensions.FileProviders;
 using System.IO;
-using Hangfire;
 using System;
 using SimplCommerce.WebHost.Extensions.Jobs;
 using Microsoft.AspNetCore.Rewrite;
 using Microsoft.AspNetCore.ResponseCompression;
 using System.IO.Compression;
 using System.Collections.Generic;
-using RouteUrlRedirector;
 
 namespace SimplCommerce.WebHost
 {
@@ -91,8 +89,6 @@ namespace SimplCommerce.WebHost
             {
                 c.SwaggerDoc("v1", new Info { Title = "SimplCommerce API", Version = "v1" });
             });
-            services.AddHangfire(x => x.UseSqlServerStorage(_configuration.GetConnectionString("DefaultConnection")));
-            services.AddHangfireServer();
             services.AddResponseCompression(options =>
             {
                 IEnumerable<string> MimeTypes = new[]
@@ -117,8 +113,7 @@ namespace SimplCommerce.WebHost
             services.AddResponseCaching();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env,
-            IBackgroundJobClient backgroundJobs)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -190,8 +185,6 @@ namespace SimplCommerce.WebHost
 
             //    await next();
             //});
-            app.UseHangfireDashboard();
-            RecurringJob.AddOrUpdate(() => HealCheckJob.HealBeatAsync(), Cron.Minutely);
             app.UseWhen(
                 context => !context.Request.Path.StartsWithSegments("/api"),
                 a => a.UseStatusCodePagesWithReExecute("/Home/ErrorWithCode/{0}")
