@@ -1,0 +1,99 @@
+﻿@using System.Threading.Tasks
+@addTagHelper *, SimplCommerce.Infrastructure
+
+@model SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels.ProductsByCategory
+@{
+    ViewBag.Title = Model.CategoryMetaTitle ?? Model.CategoryName;
+}
+
+@section additionalMeta {
+    <meta name="title" content="@ViewBag.Title" />
+    <meta name="keywords" content="@Model.CategoryMetaKeywords" />
+    <meta name="description" content="@Model.CategoryMetaDescription" />
+}
+
+<style>
+    .pagination {
+        text-align: center;
+        justify-content: center;
+        padding: 10px 0;
+        display: flex;
+    }
+
+        .pagination li + li {
+            margin-left: 10px;
+        }
+
+        .pagination li a, .pagination li span {
+            width: 25px;
+            height: 25px;
+            line-height: 24px;
+            border-radius: 3px;
+            display: block;
+            background: #ccc;
+        }
+
+            .pagination li.active span, .pagination li.active a, .pagination li a:hover {
+                background: #007bff;
+                color: #fff;
+            }
+</style>
+
+<div class="shop-page-content">
+    <div class="gap-element" style="display:block; height:auto; padding-top:30px"></div>
+
+    <div class="bread-crumb flex-w p-r-15 p-t-20 p-b-20 p-lr-0-lg">
+        <a href="~/" class="stext-109 cl8 hov-cl1 trans-04">
+            @Localizer["Home"]
+            <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+        </a>
+        @if (Model.ParentCategorId.HasValue)
+        {
+            @await Component.InvokeAsync("CategoryBreadcrumb", new { categoryId = Model.ParentCategorId.Value })
+        }
+
+        <span class="stext-109 cl4">
+            @Model.CategoryName
+        </span>
+    </div>
+
+    <div class="row large-columns-3 medium-columns- small-columns-2 row-normal">
+        @foreach (var product in Model.Products)
+        {
+            <div class="col">
+                <div class="col-inner">
+
+                    <div class="badge-container absolute left top z-1">
+                    </div>
+                    <div class="product-small box has-hover box-normal box-text-bottom">
+                        <div class="box-image">
+                            <div class="image-cover" style="padding-top:70%;">
+                                <a href="@product.Slug">
+                                    <img width="300" height="211" src="@product.PromotionImageUrl" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" srcset="@product.PromotionImageUrl 370w, @product.PromotionImageUrl 300w" sizes="(max-width: 300px) 100vw, 300px">
+                                </a>
+                            </div>
+                            <div class="image-tools top right show-on-hover">
+                            </div>
+                            <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
+                            </div>
+                        </div><!-- box-image -->
+
+                        <div class="box-text text-center dark">
+                            <div class="title-wrapper"><p class="name product-title"><a href="@product.Slug">@product.Name</a></p></div><div class="price-wrapper"></div>
+                        </div><!-- box-text -->
+                    </div><!-- box -->
+                </div><!-- .col-inner -->
+            </div>
+        }
+
+    </div>
+</div>
+
+<div class="col-md-12 text-right">
+    <cs-pager cs-paging-pagesize="@Model.CurrentSearchOption.PageSize"
+              cs-paging-pagenumber="@Model.CurrentSearchOption.Page"
+              cs-paging-totalitems="@Model.TotalProduct"
+              cs-pagenumber-param="page"
+              asp-basehref="~/@Model.CategorySlug"
+              asp-all-route-data="@Model.CurrentSearchOption.ToDictionary()"></cs-pager>
+</div>

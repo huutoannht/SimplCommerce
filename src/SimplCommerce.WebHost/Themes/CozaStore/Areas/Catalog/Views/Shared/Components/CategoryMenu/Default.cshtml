@@ -1,27 +1,31 @@
-@model IEnumerable<SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels.CategoryMenuItem>
+﻿@model IEnumerable<SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels.CategoryMenuItem>
 
-@inject IViewLocalizer Localizer
+    @inject IViewLocalizer Localizer
 
-
-@foreach (var item in Model)
-{
-    if (item.ChildItems.Any())
-    {
-        <li>
-            <a href="/@item.Slug">@item.Name</a>
-            <ul class="sub-menu sub-menu-m">
-                @foreach (var childItem in item.ChildItems)
-                {
-                    <li><a href="/@childItem.Slug">@childItem.Name</a></li>
-                }
+    <ul class="nav header-nav header-bottom-nav nav-left  nav-line-grow nav-size-large nav-spacing-xlarge nav-uppercase">
+        <li id="menu-item-56" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-10 current_page_item active  menu-item-56"><a href="index.html" class="nav-top-link">Home Page</a></li>
+        <li id="menu-item-460" class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-460"><a href="https://linkgoservices.vn/gioi-thieu/" class="nav-top-link">About Us</a></li>
+        <li id="menu-item-68" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children  menu-item-68 has-dropdown">
+            <a href="https://linkgoservices.vn/giai-phap/" class="nav-top-link">Solutions<i class="icon-angle-down"></i></a>
+            <ul class='nav-dropdown nav-dropdown-simple dropdown-uppercase'>
+                <li id="menu-item-624" class="menu-item menu-item-type-custom menu-item-object-custom  menu-item-624"><a href="giai-phap/system-integration-services/index.html">System Integration Services</a></li>
+                <li id="menu-item-464" class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-464"><a href="https://linkgoservices.vn/giai-phap/it-services-outsourcing/">IT Services &#038; Outsourcing</a></li>
+                <li id="menu-item-465" class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-465"><a href="https://linkgoservices.vn/giai-phap/wifi-public-wifi-marketing/">Wifi Public, Wifi Marketing</a></li>
+                <li id="menu-item-186" class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-186"><a href="https://linkgoservices.vn/giai-phap/nha-thong-minh/">Nhà thông minh</a></li>
+                <li id="menu-item-562" class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-562"><a href="https://linkgoservices.vn/giai-phap/chung-cu-thong-minh/">Chung cư thông minh</a></li>
+                <li id="menu-item-561" class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-561"><a href="https://linkgoservices.vn/giai-phap/thanh-pho-thong-minh/">Thành phố thông minh</a></li>
             </ul>
-            <span class="arrow-main-menu-m d-md-none">
-                <i class="fa fa-angle-right" aria-hidden="true"></i>
-            </span>
         </li>
-    }
-    else
-    {
-        <li><a href="/@item.Slug">@item.Name</a></li>
-    }
-}
+        <li id="menu-item-69" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children  menu-item-69 has-dropdown">
+            <a href="https://linkgoservices.vn/san-pham/" class="nav-top-link">Products<i class="icon-angle-down"></i></a>
+            <ul class='nav-dropdown nav-dropdown-simple dropdown-uppercase'>
+                <li id="menu-item-461" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat  menu-item-461"><a href="https://linkgoservices.vn/danh-muc/camera-quan-sat/">Camera quan sát</a></li>
+                <li id="menu-item-462" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat  menu-item-462"><a href="https://linkgoservices.vn/danh-muc/nha-thong-minh/">Nhà thông minh</a></li>
+                <li id="menu-item-463" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat  menu-item-463"><a href="https://linkgoservices.vn/danh-muc/wifi-chuoi-cua-hang/">Wifi chuỗi cửa hàng</a></li>
+            </ul>
+        </li>
+        <li id="menu-item-70" class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-70"><a href="https://linkgoservices.vn/du-an/" class="nav-top-link">Success Projects</a></li>
+        <li id="menu-item-71" class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-71"><a href="https://linkgoservices.vn/lien-he/" class="nav-top-link">Contact</a></li>
+        <li id="menu-item-72" class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-72"><a href="https://linkgoservices.vn/tuyen-dung/" class="nav-top-link">Career</a></li>
+    </ul>
+

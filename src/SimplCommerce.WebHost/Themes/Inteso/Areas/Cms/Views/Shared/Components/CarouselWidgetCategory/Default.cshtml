@@ -1,0 +1,94 @@
+﻿@model SimplCommerce.Module.Cms.Areas.Cms.ViewModels.CarouselWidgetViewComponentVm
+
+@{
+    var effects = new string[] { "fadeInDown", "fadeInUp", "zoomIn", "rollIn", "lightSpeedIn", "slideInUp", "rotateInDownLeft", "rotateInUpRight", "rotateIn" };
+    var numEffects = effects.Length - 1;
+    var random = new Random();
+}
+
+<section class="section-slide">
+    <div class="wrap-slick1">
+        <div class="slick1">
+            @foreach (var item in Model.Items)
+            {
+                <div class="item-slick1" style="background-image: url(@item.Image);">
+                    <div class="container h-full">
+                        <div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
+                            <div class="layer-slick1 animated visible-false" data-appear="@effects[random.Next(0, numEffects)]" data-delay="0">
+                                <span class="ltext-101 cl2 respon2">
+                                    @item.SubCaption
+                                </span>
+                            </div>
+
+                            <div class="layer-slick1 animated visible-false" data-appear="@effects[random.Next(0, numEffects)]" data-delay="800">
+                                <h2 class="ltext-201 cl2 p-t-19 p-b-43 respon1">@item.Caption</h2>
+                            </div>
+
+                            <div class="layer-slick1 animated visible-false" data-appear="@effects[random.Next(0, numEffects)]" data-delay="1600">
+                                <a href="@item.TargetUrl" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+                                    @item.LinkText
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+
+
+
+@*<div class="row row-collapse row-full-width" id="row-1093448308">
+    <div class="col small-12 large-12">
+        <div class="col-inner">
+            <div class="slider-wrapper relative " id="slider-892277590">
+                <div class="slider slider-nav-circle slider-nav-large slider-nav-dark slider-style-normal slider-show-nav" data-flickity-options='{
+            "cellAlign": "center",
+            "imagesLoaded": true,
+            "lazyLoad": 1,
+            "freeScroll": false,
+            "wrapAround": true,
+            "autoPlay": 3000,
+            "pauseAutoPlayOnHover" : true,
+            "prevNextButtons": true,
+            "contain" : true,
+            "adaptiveHeight" : true,
+            "dragThreshold" : 5,
+            "percentPosition": true,
+            "pageDots": true,
+            "rightToLeft": false,
+            "draggable": true,
+            "selectedAttraction": 0.1,
+            "parallax" : 0,
+            "friction": 0.6        }'>
+
+                    @foreach (var item in Model.Items)
+                    {
+                        <div class="img has-hover x md-x lg-x y md-y lg-y" id="image_1530570230">
+                            <div class="img-inner dark">
+                                <img width="1020" height="319" src="@item.Image" class="attachment-large size-large" alt="" srcset="@item.Image 1024w, @item.Image 300w, @item.Image 768w, @item.Image 600w, @item.Image 1600w" sizes="(max-width: 1020px) 100vw, 1020px" />
+                            </div>
+
+                            <style scope="scope">
+                                #image_1530570230 {
+                                    width: 100%
+                                }
+                            </style>
+                        </div>
+                    }
+
+                </div>
+
+                <div class="loading-spin dark large centered"></div>
+
+                <style scope="scope"></style>
+            </div>
+
+
+        </div>
+    </div>
+
+    <style scope="scope"></style>
+</div>*@

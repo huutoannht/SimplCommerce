@@ -1,0 +1,169 @@
+﻿@model SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels.ProductWidgetComponentVm
+@*@if (Model.WidgetName.Contains("Phụ kiện"))
+    {
+        <section class="product-home product-slider">
+            <div class="container">
+                <div class="pro-head d-flex justify-content-between">
+                    <div class="title">
+                        <h3><a href="@Model.Setting.LinkWidget">Phụ kiện </a></h3>
+                    </div>
+                    <div class="filter-price d-flex align-items-center">
+                        <span>Xem thêm:</span>
+                        <ul class="d-flex m-0">
+                            <li><a href="#">Ổ cứng SSD</a></li>
+                            <li><a href="#">RAM Laptop</a></li>
+                            <li><a href="#">Chuột máy tính</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="p-list-type-1 d-flex mb-4">
+                    <div class="extra-carousel owl-carousel" data-loop="true" data-autoplay="true" data-dots="false" data-margin="10" data-items="5">
+                        @foreach (var product in Model.Products)
+                        {
+                            <div class="item">
+                                <div class="p-item">
+                                    <div class="p-img">
+                                        <a href="~/@product.Slug">
+                                            <img src="@product.ThumbnailUrl" alt="@product.Name">
+                                        </a>
+                                    </div>
+                                    <a href="~/@product.Slug" class="p-name">@product.Name</a>
+                                    <span class="p-price">@product.CalculatedProductPrice.Price.ToString("C0")</span>
+
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    }
+    else
+    {
+        <section class="product-home">
+            <div class="container">
+                <div class="pro-head d-flex justify-content-between">
+                    <div class="title">
+                        <h3><a href="@Model.Setting.LinkWidget">@Model.WidgetName</a></h3>
+                    </div>
+                    <div class="filter-price d-flex align-items-center">
+                        <span>Mức giá:</span>
+                        <ul class="d-flex m-0">
+                            <li><a href="@(Model.Setting.LinkWidget + "?maxPrice=5000000")">Dưới 5 Triệu</a></li>
+                            <li><a href="@(Model.Setting.LinkWidget + "?minPrice=5000000&maxPrice=10000000")">5 Triệu - 10 Triệu</a></li>
+                            <li><a href="@(Model.Setting.LinkWidget + "?minPrice=10000000")">Trên 10 Triệu</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="group-product-item">
+                    <div class="product-item product-item-featured">
+                        <div class="p-img">
+                            <a href="@Model.Setting.HrefImage"><img src="@Model.Setting.ImageUrl" alt=" " style="height: auto; width: auto;"></a>
+                        </div>
+                </div>
+                <div class="product_home-carousel owl-carousel">
+                    @foreach (var product in Model.Products.Take(3))
+                    {
+                        <div class="product-item">
+                            <div class="p-img">
+                                <a href="~/@product.Slug" class="p-img">
+                                    <img src="@product.ThumbnailUrl" alt="@product.Name" style="height: auto; width: auto;">
+                                </a>
+                            </div>
+
+                            <div class="p-emtry">
+                                <a href="~/@product.Slug" class="p-name">@product.Name</a>
+                                <span class="p-summary">
+                                    @{if (product.AttributeValues.Where(m => m.AttributeId == 1).FirstOrDefault() != null)
+                                        {
+                                            <span class="dotted"> @product.AttributeValues.Where(m => m.AttributeId == 1).FirstOrDefault().Value - </span>
+                                        }
+                                    }
+                                    @{if (product.AttributeValues.Where(m => m.AttributeId == 4).FirstOrDefault() != null)
+                                        {
+                                            <span class="dotted">RAM : @product.AttributeValues.Where(m => m.AttributeId == 4).FirstOrDefault().Value - </span>
+                                        }
+                                    }
+
+                                    @{if (product.AttributeValues.Where(m => m.AttributeId == 19).FirstOrDefault() != null)
+                                        {
+                                            <span class="dotted"> @product.AttributeValues.Where(m => m.AttributeId == 19).FirstOrDefault().Value - </span>
+                                        }
+                                    }
+                                    @{if (product.AttributeValues.Where(m => m.AttributeId == 20).FirstOrDefault() != null)
+                                        {
+                                            <span class="dotted"> @product.AttributeValues.Where(m => m.AttributeId == 20).FirstOrDefault().Value-</span>
+                                        }
+                                    }
+                                    @{if (product.AttributeValues.Where(m => m.AttributeId == 21).FirstOrDefault() != null)
+                                        {
+                                            <span class="dotted"> @product.AttributeValues.Where(m => m.AttributeId == 21).FirstOrDefault().Value</span>
+                                        }
+                                    }
+                                </span>
+                                <span class="p-price">@product.CalculatedProductPrice.Price.ToString("C0")</span>
+                            </div>
+                            <div class="p-hover">
+                                <a href="{{productUrl}}" class="p-name">@product.Name</a>
+                                <span class="p-price">@product.CalculatedProductPrice.Price.ToString("C0")</span>
+                                <p class="mb-0"><strong>Bảo hành: </strong> <span></span></p><p>✅Bảo hành chính hãng 6-12 tháng.</p>
+                                <p>✅Đối với máy mới: 1 đổi 1 trong vòng 10 ngày</p>
+                                <p>✅Đối với máy cũ: 1 đổi 1 trong vòng 14 ngày</p>
+                                <p><strong>Kho hàng: </strong> <span>Còn hàng</span></p>
+                                <hr>
+                                <div class="p-summary">
+                                    <strong>Mô tả tóm tắt</strong>
+
+                                    Trong hộp có: Sách hướng dẫn,Hộp,Adapter sạc,Chuột
+                                </div>
+                                <hr>
+                            </div>
+                        </div>
+                    }
+
+
+                </div>
+                </div>
+
+            </div>
+        </section>
+
+    }*@
+
+<div class="container section-title-container"><h3 class="section-title section-title-center"><b></b><span class="section-title-main"><a href="@Model.Setting.LinkWidget">@Model.WidgetName</a></span><b></b></h3></div><!-- .section-title -->
+<div class="row row-collapse align-equal align-center" id="row-444787447">
+    <div class="col small-12 large-12">
+        <div class="col-inner">
+
+
+            <div class="row large-columns-3 medium-columns-1 small-columns-1">
+                @foreach (var product in Model.Products)
+                {
+                    <div class="col post-item">
+                        <div class="col-inner">
+                            <a href="@product.Slug" class="plain">
+                                <div class="box box-normal box-text-bottom box-blog-post has-hover">
+                                    <div class="box-image">
+                                        <div class="image-cover" style="padding-top:70%;">
+                                            <img width="300" height="211" src="@product.ThumbnailUrl" class="attachment-medium size-medium wp-post-image" alt="" srcset="@product.ThumbnailUrl 300w, @product.ThumbnailUrl 370w" sizes="(max-width: 300px) 100vw, 300px" />
+                                        </div>
+                                    </div><!-- .box-image -->
+                                    <div class="box-text text-center dark" style="background-color:rgb(53, 173, 238);">
+                                        <div class="box-text-inner blog-post-inner">
+                                            <h5 class="post-title is-large ">@product.Name</h5>
+                                            <div class="is-divider"></div>
+                                        </div><!-- .box-text-inner -->
+                                    </div><!-- .box-text -->
+                                </div><!-- .box -->
+                            </a><!-- .link -->
+                        </div><!-- .col-inner -->
+                    </div><!-- .col                     -->
+                }
+            </div>
+        </div>
+    </div>
+
+    <style scope="scope"></style>
+</div>

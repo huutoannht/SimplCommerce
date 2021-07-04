@@ -1,0 +1,89 @@
+﻿@model SimplCommerce.Module.News.Areas.News.ViewModels.NewsItemVm
+@section additionalMeta {
+    <meta name="title" content="@Model.MetaTitle" />
+    <meta name="keywords" content="@Model.MetaKeywords" />
+    <meta name="description" content="@Model.MetaDescription" />
+}
+
+@{
+    ViewData["Title"] = Model.Name;
+}
+<style>
+    article img {
+        display: block;
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .titledetail {
+        display: block;
+        overflow: hidden;
+        line-height: 53px;
+        font-size: 45px;
+        color: #333;
+        font-family: 'Roboto Condensed',sans-serif;
+        font-weight: 600;
+        width: 800px;
+        margin: auto;
+    }
+</style>
+<link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/TheGioiDiDong/css/owl.carousel.min.css" async />
+<div class="laptoptop no-margin-left  no-margin-right">
+    <div class="row">
+        <div class="col-md-8">
+            <div id="owl-laptop">
+                <a aria-label='slide' href='https://laptopcudanang.com.vn/laptop-cu-re' rel="nofollow" title="Laptop Cũ Máy Tính Nhập Khẩu Uy Tín Giá Rẻ Tại Đà Nẵng Việt Nam">
+                    <img src='/user-content/Dell_G3_G5_G7_Inspiron.jpg' alt='Dell_G3_G5_G7_Inspiron.jpg' class="img-responsive lazyload" style="height:300px;"
+                         data-src="/user-content/Dell_G3_G5_G7_Inspiron.jpg" data-srcset="/user-content/Dell_G3_G5_G7_Inspiron.jpg 300w, /user-content/Dell_G3_G5_G7_Inspiron.jpg 600w, /user-content/Dell_G3_G5_G7_Inspiron.jpg 900w" />
+                </a>
+                <a aria-label='slide' href='https://laptopcudanang.com.vn/laptop-cu-re' rel="nofollow" title="Laptop Cũ Máy Tính Nhập Khẩu Uy Tín Giá Rẻ Tại Đà Nẵng Việt Nam">
+                    <img src='/user-content/Dell_Precision_7510.jpg' alt='Dell_Precision_7510.jpg' class="img-responsive lazyload" style="height:300px;"
+                         data-src="/user-content/Dell_Precision_7510.jpg" data-srcset="/user-content/Dell_Precision_7510.jpg 300w, /user-content/Dell_Precision_7510.jpg 600w, /user-content/Dell_Precision_7510.jpg 900w" />
+                </a>
+                <a aria-label='slide' href='https://laptopcudanang.com.vn/laptop-cu-re' rel="nofollow" title="Laptop Cũ Máy Tính Nhập Khẩu Uy Tín Giá Rẻ Tại Đà Nẵng Việt Nam">
+                    <img src='/user-content/Dell_Precision_M4800.jpg' alt='Dell_Precision_M4800.jpg' class="img-responsive lazyload" style="height:300px;"
+                         data-src="/user-content/Dell_Precision_M4800.jpg" data-srcset="/user-content/Dell_Precision_M4800.jpg 300w, /user-content/Dell_Precision_M4800.jpg 600w, /user-content/Dell_Precision_M4800.jpg 900w" />
+                </a>
+                <a aria-label='slide' href='https://laptopcudanang.com.vn/laptop-cu-re' rel="nofollow" title="Laptop Cũ Máy Tính Nhập Khẩu Uy Tín Giá Rẻ Tại Đà Nẵng Việt Nam">
+                    <img src='/user-content/Dell_XPS_15_9570.jpg' alt='Dell_XPS_15_9570.jpg' class="img-responsive lazyload" style="height:300px;"
+                         data-src="/user-content/Dell_XPS_15_9570.jpg" data-srcset="/user-content/Dell_XPS_15_9570.jpg 300w, /user-content/Dell_XPS_15_9570.jpg 600w, /user-content/Dell_XPS_15_9570.jpg 900w" />
+                </a>
+                <a aria-label='slide' href='https://laptopcudanang.com.vn/laptop-cu-re' rel="nofollow" title="Laptop Cũ Máy Tính Nhập Khẩu Uy Tín Giá Rẻ Tại Đà Nẵng Việt Nam">
+                    <img src='/user-content/HP_Folio_9470.jpg' alt='HP_Folio_9470.jpg' class="img-responsive lazyload" style="height:300px;"
+                         data-src="/user-content/HP_Folio_9470.jpg" data-srcset="/user-content/HP_Folio_9470.jpg 300w, /user-content/HP_Folio_9470.jpg 600w, /user-content/HP_Folio_9470.jpg 900w" />
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4 no-padding">
+            <div class="right">
+                <div class="twobanner">
+                    <a aria-label="slide" href="/" onclick="" class="img-responsive"><img src="/user-content/chamsoctrondoi.png" alt="2018 - NO - Sticky Laptop"></a>
+                    <a aria-label="slide" href="/" onclick=""><img src="/user-content/samlaptopxin.png" alt="2018 - DE - Sticky Laptop" class="img-responsive"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section>
+
+    <article>
+        <h1 class="titledetail">@Model.Name</h1>
+
+        <div class="userdetail">
+
+        </div>
+
+        <div class="imgwrap"><img alt="@Model.Name" data-original="@Model.ThumbnailImageUrl" src="@Model.ThumbnailImageUrl" title="@Model.Name"></div>
+
+        <div class="news-item-full-description">
+            @Html.Raw(Model.FullContent)
+        </div>
+        @await Component.InvokeAsync("NewItemRelate", Model.Id)
+    </article>
+
+</section>
+@section scripts {
+    <script src="~/themes/TheGioiDiDong/js/category.min.js"></script>
+}

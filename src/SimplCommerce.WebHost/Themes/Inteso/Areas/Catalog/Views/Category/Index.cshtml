@@ -1,0 +1,191 @@
+﻿@model SimplCommerce.Module.Core.Areas.Core.ViewModels.HomeViewModel
+@{
+    ViewData["Title"] = "Laptop Cũ Máy Tính Nhập Khẩu Uy Tín Giá Rẻ Tại Đà Nẵng Việt Nam";
+}
+@section additionalMeta {
+<meta name="DC.title" content="Laptop Cũ Máy Tính Nhập Khẩu Uy Tín Giá Rẻ Tại Đà Nẵng Việt Nam"/>
+<meta name="DC.Subject" content="Laptop cũ đà nẵng, laptop đà nẵng, laptop xách tay đà nẵng, laptop giá rẻ đà nẵng,laptop cu tai da nang, laptop cu da nang, mua bán laptop cũ đà nẵng, mua laptop cũ đà nẵng, laptop da nang, laptop rẻ đà nẵng, bán laptop cũ đà nẵng" xml:lang="vi-vn"/>
+<meta name="DC.Description" content="Hệ thống Techcare là một trong những trung tâm chuyên cung cấp các dòng sản phẩm laptop cũ máy tính nhập khẩu hoàn toàn chính hãng từ Mỹ với nhiều thương hiệu lớn nổi tiếng." xml:lang="vi-vn"/>
+<meta name="DC.Coverage" content="Vietnam">
+<meta name="robots" content="index,follow,noodp" />
+<meta name="geo.placename" content="Đà Nẵng">
+<meta name="geo.position" content="16.040891;108.216236" />
+<meta name="ICBM" content="16.040891, 108.216236" />
+<meta name="geo.position" content="16.040891;108.216236" />
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Laptop Cũ Máy Tính Nhập Khẩu Uy Tín Giá Rẻ Tại Đà Nẵng Việt Nam"/>
+<meta property="og:description" content="Hệ thống Techcare là một trong những trung tâm chuyên cung cấp các dòng sản phẩm laptop cũ máy tính nhập khẩu hoàn toàn chính hãng từ Mỹ với nhiều thương hiệu lớn nổi tiếng."/>
+
+<link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/TheGioiDiDong/css/style-home.css" async/>
+<link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/TheGioiDiDong/css/owl.carousel.min.css" async/>
+}
+
+<style>
+
+    .laptopnews .newslist h3 {
+        display: block;
+        overflow: hidden;
+        font-size: 18px;
+        font-weight: 600;
+        text-transform: none;
+        line-height: 1.3;
+        margin: 0;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    .laptopnews .newslist figure {
+        display: block;
+        overflow: hidden;
+        font-size: 14px;
+        color: #333;
+        line-height: 1.3;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        padding-top: 5px;
+    }
+
+    .laptopnews .newslist .tempvideo {
+        float: left;
+        position: relative;
+        width: 142px;
+        height: 69px;
+        margin-right: 15px;
+        margin-bottom: 0;
+        overflow: hidden;
+    }
+
+        .laptopnews .newslist .tempvideo img {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+    .laptopnews .newslist li {
+        padding-bottom: 10px;
+        float: left;
+    }
+
+    img.first-new {
+        width: 100%;
+        height: auto;
+    }
+
+    .laptopnews h3 {
+        font-size: 16px;
+        font-weight: bold;
+        display: block;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        margin-top: 20px;
+    }
+    .banner-footer img{
+        width:373px;
+    }
+</style>
+
+@await Component.InvokeAsync("CarouselWidgetCategory")
+
+<div class="laptopcate filtered">
+
+    <section class="brand-slide">
+        <div class="container">
+            <div id="owl-category" class="owl-carousel owl-brand" data-items="8" data-dots="false" data-loop="true">
+
+                <div class="item">
+                    <a href="~/laptop-hoc-tap-van-phong" rel="nofollow">
+                        <img src="~/themes/TheGioiDiDong/images/brand_slide/laptopcu_hoctapvp.png" alt="Học tập văn phòng">
+                    </a>
+                </div>
+
+                <div class="item">
+                    <a href="~/laptop-do-hoa-ky-thuat" rel="nofollow">
+                        <img src="~/themes/TheGioiDiDong/images/brand_slide/laptopcu_kythuatdohoa.png" alt="Đồ họa kỹ thuật">
+                    </a>
+                </div>
+
+                <div class="item">
+                    <a href="~/laptop-gaming" rel="nofollow">
+                        <img src="~/themes/TheGioiDiDong/images/brand_slide/laptopcu_gaming.png" alt="Laptop gaming">
+                    </a>
+                </div>
+
+                <div class="item">
+                    <a href="~/laptop-cao-cap-sang-trong" rel="nofollow">
+                        <img src="~/themes/TheGioiDiDong/images/brand_slide/laptopcu_caocapsangtrong.png" alt="Cao cấp sang trọng">
+                    </a>
+                </div>
+
+                <div class="item">
+                    <a href="~/laptop-dell-cu" rel="nofollow">
+                        <img src="~/themes/TheGioiDiDong/images/brand_slide/laptopcu_dell.png" alt="Dell">
+                    </a>
+                </div>
+
+                <div class="item">
+                    <a href="~/laptop-asus-cu" rel="nofollow">
+                        <img src="~/themes/TheGioiDiDong/images/brand_slide/laptopcu_asus.png" alt="Asus">
+                    </a>
+                </div>
+
+                <div class="item">
+                    <a href="~/laptop-hp-cu" rel="nofollow">
+                        <img src="~/themes/TheGioiDiDong/images/brand_slide/laptopcu_hp.png" alt="HP">
+                    </a>
+                </div>
+
+                <div class="item">
+                    <a href="~/laptop-lenovo-cu" rel="nofollow">
+                        <img src="~/themes/TheGioiDiDong/images/brand_slide/laptopcu_lenovo.png" alt="Lenovo">
+                    </a>
+                </div>
+
+                <div class="item">
+                    <a href="~/laptop-msi-cu" rel="nofollow">
+                        <img src="~/themes/TheGioiDiDong/images/brand_slide/laptopcu_msi.png" alt="MSI">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="row">
+        <partial name="_WidgetInstances" model="Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeMainContent)" />
+    </div>
+    @if (ViewBag.Host != "https://laptopcudanang.com.vn/")
+    {
+        @await Component.InvokeAsync("NewItemHome")
+    }
+</div>
+
+@section scripts {
+    <inline-script src="/lib/wnumb/wNumb.js"></inline-script>
+    @*<inline-script src="/lib/nouislider/distribute/nouislider.min.js"></inline-script>*@
+
+    <script>
+        var productFilter = {};
+        var count = 2;
+    </script>
+    <inline-script src="/themes/TheGioiDiDong/js/owl.carousel.min.js"></inline-script>
+    <inline-script src="/themes/TheGioiDiDong/js/script-home.js"></inline-script>
+    <inline-script src="/themes/TheGioiDiDong/js/category.min.js"></inline-script>
+    @*<inline-script src='/themes/TheGioiDiDong/images/cdn/v2015/Scripts/desktop/V5/home.min.js'></inline-script>*@
+}
+<div class="banner-footer">
+    <div class="item">
+        <a href="#" rel="nofollow">
+            <img src="~/user-content/banner_footer_tragoplaisuatthap.png">
+        </a>
+    </div>
+    <div class="item">
+        <a href="#" rel="nofollow">
+            <img src="~/user-content/banner_footer_chamsoctrondoi.png">
+        </a>
+    </div>
+    <div class="item">
+        <a href="#" rel="nofollow">
+            <img src="~/user-content/banner_footer_samlaptopxin.png">
+        </a>
+    </div>
+</div>

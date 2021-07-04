@@ -22,48 +22,60 @@
   <ItemGroup>
     <Compile Remove="logs\**" />
     <Compile Remove="Themes\CozaStore\**" />
-    <Compile Remove="wwwroot\themes\TheGioiDiDong\images\cdn\**" />
-    <Compile Remove="wwwroot\themes\TheGioiDiDong\images\icons\**" />
     <Content Remove="Themes\CozaStore\**" />
-    <Content Remove="wwwroot\themes\TheGioiDiDong\images\cdn\**" />
-    <Content Remove="wwwroot\themes\TheGioiDiDong\images\icons\**" />
     <EmbeddedResource Remove="logs\**" />
     <EmbeddedResource Remove="Themes\CozaStore\**" />
-    <EmbeddedResource Remove="wwwroot\themes\TheGioiDiDong\images\cdn\**" />
-    <EmbeddedResource Remove="wwwroot\themes\TheGioiDiDong\images\icons\**" />
     <None Remove="logs\**" />
     <None Remove="Themes\CozaStore\**" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\images\cdn\**" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\images\icons\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Themes\TheGioiDiDong\Areas\Catalog\Views\Category\CategoryDetailLoadMore.cshtml" />
-    <None Remove="Themes\TheGioiDiDong\Areas\Catalog\Views\Shared\Components\NewItem\Default.cshtml" />
-    <None Remove="Themes\TheGioiDiDong\Areas\Cms\Views\Shared\Components\CarouselWidgetCategory\Default.cshtml" />
-    <None Remove="Themes\TheGioiDiDong\Areas\News\Views\Shared\Components\NewItemHome\Default.cshtml" />
-    <None Remove="Themes\TheGioiDiDong\Areas\News\Views\Shared\Components\NewItemRelate\Default.cshtml" />
-    <None Remove="Themes\TheGioiDiDong\Areas\News\Views\Shared\Components\NewItem\Default.cshtml" />
+    <None Remove="Themes\Inteso\Areas\Catalog\Views\Category\CategoryDetail.cshtml" />
+    <None Remove="Themes\Inteso\Areas\Catalog\Views\Category\CategoryDetailLoadMore.cshtml" />
+    <None Remove="Themes\Inteso\Areas\Catalog\Views\Category\Index.cshtml" />
+    <None Remove="Themes\Inteso\Areas\Catalog\Views\Product\ProductDetail.cshtml" />
+    <None Remove="Themes\Inteso\Areas\Catalog\Views\Shared\Components\CategoryBreadcrumb\Default.cshtml" />
+    <None Remove="Themes\Inteso\Areas\Catalog\Views\Shared\Components\CategoryMenu\Default.cshtml" />
+    <None Remove="Themes\Inteso\Areas\Catalog\Views\Shared\Components\CategoryWidget\Default.cshtml" />
+    <None Remove="Themes\Inteso\Areas\Catalog\Views\Shared\Components\NewItem\Default.cshtml" />
+    <None Remove="Themes\Inteso\Areas\Catalog\Views\Shared\Components\ProductWidget\Default.cshtml" />
+    <None Remove="Themes\Inteso\Areas\Catalog\Views\Shared\Components\SimpleProductWidget\Default.cshtml" />
+    <None Remove="Themes\Inteso\Areas\Catalog\Views\Shared\Components\_ProductThumbnail.cshtml" />
+    <None Remove="Themes\Inteso\Areas\Catalog\Views\Shared\_ProductThumbnail.cshtml" />
+    <None Remove="Themes\Inteso\Areas\Catalog\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\Inteso\Areas\Catalog\Views\_ViewStart.cshtml" />
+    <None Remove="Themes\Inteso\Areas\Cms\Views\Shared\Components\CarouselWidgetCategory\Default.cshtml" />
+    <None Remove="Themes\Inteso\Areas\Cms\Views\Shared\Components\CarouselWidget\Default.cshtml" />
+    <None Remove="Themes\Inteso\Areas\Cms\Views\Shared\Components\Menu\Default.cshtml" />
+    <None Remove="Themes\Inteso\Areas\Cms\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\Inteso\Areas\Core\Views\Home\Index.cshtml" />
+    <None Remove="Themes\Inteso\Areas\Core\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\Inteso\Areas\Core\Views\_ViewStart.cshtml" />
+    <None Remove="Themes\Inteso\Areas\News\Views\NewsCategory\NewsCategoryDetail.cshtml" />
+    <None Remove="Themes\Inteso\Areas\News\Views\NewsItem\NewsHome.cshtml" />
+    <None Remove="Themes\Inteso\Areas\News\Views\NewsItem\NewsItemDetail.cshtml" />
+    <None Remove="Themes\Inteso\Areas\News\Views\NewsItem\NewsItemRelate.cshtml" />
+    <None Remove="Themes\Inteso\Areas\News\Views\Shared\Components\NewItemHome\Default.cshtml" />
+    <None Remove="Themes\Inteso\Areas\News\Views\Shared\Components\NewItemRelate\Default.cshtml" />
+    <None Remove="Themes\Inteso\Areas\News\Views\Shared\Components\NewItem\Default.cshtml" />
+    <None Remove="Themes\Inteso\Areas\News\Views\Shared\_NewsThumbnail.cshtml" />
+    <None Remove="Themes\Inteso\Areas\News\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\Inteso\Areas\News\Views\_ViewStart.cshtml" />
+    <None Remove="Themes\Inteso\Areas\ProductRecentlyViewed\Views\Shared\Components\ProductRecentlyViewed\Default.cshtml" />
+    <None Remove="Themes\Inteso\Areas\ProductRecentlyViewed\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\Inteso\Areas\Search\Views\Shared\Components\SearchForm\Default.cshtml" />
+    <None Remove="Themes\Inteso\Areas\Search\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\Inteso\Areas\ShoppingCart\Views\Shared\Components\CartBadge\Default.cshtml" />
+    <None Remove="Themes\Inteso\Areas\ShoppingCart\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\Inteso\CozaStore.png" />
+    <None Remove="Themes\Inteso\main.min.css" />
+    <None Remove="Themes\Inteso\TheGioiDiDong.png" />
+    <None Remove="Themes\Inteso\theme.json" />
+    <None Remove="Themes\Inteso\Views\Shared\_Layout.cshtml" />
+    <None Remove="Themes\Inteso\Views\Shared\_LoginPartial.cshtml" />
+    <None Remove="Themes\Inteso\Views\_ViewImports.cshtml" />
     <None Remove="wwwroot\googlefbc689ad90567857.html" />
     <None Remove="wwwroot\modules\core\main.min.js" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\css\style-home.css" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\images\banner.png" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\images\bg_title.jpg" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\images\checkbox-product.png" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\images\home-acer.png" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\images\home-asus.png" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\images\home-dell.png" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\images\home-hp.png" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\images\home-lenono.png" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\images\home-lg.png" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\images\home-macbook.png" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\images\home-thinkpad.png" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\images\logo.html" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\images\logoe26a.html" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\images\logo_favicon.1.jpg" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\js\category.js" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\js\jquery-3.4.0.min.js" />
-    <None Remove="wwwroot\themes\TheGioiDiDong\js\lazysizes.min.js" />
     <None Remove="wwwroot\themes\TheGioiDiDong\js\owl.carousel.js" />
     <None Remove="wwwroot\user-content\banner-chamsoctrongoi.jpg" />
     <None Remove="wwwroot\user-content\banner-samlaptopxin.png" />
@@ -126,6 +138,10 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.3" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.4.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\themes\Inteso\images\" />
   </ItemGroup>
 
   <Target Name="CopyModule" AfterTargets="Build">

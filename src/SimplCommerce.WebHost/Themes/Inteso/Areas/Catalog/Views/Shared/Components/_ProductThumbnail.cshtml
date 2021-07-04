@@ -1,0 +1,66 @@
+﻿@model SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels.ProductThumbnail
+<!--#region Ngành hàng chính -->
+<a href="~/@Model.Slug">
+    <img width="180" height="180" src='@Model.ThumbnailUrl' alt="@Model.Name" class="mx-auto d-block lazyload" data-src="@Model.ThumbnailUrl"
+    data-srcset="@Model.ThumbnailUrl 300w,
+    @Model.ThumbnailUrl 600w,
+    @Model.ThumbnailUrl 900w" />
+    <div class="props">
+        @{if (Model.Categories.Where(m => m.Category?.ParentId == 17).FirstOrDefault() != null)
+            {
+                <span class="dotted">@Model.Categories.Where(m => m.Category?.ParentId == 17).FirstOrDefault().Category?.Name</span>
+            }
+        }
+        @{if (Model.Categories.Where(m => m.Category?.ParentId == 18).FirstOrDefault() != null)
+            {
+                <span class="dotted">Ram: @Model.Categories.Where(m => m.Category?.ParentId == 18).FirstOrDefault().Category?.Name</span>
+            }
+        }
+    </div>
+    <h3>@Model.Name</h3>
+
+    <div class="price"><strong>@Model.CalculatedProductPrice.Price.ToString("C0")</strong><span class="line-through">@Model.CalculatedProductPrice?.OldPrice?.ToString("C0")</span></div>
+    <div class="promo">
+        @{if (Model.AttributeValues.Where(m => m.AttributeId == 1).FirstOrDefault() != null)
+            {
+                <span class="dotted"> @Model.AttributeValues.Where(m => m.AttributeId == 1).FirstOrDefault().Value.Split('(')[0].TrimEnd() - </span>
+            }
+        }
+        @{if (Model.AttributeValues.Where(m => m.AttributeId == 4).FirstOrDefault() != null)
+            {
+                <span class="dotted">RAM : @Model.AttributeValues.Where(m => m.AttributeId == 4).FirstOrDefault().Value.Split('(')[0].TrimEnd() - </span>
+            }
+        }
+
+        @{if (Model.AttributeValues.Where(m => m.AttributeId == 19).FirstOrDefault() != null)
+            {
+                <span class="dotted"> @Model.AttributeValues.Where(m => m.AttributeId == 19).FirstOrDefault().Value.Split('(')[0].TrimEnd() - </span>
+            }
+        }
+        @{if (Model.AttributeValues.Where(m => m.AttributeId == 20).FirstOrDefault() != null)
+            {
+                <span class="dotted"> @Model.AttributeValues.Where(m => m.AttributeId == 20).FirstOrDefault().Value.Split('(')[0].TrimEnd()-</span>
+            }
+        }
+        @{if (Model.AttributeValues.Where(m => m.AttributeId == 21).FirstOrDefault() != null)
+            {
+                <span class="dotted"> @Model.AttributeValues.Where(m => m.AttributeId == 21).FirstOrDefault().Value.Split('(')[0].TrimEnd()</span>
+            }
+        }
+    </div>
+    @if (Model.CalculatedProductPrice.PercentOfSaving != 0)
+    {
+        <label class="discount">GIẢM @(Model.CalculatedProductPrice.PercentOfSaving)%</label>
+    }
+        <div class="ratingresult rating-container">
+            <ul class="list-inline product-ratings">
+                @*<li><input value="@Model.RatingAverage" readonly="readonly" class="rating rating-loading" step="1" data-size="xs" data-show-clear="false" data-show-caption="false" /></li>*@
+                @if (Model.ReviewsCount >= 0)
+                {
+                    <li class="product-review-list">
+                        <span>(@Model.ReviewsCount @Localizer["reviews"])</span>
+                    </li>
+                }
+            </ul>
+        </div>
+    </a>

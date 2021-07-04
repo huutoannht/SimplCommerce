@@ -1,0 +1,142 @@
+﻿@model SimplCommerce.Module.News.Areas.News.ViewModels.NewsVm
+
+@{
+    ViewData["Title"] = "Tin tức";
+}
+
+@*<div class="news row">
+        <div class="categories row">
+            <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                @foreach (var item in Model.NewsCategory)
+                {
+                    <div class="btn-group" role="group">
+                        <a type="button" class="btn btn-default" href="~/@item.Slug"> @item.Name</a>
+                    </div>
+                }
+            </div>
+        </div>
+        @if (Model.NewsItem.Any())
+        {
+            <div class="news-category-detail row">
+                @foreach (var item in Model.NewsItem)
+                {
+                    <partial name="_NewsThumbnail" model="item" />
+                }
+            </div>
+        }
+    </div>*@
+    <link simpl-append-version="true" rel="stylesheet" type="text/css" href="~/themes/TheGioiDiDong/css/owl.carousel.min.css" async />
+<div class="laptoptop no-margin-left  no-margin-right">
+    <div class="row">
+        <div class="col-md-8">
+            <div id="owl-laptop">
+                <a aria-label='slide' href='https://laptopcudanang.com.vn/laptop-cu-re' rel="nofollow" title="Laptop Cũ Máy Tính Nhập Khẩu Uy Tín Giá Rẻ Tại Đà Nẵng Việt Nam">
+                    <img src='/user-content/Dell_G3_G5_G7_Inspiron.jpg' alt='Dell_G3_G5_G7_Inspiron.jpg' class="img-responsive lazyload" style="height:300px;"
+                         data-src="/user-content/Dell_G3_G5_G7_Inspiron.jpg" data-srcset="/user-content/Dell_G3_G5_G7_Inspiron.jpg 300w, /user-content/Dell_G3_G5_G7_Inspiron.jpg 600w, /user-content/Dell_G3_G5_G7_Inspiron.jpg 900w" />
+                </a>
+                <a aria-label='slide' href='https://laptopcudanang.com.vn/laptop-cu-re' rel="nofollow" title="Laptop Cũ Máy Tính Nhập Khẩu Uy Tín Giá Rẻ Tại Đà Nẵng Việt Nam">
+                    <img src='/user-content/Dell_Precision_7510.jpg' alt='Dell_Precision_7510.jpg' class="img-responsive lazyload" style="height:300px;"
+                         data-src="/user-content/Dell_Precision_7510.jpg" data-srcset="/user-content/Dell_Precision_7510.jpg 300w, /user-content/Dell_Precision_7510.jpg 600w, /user-content/Dell_Precision_7510.jpg 900w" />
+                </a>
+                <a aria-label='slide' href='https://laptopcudanang.com.vn/laptop-cu-re' rel="nofollow" title="Laptop Cũ Máy Tính Nhập Khẩu Uy Tín Giá Rẻ Tại Đà Nẵng Việt Nam">
+                    <img src='/user-content/Dell_Precision_M4800.jpg' alt='Dell_Precision_M4800.jpg' class="img-responsive lazyload" style="height:300px;"
+                         data-src="/user-content/Dell_Precision_M4800.jpg" data-srcset="/user-content/Dell_Precision_M4800.jpg 300w, /user-content/Dell_Precision_M4800.jpg 600w, /user-content/Dell_Precision_M4800.jpg 900w" />
+                </a>
+                <a aria-label='slide' href='https://laptopcudanang.com.vn/laptop-cu-re' rel="nofollow" title="Laptop Cũ Máy Tính Nhập Khẩu Uy Tín Giá Rẻ Tại Đà Nẵng Việt Nam">
+                    <img src='/user-content/Dell_XPS_15_9570.jpg' alt='Dell_XPS_15_9570.jpg' class="img-responsive lazyload" style="height:300px;"
+                         data-src="/user-content/Dell_XPS_15_9570.jpg" data-srcset="/user-content/Dell_XPS_15_9570.jpg 300w, /user-content/Dell_XPS_15_9570.jpg 600w, /user-content/Dell_XPS_15_9570.jpg 900w" />
+                </a>
+                <a aria-label='slide' href='https://laptopcudanang.com.vn/laptop-cu-re' rel="nofollow" title="Laptop Cũ Máy Tính Nhập Khẩu Uy Tín Giá Rẻ Tại Đà Nẵng Việt Nam">
+                    <img src='/user-content/HP_Folio_9470.jpg' alt='HP_Folio_9470.jpg' class="img-responsive lazyload" style="height:300px;"
+                         data-src="/user-content/HP_Folio_9470.jpg" data-srcset="/user-content/HP_Folio_9470.jpg 300w, /user-content/HP_Folio_9470.jpg 600w, /user-content/HP_Folio_9470.jpg 900w" />
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4 no-padding">
+            <div class="right">
+                <div class="twobanner">
+                    <a aria-label="slide" href="/" onclick="" class="img-responsive"><img src="/user-content/chamsoctrondoi.png" alt="2018 - NO - Sticky Laptop"></a>
+                    <a aria-label="slide" href="/" onclick=""><img src="/user-content/samlaptopxin.png" alt="2018 - DE - Sticky Laptop" class="img-responsive"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section>
+
+
+    <ul class="menu">
+        @foreach (var item in Model.NewsCategory)
+        {
+            <li><a href="~/@item.Slug" class="actmenu">@item.Name</a></li>
+        }
+    </ul>
+
+    <div class="container">
+        @foreach (var item in Model.NewsItem)
+        {
+            <div class="new-item">
+                <div class="media">
+                    @if (item.Id == 626 || item.Id == 627 || item.Id == 628)
+                    {
+                        <a class="pull-left" href="@item.Slug" rel="nofollow">
+                            <img class="media-object image-new-item" src="@item.ImageUrl">
+                        </a>
+                    }
+                    else
+                    {
+                        <a class="pull-left" href="@item.Slug">
+                            <img class="media-object image-new-item" src="@item.ImageUrl">
+                        </a>
+                    }
+                <div class="media-body">
+                    @if (item.Id == 626 || item.Id == 627 || item.Id == 628)
+                    {
+                        <a href="@item.Slug" rel="nofollow"><h4 class="media-heading" >@item.Name</h4></a>
+                    }
+                    else
+                    {
+                        <a href="@item.Slug"><h4 class="media-heading">@item.Name</h4></a>
+                    }
+
+                    <p>
+                        @Html.Raw(item.ShortContent)
+                    </p>
+                    <ul class="list-inline list-unstyled">
+                        @*<li><span><i class="glyphicon glyphicon-calendar"></i> @Model..ToString("dd/MM/yyyy") </span></li>
+            <li>|</li>*@
+                        @*<span><i class="glyphicon glyphicon-comment"></i> 2 comments</span>
+            <li>|</li>*@
+                        @*<li>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star-empty"></span>
+            </li>
+            <li>|</li>*@
+                        @*<li>
+                <span><i class="fa fa-facebook-square"></i></span>
+                <span><i class="fa fa-twitter-square"></i></span>
+                <span><i class="fa fa-google-plus-square"></i></span>
+            </li>*@
+                    </ul>
+                </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>
+<div class="row">
+    <div class="col-md-12 text-right">
+        <cs-pager cs-paging-pagesize="@Model.PageSize"
+                  cs-paging-pagenumber="@Model.Page"
+                  cs-paging-totalitems="@Model.TotalItem"
+                  asp-basehref="~/@Model.CurrentNewsCategory.Slug"
+                  cs-pagenumber-param="page"></cs-pager>
+    </div>
+</div>
+@section scripts {
+    <script  src="~/themes/TheGioiDiDong/js/category.min.js"></script>
+}
